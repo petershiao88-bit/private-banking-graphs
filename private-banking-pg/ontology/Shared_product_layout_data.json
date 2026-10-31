@@ -1,0 +1,422 @@
+{
+  "nodes": [
+    {
+      "name": "存款",
+      "displayOrder": 1,
+      "side": "pb_shared",
+      "code": "deposit",
+      "key": "pb_shared:product:deposit",
+      "status": "aggregate_scope"
+    },
+    {
+      "name": "月底存款AUM",
+      "displayOrder": null,
+      "side": "aum",
+      "code": "aum_deposit_month_end",
+      "key": "aum:metric:aum_deposit_month_end",
+      "status": "inferred_from_sql"
+    },
+    {
+      "name": "月底總AUM",
+      "displayOrder": null,
+      "side": "aum",
+      "code": "aum_total_month_end",
+      "key": "aum:metric:aum_total_month_end",
+      "status": "draft_metric_query"
+    },
+    {
+      "name": "證券複委託結構型商品",
+      "displayOrder": 13,
+      "side": "pb_shared",
+      "code": "securities_structured",
+      "key": "pb_shared:product:securities_structured",
+      "status": "inferred"
+    },
+    {
+      "name": "月底證券AUM",
+      "displayOrder": null,
+      "side": "aum",
+      "code": "aum_securities_month_end",
+      "key": "aum:metric:aum_securities_month_end",
+      "status": "inferred_from_sql"
+    },
+    {
+      "name": "月底投資AUM",
+      "displayOrder": null,
+      "side": "aum",
+      "code": "aum_investment_month_end",
+      "key": "aum:metric:aum_investment_month_end",
+      "status": "inferred_from_sql"
+    },
+    {
+      "name": "證券複委託外國股票",
+      "displayOrder": 15,
+      "side": "pb_shared",
+      "code": "securities_foreign_stock",
+      "key": "pb_shared:product:securities_foreign_stock",
+      "status": "inferred"
+    },
+    {
+      "name": "證券複委託基金",
+      "displayOrder": 14,
+      "side": "pb_shared",
+      "code": "securities_fund",
+      "key": "pb_shared:product:securities_fund",
+      "status": "inferred"
+    },
+    {
+      "name": "證券複委託債券",
+      "displayOrder": 12,
+      "side": "pb_shared",
+      "code": "securities_bond",
+      "key": "pb_shared:product:securities_bond",
+      "status": "inferred"
+    },
+    {
+      "name": "銀行保險",
+      "displayOrder": 2,
+      "side": "pb_shared",
+      "code": "bank_insurance",
+      "key": "pb_shared:product:bank_insurance",
+      "status": "overlap_unresolved"
+    },
+    {
+      "name": "月底保險AUM",
+      "displayOrder": null,
+      "side": "aum",
+      "code": "aum_insurance_month_end",
+      "key": "aum:metric:aum_insurance_month_end",
+      "status": "inferred_from_sql"
+    },
+    {
+      "name": "月底銀行投資AUM",
+      "displayOrder": null,
+      "side": "aum",
+      "code": "aum_bank_investment_month_end",
+      "key": "aum:metric:aum_bank_investment_month_end",
+      "status": "inferred_from_sql"
+    },
+    {
+      "name": "銀行海外股票",
+      "displayOrder": 5,
+      "side": "pb_shared",
+      "code": "bank_overseas_stock",
+      "key": "pb_shared:product:bank_overseas_stock",
+      "status": "inferred"
+    },
+    {
+      "name": "銀行基金",
+      "displayOrder": 3,
+      "side": "pb_shared",
+      "code": "bank_fund",
+      "key": "pb_shared:product:bank_fund",
+      "status": "inferred"
+    },
+    {
+      "name": "銀行境外結構型商品",
+      "displayOrder": 9,
+      "side": "pb_shared",
+      "code": "bank_structured_offshore",
+      "key": "pb_shared:product:bank_structured_offshore",
+      "status": "inferred"
+    },
+    {
+      "name": "信託保管",
+      "displayOrder": 11,
+      "side": "pb_shared",
+      "code": "bank_trust_custody",
+      "key": "pb_shared:product:bank_trust_custody",
+      "status": "inferred"
+    },
+    {
+      "name": "海外債券（信託）",
+      "displayOrder": 6,
+      "side": "pb_shared",
+      "code": "bank_bond_trust",
+      "key": "pb_shared:product:bank_bond_trust",
+      "status": "inferred"
+    },
+    {
+      "name": "集合管理帳戶",
+      "displayOrder": 8,
+      "side": "pb_shared",
+      "code": "bank_collective_account",
+      "key": "pb_shared:product:bank_collective_account",
+      "status": "metadata_sql_conflict"
+    },
+    {
+      "name": "規劃型信託",
+      "displayOrder": 10,
+      "side": "pb_shared",
+      "code": "bank_planned_trust",
+      "key": "pb_shared:product:bank_planned_trust",
+      "status": "inferred"
+    },
+    {
+      "name": "銀行ETF",
+      "displayOrder": 4,
+      "side": "pb_shared",
+      "code": "bank_etf",
+      "key": "pb_shared:product:bank_etf",
+      "status": "inferred"
+    },
+    {
+      "name": "海外債券（自營）",
+      "displayOrder": 7,
+      "side": "pb_shared",
+      "code": "bank_bond_proprietary",
+      "key": "pb_shared:product:bank_bond_proprietary",
+      "status": "inferred"
+    },
+    {
+      "name": "存款利收",
+      "displayOrder": null,
+      "side": "income",
+      "code": "deposit_interest_income",
+      "key": "income:metric:deposit_interest_income",
+      "status": "observed_in_sql"
+    },
+    {
+      "name": "利息收入",
+      "displayOrder": null,
+      "side": "income",
+      "code": "interest_income",
+      "key": "income:metric:interest_income",
+      "status": "inferred"
+    },
+    {
+      "name": "每客戶每月總收入",
+      "displayOrder": null,
+      "side": "income",
+      "code": "income_total_customer_month",
+      "key": "income:metric:income_total_customer_month",
+      "status": "observed_in_sql"
+    },
+    {
+      "name": "證券手收",
+      "displayOrder": null,
+      "side": "income",
+      "code": "securities_fee_income",
+      "key": "income:metric:securities_fee_income",
+      "status": "inferred"
+    },
+    {
+      "name": "手收（SQL分類）",
+      "displayOrder": null,
+      "side": "income",
+      "code": "fee_income",
+      "key": "income:metric:fee_income",
+      "status": "inferred"
+    },
+    {
+      "name": "銀行手收",
+      "displayOrder": null,
+      "side": "income",
+      "code": "bank_fee_income",
+      "key": "income:metric:bank_fee_income",
+      "status": "inferred"
+    }
+  ],
+  "edges": [
+    {
+      "type": "MEASURED_BY_AUM",
+      "source": "pb_shared:product:deposit",
+      "target": "aum:metric:aum_deposit_month_end"
+    },
+    {
+      "type": "AUM_ROLLS_UP_TO",
+      "source": "aum:metric:aum_deposit_month_end",
+      "target": "aum:metric:aum_total_month_end"
+    },
+    {
+      "type": "MEASURED_BY_AUM",
+      "source": "pb_shared:product:securities_structured",
+      "target": "aum:metric:aum_securities_month_end"
+    },
+    {
+      "type": "AUM_ROLLS_UP_TO",
+      "source": "aum:metric:aum_securities_month_end",
+      "target": "aum:metric:aum_investment_month_end"
+    },
+    {
+      "type": "AUM_ROLLS_UP_TO",
+      "source": "aum:metric:aum_investment_month_end",
+      "target": "aum:metric:aum_total_month_end"
+    },
+    {
+      "type": "MEASURED_BY_AUM",
+      "source": "pb_shared:product:securities_foreign_stock",
+      "target": "aum:metric:aum_securities_month_end"
+    },
+    {
+      "type": "MEASURED_BY_AUM",
+      "source": "pb_shared:product:securities_fund",
+      "target": "aum:metric:aum_securities_month_end"
+    },
+    {
+      "type": "MEASURED_BY_AUM",
+      "source": "pb_shared:product:securities_bond",
+      "target": "aum:metric:aum_securities_month_end"
+    },
+    {
+      "type": "MEASURED_BY_AUM",
+      "source": "pb_shared:product:bank_insurance",
+      "target": "aum:metric:aum_insurance_month_end"
+    },
+    {
+      "type": "AUM_ROLLS_UP_TO",
+      "source": "aum:metric:aum_insurance_month_end",
+      "target": "aum:metric:aum_bank_investment_month_end"
+    },
+    {
+      "type": "AUM_ROLLS_UP_TO",
+      "source": "aum:metric:aum_bank_investment_month_end",
+      "target": "aum:metric:aum_investment_month_end"
+    },
+    {
+      "type": "MEASURED_BY_AUM",
+      "source": "pb_shared:product:bank_overseas_stock",
+      "target": "aum:metric:aum_bank_investment_month_end"
+    },
+    {
+      "type": "MEASURED_BY_AUM",
+      "source": "pb_shared:product:bank_fund",
+      "target": "aum:metric:aum_bank_investment_month_end"
+    },
+    {
+      "type": "MEASURED_BY_AUM",
+      "source": "pb_shared:product:bank_structured_offshore",
+      "target": "aum:metric:aum_bank_investment_month_end"
+    },
+    {
+      "type": "MEASURED_BY_AUM",
+      "source": "pb_shared:product:bank_trust_custody",
+      "target": "aum:metric:aum_bank_investment_month_end"
+    },
+    {
+      "type": "MEASURED_BY_AUM",
+      "source": "pb_shared:product:bank_bond_trust",
+      "target": "aum:metric:aum_bank_investment_month_end"
+    },
+    {
+      "type": "MEASURED_BY_AUM",
+      "source": "pb_shared:product:bank_collective_account",
+      "target": "aum:metric:aum_bank_investment_month_end"
+    },
+    {
+      "type": "MEASURED_BY_AUM",
+      "source": "pb_shared:product:bank_planned_trust",
+      "target": "aum:metric:aum_bank_investment_month_end"
+    },
+    {
+      "type": "MEASURED_BY_AUM",
+      "source": "pb_shared:product:bank_etf",
+      "target": "aum:metric:aum_bank_investment_month_end"
+    },
+    {
+      "type": "MEASURED_BY_AUM",
+      "source": "pb_shared:product:bank_bond_proprietary",
+      "target": "aum:metric:aum_bank_investment_month_end"
+    },
+    {
+      "type": "MEASURED_BY_INCOME",
+      "source": "pb_shared:product:deposit",
+      "target": "income:metric:deposit_interest_income"
+    },
+    {
+      "type": "INCOME_ROLLS_UP_TO",
+      "source": "income:metric:deposit_interest_income",
+      "target": "income:metric:interest_income"
+    },
+    {
+      "type": "INCOME_ROLLS_UP_TO",
+      "source": "income:metric:interest_income",
+      "target": "income:metric:income_total_customer_month"
+    },
+    {
+      "type": "MEASURED_BY_INCOME",
+      "source": "pb_shared:product:securities_structured",
+      "target": "income:metric:securities_fee_income"
+    },
+    {
+      "type": "INCOME_ROLLS_UP_TO",
+      "source": "income:metric:securities_fee_income",
+      "target": "income:metric:fee_income"
+    },
+    {
+      "type": "INCOME_ROLLS_UP_TO",
+      "source": "income:metric:fee_income",
+      "target": "income:metric:income_total_customer_month"
+    },
+    {
+      "type": "MEASURED_BY_INCOME",
+      "source": "pb_shared:product:securities_foreign_stock",
+      "target": "income:metric:securities_fee_income"
+    },
+    {
+      "type": "MEASURED_BY_INCOME",
+      "source": "pb_shared:product:securities_fund",
+      "target": "income:metric:securities_fee_income"
+    },
+    {
+      "type": "MEASURED_BY_INCOME",
+      "source": "pb_shared:product:securities_bond",
+      "target": "income:metric:securities_fee_income"
+    },
+    {
+      "type": "MEASURED_BY_INCOME",
+      "source": "pb_shared:product:bank_insurance",
+      "target": "income:metric:bank_fee_income"
+    },
+    {
+      "type": "INCOME_ROLLS_UP_TO",
+      "source": "income:metric:bank_fee_income",
+      "target": "income:metric:fee_income"
+    },
+    {
+      "type": "MEASURED_BY_INCOME",
+      "source": "pb_shared:product:bank_overseas_stock",
+      "target": "income:metric:bank_fee_income"
+    },
+    {
+      "type": "MEASURED_BY_INCOME",
+      "source": "pb_shared:product:bank_fund",
+      "target": "income:metric:bank_fee_income"
+    },
+    {
+      "type": "MEASURED_BY_INCOME",
+      "source": "pb_shared:product:bank_structured_offshore",
+      "target": "income:metric:bank_fee_income"
+    },
+    {
+      "type": "MEASURED_BY_INCOME",
+      "source": "pb_shared:product:bank_trust_custody",
+      "target": "income:metric:bank_fee_income"
+    },
+    {
+      "type": "MEASURED_BY_INCOME",
+      "source": "pb_shared:product:bank_bond_trust",
+      "target": "income:metric:bank_fee_income"
+    },
+    {
+      "type": "INCOME_DEFINITION_PENDING",
+      "source": "pb_shared:product:bank_collective_account",
+      "target": "income:metric:bank_fee_income"
+    },
+    {
+      "type": "MEASURED_BY_INCOME",
+      "source": "pb_shared:product:bank_planned_trust",
+      "target": "income:metric:bank_fee_income"
+    },
+    {
+      "type": "MEASURED_BY_INCOME",
+      "source": "pb_shared:product:bank_etf",
+      "target": "income:metric:bank_fee_income"
+    },
+    {
+      "type": "MEASURED_BY_INCOME",
+      "source": "pb_shared:product:bank_bond_proprietary",
+      "target": "income:metric:bank_fee_income"
+    }
+  ]
+}

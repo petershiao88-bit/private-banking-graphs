@@ -1,0 +1,244 @@
+[
+  {
+    "kind": "product",
+    "properties": {
+      "productCode": "deposit",
+      "name": "存款",
+      "aumDefinition": "客戶在銀行持有的台幣、外幣及結構型存款資產，以存款餘額衡量。",
+      "incomeDefinition": "現有來源計入的存款利收，按存款整體衡量，尚未拆分至各存款子類。"
+    }
+  },
+  {
+    "kind": "product",
+    "properties": {
+      "productCode": "bank_insurance",
+      "name": "銀行保險",
+      "aumDefinition": "客戶透過銀行通路持有的保險資產，以原始投資金額衡量。",
+      "incomeDefinition": "銀行通路保險業務的手續費及來源列入的客戶貢獻度金額，涵蓋日檔、月批與續期來源；來源間是否重複仍待釐清。"
+    }
+  },
+  {
+    "kind": "product",
+    "properties": {
+      "productCode": "bank_fund",
+      "name": "銀行基金",
+      "aumDefinition": "客戶透過銀行通路持有的基金資產，以來源提供的台幣資產價值衡量。",
+      "incomeDefinition": "依現有來源分類計入的銀行基金分行手續費收入。"
+    }
+  },
+  {
+    "kind": "product",
+    "properties": {
+      "productCode": "bank_etf",
+      "name": "銀行ETF",
+      "aumDefinition": "客戶透過銀行通路持有的 ETF 資產，以來源提供的台幣資產價值衡量。",
+      "incomeDefinition": "銀行通路 ETF 業務的分行手續費收入。"
+    }
+  },
+  {
+    "kind": "product",
+    "properties": {
+      "productCode": "bank_overseas_stock",
+      "name": "銀行海外股票",
+      "aumDefinition": "客戶透過銀行通路持有的海外股票資產，以來源提供的台幣資產價值衡量。",
+      "incomeDefinition": "銀行通路海外股票業務的分行手續費收入。"
+    }
+  },
+  {
+    "kind": "product",
+    "properties": {
+      "productCode": "bank_bond_trust",
+      "name": "海外債券（信託）",
+      "aumDefinition": "客戶透過銀行信託通路持有的海外債券資產，以來源提供的台幣資產價值衡量。",
+      "incomeDefinition": "銀行信託通路海外債券業務的分行手續費，以及按現行口徑計入的交易利得。"
+    }
+  },
+  {
+    "kind": "product",
+    "properties": {
+      "productCode": "bank_bond_proprietary",
+      "name": "海外債券（自營）",
+      "aumDefinition": "客戶透過銀行自營通路持有的海外債券部位，以面額、參考價格及匯率換算後的價值衡量。",
+      "incomeDefinition": "銀行自營通路海外債券業務的來源收入，目前按來源收入金額的絕對值計入；與 AUM 側產品範圍的對應仍待釐清。"
+    }
+  },
+  {
+    "kind": "product",
+    "properties": {
+      "productCode": "bank_collective_account",
+      "name": "集合管理帳戶",
+      "aumDefinition": "客戶持有的集合管理帳戶資產，以來源提供的台幣資產價值衡量。",
+      "incomeDefinition": ""
+    }
+  },
+  {
+    "kind": "product",
+    "properties": {
+      "productCode": "bank_structured_offshore",
+      "name": "銀行境外結構型商品",
+      "aumDefinition": "客戶透過銀行通路持有的境外結構型商品資產，以來源提供的台幣資產價值衡量。",
+      "incomeDefinition": "銀行通路境外結構型商品業務的分行手續費收入。"
+    }
+  },
+  {
+    "kind": "product",
+    "properties": {
+      "productCode": "bank_planned_trust",
+      "name": "規劃型信託",
+      "aumDefinition": "客戶的規劃型信託資產，涵蓋一般信託及員工持股信託來源，以來源提供的投資現值或台幣市值衡量。",
+      "incomeDefinition": "規劃型信託業務的借券、管理及成立費收入，包含員工持股信託來源。"
+    }
+  },
+  {
+    "kind": "product",
+    "properties": {
+      "productCode": "bank_trust_custody",
+      "name": "信託保管",
+      "aumDefinition": "客戶交付信託保管的資產，以來源提供的資產現值合計衡量。",
+      "incomeDefinition": "信託保管業務的保管費收入。"
+    }
+  },
+  {
+    "kind": "product",
+    "properties": {
+      "productCode": "securities_bond",
+      "name": "證券複委託債券",
+      "aumDefinition": "客戶透過證券複委託持有的債券部位，以持有數量、價格及匯率換算後的價值衡量。",
+      "incomeDefinition": "證券複委託債券交易的客戶手續費收入，依來源匯率換算。"
+    }
+  },
+  {
+    "kind": "product",
+    "properties": {
+      "productCode": "securities_structured",
+      "name": "證券複委託結構型商品",
+      "aumDefinition": "客戶透過證券複委託持有的結構型商品部位，以持有數量、價格及匯率換算後的價值衡量。",
+      "incomeDefinition": "證券複委託結構型商品交易的客戶手續費收入，依來源匯率換算。"
+    }
+  },
+  {
+    "kind": "product",
+    "properties": {
+      "productCode": "securities_fund",
+      "name": "證券複委託基金",
+      "aumDefinition": "客戶透過證券複委託持有的基金資產，以持有單位數、收盤價及匯率換算後的價值衡量。",
+      "incomeDefinition": "證券複委託基金交易的來源總手續費收入。"
+    }
+  },
+  {
+    "kind": "product",
+    "properties": {
+      "productCode": "securities_foreign_stock",
+      "name": "證券複委託外國股票",
+      "aumDefinition": "客戶透過證券複委託持有的外國股票部位，以持有數量、價格及匯率換算後的價值衡量。",
+      "incomeDefinition": "證券複委託外國股票交易的客戶手續費扣除上手手續費後的淨收入，依來源匯率換算，保留可能的負值。"
+    }
+  },
+  {
+    "kind": "aum",
+    "properties": {
+      "metricCode": "aum_total",
+      "name": "總 AUM",
+      "definition": "某一衡量時點的銀行存款與銀行及證券通路投資資產合計，依各產品的計價口徑衡量。"
+    }
+  },
+  {
+    "kind": "aum",
+    "properties": {
+      "metricCode": "aum_deposit",
+      "name": "存款 AUM",
+      "definition": "某一衡量時點的銀行存款餘額，涵蓋台幣、外幣及結構型存款。"
+    }
+  },
+  {
+    "kind": "aum",
+    "properties": {
+      "metricCode": "aum_investment",
+      "name": "投資 AUM",
+      "definition": "某一衡量時點的銀行及證券通路投資資產合計，依各產品的計價口徑衡量。"
+    }
+  },
+  {
+    "kind": "aum",
+    "properties": {
+      "metricCode": "aum_bank_investment",
+      "name": "銀行投資 AUM",
+      "definition": "某一衡量時點的銀行通路投資資產合計，涵蓋保險、信託及其他已納入的投資產品。"
+    }
+  },
+  {
+    "kind": "aum",
+    "properties": {
+      "metricCode": "aum_securities",
+      "name": "證券 AUM",
+      "definition": "某一衡量時點的證券通路投資資產合計，依各產品的部位估值口徑衡量。"
+    }
+  },
+  {
+    "kind": "aum",
+    "properties": {
+      "metricCode": "aum_insurance",
+      "name": "保險 AUM",
+      "definition": "某一衡量時點的銀行通路保險資產，以原始投資金額衡量。"
+    }
+  },
+  {
+    "kind": "income",
+    "properties": {
+      "metricCode": "income_total",
+      "name": "總收入",
+      "definition": "某一衡量期間內，客戶相關的手續費類收入與利收合計，依各來源的收入口徑衡量。"
+    }
+  },
+  {
+    "kind": "income",
+    "properties": {
+      "metricCode": "fee_income",
+      "name": "手續費類收入",
+      "definition": "現有口徑歸入手續費類的收入，涵蓋手續費、客戶貢獻度及部分交易損益。"
+    }
+  },
+  {
+    "kind": "income",
+    "properties": {
+      "metricCode": "bank_fee_income",
+      "name": "銀行手續費類收入",
+      "definition": "銀行通路歸入手續費類的收入，依各產品來源的收入口徑衡量。"
+    }
+  },
+  {
+    "kind": "income",
+    "properties": {
+      "metricCode": "securities_fee_income",
+      "name": "證券手續費類收入",
+      "definition": "證券通路歸入手續費類的收入，依各產品來源的收入口徑衡量。"
+    }
+  },
+  {
+    "kind": "income",
+    "properties": {
+      "metricCode": "interest_income",
+      "name": "利收",
+      "definition": "存款與放款業務歸入利收的收入，依各來源的取值口徑衡量。"
+    }
+  },
+  {
+    "kind": "income",
+    "properties": {
+      "metricCode": "deposit_interest_income",
+      "name": "存款利收",
+      "definition": "存款業務歸入利收的收入，按存款整體衡量，尚未拆分至各存款子類。"
+    }
+  },
+  {
+    "kind": "customer",
+    "properties": {
+      "conceptCode": "customer",
+      "name": "客戶",
+      "definition": "與機構建立往來關係，使用其產品或服務的個人或組織。",
+      "customerId": "用於識別客戶的識別碼；各來源可能採用不同的識別種類，跨來源對照尚待釐清。",
+      "customerName": "客戶姓名或名稱；委託人名稱須依來源角色解讀，來源未提供時可缺值。",
+      "customerNumber": "來源系統使用的客戶編號，屬選用資訊；與客戶識別碼分開理解。"
+    }
+  }
+]

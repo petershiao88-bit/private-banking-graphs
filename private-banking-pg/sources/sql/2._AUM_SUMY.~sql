@@ -1,0 +1,253 @@
+/*
+Author : 1121329
+create date :20250626
+memo : AUM彙整指標
+*/
+
+drop table AUM_TMP01;
+create table AUM_TMP01
+as
+select    
+    TYP,
+    '銀行'  COMP,
+    DETAIL as PROD,
+    TYP_SUB_DTL,
+    cust_id,
+    LST_MTN_DT AS YYYYMMDD,
+    存款AUM AMT
+from AUM_005_007_008_009  --存款AUM 總量、台幣存款AUM總量、結構型
+where DETAIL is not null
+union 
+select 
+    '投資'  TYP,
+    '銀行'  COMP,
+    '保險'  PROD,
+    NULL AS TYP_SUB_DTL,
+    CUST_ID,
+    YYYYMMDD,
+    amt 
+FROM aum_012  --【銀行】保險_原始投資金額
+union 
+select 
+    '投資'  TYP,
+    '銀行'  COMP,
+    '保險'  PROD,
+    NULL AS TYP_SUB_DTL,
+    CUST_ID,
+    YYYYMMDD,
+    amt 
+FROM aum_012
+union 
+select 
+    '投資'  TYP,
+    '銀行'  COMP,
+    trustprd PROD,
+    NULL AS TYP_SUB_DTL,
+    cust_id,
+    yyyymmdd,
+    CurrentTWDValue as AMT
+from AUM_013_015_015_016_017_018
+union 
+select 
+    '投資'  TYP,
+    '銀行'  COMP,
+    '海外債券(自營)' PROD,
+    NULL AS TYP_SUB_DTL,
+    cust_id ,
+    YYYYMMDD,
+    amt 
+from  AUM_019 --19.銀行_外國債券(自營平台)_AUM總量
+union 
+select 
+    '投資'  TYP,
+    '銀行'  COMP,
+    '規劃型信託' PROD,
+    NULL AS TYP_SUB_DTL,
+    cust_id ,
+    yyyymmdd,
+    amt 
+from  AUM_020 --銀行_規劃型信託_AUM總量
+union 
+select 
+    '投資'  TYP,
+    '銀行'  COMP,
+    '規劃型信託' PROD,
+    NULL AS TYP_SUB_DTL,
+    cust_id ,
+    yyyymmdd,
+    amt 
+from  AUM_021 --銀行_規劃型信託_AUM總量--【銀行】股票及金錢信託_市值
+union 
+select 
+    '投資'  TYP,
+    '銀行'  COMP,
+    '信託保管' PROD,
+    NULL AS TYP_SUB_DTL,
+    cust_id ,
+    yyyymmdd,
+    amt 
+from  AUM_022  --銀行_信託保管_AUM總量
+union 
+select 
+    '投資'  TYP,
+    '證券'  COMP,
+    nm  as PROD,
+    NULL AS TYP_SUB_DTL,
+    cust_id,
+    yyyymmdd,
+    AMT
+from AUM_023_024--證券_複委託債券_AUM總量
+union 
+select 
+    '投資'  TYP,
+    '證券'  COMP,
+    '基金'  as PROD,
+    NULL AS TYP_SUB_DTL,
+    cust_id,
+    yyyymmdd,
+    AMT
+from AUM_025  ----25.證券_基金_AUM總量
+union 
+select 
+    '投資'  TYP,
+    '證券'  COMP,
+    '外國股票'  as PROD,
+    NULL AS TYP_SUB_DTL,
+    cust_id,
+    yyyymmdd,
+    AMT
+from AUM_026  --26.證券_外國股票_AUM總量
+union 
+select 
+    '投資'  TYP,
+    '證券'  COMP,
+    '台股'  as PROD,
+    NULL AS TYP_SUB_DTL,
+    cust_id,
+    yyyymmdd,
+    AMT
+from AUM_027   --27.證券_台股_AUM總量
+union 
+select 
+    '投資'  TYP,
+    '證券'  COMP,
+    '台股'  as PROD,
+    NULL AS TYP_SUB_DTL,
+    cust_id,
+    yyyymmdd,
+    AMT
+from AUM_028   ----28.股票設質
+;
+--20251219 新增 
+--私銀存款aumq需排除雙掛code法金認列
+--HS檔案
+drop table PB_CUST_2AO;  --雙掛CODE
+create table PB_CUST_2AO
+as 
+select yyyymm,cust_id
+from dscif.ao_cust_rel_hs@anadbp01_dwdbp01
+where yyyymm>='202312'
+group by yyyymm,cust_id
+having count(*)>1
+union 
+select to_number(to_char(sysdate,'yyyymm')) yyyymm,cust_Id 
+from dscif.ao_cust_rel@anadbp01_dwdbp01
+group by cust_Id
+having count(*)>1
+;
+--存款收益歸屬法金
+drop table PB_CUST_2AO_COR;
+create table PB_CUST_2AO_COR
+as 
+select yyyymm,cust_id_no as cust_Id 
+from dscif.aodep_hs@anadbp01_dwdbp01
+union 
+select to_number(to_char(sysdate,'yyyymm')) yyyymm,cust_id_no as cust_id 
+from dscif.aodep@anadbp01_dwdbp01;
+
+--排除名單　雙CODE 受益認列法金
+drop table PB_CUST_2AO_COR_LIST;
+create table PB_CUST_2AO_COR_LIST
+as 
+select a.yyyymm,a.cust_id
+from PB_CUST_2AO a --雙CODE 18200
+inner join PB_CUST_2AO_COR b  --收益認列法金
+on a.yyyymm=b.yyyymm and a.cust_id=b.cust_id;
+
+--AUM存款排除私銀法金認列客戶
+drop table AUM_BASE;
+create table AUM_BASE
+as 
+select a.* 
+from 
+    (select *
+    from AUM_TMP01 
+    where typ='存款'　
+    ) a 
+left join pb_cust_2AO b
+on substr(a.yyyymmdd,1,6)=b.yyyymm　and a.cust_id=b.cust_id
+where b.cust_id is null 
+union 
+select *
+from AUM_TMP01 
+where typ='投資'
+;
+
+
+
+drop table AUM_TMP02;
+Create table AUM_TMP02
+as 
+select a.*,
+       b.emp_no,
+       b.prft_cntr_cd,
+       b.sht_nm,
+       case 
+          when sht_nm like '%業務一部%' then 'TW一部'
+          when sht_nm like '%業務二部%' then 'TW二部'
+        end as SHT_EASY_NM,
+      substr(
+          sht_nm,
+          instr(sht_nm,'業')+2,
+          instr(sht_nm,'部') -instr(sht_nm,'業') -1
+          )  as SHT_SUB_NM,
+       b.pst_nm
+from (select * from AUM_BASE where yyyymmdd>='20231201') a   --69775
+inner join PB_CUST_005 b  --69775
+on a.cust_id =b.cust_id and substr(a.yyyymmdd,1,6)=b.yyyymm;
+--where sht_nm like '%銀行一部%' or sht_nm like '%銀行二部%';
+
+drop table AUM_REPORT;
+Create table AUM_REPORT
+as 
+select 
+       substr(yyyymmdd,1,4) yyyy,
+       substr(yyyymmdd,1,6) yyyymm,
+       yyyymmdd,
+       typ,
+       TYP_SUB_DTL,
+       COMP,
+       PROD,
+       prft_cntr_cd,
+       sht_nm,
+       sht_easy_nm,
+       sht_sub_nm,
+       sum(amt) AMT,
+       count(*) CNT
+from AUM_TMP02 
+where sht_easy_nm is not null
+group by 
+       substr(yyyymmdd,1,4) ,
+       substr(yyyymmdd,1,6) ,
+       yyyymmdd,
+       typ,
+       TYP_SUB_DTL,
+       COMP,
+       PROD,
+       prft_cntr_cd,
+       sht_nm,
+       sht_easy_nm,
+       sht_sub_nm;
+
+EXIT;
+    

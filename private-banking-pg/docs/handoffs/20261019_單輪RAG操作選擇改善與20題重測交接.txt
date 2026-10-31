@@ -1,0 +1,222 @@
+單輪 RAG 實驗版：操作選擇改善與 20 題重測交接
+更新日期：2026-10-19，Asia/Taipei
+專案根目錄：C:\Users\petershiao\Desktop\Ontology\私銀智能問答
+
+先讀這裡
+
+下一個 session 先與使用者討論「目前改善了哪些問題、哪些仍未解決」。本次交接只更新文件，沒有再改程式、n8n、Aura 或重跑測試。
+目前討論的對象是「私銀圖譜問答－單輪 RAG 實驗版」，workflowId=H2Jr1mJHmdpaOWrY，16 節點，已保存、未發布、active=false。
+最新成品目錄：deliverables/single_turn_qa/rag_v1/selection_v4/。
+已恢復正常單題入口；雲端現在不是固定 20 題的暫時批次測試版。
+
+本次結果是局部改善：同一批 20 題中，對象、操作與概念路徑選對由 3 題增為 5 題；原正確第 1、2、3 題完整路徑集合保留，新增正確第 4、5 題。
+最終 6 題進入映射與回答，但第 18 題仍漏掉日期、客戶金額門檻與持有關聯，不能算答對。另 14 題停止；整體仍有 15 題未完整滿足需求。
+第 6 題海外占比已辨認為 ratio，但正反方向參數仍近分而停止。不能宣稱海外占比已修好，也不能宣稱原本尚未支援的業務操作已補齊。
+這個數字是既有 20 題的回歸核對，不是泛化準確率；「選路正確」「回答文字合適」「有取得實際數字」要分開看。
+
+一、流程辨識與接續入口
+
+目前 RAG 實驗版
+名稱：私銀圖譜問答－單輪 RAG 實驗版
+ID：H2Jr1mJHmdpaOWrY
+網址：https://chiang4901.app.n8n.cloud/workflow/H2Jr1mJHmdpaOWrY
+最新已保存原生匯出：deliverables/single_turn_qa/rag_v1/selection_v4/workflow.saved.live.json
+預期單題匯入檔：同目錄 workflow.updated.json
+雲端保存比對：同目錄 saved-verification.json
+已核對節點參數、型別、憑證引用與接線符合預期，單題入口已恢復；回答 prompt／模型、原有圖查詢與子圖合併保持不變。
+保存匯出 SHA-256：6ada52e6ed319c9de63b7f6ef51e12189189226489b1a27fbfa7d7385d7940e3
+此為本次實作時核對的保存狀態；未在文件更新時重新讀取雲端。
+
+原單輪獨立版：Td4cymdWpu8sYNkv。本次保留不動，仍是原 Jev 流程；不要用 RAG 匯出覆蓋它。
+原多輪版：pqvhkncZ9bFlfe4B。其入口 docs/handoffs/RESUME.txt 是多輪交接，本次未修改。
+docs/handoffs/20261016_單輪獨立流程v3交接.txt 是原單輪 Jev 版歷史；其中「子圖尚未實作」「目前僅分析」指當時原版，不是本次 RAG 的最新狀態。
+subgraph_v2、subgraph_v3 是 RAG 歷史階段；不要直接拿這些舊工作流還原目前的 selection_v4。
+
+二、使用者已確認的方向
+
+1. 每題是完整的獨立問題，不帶上一題的歷史，也不增加多輪記憶。
+2. 使用 RAG 找商品／分類／指標，再由程式執行通用操作與走圖；不讓生成式 LLM 或 Jev 決定路徑。
+3. RAG 和 reranker 仍是模型，不要說成完全不使用模型。最終回答也仍由原回答模型生成。
+4. 概念圖定義業務範圍；映射圖對應底表、SQL 與計算規則。不要把 SQL UNION 等資料實作塞回概念選路。
+5. 商品分類沿用 property，避免新增不必要的概念節點或路由控制欄位。境外／海外視為同義詞，offeringType 已移除，不要重新加入。
+6. 所有已確認可執行的操作都查映射，再把證據合併為一張去重子圖；不再分成「RAG 直接答」與「去查映射」兩類。
+7. 回答模型收到合併子圖，不收到一堆重複的 path 物件。內部可保留完整路徑供核對。
+8. 計算依據用業務概念說明，少用內部欄位、SQL 細節、狀態報告與長篇限制文字。這次為隔離檢索效果，沒有套用先前討論的回答 prompt 草案。
+9. 用實際業務問法測試；變動原因分析不納入。數值的月份比較仍屬想檢查的業務需求。
+10. 本輪明確限制：五種執行操作和走圖程式先不改，只改善既有操作的選擇方式，再重測同 20 題，原答對題也要測。
+
+三、本次實際改了什麼
+
+原本的操作、商品與指標都包在完整候選方案內一起評分，商品名稱的重複與候選描述容易影響操作選擇；最終分數又混合 rerank 0.65 與 LCS 字元相似度 0.35。
+新版將「操作選擇」和「商品／指標參數選擇」分開，各自留下分數、分差、候選及停止原因。
+
+操作階段
+- 先依既有名稱與同義詞辨認對象，以最長且不重疊的文字保留商品、分類或指標；同一文字對應不同分類欄位時保留歧義。
+- 操作查詢遮罩商品名稱，但保留類型，例如「商品」「符合分類條件的商品」「AUM 指標」「收入指標」，降低名稱重複對操作評分的干擾。
+- 五種操作各有同等數量的用途描述；用既有 Cohere reranker 比較，按操作分組取最高分，再檢查與其他操作／能力文件的分差。
+- 加入實際數值、多項分析、排除條件等能力範圍文件，只供停止與診斷，沒有新增第六種可執行操作。
+- 能力文件並不可靠地驗證完整需求。第 18 題就是反例；有些不支援的題目也只是因低分停止，不能說已正確理解其所有需求。
+
+參數階段
+- 只比較選中操作內的商品／分類／指標候選，不再讓不同操作的完整長方案混在一起競爭。
+- 保留明確辨認的商品、分類條件、指標及 AUM／收入領域；商品說明題不再無條件套用預設 AUM。
+- 參數文件保留業務名稱與同義詞；分類欄位名稱另列，避免「信託」等相同文字掩蓋不同欄位。
+- 比例候選明列分子、分母及方向；目前 reranker 仍未穩定分開正反方向。
+- 檢查方案是否涵蓋已辨認的對象；不能完整保留時停止。但目前這項檢查只涵蓋已辨認的商品／分類／指標，並不涵蓋日期、客戶門檻與持有關聯。
+- 最終決策移除 LCS 字元加權，使用兩段各自的 rerank 分數。
+- minScore=0.25、minMargin=0.06 數值未調低。只有一個完整參數候選時檢查最低分數，不虛構第二名分差；因此不可把整體決策邏輯說成完全沒變。
+
+保持不變
+- 五種執行操作：ratio、list、membership、composition、explain。
+- 商品解析、父子去重、關係類型限制、DFS、循環檢查、到達指定目標指標即停止等走圖執行內容。
+- 概念與映射 Cypher、合併子圖程式、回答 prompt／模型、原有憑證引用。
+- 模型：embedding=qwen/qwen3-embedding-4b；rerank=cohere/rerank-v3.5；回答=openai/gpt-5.6-luna。
+- 本輪 Aura 僅讀取，未新增圖節點、property 或關係；沒有執行 Oracle／底表餘額查詢。
+
+程式核對注意
+selection_v4/selection.cjs 是新增的檢索決策程式；build.py 從 subgraph_v3/router.cjs 抽取原圖運算與五種操作產生新版 router.cjs。
+test_selection.cjs 與 invariants.json 核對走圖／操作內容保留原文。新檔仍含 legacy* 函數及舊相似度函數，不能只因搜尋到 LCS 就判定新版最後決策仍在使用；應看新 execute → decideParameters 的實際呼叫。
+合成向量與分數測試只驗證程式契約，不代表真實語意檢索的準確率。
+
+四、目前 16 節點接線
+
+Single Question
+ → Aura - Full Concept Graph
+ → 準備 RAG 索引
+ → RAG Embeddings
+ → 檢索與建立候選方案
+ → 操作 Rerank                    （新增）
+ → 確定操作與建立參數候選          （新增）
+ → RAG Rerank                     （只比該操作的參數）
+ → 程式走圖與停止判斷
+ → 查詢範圍已確定
+     true → Aura - Mapping Paths → 合併查詢子圖 → Answer Question → Single Answer
+     false → 請求澄清
+Answer Model → Answer Question
+
+查詢範圍已確定只按 requiresClarification 分流，不按操作種類決定是否讀映射。
+沒有固定跳幾層；依選定操作、領域、起點與目標指標走符合類型的關係，到目標即停。RAG 不逐條自由挑選或任意截短路徑。
+單題版本目前每題重算小索引，尚未新增持久化向量快取。測試時共用索引向量不等於正式流程已有快取。
+
+五、同一批 20 題的最終結果
+
+基準：deliverables/single_turn_qa/rag_v1/business_20261019/。
+修改後：deliverables/single_turn_qa/rag_v1/selection_v4/。
+問題原文與順序均按 business_20261019/cases.json 核對一致，沒有把啟動測試的文字當業務查詢。
+
+01 有哪些境外商品？
+   保留正確 list；海外分類 6 商品，完整路徑集合與基準一致。因清單補查 AUM 與收入，共 12 條概念路徑，不是 12 個商品。
+02 總 AUM 包含哪些商品？
+   保留正確 composition；16 個商品，存款父子去重，完整路徑集合與基準一致。
+03 銀行 ETF 計入哪個 AUM？
+   保留正確 membership；銀行 ETF → 銀行投資 AUM → 投資 AUM → 總 AUM，只有 AUM 領域。
+04 海外債券（信託）的 AUM 怎麼算？
+   新增正確 explain。舊版未選定且候選偏成比例；新版保留 bank_bond_trust 與 AUM 領域。
+   路徑：bank_bond_trust → aum_bank_investment → aum_investment → aum_total。
+05 銀行 ETF 的手續費收入是從哪些資料算出來的？
+   新增正確 explain。舊版候選偏成收入比例；新版保留 bank_etf 與 fee_income，沒有套成 AUM。
+   路徑：bank_etf → bank_fee_income → fee_income；到手續費指標停止，不繼續走到 income_total。
+06 海外資產占總 AUM 的比例怎麼算？
+   仍未完成。操作已是 ratio（分數約 0.702633，操作分差約 0.163819），但兩個正反方向參數只差 0.008062，小於 0.06，因此沒有最終路徑。
+   這是分子／分母的角色判斷問題，不是 DFS 不知道走幾層或不知道何時停。
+07 銀行通路的海外信託商品有哪些？
+   仍未完成。list 操作選對，但三個條件無法同時保留；沿用的候選產生器最多組合兩個分類面向，另有信託分類欄位歧義。
+08 銀行基金和 ETF 的 AUM 分別怎麼算？
+   仍未完成。沒有兩商品各自的多需求執行，參數覆蓋檢查停止。
+09 海外資產不含海外股票的話，占總 AUM 的比例怎麼算？
+   仍未完成。集合排除未實作；本次因操作／能力文件近分停止，不能說已支援排除。
+10 2026 年 9 月底私銀總 AUM 是多少？
+   仍未完成：指定月末實際金額。
+11 2026 年 9 月銀行 ETF 的手續費收入是多少？
+   仍未完成：指定月份實際收入。
+12 2026 年 9 月底有多少位私銀客戶？
+   仍未完成：期間及客戶去重計數。
+13 2026 年 9 月底各理專名下的 AUM 分別是多少？
+   仍未完成：理專分組及實際金額。
+14 2026 年 9 月銀行與證券通路的手續費收入分別是多少？
+   仍未完成：通路分組及實際收入。
+15 2026 年 9 月底 AUM 最高的前十名客戶有哪些？
+   仍未完成：客戶維度、金額排序與前 N 名。
+16 2026 年 9 月底的總 AUM 比 8 月底增加或減少多少？
+   仍未完成：兩個時點的實際金額及增減計算。這是數值比較，不是變動原因分析。
+17 請列出 2026 年 4 月到 9 月每月底的總 AUM。
+   仍未完成：實際金額的期間序列。
+18 2026 年 9 月底，AUM 超過一億元的客戶持有哪些境外商品？
+   仍誤放行為 list，只保留海外分類 6 商品，沒有日期、客戶 AUM 門檻與實際持有關聯。
+   最後模型有說沒有實際持有資料，但不能靠最後回答自行補述條件，就算程式已處理完整需求。這題不列入正確 5 題。
+19 請一起列出 2026 年 9 月底的總 AUM、海外資產 AUM 和海外占比。
+   仍未完成：多需求、實際金額與期間。
+20 2026 年 9 月底，銀行基金和 ETF 的 AUM 分別是多少？
+   仍未完成：多商品、指定時點、實際金額。
+
+最終統計
+- 20 題完整執行成功，執行錯誤 0。
+- 進入映射與回答：1、2、3、4、5、18，共 6 題；停止 14 題。
+- 對象／操作／路徑核對正確：1、2、3、4、5，共 5 題；基準為 1、2、3，共 3 題。
+- 原正確 3 題無退步；新增正確 4、5；誤放行第 18 題尚未修復。
+- 未完整滿足需求共 15 題，不是 15 題都卡在相同原因，也不等於都需要使用者澄清。
+- 6 張映射子圖已核對節點與關係去重、端點完整；送入回答模型的 path 物件為 0。內部仍留 selectedConceptPaths 供檢查。
+
+六、回答文字與測試過程的界線
+
+第 1、2 題仍答出核心清單／組成；第 3 題仍答出銀行投資 AUM 與上層包含關係。
+第 4 題已能取得並說明產品市值、月份快照及 AUM 彙總來源；第 5 題已能取得 ETF 手續費收入來源、金額欄位與分類。
+但回答仍偏技術、偏長，會帶入 scopeComplete、SQL 細節與長篇驗證提醒，與使用者希望「計算依據只講業務概念」仍有差距。
+這次沒有改回答 prompt，因此不要把本輪結果說成已完成回答風格對標；回答措辭變化也可能只是同一模型的生成波動。
+資料只有圖譜中的 SQL／規則／metadata，沒有實際查詢餘額或產生 AUM、收入、客戶數及百分比。
+
+完整第一輪試驗保留於 selection_v4/trial1.live.results.json 與 trial1.workflow.json：第 4、5 題改善，第 1 題因遮罩語意太弱而退步，第 18 題當次停止。
+後來修正通用遮罩和參數文件，再重跑最終同 20 題，保住第 1 題；但第 18 題又誤放行。不能將第一輪第 18 題的停止算到最終版本成果。
+另一次連線中斷沒有保存完整輸出，不納入成績。曾看到 n8n 503／離線；原因未確證，不應直接宣稱是記憶體不足。
+最終測試將相同概念文件向量只建一次、20 題各用自己的問題向量，減少重複請求；各題的操作、參數、走圖、映射與回答仍獨立，沒有共用對話歷史。
+test_selection.cjs 已核對共用向量不改變各題候選與操作檢索輸入。測試入口最後節點只回完成摘要，避免停在等待聊天互動。
+最終批次顯示 Success in 1m 33.515s；20 題原始輸出已下載。
+保存正常單題版後，另以「銀行 ETF 計入哪個 AUM？」做入口檢查，Success in 29.599s；此為同題檢查，不另外算第 21 題。
+
+七、下一個 session 建議先討論的重點
+
+先讓使用者看懂已改善的兩題：同樣的商品，現在先選「解釋計算／來源」而不是被比例候選吸走；ETF 收入也能保留收入領域與手續費目標。
+接著區分三類仍未解決的問題，避免混成「多加 property 就好」或「使用者問題不清楚」：
+1. 已有操作內的角色判斷：第 6 題 ratio 選對，但分子／分母不穩。先討論如何改善角色配對，不把降門檻當修好。
+2. 完整需求保留與能力判斷：第 18 題漏掉日期、客戶條件與持有關聯。先討論如何識別尚未執行的要求，不能只看操作最高分就放行。
+3. 現有執行能力缺口：第 7 題三條件、其餘多商品／排除／實際值／分組／排名／時間序列等。是否擴充操作，要另與使用者討論，不把這次操作選擇調整當成已完成。
+回答 prompt 的業務化簡化是另一條待辦；若接著調整，應分開記錄與驗證，不混入本輪檢索效果。
+使用者要先討論目前改善哪些，下一個 session 不要一開始就自動新增節點、改圖、加操作或重測。
+
+八、先讀檔案與可重現入口
+
+先看人可讀成果
+deliverables/single_turn_qa/rag_v1/selection_v4/20題改善前後比較.html
+  同 20 題的前後回答、逐題判讀、分數、最終路徑與子圖數量。
+deliverables/single_turn_qa/rag_v1/selection_v4/summary.json
+  最終統計與正確／未完成題號。
+deliverables/single_turn_qa/rag_v1/selection_v4/comparison.json
+  逐題結果、回答核對與前後原文。
+
+實測證據
+deliverables/single_turn_qa/rag_v1/business_20261019/cases.json
+deliverables/single_turn_qa/rag_v1/business_20261019/live.results.json
+deliverables/single_turn_qa/rag_v1/business_20261019/evaluations.json
+deliverables/single_turn_qa/rag_v1/selection_v4/live.results.json
+deliverables/single_turn_qa/rag_v1/selection_v4/results-verification.json
+deliverables/single_turn_qa/rag_v1/selection_v4/result-inspection.json
+deliverables/single_turn_qa/rag_v1/selection_v4/single-question-smoke.json
+deliverables/single_turn_qa/rag_v1/selection_v4/n8n.updated.verified.png
+
+程式與保存狀態
+deliverables/single_turn_qa/rag_v1/selection_v4/selection.cjs
+deliverables/single_turn_qa/rag_v1/selection_v4/router.cjs
+deliverables/single_turn_qa/rag_v1/selection_v4/build.py
+deliverables/single_turn_qa/rag_v1/selection_v4/invariants.json
+deliverables/single_turn_qa/rag_v1/selection_v4/workflow.before.live.json
+deliverables/single_turn_qa/rag_v1/selection_v4/workflow.saved.live.json
+deliverables/single_turn_qa/rag_v1/selection_v4/workflow.updated.json
+deliverables/single_turn_qa/rag_v1/selection_v4/saved-verification.json
+
+以下只操作本機既有證據／檢查程式，不會自行部署或執行雲端題目；本次文件更新沒有再執行它們：
+node deliverables/single_turn_qa/rag_v1/selection_v4/test_selection.cjs
+python -X utf8 deliverables/single_turn_qa/rag_v1/selection_v4/inspect_results.py
+python -X utf8 deliverables/single_turn_qa/rag_v1/selection_v4/report.py
+python -X utf8 deliverables/single_turn_qa/rag_v1/selection_v4/verify_saved.py
+其中 inspect_results.py、report.py、verify_saved.py 會重建本機衍生報告／核對檔；它們不是新的雲端重測。
+workflow.regression.json 只是暫時測試用。若未來再測，完成後必須恢復 workflow.updated.json 的正常單題入口，再以新的雲端原生匯出核對。

@@ -1,0 +1,12 @@
+{
+  "verifiedAt": "2026-10-09T09:34:06.019713+00:00",
+  "protected": {
+    "nodes": 1194,
+    "relationships": 3702,
+    "sha256": "dc0ea9da63ce6653499b6717b14460a426f404a6ef2935af8b277f27455e56c0"
+  },
+  "customerBefore": {
+    "nodes": [],
+    "edges": []
+  }
+}

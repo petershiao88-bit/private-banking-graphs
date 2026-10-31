@@ -1,0 +1,150 @@
+{
+  "routes": [
+    {
+      "productCode": "bank_bond_proprietary",
+      "domain": "aum",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_bond_proprietary",
+      "domain": "income",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_bond_trust",
+      "domain": "aum",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_bond_trust",
+      "domain": "income",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_collective_account",
+      "domain": "aum",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_etf",
+      "domain": "aum",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_etf",
+      "domain": "income",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_fund",
+      "domain": "aum",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_fund",
+      "domain": "income",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_insurance",
+      "domain": "aum",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_insurance",
+      "domain": "income",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_overseas_stock",
+      "domain": "aum",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_overseas_stock",
+      "domain": "income",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_planned_trust",
+      "domain": "aum",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_planned_trust",
+      "domain": "income",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_structured_offshore",
+      "domain": "aum",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_structured_offshore",
+      "domain": "income",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_trust_custody",
+      "domain": "aum",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_trust_custody",
+      "domain": "income",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "deposit",
+      "domain": "aum",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "deposit",
+      "domain": "income",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "securities_bond",
+      "domain": "aum",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "securities_bond",
+      "domain": "income",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "securities_foreign_stock",
+      "domain": "aum",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "securities_foreign_stock",
+      "domain": "income",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "securities_fund",
+      "domain": "aum",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "securities_fund",
+      "domain": "income",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "securities_structured",
+      "domain": "aum",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "securities_structured",
+      "domain": "income",
+      "sourceGraph": "shared_product_sql"
+    }
+  ],
+  "liveVerified": false
+}

@@ -1,0 +1,190 @@
+{
+  "status": "planned_not_run",
+  "preparedBeforeAnyNewCandidateRun": true,
+  "date": "2026-10-16",
+  "workflowId": "pqvhkncZ9bFlfe4B",
+  "lastObservedVersionId": "53ce6a9b-c246-41b7-8204-abec81f6e624",
+  "purpose": "Compare evidence retrieval plus a general answer prompt against the current fine classification gates. The simplified approach has not been validated.",
+  "constraints": {
+    "nodeCount": 18,
+    "jevCallsPerTurn": 1,
+    "primaryAnswerCallsPerTurn": 1,
+    "newResolverLlm": false,
+    "postAnswerRepairNodes": false,
+    "publish": false,
+    "executeSql": false,
+    "modifyAuraOrSourceSqlOrPublishedKb": false
+  },
+  "isolation": {
+    "resetBeforeEveryGroup": true,
+    "resetBetweenTurnsOfSameGroup": false,
+    "backupAndTemporarilyDisablePinnedTriggerData": true,
+    "verifyActualQuestionAndSession": true,
+    "firstInputMustEqual": {"history": [], "previousTopic": {}, "pendingClarification": null},
+    "laterHistoryMustContainOnlyThisGroup": true,
+    "resetAfterSavingGroupEvidence": true
+  },
+  "comparison": {
+    "baseline": "v9 clean C1 #2640 and C2 #2641; refresh the online export before implementation and record any new baseline runs separately",
+    "candidate": "Full raw dialogue and full concept graph reach the answer model; Jev supplies retrieval candidates rather than question-type gates",
+    "sameModelAndSamplingSettings": true,
+    "sameGraphAndSourceRevisionUnlessExplicitlyRecorded": true,
+    "diagnosticRunsPerGroup": 1,
+    "confirmationRunsPerGroupOnFrozenCandidate": 2,
+    "doNotRepeatUntilSuccessOrReportBestOnly": true,
+    "caution": "End-to-end histories can diverge because first-turn answers differ. Do not claim a single-field causal effect from these runs."
+  },
+  "retrievalProposal": {
+    "status": "proposed_not_validated",
+    "pathCandidates": "all 39 existing business measurement paths with readable product and domain labels",
+    "retrieveChoices": ["included", "uncertain"],
+    "excludeChoice": "excluded",
+    "candidateDoesNotAuthorizeAnswerScope": true,
+    "fullConceptGraphForAnswer": true,
+    "mappingQueryInput": "only the candidate-path subgraph; never pass the full concept graph into the existing mapping binding selector",
+    "noSqlTruncationOrTopOneFallback": true
+  },
+  "evidencePerTurn": [
+    "executionIdAndUrl", "workflowVersionAndParametersHash", "sessionId", "actualQuestion", "actualHistory",
+    "fullJevRequestOrClearlyLabeledVisibleCapture", "rawJevAnswersAndRequestId", "retrievalPathsAndGraph",
+    "mappingStatusBindingsAndSources", "actualAnswerModelInput", "finalAnswer", "writtenMemory", "callCounts", "latencyAndEvidenceBytes"
+  ],
+  "scoring": {
+    "separateDimensions": ["isolation", "dialogueUnderstanding", "evidenceGrounding", "answerQuality", "technicalExecution"],
+    "doNotRequireRemovedQaEnums": true,
+    "doNotRequireMappingForConceptOnlyAumComparison": true,
+    "sqlClaimsRequireSqlEvidence": true,
+    "successNodeOrSyntheticContractIsNotAnswerAccuracy": true
+  },
+  "groups": [
+    {
+      "id": "C_compare",
+      "stage": 1,
+      "status": "planned_not_run",
+      "turns": [
+        {"id": "C1", "question": "銀行基金與證券複委託基金差在哪？", "expected": ["Compare both fund products using supported business distinctions", "Do not store evidence metrics as user-confirmed scope"]},
+        {"id": "C2", "question": "那 AUM 呢？", "expected": ["Retain both compared fund products", "Shift comparison dimension to AUM", "Do not ask the user to choose one channel", "Do not add securities bonds or structured products", "Use mapping evidence if describing calculation or valuation rules"]}
+      ]
+    },
+    {
+      "id": "F_clarification_reply",
+      "stage": 2,
+      "status": "planned_not_run",
+      "turns": [
+        {"id": "F1", "question": "基金收入怎麼算？", "expected": ["Income is already specified", "If channel is unresolved, ask one bank-versus-securities fund clarification", "Do not ask AUM versus income or assume one channel"]},
+        {"id": "F2", "question": "銀行的", "expected": ["Complete the original bank fund income question", "Use source evidence for calculation and date rules", "Do not ask for the original question again", "Do not request customer or period just to explain rules"]}
+      ]
+    },
+    {
+      "id": "P_channel_and_metric_changes",
+      "stage": 2,
+      "status": "planned_not_run",
+      "turns": [
+        {"id": "P1", "question": "銀行基金收入怎麼算？", "expected": ["Bank fund income only", "Ground calculation in the retrieved source evidence"]},
+        {"id": "P2", "question": "證券的呢？", "expected": ["Securities fund income only", "Retain fund and income while changing channel"]},
+        {"id": "P3", "question": "那 AUM 呢？", "expected": ["Securities fund AUM only", "Retain fund and securities channel while changing metric"]},
+        {"id": "P4", "question": "銀行的呢？", "expected": ["Bank fund AUM only", "Retain fund and AUM while changing channel"]}
+      ]
+    },
+    {
+      "id": "M_cross_product_metric_pairs",
+      "stage": 3,
+      "status": "planned_not_run",
+      "turns": [
+        {"id": "M1", "question": "銀行基金的 AUM 跟證券複委託基金的收入各怎麼算？", "expected": ["Explain exactly bank_fund/aum and securities_fund/income", "Do not answer four crossed product/domain combinations", "Extra retrieved evidence must not expand requested scope"]}
+      ]
+    },
+    {
+      "id": "L_listing_domain_reply",
+      "stage": 3,
+      "status": "planned_not_run",
+      "turns": [
+        {"id": "L1", "question": "基金有哪些？", "expected": ["List the graph-supported bank and securities fund products", "No unnecessary metric clarification"]},
+        {"id": "L2", "question": "銀行的怎麼算？", "expected": ["Retain fund and bank channel", "Ask AUM versus income if still unspecified", "Do not introduce unrelated bank products"]},
+        {"id": "L3", "question": "收入", "expected": ["Answer the original bank fund income question with mapping evidence"]}
+      ]
+    },
+    {
+      "id": "R_role_definition",
+      "stage": 3,
+      "status": "planned_not_run",
+      "turns": [
+        {"id": "R1", "question": "AO 的職責是什麼？", "expected": ["Answer from concept and role relationships without requiring an amount path", "Do not invent unique assignment or revenue allocation"]}
+      ]
+    },
+    {
+      "id": "B_business_income_sources",
+      "stage": 3,
+      "status": "planned_not_run",
+      "turns": [
+        {"id": "B1", "question": "手續費收入來自哪些業務？", "expected": ["List supported business sources by channel", "Keep graph-defined fee-income scope qualifications", "Avoid unsolicited SQL or every product's calculation details"]}
+      ]
+    },
+    {
+      "id": "X_explicit_topic_change",
+      "stage": 3,
+      "crossTopicCase": true,
+      "status": "planned_not_run",
+      "turns": [
+        {"id": "X1", "question": "銀行基金收入怎麼算？", "expected": ["Grounded bank fund income explanation"]},
+        {"id": "X2", "question": "AO 的職責是什麼？", "expected": ["Answer the new role question without carrying bank fund or income as restrictions"]}
+      ]
+    },
+    {
+      "id": "A_actual_amount_limit",
+      "stage": 3,
+      "status": "planned_not_run",
+      "turns": [
+        {"id": "A1", "question": "請告訴我本月銀行基金的實際收入金額。", "expected": ["Explain that no transaction data execution or amount result is available", "Do not invent a value or imply the system executed a query", "Do not ask for a month as though that would enable execution"]}
+      ]
+    },
+    {
+      "id": "O_outside_graph",
+      "stage": 3,
+      "status": "planned_not_run",
+      "turns": [
+        {"id": "O1", "question": "幫我算加密貨幣質押收益。", "expected": ["Identify lack of supported graph and source evidence", "Do not invent a product or formula"]}
+      ]
+    },
+    {
+      "id": "S1_sql_foreign_deposit",
+      "stage": 3,
+      "status": "planned_not_run",
+      "turns": [
+        {"id": "S1", "question": "請依現有 staging SQL，直接寫出外幣存款 AUM 的 Oracle 查詢 SQL。", "expected": ["Generate grounded read-only SQL without execution", "Preserve source branches and existing historical staging dependencies", "Do not claim fully rebuilt base-table equivalence without evidence"]}
+      ],
+      "reference": "deliverables/graph_qa/testing_20261015/S1_reference_foreign_deposit.sql"
+    },
+    {
+      "id": "S2_sql_securities_fund",
+      "stage": 3,
+      "status": "planned_not_run",
+      "turns": [
+        {"id": "S2", "question": "請依現有 staging SQL，直接寫出證券複委託基金收入的 Oracle 查詢 SQL，保留收入歸月與合併去重規則。", "expected": ["Preserve source date versus derived income month lineage", "Preserve original workday boundary and source-table MAX dependencies", "Preserve UNION complete-row deduplication", "Do not execute SQL"]}
+      ],
+      "reference": "deliverables/graph_qa/testing_20261015/S2_reference_securities_fund_income.sql"
+    },
+    {
+      "id": "S3_sql_bank_fund",
+      "stage": 3,
+      "status": "planned_not_run",
+      "turns": [
+        {"id": "S3", "question": "請依現有 staging SQL，直接寫出銀行基金手續費收入的 Oracle 查詢 SQL，按客戶與收入月份彙總。", "expected": ["Preserve staging CASE order and amount/date fields", "Aggregate by requested customer and income month", "Do not add an unrequested downstream private-banking customer or AO join", "Do not execute SQL"]}
+      ],
+      "reference": "deliverables/graph_qa/testing_20261015/S3_reference_bank_fund_income.sql"
+    },
+    {
+      "id": "H_existing_additional_product",
+      "stage": 3,
+      "status": "planned_not_run",
+      "holdout": false,
+      "notes": "This product has prior history; do not call it a new independent holdout. Add a separate untouched product only after freezing the candidate.",
+      "turns": [
+        {"id": "H1", "question": "請依現有 staging SQL，直接寫出證券複委託外國股票收入的 Oracle 查詢 SQL。", "expected": ["Preserve PM/AM branches, net fee formula, FX and settlement-month evidence", "Preserve source ambiguities rather than rewriting business rules", "Do not execute SQL"]}
+      ],
+      "reference": "deliverables/graph_qa/v8/H1_reference.sql"
+    }
+  ],
+  "stageThreeGate": "On a frozen candidate, C_compare, F_clarification_reply, and P_channel_and_metric_changes must each pass the two predeclared independent confirmation sessions. Preserve and report all failures.",
+  "finish": ["Export and verify the candidate", "Restore original pinData and temporary settings", "Reset test chat", "Keep unpublished", "Update RESUME with actual status and evidence"]
+}

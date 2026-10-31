@@ -1,0 +1,118 @@
+{
+  "sourceFilesByteRoundTrip": 7,
+  "statementsExactSlices": 113,
+  "dataProducingStatementsAudited": 109,
+  "allReadTablesReachOutputs": true,
+  "incomeUnionBranches": 24,
+  "aumUnionBranches": 13,
+  "incomeCustomerJoinVerified": true,
+  "historyAndAlternateDefinitionsSeparated": true,
+  "monthlyDeleteInsertPreserved": true,
+  "operationNodes": 0,
+  "tableLinkTypes": {
+    "UNION": 121,
+    "TRANSFORMS_TO": 56,
+    "UNION_ALL": 19,
+    "INNER_JOIN": 12,
+    "LEFT_JOIN": 23,
+    "INSERT_FROM": 4,
+    "DELETE_ROWS": 4
+  },
+  "planLabels": {
+    "SqlLineageRoot": 1,
+    "SqlSourceFile": 7,
+    "SqlStatement": 113,
+    "SqlTable": 159
+  },
+  "planRelationships": 791,
+  "stageBridgeCandidates": 86,
+  "protectedBefore": {
+    "nodeCount": 886,
+    "relationshipCount": 2462,
+    "nodesSha256": "45b09efbdf855647aaea9e29df1f3f232f91099189e1107c59b4b099e681db7a",
+    "relationshipsSha256": "8a85b304834c34d3364ec02f60dfd71f8b7fc24c7a04e84505c3f63c06755423",
+    "businessNodesSha256": "a6e261e45a2cf0e3b98c19385aa2004b42b56ef1a09553da9a707f80adbc3687"
+  },
+  "removedPreviousOperationNodes": 626,
+  "importValidation": {
+    "nodeCounts": [
+      [
+        [
+          "SqlLineageRoot"
+        ],
+        1
+      ],
+      [
+        [
+          "SqlSourceFile"
+        ],
+        7
+      ],
+      [
+        [
+          "SqlStatement"
+        ],
+        113
+      ],
+      [
+        [
+          "SqlTable"
+        ],
+        159
+      ]
+    ],
+    "ownedRelationships": 1188,
+    "stageBridges": 86,
+    "missingStageBridges": 0,
+    "operationNodes": 0,
+    "INCOME_TMP01UnionBranches": 24,
+    "AUMUnionBranches": 13,
+    "duplicateOwnedRelationships": 0,
+    "representativePaths": [
+      [
+        2,
+        [
+          "DSINS.INSU_RPT_Q01",
+          "INCOME_028",
+          "INCOME_TMP01"
+        ]
+      ],
+      [
+        3,
+        [
+          "DSDEP.DEP_NT_ACCT",
+          "AUM_005_007_008_009_TMP04",
+          "AUM_005_007_008_009",
+          "AUM"
+        ]
+      ]
+    ],
+    "statusCounts": [
+      [
+        "active_sql",
+        87
+      ],
+      [
+        "alternate_file_sql",
+        7
+      ],
+      [
+        "auxiliary_reference_sql",
+        11
+      ],
+      [
+        "commented_out_sql",
+        8
+      ]
+    ]
+  },
+  "protectedAfter": {
+    "nodeCount": 886,
+    "relationshipCount": 2462,
+    "nodesSha256": "45b09efbdf855647aaea9e29df1f3f232f91099189e1107c59b4b099e681db7a",
+    "relationshipsSha256": "8a85b304834c34d3364ec02f60dfd71f8b7fc24c7a04e84505c3f63c06755423",
+    "businessNodesSha256": "a6e261e45a2cf0e3b98c19385aa2004b42b56ef1a09553da9a707f80adbc3687"
+  },
+  "originalGraphPreserved": true,
+  "idempotentRerun": true
+}

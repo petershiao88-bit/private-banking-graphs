@@ -1,0 +1,27 @@
+@prefix h: <urn:handoff-demo:> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Illustrative customer-report acceptance policy, NOT a real bank policy.
+h:CustomerReportShape a sh:NodeShape ;
+    sh:targetClass h:Handoff ;
+    sh:property [ sh:path h:receiptVerified ; sh:hasValue true ;
+                  sh:message "工具輸出必須通過收據與內容核對。" ] ;
+    sh:property [ sh:path h:lineageComplete ; sh:hasValue true ;
+                  sh:message "必須具備完整、已登記的來源。" ] ;
+    sh:property [ sh:path h:recipient ; sh:hasValue h:customer_report ; sh:maxCount 1 ] ;
+    sh:property [ sh:path h:item ; sh:minCount 1 ; sh:node h:ItemShape ;
+                  sh:message "交接內容不能是空的。" ] ;
+    sh:property [ sh:path h:label ; sh:minCount 1 ;
+                  sh:in (h:public h:personal_data h:bank_subsidiary h:securities_subsidiary) ;
+                  sh:message "客戶報告不接受銀行視角或內部績效標籤。" ] ;
+    sh:or (
+      [ sh:not [ sh:property [ sh:path h:label ; sh:hasValue h:personal_data ] ] ]
+      [ sh:property [ sh:path h:consentVerified ; sh:hasValue true ;
+                       sh:message "個資交接需要有效且範圍相符的客戶同意。" ] ]
+    ) .
+
+h:ItemShape a sh:NodeShape ;
+    sh:property [ sh:path h:value ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path h:term ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path h:source ; sh:minCount 1 ] .

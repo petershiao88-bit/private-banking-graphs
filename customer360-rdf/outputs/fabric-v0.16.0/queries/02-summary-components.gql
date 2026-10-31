@@ -1,0 +1,5 @@
+// 總指標與分項；HAS_COMPONENT_METRIC 不是可執行加總公式。
+MATCH (d:Department)-[r:USES_METRIC]->(t:Metric)-[h:HAS_COMPONENT_METRIC]->(c:Metric)
+FILTER d.id = 'bank.private_banking' AND t.subsidiary = 'securities'
+RETURN d, r, t, h, c
+LIMIT 100

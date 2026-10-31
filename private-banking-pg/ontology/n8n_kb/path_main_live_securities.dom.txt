@@ -1,0 +1,551 @@
+- main:
+  - link "Personal":
+    - /url: /projects/az20wapvzAkbtoPa
+    - generic "Personal":
+    - generic "Personal"
+  - generic: /
+  - generic "智能查詢 - 概念圖 KB 測試版":
+    - generic: 智能查詢 - 概念圖 KB 測試版
+  - button "More actions":
+  - button "Publish":
+    - generic: Publish
+  - button "More actions":
+  - radiogroup:
+    - radio "Editor" [checked]
+    - radio "Executions"
+    - radio "Evaluations"
+  - complementary:
+    - link:
+      - /url: /home
+    - menubar:
+      - menuitem "Add new item":
+        - button "Add new item":
+    - button "Open command palette":
+    - button "Toggle sidebar":
+    - menuitem "n8n Assistant":
+      - generic: n8n Assistant
+      - generic: Preview
+    - menuitem "Overview":
+      - generic: Overview
+    - menuitem "Personal":
+      - generic: Personal
+    - menuitem "Shared with you":
+      - generic: Shared with you
+    - button "Chats" [expanded]:
+      - generic: Chats
+    - link "View all":
+      - /url: /assistant/history
+    - menuitem "New conversation":
+      - generic: New conversation
+    - menuitem "智能查詢":
+      - generic: 智能查詢
+    - menuitem "OpenAI credential setup":
+      - generic: OpenAI credential setup
+    - menuitem "智能查詢":
+      - generic: 智能查詢
+    - menuitem "Templates":
+      - generic: Templates
+    - menuitem "Help":
+      - generic: Help
+    - menuitem "Settings":
+      - generic: Settings
+  - main:
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Execute a SQL query
+    - generic: executeQuery
+    - generic: Model*
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: SQL Reasoning Agent
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Router Input
+    - generic: manual
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Aggregate
+    - generic: Output Parser
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Structured Output Parser
+    - generic: Model*
+    - generic: Output Parser
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: metric router
+    - generic: Model
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Router Model
+    - generic: Model
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: SQL Model
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Normalize SQL Result
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: User Query
+    - button "Hide chat":
+      - generic: Hide chat
+    - generic: Memory
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Postgres Chat Memory
+    - generic: Model
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Response Model
+    - generic: Model*
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Response
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Get row(s)
+    - generic: "POST: https://4bb479b2.databases.neo4j.io/db/neo4j/query/v2"
+    - generic: Input 1
+    - generic: Input 2
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Merge
+    - generic: combine
+    - generic: Model*
+    - generic: Output Parser
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Basic LLM Chain
+    - generic: Model
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: OpenRouter Chat Model
+    - generic: "0"
+    - generic: "1"
+    - generic: "2"
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Switch
+    - generic: "mode: Rules"
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: 追問
+    - generic: Send and Wait for Response
+    - generic: Output Parser
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Structured Output Parser1
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: 整理追問回覆
+    - generic: raw
+    - generic: 1 item
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: 送出查詢回答
+    - generic: Send Message
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: 知識分支 Metric 清單
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Metric 範圍檢查
+    - generic: Chat Model*
+    - generic: Memory
+    - generic: Tool
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: AUM 知識回答 Agent
+    - generic: Model
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: 知識回答 Model
+    - generic: Tool
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: AUM Knowledge Lookup
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: 整理知識回答
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: 送出知識回答
+    - generic: Send Message
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Product Concept KB
+    - generic: "Workflow: tL7HTesvAzqwsqv6"
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Available Source Metadata
+    - generic: executeQuery
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: 保留候選機率
+    - generic: "true"
+    - generic: "false"
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: KB Route and Evidence Ready
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: KB Not Ready
+    - button "Add 34 nodes to chat":
+    - button "Zoom to Fit":
+    - button "Zoom In":
+    - button "Zoom Out":
+    - button "Tidy Up":
+    - button "Hide chat":
+      - generic: Hide chat
+    - button "Open nodes panel":
+    - button "Command bar":
+    - button "Add sticky note":
+    - button "Open side panel":
+    - button "n8n AI":
+    - complementary
+    - generic: Chat
+    - 'button "Session: 783c1..."':
+      - generic: "Session: 783c1..."
+    - button "Reset":
+    - main:
+      - main:
+        - paragraph: 請查2026年9月全體客戶的存款利收，以新臺幣呈現。
+        - paragraph: 2026年9月全體客戶的新臺幣存款利收目前無法提供金額，因為計算所需的原始定義資料不足，無法完成計算。
+        - paragraph: 候選產品的納入機率（0～1）：
+        - table:
+          - rowgroup:
+            - row "產品 領域 機率":
+              - columnheader "產品"
+              - columnheader "領域"
+              - columnheader "機率"
+          - rowgroup:
+            - row "存款 Income 1":
+              - cell "存款"
+              - cell "Income"
+              - cell "1"
+        - paragraph: 完整概念路徑的納入機率（0～1）：
+        - table:
+          - rowgroup:
+            - row "路徑 查詢指標 機率 判斷":
+              - columnheader "路徑"
+              - columnheader "查詢指標"
+              - columnheader "機率"
+              - columnheader "判斷"
+          - rowgroup:
+            - row "deposit::income::deposit_interest_income::799c38fe deposit_interest_income 0.61 included":
+              - cell "deposit::income::deposit_interest_income::799c38fe"
+              - cell "deposit_interest_income"
+              - cell "0.61"
+              - cell "included"
+        - paragraph: 請查2026年9月全體客戶的證券基金月底AUM，以新臺幣呈現。
+        - paragraph: 請查2026年9月全體客戶的證券基金月底AUM，以新臺幣呈現。
+        - paragraph: 請查2026年9月全體客戶的證券基金月底AUM，以新臺幣呈現。
+        - paragraph: 查詢2026年9月全體客戶以新臺幣呈現的證券基金月底AUM，目前缺少所需的資料來源或欄位，無法提供該數值。
+        - paragraph: 候選產品的納入機率（0～1）：
+        - table:
+          - rowgroup:
+            - row "產品 領域 機率":
+              - columnheader "產品"
+              - columnheader "領域"
+              - columnheader "機率"
+          - rowgroup:
+            - row "證券複委託債券 AUM 0":
+              - cell "證券複委託債券"
+              - cell "AUM"
+              - cell "0"
+            - row "證券複委託外國股票 AUM 0":
+              - cell "證券複委託外國股票"
+              - cell "AUM"
+              - cell "0"
+            - row "證券複委託基金 AUM 0.79":
+              - cell "證券複委託基金"
+              - cell "AUM"
+              - cell "0.79"
+            - row "證券複委託結構型商品 AUM 0":
+              - cell "證券複委託結構型商品"
+              - cell "AUM"
+              - cell "0"
+        - paragraph: 完整概念路徑的納入機率（0～1）：
+        - table:
+          - rowgroup:
+            - row "路徑 查詢指標 機率 判斷":
+              - columnheader "路徑"
+              - columnheader "查詢指標"
+              - columnheader "機率"
+              - columnheader "判斷"
+          - rowgroup:
+            - row "securities_bond::aum::aum_securities_month_end::ed9f4949 aum_securities_month_end 0 excluded":
+              - cell "securities_bond::aum::aum_securities_month_end::ed9f4949"
+              - cell "aum_securities_month_end"
+              - cell "0"
+              - cell "excluded"
+            - row "securities_foreign_stock::aum::aum_securities_month_end::2c540745 aum_securities_month_end 0 excluded":
+              - cell "securities_foreign_stock::aum::aum_securities_month_end::2c540745"
+              - cell "aum_securities_month_end"
+              - cell "0"
+              - cell "excluded"
+            - row "securities_fund::aum::aum_securities_month_end::514b108b aum_securities_month_end 0.88 included":
+              - cell "securities_fund::aum::aum_securities_month_end::514b108b"
+              - cell "aum_securities_month_end"
+              - cell "0.88"
+              - cell "included"
+            - row "securities_structured::aum::aum_securities_month_end::719e392b aum_securities_month_end 0 excluded":
+              - cell "securities_structured::aum::aum_securities_month_end::719e392b"
+              - cell "aum_securities_month_end"
+              - cell "0"
+              - cell "excluded"
+        - textbox "Type message, or press ‘up’ for previous one" [active]
+        - button [disabled]:
+    - generic: Logs
+    - button "Clear execution":
+      - text: Clear execution
+    - generic: Success in 17.782s
+    - generic: 13,532 Tokens
+    - radiogroup:
+      - radio "Overview"
+      - radio "Details" [checked]
+    - tree:
+      - treeitem "KB Route and Evidence Ready":
+        - generic: KB Route and Evidence Ready
+      - treeitem "Available Source Metadata":
+        - generic: Available Source Metadata
+      - treeitem "SQL Reasoning Agent Toggle row" [expanded]:
+        - generic: SQL Reasoning Agent
+        - button "Toggle row":
+      - treeitem "SQL Model":
+        - generic: SQL Model
+      - treeitem "Execute a SQL query":
+        - generic: Execute a SQL query
+      - treeitem "Normalize SQL Result":
+        - generic: Normalize SQL Result
+      - treeitem "Response Toggle row" [expanded]:
+        - generic: Response
+        - button "Toggle row":
+      - treeitem "Response Model":
+        - generic: Response Model
+      - treeitem "保留候選機率 Open... Execute step":
+        - generic: 保留候選機率
+        - button "Open...":
+        - button "Execute step":
+      - treeitem "送出查詢回答" [selected]:
+        - generic: 送出查詢回答
+    - generic: 送出查詢回答
+    - generic: Success in 0s
+    - button "Input":
+      - generic: Input
+    - button "Output":
+      - generic: Output
+    - button "Actions":
+    - button "Collapse panel":
+    - generic: Input
+    - textbox "Search previous nodes' fields"
+    - radiogroup:
+      - radio "Schema" [checked]:
+      - radio "Table":
+      - radio "JSON":
+    - generic: 1 item
+    - generic: text
+    - generic: 查詢2026年9月全體客戶以新臺幣呈現的證券基金月底AUM，目前缺少所需的資料來源或欄位，無法提供該數值。
+    - generic: \n
+    - generic: \n候選產品的納入機率（0～1）：
+    - generic: \n
+    - generic: \n| 產品 | 領域 | 機率 |
+    - generic: \n|---|---|---|
+    - generic: \n| 證券複委託債券 | AUM | 0 |
+    - generic: \n| 證券複委託外國股票 | AUM | 0 |
+    - generic: \n| 證券複委託基金 | AUM | 0.79 |
+    - generic: \n| 證券複委託結構型商品 | AUM | 0 |
+    - generic: \n
+    - generic: \n完整概念路徑的納入機率（0～1）：
+    - generic: \n
+    - generic: \n| 路徑 | 查詢指標 | 機率 | 判斷 |
+    - generic: \n|---|---|---|---|
+    - generic: \n| securities_bond::aum::aum_securities_month_end::ed9f4949 | aum_securities_month_end | 0 | excluded |
+    - generic: \n| securities_foreign_stock::aum::aum_securities_month_end::2c540745 | aum_securities_month_end | 0 | excluded |
+    - generic: \n| securities_fund::aum::aum_securities_month_end::514b108b | aum_securities_month_end | 0.88 | included |
+    - generic: \n| securities_struc...
+    - generic: candidateScores
+    - generic: candidateScores[0]
+    - generic: objectKey
+    - generic: securities_bond::aum
+    - generic: productCode
+    - generic: securities_bond
+    - generic: productName
+    - generic: 證券複委託債券
+    - generic: domain
+    - generic: aum
+    - generic: definition
+    - generic: 證券通路的複委託債券業務，涵蓋部位估值與交易手續費收入。
+    - generic: definitionStatus
+    - generic: inferred
+    - generic: matchedMetricCodes
+    - generic: matchedMetricCodes[0]
+    - generic: aum_securities_month_end
+    - generic: Output
+    - textbox "Search (Ctrl+F)"
+    - radiogroup:
+      - radio "Schema":
+      - radio "Table" [checked]:
+      - radio "JSON":
+    - generic: 1 item
+    - table:
+      - rowgroup:
+        - row "sessionId Collapse rows action Collapse rows chatInput Collapse rows":
+          - columnheader "sessionId Collapse rows":
+            - generic: sessionId
+            - button "Collapse rows":
+          - columnheader "action Collapse rows":
+            - generic: action
+            - button "Collapse rows":
+          - columnheader "chatInput Collapse rows":
+            - generic: chatInput
+            - button "Collapse rows":
+          - columnheader
+      - rowgroup:
+        - row "783c14bb62d84fd9817906ba4799d67a sendMessage 查詢2026年9月全體客戶以新臺幣呈現的證券基金月底AUM，目前缺少所需的資料來源或欄位，無法提供該數值。\\n\\n候選產品的納入機率（0～1）：\\n\\n| 產品 | 領域 | 機率 |\\n|---|---|---|\\n| 證券複委託債券 | AUM | 0 |\\n| 證券複委託外國股票 | AUM | 0 |\\n| 證券複委託基金 | AUM | 0.79 |\\n| 證券複委託結構型商品 | AUM | 0 |\\n\\n完整概念路徑的納入機率（0～1）：\\n\\n| 路徑 | 查詢指標 | 機率 | 判斷 |\\n|---|---|---|---|\\n| securities_bond::aum::aum_securities_month_end::ed9f4949 | aum_securities_month_end | 0 | excluded |\\n| securities_foreign_stock::aum::aum_securities_month_end::2c540745 | aum_securities_month_end | 0 | excluded |\\n| securities_fund::aum::aum_securities_month_end::514b108b | aum_securities_month_end | 0.88 | included |\\n| securities_structured::aum::aum_securities_month_end::719e392b | aum_securities_month_end | 0 | excluded |":
+          - cell "783c14bb62d84fd9817906ba4799d67a":
+            - generic: 783c14bb62d84fd9817906ba4799d67a
+          - cell "sendMessage":
+            - generic: sendMessage
+          - cell "查詢2026年9月全體客戶以新臺幣呈現的證券基金月底AUM，目前缺少所需的資料來源或欄位，無法提供該數值。\\n\\n候選產品的納入機率（0～1）：\\n\\n| 產品 | 領域 | 機率 |\\n|---|---|---|\\n| 證券複委託債券 | AUM | 0 |\\n| 證券複委託外國股票 | AUM | 0 |\\n| 證券複委託基金 | AUM | 0.79 |\\n| 證券複委託結構型商品 | AUM | 0 |\\n\\n完整概念路徑的納入機率（0～1）：\\n\\n| 路徑 | 查詢指標 | 機率 | 判斷 |\\n|---|---|---|---|\\n| securities_bond::aum::aum_securities_month_end::ed9f4949 | aum_securities_month_end | 0 | excluded |\\n| securities_foreign_stock::aum::aum_securities_month_end::2c540745 | aum_securities_month_end | 0 | excluded |\\n| securities_fund::aum::aum_securities_month_end::514b108b | aum_securities_month_end | 0.88 | included |\\n| securities_structured::aum::aum_securities_month_end::719e392b | aum_securities_month_end | 0 | excluded |":
+            - generic: 查詢2026年9月全體客戶以新臺幣呈現的證券基金月底AUM，目前缺少所需的資料來源或欄位，無法提供該數值。
+            - generic: \n
+            - generic: \n候選產品的納入機率（0～1）：
+            - generic: \n
+            - generic: \n| 產品 | 領域 | 機率 |
+            - generic: \n|---|---|---|
+            - generic: \n| 證券複委託債券 | AUM | 0 |
+            - generic: \n| 證券複委託外國股票 | AUM | 0 |
+            - generic: \n| 證券複委託基金 | AUM | 0.79 |
+            - generic: \n| 證券複委託結構型商品 | AUM | 0 |
+            - generic: \n
+            - generic: \n完整概念路徑的納入機率（0～1）：
+            - generic: \n
+            - generic: \n| 路徑 | 查詢指標 | 機率 | 判斷 |
+            - generic: \n|---|---|---|---|
+            - generic: \n| securities_bond::aum::aum_securities_month_end::ed9f4949 | aum_securities_month_end | 0 | excluded |
+            - generic: \n| securities_foreign_stock::aum::aum_securities_month_end::2c540745 | aum_securities_month_end | 0 | excluded |
+            - generic: \n| securities_fund::aum::aum_securities_month_end::514b108b | aum_securities_month_end | 0.88 | included |
+            - generic: \n| securities_structured::aum::aum_securities_month_end::719e392b | aum_securities_month_end | 0 | excluded |
+          - cell
+- complementary
+- status
+- alert

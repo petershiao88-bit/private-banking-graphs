@@ -1,0 +1,7 @@
+{
+  "PB_AUM_MEASURED_BY": "產品的資產規模由此 AUM 指標衡量。",
+  "PB_INCOME_MEASURED_BY": "產品相關收入由此收入指標衡量。",
+  "PB_AUM_ROLLS_UP_TO": "此 AUM 子指標歸屬於上層指標，具體彙總口徑由映射與計算規則決定。",
+  "PB_INCOME_ROLLS_UP_TO": "此收入子指標歸屬於上層指標，具體彙總口徑由映射與計算規則決定。",
+  "PB_HAS_MEASUREMENT_SUBJECT": "此指標以客戶作為衡量對象。"
+}

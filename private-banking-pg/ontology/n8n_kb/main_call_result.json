@@ -1,0 +1,29 @@
+{
+  "evidenceKind": "observed UI summary",
+  "executionId": "2416",
+  "version": "KB v2 - metric 範圍與 Jev 細項選品",
+  "status": "Succeeded",
+  "durationSeconds": 5.477,
+  "input": {
+    "question": "查詢2026年9月底全體客戶的證券複委託基金AUM總額，以新臺幣呈現",
+    "domains": [
+      "aum"
+    ],
+    "metricCodes": [
+      "aum_securities_month_end"
+    ]
+  },
+  "outputSummary": {
+    "metricCodes": [
+      "aum_securities_month_end"
+    ],
+    "productCode": "securities_fund",
+    "domain": "aum",
+    "mappingStage": "AUM_025",
+    "baseTables": [
+      "DSPBM.PB_FUNDPOSIT_SEC_M",
+      "DSPBM.PB_FUNDPOSIT_SEC"
+    ]
+  },
+  "downstreamMainError": "relation \"dspbm.pb_fundposit_sec_m\" does not exist"
+}

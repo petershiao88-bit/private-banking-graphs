@@ -1,0 +1,51 @@
+Neo4j 概念圖與映射圖離線匯出
+日期：2026-10-14（Asia/Taipei）
+來源：Aura 4bb479b2 / neo4j，Query 介面唯讀下載。
+
+檔案範圍
+1. 正式概念圖_20261014.json：PBConcept，包含完整節點、關係、業務屬性及金額衡量路徑。
+2. 底表映射圖_20261014.json：目前底表檢視，包含產品、指標、客戶、AO、私銀、來源底表與規則。
+3. 映射概念檢視_20261014.json：MappingDraft 的概念投影，不能視為正式 PBConcept。
+4. 完整映射與SQL血緣_20261014.json：全部非 PBConcept 圖層，保留既有技術證據、中間表及 SQL 血緣。
+5. Aura_完整原始下載.json：下載檔原樣保存；若採分段匯出，各 chunk 須依 chunkIndex 串接。
+6. Aura_完整圖譜快照.json：完整圖譜的原始節點／關係物件，保留 Aura element ID。
+7. 匯出核對.json／檔案清單.json：數量、端點、重複鍵、內容摘要及檔案 SHA-256。
+8. 本機對照字典：本機正式節點字典、關係字典及路由副本；為輔助來源，不是此次 Aura 匯出內容。
+
+JSON 格式
+nodes[]：key、elementId、labels、properties。
+relationships[]：key、elementId、from、to、type、properties。
+from／to 指向 nodes[].key。PBConcept 的 key 使用 pbconcept: 加原 productCode／metricCode／conceptCode，避免與映射層重名。
+關係 key 為此次快照的 element ID；跨資料庫重建時請以原業務識別碼定位，不把 element ID 當永久跨環境識別碼。
+properties 保留資料庫原型態。calculationRules、queryRules、columns 等欄位若為 JSON 字串，使用時針對該欄位解析；原始匯出沒有擅自轉型。
+JSON 是圖譜資料快照，不包含索引、約束、帳號、權限、伺服器設定或資料庫 dump。
+這些資料描述業務定義、規則與來源；不包含可據此直接算出金額的實際交易與餘額資料。
+
+替代查詢方案
+A. JSON + 記憶體索引（建議先做）
+讀取檔案後，以 key、productCode、metricCode、來源表名建立 Map；另建立 from/to 的鄰接索引。
+用程式確定性地走「產品 → 指標 → 彙總指標」及「產品 → 來源底表」，按代碼取出規則。
+AI 負責理解問題與說明查詢證據；產品父子重複、日期／版本／粒度、依賴表與尚未確認口徑由程式明確檢查。
+以目前圖譜規模與固定查詢流程，這是我建議的第一步；不需在每次問答時連 Aura。
+規則更新時仍須更換快照與版本，並核對差異。這份匯出尚未修改現有 n8n 流程。
+
+B. SQLite
+以 nodes(key, labels_json, properties_json) 與 relationships(key, from_key, type, to_key, properties_json) 儲存。
+可建立代碼與端點索引，以 SQL 過濾資料；需要多層路徑時用遞迴 CTE。
+適合單機、規則逐漸增加、需要查詢條件與版本管理的場景。
+官方：https://www.sqlite.org/json1.html
+官方：https://www.sqlite.org/lang_with.html
+
+C. 本機 Neo4j
+適合希望沿用 Cypher 與視覺化圖譜的場景；可於本機管理資料庫。
+仍需管理資料庫服務，現有 Aura HTTP 節點的連線與憑證要另行調整。
+Neo4j Desktop 內含的 Developer edition 適用範圍請依官方授權說明評估。
+本輪未安裝 Neo4j 或匯入其他資料庫。
+官方：https://neo4j.com/docs/desktop/current/
+
+多人共同維護時，可再評估將節點／關係放到既有 PostgreSQL，透過受控 API 查詢。
+若繼續使用雲端 n8n，本機桌面 JSON 需先透過可達的資料來源／服務供應，或將版本化的查詢資料部署到工作流可讀取的位置；單純下載到本機不會自動替換 Aura 呼叫。
+
+建議接續
+先以「概念 JSON → 選取產品／指標 → 映射 JSON 索引 → 證據整理 → 回答」替代兩次 Aura 查詢。
+驗證時至少比對存款 AUM、存款收入、證券基金、放款利收、AO 上下文與父子分類，確認與現行 KB 回應一致。

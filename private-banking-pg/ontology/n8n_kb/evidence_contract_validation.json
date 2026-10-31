@@ -1,0 +1,45 @@
+{
+  "checksPassed": 57,
+  "liveGraph": true,
+  "liveJev": false,
+  "syntheticDecisionFixtures": true,
+  "cases": {
+    "deposit_aum": {
+      "status": "selected",
+      "evidenceStatus": "incomplete",
+      "issues": [
+        {
+          "code": "table_definition_missing",
+          "detail": "AUM_005_007_008_009_TMP01 缺少有效原始定義。",
+          "objectKey": "deposit::aum"
+        },
+        {
+          "code": "table_definition_missing",
+          "detail": "AUM_005_007_008_009_TMP02 缺少有效原始定義。",
+          "objectKey": "deposit::aum"
+        },
+        {
+          "code": "table_definition_missing",
+          "detail": "AUM_005_007_008_009_TMP03 缺少有效原始定義。",
+          "objectKey": "deposit::aum"
+        }
+      ]
+    },
+    "deposit_income": {
+      "status": "selected",
+      "evidenceStatus": "incomplete",
+      "issues": [
+        {
+          "code": "table_definition_missing",
+          "detail": "INCOME_066_TMP01 缺少有效原始定義。",
+          "objectKey": "deposit::income"
+        }
+      ]
+    },
+    "securities_aum": {
+      "status": "selected",
+      "evidenceStatus": "complete",
+      "issues": []
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "revision": "securities-summary-20261024",
+  "ontology_version": "0.16.0",
+  "status": "implemented_locally_not_deployed",
+  "backup": "archive/before-securities-summary-20261024",
+  "rdf_changed": false,
+  "new_concepts": [
+    "securities.total_aum",
+    "securities.total_fee_income"
+  ],
+  "component_memberships": {
+    "securities.total_aum": [
+      "securities.bond_aum",
+      "securities.foreign_stock_aum",
+      "securities.fund_aum",
+      "securities.structured_aum",
+      "securities.taiwan_stock_aum"
+    ],
+    "securities.total_fee_income": [
+      "securities.bond_fee_income",
+      "securities.foreign_stock_fee_income",
+      "securities.fund_fee_income",
+      "securities.structured_fee_income"
+    ]
+  },
+  "excluded_metric_ids": {
+    "securities.total_aum": [
+      "securities.stock_pledge_aum"
+    ],
+    "securities.total_fee_income": [
+      "securities.taiwan_stock_fee_income"
+    ]
+  },
+  "lineage_mode": "via_component_metrics",
+  "calculation_status": "pending_tool_definition",
+  "new_source_tables": [],
+  "existing_component_models_changed": false,
+  "source_evidence": {
+    "aum_summary_included": {
+      "file": "Ontology/私銀智能問答/sources/sql/2._AUM_SUMY.sql",
+      "lines": [
+        90,
+        129
+      ],
+      "encoding": "cp950",
+      "sha256": "4ac7adc0a400563a0e5c68281c92b4efd7caf65a2dcb0e30b23b849fd7244ee1"
+    },
+    "aum_summary_pledge_mixed_as_taiwan": {
+      "file": "Ontology/私銀智能問答/sources/sql/2._AUM_SUMY.sql",
+      "lines": [
+        121,
+        139
+      ],
+      "encoding": "cp950",
+      "sha256": "4ac7adc0a400563a0e5c68281c92b4efd7caf65a2dcb0e30b23b849fd7244ee1"
+    },
+    "aum_detail_components": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "lines": [
+        316,
+        438
+      ],
+      "encoding": "cp950",
+      "sha256": "f13683032e1b733af240eb941047b2a57e299db459fc7fda317352057c80b96a"
+    },
+    "income_summary_components": {
+      "file": "Ontology/私銀智能問答/sources/sql/9.INCOME_SMY.sql",
+      "lines": [
+        201,
+        230
+      ],
+      "encoding": "cp950",
+      "sha256": "6361b14ced76443a5f10f64838219d177a1d1cc76e553be565f7c1233b870588"
+    },
+    "income_detail_components": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        329,
+        496
+      ],
+      "encoding": "cp950",
+      "sha256": "b257b8e2dff0088cab5e505228fcc7a05200a5c572c6f607c642d21b9fb2277e"
+    },
+    "income_customer_scope": {
+      "file": "Ontology/私銀智能問答/sources/sql/9.INCOME_SMY.sql",
+      "lines": [
+        254,
+        304
+      ],
+      "encoding": "cp950",
+      "sha256": "6361b14ced76443a5f10f64838219d177a1d1cc76e553be565f7c1233b870588"
+    },
+    "aum_report_copy_only": {
+      "file": "Ontology/私銀智能問答/sources/sql/12.GRANT.sql",
+      "lines": [
+        12,
+        15
+      ],
+      "encoding": "cp950",
+      "sha256": "ef9fa5409729bdd88980f30eeb895f823ed42e0168d03cc9feaa23dbc6213fc2"
+    },
+    "aum_monthly_query_draft": {
+      "file": "Ontology/私銀智能問答/ontology/AUM_business_dictionary.json",
+      "encoding": "utf-8",
+      "selector": "metrics.code=aum_total_month_end; rules.code=category_latest_date",
+      "status": "draft_metric_query",
+      "sha256": "bea1f44e2e25d938869e3c1eb7cdc7d45f0136d4ac74c7ae32a6ec5567031520"
+    }
+  }
+}

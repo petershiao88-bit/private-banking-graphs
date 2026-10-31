@@ -1,0 +1,16 @@
+{
+  "result": "PASS",
+  "turtle_files_parsed": 5,
+  "rdf_xml_files_parsed": 1,
+  "turtle_parser_scope": "independent parser limited to the emitted Turtle syntax",
+  "rdf_xml_turtle_graph_equality": true,
+  "combined_triples": 232,
+  "classes": 9,
+  "object_properties": 2,
+  "data_properties": 21,
+  "annotation_properties": 5,
+  "local_catalog_imports_resolve": true,
+  "rdfs_smoke_test_records": 6,
+  "full_owl_reasoner": "not run",
+  "source_records_in_exports": false
+}

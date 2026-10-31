@@ -1,0 +1,13 @@
+{
+  "status": "verified",
+  "source": "Neo4j Query Table → Download JSON",
+  "sourceRows": 282,
+  "nodeCount": 104,
+  "relationshipCount": 218,
+  "nodePropertiesMatchCanonical": true,
+  "relationPropertiesTypesAndEndpointsMatchCanonical": true,
+  "advisorIncluded": true,
+  "relationshipJsonStringsPreserved": true,
+  "scope": "當前查詢可見映射，非整個資料庫的備份",
+  "file": "底表映射圖_20261013.json"
+}

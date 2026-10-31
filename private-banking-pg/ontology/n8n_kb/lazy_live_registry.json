@@ -1,0 +1,152 @@
+{
+  "data": {
+    "fields": [
+      "metric_code",
+      "metric_name",
+      "aliases",
+      "definition",
+      "domain",
+      "metric_status"
+    ],
+    "values": [
+      [
+        "aum_bank_investment_month_end",
+        "月底銀行投資AUM",
+        [
+          "月底銀行投資AUM",
+          "aum_bank_investment_month_end"
+        ],
+        "TYP 為投資且 COMP 為銀行的 AMT。",
+        "aum",
+        "inferred"
+      ],
+      [
+        "aum_deposit_month_end",
+        "月底存款AUM",
+        [
+          "月底存款AUM",
+          "aum_deposit_month_end"
+        ],
+        "TYP 為存款且 COMP 為銀行的 AMT。",
+        "aum",
+        "inferred"
+      ],
+      [
+        "aum_insurance_month_end",
+        "月底保險AUM",
+        [
+          "月底保險AUM",
+          "aum_insurance_month_end"
+        ],
+        "銀行投資中的保險；AUM_012 以 AMT_INVEST 原始投資金額作為 AMT。",
+        "aum",
+        "inferred"
+      ],
+      [
+        "aum_investment_month_end",
+        "月底投資AUM",
+        [
+          "月底投資AUM",
+          "aum_investment_month_end"
+        ],
+        "TYP 為投資的 AMT，包括銀行與證券來源。",
+        "aum",
+        "inferred"
+      ],
+      [
+        "aum_securities_month_end",
+        "月底證券AUM",
+        [
+          "月底證券AUM",
+          "aum_securities_month_end"
+        ],
+        "TYP 為投資且 COMP 為證券的 AMT。",
+        "aum",
+        "inferred"
+      ],
+      [
+        "aum_total_month_end",
+        "月底總AUM",
+        [
+          "月底總AUM",
+          "aum_total_month_end"
+        ],
+        "指定月份內，各分類最新可用日期的存款與投資 AMT 合計。",
+        "aum",
+        "draft"
+      ],
+      [
+        "bank_fee_income",
+        "銀行手續費類收入",
+        [
+          "銀行手續費類收入",
+          "bank_fee_income"
+        ],
+        "TYP='手收' 且 PROD_TYPE='銀行' 的 AMT。",
+        "income",
+        "inferred"
+      ],
+      [
+        "deposit_interest_income",
+        "存款利收",
+        [
+          "存款利收",
+          "deposit_interest_income"
+        ],
+        "INCOME_066 以 GROSS_INCM 彙總存款利收；現況來源僅使用外幣存款表。",
+        "income",
+        "inferred"
+      ],
+      [
+        "fee_income",
+        "手續費類收入",
+        [
+          "手續費類收入",
+          "fee_income"
+        ],
+        "TYP='手收' 的收入；其中包含手續費、貢獻度及部分損益欄位。",
+        "income",
+        "inferred"
+      ],
+      [
+        "income_total_customer_month",
+        "每客戶每月總收入",
+        [
+          "每客戶每月總收入",
+          "income_total_customer_month"
+        ],
+        "10._INCOME_ROA.sql 的收入子查詢按 CUST_ID 與 SUBSTR(YYYYMMDD,1,6) 加總 INCOME_TMP02.AMT；涵蓋 SQL 歸類的手收及利收。",
+        "income",
+        "pending_confirmation"
+      ],
+      [
+        "interest_income",
+        "利息收入",
+        [
+          "利息收入",
+          "interest_income"
+        ],
+        "TYP='利收' 的存款與放款 AMT。",
+        "income",
+        "inferred"
+      ],
+      [
+        "securities_fee_income",
+        "證券手續費類收入",
+        [
+          "證券手續費類收入",
+          "securities_fee_income"
+        ],
+        "TYP='手收' 且 PROD_TYPE='證券' 的 AMT。",
+        "income",
+        "inferred"
+      ]
+    ]
+  },
+  "queryType": "r",
+  "resultAvailableAfter": 1,
+  "resultConsumedAfter": 4,
+  "bookmarks": [
+    "FB:kcwQ7SpwrfK9R02hh/pr5bpiH8kCCJA="
+  ]
+}

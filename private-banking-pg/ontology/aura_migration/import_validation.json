@@ -1,0 +1,18 @@
+{
+  "existingMatchingNodes": 0,
+  "targetNodesBefore": 0,
+  "targetRelationshipsBefore": 0,
+  "importValidation": {
+    "nodes": 1166,
+    "relationships": 3650,
+    "allLabelsPropertiesAndDirectionsMatch": true,
+    "incomeUnionBranches": 24,
+    "aumUnionBranches": 13,
+    "allSharedProductsReachBothBusinessRoots": true
+  },
+  "idempotentRerun": true,
+  "unrelatedTargetDataPreserved": true,
+  "sourceContentSha256": "dec4aeb07a0b453f225cf57b3b569996920ebd3286555f0a56a66f19c9e49801",
+  "auraHost": "4bb479b2.databases.neo4j.io",
+  "database": "neo4j"
+}

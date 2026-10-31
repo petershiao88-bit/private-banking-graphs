@@ -1,0 +1,163 @@
+{
+  "status": "passed",
+  "created_at": "2026-10-26T06:03:06.315524+00:00",
+  "engine": "Semantica Reasoner",
+  "default_question_backend": "semantica_reasoner.SemanticaReasoner",
+  "source_sha256": "54ce033c671dde9c75ad572c32660bafa05ec94c671b6516a220f6421beaa697",
+  "classes": 43,
+  "input_facts": 80,
+  "derived_facts": 50,
+  "rules": [
+    "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+    "IF SubClass(?child, ?middle) AND SubClass(?middle, ?parent) THEN SubClass(?child, ?parent)"
+  ],
+  "classification_report": "data\\semantica-reasoning\\1265fc47ff0a51d2e0b9452bcab587eb4cdb38e426e86f499db77de850a65490/report.json",
+  "consistency_supported": false,
+  "used_hermit": false,
+  "pg_included": false,
+  "offline_tests": {
+    "passed": 38,
+    "modules": {
+      "test_semantica_reasoner": 15,
+      "test_graph_qa": 7,
+      "test_handoff_demo": 16
+    },
+    "native_execution_test_blocks_subprocess_Popen": true,
+    "all_43_class_results_match_independent_rdf_reachability": true
+  },
+  "live_browser": {
+    "question": "?? AUM ????????????Metric??",
+    "actual_llm_tool_plan": {
+      "route": "ontology",
+      "tool": "check_subclass",
+      "class_uri": "https://example.org/ontology/securities#SecuritiesAUM",
+      "parent_uri": "https://example.org/ontology/holding#Metric"
+    },
+    "tool_result": "entailed",
+    "screenshot": "data/semantica-qa.jpg",
+    "trace": "data/semantica-reasoning-browser-example.json"
+  },
+  "existing_graph_verification": "data/verification.json",
+  "original_sources_unchanged": true,
+  "examples": [
+    {
+      "id": "R1",
+      "kind": "reasoning",
+      "engine": "Semantica Reasoner",
+      "tool": "check_subclass",
+      "arguments": {
+        "class_uri": "https://example.org/ontology/securities#SecuritiesAUM",
+        "parent_uri": "https://example.org/ontology/holding#Metric"
+      },
+      "source_sha256": "54ce033c671dde9c75ad572c32660bafa05ec94c671b6516a220f6421beaa697",
+      "pg_included": false,
+      "used_hermit": false,
+      "scope": "holding_and_subsidiary_named_class_rules_only",
+      "consistency_checked": false,
+      "consistency_complete": false,
+      "limitations": [
+        "僅執行已宣告類別的 rdfs:subClassOf 自反與遞移規則；未執行完整 OWL DL 一致性、可滿足性或資料型別驗證。"
+      ],
+      "cached": true,
+      "executed_at": "2026-10-26T05:57:43.439343+00:00",
+      "duration_seconds": 0.0967,
+      "rules": [
+        "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+        "IF SubClass(?child, ?middle) AND SubClass(?middle, ?parent) THEN SubClass(?child, ?parent)"
+      ],
+      "input_fact_count": 80,
+      "derived_fact_count": 50,
+      "status": "completed",
+      "verdict": "entailed",
+      "asserted_directly": false,
+      "supporting_asserted_path": [
+        {
+          "source": "https://example.org/ontology/securities#SecuritiesAUM",
+          "relation": "rdfs:subClassOf",
+          "target": "https://example.org/ontology/holding#AUM",
+          "source_label": "證券 AUM",
+          "target_label": "AUM"
+        },
+        {
+          "source": "https://example.org/ontology/holding#AUM",
+          "relation": "rdfs:subClassOf",
+          "target": "https://example.org/ontology/holding#Metric",
+          "source_label": "AUM",
+          "target_label": "指標"
+        }
+      ],
+      "native_goal": "SubClass(class_039, class_034)",
+      "native_inference": {
+        "conclusion": "SubClass(class_039, class_034)",
+        "rule": "IF SubClass(?child, ?middle) AND SubClass(?middle, ?parent) THEN SubClass(?child, ?parent)",
+        "premises": [
+          "SubClass(class_039, class_024)",
+          "SubClass(class_024, class_034)"
+        ]
+      },
+      "class_token_map": {
+        "class_024": "https://example.org/ontology/holding#AUM",
+        "class_034": "https://example.org/ontology/holding#Metric",
+        "class_039": "https://example.org/ontology/securities#SecuritiesAUM"
+      },
+      "path_note": "佐證路徑由原始 rdfs:subClassOf 重建；native_inference 是 Semantica 原始匹配紀錄，可能包含同一結論的多組前提。",
+      "summary": "Semantica 規則推導：證券 AUM是指標的子類別。"
+    },
+    {
+      "id": "R1",
+      "kind": "reasoning",
+      "engine": "Semantica Reasoner",
+      "tool": "check_subclass",
+      "arguments": {
+        "class_uri": "https://example.org/ontology/bank#BankAUM",
+        "parent_uri": "https://example.org/ontology/securities#SecuritiesAUM"
+      },
+      "source_sha256": "54ce033c671dde9c75ad572c32660bafa05ec94c671b6516a220f6421beaa697",
+      "pg_included": false,
+      "used_hermit": false,
+      "scope": "holding_and_subsidiary_named_class_rules_only",
+      "consistency_checked": false,
+      "consistency_complete": false,
+      "limitations": [
+        "僅執行已宣告類別的 rdfs:subClassOf 自反與遞移規則；未執行完整 OWL DL 一致性、可滿足性或資料型別驗證。"
+      ],
+      "cached": true,
+      "executed_at": "2026-10-26T05:57:43.439343+00:00",
+      "duration_seconds": 0.0967,
+      "rules": [
+        "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+        "IF SubClass(?child, ?middle) AND SubClass(?middle, ?parent) THEN SubClass(?child, ?parent)"
+      ],
+      "input_fact_count": 80,
+      "derived_fact_count": 50,
+      "status": "completed",
+      "verdict": "not_entailed",
+      "asserted_directly": false,
+      "supporting_asserted_path": [],
+      "native_goal": "SubClass(class_000, class_039)",
+      "native_inference": null,
+      "class_token_map": {},
+      "path_note": "佐證路徑由原始 rdfs:subClassOf 重建；native_inference 是 Semantica 原始匹配紀錄，可能包含同一結論的多組前提。",
+      "summary": "目前的類別繼承規則與宣告無法證明銀行 AUM是證券 AUM的子類別；這不代表已證明兩者互斥。"
+    },
+    {
+      "id": "R1",
+      "kind": "reasoning",
+      "engine": "Semantica Reasoner",
+      "tool": "check_consistency",
+      "arguments": {},
+      "source_sha256": "54ce033c671dde9c75ad572c32660bafa05ec94c671b6516a220f6421beaa697",
+      "pg_included": false,
+      "used_hermit": false,
+      "scope": "holding_and_subsidiary_named_class_rules_only",
+      "consistency_checked": false,
+      "consistency_complete": false,
+      "limitations": [
+        "僅執行已宣告類別的 rdfs:subClassOf 自反與遞移規則；未執行完整 OWL DL 一致性、可滿足性或資料型別驗證。"
+      ],
+      "status": "unsupported",
+      "verdict": "unsupported_consistency",
+      "summary": "目前使用 Semantica 類別繼承規則引擎，未執行完整 OWL 一致性檢查，因此無法判定整份本體是否一致。"
+    }
+  ]
+}

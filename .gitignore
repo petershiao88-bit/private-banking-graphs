@@ -1,0 +1,15 @@
+**/.venv/
+**/.local_runtime/
+**/__pycache__/
+**/node_modules/
+**/vendor/
+**/logs/
+**/.env
+**/.env.*
+!**/.env.example
+**/connection.json
+**/neo4j.env
+*.py[cod]
+*.log
+*.pem
+*.key

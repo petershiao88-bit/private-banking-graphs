@@ -1,0 +1,32 @@
+{
+  "PB_AUM_Income_KB": {
+    "nodes": 7,
+    "parametersMatch": true,
+    "credentialsMatch": true,
+    "connectionsMatch": true,
+    "noPinnedTestData": true
+  },
+  "main": {
+    "nodes": 32,
+    "parametersMatch": true,
+    "credentialsMatch": true,
+    "connectionsMatch": true,
+    "noPinnedTestData": true
+  },
+  "contractVersion": "pb_kb_full_graph_single_jev_v1",
+  "nativeJev": {
+    "conceptCandidates": 30,
+    "selectedConceptPaths": 4,
+    "mappingPaths": 17,
+    "requestId": "gen-dec-1791438191-tJKa5IfZnXG9ViqlC9uC",
+    "usage": {
+      "input_tokens": 23341,
+      "output_tokens": 1682,
+      "cost": 0.000980322
+    }
+  },
+  "published": false,
+  "fullMainQueryTested": false,
+  "sqlExecuted": false,
+  "graphModified": false
+}

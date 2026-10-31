@@ -1,0 +1,743 @@
+{
+  "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/definition/graphType/1.0.0/schema.json": {
+    "$id": "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/definition/graphType/1.0.0/schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Defines the schema for the graphType part of the GraphIndex item definition.",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "$schema": {
+        "type": "string",
+        "format": "uri",
+        "const": "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/definition/graphType/1.0.0/schema.json"
+      },
+      "nodeTypes": {
+        "description": "The node types in the graph type definition.",
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/NodeType"
+        },
+        "maxItems": 1000
+      },
+      "edgeTypes": {
+        "description": "The edge types in the graph type definition.",
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/EdgeType"
+        },
+        "maxItems": 1000
+      }
+    },
+    "required": [
+      "$schema",
+      "nodeTypes",
+      "edgeTypes"
+    ],
+    "definitions": {
+      "Property": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "$ref": "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/common/identifiers/1.0.0/schema.json#/definitions/Name"
+          },
+          "type": {
+            "description": "The graph property type.",
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "name",
+          "type"
+        ]
+      },
+      "NodeTypeReference": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "alias": {
+            "$ref": "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/common/identifiers/1.0.0/schema.json#/definitions/InternalIdentifier"
+          }
+        },
+        "required": [
+          "alias"
+        ]
+      },
+      "NodeType": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "alias": {
+            "$ref": "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/common/identifiers/1.0.0/schema.json#/definitions/InternalIdentifier"
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "$ref": "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/common/identifiers/1.0.0/schema.json#/definitions/Name"
+            },
+            "minItems": 1,
+            "maxItems": 1000
+          },
+          "properties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Property"
+            },
+            "maxItems": 1000
+          },
+          "primaryKeyProperties": {
+            "type": "array",
+            "items": {
+              "$ref": "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/common/identifiers/1.0.0/schema.json#/definitions/Name"
+            },
+            "minItems": 1,
+            "maxItems": 1000
+          }
+        },
+        "required": [
+          "alias",
+          "labels",
+          "primaryKeyProperties"
+        ]
+      },
+      "EdgeType": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "alias": {
+            "$ref": "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/common/identifiers/1.0.0/schema.json#/definitions/InternalIdentifier"
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "$ref": "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/common/identifiers/1.0.0/schema.json#/definitions/Name"
+            },
+            "minItems": 1,
+            "maxItems": 1000
+          },
+          "properties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Property"
+            },
+            "maxItems": 1000
+          },
+          "sourceNodeType": {
+            "$ref": "#/definitions/NodeTypeReference"
+          },
+          "destinationNodeType": {
+            "$ref": "#/definitions/NodeTypeReference"
+          }
+        },
+        "required": [
+          "alias",
+          "labels",
+          "sourceNodeType",
+          "destinationNodeType"
+        ]
+      }
+    }
+  },
+  "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/definition/graphDefinition/1.0.0/schema.json": {
+    "$id": "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/definition/graphDefinition/1.0.0/schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Defines the schema for the graphDefinition part of the GraphIndex item definition.",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "$schema": {
+        "type": "string",
+        "format": "uri",
+        "const": "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/definition/graphDefinition/1.0.0/schema.json"
+      },
+      "nodeTables": {
+        "description": "The node table definitions in the graph definition.",
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/NodeTable"
+        },
+        "maxItems": 1000
+      },
+      "edgeTables": {
+        "description": "The edge table definitions in the graph definition.",
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/EdgeTable"
+        },
+        "maxItems": 1000
+      }
+    },
+    "required": [
+      "$schema",
+      "nodeTables",
+      "edgeTables"
+    ],
+    "definitions": {
+      "PropertyMapping": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "propertyName": {
+            "$ref": "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/common/identifiers/1.0.0/schema.json#/definitions/Name"
+          },
+          "sourceColumn": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "propertyName",
+          "sourceColumn"
+        ]
+      },
+      "GraphElementDefinitionBase": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "$ref": "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/common/identifiers/1.0.0/schema.json#/definitions/InternalIdentifier"
+          },
+          "dataSourceName": {
+            "type": "string",
+            "minLength": 1
+          },
+          "propertyMappings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/PropertyMapping"
+            },
+            "maxItems": 1000
+          }
+        },
+        "required": [
+          "id",
+          "dataSourceName"
+        ]
+      },
+      "NodeTable": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "$ref": "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/common/identifiers/1.0.0/schema.json#/definitions/InternalIdentifier"
+          },
+          "nodeTypeAlias": {
+            "$ref": "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/common/identifiers/1.0.0/schema.json#/definitions/InternalIdentifier"
+          },
+          "dataSourceName": {
+            "type": "string",
+            "minLength": 1
+          },
+          "propertyMappings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/PropertyMapping"
+            },
+            "maxItems": 1000
+          }
+        },
+        "required": [
+          "id",
+          "nodeTypeAlias",
+          "dataSourceName"
+        ]
+      },
+      "EdgeTable": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "$ref": "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/common/identifiers/1.0.0/schema.json#/definitions/InternalIdentifier"
+          },
+          "edgeTypeAlias": {
+            "$ref": "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/common/identifiers/1.0.0/schema.json#/definitions/InternalIdentifier"
+          },
+          "dataSourceName": {
+            "type": "string",
+            "minLength": 1
+          },
+          "propertyMappings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/PropertyMapping"
+            },
+            "maxItems": 1000
+          },
+          "edgeIdMapping": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "maxItems": 1000
+          },
+          "sourceNodeKeyColumns": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "maxItems": 1000
+          },
+          "destinationNodeKeyColumns": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "maxItems": 1000
+          }
+        },
+        "required": [
+          "id",
+          "edgeTypeAlias",
+          "dataSourceName"
+        ]
+      }
+    }
+  },
+  "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/definition/dataSources/1.1.0/schema.json": {
+    "$id": "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/definition/dataSources/1.1.0/schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Defines the schema for the dataSources part of the GraphIndex item definition.",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "$schema": {
+        "type": "string",
+        "format": "uri",
+        "const": "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/definition/dataSources/1.1.0/schema.json"
+      },
+      "itemReferences": {
+        "description": "Named item references that data sources can bind to by referenceName.",
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/GraphDataSourceItemReference"
+        },
+        "maxItems": 1000
+      },
+      "dataSources": {
+        "description": "The data sources in the graph index definition.",
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/DataSource"
+        },
+        "maxItems": 1000
+      }
+    },
+    "required": [
+      "$schema",
+      "dataSources"
+    ],
+    "definitions": {
+      "GraphDataSourceItemReference": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "The logical name used by dataSources[].properties.referenceName.",
+            "$ref": "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/common/identifiers/1.0.0/schema.json#/definitions/Name"
+          },
+          "item": {
+            "description": "An inline Fabric item reference or a variable reference whose type is ItemReference.",
+            "$ref": "https://developer.microsoft.com/json-schemas/fabric/common/itemReference/1.0.0/schema.json#/definitions/ItemReferenceOrVar"
+          }
+        },
+        "required": [
+          "name",
+          "item"
+        ]
+      },
+      "DataSource": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "The unique name of this data source within the definition part.",
+            "$ref": "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/common/identifiers/1.0.0/schema.json#/definitions/Name"
+          },
+          "type": {
+            "description": "The data source type.",
+            "type": "string",
+            "const": "DeltaTable"
+          },
+          "properties": {
+            "$ref": "#/definitions/DeltaTableProperties"
+          }
+        },
+        "required": [
+          "name",
+          "type",
+          "properties"
+        ]
+      },
+      "DeltaTableProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "referenceName": {
+            "description": "The name of the item reference that supplies the parent item identity for this delta table.",
+            "type": "string",
+            "minLength": 1
+          },
+          "path": {
+            "description": "The delta table path relative to the referenced item.",
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "referenceName",
+          "path"
+        ]
+      }
+    }
+  },
+  "https://developer.microsoft.com/json-schemas/fabric/common/itemReference/1.0.0/schema.json": {
+    "$id": "https://developer.microsoft.com/json-schemas/fabric/common/itemReference/1.0.0/schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+      "ItemReference": {
+        "description": "Defines a reference to an item in a workspace.",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "workspaceId": {
+            "description": "The Id of the workspace",
+            "$ref": "https://developer.microsoft.com/json-schemas/fabric/common/auxiliaryTypes/1.0.0/schema.json#/definitions/Guid"
+          },
+          "itemId": {
+            "description": "The Id of the item",
+            "$ref": "https://developer.microsoft.com/json-schemas/fabric/common/auxiliaryTypes/1.0.0/schema.json#/definitions/Guid"
+          }
+        },
+        "required": [
+          "workspaceId",
+          "itemId"
+        ]
+      },
+      "ItemReferenceOrVar": {
+        "description": "An ItemReference value or a reference to a variable of type ItemReference.",
+        "oneOf": [
+          {
+            "$ref": "#/definitions/ItemReference"
+          },
+          {
+            "allOf": [
+              {
+                "$ref": "https://developer.microsoft.com/json-schemas/fabric/common/variableReference/1.0.0/schema.json#/definitions/SchemaTypedVariableReference"
+              },
+              {
+                "varRef": {
+                  "type": "ItemReference"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "https://developer.microsoft.com/json-schemas/fabric/common/auxiliaryTypes/1.0.0/schema.json": {
+    "$id": "https://developer.microsoft.com/json-schemas/fabric/common/auxiliaryTypes/1.0.0/schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+      "Guid": {
+        "description": "A string representing a Globally Unique Identifier (GUID).",
+        "type": "string",
+        "format": "uuid"
+      },
+      "GuidOrVar": {
+        "description": "A Guid value or a reference to a variable of type Guid.",
+        "oneOf": [
+          {
+            "$ref": "#/definitions/Guid"
+          },
+          {
+            "allOf": [
+              {
+                "$ref": "https://developer.microsoft.com/json-schemas/fabric/common/variableReference/1.0.0/schema.json#/definitions/SchemaTypedVariableReference"
+              },
+              {
+                "varRef": {
+                  "type": "Guid"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "DateTime": {
+        "description": "A string representing date and time in UTC format. For example 2024-11-25T08:30:10Z.",
+        "type": "string",
+        "format": "date-time",
+        "pattern": "^.*Z$"
+      },
+      "DateTimeOrVar": {
+        "description": "A DateTime value or a reference to a variable of type DateTime.",
+        "oneOf": [
+          {
+            "$ref": "#/definitions/DateTime"
+          },
+          {
+            "allOf": [
+              {
+                "$ref": "https://developer.microsoft.com/json-schemas/fabric/common/variableReference/1.0.0/schema.json#/definitions/SchemaTypedVariableReference"
+              },
+              {
+                "varRef": {
+                  "type": "DateTime"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "https://developer.microsoft.com/json-schemas/fabric/common/variableReference/1.0.0/schema.json": {
+    "$id": "https://developer.microsoft.com/json-schemas/fabric/common/variableReference/1.0.0/schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+      "VariableReference": {
+        "description": "A reference to a variable. Format: $(<content>). The content inside the parentheses is validated by the semantic validator.",
+        "$anchor": "VariableReference",
+        "type": "string",
+        "pattern": "^\\$\\(.+\\)$"
+      },
+      "NotVariableReference": {
+        "description": "Matches any value that is not a variable reference.",
+        "not": {
+          "type": "string",
+          "pattern": "^\\$\\(.+\\)$"
+        }
+      },
+      "SchemaTypedVariableReference": {
+        "description": "A reference to a variable, with expected type of the value to be specified by the parent schema via the varRef keyword.",
+        "type": "string",
+        "$anchor": "SchemaTypedVariableReference",
+        "pattern": "^\\$\\(.+\\)$"
+      },
+      "StringOrVar": {
+        "description": "A String value or a reference to a variable of type String.",
+        "oneOf": [
+          {
+            "allOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/definitions/NotVariableReference"
+              }
+            ]
+          },
+          {
+            "allOf": [
+              {
+                "$ref": "#/definitions/SchemaTypedVariableReference"
+              },
+              {
+                "varRef": {
+                  "type": "String"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "IntegerOrVar": {
+        "description": "An Integer value or a reference to a variable of type Integer.",
+        "oneOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "allOf": [
+              {
+                "$ref": "#/definitions/SchemaTypedVariableReference"
+              },
+              {
+                "varRef": {
+                  "type": "Integer"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "NumberOrVar": {
+        "description": "A Number value or a reference to a variable of type Number.",
+        "oneOf": [
+          {
+            "type": "number"
+          },
+          {
+            "allOf": [
+              {
+                "$ref": "#/definitions/SchemaTypedVariableReference"
+              },
+              {
+                "varRef": {
+                  "type": "Number"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "BooleanOrVar": {
+        "description": "A Boolean value or a reference to a variable of type Boolean.",
+        "oneOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "allOf": [
+              {
+                "$ref": "#/definitions/SchemaTypedVariableReference"
+              },
+              {
+                "varRef": {
+                  "type": "Boolean"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "ValueOrVar": {
+        "description": "Any JSON value, or a variable reference.",
+        "oneOf": [
+          {
+            "$ref": "#/definitions/NotVariableReference"
+          },
+          {
+            "$ref": "#/definitions/VariableReference"
+          }
+        ]
+      }
+    }
+  },
+  "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/definition/stylingConfiguration/1.0.0/schema.json": {
+    "$id": "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/definition/stylingConfiguration/1.0.0/schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Defines the schema for the stylingConfiguration part of the GraphIndex item definition.",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "$schema": {
+        "type": "string",
+        "format": "uri",
+        "const": "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/definition/stylingConfiguration/1.0.0/schema.json"
+      },
+      "modelLayout": {
+        "$ref": "#/definitions/ModelLayout"
+      },
+      "visualFormat": {
+        "description": "Visual formatting details keyed by node or edge type alias.",
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/definitions/VisualFormatDetails"
+        }
+      },
+      "scenario": {
+        "description": "The scenario this graph is used for.",
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "$schema",
+      "modelLayout",
+      "visualFormat"
+    ],
+    "definitions": {
+      "Position": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "x": {
+            "type": "number",
+            "minimum": -10000,
+            "maximum": 10000
+          },
+          "y": {
+            "type": "number",
+            "minimum": -10000,
+            "maximum": 10000
+          }
+        },
+        "required": [
+          "x",
+          "y"
+        ]
+      },
+      "ModelStyle": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "size": {
+            "type": "integer"
+          }
+        }
+      },
+      "ModelLayout": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "positions": {
+            "type": "object",
+            "propertyNames": {
+              "$ref": "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/common/identifiers/1.0.0/schema.json#/definitions/InternalIdentifier"
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/Position"
+            }
+          },
+          "styles": {
+            "type": "object",
+            "propertyNames": {
+              "$ref": "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/common/identifiers/1.0.0/schema.json#/definitions/InternalIdentifier"
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/ModelStyle"
+            }
+          },
+          "pan": {
+            "$ref": "#/definitions/Position"
+          },
+          "zoomLevel": {
+            "type": "number",
+            "minimum": 0.5,
+            "maximum": 5
+          }
+        },
+        "required": [
+          "positions",
+          "styles",
+          "pan",
+          "zoomLevel"
+        ]
+      },
+      "VisualFormatDetails": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "defaultDisplayProperty": {
+            "type": "string",
+            "minLength": 1
+          },
+          "color": {
+            "type": "string",
+            "minLength": 1
+          },
+          "shape": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

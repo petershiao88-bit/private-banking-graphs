@@ -1,0 +1,105 @@
+# 客戶360語意模型 v0.2.0，2026-10-21，設計草案。
+# example.org 為示意命名空間；不是實際服務位址。
+# 本檔以 RDF/Turtle 表示 OWL 本體。
+
+@prefix fh: <https://example.org/ontology/holding#> .
+@prefix bank: <https://example.org/ontology/bank#> .
+@prefix sec: <https://example.org/ontology/securities#> .
+@prefix life: <https://example.org/ontology/life#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+# ==========================================================
+# 本體資訊
+# ==========================================================
+
+<https://example.org/ontology/holding>
+    a owl:Ontology ;
+    rdfs:label "客戶360金控核心本體"@zh-TW ;
+    owl:versionIRI <https://example.org/ontology/holding/0.2.0> ;
+    owl:versionInfo "0.2.0 / design draft / 2026-10-21" ;
+    rdfs:comment "依本次討論整理的設計草案。命名空間為示意URI；實際資料映射與golden record整理由子公司或部門系統負責。"@zh-TW .
+
+
+# ==========================================================
+# Annotation Property：名稱、定義與治理歸屬
+# ==========================================================
+
+rdfs:label
+    a owl:AnnotationProperty ;
+    rdfs:label "名稱"@zh-TW ;
+    skos:definition "提供類別或屬性的顯示名稱。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+skos:definition
+    a owl:AnnotationProperty ;
+    rdfs:label "定義"@zh-TW ;
+    skos:definition "提供類別或屬性的業務意義描述。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:department
+    a owl:AnnotationProperty ;
+    rdfs:label "所屬部門"@zh-TW ;
+    skos:definition "標示類別或屬性定義的部門治理歸屬；不適用時省略。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:governanceLevel
+    a owl:AnnotationProperty ;
+    rdfs:label "治理層級"@zh-TW ;
+    skos:definition "標示定義所屬層級；本案約定使用金控、子公司或部門。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:subsidiary
+    a owl:AnnotationProperty ;
+    rdfs:label "所屬子公司"@zh-TW ;
+    skos:definition "標示類別或屬性定義的子公司治理歸屬；不適用時省略。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+
+# ==========================================================
+# Class：概念類別與繼承
+# ==========================================================
+
+fh:ContactInformation
+    a owl:Class ;
+    rdfs:label "通聯資訊"@zh-TW ;
+    skos:definition "由來源單位記錄、與客戶相關的通聯資訊。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:Customer
+    a owl:Class ;
+    rdfs:label "客戶"@zh-TW ;
+    skos:definition "集團業務中所服務的客戶；本次以自然人客戶為使用情境，尚未形式化自然人範圍限制。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:FinancialProduct
+    a owl:Class ;
+    rdfs:label "金融商品"@zh-TW ;
+    skos:definition "供各子公司延伸具體商品分類的共同上位概念。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+
+# ==========================================================
+# Object Property：業務關係
+# ==========================================================
+
+fh:hasContactPoint
+    a owl:ObjectProperty ;
+    rdfs:label "具有通聯資訊"@zh-TW ;
+    skos:definition "連接客戶與來源單位所記錄、與該客戶相關的通聯紀錄；實際使用由下層系統提供的權威通聯資料承接。"@zh-TW ;
+    rdfs:domain fh:Customer ;
+    rdfs:range fh:ContactInformation ;
+    fh:governanceLevel "金控" .
+
+fh:holds
+    a owl:ObjectProperty ;
+    rdfs:label "持有金融商品"@zh-TW ;
+    skos:definition "表達客戶持有金融商品的關係；具體持有認定、基數與時間範圍尚待後續確認。"@zh-TW ;
+    rdfs:domain fh:Customer ;
+    rdfs:range fh:FinancialProduct ;
+    fh:governanceLevel "金控" .
+

@@ -1,0 +1,39 @@
+{
+  "version": "0.15.0",
+  "status": "offline_change_record_not_executable",
+  "previous_snapshot": "archive/before-v0.15.0",
+  "class_uri_replacements": {
+    "https://example.org/ontology/bank#PlannedTrustService": "https://example.org/ontology/bank#PlannedTrustProduct",
+    "https://example.org/ontology/bank#TrustCustodyService": "https://example.org/ontology/bank#TrustCustodyProduct",
+    "https://example.org/ontology/bank#ForeignExchangeService": "https://example.org/ontology/bank#ForeignExchangeProduct",
+    "https://example.org/ontology/bank#LetterOfCreditService": "https://example.org/ontology/bank#LetterOfCreditProduct"
+  },
+  "concept_id_replacements": {
+    "bank.fx_trading_pnl": "bank.fx_fee_income",
+    "bank.gold_trading_pnl": "bank.gold_fee_income"
+  },
+  "retired_concept_ids": [
+    "securities.stock_pledge_aum"
+  ],
+  "removed_class_uris": [
+    "https://example.org/ontology/holding#FinancialService"
+  ],
+  "removed_property_uris": [
+    "https://example.org/ontology/holding#measuresService",
+    "https://example.org/ontology/holding#feeIncomeFromService"
+  ],
+  "note": "本輪無 Neo4j 部署。產生器只 MERGE、不刪舊資料；既有資料庫若日後更新，需另做限定範圍的遷移，不能以重跑 MERGE 當作完整同步。",
+  "changed_metric_class_references": {
+    "bank.loan_income": {
+      "before": "https://example.org/ontology/holding#Metric",
+      "after": "https://example.org/ontology/bank#BankInterestIncome"
+    }
+  },
+  "added_metric_ids": [
+    "bank.loan_lum"
+  ],
+  "retired_active_source_tables": [
+    "DSCSD.PBCMS_REPORTA03"
+  ],
+  "semantics_note": "保留 FeeIncome 等既有 URI，名稱／定義改採來源 SQL 的業務手收口徑；股票設質估值另存退場紀錄，不轉作 LUM。"
+}

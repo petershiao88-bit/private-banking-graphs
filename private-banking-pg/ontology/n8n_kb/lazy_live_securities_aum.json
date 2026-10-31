@@ -1,0 +1,928 @@
+{
+  "request": {
+    "question": "唯讀圖查詢驗證",
+    "domains": [
+      "aum"
+    ],
+    "metricCodes": [
+      "aum_securities_month_end"
+    ]
+  },
+  "catalog": {
+    "data": {
+      "fields": [
+        "conceptKey",
+        "productCode",
+        "productName",
+        "definition",
+        "status",
+        "aumStatus",
+        "incomeStatus",
+        "matchedScopes"
+      ],
+      "values": [
+        [
+          "pb_shared:product:securities_bond",
+          "securities_bond",
+          "證券複委託債券",
+          "證券通路的複委託債券業務，涵蓋部位估值與交易手續費收入。",
+          "inferred",
+          "inferred",
+          "inferred",
+          [
+            {
+              "metricCode": "aum_securities_month_end",
+              "domain": "aum"
+            }
+          ]
+        ],
+        [
+          "pb_shared:product:securities_foreign_stock",
+          "securities_foreign_stock",
+          "證券複委託外國股票",
+          "證券通路的複委託外國股票業務，涵蓋客戶持有資產與淨手續費收入；淨收入可能為負值。",
+          "inferred",
+          "inferred",
+          "inferred",
+          [
+            {
+              "metricCode": "aum_securities_month_end",
+              "domain": "aum"
+            }
+          ]
+        ],
+        [
+          "pb_shared:product:securities_fund",
+          "securities_fund",
+          "證券複委託基金",
+          "證券通路的複委託基金業務，涵蓋客戶持有資產與交易費收入。",
+          "inferred",
+          "inferred",
+          "inferred",
+          [
+            {
+              "metricCode": "aum_securities_month_end",
+              "domain": "aum"
+            }
+          ]
+        ],
+        [
+          "pb_shared:product:securities_structured",
+          "securities_structured",
+          "證券複委託結構型商品",
+          "證券通路的複委託結構型商品業務，涵蓋客戶持有資產與相关收入。",
+          "inferred",
+          "inferred",
+          "inferred",
+          [
+            {
+              "metricCode": "aum_securities_month_end",
+              "domain": "aum"
+            }
+          ]
+        ]
+      ]
+    },
+    "queryType": "r",
+    "resultAvailableAfter": 4,
+    "resultConsumedAfter": 5,
+    "bookmarks": [
+      "FB:kcwQ7SpwrfK9R02hh/pr5bpiH8kCCJA="
+    ]
+  },
+  "paths": {
+    "data": {
+      "fields": [
+        "requestedConceptKey",
+        "domain",
+        "conceptEvidence",
+        "businessPath"
+      ],
+      "values": [
+        [
+          "pb_shared:product:securities_fund",
+          "aum",
+          {
+            "sharedProduct": {
+              "key": "pb_shared:product:securities_fund",
+              "properties": {
+                "aumMetricKey": "aum:metric:aum_securities_month_end",
+                "incomeStages": [
+                  "INCOME_052"
+                ],
+                "code": "securities_fund",
+                "role": "shared_product",
+                "incomeAmountBasis": "SUM(WKA31)",
+                "aumLegacyProducts": [
+                  "securities_fund"
+                ],
+                "displayOrder": 14,
+                "aumValuationBasis": "fund_units × closing_price × exchange_rate",
+                "mappingStatus": "inferred",
+                "incomeMetricKey": "income:metric:securities_fee_income",
+                "incomeLegacyProducts": [
+                  "securities_fund"
+                ],
+                "incomeMappingActive": true,
+                "incomeFilter": "手收／證券／基金",
+                "name": "證券複委託基金",
+                "ontologyId": "pb_shared",
+                "directionStatus": "user_confirmed",
+                "definition": "與銀行基金分開，保留證券持有及交易費來源。",
+                "aumFilter": "PROD='基金' AND COMP='證券'",
+                "key": "pb_shared:product:securities_fund",
+                "status": "inferred",
+                "aumStages": [
+                  "AUM_025"
+                ]
+              },
+              "labels": [
+                "ProductCategory",
+                "SharedProduct"
+              ]
+            },
+            "identity": {
+              "conceptProductCode": "securities_fund",
+              "sharedProductCode": "securities_fund",
+              "sharedProductKey": "pb_shared:product:securities_fund"
+            }
+          },
+          {
+            "relationships": [
+              {
+                "from": "pb_shared:product:securities_fund",
+                "to": "aum:metric:aum_securities_month_end",
+                "type": "MEASURED_BY_AUM",
+                "properties": {
+                  "rootDefinitionStatus": "draft_metric_query",
+                  "_aumIncomeTransferId": "56602d08224b1b4c486cfd3dc516343f6be5991d28ef5c1e2ac72377dfed4486",
+                  "origin": "shared_product_trial",
+                  "scope": "PROD='基金' AND COMP='證券'",
+                  "name": "資產衡量",
+                  "ontologyId": "pb_shared",
+                  "status": "inferred"
+                }
+              },
+              {
+                "from": "aum:metric:aum_securities_month_end",
+                "to": "aum:metric:aum_investment_month_end",
+                "type": "AUM_ROLLS_UP_TO",
+                "properties": {
+                  "name": "歸入上層指標",
+                  "ontologyId": "pb_shared",
+                  "evidence": "既有HAS_COMPONENT分類層級；以子指標指向父指標表示",
+                  "_aumIncomeTransferId": "0d351949e1a34ee39c1b97c5a885efc851e9ba7318e67a03133e64008d5da21b",
+                  "origin": "shared_product_trial",
+                  "status": "inferred"
+                }
+              },
+              {
+                "from": "aum:metric:aum_investment_month_end",
+                "to": "aum:metric:aum_total_month_end",
+                "type": "AUM_ROLLS_UP_TO",
+                "properties": {
+                  "name": "歸入上層指標",
+                  "ontologyId": "pb_shared",
+                  "evidence": "既有HAS_COMPONENT分類層級；以子指標指向父指標表示",
+                  "_aumIncomeTransferId": "76cd49b3dbeea1bed30651e8bafa310888eb7fd1d99fea6db5d3e98144094f3d",
+                  "origin": "shared_product_trial",
+                  "status": "inferred"
+                }
+              }
+            ],
+            "nodes": [
+              {
+                "key": "pb_shared:product:securities_fund",
+                "properties": {
+                  "aumMetricKey": "aum:metric:aum_securities_month_end",
+                  "incomeStages": [
+                    "INCOME_052"
+                  ],
+                  "role": "shared_product",
+                  "code": "securities_fund",
+                  "incomeAmountBasis": "SUM(WKA31)",
+                  "aumLegacyProducts": [
+                    "securities_fund"
+                  ],
+                  "displayOrder": 14,
+                  "aumValuationBasis": "fund_units × closing_price × exchange_rate",
+                  "mappingStatus": "inferred",
+                  "incomeMetricKey": "income:metric:securities_fee_income",
+                  "incomeLegacyProducts": [
+                    "securities_fund"
+                  ],
+                  "incomeMappingActive": true,
+                  "incomeFilter": "手收／證券／基金",
+                  "name": "證券複委託基金",
+                  "ontologyId": "pb_shared",
+                  "directionStatus": "user_confirmed",
+                  "definition": "與銀行基金分開，保留證券持有及交易費來源。",
+                  "aumFilter": "PROD='基金' AND COMP='證券'",
+                  "key": "pb_shared:product:securities_fund",
+                  "status": "inferred",
+                  "aumStages": [
+                    "AUM_025"
+                  ]
+                },
+                "labels": [
+                  "ProductCategory",
+                  "SharedProduct"
+                ]
+              },
+              {
+                "key": "aum:metric:aum_securities_month_end",
+                "properties": {
+                  "intendedGrain": "customer × month",
+                  "code": "aum_securities_month_end",
+                  "name": "月底證券AUM",
+                  "dictionaryVersion": "0.2-draft",
+                  "ontologyId": "aum",
+                  "definition": "TYP 為投資且 COMP 為證券的 AMT。",
+                  "key": "aum:metric:aum_securities_month_end",
+                  "status": "inferred_from_sql"
+                },
+                "labels": [
+                  "AUMMetric",
+                  "BusinessMetric"
+                ]
+              },
+              {
+                "key": "aum:metric:aum_investment_month_end",
+                "properties": {
+                  "intendedGrain": "customer × month",
+                  "code": "aum_investment_month_end",
+                  "name": "月底投資AUM",
+                  "dictionaryVersion": "0.2-draft",
+                  "ontologyId": "aum",
+                  "definition": "TYP 為投資的 AMT，包括銀行與證券來源。",
+                  "key": "aum:metric:aum_investment_month_end",
+                  "status": "inferred_from_sql"
+                },
+                "labels": [
+                  "AUMMetric",
+                  "BusinessMetric"
+                ]
+              },
+              {
+                "key": "aum:metric:aum_total_month_end",
+                "properties": {
+                  "dateRule": "每個 TYP × COMP × PROD × TYP_SUB_DTL 取該月 MAX(YYYYMMDD)，再加總符合日期的列；不是每位客戶各自取最新日期，也不保證是曆月最後一天。",
+                  "intendedGrain": "customer × month",
+                  "code": "aum_total_month_end",
+                  "name": "月底總AUM",
+                  "dictionaryVersion": "0.2-draft",
+                  "ontologyId": "aum",
+                  "definition": "指定月份內，各分類最新可用日期的存款與投資 AMT 合計。",
+                  "key": "aum:metric:aum_total_month_end",
+                  "status": "draft_metric_query"
+                },
+                "labels": [
+                  "AUMMetric",
+                  "BusinessMetric"
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    "queryType": "r",
+    "resultAvailableAfter": 4,
+    "resultConsumedAfter": 7,
+    "bookmarks": [
+      "FB:kcwQ7SpwrfK9R02hh/pr5bpiH8kCCJA="
+    ]
+  },
+  "mapping": {
+    "data": {
+      "fields": [
+        "pathKey",
+        "queryMetricKey",
+        "queryMetricCode",
+        "bindingConceptKey",
+        "productCode",
+        "productName",
+        "domain",
+        "status",
+        "mappings"
+      ],
+      "values": [
+        [
+          "route::aum::aum_securities_month_end::eb3477f1",
+          "aum:metric:aum_securities_month_end",
+          "aum_securities_month_end",
+          "pb_shared:product:securities_fund",
+          "securities_fund",
+          "證券複委託基金",
+          "aum",
+          "inferred",
+          [
+            {
+              "lineage": [
+                {
+                  "tablePath": [
+                    "DSPBM.PB_FUNDPOSIT_SEC",
+                    "AUM_025"
+                  ],
+                  "baseTable": "DSPBM.PB_FUNDPOSIT_SEC",
+                  "rules": [
+                    {
+                      "inputSteps": "[{\"type\": \"FLOWS_TO\", \"inputOrder\": 1, \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"a1055ab07b1582c60ecd60475df02d78144d7b327eb10d515155625c2f402396\"}, {\"type\": \"FLOWS_TO\", \"inputOrder\": 1, \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"4e85930ab4ab7a02189cb39a96cb53d290b82609691155ed9e42fd003f50293d\"}, {\"type\": \"UNION_INPUT\", \"inputOrder\": 2, \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"1546f05d54ac1b407a9a878a5393233c89e9e99e075aa19e5dc1a4882916b715\"}, {\"type\": \"FLOWS_TO\", \"inputOrder\": 1, \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"c992d4f489939e934a530dda649e7f75d6575cd11c0ce1819116e0a14135cf70\"}, {\"type\": \"WRITES_TO\", \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"457c93be77f1291c313f89485ae8fa1d9605d189cdecfef38e46ce63ea618120\"}]",
+                      "sqlTextKind": "original_statement_slice",
+                      "lineStart": 366,
+                      "selectExpressions": [
+                        "wkb02 AS cust_id",
+                        "yyyymmdd",
+                        "SUM(WKB28 * WKB23 * WKB31) AS amt"
+                      ],
+                      "whereConditions": [],
+                      "lineageEdgeId": "6c597c51ddf71012cbd524581664852fbb1a7847c85bfe900224878c26d3e7c6",
+                      "lineEnd": 375,
+                      "sourceRole": "primary_reference",
+                      "statementKey": "sql_lineage:statement:1.AUM_DETAIL.sql:L366",
+                      "sql": "create table AUM_025\n  as \n  select wkb02 as cust_id,yyyymmdd ,sum(WKB28 * WKB23 * WKB31) as amt\n  from DSPBM.PB_FUNDPOSIT_SEC_M@anadbp01_dwdbp01\n  group by wkb02,yyyymmdd\n  union \n  select wkb02 as cust_id,yyyymmdd ,sum(WKB28* WKB23 * WKB31) as amt\n  from DSPBM.PB_FUNDPOSIT_SEC@anadbp01_dwdbp01\n  group by wkb02,yyyymmdd\n  ;",
+                      "unionBranchOrders": [
+                        2
+                      ],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "groupExpressions": [
+                        "wkb02",
+                        "yyyymmdd"
+                      ],
+                      "joinInputRoles": [],
+                      "joinTypes": [],
+                      "unionBranchCounts": [
+                        2
+                      ],
+                      "joinConditions": [],
+                      "unionDeduplication": [
+                        "exact_projected_rows"
+                      ],
+                      "ruleSteps": "[{\"name\": \"GROUP BY\", \"description\": \"GROUP BY／彙總\", \"operationType\": \"AGGREGATE\", \"domain\": \"aum\", \"statementKey\": \"sql_lineage:statement:1.AUM_DETAIL.sql:L366\", \"outputTable\": \"AUM_025\", \"file\": \"sources/sql/1.AUM_DETAIL.sql\", \"lineStart\": 366, \"lineEnd\": 375, \"status\": \"active_sql\", \"sourceRole\": \"primary_reference\", \"sql\": \"SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC GROUP BY wkb02, yyyymmdd\", \"sqlTextKind\": \"parser_reconstructed_fragment\", \"groupExpressions\": [\"wkb02\", \"yyyymmdd\"], \"aggregateExpressions\": [\"SUM(WKB28 * WKB23 * WKB31)\"], \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\"}, {\"name\": \"SELECT\", \"description\": \"SELECT 欄位映射\", \"operationType\": \"SELECT\", \"domain\": \"aum\", \"statementKey\": \"sql_lineage:statement:1.AUM_DETAIL.sql:L366\", \"outputTable\": \"AUM_025\", \"file\": \"sources/sql/1.AUM_DETAIL.sql\", \"lineStart\": 366, \"lineEnd\": 375, \"status\": \"active_sql\", \"sourceRole\": \"primary_reference\", \"sql\": \"SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC GROUP BY wkb02, yyyymmdd\", \"sqlTextKind\": \"parser_reconstructed_fragment\", \"selectExpressions\": [\"wkb02 AS cust_id\", \"yyyymmdd\", \"SUM(WKB28 * WKB23 * WKB31) AS amt\"], \"outputAliases\": [\"cust_id\", \"yyyymmdd\", \"amt\"], \"rawColumnReferences\": [\"WKB23\", \"WKB28\", \"WKB31\", \"wkb02\", \"yyyymmdd\"], \"columnResolution\": \"expressions_preserved; star/ambiguous columns not expanded without schema\", \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\"}, {\"name\": \"UNION\", \"description\": \"UNION 去除完全相同列\", \"operationType\": \"UNION\", \"domain\": \"aum\", \"statementKey\": \"sql_lineage:statement:1.AUM_DETAIL.sql:L366\", \"outputTable\": \"AUM_025\", \"file\": \"sources/sql/1.AUM_DETAIL.sql\", \"lineStart\": 366, \"lineEnd\": 375, \"status\": \"active_sql\", \"sourceRole\": \"primary_reference\", \"sql\": \"SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC_M GROUP BY wkb02, yyyymmdd UNION SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC GROUP BY wkb02, yyyymmdd\", \"sqlTextKind\": \"parser_reconstructed_fragment\", \"branchCount\": 2, \"deduplication\": \"exact_projected_rows\", \"branchSql\": [\"SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC_M GROUP BY wkb02, yyyymmdd\", \"SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC GROUP BY wkb02, yyyymmdd\"], \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\"}, {\"name\": \"CREATE 表\", \"description\": \"CREATE TABLE AS\", \"operationType\": \"CREATE TABLE AS\", \"domain\": \"aum\", \"statementKey\": \"sql_lineage:statement:1.AUM_DETAIL.sql:L366\", \"outputTable\": \"AUM_025\", \"file\": \"sources/sql/1.AUM_DETAIL.sql\", \"lineStart\": 366, \"lineEnd\": 375, \"status\": \"active_sql\", \"sourceRole\": \"primary_reference\", \"sql\": \"CREATE TABLE AUM_025 AS SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC_M GROUP BY wkb02, yyyymmdd UNION SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC GROUP BY wkb02, yyyymmdd\", \"sqlTextKind\": \"parser_reconstructed_fragment\", \"writeMode\": \"create_as_select\", \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\"}]",
+                      "operationTypes": [
+                        "AGGREGATE",
+                        "SELECT",
+                        "UNION",
+                        "CREATE TABLE AS"
+                      ],
+                      "havingConditions": [],
+                      "aggregateExpressions": [
+                        "SUM(WKB28 * WKB23 * WKB31)"
+                      ],
+                      "caseExpressions": [],
+                      "operation": "UNION",
+                      "status": "active_sql"
+                    }
+                  ]
+                },
+                {
+                  "tablePath": [
+                    "DSPBM.PB_FUNDPOSIT_SEC_M",
+                    "AUM_025"
+                  ],
+                  "baseTable": "DSPBM.PB_FUNDPOSIT_SEC_M",
+                  "rules": [
+                    {
+                      "inputSteps": "[{\"type\": \"FLOWS_TO\", \"inputOrder\": 1, \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"69925c9c077cf76c28a4927b595b4610eff8b0b10d112d6f3808ff8f9b8853cf\"}, {\"type\": \"FLOWS_TO\", \"inputOrder\": 1, \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"26dd52db045a9ccdd931073f656af6da380f62de477aca52660446b41c4530a6\"}, {\"type\": \"UNION_INPUT\", \"inputOrder\": 1, \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"e5d17405839aa526633f2db77a58e8f521be9654bab74414c61045c232b5cba1\"}, {\"type\": \"FLOWS_TO\", \"inputOrder\": 1, \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"c992d4f489939e934a530dda649e7f75d6575cd11c0ce1819116e0a14135cf70\"}, {\"type\": \"WRITES_TO\", \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"457c93be77f1291c313f89485ae8fa1d9605d189cdecfef38e46ce63ea618120\"}]",
+                      "sqlTextKind": "original_statement_slice",
+                      "lineStart": 366,
+                      "selectExpressions": [
+                        "wkb02 AS cust_id",
+                        "yyyymmdd",
+                        "SUM(WKB28 * WKB23 * WKB31) AS amt"
+                      ],
+                      "whereConditions": [],
+                      "lineageEdgeId": "a5c0ac0c518f512cb19ff1a6ea24a81d767af26bf4bcd9faf2a97e634cc93511",
+                      "lineEnd": 375,
+                      "sourceRole": "primary_reference",
+                      "statementKey": "sql_lineage:statement:1.AUM_DETAIL.sql:L366",
+                      "sql": "create table AUM_025\n  as \n  select wkb02 as cust_id,yyyymmdd ,sum(WKB28 * WKB23 * WKB31) as amt\n  from DSPBM.PB_FUNDPOSIT_SEC_M@anadbp01_dwdbp01\n  group by wkb02,yyyymmdd\n  union \n  select wkb02 as cust_id,yyyymmdd ,sum(WKB28* WKB23 * WKB31) as amt\n  from DSPBM.PB_FUNDPOSIT_SEC@anadbp01_dwdbp01\n  group by wkb02,yyyymmdd\n  ;",
+                      "unionBranchOrders": [
+                        1
+                      ],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "groupExpressions": [
+                        "wkb02",
+                        "yyyymmdd"
+                      ],
+                      "joinInputRoles": [],
+                      "joinTypes": [],
+                      "unionBranchCounts": [
+                        2
+                      ],
+                      "joinConditions": [],
+                      "unionDeduplication": [
+                        "exact_projected_rows"
+                      ],
+                      "ruleSteps": "[{\"name\": \"GROUP BY\", \"description\": \"GROUP BY／彙總\", \"operationType\": \"AGGREGATE\", \"domain\": \"aum\", \"statementKey\": \"sql_lineage:statement:1.AUM_DETAIL.sql:L366\", \"outputTable\": \"AUM_025\", \"file\": \"sources/sql/1.AUM_DETAIL.sql\", \"lineStart\": 366, \"lineEnd\": 375, \"status\": \"active_sql\", \"sourceRole\": \"primary_reference\", \"sql\": \"SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC_M GROUP BY wkb02, yyyymmdd\", \"sqlTextKind\": \"parser_reconstructed_fragment\", \"groupExpressions\": [\"wkb02\", \"yyyymmdd\"], \"aggregateExpressions\": [\"SUM(WKB28 * WKB23 * WKB31)\"], \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\"}, {\"name\": \"SELECT\", \"description\": \"SELECT 欄位映射\", \"operationType\": \"SELECT\", \"domain\": \"aum\", \"statementKey\": \"sql_lineage:statement:1.AUM_DETAIL.sql:L366\", \"outputTable\": \"AUM_025\", \"file\": \"sources/sql/1.AUM_DETAIL.sql\", \"lineStart\": 366, \"lineEnd\": 375, \"status\": \"active_sql\", \"sourceRole\": \"primary_reference\", \"sql\": \"SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC_M GROUP BY wkb02, yyyymmdd\", \"sqlTextKind\": \"parser_reconstructed_fragment\", \"selectExpressions\": [\"wkb02 AS cust_id\", \"yyyymmdd\", \"SUM(WKB28 * WKB23 * WKB31) AS amt\"], \"outputAliases\": [\"cust_id\", \"yyyymmdd\", \"amt\"], \"rawColumnReferences\": [\"WKB23\", \"WKB28\", \"WKB31\", \"wkb02\", \"yyyymmdd\"], \"columnResolution\": \"expressions_preserved; star/ambiguous columns not expanded without schema\", \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\"}, {\"name\": \"UNION\", \"description\": \"UNION 去除完全相同列\", \"operationType\": \"UNION\", \"domain\": \"aum\", \"statementKey\": \"sql_lineage:statement:1.AUM_DETAIL.sql:L366\", \"outputTable\": \"AUM_025\", \"file\": \"sources/sql/1.AUM_DETAIL.sql\", \"lineStart\": 366, \"lineEnd\": 375, \"status\": \"active_sql\", \"sourceRole\": \"primary_reference\", \"sql\": \"SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC_M GROUP BY wkb02, yyyymmdd UNION SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC GROUP BY wkb02, yyyymmdd\", \"sqlTextKind\": \"parser_reconstructed_fragment\", \"branchCount\": 2, \"deduplication\": \"exact_projected_rows\", \"branchSql\": [\"SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC_M GROUP BY wkb02, yyyymmdd\", \"SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC GROUP BY wkb02, yyyymmdd\"], \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\"}, {\"name\": \"CREATE 表\", \"description\": \"CREATE TABLE AS\", \"operationType\": \"CREATE TABLE AS\", \"domain\": \"aum\", \"statementKey\": \"sql_lineage:statement:1.AUM_DETAIL.sql:L366\", \"outputTable\": \"AUM_025\", \"file\": \"sources/sql/1.AUM_DETAIL.sql\", \"lineStart\": 366, \"lineEnd\": 375, \"status\": \"active_sql\", \"sourceRole\": \"primary_reference\", \"sql\": \"CREATE TABLE AUM_025 AS SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC_M GROUP BY wkb02, yyyymmdd UNION SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC GROUP BY wkb02, yyyymmdd\", \"sqlTextKind\": \"parser_reconstructed_fragment\", \"writeMode\": \"create_as_select\", \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\"}]",
+                      "operationTypes": [
+                        "AGGREGATE",
+                        "SELECT",
+                        "UNION",
+                        "CREATE TABLE AS"
+                      ],
+                      "havingConditions": [],
+                      "aggregateExpressions": [
+                        "SUM(WKB28 * WKB23 * WKB31)"
+                      ],
+                      "caseExpressions": [],
+                      "operation": "UNION",
+                      "status": "active_sql"
+                    }
+                  ]
+                }
+              ],
+              "implementation": {
+                "from": "pb_shared:product:securities_fund",
+                "to": "aum:stage:AUM_025",
+                "type": "AUM_IMPLEMENTED_BY",
+                "properties": {
+                  "note": "與銀行基金分開，保留證券持有及交易費來源。",
+                  "ontologyId": "pb_shared",
+                  "_aumIncomeTransferId": "5d7f2d13493e81ad367d8672f0a912235ea44148fedeecddd05dc65f1af56a0c",
+                  "origin": "shared_product_trial",
+                  "scope": "PROD='基金' AND COMP='證券'",
+                  "status": "observed_in_sql"
+                }
+              },
+              "lineageStatus": "traced",
+              "productScope": "PROD='基金' AND COMP='證券'",
+              "mappingStatus": "observed_in_sql",
+              "sqlEvidence": {
+                "maxDepth": 16,
+                "tables": [
+                  {
+                    "statements": [
+                      {
+                        "requiredTableKeys": [
+                          "sql_lineage:table:DSPBM.PB_FUNDPOSIT_SEC",
+                          "sql_lineage:table:DSPBM.PB_FUNDPOSIT_SEC_M"
+                        ],
+                        "properties": {
+                          "databaseLinks": [
+                            "anadbp01_dwdbp01"
+                          ],
+                          "sqlTextKind": "original_statement_slice",
+                          "lineStart": 366,
+                          "origin": "sql_lineage_v1",
+                          "lineEnd": 375,
+                          "sourceRole": "primary_reference",
+                          "sql": "create table AUM_025\n  as \n  select wkb02 as cust_id,yyyymmdd ,sum(WKB28 * WKB23 * WKB31) as amt\n  from DSPBM.PB_FUNDPOSIT_SEC_M@anadbp01_dwdbp01\n  group by wkb02,yyyymmdd\n  union \n  select wkb02 as cust_id,yyyymmdd ,sum(WKB28* WKB23 * WKB31) as amt\n  from DSPBM.PB_FUNDPOSIT_SEC@anadbp01_dwdbp01\n  group by wkb02,yyyymmdd\n  ;",
+                          "output": "AUM_025",
+                          "file": "sources/sql/1.AUM_DETAIL.sql",
+                          "domain": "aum",
+                          "statementType": "CREATE",
+                          "name": "AUM_025 · CREATE · L366",
+                          "ontologyId": "sql_lineage",
+                          "normalizedForParser": "comments blanked; Oracle DB-link suffix removed only for parsing",
+                          "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L366",
+                          "status": "active_sql"
+                        },
+                        "statementKey": "sql_lineage:statement:1.AUM_DETAIL.sql:L366"
+                      }
+                    ],
+                    "requiredIncoming": [
+                      {
+                        "from": "sql_lineage:table:DSPBM.PB_FUNDPOSIT_SEC",
+                        "to": "sql_lineage:table:AUM_025",
+                        "type": "UNION",
+                        "properties": {
+                          "inputSteps": "[{\"type\": \"FLOWS_TO\", \"inputOrder\": 1, \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"a1055ab07b1582c60ecd60475df02d78144d7b327eb10d515155625c2f402396\"}, {\"type\": \"FLOWS_TO\", \"inputOrder\": 1, \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"4e85930ab4ab7a02189cb39a96cb53d290b82609691155ed9e42fd003f50293d\"}, {\"type\": \"UNION_INPUT\", \"inputOrder\": 2, \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"1546f05d54ac1b407a9a878a5393233c89e9e99e075aa19e5dc1a4882916b715\"}, {\"type\": \"FLOWS_TO\", \"inputOrder\": 1, \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"c992d4f489939e934a530dda649e7f75d6575cd11c0ce1819116e0a14135cf70\"}, {\"type\": \"WRITES_TO\", \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"457c93be77f1291c313f89485ae8fa1d9605d189cdecfef38e46ce63ea618120\"}]",
+                          "sqlTextKind": "original_statement_slice",
+                          "_aumIncomeTransferId": "ff1967ed165ec1e14aeeb26213078fa6b208f349f87b4438d3033c2b8baea4b3",
+                          "lineStart": 366,
+                          "origin": "sql_lineage_v1",
+                          "selectExpressions": [
+                            "wkb02 AS cust_id",
+                            "yyyymmdd",
+                            "SUM(WKB28 * WKB23 * WKB31) AS amt"
+                          ],
+                          "whereConditions": [],
+                          "lineEnd": 375,
+                          "lineageEdgeId": "6c597c51ddf71012cbd524581664852fbb1a7847c85bfe900224878c26d3e7c6",
+                          "sourceRole": "primary_reference",
+                          "sql": "create table AUM_025\n  as \n  select wkb02 as cust_id,yyyymmdd ,sum(WKB28 * WKB23 * WKB31) as amt\n  from DSPBM.PB_FUNDPOSIT_SEC_M@anadbp01_dwdbp01\n  group by wkb02,yyyymmdd\n  union \n  select wkb02 as cust_id,yyyymmdd ,sum(WKB28* WKB23 * WKB31) as amt\n  from DSPBM.PB_FUNDPOSIT_SEC@anadbp01_dwdbp01\n  group by wkb02,yyyymmdd\n  ;",
+                          "statementKey": "sql_lineage:statement:1.AUM_DETAIL.sql:L366",
+                          "unionBranchOrders": [
+                            2
+                          ],
+                          "file": "sources/sql/1.AUM_DETAIL.sql",
+                          "groupExpressions": [
+                            "wkb02",
+                            "yyyymmdd"
+                          ],
+                          "joinTypes": [],
+                          "joinInputRoles": [],
+                          "unionBranchCounts": [
+                            2
+                          ],
+                          "joinConditions": [],
+                          "unionDeduplication": [
+                            "exact_projected_rows"
+                          ],
+                          "ruleSteps": "[{\"name\": \"GROUP BY\", \"description\": \"GROUP BY／彙總\", \"operationType\": \"AGGREGATE\", \"domain\": \"aum\", \"statementKey\": \"sql_lineage:statement:1.AUM_DETAIL.sql:L366\", \"outputTable\": \"AUM_025\", \"file\": \"sources/sql/1.AUM_DETAIL.sql\", \"lineStart\": 366, \"lineEnd\": 375, \"status\": \"active_sql\", \"sourceRole\": \"primary_reference\", \"sql\": \"SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC GROUP BY wkb02, yyyymmdd\", \"sqlTextKind\": \"parser_reconstructed_fragment\", \"groupExpressions\": [\"wkb02\", \"yyyymmdd\"], \"aggregateExpressions\": [\"SUM(WKB28 * WKB23 * WKB31)\"], \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\"}, {\"name\": \"SELECT\", \"description\": \"SELECT 欄位映射\", \"operationType\": \"SELECT\", \"domain\": \"aum\", \"statementKey\": \"sql_lineage:statement:1.AUM_DETAIL.sql:L366\", \"outputTable\": \"AUM_025\", \"file\": \"sources/sql/1.AUM_DETAIL.sql\", \"lineStart\": 366, \"lineEnd\": 375, \"status\": \"active_sql\", \"sourceRole\": \"primary_reference\", \"sql\": \"SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC GROUP BY wkb02, yyyymmdd\", \"sqlTextKind\": \"parser_reconstructed_fragment\", \"selectExpressions\": [\"wkb02 AS cust_id\", \"yyyymmdd\", \"SUM(WKB28 * WKB23 * WKB31) AS amt\"], \"outputAliases\": [\"cust_id\", \"yyyymmdd\", \"amt\"], \"rawColumnReferences\": [\"WKB23\", \"WKB28\", \"WKB31\", \"wkb02\", \"yyyymmdd\"], \"columnResolution\": \"expressions_preserved; star/ambiguous columns not expanded without schema\", \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\"}, {\"name\": \"UNION\", \"description\": \"UNION 去除完全相同列\", \"operationType\": \"UNION\", \"domain\": \"aum\", \"statementKey\": \"sql_lineage:statement:1.AUM_DETAIL.sql:L366\", \"outputTable\": \"AUM_025\", \"file\": \"sources/sql/1.AUM_DETAIL.sql\", \"lineStart\": 366, \"lineEnd\": 375, \"status\": \"active_sql\", \"sourceRole\": \"primary_reference\", \"sql\": \"SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC_M GROUP BY wkb02, yyyymmdd UNION SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC GROUP BY wkb02, yyyymmdd\", \"sqlTextKind\": \"parser_reconstructed_fragment\", \"branchCount\": 2, \"deduplication\": \"exact_projected_rows\", \"branchSql\": [\"SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC_M GROUP BY wkb02, yyyymmdd\", \"SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC GROUP BY wkb02, yyyymmdd\"], \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\"}, {\"name\": \"CREATE 表\", \"description\": \"CREATE TABLE AS\", \"operationType\": \"CREATE TABLE AS\", \"domain\": \"aum\", \"statementKey\": \"sql_lineage:statement:1.AUM_DETAIL.sql:L366\", \"outputTable\": \"AUM_025\", \"file\": \"sources/sql/1.AUM_DETAIL.sql\", \"lineStart\": 366, \"lineEnd\": 375, \"status\": \"active_sql\", \"sourceRole\": \"primary_reference\", \"sql\": \"CREATE TABLE AUM_025 AS SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC_M GROUP BY wkb02, yyyymmdd UNION SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC GROUP BY wkb02, yyyymmdd\", \"sqlTextKind\": \"parser_reconstructed_fragment\", \"writeMode\": \"create_as_select\", \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\"}]",
+                          "operationTypes": [
+                            "AGGREGATE",
+                            "SELECT",
+                            "UNION",
+                            "CREATE TABLE AS"
+                          ],
+                          "havingConditions": [],
+                          "aggregateExpressions": [
+                            "SUM(WKB28 * WKB23 * WKB31)"
+                          ],
+                          "domain": "aum",
+                          "ontologyId": "sql_lineage",
+                          "outputAliases": [
+                            "cust_id",
+                            "yyyymmdd",
+                            "amt"
+                          ],
+                          "caseExpressions": [],
+                          "status": "active_sql"
+                        }
+                      },
+                      {
+                        "from": "sql_lineage:table:DSPBM.PB_FUNDPOSIT_SEC_M",
+                        "to": "sql_lineage:table:AUM_025",
+                        "type": "UNION",
+                        "properties": {
+                          "inputSteps": "[{\"type\": \"FLOWS_TO\", \"inputOrder\": 1, \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"69925c9c077cf76c28a4927b595b4610eff8b0b10d112d6f3808ff8f9b8853cf\"}, {\"type\": \"FLOWS_TO\", \"inputOrder\": 1, \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"26dd52db045a9ccdd931073f656af6da380f62de477aca52660446b41c4530a6\"}, {\"type\": \"UNION_INPUT\", \"inputOrder\": 1, \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"e5d17405839aa526633f2db77a58e8f521be9654bab74414c61045c232b5cba1\"}, {\"type\": \"FLOWS_TO\", \"inputOrder\": 1, \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"c992d4f489939e934a530dda649e7f75d6575cd11c0ce1819116e0a14135cf70\"}, {\"type\": \"WRITES_TO\", \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"457c93be77f1291c313f89485ae8fa1d9605d189cdecfef38e46ce63ea618120\"}]",
+                          "sqlTextKind": "original_statement_slice",
+                          "_aumIncomeTransferId": "0fc756e91e4f9098f8533a76ed49da84d9c3a6e3672d8e1e0b209bb3b7eaf710",
+                          "lineStart": 366,
+                          "origin": "sql_lineage_v1",
+                          "selectExpressions": [
+                            "wkb02 AS cust_id",
+                            "yyyymmdd",
+                            "SUM(WKB28 * WKB23 * WKB31) AS amt"
+                          ],
+                          "whereConditions": [],
+                          "lineEnd": 375,
+                          "lineageEdgeId": "a5c0ac0c518f512cb19ff1a6ea24a81d767af26bf4bcd9faf2a97e634cc93511",
+                          "sourceRole": "primary_reference",
+                          "sql": "create table AUM_025\n  as \n  select wkb02 as cust_id,yyyymmdd ,sum(WKB28 * WKB23 * WKB31) as amt\n  from DSPBM.PB_FUNDPOSIT_SEC_M@anadbp01_dwdbp01\n  group by wkb02,yyyymmdd\n  union \n  select wkb02 as cust_id,yyyymmdd ,sum(WKB28* WKB23 * WKB31) as amt\n  from DSPBM.PB_FUNDPOSIT_SEC@anadbp01_dwdbp01\n  group by wkb02,yyyymmdd\n  ;",
+                          "statementKey": "sql_lineage:statement:1.AUM_DETAIL.sql:L366",
+                          "unionBranchOrders": [
+                            1
+                          ],
+                          "file": "sources/sql/1.AUM_DETAIL.sql",
+                          "groupExpressions": [
+                            "wkb02",
+                            "yyyymmdd"
+                          ],
+                          "joinTypes": [],
+                          "joinInputRoles": [],
+                          "unionBranchCounts": [
+                            2
+                          ],
+                          "joinConditions": [],
+                          "unionDeduplication": [
+                            "exact_projected_rows"
+                          ],
+                          "ruleSteps": "[{\"name\": \"GROUP BY\", \"description\": \"GROUP BY／彙總\", \"operationType\": \"AGGREGATE\", \"domain\": \"aum\", \"statementKey\": \"sql_lineage:statement:1.AUM_DETAIL.sql:L366\", \"outputTable\": \"AUM_025\", \"file\": \"sources/sql/1.AUM_DETAIL.sql\", \"lineStart\": 366, \"lineEnd\": 375, \"status\": \"active_sql\", \"sourceRole\": \"primary_reference\", \"sql\": \"SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC_M GROUP BY wkb02, yyyymmdd\", \"sqlTextKind\": \"parser_reconstructed_fragment\", \"groupExpressions\": [\"wkb02\", \"yyyymmdd\"], \"aggregateExpressions\": [\"SUM(WKB28 * WKB23 * WKB31)\"], \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\"}, {\"name\": \"SELECT\", \"description\": \"SELECT 欄位映射\", \"operationType\": \"SELECT\", \"domain\": \"aum\", \"statementKey\": \"sql_lineage:statement:1.AUM_DETAIL.sql:L366\", \"outputTable\": \"AUM_025\", \"file\": \"sources/sql/1.AUM_DETAIL.sql\", \"lineStart\": 366, \"lineEnd\": 375, \"status\": \"active_sql\", \"sourceRole\": \"primary_reference\", \"sql\": \"SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC_M GROUP BY wkb02, yyyymmdd\", \"sqlTextKind\": \"parser_reconstructed_fragment\", \"selectExpressions\": [\"wkb02 AS cust_id\", \"yyyymmdd\", \"SUM(WKB28 * WKB23 * WKB31) AS amt\"], \"outputAliases\": [\"cust_id\", \"yyyymmdd\", \"amt\"], \"rawColumnReferences\": [\"WKB23\", \"WKB28\", \"WKB31\", \"wkb02\", \"yyyymmdd\"], \"columnResolution\": \"expressions_preserved; star/ambiguous columns not expanded without schema\", \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\"}, {\"name\": \"UNION\", \"description\": \"UNION 去除完全相同列\", \"operationType\": \"UNION\", \"domain\": \"aum\", \"statementKey\": \"sql_lineage:statement:1.AUM_DETAIL.sql:L366\", \"outputTable\": \"AUM_025\", \"file\": \"sources/sql/1.AUM_DETAIL.sql\", \"lineStart\": 366, \"lineEnd\": 375, \"status\": \"active_sql\", \"sourceRole\": \"primary_reference\", \"sql\": \"SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC_M GROUP BY wkb02, yyyymmdd UNION SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC GROUP BY wkb02, yyyymmdd\", \"sqlTextKind\": \"parser_reconstructed_fragment\", \"branchCount\": 2, \"deduplication\": \"exact_projected_rows\", \"branchSql\": [\"SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC_M GROUP BY wkb02, yyyymmdd\", \"SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC GROUP BY wkb02, yyyymmdd\"], \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\"}, {\"name\": \"CREATE 表\", \"description\": \"CREATE TABLE AS\", \"operationType\": \"CREATE TABLE AS\", \"domain\": \"aum\", \"statementKey\": \"sql_lineage:statement:1.AUM_DETAIL.sql:L366\", \"outputTable\": \"AUM_025\", \"file\": \"sources/sql/1.AUM_DETAIL.sql\", \"lineStart\": 366, \"lineEnd\": 375, \"status\": \"active_sql\", \"sourceRole\": \"primary_reference\", \"sql\": \"CREATE TABLE AUM_025 AS SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC_M GROUP BY wkb02, yyyymmdd UNION SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC GROUP BY wkb02, yyyymmdd\", \"sqlTextKind\": \"parser_reconstructed_fragment\", \"writeMode\": \"create_as_select\", \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\"}]",
+                          "operationTypes": [
+                            "AGGREGATE",
+                            "SELECT",
+                            "UNION",
+                            "CREATE TABLE AS"
+                          ],
+                          "havingConditions": [],
+                          "aggregateExpressions": [
+                            "SUM(WKB28 * WKB23 * WKB31)"
+                          ],
+                          "domain": "aum",
+                          "ontologyId": "sql_lineage",
+                          "outputAliases": [
+                            "cust_id",
+                            "yyyymmdd",
+                            "amt"
+                          ],
+                          "caseExpressions": [],
+                          "status": "active_sql"
+                        }
+                      }
+                    ],
+                    "key": "sql_lineage:table:AUM_025",
+                    "properties": {
+                      "definitionStatus": "active_in_primary_sql",
+                      "physicalName": "AUM_025",
+                      "hasPrimaryActiveDefinition": true,
+                      "origin": "sql_lineage_v1",
+                      "tableKind": "staging_output",
+                      "name": "AUM_025",
+                      "ontologyId": "sql_lineage",
+                      "domains": [
+                        "aum"
+                      ],
+                      "definitionStatuses": [
+                        "active_sql"
+                      ],
+                      "key": "sql_lineage:table:AUM_025"
+                    },
+                    "labels": [
+                      "SqlTable"
+                    ]
+                  },
+                  {
+                    "statements": [],
+                    "requiredIncoming": [],
+                    "key": "sql_lineage:table:DSPBM.PB_FUNDPOSIT_SEC",
+                    "properties": {
+                      "definitionStatus": "external_definition_not_imported",
+                      "physicalName": "DSPBM.PB_FUNDPOSIT_SEC",
+                      "hasPrimaryActiveDefinition": false,
+                      "origin": "sql_lineage_v1",
+                      "tableKind": "external_source",
+                      "name": "DSPBM.PB_FUNDPOSIT_SEC",
+                      "ontologyId": "sql_lineage",
+                      "domains": [
+                        "aum"
+                      ],
+                      "definitionStatuses": [],
+                      "key": "sql_lineage:table:DSPBM.PB_FUNDPOSIT_SEC"
+                    },
+                    "labels": [
+                      "SqlTable"
+                    ]
+                  },
+                  {
+                    "statements": [],
+                    "requiredIncoming": [],
+                    "key": "sql_lineage:table:DSPBM.PB_FUNDPOSIT_SEC_M",
+                    "properties": {
+                      "definitionStatus": "external_definition_not_imported",
+                      "physicalName": "DSPBM.PB_FUNDPOSIT_SEC_M",
+                      "hasPrimaryActiveDefinition": false,
+                      "origin": "sql_lineage_v1",
+                      "tableKind": "external_source",
+                      "name": "DSPBM.PB_FUNDPOSIT_SEC_M",
+                      "ontologyId": "sql_lineage",
+                      "domains": [
+                        "aum"
+                      ],
+                      "definitionStatuses": [],
+                      "key": "sql_lineage:table:DSPBM.PB_FUNDPOSIT_SEC_M"
+                    },
+                    "labels": [
+                      "SqlTable"
+                    ]
+                  }
+                ],
+                "paths": [
+                  {
+                    "relationships": [],
+                    "tableKeys": [
+                      "sql_lineage:table:AUM_025"
+                    ]
+                  },
+                  {
+                    "relationships": [
+                      {
+                        "from": "sql_lineage:table:DSPBM.PB_FUNDPOSIT_SEC",
+                        "to": "sql_lineage:table:AUM_025",
+                        "type": "UNION",
+                        "properties": {
+                          "inputSteps": "[{\"type\": \"FLOWS_TO\", \"inputOrder\": 1, \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"a1055ab07b1582c60ecd60475df02d78144d7b327eb10d515155625c2f402396\"}, {\"type\": \"FLOWS_TO\", \"inputOrder\": 1, \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"4e85930ab4ab7a02189cb39a96cb53d290b82609691155ed9e42fd003f50293d\"}, {\"type\": \"UNION_INPUT\", \"inputOrder\": 2, \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"1546f05d54ac1b407a9a878a5393233c89e9e99e075aa19e5dc1a4882916b715\"}, {\"type\": \"FLOWS_TO\", \"inputOrder\": 1, \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"c992d4f489939e934a530dda649e7f75d6575cd11c0ce1819116e0a14135cf70\"}, {\"type\": \"WRITES_TO\", \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"457c93be77f1291c313f89485ae8fa1d9605d189cdecfef38e46ce63ea618120\"}]",
+                          "sqlTextKind": "original_statement_slice",
+                          "_aumIncomeTransferId": "ff1967ed165ec1e14aeeb26213078fa6b208f349f87b4438d3033c2b8baea4b3",
+                          "lineStart": 366,
+                          "origin": "sql_lineage_v1",
+                          "selectExpressions": [
+                            "wkb02 AS cust_id",
+                            "yyyymmdd",
+                            "SUM(WKB28 * WKB23 * WKB31) AS amt"
+                          ],
+                          "whereConditions": [],
+                          "lineEnd": 375,
+                          "lineageEdgeId": "6c597c51ddf71012cbd524581664852fbb1a7847c85bfe900224878c26d3e7c6",
+                          "sourceRole": "primary_reference",
+                          "sql": "create table AUM_025\n  as \n  select wkb02 as cust_id,yyyymmdd ,sum(WKB28 * WKB23 * WKB31) as amt\n  from DSPBM.PB_FUNDPOSIT_SEC_M@anadbp01_dwdbp01\n  group by wkb02,yyyymmdd\n  union \n  select wkb02 as cust_id,yyyymmdd ,sum(WKB28* WKB23 * WKB31) as amt\n  from DSPBM.PB_FUNDPOSIT_SEC@anadbp01_dwdbp01\n  group by wkb02,yyyymmdd\n  ;",
+                          "statementKey": "sql_lineage:statement:1.AUM_DETAIL.sql:L366",
+                          "unionBranchOrders": [
+                            2
+                          ],
+                          "file": "sources/sql/1.AUM_DETAIL.sql",
+                          "groupExpressions": [
+                            "wkb02",
+                            "yyyymmdd"
+                          ],
+                          "joinTypes": [],
+                          "joinInputRoles": [],
+                          "unionBranchCounts": [
+                            2
+                          ],
+                          "joinConditions": [],
+                          "unionDeduplication": [
+                            "exact_projected_rows"
+                          ],
+                          "ruleSteps": "[{\"name\": \"GROUP BY\", \"description\": \"GROUP BY／彙總\", \"operationType\": \"AGGREGATE\", \"domain\": \"aum\", \"statementKey\": \"sql_lineage:statement:1.AUM_DETAIL.sql:L366\", \"outputTable\": \"AUM_025\", \"file\": \"sources/sql/1.AUM_DETAIL.sql\", \"lineStart\": 366, \"lineEnd\": 375, \"status\": \"active_sql\", \"sourceRole\": \"primary_reference\", \"sql\": \"SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC GROUP BY wkb02, yyyymmdd\", \"sqlTextKind\": \"parser_reconstructed_fragment\", \"groupExpressions\": [\"wkb02\", \"yyyymmdd\"], \"aggregateExpressions\": [\"SUM(WKB28 * WKB23 * WKB31)\"], \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\"}, {\"name\": \"SELECT\", \"description\": \"SELECT 欄位映射\", \"operationType\": \"SELECT\", \"domain\": \"aum\", \"statementKey\": \"sql_lineage:statement:1.AUM_DETAIL.sql:L366\", \"outputTable\": \"AUM_025\", \"file\": \"sources/sql/1.AUM_DETAIL.sql\", \"lineStart\": 366, \"lineEnd\": 375, \"status\": \"active_sql\", \"sourceRole\": \"primary_reference\", \"sql\": \"SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC GROUP BY wkb02, yyyymmdd\", \"sqlTextKind\": \"parser_reconstructed_fragment\", \"selectExpressions\": [\"wkb02 AS cust_id\", \"yyyymmdd\", \"SUM(WKB28 * WKB23 * WKB31) AS amt\"], \"outputAliases\": [\"cust_id\", \"yyyymmdd\", \"amt\"], \"rawColumnReferences\": [\"WKB23\", \"WKB28\", \"WKB31\", \"wkb02\", \"yyyymmdd\"], \"columnResolution\": \"expressions_preserved; star/ambiguous columns not expanded without schema\", \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\"}, {\"name\": \"UNION\", \"description\": \"UNION 去除完全相同列\", \"operationType\": \"UNION\", \"domain\": \"aum\", \"statementKey\": \"sql_lineage:statement:1.AUM_DETAIL.sql:L366\", \"outputTable\": \"AUM_025\", \"file\": \"sources/sql/1.AUM_DETAIL.sql\", \"lineStart\": 366, \"lineEnd\": 375, \"status\": \"active_sql\", \"sourceRole\": \"primary_reference\", \"sql\": \"SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC_M GROUP BY wkb02, yyyymmdd UNION SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC GROUP BY wkb02, yyyymmdd\", \"sqlTextKind\": \"parser_reconstructed_fragment\", \"branchCount\": 2, \"deduplication\": \"exact_projected_rows\", \"branchSql\": [\"SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC_M GROUP BY wkb02, yyyymmdd\", \"SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC GROUP BY wkb02, yyyymmdd\"], \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\"}, {\"name\": \"CREATE 表\", \"description\": \"CREATE TABLE AS\", \"operationType\": \"CREATE TABLE AS\", \"domain\": \"aum\", \"statementKey\": \"sql_lineage:statement:1.AUM_DETAIL.sql:L366\", \"outputTable\": \"AUM_025\", \"file\": \"sources/sql/1.AUM_DETAIL.sql\", \"lineStart\": 366, \"lineEnd\": 375, \"status\": \"active_sql\", \"sourceRole\": \"primary_reference\", \"sql\": \"CREATE TABLE AUM_025 AS SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC_M GROUP BY wkb02, yyyymmdd UNION SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC GROUP BY wkb02, yyyymmdd\", \"sqlTextKind\": \"parser_reconstructed_fragment\", \"writeMode\": \"create_as_select\", \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\"}]",
+                          "operationTypes": [
+                            "AGGREGATE",
+                            "SELECT",
+                            "UNION",
+                            "CREATE TABLE AS"
+                          ],
+                          "havingConditions": [],
+                          "aggregateExpressions": [
+                            "SUM(WKB28 * WKB23 * WKB31)"
+                          ],
+                          "domain": "aum",
+                          "ontologyId": "sql_lineage",
+                          "outputAliases": [
+                            "cust_id",
+                            "yyyymmdd",
+                            "amt"
+                          ],
+                          "caseExpressions": [],
+                          "status": "active_sql"
+                        }
+                      }
+                    ],
+                    "tableKeys": [
+                      "sql_lineage:table:DSPBM.PB_FUNDPOSIT_SEC",
+                      "sql_lineage:table:AUM_025"
+                    ]
+                  },
+                  {
+                    "relationships": [
+                      {
+                        "from": "sql_lineage:table:DSPBM.PB_FUNDPOSIT_SEC_M",
+                        "to": "sql_lineage:table:AUM_025",
+                        "type": "UNION",
+                        "properties": {
+                          "inputSteps": "[{\"type\": \"FLOWS_TO\", \"inputOrder\": 1, \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"69925c9c077cf76c28a4927b595b4610eff8b0b10d112d6f3808ff8f9b8853cf\"}, {\"type\": \"FLOWS_TO\", \"inputOrder\": 1, \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"26dd52db045a9ccdd931073f656af6da380f62de477aca52660446b41c4530a6\"}, {\"type\": \"UNION_INPUT\", \"inputOrder\": 1, \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"e5d17405839aa526633f2db77a58e8f521be9654bab74414c61045c232b5cba1\"}, {\"type\": \"FLOWS_TO\", \"inputOrder\": 1, \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"c992d4f489939e934a530dda649e7f75d6575cd11c0ce1819116e0a14135cf70\"}, {\"type\": \"WRITES_TO\", \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"457c93be77f1291c313f89485ae8fa1d9605d189cdecfef38e46ce63ea618120\"}]",
+                          "sqlTextKind": "original_statement_slice",
+                          "_aumIncomeTransferId": "0fc756e91e4f9098f8533a76ed49da84d9c3a6e3672d8e1e0b209bb3b7eaf710",
+                          "lineStart": 366,
+                          "origin": "sql_lineage_v1",
+                          "selectExpressions": [
+                            "wkb02 AS cust_id",
+                            "yyyymmdd",
+                            "SUM(WKB28 * WKB23 * WKB31) AS amt"
+                          ],
+                          "whereConditions": [],
+                          "lineEnd": 375,
+                          "lineageEdgeId": "a5c0ac0c518f512cb19ff1a6ea24a81d767af26bf4bcd9faf2a97e634cc93511",
+                          "sourceRole": "primary_reference",
+                          "sql": "create table AUM_025\n  as \n  select wkb02 as cust_id,yyyymmdd ,sum(WKB28 * WKB23 * WKB31) as amt\n  from DSPBM.PB_FUNDPOSIT_SEC_M@anadbp01_dwdbp01\n  group by wkb02,yyyymmdd\n  union \n  select wkb02 as cust_id,yyyymmdd ,sum(WKB28* WKB23 * WKB31) as amt\n  from DSPBM.PB_FUNDPOSIT_SEC@anadbp01_dwdbp01\n  group by wkb02,yyyymmdd\n  ;",
+                          "statementKey": "sql_lineage:statement:1.AUM_DETAIL.sql:L366",
+                          "unionBranchOrders": [
+                            1
+                          ],
+                          "file": "sources/sql/1.AUM_DETAIL.sql",
+                          "groupExpressions": [
+                            "wkb02",
+                            "yyyymmdd"
+                          ],
+                          "joinTypes": [],
+                          "joinInputRoles": [],
+                          "unionBranchCounts": [
+                            2
+                          ],
+                          "joinConditions": [],
+                          "unionDeduplication": [
+                            "exact_projected_rows"
+                          ],
+                          "ruleSteps": "[{\"name\": \"GROUP BY\", \"description\": \"GROUP BY／彙總\", \"operationType\": \"AGGREGATE\", \"domain\": \"aum\", \"statementKey\": \"sql_lineage:statement:1.AUM_DETAIL.sql:L366\", \"outputTable\": \"AUM_025\", \"file\": \"sources/sql/1.AUM_DETAIL.sql\", \"lineStart\": 366, \"lineEnd\": 375, \"status\": \"active_sql\", \"sourceRole\": \"primary_reference\", \"sql\": \"SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC_M GROUP BY wkb02, yyyymmdd\", \"sqlTextKind\": \"parser_reconstructed_fragment\", \"groupExpressions\": [\"wkb02\", \"yyyymmdd\"], \"aggregateExpressions\": [\"SUM(WKB28 * WKB23 * WKB31)\"], \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\"}, {\"name\": \"SELECT\", \"description\": \"SELECT 欄位映射\", \"operationType\": \"SELECT\", \"domain\": \"aum\", \"statementKey\": \"sql_lineage:statement:1.AUM_DETAIL.sql:L366\", \"outputTable\": \"AUM_025\", \"file\": \"sources/sql/1.AUM_DETAIL.sql\", \"lineStart\": 366, \"lineEnd\": 375, \"status\": \"active_sql\", \"sourceRole\": \"primary_reference\", \"sql\": \"SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC_M GROUP BY wkb02, yyyymmdd\", \"sqlTextKind\": \"parser_reconstructed_fragment\", \"selectExpressions\": [\"wkb02 AS cust_id\", \"yyyymmdd\", \"SUM(WKB28 * WKB23 * WKB31) AS amt\"], \"outputAliases\": [\"cust_id\", \"yyyymmdd\", \"amt\"], \"rawColumnReferences\": [\"WKB23\", \"WKB28\", \"WKB31\", \"wkb02\", \"yyyymmdd\"], \"columnResolution\": \"expressions_preserved; star/ambiguous columns not expanded without schema\", \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\"}, {\"name\": \"UNION\", \"description\": \"UNION 去除完全相同列\", \"operationType\": \"UNION\", \"domain\": \"aum\", \"statementKey\": \"sql_lineage:statement:1.AUM_DETAIL.sql:L366\", \"outputTable\": \"AUM_025\", \"file\": \"sources/sql/1.AUM_DETAIL.sql\", \"lineStart\": 366, \"lineEnd\": 375, \"status\": \"active_sql\", \"sourceRole\": \"primary_reference\", \"sql\": \"SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC_M GROUP BY wkb02, yyyymmdd UNION SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC GROUP BY wkb02, yyyymmdd\", \"sqlTextKind\": \"parser_reconstructed_fragment\", \"branchCount\": 2, \"deduplication\": \"exact_projected_rows\", \"branchSql\": [\"SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC_M GROUP BY wkb02, yyyymmdd\", \"SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC GROUP BY wkb02, yyyymmdd\"], \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\"}, {\"name\": \"CREATE 表\", \"description\": \"CREATE TABLE AS\", \"operationType\": \"CREATE TABLE AS\", \"domain\": \"aum\", \"statementKey\": \"sql_lineage:statement:1.AUM_DETAIL.sql:L366\", \"outputTable\": \"AUM_025\", \"file\": \"sources/sql/1.AUM_DETAIL.sql\", \"lineStart\": 366, \"lineEnd\": 375, \"status\": \"active_sql\", \"sourceRole\": \"primary_reference\", \"sql\": \"CREATE TABLE AUM_025 AS SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC_M GROUP BY wkb02, yyyymmdd UNION SELECT wkb02 AS cust_id, yyyymmdd, SUM(WKB28 * WKB23 * WKB31) AS amt FROM DSPBM.PB_FUNDPOSIT_SEC GROUP BY wkb02, yyyymmdd\", \"sqlTextKind\": \"parser_reconstructed_fragment\", \"writeMode\": \"create_as_select\", \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\"}]",
+                          "operationTypes": [
+                            "AGGREGATE",
+                            "SELECT",
+                            "UNION",
+                            "CREATE TABLE AS"
+                          ],
+                          "havingConditions": [],
+                          "aggregateExpressions": [
+                            "SUM(WKB28 * WKB23 * WKB31)"
+                          ],
+                          "domain": "aum",
+                          "ontologyId": "sql_lineage",
+                          "outputAliases": [
+                            "cust_id",
+                            "yyyymmdd",
+                            "amt"
+                          ],
+                          "caseExpressions": [],
+                          "status": "active_sql"
+                        }
+                      }
+                    ],
+                    "tableKeys": [
+                      "sql_lineage:table:DSPBM.PB_FUNDPOSIT_SEC_M",
+                      "sql_lineage:table:AUM_025"
+                    ]
+                  }
+                ]
+              },
+              "stage": {
+                "key": "aum:stage:AUM_025",
+                "properties": {
+                  "sqlDefinitionStatus": "active_in_primary_sql",
+                  "sqlLineageVersion": "sql_lineage_v1",
+                  "stagingSqlId": "STG_AUM_025",
+                  "sourceTables": [
+                    "DSPBM.PB_FUNDPOSIT_SEC_M",
+                    "DSPBM.PB_FUNDPOSIT_SEC"
+                  ],
+                  "outputObject": "AUM_025",
+                  "name": "AUM_025",
+                  "dictionaryVersion": "0.2-draft",
+                  "ontologyId": "aum",
+                  "stageLevel": "source_transform",
+                  "key": "aum:stage:AUM_025"
+                },
+                "labels": [
+                  "StagingOutput"
+                ]
+              },
+              "outputTable": "AUM_025",
+              "bindingStatus": "explicit_scope",
+              "mappingType": "AUM_IMPLEMENTED_BY",
+              "bindingConceptKey": "pb_shared:product:securities_fund",
+              "targetTableKey": "sql_lineage:table:AUM_025",
+              "bridge": {
+                "from": "aum:stage:AUM_025",
+                "to": "sql_lineage:table:AUM_025",
+                "type": "REPRESENTS_SQL_TABLE",
+                "properties": {
+                  "_aumIncomeTransferId": "551028ecd3e3ec55ee21a3ba872ded67f7d6927b0825b51706620cefd98266fe",
+                  "ontologyId": "sql_lineage",
+                  "origin": "sql_lineage_v1"
+                }
+              },
+              "sqlTable": "AUM_025"
+            }
+          ]
+        ]
+      ]
+    },
+    "notifications": [
+      {
+        "code": "Neo.ClientNotification.Statement.UnknownPropertyKeyWarning",
+        "description": "One of the property names in your query is not available in the database, make sure you didn't misspell it or that the label is available when you run this statement in your application (the missing property name is: metricKey)",
+        "severity": "WARNING",
+        "title": "The provided property key is not in the database",
+        "position": {
+          "offset": 1746,
+          "line": 21,
+          "column": 80
+        },
+        "category": "UNRECOGNIZED"
+      },
+      {
+        "code": "Neo.ClientNotification.Statement.UnknownPropertyKeyWarning",
+        "description": "One of the property names in your query is not available in the database, make sure you didn't misspell it or that the label is available when you run this statement in your application (the missing property name is: metricKey)",
+        "severity": "WARNING",
+        "title": "The provided property key is not in the database",
+        "position": {
+          "offset": 1402,
+          "line": 17,
+          "column": 45
+        },
+        "category": "UNRECOGNIZED"
+      },
+      {
+        "code": "Neo.ClientNotification.Statement.UnknownPropertyKeyWarning",
+        "description": "One of the property names in your query is not available in the database, make sure you didn't misspell it or that the label is available when you run this statement in your application (the missing property name is: metricKey)",
+        "severity": "WARNING",
+        "title": "The provided property key is not in the database",
+        "position": {
+          "offset": 1717,
+          "line": 21,
+          "column": 51
+        },
+        "category": "UNRECOGNIZED"
+      },
+      {
+        "code": "Neo.ClientNotification.Statement.UnknownPropertyKeyWarning",
+        "description": "One of the property names in your query is not available in the database, make sure you didn't misspell it or that the label is available when you run this statement in your application (the missing property name is: metricKey)",
+        "severity": "WARNING",
+        "title": "The provided property key is not in the database",
+        "position": {
+          "offset": 1373,
+          "line": 17,
+          "column": 16
+        },
+        "category": "UNRECOGNIZED"
+      },
+      {
+        "code": "Neo.ClientNotification.Statement.UnknownPropertyKeyWarning",
+        "description": "One of the property names in your query is not available in the database, make sure you didn't misspell it or that the label is available when you run this statement in your application (the missing property name is: metricKey)",
+        "severity": "WARNING",
+        "title": "The provided property key is not in the database",
+        "position": {
+          "offset": 1866,
+          "line": 23,
+          "column": 25
+        },
+        "category": "UNRECOGNIZED"
+      }
+    ],
+    "queryType": "r",
+    "resultAvailableAfter": 2,
+    "resultConsumedAfter": 8,
+    "bookmarks": [
+      "FB:kcwQ7SpwrfK9R02hh/pr5bpiH8kCCJA="
+    ]
+  }
+}

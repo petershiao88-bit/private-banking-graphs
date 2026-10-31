@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-Hant">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agent 交接實驗室 · Semantica</title>
+<style>
+:root{font-family:"Segoe UI","Microsoft JhengHei",sans-serif;color:#173649;background:#f3f6f7;font-size:15px}*{box-sizing:border-box}body{margin:0}a{color:#14746e;text-decoration:none}button,select{font:inherit}button{cursor:pointer;border:0;border-radius:9px;padding:11px 18px;font-weight:600;background:#146b64;color:white}button.secondary{background:#e7eeef;color:#254d5b}button:disabled{opacity:.5;cursor:wait}header{background:#fff;border-bottom:1px solid #dce5e7;padding:17px max(24px,calc((100vw - 1240px)/2));display:flex;justify-content:space-between;align-items:center}.brand{font-weight:750;letter-spacing:.04em}.brand span{font-weight:400;color:#667d89;margin-left:14px}nav{display:flex;gap:22px}main{max-width:1288px;margin:auto;padding:30px 24px 60px}.eyebrow{color:#14746e;letter-spacing:.14em;font-size:12px;font-weight:750}h1{font-size:32px;margin:9px 0 12px;letter-spacing:-.03em}p{line-height:1.75;margin:8px 0;color:#57717e}.intro{max-width:850px}.note{display:flex;gap:10px;align-items:center;margin:20px 0 26px;padding:13px 16px;border:1px solid #d2e5e1;background:#edf7f3;border-radius:10px;color:#38665a;font-size:13px}.layout{display:grid;grid-template-columns:290px minmax(0,1fr);gap:22px}.panel{background:white;border:1px solid #dae4e7;border-radius:14px;padding:22px}.sidebar{align-self:start;position:sticky;top:16px}.sidebar h2{margin:0 0 16px;font-size:16px}.cases{display:grid;gap:7px;max-height:510px;overflow-y:auto;padding-right:5px}.case{background:#f4f7f8;color:#395767;text-align:left;padding:11px 12px;border:1px solid transparent;font-size:13px;font-weight:500}.case.selected{background:#e8f5f1;border-color:#73ada1;color:#115e55}.case small{display:block;font-size:10px;letter-spacing:.04em;color:#8498a1;margin-bottom:4px}.sidebar .secondary{margin-top:18px;width:100%}.content{min-width:0}.flow{display:grid;grid-template-columns:1fr 26px 1.4fr 26px 1fr;gap:6px;align-items:center;margin-bottom:22px}.flow .step{border:1px solid #d9e4e7;background:white;border-radius:12px;padding:16px 12px;min-height:100px}.step b{display:block;font-size:15px;margin:7px 0 4px}.step small{color:#6e8490;font-size:11px}.step .num{font-size:10px;letter-spacing:.1em;color:#8197a2}.flow .gate{background:#183f50;border-color:#183f50;color:white}.gate small,.gate .num{color:#b1d6d8}.arrow{text-align:center;color:#89a3ab;font-size:20px}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:18px}.toolbar h2{font-size:21px;margin:0 0 5px}.toolbar p{font-size:13px;margin:0}.result{margin-top:20px}.verdict{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;border-radius:10px;padding:17px 18px;background:#fff2df;border:1px solid #eed4a9}.verdict.pass{background:#eaf6ee;border-color:#b0d8bd}.verdict.block{background:#faeeed;border-color:#e7c4c2}.verdict b{font-size:18px;display:block}.verdict p{font-size:13px;margin:6px 0 0;color:inherit}.verdict .status{font-size:11px;border:1px solid currentColor;border-radius:5px;padding:4px 7px;white-space:nowrap}.columns{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}.columns section{border:1px solid #e0e8ea;border-radius:10px;padding:16px}.columns h3{font-size:14px;margin:0 0 13px}.item{padding:10px 0;border-top:1px solid #edf1f2;line-height:1.6;font-size:14px;word-break:break-word}.item:first-of-type{border-top:0}.item small{display:block;color:#78909c;font-size:11px}.empty{color:#8799a2;font-size:13px;padding:15px 0;line-height:1.7}.badge{display:inline-block;padding:5px 9px;background:#e9eff3;border-radius:6px;font-size:12px;margin:4px 5px 0 0}.badge.warn{background:#f9ebd7;color:#88601f}.summary{font-size:13px;line-height:1.8;margin-top:18px;color:#58717d}details{margin-top:15px;border-top:1px solid #e3ebee;padding-top:14px}summary{cursor:pointer;font-size:13px;font-weight:600;color:#345767}pre{white-space:pre-wrap;word-break:break-word;background:#f3f6f8;border:1px solid #e1e9ed;border-radius:8px;padding:14px;font-size:12px;line-height:1.7;max-height:370px;overflow:auto;color:#36515e}.stage-title{margin:18px 0 8px;font-size:13px;font-weight:650}table{border-collapse:collapse;width:100%;font-size:13px;margin-top:16px}th,td{text-align:left;border-bottom:1px solid #e0e9eb;padding:12px 8px}th{color:#70848e;font-weight:500}.test-ok{color:#177654}.test-fail{color:#b03a2c}footer{margin-top:22px;font-size:12px;color:#7c919a;line-height:1.8}.loading{color:#14746e;font-size:13px}.error{color:#b03a2c}#suite:empty,#result:empty{display:none}@media(max-width:900px){.layout{grid-template-columns:1fr}.sidebar{position:static}.cases{max-height:170px;grid-template-columns:1fr 1fr}.columns{grid-template-columns:1fr}.flow{grid-template-columns:1fr 16px 1fr 16px 1fr}.brand span{display:none}h1{font-size:27px}.toolbar{align-items:flex-start}main{padding:24px 16px}}
+</style>
+<header><div class="brand">SEMANTICA <span>客戶360 · 本機 PoC</span></div><nav><a href="/">圖譜瀏覽</a><a href="/ask">圖譜問答</a></nav></header>
+<main>
+  <div class="eyebrow">AGENT HANDOFF LAB</div>
+  <h1>這份輸出，能交給下一個 Agent 嗎？</h1>
+  <p class="intro">重現簡報中的交接流程：核對最後工具的輸出 → 沿來源推導標籤 → 驗證接收條件 → 通過後交接。你可以同時看到送出前的內容，以及接收端真正收到的內容。</p>
+  <div class="note">● 本機模擬資料與示範政策 · 使用真正的 Semantica 規則引擎與 SHACL · 不呼叫 LLM／付費 API</div>
+  <div class="layout">
+    <aside class="panel sidebar"><h2>選一個交接情境</h2><div id="cases" class="cases"></div><button id="runAll" class="secondary">執行全部 14 個情境</button></aside>
+    <div class="content">
+      <div class="flow" aria-label="交接流程">
+        <div class="step"><span class="num">01 / SENDER</span><b>理專 Agent</b><small>提交工具輸出與收據</small></div><div class="arrow">→</div>
+        <div class="step gate"><span class="num">02 / HARNESS</span><b>Semantica ＋ SHACL</b><small>繼承標籤・核對同意・決定放行</small></div><div class="arrow">→</div>
+        <div class="step"><span class="num">03 / RECEIVER</span><b>客戶報告 Agent</b><small>只接收驗證通過的內容</small></div>
+      </div>
+      <article class="panel">
+        <div class="toolbar"><div><h2 id="caseTitle">載入情境中…</h2><p id="caseDescription"></p></div><button id="run" disabled>執行交接</button></div>
+        <div id="progress" role="status" aria-live="polite"></div>
+        <div id="result" class="result"></div><div id="suite"></div>
+      </article>
+      <footer>此頁由本專案自行串接，並非 Semantica 原生介面。Agent、工具收據與同意紀錄均為模擬；正式環境需接可信工具、集團同意服務及實際交接介面。原有 RDF／PG 畫布不受影響。</footer>
+    </div>
+  </div>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+let scenarios=[], selected='combined_no_consent', labelNames={};
+const verdictNames={allowed:'允許交接',allowed_after_redaction:'移除手收後，允許交接',blocked:'阻擋交接',needs_consent:'需要客戶同意，尚未交接'};
+function el(tag,text,cls){const node=document.createElement(tag);if(text!==undefined)node.textContent=text;if(cls)node.className=cls;return node}
+function json(value){return JSON.stringify(value,null,2)}
+function details(parent,title,text){const d=el('details');d.append(el('summary',title),el('pre',text));parent.append(d)}
+function items(parent,values,empty){if(!values.length){parent.append(el('div',empty,'empty'));return}for(const item of values){const node=el('div',item.value,'item');node.append(el('small',`${item.term_id} · 來源：${item.source_ids.join('、')}`));parent.append(node)}}
+function select(id){selected=id;for(const b of $('cases').children)b.classList.toggle('selected',b.dataset.id===id);const s=scenarios.find(x=>x.id===id);$('caseTitle').textContent=s.title;$('caseDescription').textContent=s.description;$('result').replaceChildren();$('suite').replaceChildren();$('progress').textContent='';}
+function render(result){
+ const root=$('result');root.replaceChildren();
+ const style=result.delivered?'pass':result.verdict==='blocked'?'block':'';
+ const banner=el('div',undefined,'verdict '+style), info=el('div');info.append(el('b',verdictNames[result.verdict]),el('p',result.explanation));banner.append(info,el('span',result.delivered?'已傳送':'未傳送','status'));root.append(banner);
+ const cols=el('div',undefined,'columns'),before=el('section'),after=el('section');before.append(el('h3','理專 Agent 提交的內容'));items(before,result.claim.items,'沒有內容');after.append(el('h3','客戶報告 Agent 實際收到'));items(after,result.receiver_inbox.flatMap(x=>x.items),'沒有收到任何內容。閘道尚未放行。');cols.append(before,after);root.append(cols);
+ for(const stage of result.stages){root.append(el('div',stage.stage==='original'?'原始輸出的推導標籤':'移除手收後，重新推導的標籤','stage-title'));const badges=el('div');for(const label of stage.reasoning.labels)badges.append(el('span',labelNames[label]||label,'badge '+(['personal_data','internal_performance','bank_view'].includes(label)?'warn':'')));root.append(badges);root.append(el('p',`SHACL：${stage.validation.conforms?'通過':'未通過'} · ${stage.validation.violations.length} 項違反條件`,'summary'));}
+ if(!result.precheck.verified)root.append(el('p','工具輸出核對未通過，沒有執行後續推理。','summary'));
+ if(result.removed_items.length)root.append(el('p',`已完整移除：${result.removed_items.map(x=>x.value).join('、')}。重新產生內容與來源後再驗證。`,'summary'));
+ for(const [i,stage] of result.stages.entries()){
+   details(root,`${i+1}. 查看 run_reasoning 的 input／output`,json({facts:stage.reasoning.facts,rules:stage.reasoning.rules,derived_facts:stage.reasoning.derived_facts,class_token_map:stage.reasoning.class_token_map}));
+   details(root,`${i+1}. 查看 SHACL 驗證與 RDF`,json({conforms:stage.validation.conforms,violations:stage.validation.violations})+'\n\nDATA RDF\n'+stage.validation.data_ttl+'\nSHACL SHAPES\n'+stage.validation.shapes_ttl);
+ }
+ details(root,'查看工具核對、客戶同意與遮罩紀錄',json({precheck:result.precheck,consent:result.consent,transformation:result.transformation,agent_claims:result.claim}));
+ details(root,'查看來源追蹤與交接決策紀錄',json({decision_ids:result.decision_ids,decision_trace:result.decision_trace,lineage:result.lineage,audit_graph:result.audit_graph}));
+ details(root,'查看接收 Agent 的完整 inbox',json(result.receiver_inbox));
+}
+function renderSuite(report){const root=$('suite');root.replaceChildren();root.append(el('p',`${report.passed} / ${report.total} 個情境符合預期。點選任一列可查看細節。`,'summary'));const table=el('table'),head=el('tr');for(const text of ['測試情境','實際結果','接收端'])head.append(el('th',text));const thead=el('thead');thead.append(head);table.append(thead);const tbody=el('tbody');for(const row of report.results){const tr=el('tr');tr.tabIndex=0;tr.style.cursor='pointer';tr.append(el('td',(row.passed?'✓ ':'✕ ')+row.title,row.passed?'test-ok':'test-fail'),el('td',verdictNames[row.verdict]),el('td',row.delivered?'有收到':'沒有收到'));const show=()=>{select(row.case_id);render(row)};tr.addEventListener('click',show);tr.addEventListener('keydown',e=>{if(e.key==='Enter')show()});tbody.append(tr)}table.append(tbody);root.append(table)}
+async function run(all=false){$('run').disabled=$('runAll').disabled=true;$('progress').className='loading';$('progress').textContent=all?'正在執行全部情境…':'正在核對工具輸出、推導標籤與驗證…';$('result').replaceChildren();$('suite').replaceChildren();try{const response=await fetch('/api/handoff/run',{method:'POST',headers:{'Content-Type':'application/json','X-Handoff-Demo':'1'},body:json({case_id:all?'all':selected})});const data=await response.json();if(!response.ok)throw new Error(typeof data.detail==='string'?data.detail:'測試未完成。');$('progress').textContent='';if(all)renderSuite(data);else render(data)}catch(error){$('progress').className='error';$('progress').textContent=error.message}finally{$('run').disabled=$('runAll').disabled=false}}
+$('run').addEventListener('click',()=>run());$('runAll').addEventListener('click',()=>run(true));
+fetch('/api/handoff/scenarios').then(r=>{if(!r.ok)throw Error('情境載入失敗');return r.json()}).then(data=>{scenarios=data.scenarios;labelNames=data.labels;for(const [i,s] of scenarios.entries()){const b=el('button',undefined,'case');b.dataset.id=s.id;b.append(el('small',`CASE ${String(i+1).padStart(2,'0')}`),document.createTextNode(s.title));b.addEventListener('click',()=>select(s.id));$('cases').append(b)}select(selected);$('run').disabled=false}).catch(e=>{$('progress').textContent=e.message});
+</script>
+</html>

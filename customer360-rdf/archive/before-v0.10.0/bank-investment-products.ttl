@@ -1,0 +1,47 @@
+# 銀行投資商品共通分類 v0.9.0，2026-10-22，設計草案。
+# example.org 為示意命名空間；不是實際服務位址。
+
+@prefix fh: <https://example.org/ontology/holding#> .
+@prefix bank: <https://example.org/ontology/bank#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://example.org/ontology/bank/investment-products>
+    a owl:Ontology ;
+    rdfs:label "銀行投資商品共通分類本體"@zh-TW ;
+    owl:imports <https://example.org/ontology/holding> ;
+    owl:versionIRI <https://example.org/ontology/bank/investment-products/0.9.0> ;
+    owl:versionInfo "0.9.0 / design draft / 2026-10-22" .
+
+bank:StockProduct
+    a owl:Class ;
+    rdfs:subClassOf fh:FinancialProduct ;
+    rdfs:label "股票商品"@zh-TW ;
+    skos:definition "代表公司股權的金融商品。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+bank:BondProduct
+    a owl:Class ;
+    rdfs:subClassOf fh:FinancialProduct ;
+    rdfs:label "債券商品"@zh-TW ;
+    skos:definition "發行人為籌資而發行、約定清償條件的債務型金融商品。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+bank:FundProduct
+    a owl:Class ;
+    rdfs:subClassOf fh:FinancialProduct ;
+    rdfs:label "基金商品"@zh-TW ;
+    skos:definition "透過集合投資方式，由專業管理機構依基金契約管理運用資產的金融商品。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+bank:OverseasFinancialProduct
+    a owl:Class ;
+    rdfs:subClassOf fh:FinancialProduct ;
+    rdfs:label "海外金融商品"@zh-TW ;
+    skos:definition "銀行業務中歸入海外投資範圍的金融商品。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .

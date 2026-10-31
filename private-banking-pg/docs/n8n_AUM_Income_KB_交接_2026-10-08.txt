@@ -1,0 +1,282 @@
+【2026-10-08 更新：七節點／單輪 Jev；以下九節點及更舊內容均為歷史。】
+使用者已批准：完整概念圖 → 原生 Jev 選概念路徑 → 沿既有圖關係查全部映射與 SQL；取消第二輪 Jev。
+七節點：KB Input → Aura - Full Concept Graph → Jev - Prepare Concept Paths → Jev - Concept Path Decisions API → Concept Path Result → Aura - Mapping Paths → KB Result。
+新合約 pb_kb_full_graph_single_jev_v1：conceptPathScores、selectedConceptPaths、mappingPaths、sqlEvidence、products、queryPlan、decision.concept、mappingResolution；映射沒有第二輪機率。
+KB 草稿 tL7HTesvAzqwsqv6 及主流程測試版 nBrzHm3pNsVcOpeu 已保存未發布；主流程仍 32 節點，只改 SQL Reasoning Agent、Normalize SQL Result、保留候選機率。線上匯出參數／憑證引用／接線核對通過，固定測試輸入已清除。
+原生單輪實測：月底證券 AUM，30 條概念候選 → 4 條納入 → 17 條映射直接取回。另五組圖查詢資料搭配合成決策驗證多對多、空選取、SQL 必要依賴及原始機率。未執行完整金額查詢或來源 SQL。
+cust_id 唯讀核對：此次没有新增或修改圖譜。既有圖已含 AUM／Income 客戶 BusinessDimension、部分 PhysicalColumn CUST_ID，以及來源 SQL 映射（如 WKB02 AS cust_id）；目前 PBConcept 純概念圖未含客戶維度，也未建立跨來源識別碼一致性規則。
+最新權威：ontology/n8n_kb/README.md、PB_AUM_Income_KB.single_jev.saved.json、main.single_jev.saved.json、single_jev.deployment.json、single_jev.native_securities_all.json、single_jev.customer_identity_audit.json。
+建置 build_single_jev_workflow.py、測試 test_single_jev.cjs、核對 verify_single_jev_saved.py。不要回用舊生成器；不要自行發布。
+
+n8n AUM／Income KB 交接
+【2026-10-08 最新更新：以下舊交接保留為歷史；目前方向以本段與 ontology/n8n_kb/README.md 為準。】
+
+使用者已批准改為九節點 KB。第一輪原生 Jev 讀完整純業務概念圖與所有底到頂路徑；第二輪才評選所選概念的實體映射路徑及原始 SQL。domain／metricCode 僅作提示，不預篩選概念。圖與顆粒度未修改。
+九節點：KB Input → Aura - Full Concept Graph → Jev - Prepare Concept Paths → Jev - Concept Path Decisions API → Concept Path Result → Aura - Mapping Paths → Jev - Prepare Mapping Paths → Jev - Mapping Path Decisions API → KB Result。
+保留原生 included／uncertain／excluded、機率及 confidence。多選、不設門檻、不取 top-1、不正規化、不相乘、不新增 IF 或額外 Agent。
+KB 草稿 tL7HTesvAzqwsqv6 已保存；主流程測試版 nBrzHm3pNsVcOpeu 保留 32 節點，更新 SQL Reasoning Agent、Normalize SQL Result、保留候選機率三節點。未發布，原始主流程未修改。
+新合約 pb_kb_full_graph_mapping_paths_v1：conceptPathScores、selectedConceptPaths、mappingPathScores、selectedMappingPaths、sqlEvidence、products、queryPlan、decision.concept/mapping。
+完整 SQL 在頂層 sqlEvidence.statements[].properties.sql；各 mapping 的 sqlEvidence 是共享參照。第二輪 state 使用 T／S／E／M 共用參照，保留所有候選、依賴關係及原始 SQL，減少重複 token。
+三次成功原生測試：證券基金（30 概念→1，2 映射→2）；全部證券（30→4，17→17）；台幣存款月底 AUM 及存款收入（30→2，12→12）。第三題選到现有 deposit AUM／Income；圖沒有台幣子概念，不代表口徑已解決。
+早期整體證券第二輪曾 max_tokens_exceeded；共用參照後成功，第二輪 13,796 tokens，跨領域 16,734 tokens。仍有模型容量限制。
+固定測試输入已清除，線上匯出與生成版本的節點參數／憑證引用／接線核對通過。主流程完整金額查詢及來源 SQL 尚未執行。
+權威檔案：PB_AUM_Income_KB.full_graph.saved.json、main.full_graph.saved.json、full_graph.deployment.json、full_graph.native_*.json、README.md、full-graph-kb-draft.png。本次生成器 build_full_graph_workflow.py，測試 test_full_graph.cjs，核對 verify_full_graph_saved.py。舊 simplified／lazy 生成器與下列段落均為歷史。
+使用者已明確允許本次兩輪實測將概念圖、映射、原始 SQL 及資料血緣送至既有 OpenRouter typesafe/jev-1.13。不要讀出憑證內容，也不要自行發布。
+
+【以下是本次改造前的歷史交接】
+日期：2026-10-08
+工作目錄：C:\Users\petershiao\Desktop\Ontology\私銀智能問答
+
+一、接手後的第一件事
+
+目前停在「討論圖模型與業務定義」階段。
+使用者明確說：「先不用動，因為我有蠻多想要跟你討論來調整的。」
+這次要求只建立交接檔；不代表授權修改圖、流程、程式或發布版本。
+新聊天室請先閱讀這份交接，接續討論 products／candidates 的定義來源，不要立即動工，也不要重做已完成的工作。
+
+二、使用者已確認的核心方向
+
+業務順序必須是：
+輸入 metric code → 查候選 concept → Jev 選 concept → 只查所選 concept 的相關完整路徑 → Jev 選完整路徑 → 從映射圖查實現方式 → 回傳主流程。
+
+不能先載入全部完整路徑，再同時選 object 與路徑。
+不能假定一個 object 只有一條路徑。現在資料可能看似一對一，但未來必須支援：
+- 一個 concept 對應多條路徑。
+- 多個 concept 共用一條路徑。
+- 同一查詢選擇多個 concept／多條路徑。
+
+主流程需要取得兩部分：
+1. 業務概念圖：SharedProduct → BusinessMetric → 上層指標。
+2. 技術映射圖：SqlTable → TRANSFORMS_TO／UNION／INSERT_FROM → SqlTable，以及原始 SQL、來源表、依賴分支。
+
+不能只回傳一個產品名稱或單一答案。
+Jev 必須是原生 typesafe/jev-1.13 Decisions API，回傳各 candidate／path 的 choice 與 probabilities。使用者曾發現 Jev 背後接了 GPT Luna，對此非常在意；不可再換模型或用一般聊天答案冒充機率。
+
+三、非常重要的工作偏好
+
+使用者不接受過度設計，也不接受一堆保護／檢查節點，認為這會浪費 token。
+先前助手違反要求，加了兩個 IF Router，使用者已明確糾正。
+不要把檢查節點改名成 router 或業務分流再加回去。
+已約定 Code 只整理資料，不再替 Jev 加第二套判斷。
+保留原始 choice、probabilities、confidence；不自行設門檻、不跨候選正規化、不把兩輪機率相乘。
+一個候選是 uncertain，不能因此清空其他 included 項目。
+說明要精準、簡短；不要自行擴大修改範圍、反覆要求確認。
+目前使用者已明確要求先討論，因此任何新的實作須等後续授權。
+
+四、目前線上草稿
+
+KB：
+名稱：私銀 AUM Income KB
+ID：tL7HTesvAzqwsqv6
+網址：https://chiang4901.app.n8n.cloud/workflow/tL7HTesvAzqwsqv6
+最新狀態：已保存、尚未發布；12 節點直線流程；固定測試輸入已清除。
+回傳合約：pb_kb_lazy_routes_v4
+
+節點依序：
+1. KB Input
+2. Aura - Concept Catalog
+3. Jev - Prepare Concepts
+4. Jev - Concept Decisions API
+5. Concept Decision Result
+6. Aura - Concept Paths
+7. Concept Routes
+8. Jev - Prepare Paths
+9. Jev - Path Decisions API
+10. Route Decision Result
+11. Aura - Mappings
+12. KB Result
+
+主流程測試版：
+名稱：智能查詢 - 概念圖 KB 測試版
+ID：nBrzHm3pNsVcOpeu
+網址：https://chiang4901.app.n8n.cloud/workflow/nBrzHm3pNsVcOpeu
+最新狀態：已保存、尚未發布；32 節點。
+Product Concept KB 直接接 Available Source Metadata。
+先前配套的 KB Route and Evidence Ready／KB Not Ready 已移除。
+SQL 執行欄位內依賴 KB.status／canGenerateSql 的攔截也已移除。
+既有 SQL 唯讀執行限制仍保留，未額外新增節點。
+
+原始主流程：
+名稱：智能查詢
+ID：glxRvnXZ1bCtknVi
+網址：https://chiang4901.app.n8n.cloud/workflow/glxRvnXZ1bCtknVi
+沒有修改。
+
+不要把「保存草稿」說成「發布完成」。
+早前發布曾遭自動核准審查拒絕：當時授權是實作與驗證，並未明確授權線上發布。後來仍未取得明確發布指示，未再次發布。最新草稿不是目前已發布版本。
+
+五、最近已完成的簡化
+
+- 移除 Concept Result Router、Route Result Router，沒有提前接到 KB Result 的支線。
+- 兩輪 Jev 的 questions 移除額外 scope 題目，只評估實際 candidate／path。
+- Concept Decision Result：讀原生 answers，對回 candidate ID，保留機率，選 included 作為 selectedConcepts。
+- Route Decision Result：對回完整路徑 ID，保留機率，選 included 作為 selectedConceptPaths／selectedPaths。
+- 移除 Code 內額外的模型版本、機率加總、回答數量檢查及需要澄清的整體攔截。
+- Concept Routes 保留路徑整理與去重，支援多對多，不再加入額外拋錯檢查。
+- KB Result 只整理查到的概念／路徑／映射／原始 SQL，不產生 evidenceStatus、canGenerateSql、queryReadiness 等完整性判決。
+- SQL 依 statementKey 去重，保留查回的依賴分支、表屬性、原始圖狀態及 bindingStatus；bindingStatus 不做控制分流。
+- 主流程測試版已調整回傳格式相容性。
+
+六、目前正在討論的問題：products 與 candidates 的 definition
+
+使用者詢問 products 和 candidates 的差別。
+以 Jev - Prepare Concepts 這個節點為例：
+
+products：
+第一個 Aura 查回的產品目錄資料。
+實際查詢從 PBConcept:PBConceptProduct 讀取 c.productCode、c.name、c.definition、c.aumStatus、c.incomeStatus 等，再用 productCode 連到 SharedProduct 取得 conceptKey。
+它在業務上表示共用產品 Object，但目前 definition 直接取 c.definition，不是另一份獨立的領域定義。
+
+candidates：
+從 products 展開的「產品 × 領域」評選項目。
+一個存款 products 項目，若本次問題同時涉及 AUM、Income，就有兩個 candidates：
+deposit::aum 與 deposit::income。
+兩者共用 conceptKey = pb_shared:product:deposit。
+objectKey 是本次評選 ID，不代表建立兩個實體存款 Object。
+matchedMetricCodes 只列本次允許範圍內的對應指標。
+第一輪 Jev 的 state 只傳 candidates，不再把 products 重複送入。
+
+注意欄位所在階段：
+- Prepare Concepts 的 products 是原始產品目錄。
+- Concept Routes 會替選定產品補上查到的概念證據及領域 metrics。
+- 最終 KB Result 的 products 是選中產品／領域及其路徑、映射結果，不能把所有階段的 products 當成完全相同結構。
+
+目前存款的兩個 candidates 實際呈現：
+deposit::aum：
+  conceptKey: pb_shared:product:deposit
+  productCode: deposit
+  productName: 存款
+  domain: aum
+  definitionStatus: inferred
+  matchedMetricCodes: [aum_deposit_month_end]
+
+deposit::income：
+  conceptKey: pb_shared:product:deposit
+  productCode: deposit
+  productName: 存款
+  domain: income
+  definitionStatus: inferred
+  matchedMetricCodes: [deposit_interest_income]
+
+兩者目前共用同一個 definition：
+「客戶在銀行持有的存款。AUM衡量存款餘額；Income衡量存款整體利息收入，不將總利收重複分配至各子類。」
+
+使用者指出這很怪：查 AUM 應呈現存款在 AUM 中的定義，查 Income 應呈現存款在 Income 中的定義。
+助手已承認：目前把共用定義複製到兩個 candidates，不夠準確。
+這個問題尚未修改，請勿把提議當成已完成。
+
+七、已提出但尚未決定的討論方向
+
+共用產品定義與領域定義應區分：
+- 共用產品 Object：存款這個產品是什麼。
+- AUM candidate：存款在 AUM 的衡量定義、產品範圍與估值口徑。
+- Income candidate：存款在 Income 的收入定義、範圍與計算口徑。
+
+助手建議領域資料可來自：
+1. SharedProduct 的 aumFilter／incomeFilter、aumValuationBasis／incomeAmountBasis 等。
+2. 產品到 BusinessMetric 的領域衡量關係及 scope。
+3. 對應 BusinessMetric 的 definition／intendedGrain 等。
+
+這只是討論提案，尚未確認最終資料模型或欄位結構。
+不能由 Code 或模型憑空改寫／補造領域定義。
+多個產品可能共用同一個 BusinessMetric，因此不能只複製指標 definition 就認為已有每個產品的領域定義。
+
+使用者最後問：「這樣是不是要從我們的圖那邊開始修改？」
+已回答：不一定。先確認現有圖是否已完整表達需要的業務意義：
+- 若資訊已足夠，調整查詢與 candidate 的呈現。
+- 若圖本身缺少需要的業務意義，才修改圖模型。
+接下來使用者還有很多想法要討論，先不要動。
+
+需保持概念先行的順序：
+第一個概念目錄可取得必要的領域語意／相鄰指標資訊，但不得因此提前載入所有完整路徑。
+完整路徑仍在第一輪選定概念後才查。
+不要自行宣告「應新增領域 Object／role 節點」；這需要先討論。
+
+八、已知圖上存款語意與資料限制
+
+使用者提供的 SharedProduct 存款已有：
+aumFilter: TYP='存款'
+aumValuationBasis: balance
+incomeFilter: 利收／銀行／存款
+incomeAmountBasis: SUM(GROSS_INCM)
+AUM 保留台幣、外幣、結構型子分類；Income 只映射存款總類。
+不能將總利息收入重複分配到各子類。
+
+存款 AUM 指標的業務定義：
+TYP 為存款、COMP 為銀行的 AMT。
+
+總 AUM 的日期口徑：
+每個 TYP × COMP × PROD × TYP_SUB_DTL 取月份內 MAX(YYYYMMDD)，再加總該日期的列。
+不是每位客戶各自取最新日，也不保證是曆月最後一天。
+
+圖上原始 SQL 仍有既有缺口，沒有推測補齊：
+- 存款 AUM 部分歷史中間表原始定義未匯入。
+- 存款 Income 的 INCOME_066_TMP01 有效原始定義未完整匯入。
+- Income 月更新有三條存款來源分支，經 UNION（不是 UNION ALL）進入中間表後 INSERT；DELETE／INSERT 與歷史初始化是不同階段。
+- 證券基金 AUM 的已查回 SQL 證據較完整，但執行資料庫之前缺 DSPBM.PB_FUNDPOSIT_SEC、DSPBM.PB_FUNDPOSIT_SEC_M。
+這些是既有資料事實，不能因移除檢查就宣稱資料已完整或可以取得真實金額。
+
+九、驗證狀態
+
+最新 12 節點 KB 曾用「2026 年 9 月全體客戶的證券基金月底 AUM，以新臺幣呈現」實測：
+- 原生兩輪 Jev 加 Aura 查詢成功，6.632 秒。
+- 返回新的 pb_kb_lazy_routes_v4。
+- 保留四個 concept 候選的原始機率，選定證券基金。
+- 所選路徑對應 AUM_025 映射。
+- 測試固定輸入已清除。
+- 匯出後核對線上草稿的節點參數／憑證引用／接線與生成版本一致。
+
+本地測試：
+五組既有真實 Aura 查詢資料搭配合成 Jev 回答。
+涵蓋原始機率保留、included 不受其他 uncertain 阻擋、一概念多路徑、多概念共用路徑與主流程格式相容性。
+合成 fixtures 的機率不是真實 Jev 機率。
+最新修改後沒有主流程完整線上端到端查詢測試；不要宣稱有。
+
+十、重要檔案
+
+工作檔案都在：
+C:\Users\petershiao\Desktop\Ontology\私銀智能問答\ontology\n8n_kb
+
+目前權威草稿與記錄：
+- PB_AUM_Income_KB.simplified.saved.json：線上最新 12 節點 KB 匯出。
+- main.simplified.saved.json：線上最新 32 節點主流程測試版匯出。
+- simplified_deployment.json：最新保存與驗證狀態。
+- README.md：最新流程說明。
+- simplified_kb_live_securities.dom.txt：實際原生測試的可見輸出。
+- simplified-kb-draft.png：最新 12 節點接線畫面。
+- lazy_contract_validation.json：本地測試報告。
+- simplified_result_examples.json：合成 Jev 決策的結果範例，不是真實 Jev 結果。
+
+主要實作：
+- build_lazy_workflow.py：目前統一生成器。
+- lazy_queries.py：CATALOG／PATHS／MAPPINGS 查詢。
+- prepare_concepts.js：products → candidates；目前 definition 重複問題就在這裡及 CATALOG 資料來源。
+- concept_decision.js：概念選擇結果整理。
+- concept_routes.js：所選概念的完整路徑整理。
+- prepare_routes.js：第二輪路徑選擇請求。
+- route_decision.js：路徑選擇結果整理。
+- jev_response.js：只保存原生回答資訊。
+- evidence_result.js／kb_result.js：最終資料組裝。
+- normalize_evidence_result.js／retain_probability.js：主流程結果與機率保留。
+- sql_evidence_prompt.txt：主流程 SQL 提示。
+- test_lazy_contract.cjs：目前有效測試。
+- verify_simplified.py：核對本次下載匯出；內含本次下載檔名，不是通用線上同步工具。
+
+生成結果：
+PB_AUM_Income_KB.lazy.ready.json、PB_AUM_Income_KB.ready.json 等目前別名都是 12 節點版本。
+main.lazy.ready.json、main.copy.ready.json 等目前別名都是 32 節點版本。
+PB_AUM_Income_KB.lazy.test.json 含固定測試輸入，只供測試；不要直接當正式草稿留下。
+
+歷史檔案：
+deployed、paths、before_lazy、before_simplify、archived、舊 deployment.json／main-copy-deployment.json 中有較舊版本資訊。
+不要用舊驗證報告或舊節點設計覆蓋最新版本。
+jev_validate.js 等舊程式可能仍留在目錄，但目前生成器不引用它。
+若重新進入瀏覽器，先遵守工具文件／重新取得目前 UI 狀態；不得把旧 tab 控制狀態當成當前有效觀察。
+不用讀取或輸出憑證內容。工作流程 JSON 只保留既有 credential 引用。
+
+十一、新聊天室建議開場
+
+「我已閱讀交接。現在先討論共用產品 Object 與 AUM／Income 領域定義如何在圖上表達；不修改圖或流程。你可以繼續說想調整的部分。」
+
+不要先提一大串保護措施、檢查節點或改造方案，也不要重跑測試／重建流程。
+

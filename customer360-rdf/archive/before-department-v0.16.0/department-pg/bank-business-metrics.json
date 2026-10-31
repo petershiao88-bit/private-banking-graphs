@@ -1,0 +1,2296 @@
+{
+  "schema_version": "1.0.0",
+  "ontology_version": "0.15.0",
+  "status": "active",
+  "scope": "metadata_only",
+  "inference": false,
+  "instance_mapping": false,
+  "access_policy_status": "deferred_by_user",
+  "field_definitions": {
+    "employeeId": {
+      "name": "行員編號",
+      "definition": "識別擔任理專或承接收入歸屬之行員的銀行編號。",
+      "data_type_hint": "string",
+      "property_uri": "https://example.org/ontology/bank#employeeId",
+      "entity_class_uri": "https://example.org/ontology/bank#BankEmployee"
+    },
+    "customerId": {
+      "name": "客戶識別",
+      "definition": "識別指標涉及客戶的來源識別欄位，尚未核定實體映射。",
+      "data_type_hint": "string",
+      "property_uri": null,
+      "entity_class_uri": "https://example.org/ontology/holding#Customer"
+    },
+    "productId": {
+      "name": "商品識別",
+      "definition": "識別指標對應金融商品的來源識別，尚未核定實體映射。",
+      "data_type_hint": "string",
+      "property_uri": null,
+      "entity_class_uri": "https://example.org/ontology/holding#FinancialProduct"
+    },
+    "amount": {
+      "name": "指標金額",
+      "definition": "依所屬 AUM、LUM、手收或利收的業務認列口徑形成的結果金額；物理欄位映射仍待定。",
+      "data_type_hint": "decimal",
+      "property_uri": "https://example.org/ontology/holding#metricAmount",
+      "entity_class_uri": null
+    },
+    "currency": {
+      "name": "金額幣別",
+      "definition": "指標金額的計價幣別，來源名稱或換算註記不自動形成映射。",
+      "data_type_hint": "string",
+      "property_uri": null,
+      "entity_class_uri": null
+    },
+    "incomePeriod": {
+      "name": "收入期間",
+      "definition": "收入或損益指標對應的業務期間；具體認列與起迄規則尚未核定。",
+      "data_type_hint": null,
+      "property_uri": null,
+      "entity_class_uri": null
+    },
+    "snapshotDate": {
+      "name": "快照日期",
+      "definition": "保留資料快照日期元素；與交易日、資料處理日及收入期間的關係尚未核定。",
+      "data_type_hint": null,
+      "property_uri": null,
+      "entity_class_uri": null
+    },
+    "incomePeriodStart": {
+      "name": "收入期間起日",
+      "definition": "手續費收入所屬收入期間的開始日期；不預設按日、月或年衡量。",
+      "data_type_hint": "date",
+      "property_uri": "https://example.org/ontology/holding#incomePeriodStart",
+      "entity_class_uri": null
+    },
+    "incomePeriodEnd": {
+      "name": "收入期間迄日",
+      "definition": "手續費收入所屬收入期間的結束日期；期間邊界的具體使用規則由子公司或部門描述。",
+      "data_type_hint": "date",
+      "property_uri": "https://example.org/ontology/holding#incomePeriodEnd",
+      "entity_class_uri": null
+    },
+    "feeBaseAmount": {
+      "name": "手收計算基礎金額",
+      "definition": "適用手續費收入計算情境中作為輸入的收入金額；具體組成與來源由子公司或部門描述。",
+      "data_type_hint": "decimal",
+      "property_uri": "https://example.org/ontology/holding#feeBaseAmount",
+      "entity_class_uri": null
+    },
+    "feeDeductionAmount": {
+      "name": "手收計算扣減金額",
+      "definition": "適用手續費收入計算情境中涉及的扣減金額；具體扣減項目與使用方式由子公司或部門描述。",
+      "data_type_hint": "decimal",
+      "property_uri": "https://example.org/ontology/holding#feeDeductionAmount",
+      "entity_class_uri": null
+    },
+    "aumAsOfDate": {
+      "name": "AUM 基準日",
+      "definition": "AUM 所衡量資產規模對應的日期；具體選日規則由子公司或部門描述。",
+      "data_type_hint": "date",
+      "property_uri": "https://example.org/ontology/holding#aumAsOfDate",
+      "entity_class_uri": null
+    },
+    "valuationQuantity": {
+      "name": "估值數量",
+      "definition": "適用 AUM 估值情境中作為計算輸入的數量，例如股數、單位數或面額；具體數量單位由子公司或部門描述。",
+      "data_type_hint": "decimal",
+      "property_uri": "https://example.org/ontology/holding#valuationQuantity",
+      "entity_class_uri": null
+    },
+    "valuationUnitPrice": {
+      "name": "估值單價",
+      "definition": "適用 AUM 估值情境中作為計算輸入的價格或淨值；具體報價基準由子公司或部門描述。",
+      "data_type_hint": "decimal",
+      "property_uri": "https://example.org/ontology/holding#valuationUnitPrice",
+      "entity_class_uri": null
+    },
+    "lumAsOfDate": {
+      "name": "LUM 基準日",
+      "definition": "LUM 基準日的共通元素；實際日期、月份標記及認列規則未核定。",
+      "data_type_hint": "date",
+      "property_uri": "https://example.org/ontology/holding#lumAsOfDate",
+      "entity_class_uri": null
+    },
+    "interestPeriodStart": {
+      "name": "利收期間起日",
+      "definition": "利收期間起日的共通元素；實際日期、月份標記及認列規則未核定。",
+      "data_type_hint": "date",
+      "property_uri": "https://example.org/ontology/holding#interestPeriodStart",
+      "entity_class_uri": null
+    },
+    "interestPeriodEnd": {
+      "name": "利收期間迄日",
+      "definition": "利收期間迄日的共通元素；實際日期、月份標記及認列規則未核定。",
+      "data_type_hint": "date",
+      "property_uri": "https://example.org/ontology/holding#interestPeriodEnd",
+      "entity_class_uri": null
+    }
+  },
+  "execution": {
+    "aggregation_rules": null,
+    "attribution_rules": null,
+    "currency_conversion": null,
+    "deduplication_rules": null,
+    "filter_rules": null,
+    "join_rules": null,
+    "period_basis": null,
+    "recognition_rules": null,
+    "row_grain": null,
+    "snapshot_selection": null,
+    "sql": null,
+    "valuation_rules": null
+  },
+  "evidence": {
+    "trust_aum": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "lines": [
+        254,
+        294
+      ],
+      "encoding": "cp950"
+    },
+    "custody_aum": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "lines": [
+        295,
+        314
+      ],
+      "encoding": "cp950"
+    },
+    "trust_fee": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        274,
+        293
+      ],
+      "encoding": "cp950"
+    },
+    "custody_fee": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        295,
+        301
+      ],
+      "encoding": "cp950"
+    },
+    "fx_pnl": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        204,
+        247
+      ],
+      "encoding": "cp950"
+    },
+    "lc_fee": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        249,
+        272
+      ],
+      "encoding": "cp950"
+    },
+    "gold_pnl": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        303,
+        327
+      ],
+      "encoding": "cp950"
+    },
+    "loan_income": {
+      "file": "Ontology/私銀智能問答/sources/sql/X-INCOME_MOTHLY.sql",
+      "lines": [
+        51,
+        88
+      ],
+      "encoding": "cp950"
+    },
+    "fx_metadata": {
+      "file": "Ontology/私銀智能問答/sources/metadata/收入_metadata.xlsx",
+      "sheet": "DSWBS.PB_SPOT_Daily",
+      "cells": {
+        "B2": "BAL_AMT_TWD",
+        "E2": "兌換損益金額(新台幣)"
+      }
+    },
+    "tmu_metadata": {
+      "file": "Ontology/私銀智能問答/sources/metadata/收入_metadata.xlsx",
+      "sheet": "DSTAS.FO108_W",
+      "cells": {
+        "B40": "TMUPROFIT",
+        "E40": "tmu損益"
+      }
+    },
+    "gold_metadata": {
+      "file": "Ontology/私銀智能問答/sources/metadata/收入_metadata.xlsx",
+      "sheet": "DSDEP.GD_PERFO_RPT",
+      "cells": {
+        "B19": "PLAMT_TWD",
+        "E19": "損益等值台幣"
+      }
+    },
+    "loan_nt_metadata": {
+      "file": "Ontology/私銀智能問答/sources/metadata/收入_metadata.xlsx",
+      "sheet": "DSLON.LN_NT_ACCT_HS",
+      "cells": {
+        "B70": "GROSS_INCM",
+        "E70": "毛利"
+      }
+    },
+    "loan_fn_metadata": {
+      "file": "Ontology/私銀智能問答/sources/metadata/收入_metadata.xlsx",
+      "sheet": "DSLON.LN_FN_ACCT_HS",
+      "cells": {
+        "B30": "CB_INT_AMT",
+        "E30": "聯行息收入",
+        "B71": "INT_INCM",
+        "E71": "利息收入"
+      }
+    },
+    "private_products": {
+      "file": "Ontology/私銀智能問答/ontology/independent_concepts/concept_graph.json",
+      "selector": "kind=product; properties.productCode"
+    },
+    "trust_aum_summary": {
+      "file": "Ontology/私銀智能問答/sources/sql/2._AUM_SUMY.sql",
+      "encoding": "cp950",
+      "lines": [
+        61,
+        89
+      ]
+    },
+    "trust_income_summary": {
+      "file": "Ontology/私銀智能問答/sources/sql/9.INCOME_SMY.sql",
+      "encoding": "cp950",
+      "lines": [
+        161,
+        190
+      ]
+    },
+    "loan_income_summary": {
+      "file": "Ontology/私銀智能問答/sources/sql/9.INCOME_SMY.sql",
+      "encoding": "cp950",
+      "lines": [
+        241,
+        250
+      ]
+    },
+    "lum_current": {
+      "file": "Ontology/私銀智能問答/sources/sql/3.LUM_by_day.sql",
+      "lines": [
+        37,
+        65
+      ],
+      "encoding": "cp950"
+    },
+    "lum_history": {
+      "file": "Ontology/私銀智能問答/sources/sql/4.LUM_BY_HS.sql",
+      "lines": [
+        36,
+        66
+      ],
+      "encoding": "cp950"
+    },
+    "lum_summary": {
+      "file": "Ontology/私銀智能問答/sources/sql/5.LUM_MERGE.sql",
+      "lines": [
+        10,
+        54
+      ],
+      "encoding": "cp950"
+    },
+    "lum_roa": {
+      "file": "Ontology/私銀智能問答/sources/sql/10._INCOME_ROA.sql",
+      "lines": [
+        1,
+        36
+      ],
+      "encoding": "cp950"
+    },
+    "loan_income_current": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        719,
+        726
+      ],
+      "encoding": "cp950"
+    },
+    "income_scope_summary": {
+      "file": "Ontology/私銀智能問答/sources/sql/9.INCOME_SMY.sql",
+      "lines": [
+        132,
+        250
+      ],
+      "encoding": "cp950"
+    },
+    "deposit_income_history": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        546,
+        581
+      ],
+      "encoding": "cp950"
+    },
+    "deposit_income_current": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        583,
+        600
+      ],
+      "encoding": "cp950"
+    },
+    "deposit_income_monthly": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        602,
+        644
+      ],
+      "encoding": "cp950"
+    },
+    "deposit_income_monthly_job": {
+      "file": "Ontology/私銀智能問答/sources/sql/X-INCOME_MOTHLY.sql",
+      "lines": [
+        7,
+        49
+      ],
+      "encoding": "cp950"
+    },
+    "deposit_income_summary": {
+      "file": "Ontology/私銀智能問答/sources/sql/9.INCOME_SMY.sql",
+      "lines": [
+        231,
+        240
+      ],
+      "encoding": "cp950"
+    },
+    "bond_trust_income": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        39,
+        51
+      ],
+      "encoding": "cp950"
+    },
+    "bond_proprietary_income": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        54,
+        61
+      ],
+      "encoding": "cp950"
+    },
+    "bond_income_summary": {
+      "file": "Ontology/私銀智能問答/sources/sql/9.INCOME_SMY.sql",
+      "lines": [
+        40,
+        59
+      ],
+      "encoding": "cp950"
+    },
+    "sql_nt_history": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "lines": [
+        91,
+        106
+      ]
+    },
+    "income_nt": {
+      "file": "Ontology/私銀智能問答/sources/metadata/收入_metadata.xlsx",
+      "sheet": "DSDEP.DEP_NT_ACCT_HS",
+      "rows": [
+        12,
+        20,
+        22,
+        39,
+        78
+      ]
+    },
+    "sql_fn_current": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "lines": [
+        75,
+        89
+      ]
+    },
+    "sql_fn_history": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "lines": [
+        108,
+        123
+      ]
+    },
+    "sql_employee": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "lines": [
+        125,
+        136
+      ]
+    },
+    "income_employee": {
+      "file": "Ontology/私銀智能問答/sources/metadata/收入_metadata.xlsx",
+      "sheet": "DSDEP.EMP_DEP_NT_ACCT_HS",
+      "rows": [
+        12,
+        20,
+        22,
+        39,
+        77
+      ]
+    },
+    "sql_offshore": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        191,
+        202
+      ],
+      "encoding": "cp950"
+    },
+    "metadata_offshore": {
+      "file": "Ontology/私銀智能問答/sources/metadata/收入_metadata.xlsx",
+      "sheet": "DSFND.PB_FUND_SPREAD_DAILY",
+      "rows": [
+        7,
+        8,
+        9,
+        13,
+        14,
+        18,
+        20,
+        31,
+        32
+      ]
+    }
+  },
+  "concepts": [
+    {
+      "id": "bank.planned_trust_aum",
+      "name": "銀行規劃型信託 AUM",
+      "definition": "銀行規劃型信託 AUM；沿用私銀 SQL 的業務分類，僅對應指標到底表，實際認列與欄位映射待確認。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/bank#BankAUM",
+      "specific_product_class_uri": null,
+      "metric_kind": "aum",
+      "product_code": "bank_planned_trust",
+      "business_scope_kind": "product",
+      "business_scope_class_uri": "https://example.org/ontology/bank#PlannedTrustProduct",
+      "fields": [
+        {
+          "field": "amount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "aumAsOfDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "currency",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "customerId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "productId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "valuationQuantity",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "valuationUnitPrice",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "私銀既有 bank_planned_trust 的來源分支；無完整資料庫覆蓋查驗。",
+        "classification_observation": "使用者確認本專案先統一納為銀行金融商品，直接參照金控金融商品分類；收入沿用來源 SQL 手收／利收分類。",
+        "amount_observation": "AUM_020 觀察 PresentAmt；AUM_021 觀察 MarketValueTWD，涵蓋員工福利信託及股票／金錢信託。",
+        "date_observation": "來源各按月份選最大資料日期，未核定為共通 AUM 基準日。",
+        "gaps": [
+          "一般信託與員工持股信託涵蓋及重疊仍待定；不自動加總。",
+          "不建立契約、帳戶或員工本人識別映射。",
+          "客戶、商品識別、幣別、收入歸屬與所有欄位映射待定。"
+        ],
+        "evidence": [
+          "trust_aum",
+          "private_products",
+          "trust_aum_summary"
+        ]
+      },
+      "table_sources": {
+        "status": "observed_in_files",
+        "coverage": "僅對應該指標已觀察的金額來源分支，不表示全表只屬於該商品或服務。",
+        "tables": [
+          {
+            "table": "DSEBS.EBTS_ACT_CntAUMBal_PB",
+            "role": "primary",
+            "evidence": [
+              "trust_aum"
+            ]
+          },
+          {
+            "table": "DSTAM.TRUCONTRACT_PB",
+            "role": "primary",
+            "evidence": [
+              "trust_aum"
+            ]
+          }
+        ],
+        "unresolved_supporting_relations": []
+      }
+    },
+    {
+      "id": "bank.planned_trust_fee_income",
+      "name": "銀行規劃型信託手收",
+      "definition": "銀行規劃型信託手收；沿用私銀 SQL 的業務分類，僅對應指標到底表，實際認列與欄位映射待確認。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/bank#BankFeeIncome",
+      "specific_product_class_uri": null,
+      "metric_kind": "fee_income",
+      "product_code": "bank_planned_trust",
+      "business_scope_kind": "product",
+      "business_scope_class_uri": "https://example.org/ontology/bank#PlannedTrustProduct",
+      "fields": [
+        {
+          "field": "amount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "currency",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "customerId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "employeeId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeBaseAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeDeductionAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriod",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriodEnd",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriodStart",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "productId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "私銀既有 bank_planned_trust 的來源分支；無完整資料庫覆蓋查驗。",
+        "classification_observation": "使用者確認本專案先統一納為銀行金融商品，直接參照金控金融商品分類；收入沿用來源 SQL 手收／利收分類。",
+        "amount_observation": "INCOME_046 為借券、管理與成立費；INCOME_047 為 Fee 與 CreateFee，原文註記累計。",
+        "date_observation": "來源為 postdate／baldate；累計金額轉收入期間的方式尚未核定。",
+        "gaps": [
+          "累計與單期收入可能重複，未指定差分或加總規則。",
+          "不把保管費 INCOME_048 混入規劃型信託手收。",
+          "客戶、商品識別、幣別、收入歸屬與所有欄位映射待定。"
+        ],
+        "evidence": [
+          "trust_fee",
+          "private_products",
+          "trust_income_summary",
+          "income_scope_summary"
+        ]
+      },
+      "table_sources": {
+        "status": "observed_in_files",
+        "coverage": "僅對應該指標已觀察的金額來源分支，不表示全表只屬於該商品或服務。",
+        "tables": [
+          {
+            "table": "DSEBS.EBTS_ACT_CntAUMBal_PB",
+            "role": "primary",
+            "evidence": [
+              "trust_fee"
+            ]
+          },
+          {
+            "table": "DSTAM.TRUCONTRACT_PB",
+            "role": "primary",
+            "evidence": [
+              "trust_fee"
+            ]
+          }
+        ],
+        "unresolved_supporting_relations": []
+      }
+    },
+    {
+      "id": "bank.trust_custody_aum",
+      "name": "銀行信託保管 AUM",
+      "definition": "銀行信託保管 AUM；沿用私銀 SQL 的業務分類，僅對應指標到底表，實際認列與欄位映射待確認。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/bank#BankAUM",
+      "specific_product_class_uri": null,
+      "metric_kind": "aum",
+      "product_code": "bank_trust_custody",
+      "business_scope_kind": "product",
+      "business_scope_class_uri": "https://example.org/ontology/bank#TrustCustodyProduct",
+      "fields": [
+        {
+          "field": "amount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "aumAsOfDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "currency",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "customerId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "productId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "valuationQuantity",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "valuationUnitPrice",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "私銀既有 bank_trust_custody 的來源分支；無完整資料庫覆蓋查驗。",
+        "classification_observation": "使用者確認本專案先統一納為銀行金融商品，直接參照金控金融商品分類；收入沿用來源 SQL 手收／利收分類。",
+        "amount_observation": "AUM_022 觀察來源 AUM，依來源檔案記錄服務管理的資產規模。",
+        "date_observation": "來源 DATE 與每月最大日期只作觀察。",
+        "gaps": [
+          "與其他管理資產的涵蓋重疊未定；不直接加總。",
+          "客戶、商品識別、幣別、收入歸屬與所有欄位映射待定。"
+        ],
+        "evidence": [
+          "custody_aum",
+          "private_products",
+          "trust_aum_summary"
+        ]
+      },
+      "table_sources": {
+        "status": "observed_in_files",
+        "coverage": "僅對應該指標已觀察的金額來源分支，不表示全表只屬於該商品或服務。",
+        "tables": [
+          {
+            "table": "DSPMS.PB_PMS_AUM",
+            "role": "primary",
+            "evidence": [
+              "custody_aum"
+            ]
+          }
+        ],
+        "unresolved_supporting_relations": []
+      }
+    },
+    {
+      "id": "bank.trust_custody_fee_income",
+      "name": "銀行信託保管手收",
+      "definition": "銀行信託保管手收；沿用私銀 SQL 的業務分類，僅對應指標到底表，實際認列與欄位映射待確認。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/bank#BankFeeIncome",
+      "specific_product_class_uri": null,
+      "metric_kind": "fee_income",
+      "product_code": "bank_trust_custody",
+      "business_scope_kind": "product",
+      "business_scope_class_uri": "https://example.org/ontology/bank#TrustCustodyProduct",
+      "fields": [
+        {
+          "field": "amount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "currency",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "customerId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "employeeId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeBaseAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeDeductionAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriod",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriodEnd",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriodStart",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "productId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "私銀既有 bank_trust_custody 的來源分支；無完整資料庫覆蓋查驗。",
+        "classification_observation": "使用者確認本專案先統一納為銀行金融商品，直接參照金控金融商品分類；收入沿用來源 SQL 手收／利收分類。",
+        "amount_observation": "INCOME_048 觀察 FEE；與規劃型信託借券、管理、成立費分列。",
+        "date_observation": "來源 DATE；是否單期或累計、收入期間仍待確認。",
+        "gaps": [
+          "原收入彙總可能合併規劃型信託與保管，不據此合併服務分類。",
+          "客戶、商品識別、幣別、收入歸屬與所有欄位映射待定。"
+        ],
+        "evidence": [
+          "custody_fee",
+          "private_products",
+          "trust_income_summary",
+          "income_scope_summary"
+        ]
+      },
+      "table_sources": {
+        "status": "observed_in_files",
+        "coverage": "僅對應該指標已觀察的金額來源分支，不表示全表只屬於該商品或服務。",
+        "tables": [
+          {
+            "table": "DSPMS.PB_PMS_AUM",
+            "role": "primary",
+            "evidence": [
+              "custody_fee"
+            ]
+          }
+        ],
+        "unresolved_supporting_relations": []
+      }
+    },
+    {
+      "id": "bank.fx_fee_income",
+      "name": "銀行外匯手收",
+      "definition": "銀行外匯手收；沿用私銀 SQL 的業務分類，僅對應指標到底表，實際認列與欄位映射待確認。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/bank#BankFeeIncome",
+      "specific_product_class_uri": null,
+      "metric_kind": "fee_income",
+      "product_code": "bank_fx",
+      "business_scope_kind": "product",
+      "business_scope_class_uri": "https://example.org/ontology/bank#ForeignExchangeProduct",
+      "fields": [
+        {
+          "field": "amount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "currency",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "customerId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "employeeId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeBaseAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeDeductionAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriod",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriodEnd",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriodStart",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "productId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "私銀既有 bank_fx 的來源分支；無完整資料庫覆蓋查驗。",
+        "classification_observation": "使用者確認本專案先統一納為銀行金融商品，直接參照金控金融商品分類；收入沿用來源 SQL 手收／利收分類。",
+        "amount_observation": "INCOME_043 加總 BAL_AMT_TWD（metadata 為兌換損益）；INCOME_044 加總 TMUPROFIT（TMU 損益）。依彙總 SQL 歸手收／銀行／FX，保留金額性質，不限定為純手續費。",
+        "date_observation": "PROC_DATE 與 usertradedate 為原始觀察，未核定收入期間。",
+        "gaps": [
+          "current 無 2E 篩選而 HS 有，覆蓋差異保留。",
+          "TMU 原篩選排除 DCD 與 Cash Bond，不能將全表視為 FX；不含 DCI TMU。",
+          "幣別、正負號、分支重疊與會計收入分類待定。",
+          "客戶、商品識別、幣別、收入歸屬與所有欄位映射待定。",
+          "外匯 AUM 本輪不建立；不可將收入損益當成資產規模，也不將外匯自動等同既有外幣存款。"
+        ],
+        "evidence": [
+          "fx_pnl",
+          "fx_metadata",
+          "tmu_metadata",
+          "private_products",
+          "income_scope_summary"
+        ]
+      },
+      "table_sources": {
+        "status": "observed_in_files",
+        "coverage": "僅對應該指標已觀察的金額來源分支，不表示全表只屬於該商品或服務。",
+        "tables": [
+          {
+            "table": "DSTAS.FO108_W",
+            "role": "primary",
+            "evidence": [
+              "fx_pnl"
+            ]
+          },
+          {
+            "table": "DSWBS.PB_SPOT_Daily",
+            "role": "primary",
+            "evidence": [
+              "fx_pnl"
+            ]
+          },
+          {
+            "table": "DSWBS.PB_SPOT_Daily_HS",
+            "role": "primary",
+            "evidence": [
+              "fx_pnl"
+            ]
+          }
+        ],
+        "unresolved_supporting_relations": []
+      }
+    },
+    {
+      "id": "bank.lc_fee_income",
+      "name": "銀行開狀手收",
+      "definition": "銀行開狀手收；沿用私銀 SQL 的業務分類，僅對應指標到底表，實際認列與欄位映射待確認。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/bank#BankFeeIncome",
+      "specific_product_class_uri": null,
+      "metric_kind": "fee_income",
+      "product_code": "bank_lc",
+      "business_scope_kind": "product",
+      "business_scope_class_uri": "https://example.org/ontology/bank#LetterOfCreditProduct",
+      "fields": [
+        {
+          "field": "amount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "currency",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "customerId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "employeeId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeBaseAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeDeductionAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriod",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriodEnd",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriodStart",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "productId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "私銀既有 bank_lc 的來源分支；無完整資料庫覆蓋查驗。",
+        "classification_observation": "使用者確認本專案先統一納為銀行金融商品，直接參照金控金融商品分類；收入沿用來源 SQL 手收／利收分類。",
+        "amount_observation": "INCOME_045 觀察 FEE_AMT，原 SQL 未作攤提或匯率換算。",
+        "date_observation": "proc_date 與以 sysdate 比較 FEE_END_DATE 的條件只保留來源觀察。",
+        "gaps": [
+          "需求與 SQL 的攤提／換算口徑有疑點，未核定公式。",
+          "current／HS 的 UNION 與時間覆蓋未核定。",
+          "客戶、商品識別、幣別、收入歸屬與所有欄位映射待定。",
+          "使用者決定本輪僅保留開狀手收，不新增開狀 AUM。"
+        ],
+        "evidence": [
+          "lc_fee",
+          "private_products",
+          "income_scope_summary"
+        ]
+      },
+      "table_sources": {
+        "status": "observed_in_files",
+        "coverage": "僅對應該指標已觀察的金額來源分支，不表示全表只屬於該商品或服務。",
+        "tables": [
+          {
+            "table": "DSWBS.IMPM007",
+            "role": "primary",
+            "evidence": [
+              "lc_fee"
+            ]
+          },
+          {
+            "table": "DSWBS.IMPM007_HS",
+            "role": "primary",
+            "evidence": [
+              "lc_fee"
+            ]
+          }
+        ],
+        "unresolved_supporting_relations": []
+      }
+    },
+    {
+      "id": "bank.gold_fee_income",
+      "name": "銀行黃金手收",
+      "definition": "銀行黃金手收；沿用私銀 SQL 的業務分類，僅對應指標到底表，實際認列與欄位映射待確認。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/bank#BankFeeIncome",
+      "specific_product_class_uri": null,
+      "metric_kind": "fee_income",
+      "product_code": "bank_gold",
+      "business_scope_kind": "product",
+      "business_scope_class_uri": "https://example.org/ontology/bank#GoldProduct",
+      "fields": [
+        {
+          "field": "amount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "currency",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "customerId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "employeeId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeBaseAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeDeductionAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriod",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriodEnd",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriodStart",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "productId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "私銀既有 bank_gold 的來源分支；無完整資料庫覆蓋查驗。",
+        "classification_observation": "使用者確認本專案先統一納為銀行金融商品，直接參照金控金融商品分類；收入沿用來源 SQL 手收／利收分類。",
+        "amount_observation": "INCOME_049 加總 PLAMT_TWD，metadata 為損益等值台幣；依彙總 SQL 歸手收／銀行／黃金，保留交易損益來源性質。",
+        "date_observation": "來源 idate；收入期間及 current／HS 覆蓋待定。",
+        "gaps": [
+          "本輪不新增黃金 AUM；來源原商品 AUM 定義空白。",
+          "正負號、幣別、UNION 去重與會計分類未核定。",
+          "客戶、商品識別、幣別、收入歸屬與所有欄位映射待定。"
+        ],
+        "evidence": [
+          "gold_pnl",
+          "gold_metadata",
+          "private_products",
+          "income_scope_summary"
+        ]
+      },
+      "table_sources": {
+        "status": "observed_in_files",
+        "coverage": "僅對應該指標已觀察的金額來源分支，不表示全表只屬於該商品或服務。",
+        "tables": [
+          {
+            "table": "DSDEP.GD_PERFO_RPT",
+            "role": "primary",
+            "evidence": [
+              "gold_pnl"
+            ]
+          },
+          {
+            "table": "DSDEP.GD_PERFO_RPT_HS",
+            "role": "primary",
+            "evidence": [
+              "gold_pnl"
+            ]
+          }
+        ],
+        "unresolved_supporting_relations": []
+      }
+    },
+    {
+      "id": "bank.loan_income",
+      "name": "銀行放款利收（來源業務收益口徑）",
+      "definition": "銀行放款利收（來源業務收益口徑）；沿用私銀 SQL 的業務分類，僅對應指標到底表，實際認列與欄位映射待確認。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/bank#BankInterestIncome",
+      "specific_product_class_uri": null,
+      "metric_kind": "interest_income",
+      "product_code": "loan",
+      "business_scope_kind": "product",
+      "business_scope_class_uri": "https://example.org/ontology/bank#LoanProduct",
+      "fields": [
+        {
+          "field": "amount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "currency",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "customerId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriod",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "interestPeriodEnd",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "interestPeriodStart",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "productId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "私銀 SQL INCOME_067 的台幣／外幣歷史月更新及外幣 current 收入分支；並非已查驗完整生產時間覆蓋。",
+        "classification_observation": "使用者確認本專案先統一納為銀行金融商品，直接參照金控金融商品分類；收入沿用來源 SQL 手收／利收分類。",
+        "amount_observation": "SQL 歸利收／銀行／放款。台幣歷史加總 GROSS_INCM（metadata 為毛利）；外幣歷史及 current 加總 INT_INCM 減 CB_INT_AMT（利息收入減聯行息收入）。業務利收不限定為純客戶利息。",
+        "date_observation": "歷史 YYYYMM 加 01 為月份標記；current 觀察 data_dt，日期與收入期間未核定。",
+        "gaps": [
+          "原 SQL 業務收益口徑與純利息收入不同，認列／組成待定。",
+          "台外幣換算、期間與 UNION ALL 僅為來源觀察。",
+          "客戶、商品識別、幣別、收入歸屬與所有欄位映射待定。",
+          "放款規模另由 bank.loan_lum 承接；本輪不新增放款 AUM、授信額度或契約。",
+          "current 分支分行條件與歷史月更新不同；不把所有分支視為完整一致覆蓋。",
+          "本輪利收未新增理專歸屬關係。"
+        ],
+        "evidence": [
+          "loan_income",
+          "loan_nt_metadata",
+          "loan_fn_metadata",
+          "private_products",
+          "loan_income_summary",
+          "income_scope_summary",
+          "loan_income_current"
+        ]
+      },
+      "table_sources": {
+        "status": "observed_in_files",
+        "coverage": "僅對應該指標已觀察的金額來源分支，不表示全表只屬於該商品或服務。",
+        "tables": [
+          {
+            "table": "DSLON.LN_FN_ACCT_HS",
+            "role": "primary",
+            "evidence": [
+              "loan_income"
+            ]
+          },
+          {
+            "table": "DSLON.LN_NT_ACCT_HS",
+            "role": "primary",
+            "evidence": [
+              "loan_income"
+            ]
+          },
+          {
+            "table": "DSLON.LN_FN_ACCT",
+            "role": "primary",
+            "evidence": [
+              "loan_income_current"
+            ]
+          }
+        ],
+        "unresolved_supporting_relations": []
+      }
+    },
+    {
+      "id": "bank.loan_lum",
+      "name": "銀行放款 LUM",
+      "definition": "私銀依既有 LUM SQL 管理口徑衡量的銀行放款餘額指標；不以授信額度、利收或擔保品估值代替。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/bank#BankLUM",
+      "specific_product_class_uri": null,
+      "metric_kind": "lum",
+      "product_code": "loan",
+      "business_scope_kind": "product",
+      "business_scope_class_uri": "https://example.org/ontology/bank#LoanProduct",
+      "fields": [
+        {
+          "field": "amount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "currency",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "customerId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "lumAsOfDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "productId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "既有私銀 current 與歷史 LUM 取數及彙總分支，不視為跨子公司完整借款清冊。",
+        "classification_observation": "來源 3.LUM_by_day／4.LUM_BY_HS／5.LUM_MERGE 明列 LUM，承作子公司為銀行，使用／定義部門為私人銀行。",
+        "amount_observation": "來源保留台幣 LN_BAL、外幣 BAL_AMT 的放款餘額觀察；彙總含會科 1886 應付保證標示，實際納入範圍仍待核對，未核定會計分類或公式。",
+        "date_observation": "歷史取 YYYYMM；current 彙總觀察 SYSDATE-1 日期。兩者不自動成為已核定的 lumAsOfDate。",
+        "gaps": [
+          "保留原 PRFT_CNTR_CD、非零餘額及歷史 YYYYMM 範圍觀察，不設為執行規則。",
+          "台外幣計價、來源匯率處理、UNION／UNION ALL 與重複計入仍待定，不自動加總。",
+          "客戶／商品識別、實體欄位、管理範圍及資料權責部門待定。",
+          "證券股票設質及人壽保單借款尚缺本輪可確認底表，不順帶建立子公司 LUM 分項。"
+        ],
+        "evidence": [
+          "lum_current",
+          "lum_history",
+          "lum_summary",
+          "lum_roa"
+        ]
+      },
+      "table_sources": {
+        "status": "observed_in_files",
+        "coverage": "僅對應既有私銀銀行 LUM 的 current／歷史餘額來源表，非其他子公司或完整全行範圍。",
+        "tables": [
+          {
+            "table": "DSLON.LN_FN_ACCT",
+            "role": "primary",
+            "evidence": [
+              "lum_current"
+            ]
+          },
+          {
+            "table": "DSLON.LN_FN_ACCT_HS",
+            "role": "primary",
+            "evidence": [
+              "lum_history"
+            ]
+          },
+          {
+            "table": "DSLON.LN_NT_ACCT",
+            "role": "primary",
+            "evidence": [
+              "lum_current"
+            ]
+          },
+          {
+            "table": "DSLON.LN_NT_ACCT_HS",
+            "role": "primary",
+            "evidence": [
+              "lum_history"
+            ]
+          }
+        ],
+        "unresolved_supporting_relations": []
+      }
+    },
+    {
+      "id": "bank.deposit_interest_income",
+      "name": "銀行存款利收",
+      "definition": "銀行存款利收；依私銀 SQL 業務字典記錄來源範圍，計算由 Tool 承接。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/bank#BankInterestIncome",
+      "specific_product_class_uri": null,
+      "metric_kind": "interest_income",
+      "product_code": "deposit",
+      "business_scope_kind": "product",
+      "business_scope_class_uri": "https://example.org/ontology/bank#DepositProduct",
+      "fields": [
+        {
+          "field": "amount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "currency",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "customerId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriod",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "interestPeriodEnd",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "interestPeriodStart",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "productId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "INCOME_066 存款利收：台幣／外幣／行員存款歷史月檔及外幣 current；依 SQL 整體存款範圍記錄，不拆成三種存款利收。",
+        "classification_observation": "9.INCOME_SMY.sql 歸類為利收／銀行／存款；沿用 BankInterestIncome 與 DepositProduct。",
+        "amount_observation": "SQL 加總 GROSS_INCM；這是銀行業務利收，不宣稱等於客戶收到的存款利息。",
+        "date_observation": "歷史 YYYYMM||01 為月份標記，current 取 DATA_DT；月更新以 SYSDATE 上月替換，未核定期間起迄。",
+        "gaps": [
+          "只對應指標到底表；客戶、商品識別、幣別、收入期間及欄位映射維持待定。",
+          "SQL 計算由 Tool 承接；來源觀察不是可執行規則，未查驗資料庫。",
+          "歷史初建有私銀分行及 YYYYMM>202505 條件；上月替換分支未加同樣分行條件，保留範圍差異。",
+          "初建歷史合併用 UNION ALL，上月替換用 UNION；不能直接相加所有分支。",
+          "INCOME_066 引用 TMP01，但該檔前段定義位於註解；current 台幣表無 GROSS_INCM 的註記保留，不補作金額來源。",
+          "存款利收先不新增理專歸屬；行員存款底表的存在不代表已完成存款人身分映射。"
+        ],
+        "evidence": [
+          "deposit_income_history",
+          "deposit_income_current",
+          "deposit_income_monthly",
+          "deposit_income_monthly_job",
+          "deposit_income_summary",
+          "private_products"
+        ]
+      },
+      "table_sources": {
+        "status": "observed_in_files",
+        "coverage": "INCOME_066 存款利收：台幣／外幣／行員存款歷史月檔及外幣 current；依 SQL 整體存款範圍記錄，不拆成三種存款利收。",
+        "tables": [
+          {
+            "table": "DSDEP.DEP_NT_ACCT_HS",
+            "role": "primary",
+            "evidence": [
+              "deposit_income_history",
+              "deposit_income_monthly",
+              "deposit_income_monthly_job"
+            ]
+          },
+          {
+            "table": "DSDEP.DEP_FN_ACCT_HS",
+            "role": "primary",
+            "evidence": [
+              "deposit_income_history",
+              "deposit_income_monthly",
+              "deposit_income_monthly_job"
+            ]
+          },
+          {
+            "table": "DSDEP.EMP_DEP_NT_ACCT_HS",
+            "role": "primary",
+            "evidence": [
+              "deposit_income_history",
+              "deposit_income_monthly",
+              "deposit_income_monthly_job"
+            ]
+          },
+          {
+            "table": "DSDEP.DEP_FN_ACCT",
+            "role": "primary",
+            "evidence": [
+              "deposit_income_current"
+            ]
+          }
+        ],
+        "unresolved_supporting_relations": []
+      }
+    },
+    {
+      "id": "bank.overseas_bond_trust_fee_income",
+      "name": "銀行海外債券（信託）手收",
+      "definition": "銀行海外債券（信託）手收；依私銀 SQL 業務字典記錄來源範圍，計算由 Tool 承接。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/bank#BankFeeIncome",
+      "specific_product_class_uri": null,
+      "metric_kind": "fee_income",
+      "product_code": "bank_bond_trust",
+      "business_scope_kind": "product",
+      "business_scope_class_uri": "https://example.org/ontology/bank#BondProduct",
+      "fields": [
+        {
+          "field": "amount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "currency",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "customerId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "employeeId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeBaseAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeDeductionAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriod",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriodEnd",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriodStart",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "productId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "INCOME_031 海外債券信託收入，取 PB_FUND_SPREAD_DAILY 的 CB 及私銀分支；不是整張共用底表。",
+        "classification_observation": "9.INCOME_SMY.sql 歸類為手收／銀行／海外債券_信託；信託承作方式留在 PG，沿用債券及海外商品分類。",
+        "amount_observation": "SQL SUM(BRHREBATEAMT + WKR028/100)；保留費用與交易利得來源組成，不改成純手續費，也不自行對空值補零。",
+        "date_observation": "FEEDATE 加 19110000 後轉換日期；客戶、PCCODE 與日期為來源分組觀察，不核定收入期間。",
+        "gaps": [
+          "只對應指標到底表；客戶、商品識別、幣別、收入期間及欄位映射維持待定。",
+          "SQL 計算由 Tool 承接；來源觀察不是可執行規則，未查驗資料庫。",
+          "FHID='CB'、BAOPCCCODE LIKE '%2E%' 只保留為來源範圍觀察，不擴大既有基金或通用商品手收。",
+          "歸屬理專沿用銀行手收關係；實際員編未映射。"
+        ],
+        "evidence": [
+          "bond_trust_income",
+          "bond_income_summary",
+          "private_products"
+        ]
+      },
+      "table_sources": {
+        "status": "observed_in_files",
+        "coverage": "INCOME_031 海外債券信託收入，取 PB_FUND_SPREAD_DAILY 的 CB 及私銀分支；不是整張共用底表。",
+        "tables": [
+          {
+            "table": "DSFND.PB_FUND_SPREAD_DAILY",
+            "role": "primary",
+            "evidence": [
+              "bond_trust_income"
+            ]
+          }
+        ],
+        "unresolved_supporting_relations": []
+      },
+      "product_class_uris": [
+        "https://example.org/ontology/bank#BondProduct",
+        "https://example.org/ontology/bank#OverseasFinancialProduct"
+      ]
+    },
+    {
+      "id": "bank.overseas_bond_proprietary_fee_income",
+      "name": "銀行外國債券（自營）手收",
+      "definition": "銀行外國債券（自營）手收；依私銀 SQL 業務字典記錄來源範圍，計算由 Tool 承接。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/bank#BankFeeIncome",
+      "specific_product_class_uri": null,
+      "metric_kind": "fee_income",
+      "product_code": "bank_bond_proprietary",
+      "business_scope_kind": "product",
+      "business_scope_class_uri": "https://example.org/ontology/bank#BondProduct",
+      "fields": [
+        {
+          "field": "amount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "currency",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "customerId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "employeeId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeBaseAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeDeductionAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriod",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriodEnd",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriodStart",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "productId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "INCOME_032 自營平台外國債券手收；來源 BOND_TXN 的私銀 PCC_CODE 分支。",
+        "classification_observation": "9.INCOME_SMY.sql 歸類為手收／銀行／外國債券_自營；自營方式留在 PG，沿用債券及海外商品分類。",
+        "amount_observation": "SQL SUM(ABS(INC_AMT_NT))，逐筆取絕對值再加總；不可改為 ABS(SUM(...)) 或自行恢復正負號。",
+        "date_observation": "來源 TXN_DT；按客戶、日期及 PCC_CODE 分組，未核定收入期間與快照日。",
+        "gaps": [
+          "只對應指標到底表；客戶、商品識別、幣別、收入期間及欄位映射維持待定。",
+          "SQL 計算由 Tool 承接；來源觀察不是可執行規則，未查驗資料庫。",
+          "PCC_CODE LIKE '2E%' 為來源觀察；交易收益性質仍保留，不將此底表作 AUM 或 LUM 金額來源。",
+          "歸屬理專沿用銀行手收關係；實際員編未映射。"
+        ],
+        "evidence": [
+          "bond_proprietary_income",
+          "bond_income_summary",
+          "private_products"
+        ]
+      },
+      "table_sources": {
+        "status": "observed_in_files",
+        "coverage": "INCOME_032 自營平台外國債券手收；來源 BOND_TXN 的私銀 PCC_CODE 分支。",
+        "tables": [
+          {
+            "table": "DSWTR.BOND_TXN",
+            "role": "primary",
+            "evidence": [
+              "bond_proprietary_income"
+            ]
+          }
+        ],
+        "unresolved_supporting_relations": []
+      },
+      "product_class_uris": [
+        "https://example.org/ontology/bank#BondProduct",
+        "https://example.org/ontology/bank#OverseasFinancialProduct"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "table": "DSDEP.GD_PERFO_RPT",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "gold_pnl"
+      ]
+    },
+    {
+      "table": "DSDEP.GD_PERFO_RPT_HS",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "gold_pnl"
+      ]
+    },
+    {
+      "table": "DSEBS.EBTS_ACT_CntAUMBal_PB",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "trust_aum",
+        "trust_fee"
+      ]
+    },
+    {
+      "table": "DSLON.LN_FN_ACCT",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "loan_income_current",
+        "lum_current"
+      ]
+    },
+    {
+      "table": "DSLON.LN_FN_ACCT_HS",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "loan_income",
+        "lum_history"
+      ]
+    },
+    {
+      "table": "DSLON.LN_NT_ACCT",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "lum_current"
+      ]
+    },
+    {
+      "table": "DSLON.LN_NT_ACCT_HS",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "loan_income",
+        "lum_history"
+      ]
+    },
+    {
+      "table": "DSPMS.PB_PMS_AUM",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "custody_aum",
+        "custody_fee"
+      ]
+    },
+    {
+      "table": "DSTAM.TRUCONTRACT_PB",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "trust_aum",
+        "trust_fee"
+      ]
+    },
+    {
+      "table": "DSTAS.FO108_W",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "fx_pnl"
+      ]
+    },
+    {
+      "table": "DSWBS.IMPM007",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "lc_fee"
+      ]
+    },
+    {
+      "table": "DSWBS.IMPM007_HS",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "lc_fee"
+      ]
+    },
+    {
+      "table": "DSWBS.PB_SPOT_Daily",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "fx_pnl"
+      ]
+    },
+    {
+      "table": "DSWBS.PB_SPOT_Daily_HS",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "fx_pnl"
+      ]
+    },
+    {
+      "table": "DSDEP.DEP_NT_ACCT_HS",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sql_nt_history",
+        "income_nt"
+      ]
+    },
+    {
+      "table": "DSDEP.DEP_FN_ACCT",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sql_fn_current"
+      ]
+    },
+    {
+      "table": "DSDEP.DEP_FN_ACCT_HS",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sql_fn_history"
+      ]
+    },
+    {
+      "table": "DSDEP.EMP_DEP_NT_ACCT_HS",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sql_employee",
+        "income_employee"
+      ]
+    },
+    {
+      "table": "DSFND.PB_FUND_SPREAD_DAILY",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sql_offshore",
+        "metadata_offshore"
+      ]
+    },
+    {
+      "table": "DSWTR.BOND_TXN",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "bond_proprietary_income"
+      ]
+    }
+  ],
+  "relation_definitions": [
+    {
+      "id": "bank.planned_trust_aum.scope",
+      "name": "AUM 衡量商品",
+      "source_concept": "bank.planned_trust_aum",
+      "property_uri": "https://example.org/ontology/holding#measuresProduct",
+      "domain_uri": "https://example.org/ontology/holding#AUM",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "bank.planned_trust_fee_income.scope",
+      "name": "手收來源商品",
+      "source_concept": "bank.planned_trust_fee_income",
+      "property_uri": "https://example.org/ontology/holding#feeIncomeFromProduct",
+      "domain_uri": "https://example.org/ontology/holding#FeeIncome",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "bank.planned_trust_fee_income.advisor",
+      "name": "銀行手收歸屬理專",
+      "source_concept": "bank.planned_trust_fee_income",
+      "property_uri": "https://example.org/ontology/bank#attributedToAdvisor",
+      "domain_uri": "https://example.org/ontology/bank#BankFeeIncome",
+      "target_class_uri": "https://example.org/ontology/bank#FinancialAdvisor",
+      "fields": []
+    },
+    {
+      "id": "bank.trust_custody_aum.scope",
+      "name": "AUM 衡量商品",
+      "source_concept": "bank.trust_custody_aum",
+      "property_uri": "https://example.org/ontology/holding#measuresProduct",
+      "domain_uri": "https://example.org/ontology/holding#AUM",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "bank.trust_custody_fee_income.scope",
+      "name": "手收來源商品",
+      "source_concept": "bank.trust_custody_fee_income",
+      "property_uri": "https://example.org/ontology/holding#feeIncomeFromProduct",
+      "domain_uri": "https://example.org/ontology/holding#FeeIncome",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "bank.trust_custody_fee_income.advisor",
+      "name": "銀行手收歸屬理專",
+      "source_concept": "bank.trust_custody_fee_income",
+      "property_uri": "https://example.org/ontology/bank#attributedToAdvisor",
+      "domain_uri": "https://example.org/ontology/bank#BankFeeIncome",
+      "target_class_uri": "https://example.org/ontology/bank#FinancialAdvisor",
+      "fields": []
+    },
+    {
+      "id": "bank.fx_fee_income.scope",
+      "name": "手收來源商品",
+      "source_concept": "bank.fx_fee_income",
+      "property_uri": "https://example.org/ontology/holding#feeIncomeFromProduct",
+      "domain_uri": "https://example.org/ontology/holding#FeeIncome",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "bank.fx_fee_income.advisor",
+      "name": "銀行手收歸屬理專",
+      "source_concept": "bank.fx_fee_income",
+      "property_uri": "https://example.org/ontology/bank#attributedToAdvisor",
+      "domain_uri": "https://example.org/ontology/bank#BankFeeIncome",
+      "target_class_uri": "https://example.org/ontology/bank#FinancialAdvisor",
+      "fields": []
+    },
+    {
+      "id": "bank.lc_fee_income.scope",
+      "name": "手收來源商品",
+      "source_concept": "bank.lc_fee_income",
+      "property_uri": "https://example.org/ontology/holding#feeIncomeFromProduct",
+      "domain_uri": "https://example.org/ontology/holding#FeeIncome",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "bank.lc_fee_income.advisor",
+      "name": "銀行手收歸屬理專",
+      "source_concept": "bank.lc_fee_income",
+      "property_uri": "https://example.org/ontology/bank#attributedToAdvisor",
+      "domain_uri": "https://example.org/ontology/bank#BankFeeIncome",
+      "target_class_uri": "https://example.org/ontology/bank#FinancialAdvisor",
+      "fields": []
+    },
+    {
+      "id": "bank.gold_fee_income.scope",
+      "name": "手收來源商品",
+      "source_concept": "bank.gold_fee_income",
+      "property_uri": "https://example.org/ontology/holding#feeIncomeFromProduct",
+      "domain_uri": "https://example.org/ontology/holding#FeeIncome",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "bank.gold_fee_income.advisor",
+      "name": "銀行手收歸屬理專",
+      "source_concept": "bank.gold_fee_income",
+      "property_uri": "https://example.org/ontology/bank#attributedToAdvisor",
+      "domain_uri": "https://example.org/ontology/bank#BankFeeIncome",
+      "target_class_uri": "https://example.org/ontology/bank#FinancialAdvisor",
+      "fields": []
+    },
+    {
+      "id": "bank.loan_income.scope",
+      "name": "利收來源商品",
+      "source_concept": "bank.loan_income",
+      "property_uri": "https://example.org/ontology/holding#interestIncomeFromProduct",
+      "domain_uri": "https://example.org/ontology/holding#InterestIncome",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "bank.loan_lum.scope",
+      "name": "LUM 衡量商品",
+      "source_concept": "bank.loan_lum",
+      "property_uri": "https://example.org/ontology/holding#lumMeasuresProduct",
+      "domain_uri": "https://example.org/ontology/holding#LUM",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "bank.deposit_interest_income.scope",
+      "name": "銀行存款利收來源商品",
+      "source_concept": "bank.deposit_interest_income",
+      "property_uri": "https://example.org/ontology/holding#interestIncomeFromProduct",
+      "domain_uri": "https://example.org/ontology/holding#InterestIncome",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "bank.overseas_bond_trust_fee_income.scope",
+      "name": "銀行海外債券（信託）手收來源商品",
+      "source_concept": "bank.overseas_bond_trust_fee_income",
+      "property_uri": "https://example.org/ontology/holding#feeIncomeFromProduct",
+      "domain_uri": "https://example.org/ontology/holding#FeeIncome",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "bank.overseas_bond_trust_fee_income.advisor",
+      "name": "銀行海外債券（信託）手收歸屬理專",
+      "source_concept": "bank.overseas_bond_trust_fee_income",
+      "property_uri": "https://example.org/ontology/bank#attributedToAdvisor",
+      "domain_uri": "https://example.org/ontology/bank#BankFeeIncome",
+      "target_class_uri": "https://example.org/ontology/bank#FinancialAdvisor",
+      "fields": []
+    },
+    {
+      "id": "bank.overseas_bond_proprietary_fee_income.scope",
+      "name": "銀行外國債券（自營）手收來源商品",
+      "source_concept": "bank.overseas_bond_proprietary_fee_income",
+      "property_uri": "https://example.org/ontology/holding#feeIncomeFromProduct",
+      "domain_uri": "https://example.org/ontology/holding#FeeIncome",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "bank.overseas_bond_proprietary_fee_income.advisor",
+      "name": "銀行外國債券（自營）手收歸屬理專",
+      "source_concept": "bank.overseas_bond_proprietary_fee_income",
+      "property_uri": "https://example.org/ontology/bank#attributedToAdvisor",
+      "domain_uri": "https://example.org/ontology/bank#BankFeeIncome",
+      "target_class_uri": "https://example.org/ontology/bank#FinancialAdvisor",
+      "fields": []
+    }
+  ],
+  "department_context": {
+    "using_department": "私人銀行",
+    "definition_department": "私人銀行",
+    "source_data_owner": null
+  }
+}

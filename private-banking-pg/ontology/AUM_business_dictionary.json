@@ -1,0 +1,88 @@
+{
+  "id": "aum",
+  "version": "0.2-draft",
+  "scope": "Current staging SQL logic plus the AUM Ontology JSON; not a validated customer-balance dataset",
+  "intendedGrain": "customer × month",
+  "metrics": [
+    {
+      "code": "aum_total_month_end",
+      "name": "月底總AUM",
+      "definition": "指定月份內，各分類最新可用日期的存款與投資 AMT 合計。",
+      "dateRule": "每個 TYP × COMP × PROD × TYP_SUB_DTL 取該月 MAX(YYYYMMDD)，再加總符合日期的列；不是每位客戶各自取最新日期，也不保證是曆月最後一天。",
+      "status": "draft_metric_query"
+    },
+    {
+      "code": "aum_deposit_month_end",
+      "name": "月底存款AUM",
+      "definition": "TYP 為存款且 COMP 為銀行的 AMT。",
+      "status": "inferred_from_sql"
+    },
+    {
+      "code": "aum_investment_month_end",
+      "name": "月底投資AUM",
+      "definition": "TYP 為投資的 AMT，包括銀行與證券來源。",
+      "status": "inferred_from_sql"
+    },
+    {
+      "code": "aum_bank_investment_month_end",
+      "name": "月底銀行投資AUM",
+      "definition": "TYP 為投資且 COMP 為銀行的 AMT。",
+      "status": "inferred_from_sql"
+    },
+    {
+      "code": "aum_securities_month_end",
+      "name": "月底證券AUM",
+      "definition": "TYP 為投資且 COMP 為證券的 AMT。",
+      "status": "inferred_from_sql"
+    },
+    {
+      "code": "aum_insurance_month_end",
+      "name": "月底保險AUM",
+      "definition": "銀行投資中的保險；AUM_012 以 AMT_INVEST 原始投資金額作為 AMT。",
+      "valuationBasis": "original_invested_amount",
+      "status": "inferred_from_sql"
+    }
+  ],
+  "metricHierarchy": [
+    ["aum_total_month_end", "aum_deposit_month_end"],
+    ["aum_total_month_end", "aum_investment_month_end"],
+    ["aum_investment_month_end", "aum_bank_investment_month_end"],
+    ["aum_investment_month_end", "aum_securities_month_end"],
+    ["aum_bank_investment_month_end", "aum_insurance_month_end"]
+  ],
+  "products": [
+    {"code": "deposit_twd", "name": "台幣存款", "parentMetric": "aum_deposit_month_end", "stages": ["AUM_005_007_008_009"], "classification": "TYP=存款; COMP=銀行; PROD=台幣存款"},
+    {"code": "deposit_foreign", "name": "外幣存款", "parentMetric": "aum_deposit_month_end", "stages": ["AUM_005_007_008_009"], "classification": "TYP=存款; COMP=銀行; PROD=外幣存款"},
+    {"code": "deposit_structured", "name": "結構型存款", "parentMetric": "aum_deposit_month_end", "stages": ["AUM_005_007_008_009"], "classification": "TYP=存款; COMP=銀行; PROD=結構型存款"},
+    {"code": "insurance", "name": "保險", "parentMetric": "aum_insurance_month_end", "stages": ["AUM_012"], "classification": "TYP=投資; COMP=銀行; PROD=保險", "valuationBasis": "original_invested_amount"},
+    {"code": "bank_trust_products", "name": "銀行信託產品", "parentMetric": "aum_bank_investment_month_end", "stages": ["AUM_013_015_015_016_017_018"], "classification": "TYP=投資; COMP=銀行; PROD=TRUSTPRD（依 CASE 正規化）", "valuationBasis": "CurrentTWDValue"},
+    {"code": "bank_overseas_bond", "name": "海外債券（自營）", "parentMetric": "aum_bank_investment_month_end", "stages": ["AUM_019"], "classification": "TYP=投資; COMP=銀行; PROD=海外債券(自營)", "valuationBasis": "face_amount × reference_price × exchange_rate"},
+    {"code": "bank_planned_trust", "name": "規劃型信託", "parentMetric": "aum_bank_investment_month_end", "stages": ["AUM_020", "AUM_021"], "classification": "TYP=投資; COMP=銀行; PROD=規劃型信託", "valuationBasis": "PresentAmt or MarketValueTWD"},
+    {"code": "bank_trust_custody", "name": "信託保管", "parentMetric": "aum_bank_investment_month_end", "stages": ["AUM_022"], "classification": "TYP=投資; COMP=銀行; PROD=信託保管", "valuationBasis": "source_AUM"},
+    {"code": "securities_bond", "name": "複委託債券", "parentMetric": "aum_securities_month_end", "stages": ["AUM_023_024"], "classification": "TYP=投資; COMP=證券; PROD=複委託債券（BOND 非 TSSN 開頭）", "valuationBasis": "NETQTY / 100 × CPRICE × EXCH_RT"},
+    {"code": "securities_structured", "name": "複委託結構型商品", "parentMetric": "aum_securities_month_end", "stages": ["AUM_023_024"], "classification": "TYP=投資; COMP=證券; PROD=複委託結構型商品（BOND 為 TSSN 開頭）", "valuationBasis": "NETQTY / 100 × CPRICE × EXCH_RT"},
+    {"code": "securities_fund", "name": "基金", "parentMetric": "aum_securities_month_end", "stages": ["AUM_025"], "classification": "TYP=投資; COMP=證券; PROD=基金", "valuationBasis": "fund_units × closing_price × exchange_rate"},
+    {"code": "securities_foreign_stock", "name": "外國股票", "parentMetric": "aum_securities_month_end", "stages": ["AUM_026"], "classification": "TYP=投資; COMP=證券; PROD=外國股票", "valuationBasis": "NETQTY × CPRICE × EXCH_RT"},
+    {"code": "securities_taiwan_stock", "name": "台股", "parentMetric": "aum_securities_month_end", "stages": ["AUM_027", "AUM_028"], "classification": "TYP=投資; COMP=證券; PROD=台股", "valuationBasis": "AUM_027 position value; AUM_028 application QTY × PRODUCT_PRICE", "reviewStatus": "AUM_028 may overlap AUM_027; no security-level deduplication is visible in staging SQL"}
+  ],
+  "stageOverrides": {
+    "AUM_012": {"name": "保險彙總", "valuationBasis": "AMT_INVEST（原始投資金額）", "note": "TMP01 取月批 AMT_INVEST；TMP02 將最新月批 AMT_INVEST 標上昨日日期；最終 UNION 中同一來源出現兩次，但完全相同的列會去重。"},
+    "AUM_027": {"name": "台股部位", "note": "與 AUM_028 一起被歸為投資／證券／台股。"},
+    "AUM_028": {"name": "股票設質申請估值", "note": "來源是股票設質申請資料；以 APPLYDATE 為日期、QTY × PRODUCT_PRICE 為金額；現行 SQL 歸入台股且沒有負號。是否與 AUM_027 重複尚未驗證。", "dateSource": "APPLYDATE", "valuationBasis": "QTY × PRODUCT_PRICE", "overlapRisk": true},
+    "AUM": {"name": "AUM 彙整表", "alsoMaterializedAs": "CUST_TRANSACTION_SUMMARY", "note": "以 UNION（非 UNION ALL）串接來源。"}
+  },
+  "rules": [
+    {"code": "union_distinct", "name": "來源整列去重", "description": "AUM 彙整使用 UNION，僅完全相同的輸出列會去重；不依股票或保單識別碼去重。", "stage": "AUM", "status": "observed_in_staging_sql"},
+    {"code": "category_latest_date", "name": "每分類取當月最新日期", "description": "月底總 AUM 的草稿查詢依 TYP、COMP、PROD、TYP_SUB_DTL 取指定月份內 MAX(YYYYMMDD)，再保留該日期的列；不是按每位客戶取最新日期。", "metric": "aum_total_month_end", "status": "draft_metric_query"},
+    {"code": "sum_amt", "name": "加總 AMT", "description": "月底總 AUM 草稿查詢對篩選後的列執行 SUM(AMT)，沒有額外排除股票設質或保險。", "metric": "aum_total_month_end", "status": "draft_metric_query"},
+    {"code": "insurance_valuation", "name": "保險原始投資金額", "description": "AUM_012 使用 SUM(AMT_INVEST)；不是所有產品共用同一現值口徑。", "stage": "AUM_012", "status": "observed_in_staging_sql"},
+    {"code": "pledged_stock_inclusion", "name": "股票設質歸入台股", "description": "AUM_028 的 SUM(QTY × PRODUCT_PRICE) 在彙整表中歸為投資／證券／台股，與 AUM_027 共用分類和最新日期選取。", "stage": "AUM_028", "status": "observed_in_staging_sql"}
+  ],
+  "evidence": [
+    "ontology/AUM Ontology.json",
+    "sources/sql/1.AUM_DETAIL.sql",
+    "sources/sql/AUM_N8N_SUMY.sql",
+    "deliverables/staging/v0.2/AUM_Staging_SQL_KB_v0.2.csv",
+    "deliverables/metrics/registry_v0.2/AUM_SQL_Asset_Registry_v0.1.csv"
+  ]
+}

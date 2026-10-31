@@ -1,0 +1,1401 @@
+{
+  "schema_version": "1.0.0",
+  "ontology_version": "0.15.0",
+  "status": "active",
+  "scope": "metadata_only",
+  "inference": false,
+  "instance_mapping": false,
+  "access_policy_status": "deferred_by_user",
+  "execution": {
+    "sql": null,
+    "join_rules": null,
+    "filter_rules": null,
+    "aggregation_rules": null,
+    "row_grain": null,
+    "advisor_recognition_rules": null,
+    "fee_recognition_rules": null,
+    "attribution_rules": null,
+    "period_basis": null
+  },
+  "field_definitions": {
+    "employeeId": {
+      "name": "行員編號",
+      "definition": "識別擔任理專或承接收入歸屬之行員的銀行編號。",
+      "data_type_hint": "string",
+      "property_uri": "https://example.org/ontology/bank#employeeId",
+      "entity_class_uri": "https://example.org/ontology/bank#BankEmployee"
+    },
+    "customerId": {
+      "name": "客戶識別",
+      "definition": "識別服務關係或手收歸屬所涉及客戶的來源識別欄位。",
+      "data_type_hint": "string",
+      "property_uri": null,
+      "entity_class_uri": "https://example.org/ontology/holding#Customer"
+    },
+    "productId": {
+      "name": "商品識別",
+      "definition": "識別手收所對應金融商品的來源識別欄位。",
+      "data_type_hint": "string",
+      "property_uri": null,
+      "entity_class_uri": "https://example.org/ontology/holding#FinancialProduct"
+    },
+    "amount": {
+      "name": "手收金額",
+      "definition": "依收入期間及認列規則形成的商品手續費收入金額。",
+      "data_type_hint": "decimal",
+      "property_uri": "https://example.org/ontology/holding#metricAmount",
+      "entity_class_uri": null
+    },
+    "currency": {
+      "name": "金額幣別",
+      "definition": "手收金額所使用的計價幣別。",
+      "data_type_hint": "string",
+      "property_uri": null,
+      "entity_class_uri": null
+    },
+    "incomePeriod": {
+      "name": "收入期間",
+      "definition": "手收金額所衡量的業務收入期間。",
+      "data_type_hint": null,
+      "property_uri": null,
+      "entity_class_uri": null
+    },
+    "snapshotDate": {
+      "name": "快照日期",
+      "definition": "商品手收資料快照所對應的日期。",
+      "data_type_hint": null,
+      "property_uri": null,
+      "entity_class_uri": null
+    },
+    "incomePeriodStart": {
+      "name": "收入期間起日",
+      "definition": "手續費收入所屬收入期間的開始日期；不預設按日、月或年衡量。",
+      "data_type_hint": "date",
+      "property_uri": "https://example.org/ontology/holding#incomePeriodStart",
+      "entity_class_uri": null
+    },
+    "incomePeriodEnd": {
+      "name": "收入期間迄日",
+      "definition": "手續費收入所屬收入期間的結束日期；期間邊界的具體使用規則由子公司或部門描述。",
+      "data_type_hint": "date",
+      "property_uri": "https://example.org/ontology/holding#incomePeriodEnd",
+      "entity_class_uri": null
+    },
+    "feeBaseAmount": {
+      "name": "手收計算基礎金額",
+      "definition": "適用手續費收入計算情境中作為輸入的收入金額；具體組成與來源由子公司或部門描述。",
+      "data_type_hint": "decimal",
+      "property_uri": "https://example.org/ontology/holding#feeBaseAmount",
+      "entity_class_uri": null
+    },
+    "feeDeductionAmount": {
+      "name": "手收計算扣減金額",
+      "definition": "適用手續費收入計算情境中涉及的扣減金額；具體扣減項目與使用方式由子公司或部門描述。",
+      "data_type_hint": "decimal",
+      "property_uri": "https://example.org/ontology/holding#feeDeductionAmount",
+      "entity_class_uri": null
+    }
+  },
+  "evidence": {
+    "sql_si": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        131,
+        148
+      ],
+      "encoding": "cp950"
+    },
+    "sql_offshore": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        191,
+        202
+      ],
+      "encoding": "cp950"
+    },
+    "sql_si_summary": {
+      "file": "Ontology/私銀智能問答/sources/sql/9.INCOME_SMY.sql",
+      "lines": [
+        92,
+        100
+      ],
+      "encoding": "cp950"
+    },
+    "sql_offshore_summary": {
+      "file": "Ontology/私銀智能問答/sources/sql/9.INCOME_SMY.sql",
+      "lines": [
+        122,
+        130
+      ],
+      "encoding": "cp950"
+    },
+    "metadata_si": {
+      "file": "Ontology/私銀智能問答/sources/metadata/收入_metadata.xlsx",
+      "sheet": "DSDEP.SI_PERFO_RPT",
+      "rows": [
+        2,
+        3,
+        8,
+        13,
+        21,
+        23,
+        29
+      ]
+    },
+    "metadata_offshore": {
+      "file": "Ontology/私銀智能問答/sources/metadata/收入_metadata.xlsx",
+      "sheet": "DSFND.PB_FUND_SPREAD_DAILY",
+      "rows": [
+        7,
+        8,
+        9,
+        13,
+        14,
+        18,
+        20,
+        31,
+        32
+      ]
+    },
+    "private_product_domestic": {
+      "file": "Ontology/私銀智能問答/ontology/independent_concepts/concept_graph.json",
+      "product_code": "bank_structured_domestic"
+    },
+    "private_product_offshore": {
+      "file": "Ontology/私銀智能問答/ontology/independent_concepts/concept_graph.json",
+      "product_code": "bank_structured_offshore"
+    },
+    "sql_overseas_stock": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        62,
+        88
+      ],
+      "encoding": "cp950"
+    },
+    "sql_eli": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        150,
+        167
+      ],
+      "encoding": "cp950"
+    },
+    "sql_fci": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        169,
+        188
+      ],
+      "encoding": "cp950"
+    },
+    "sql_dci": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        90,
+        115
+      ],
+      "encoding": "cp950"
+    },
+    "metadata_eli": {
+      "file": "Ontology/私銀智能問答/sources/metadata/收入_metadata.xlsx",
+      "sheet": "DSDEP.ELI_PERFO_RPT",
+      "rows": [
+        1
+      ]
+    },
+    "metadata_fci": {
+      "file": "Ontology/私銀智能問答/sources/metadata/收入_metadata.xlsx",
+      "sheet": "DSDEP.FCI_PERFO_RPT",
+      "rows": [
+        1
+      ]
+    },
+    "metadata_dci": {
+      "file": "Ontology/私銀智能問答/sources/metadata/收入_metadata.xlsx",
+      "sheet": "DSDEP.DCI_PERFO_RPT",
+      "rows": [
+        1
+      ]
+    },
+    "private_product_stock": {
+      "file": "Ontology/私銀智能問答/ontology/independent_concepts/concept_graph.json",
+      "product_code": "bank_overseas_stock"
+    },
+    "private_product_dci": {
+      "file": "Ontology/私銀智能問答/ontology/independent_concepts/concept_graph.json",
+      "product_code": "bank_dci"
+    },
+    "sql_dci_tmu": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        116,
+        128
+      ],
+      "encoding": "cp950"
+    },
+    "sql_dci_summary": {
+      "file": "Ontology/私銀智能問答/sources/sql/9.INCOME_SMY.sql",
+      "lines": [
+        71,
+        90
+      ],
+      "encoding": "cp950"
+    },
+    "fx_pnl": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        204,
+        247
+      ],
+      "encoding": "cp950"
+    }
+  },
+  "sources": [
+    {
+      "table": "DSDEP.SI_PERFO_RPT",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sql_si",
+        "metadata_si"
+      ]
+    },
+    {
+      "table": "DSDEP.SI_PERFO_RPT_HS",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sql_si"
+      ]
+    },
+    {
+      "table": "DSFND.PB_FUND_SPREAD_DAILY",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sql_offshore",
+        "metadata_offshore"
+      ]
+    },
+    {
+      "table": "DSDEP.ELI_PERFO_RPT",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sql_eli",
+        "metadata_eli"
+      ]
+    },
+    {
+      "table": "DSDEP.ELI_PERFO_RPT_HS",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sql_eli"
+      ]
+    },
+    {
+      "table": "DSDEP.FCI_PERFO_RPT",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sql_fci",
+        "metadata_fci"
+      ]
+    },
+    {
+      "table": "DSDEP.FCI_PERFO_RPT_HS",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sql_fci"
+      ]
+    },
+    {
+      "table": "DSDEP.DCI_PERFO_RPT",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sql_dci",
+        "metadata_dci"
+      ]
+    },
+    {
+      "table": "DSDEP.DCI_PERFO_RPT_HS",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sql_dci"
+      ]
+    },
+    {
+      "table": "DSTAS.FO108_W",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "fx_pnl"
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "id": "bank.domestic_structured_si_fee_income",
+      "name": "境內結構型商品手收（SI）",
+      "definition": "銀行境內 SI 結構型商品業務的手續費收入。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/bank#BankFeeIncome",
+      "specific_product_class_uri": "https://example.org/ontology/bank#StructuredFinancialProduct",
+      "private_product_code": "bank_structured_domestic",
+      "fields": [
+        {
+          "field": "employeeId",
+          "status": "pending_attribution",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSDEP.SI_PERFO_RPT",
+              "column": "RM_ID",
+              "meaning": "所屬員編",
+              "evidence": [
+                "metadata_si"
+              ],
+              "applicability": "pending_advisor_attribution"
+            },
+            {
+              "table": "DSDEP.SI_PERFO_RPT",
+              "column": "USER_ID",
+              "meaning": "員編",
+              "evidence": [
+                "metadata_si"
+              ],
+              "applicability": "pending_advisor_attribution"
+            }
+          ]
+        },
+        {
+          "field": "customerId",
+          "status": "observed_raw_candidate",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSDEP.SI_PERFO_RPT",
+              "column": "CUSTOMER_ID",
+              "meaning": "SQL 作為 cust_id 的客戶欄位。",
+              "evidence": [
+                "sql_si"
+              ],
+              "applicability": "observed_in_sql"
+            },
+            {
+              "table": "DSDEP.SI_PERFO_RPT_HS",
+              "column": "CUSTOMER_ID",
+              "meaning": "SQL 作為 cust_id 的客戶欄位。",
+              "evidence": [
+                "sql_si"
+              ],
+              "applicability": "observed_in_sql"
+            }
+          ]
+        },
+        {
+          "field": "productId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "amount",
+          "status": "observed_raw_candidate",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSDEP.SI_PERFO_RPT",
+              "column": "FEE_AMOUNT_TWD",
+              "meaning": "SQL 彙總的原始手續費欄位。",
+              "evidence": [
+                "sql_si"
+              ],
+              "applicability": "observed_in_sql"
+            },
+            {
+              "table": "DSDEP.SI_PERFO_RPT_HS",
+              "column": "FEE_AMOUNT_TWD",
+              "meaning": "SQL 彙總的原始手續費欄位。",
+              "evidence": [
+                "sql_si"
+              ],
+              "applicability": "observed_in_sql"
+            }
+          ]
+        },
+        {
+          "field": "currency",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriod",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriodStart",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriodEnd",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeBaseAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeDeductionAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "僅納入 INCOME_039 的 SI 分支；尚未納入 INCOME_040 ELI 與 INCOME_041 FCI，不宣稱完整境內手收。",
+        "sql_output": "INCOME_039",
+        "sql_group_by": [
+          "CUSTOMER_ID",
+          "TRADE_DATE",
+          "S_PCC_CODE"
+        ],
+        "sql_aggregation": "SUM(FEE_AMOUNT_TWD)",
+        "sql_combination": "current／HS 各自聚合後 UNION（非 UNION ALL）",
+        "sql_filters": [],
+        "event_date": {
+          "column": "TRADE_DATE",
+          "meaning": "交易日",
+          "evidence": [
+            "sql_si",
+            "metadata_si"
+          ]
+        },
+        "fee_currency": {
+          "current_column": "FEE_AMOUNT_TWD",
+          "current_unit": "TWD",
+          "historical_unit": null,
+          "note": "current metadata 說明為手續費換算台幣；歷史表欄位語意未獨立核對，selected currency 保持 null。",
+          "evidence": [
+            "metadata_si"
+          ]
+        },
+        "gaps": [
+          "S_PCC_CODE 在 SQL 中使用，但提供的 current metadata 未列此欄位。",
+          "DEALNO 是交易單號，不當作商品 ID。",
+          "current metadata 的專員欄位不自動套用到 HS；來源也未證明哪些行員具有理專角色。",
+          "既有 SQL 已彙總並移除員編與商品識別，不直接用該彙總還原理專／單一商品手收。"
+        ],
+        "evidence": [
+          "sql_si",
+          "metadata_si",
+          "sql_si_summary",
+          "private_product_domestic"
+        ]
+      },
+      "table_sources": {
+        "status": "observed_in_files",
+        "coverage": "此 AUM／手收指標在既有 SQL 與 metadata 中的表級來源觀察；欄位映射、選日及執行規則未指定。",
+        "tables": [
+          {
+            "table": "DSDEP.SI_PERFO_RPT",
+            "role": "primary",
+            "evidence": [
+              "metadata_si",
+              "sql_si"
+            ]
+          },
+          {
+            "table": "DSDEP.SI_PERFO_RPT_HS",
+            "role": "primary",
+            "evidence": [
+              "sql_si"
+            ]
+          }
+        ],
+        "unresolved_supporting_relations": []
+      },
+      "product_class_uris": [
+        "https://example.org/ontology/bank#StructuredFinancialProduct"
+      ]
+    },
+    {
+      "id": "bank.offshore_structured_fee_income",
+      "name": "境外結構型商品手收",
+      "definition": "銀行境外結構型商品業務的分行手續費收入。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/bank#BankFeeIncome",
+      "specific_product_class_uri": "https://example.org/ontology/bank#StructuredFinancialProduct",
+      "private_product_code": "bank_structured_offshore",
+      "fields": [
+        {
+          "field": "employeeId",
+          "status": "pending_attribution",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSFND.PB_FUND_SPREAD_DAILY",
+              "column": "BAOEMPID",
+              "meaning": "所屬專員編號",
+              "evidence": [
+                "metadata_offshore"
+              ],
+              "applicability": "pending_advisor_attribution"
+            },
+            {
+              "table": "DSFND.PB_FUND_SPREAD_DAILY",
+              "column": "SAOEMPID",
+              "meaning": "服務專員編號",
+              "evidence": [
+                "metadata_offshore"
+              ],
+              "applicability": "pending_advisor_attribution"
+            }
+          ]
+        },
+        {
+          "field": "customerId",
+          "status": "observed_raw_candidate",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSFND.PB_FUND_SPREAD_DAILY",
+              "column": "IDNO",
+              "meaning": "客戶 ID；SQL 作為 cust_id。",
+              "evidence": [
+                "sql_offshore",
+                "metadata_offshore"
+              ],
+              "applicability": "observed_in_sql"
+            }
+          ]
+        },
+        {
+          "field": "productId",
+          "status": "pending_product_identity",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSFND.PB_FUND_SPREAD_DAILY",
+              "column": "FUNDID",
+              "meaning": "metadata 定義為基金代碼，對 SN 商品的適用性待確認。",
+              "evidence": [
+                "metadata_offshore"
+              ],
+              "applicability": "pending_sn_product_identifier"
+            }
+          ]
+        },
+        {
+          "field": "amount",
+          "status": "observed_raw_candidate",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSFND.PB_FUND_SPREAD_DAILY",
+              "column": "BRHREBATEAMT",
+              "meaning": "分行手續費；SQL 彙總欄位。",
+              "evidence": [
+                "sql_offshore",
+                "metadata_offshore"
+              ],
+              "applicability": "observed_in_sql"
+            }
+          ]
+        },
+        {
+          "field": "currency",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriod",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriodStart",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriodEnd",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeBaseAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeDeductionAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "僅觀察 INCOME_042 的 SN 分行手續費範圍。",
+        "sql_output": "INCOME_042",
+        "sql_group_by": [
+          "FEEDATE",
+          "IDNO",
+          "BAOPCCCODE"
+        ],
+        "sql_aggregation": "SUM(BRHREBATEAMT)",
+        "sql_combination": null,
+        "sql_filters": [
+          "FHID='SN'",
+          "BAOPCCCODE LIKE '2E%'"
+        ],
+        "event_date": {
+          "column": "FEEDATE",
+          "meaning": "手續費發生日",
+          "sql_conversion": "TO_DATE(FEEDATE+19110000,'YYYYMMDD')",
+          "evidence": [
+            "sql_offshore",
+            "metadata_offshore"
+          ]
+        },
+        "fee_currency": {
+          "current_column": "BRHREBATEAMT",
+          "current_unit": null,
+          "historical_unit": null,
+          "note": "分行手續費欄位未標明計價幣別，不從其他台幣金額欄位推定。",
+          "evidence": [
+            "metadata_offshore"
+          ]
+        },
+        "gaps": [
+          "BAOPCCCODE 是所屬專員 PCC，不是行員編號。",
+          "所屬與服務專員的收入歸屬方式待確認，均不直接選定 employeeId。",
+          "FHID metadata 名稱為基金公司代碼；SN 商品分類依 SQL 條件與私銀產品語意辨識。",
+          "FUNDID 對 SN 的適用性待確認；SQL 彙總也未保留該欄位。"
+        ],
+        "evidence": [
+          "sql_offshore",
+          "metadata_offshore",
+          "sql_offshore_summary",
+          "private_product_offshore"
+        ]
+      },
+      "table_sources": {
+        "status": "observed_in_files",
+        "coverage": "此 AUM／手收指標在既有 SQL 與 metadata 中的表級來源觀察；欄位映射、選日及執行規則未指定。",
+        "tables": [
+          {
+            "table": "DSFND.PB_FUND_SPREAD_DAILY",
+            "role": "primary",
+            "evidence": [
+              "metadata_offshore",
+              "sql_offshore"
+            ]
+          }
+        ],
+        "unresolved_supporting_relations": []
+      },
+      "product_class_uris": [
+        "https://example.org/ontology/bank#StructuredFinancialProduct"
+      ]
+    },
+    {
+      "id": "bank.overseas_stock_fee_income",
+      "name": "銀行海外股票手收",
+      "definition": "私銀來源將海外股票列為獨立手收分支；本指標只參照該分支的底表，不將全表視為海外股票。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/bank#BankFeeIncome",
+      "specific_product_class_uri": "https://example.org/ontology/bank#StockProduct",
+      "private_product_code": "bank_overseas_stock",
+      "product_class_uris": [
+        "https://example.org/ontology/bank#StockProduct",
+        "https://example.org/ontology/bank#OverseasFinancialProduct"
+      ],
+      "fields": [
+        {
+          "field": "employeeId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "customerId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "productId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "amount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "currency",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriod",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriodStart",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriodEnd",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeBaseAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeDeductionAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "私銀來源將海外股票列為獨立手收分支；本指標只參照該分支的底表，不將全表視為海外股票。",
+        "classification_observation": "沿用私銀來源中的業務分支；不建立自動商品分類或資料篩選規則。",
+        "excluded_scope": [
+          "同表的基金、ETF、債券、境外結構型及集合管理帳戶等其他分支。"
+        ],
+        "gaps": [
+          "本輪只補指標與底表；欄位、客戶／商品識別、幣別、收入期間與實際歸屬維持待定。",
+          "current／歷史表只記來源存在，不指定合併、選日、去重或加總規則。"
+        ],
+        "evidence": [
+          "sql_overseas_stock",
+          "private_product_stock"
+        ]
+      },
+      "table_sources": {
+        "status": "observed_in_files",
+        "coverage": "私銀來源將海外股票列為獨立手收分支；本指標只參照該分支的底表，不將全表視為海外股票。",
+        "tables": [
+          {
+            "table": "DSFND.PB_FUND_SPREAD_DAILY",
+            "role": "primary",
+            "evidence": [
+              "metadata_offshore",
+              "sql_overseas_stock"
+            ]
+          }
+        ],
+        "unresolved_supporting_relations": []
+      }
+    },
+    {
+      "id": "bank.domestic_structured_eli_fee_income",
+      "name": "境內結構型商品手收（ELI）",
+      "definition": "私銀境內結構型商品中的 ELI 手續費來源；與 SI、FCI 分開保留。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/bank#BankFeeIncome",
+      "specific_product_class_uri": "https://example.org/ontology/bank#StructuredFinancialProduct",
+      "private_product_code": "bank_structured_domestic",
+      "product_class_uris": [
+        "https://example.org/ontology/bank#StructuredFinancialProduct"
+      ],
+      "fields": [
+        {
+          "field": "employeeId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "customerId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "productId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "amount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "currency",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriod",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriodStart",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriodEnd",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeBaseAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeDeductionAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "私銀境內結構型商品中的 ELI 手續費來源；與 SI、FCI 分開保留。",
+        "classification_observation": "沿用私銀來源中的業務分支；不建立自動商品分類或資料篩選規則。",
+        "excluded_scope": [
+          "SI、FCI 與其他境內結構型來源。"
+        ],
+        "gaps": [
+          "本輪只補指標與底表；欄位、客戶／商品識別、幣別、收入期間與實際歸屬維持待定。",
+          "current／歷史表只記來源存在，不指定合併、選日、去重或加總規則。"
+        ],
+        "evidence": [
+          "sql_eli",
+          "private_product_domestic"
+        ]
+      },
+      "table_sources": {
+        "status": "observed_in_files",
+        "coverage": "私銀境內結構型商品中的 ELI 手續費來源；與 SI、FCI 分開保留。",
+        "tables": [
+          {
+            "table": "DSDEP.ELI_PERFO_RPT",
+            "role": "primary",
+            "evidence": [
+              "metadata_eli",
+              "sql_eli"
+            ]
+          },
+          {
+            "table": "DSDEP.ELI_PERFO_RPT_HS",
+            "role": "primary",
+            "evidence": [
+              "sql_eli"
+            ]
+          }
+        ],
+        "unresolved_supporting_relations": []
+      }
+    },
+    {
+      "id": "bank.domestic_structured_fci_fee_income",
+      "name": "境內結構型商品手收（FCI）",
+      "definition": "私銀境內結構型商品中的 FCI 手續費來源；與 SI、ELI 分開保留。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/bank#BankFeeIncome",
+      "specific_product_class_uri": "https://example.org/ontology/bank#StructuredFinancialProduct",
+      "private_product_code": "bank_structured_domestic",
+      "product_class_uris": [
+        "https://example.org/ontology/bank#StructuredFinancialProduct"
+      ],
+      "fields": [
+        {
+          "field": "employeeId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "customerId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "productId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "amount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "currency",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriod",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriodStart",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriodEnd",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeBaseAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeDeductionAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "私銀境內結構型商品中的 FCI 手續費來源；與 SI、ELI 分開保留。",
+        "classification_observation": "沿用私銀來源中的業務分支；不建立自動商品分類或資料篩選規則。",
+        "excluded_scope": [
+          "SI、ELI 與其他境內結構型來源。"
+        ],
+        "gaps": [
+          "本輪只補指標與底表；欄位、客戶／商品識別、幣別、收入期間與實際歸屬維持待定。",
+          "current／歷史表只記來源存在，不指定合併、選日、去重或加總規則。"
+        ],
+        "evidence": [
+          "sql_fci",
+          "private_product_domestic"
+        ]
+      },
+      "table_sources": {
+        "status": "observed_in_files",
+        "coverage": "私銀境內結構型商品中的 FCI 手續費來源；與 SI、ELI 分開保留。",
+        "tables": [
+          {
+            "table": "DSDEP.FCI_PERFO_RPT",
+            "role": "primary",
+            "evidence": [
+              "metadata_fci",
+              "sql_fci"
+            ]
+          },
+          {
+            "table": "DSDEP.FCI_PERFO_RPT_HS",
+            "role": "primary",
+            "evidence": [
+              "sql_fci"
+            ]
+          }
+        ],
+        "unresolved_supporting_relations": []
+      }
+    },
+    {
+      "id": "bank.dci_fee_income",
+      "name": "銀行 DCI 手收",
+      "definition": "依私銀 SQL 手收分類，涵蓋 DCI 手續費報表及 DCD 的 TMU 損益；沿用結構型金融商品分類，不認定為結構型存款。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/bank#BankFeeIncome",
+      "specific_product_class_uri": "https://example.org/ontology/bank#StructuredFinancialProduct",
+      "private_product_code": "bank_dci",
+      "product_class_uris": [
+        "https://example.org/ontology/bank#StructuredFinancialProduct"
+      ],
+      "fields": [
+        {
+          "field": "employeeId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "customerId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "productId",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "amount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "currency",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriod",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriodStart",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriodEnd",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeBaseAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeDeductionAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "INCOME_037 純手續費與 INCOME_038 的 DCD／TMU 收入，兩者在 SQL 均歸手收／銀行／DCI。",
+        "classification_observation": "INCOME_037 取 FEE_AMOUNT_TWD，INCOME_038 取 SUM(TMUPROFIT) 且 TRIM(Product)='DCD'；保留不同金額性質。私銀為使用／定義部門，來源權責仍待定。",
+        "excluded_scope": [
+          "FO108_W 的非 DCD 分支不屬於本指標；既有 FX 指標排除 DCD／Cash Bond，不因共表而混用。"
+        ],
+        "gaps": [
+          "只對應指標到底表；客戶、商品識別、幣別、收入期間及欄位映射維持待定。",
+          "SQL 計算由 Tool 承接；來源觀察不是可執行規則，未查驗資料庫。",
+          "INCOME_SMY 使用 UNION 匯集，不宣稱可直接加總底表或按交易去重。",
+          "current／歷史選日、POSTDATE 與收入期間仍待定；本輪理專員編映射不變。"
+        ],
+        "evidence": [
+          "sql_dci",
+          "private_product_dci",
+          "sql_dci_tmu",
+          "sql_dci_summary"
+        ]
+      },
+      "table_sources": {
+        "status": "observed_in_files",
+        "coverage": "INCOME_037 純手續費與 INCOME_038 的 DCD／TMU 收入，兩者在 SQL 均歸手收／銀行／DCI。",
+        "tables": [
+          {
+            "table": "DSDEP.DCI_PERFO_RPT",
+            "role": "primary",
+            "evidence": [
+              "metadata_dci",
+              "sql_dci"
+            ]
+          },
+          {
+            "table": "DSDEP.DCI_PERFO_RPT_HS",
+            "role": "primary",
+            "evidence": [
+              "sql_dci"
+            ]
+          },
+          {
+            "table": "DSTAS.FO108_W",
+            "role": "primary",
+            "evidence": [
+              "sql_dci_tmu"
+            ]
+          }
+        ],
+        "unresolved_supporting_relations": []
+      }
+    }
+  ],
+  "relation_definitions": [
+    {
+      "id": "bank.domestic_structured_si_fee_income.product",
+      "name": "境內結構型商品手收（SI）對應金融商品",
+      "source_concept": "bank.domestic_structured_si_fee_income",
+      "property_uri": "https://example.org/ontology/holding#feeIncomeFromProduct",
+      "domain_uri": "https://example.org/ontology/holding#FeeIncome",
+      "range_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "target_class_uri": "https://example.org/ontology/bank#StructuredFinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "bank.offshore_structured_fee_income.product",
+      "name": "境外結構型商品手收對應金融商品",
+      "source_concept": "bank.offshore_structured_fee_income",
+      "property_uri": "https://example.org/ontology/holding#feeIncomeFromProduct",
+      "domain_uri": "https://example.org/ontology/holding#FeeIncome",
+      "range_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "target_class_uri": "https://example.org/ontology/bank#StructuredFinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "bank.domestic_structured_si_fee_income.advisor",
+      "name": "境內結構型商品手收（SI）歸屬理專",
+      "source_concept": "bank.domestic_structured_si_fee_income",
+      "property_uri": "https://example.org/ontology/bank#attributedToAdvisor",
+      "domain_uri": "https://example.org/ontology/bank#BankFeeIncome",
+      "target_class_uri": "https://example.org/ontology/bank#FinancialAdvisor",
+      "fields": [],
+      "range_uri": "https://example.org/ontology/bank#FinancialAdvisor"
+    },
+    {
+      "id": "bank.offshore_structured_fee_income.advisor",
+      "name": "境外結構型商品手收歸屬理專",
+      "source_concept": "bank.offshore_structured_fee_income",
+      "property_uri": "https://example.org/ontology/bank#attributedToAdvisor",
+      "domain_uri": "https://example.org/ontology/bank#BankFeeIncome",
+      "target_class_uri": "https://example.org/ontology/bank#FinancialAdvisor",
+      "fields": [],
+      "range_uri": "https://example.org/ontology/bank#FinancialAdvisor"
+    },
+    {
+      "id": "bank.overseas_stock_fee_income.product",
+      "name": "銀行海外股票手收手收來源商品",
+      "source_concept": "bank.overseas_stock_fee_income",
+      "property_uri": "https://example.org/ontology/holding#feeIncomeFromProduct",
+      "domain_uri": "https://example.org/ontology/holding#FeeIncome",
+      "range_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "target_class_uri": "https://example.org/ontology/bank#StockProduct",
+      "fields": []
+    },
+    {
+      "id": "bank.overseas_stock_fee_income.advisor",
+      "name": "銀行海外股票手收歸屬理專",
+      "source_concept": "bank.overseas_stock_fee_income",
+      "property_uri": "https://example.org/ontology/bank#attributedToAdvisor",
+      "domain_uri": "https://example.org/ontology/bank#BankFeeIncome",
+      "range_uri": "https://example.org/ontology/bank#FinancialAdvisor",
+      "target_class_uri": "https://example.org/ontology/bank#FinancialAdvisor",
+      "fields": []
+    },
+    {
+      "id": "bank.domestic_structured_eli_fee_income.product",
+      "name": "境內結構型商品手收（ELI）手收來源商品",
+      "source_concept": "bank.domestic_structured_eli_fee_income",
+      "property_uri": "https://example.org/ontology/holding#feeIncomeFromProduct",
+      "domain_uri": "https://example.org/ontology/holding#FeeIncome",
+      "range_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "target_class_uri": "https://example.org/ontology/bank#StructuredFinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "bank.domestic_structured_eli_fee_income.advisor",
+      "name": "境內結構型商品手收（ELI）歸屬理專",
+      "source_concept": "bank.domestic_structured_eli_fee_income",
+      "property_uri": "https://example.org/ontology/bank#attributedToAdvisor",
+      "domain_uri": "https://example.org/ontology/bank#BankFeeIncome",
+      "range_uri": "https://example.org/ontology/bank#FinancialAdvisor",
+      "target_class_uri": "https://example.org/ontology/bank#FinancialAdvisor",
+      "fields": []
+    },
+    {
+      "id": "bank.domestic_structured_fci_fee_income.product",
+      "name": "境內結構型商品手收（FCI）手收來源商品",
+      "source_concept": "bank.domestic_structured_fci_fee_income",
+      "property_uri": "https://example.org/ontology/holding#feeIncomeFromProduct",
+      "domain_uri": "https://example.org/ontology/holding#FeeIncome",
+      "range_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "target_class_uri": "https://example.org/ontology/bank#StructuredFinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "bank.domestic_structured_fci_fee_income.advisor",
+      "name": "境內結構型商品手收（FCI）歸屬理專",
+      "source_concept": "bank.domestic_structured_fci_fee_income",
+      "property_uri": "https://example.org/ontology/bank#attributedToAdvisor",
+      "domain_uri": "https://example.org/ontology/bank#BankFeeIncome",
+      "range_uri": "https://example.org/ontology/bank#FinancialAdvisor",
+      "target_class_uri": "https://example.org/ontology/bank#FinancialAdvisor",
+      "fields": []
+    },
+    {
+      "id": "bank.dci_fee_income.product",
+      "name": "銀行 DCI 手收手收來源商品",
+      "source_concept": "bank.dci_fee_income",
+      "property_uri": "https://example.org/ontology/holding#feeIncomeFromProduct",
+      "domain_uri": "https://example.org/ontology/holding#FeeIncome",
+      "range_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "target_class_uri": "https://example.org/ontology/bank#StructuredFinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "bank.dci_fee_income.advisor",
+      "name": "銀行 DCI 手收歸屬理專",
+      "source_concept": "bank.dci_fee_income",
+      "property_uri": "https://example.org/ontology/bank#attributedToAdvisor",
+      "domain_uri": "https://example.org/ontology/bank#BankFeeIncome",
+      "range_uri": "https://example.org/ontology/bank#FinancialAdvisor",
+      "target_class_uri": "https://example.org/ontology/bank#FinancialAdvisor",
+      "fields": []
+    }
+  ]
+}

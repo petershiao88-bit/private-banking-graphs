@@ -1,0 +1,116 @@
+/*
+Author : 1121329
+create date :20250626
+memo : 私銀客戶數母體
+*/
+--5.總客戶數 
+drop table PB_CUST_005_TMP0;
+CREATE TABLE PB_CUST_005_TMP0
+AS
+  SELECT EMP_NO, IDNO, SHT_NM,
+         substr(
+          sht_nm,
+          instr(sht_nm,'業')+2,
+          instr(sht_nm,'部') -instr(sht_nm,'業') -1
+          )  as SHT_SUB_NM 
+           , E.* ,C.YYYYMM,A.PRFT_CNTR_CD
+    FROM (
+        SELECT * FROM DSORG.AO_INFO_HS@anadbp01_dwdbp01
+        WHERE AO_TYP != 'AO1P' and prft_cntr_cd not in ('2E4300','2E5000')  --排除個金或通路的AO1P
+    ) A  --
+    INNER JOIN (
+        -- AC 部門列別
+      SELECT * FROM DSORG.PRFT_CNTR_CD@anadbp01_dwdbp01
+      WHERE BU ='私人銀行處'
+    ) B ON A.PRFT_CNTR_CD = B.PRFT_CNTR_CD  --2212
+    LEFT JOIN (
+        -- 在職
+        SELECT * FROM DSORG.HR_EMP_HS@anadbp01_dwdbp01
+        WHERE JOB_STATUS = '1'
+    ) C ON A.EMP_NO = TRIM(C.EMP_ID) And a.yyyymm=c.yyyymm  --2212
+    LEFT JOIN (
+        -- 職稱
+        SELECT * FROM DSORG.HR_JOB_TYP_CD@anadbp01_dwdbp01  --2212
+        where pst_nm like '%CA%'  or trim(pst_cd) in ('VP026','VP030')
+    ) E ON C.COMP_SERIAL_NO = E.COMP_SERIAL_NO 
+        AND C.PST_CD = E.PST_CD
+;
+
+drop table PB_CUST_005_TMP1;
+CREATE TABLE PB_CUST_005_TMP1
+AS
+  SELECT EMP_NO, IDNO, SHT_NM,
+         substr(
+          sht_nm,
+          instr(sht_nm,'業')+2,
+          instr(sht_nm,'部') -instr(sht_nm,'業') -1
+          )  as SHT_SUB_NM 
+           , E.* ,C.YYYYMM,A.PRFT_CNTR_CD
+    FROM (
+        SELECT a.*,substr(lst_mtn_dt,1,6) yyyymm
+        FROM DSORG.AO_INFO@anadbp01_dwdbp01 a
+        WHERE AO_TYP != 'AO1P' and prft_cntr_cd not in ('2E4300','2E5000')  --排除個金或通路的AO1P
+    ) A  --
+    INNER JOIN (
+        -- AC 部門列別
+      SELECT * FROM DSORG.PRFT_CNTR_CD@anadbp01_dwdbp01
+      WHERE BU ='私人銀行處'
+    ) B ON A.PRFT_CNTR_CD = B.PRFT_CNTR_CD  --2212
+    LEFT JOIN (
+        -- 在職
+        SELECT a.*,substr(lst_mtn_dt,1,6) YYYYMM
+        FROM DSORG.HR_EMP@anadbp01_dwdbp01 a
+        WHERE JOB_STATUS = '1'
+    ) C ON A.EMP_NO = TRIM(C.EMP_ID) And a.yyyymm=c.yyyymm  --2212
+    LEFT JOIN (
+        -- 職稱
+        SELECT * FROM DSORG.HR_JOB_TYP_CD@anadbp01_dwdbp01  --2212
+        where pst_nm like '%CA%' or trim(pst_cd) in ('VP026','VP030')
+    ) E ON C.COMP_SERIAL_NO = E.COMP_SERIAL_NO 
+        AND C.PST_CD = E.PST_CD
+;
+
+drop table PB_CUST_005_TMP;
+CREATE TABLE PB_CUST_005_TMP
+as
+select * from PB_CUST_005_TMP0
+union 
+select * from PB_CUST_005_TMP1;
+--current
+drop table CURRNT_AO_TMP1;
+create table CURRNT_AO_TMP1
+as 
+select DISTINCT substr(lst_mtn_dt,1,6) YYYYMM, CUST_ID ,AO_ID 
+from DSCIF.AO_CUST_REL@anadbp01_dwdbp01;
+--history
+drop table CURRNT_AO_TMP2;
+create table CURRNT_AO_TMP2
+as 
+SELECT DISTINCT TRIM(YYYYMM) YYYYMM ,CUST_ID, AO_ID   --47716936
+FROM DSCIF.AO_CUST_REL_HS@anadbp01_dwdbp01
+where YYYYMM>='202312';
+ 
+drop table CURRNT_AO;
+create table CURRNT_AO
+as   
+select * from CURRNT_AO_TMP1
+union 
+select * from CURRNT_AO_TMP2;
+
+--CA向下所有客戶即為私銀客戶
+drop table PB_CUST_005;
+create table PB_CUST_005
+as 
+SELECT   a.yyyymm,cust_id,ao_id,emp_no,prft_cntr_cd,sht_nm,SHT_SUB_NM,pst_nm,pst_cd --count(*)
+FROM  CURRNT_AO A
+INNER JOIN   
+      (select  * -- count(distinct cust_id) 
+      from PB_CUST_005_TMP   --emp_no='840087'
+      where ( pst_nm like '%CA%'   or ( trim(PST_CD) in ('VP026','VP030')))  and prft_cntr_cd not in ('2E4300','2E5000')) B   --840087暫掛Migration客戶
+ON A.AO_ID = B.IDNO and a.yyyymm=b.yyyymm;
+
+
+grant select on PB_CUST_005 to "1143133";
+grant select on PB_CUST_005 to "1080605";
+
+EXIT;

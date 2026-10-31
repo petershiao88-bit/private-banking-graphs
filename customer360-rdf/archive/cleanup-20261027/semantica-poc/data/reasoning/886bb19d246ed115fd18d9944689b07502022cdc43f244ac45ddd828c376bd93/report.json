@@ -1,0 +1,16 @@
+{
+  "engine": "HermiT",
+  "owlready2_version": "0.51",
+  "source_sha256": "826b1a33d1cfd0f0f3908eb0024000bd31d06cc43b4ce0a3e7e461526f3ad4cf",
+  "input_sha256": "6e4f7f8e02139afc003faf27812362d06b8221e94740873e83f3defeede232be",
+  "executed_at": "2026-10-25T15:35:59.519875+00:00",
+  "scope": "holding_and_subsidiary_owl_only",
+  "pg_included": false,
+  "classes": {},
+  "unsatisfiable_classes": [],
+  "unsupported_datatypes": [],
+  "consistency_complete": true,
+  "limitations": [],
+  "consistent": false,
+  "duration_seconds": 2.406
+}

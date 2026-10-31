@@ -1,0 +1,40 @@
+{
+  "status": "passed",
+  "offline_tests": 19,
+  "engine": "HermiT",
+  "owlready2": "0.51",
+  "owl_classes": 43,
+  "source_sha256": "54ce033c671dde9c75ad572c32660bafa05ec94c671b6516a220f6421beaa697",
+  "pg_included": false,
+  "consistency_complete": false,
+  "limitations": [
+    "HermiT 不檢查 xsd:date 的 datatype 語意；一致性檢查限於支援的語意範圍。"
+  ],
+  "browser_tool": {
+    "route": "ontology",
+    "tool": "check_subclass",
+    "class_uri": "https://example.org/ontology/securities#SecuritiesAUM",
+    "parent_uri": "https://example.org/ontology/holding#Metric"
+  },
+  "browser_verdict": "entailed",
+  "live_routes": [
+    {
+      "route": "ontology",
+      "tool_verdict": "not_entailed",
+      "citations_valid": true,
+      "answer_guard": "canonical_tool_verdict"
+    },
+    {
+      "route": "pg",
+      "tool_verdict": null,
+      "citations_valid": true,
+      "answer_guard": null
+    }
+  ],
+  "graph_counts": {
+    "nodes": 146,
+    "edges": 246
+  },
+  "original_sources_unchanged": true,
+  "screenshot": "data/llm-hermit.jpg"
+}

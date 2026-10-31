@@ -1,0 +1,160 @@
+{
+  "status": "retired_not_build_input",
+  "retired_in_version": "0.15.0",
+  "reason": "使用者確認股票設質不以 AUM 衡量。既有證據為設質股票估值，不支持直接轉為借款餘額或 LUM。",
+  "concept": {
+    "id": "securities.stock_pledge_aum",
+    "name": "證券台股（股票設質）AUM",
+    "definition": "私銀來源文件歸入證券台股 AUM 的股票設質估值分項；不表示借款餘額或可融資金額，實際認列與欄位映射待確認。",
+    "subsidiary": "securities",
+    "department_owner": null,
+    "class_uri": "https://example.org/ontology/securities#SecuritiesAUM",
+    "specific_product_class_uri": null,
+    "product_class_uris": [
+      "https://example.org/ontology/securities#StockProduct"
+    ],
+    "metric_kind": "aum",
+    "product_code": "securities_taiwan_stock",
+    "fields": [
+      {
+        "field": "customerId",
+        "status": "pending",
+        "table": null,
+        "column": null,
+        "candidates": []
+      },
+      {
+        "field": "productId",
+        "status": "pending",
+        "table": null,
+        "column": null,
+        "candidates": []
+      },
+      {
+        "field": "amount",
+        "status": "pending",
+        "table": null,
+        "column": null,
+        "candidates": []
+      },
+      {
+        "field": "currency",
+        "status": "pending",
+        "table": null,
+        "column": null,
+        "candidates": []
+      },
+      {
+        "field": "snapshotDate",
+        "status": "pending",
+        "table": null,
+        "column": null,
+        "candidates": []
+      },
+      {
+        "field": "aumAsOfDate",
+        "status": "pending",
+        "table": null,
+        "column": null,
+        "candidates": []
+      },
+      {
+        "field": "valuationQuantity",
+        "status": "pending",
+        "table": null,
+        "column": null,
+        "candidates": []
+      },
+      {
+        "field": "valuationUnitPrice",
+        "status": "pending",
+        "table": null,
+        "column": null,
+        "candidates": []
+      }
+    ],
+    "observations": {
+      "coverage": "私銀來源文件歸入證券台股 AUM 的股票設質估值分項；不表示借款餘額或可融資金額，實際認列與欄位映射待確認。",
+      "classification_observation": "需求表列為證券台股 AUM，彙總 SQL 將 AUM_028 歸入證券／台股；股票設質是此指標的業務情境，不另造設質商品或借款商品分類。",
+      "valuation_observation": "需求表描述設質股票估值，SQL 觀察為數量與價格形成的金額；不視為借款餘額或可融資額。原台股庫存 AUM 指標保留，沒有新增兩者的自動加總或去重規則。",
+      "date_observation": "SQL 使用 APPLYDATE，需求表描述月底收盤價；兩者的時間意義尚待對齊，不直接設定為 AUM 基準日或核定原選日規則。",
+      "gaps": [
+        "與原台股庫存來源的涵蓋重疊、完整範圍與認列仍待確認。",
+        "需求表的上市／上櫃分類只記來源觀察，未加入篩選或欄位映射。",
+        "客戶／商品識別、幣別、數量單位、價格基準與日期仍待定。"
+      ],
+      "evidence": [
+        "stock_pledge_pending",
+        "stock_pledge_requirements",
+        "stock_pledge_summary"
+      ]
+    },
+    "table_sources": {
+      "status": "observed_in_files",
+      "coverage": "私銀來源文件歸入證券台股 AUM 的股票設質估值分項；不表示借款餘額或可融資金額，實際認列與欄位映射待確認。",
+      "tables": [
+        {
+          "table": "DSCSD.PBCMS_REPORTA03",
+          "role": "primary",
+          "evidence": [
+            "stock_pledge_pending",
+            "stock_pledge_requirements"
+          ]
+        }
+      ],
+      "unresolved_supporting_relations": []
+    }
+  },
+  "relation_definitions": [
+    {
+      "id": "securities.stock_pledge_aum.product",
+      "name": "股票設質 AUM 衡量股票商品",
+      "source_concept": "securities.stock_pledge_aum",
+      "property_uri": "https://example.org/ontology/holding#measuresProduct",
+      "domain_uri": "https://example.org/ontology/holding#AUM",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": []
+    }
+  ],
+  "sources": [
+    {
+      "table": "DSCSD.PBCMS_REPORTA03",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "stock_pledge_pending",
+        "stock_pledge_requirements"
+      ]
+    }
+  ],
+  "evidence": {
+    "stock_pledge_pending": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "lines": [
+        432,
+        438
+      ],
+      "encoding": "cp950"
+    },
+    "stock_pledge_requirements": {
+      "file": "Ontology/私銀智能問答/sources/metadata/AUM_20250516.xlsx",
+      "sheet": "建議調整版",
+      "cells": {
+        "H28": "證券_台股_AUM總量",
+        "M28": "股票設質",
+        "N28": "股票設質：庫存股數 * 月底收盤價",
+        "P28": "DSCSD.PBCMS_REPORTA03",
+        "Q28": "Qty * Product_Price",
+        "R28": "PRODUCT_TYPENAME 篩選\"上市股票\" 及\"上櫃股票\""
+      }
+    },
+    "stock_pledge_summary": {
+      "file": "Ontology/私銀智能問答/sources/sql/2._AUM_SUMY.sql",
+      "lines": [
+        131,
+        139
+      ],
+      "encoding": "cp950"
+    }
+  }
+}

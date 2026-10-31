@@ -1,0 +1,82 @@
+{
+  "verifiedAt": "2026-10-09T09:34:12.150013+00:00",
+  "host": "4bb479b2.databases.neo4j.io",
+  "database": "neo4j",
+  "before": {
+    "nodes": 1194,
+    "relationships": 3702,
+    "sha256": "dc0ea9da63ce6653499b6717b14460a426f404a6ef2935af8b277f27455e56c0"
+  },
+  "after": {
+    "nodes": 1194,
+    "relationships": 3702,
+    "sha256": "dc0ea9da63ce6653499b6717b14460a426f404a6ef2935af8b277f27455e56c0"
+  },
+  "existingGraphPreserved": true,
+  "idempotentRerun": true,
+  "customerNodes": 1,
+  "customerRelationships": 14,
+  "directMetricLinks": 12,
+  "domainDimensionLinks": 2,
+  "metrics": [
+    [
+      "aum:metric:aum_bank_investment_month_end",
+      "月底銀行投資AUM"
+    ],
+    [
+      "aum:metric:aum_deposit_month_end",
+      "月底存款AUM"
+    ],
+    [
+      "aum:metric:aum_insurance_month_end",
+      "月底保險AUM"
+    ],
+    [
+      "aum:metric:aum_investment_month_end",
+      "月底投資AUM"
+    ],
+    [
+      "aum:metric:aum_securities_month_end",
+      "月底證券AUM"
+    ],
+    [
+      "aum:metric:aum_total_month_end",
+      "月底總AUM"
+    ],
+    [
+      "income:metric:bank_fee_income",
+      "銀行手收"
+    ],
+    [
+      "income:metric:deposit_interest_income",
+      "存款利收"
+    ],
+    [
+      "income:metric:fee_income",
+      "手收（SQL分類）"
+    ],
+    [
+      "income:metric:income_total_customer_month",
+      "每客戶每月總收入"
+    ],
+    [
+      "income:metric:interest_income",
+      "利息收入"
+    ],
+    [
+      "income:metric:securities_fee_income",
+      "證券手收"
+    ]
+  ],
+  "securitiesFundDirectPath": [
+    [
+      "securities_fund",
+      "aum:metric:aum_securities_month_end",
+      "pb_shared:customer:customer"
+    ]
+  ],
+  "fullMappingQueryRows": 498,
+  "noTotalRequiredForCustomer": true,
+  "conceptGraphCrossEdges": 0,
+  "customerStateSha256": "dafff3162983ecd6c5f20c916e1aacaee6979d4f1f608c0777e9e881645b6489"
+}

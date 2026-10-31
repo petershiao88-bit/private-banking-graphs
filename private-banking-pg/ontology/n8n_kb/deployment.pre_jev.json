@@ -1,0 +1,78 @@
+{
+  "workflowName": "私銀 AUM Income KB",
+  "workflowId": "tL7HTesvAzqwsqv6",
+  "url": "https://chiang4901.app.n8n.cloud/workflow/tL7HTesvAzqwsqv6",
+  "state": "published",
+  "version": "KB v2 - metric 範圍與 Jev 細項選品",
+  "mainSteps": 6,
+  "modelSubnodes": 2,
+  "inputs": [
+    "question",
+    "domains",
+    "metricCodes"
+  ],
+  "deployedContractChecksPassed": 12,
+  "auraChecks": {
+    "scope": 8,
+    "mapping": 6
+  },
+  "pinData": "empty",
+  "liveTests": [
+    {
+      "case": "fund_scoped",
+      "productCodes": [
+        "securities_fund"
+      ]
+    },
+    {
+      "case": "whole_securities",
+      "productCodes": [
+        "securities_bond",
+        "securities_foreign_stock",
+        "securities_fund",
+        "securities_structured"
+      ]
+    },
+    {
+      "case": "unknown_metric",
+      "productCodes": []
+    },
+    {
+      "case": "pending_income",
+      "productCodes": [
+        "bank_collective_account"
+      ]
+    }
+  ],
+  "mainWorkflowIntegration": {
+    "state": "saved_draft_not_published",
+    "tool": "Product Concept KB",
+    "agent": "SQL Reasoning Agent",
+    "metricCodes": "full selected_metric_codes array",
+    "domains": [
+      "aum"
+    ],
+    "actualSubexecutionId": "2416",
+    "subexecutionState": "succeeded",
+    "subexecutionDurationSeconds": 5.477,
+    "fullMainExecution": "failed_after_kb",
+    "downstreamError": "relation dspbm.pb_fundposit_sec_m does not exist",
+    "changedNodes": [
+      {
+        "node": "SQL Reasoning Agent",
+        "change": "parameters"
+      },
+      {
+        "node": "Product Concept KB",
+        "change": "added"
+      }
+    ]
+  },
+  "exportedWorkflow": "PB_AUM_Income_KB.deployed.json",
+  "evidence": [
+    "live_metric_results.json",
+    "main_call_result.json",
+    "query_validation.json",
+    "kb-v2-success.jpg"
+  ]
+}

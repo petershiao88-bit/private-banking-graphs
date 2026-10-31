@@ -1,0 +1,844 @@
+{
+  "relationships": [
+    {
+      "source": "aum_deposit",
+      "type": "PB_AUM_ROLLS_UP_TO",
+      "target": "aum_total",
+      "properties": {
+        "definition": "客戶銀行存款資產納入總 AUM 的資產業務範圍。",
+        "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。"
+      }
+    },
+    {
+      "source": "aum_investment",
+      "type": "PB_AUM_ROLLS_UP_TO",
+      "target": "aum_total",
+      "properties": {
+        "definition": "客戶銀行及證券通路投資資產納入總 AUM 的資產業務範圍。",
+        "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。"
+      }
+    },
+    {
+      "source": "aum_bank_investment",
+      "type": "PB_AUM_ROLLS_UP_TO",
+      "target": "aum_investment",
+      "properties": {
+        "definition": "客戶銀行通路投資資產納入投資 AUM。",
+        "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。"
+      }
+    },
+    {
+      "source": "aum_securities",
+      "type": "PB_AUM_ROLLS_UP_TO",
+      "target": "aum_investment",
+      "properties": {
+        "definition": "客戶證券通路投資資產納入投資 AUM。",
+        "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。"
+      }
+    },
+    {
+      "source": "aum_insurance",
+      "type": "PB_AUM_ROLLS_UP_TO",
+      "target": "aum_bank_investment",
+      "properties": {
+        "definition": "銀行通路保險資產納入銀行投資 AUM 的業務範圍。",
+        "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。"
+      }
+    },
+    {
+      "source": "fee_income",
+      "type": "PB_INCOME_ROLLS_UP_TO",
+      "target": "income_total",
+      "properties": {
+        "definition": "已納入的手續費、客戶貢獻度及部分交易損益，構成總收入中的手續費類收入。",
+        "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。"
+      }
+    },
+    {
+      "source": "interest_income",
+      "type": "PB_INCOME_ROLLS_UP_TO",
+      "target": "income_total",
+      "properties": {
+        "definition": "存款與放款業務的利收，納入總收入的業務範圍。",
+        "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。"
+      }
+    },
+    {
+      "source": "bank_fee_income",
+      "type": "PB_INCOME_ROLLS_UP_TO",
+      "target": "fee_income",
+      "properties": {
+        "definition": "銀行通路產品與服務的手續費類收入，納入整體手續費類收入。",
+        "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。"
+      }
+    },
+    {
+      "source": "securities_fee_income",
+      "type": "PB_INCOME_ROLLS_UP_TO",
+      "target": "fee_income",
+      "properties": {
+        "definition": "證券通路產品與服務的手續費類收入，納入整體手續費類收入。",
+        "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。"
+      }
+    },
+    {
+      "source": "deposit_interest_income",
+      "type": "PB_INCOME_ROLLS_UP_TO",
+      "target": "interest_income",
+      "properties": {
+        "definition": "存款業務的利收納入整體利收。",
+        "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。"
+      }
+    },
+    {
+      "source": "loan_interest_income",
+      "type": "PB_INCOME_ROLLS_UP_TO",
+      "target": "interest_income",
+      "properties": {
+        "definition": "放款業務的利收納入整體利收。",
+        "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。"
+      }
+    },
+    {
+      "source": "bank_insurance",
+      "type": "PB_INCOME_MEASURED_BY",
+      "target": "bank_fee_income",
+      "properties": {
+        "definition": "銀行保險業務的手續費及已納入的客戶貢獻度收入，納入銀行手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。不同保險收入來源是否重疊仍待確認。"
+      }
+    },
+    {
+      "source": "bank_bond_trust",
+      "type": "PB_INCOME_MEASURED_BY",
+      "target": "bank_fee_income",
+      "properties": {
+        "definition": "海外債券信託業務的分行手續費及已納入的交易利得，納入銀行手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。"
+      }
+    },
+    {
+      "source": "bank_bond_proprietary",
+      "type": "PB_INCOME_MEASURED_BY",
+      "target": "bank_fee_income",
+      "properties": {
+        "definition": "銀行自營海外債券業務歸入手續費類的相關收入，納入銀行手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。收入與資產側產品範圍對應仍待釐清。"
+      }
+    },
+    {
+      "source": "bank_fund",
+      "type": "PB_INCOME_MEASURED_BY",
+      "target": "bank_fee_income",
+      "properties": {
+        "definition": "銀行基金業務帶來的分行手續費收入，納入銀行手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。"
+      }
+    },
+    {
+      "source": "bank_etf",
+      "type": "PB_INCOME_MEASURED_BY",
+      "target": "bank_fee_income",
+      "properties": {
+        "definition": "銀行 ETF 業務帶來的分行手續費收入，納入銀行手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。"
+      }
+    },
+    {
+      "source": "bank_overseas_stock",
+      "type": "PB_INCOME_MEASURED_BY",
+      "target": "bank_fee_income",
+      "properties": {
+        "definition": "銀行海外股票業務帶來的分行手續費收入，納入銀行手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。"
+      }
+    },
+    {
+      "source": "bank_dci",
+      "type": "PB_INCOME_MEASURED_BY",
+      "target": "bank_fee_income",
+      "properties": {
+        "definition": "銀行雙元貨幣組合式商品業務的手續費及已納入的相關交易損益，納入銀行手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。此業務收入包含已納入的手續費及相關交易損益，不將其全部視為純手續費。"
+      }
+    },
+    {
+      "source": "bank_structured_domestic",
+      "type": "PB_INCOME_MEASURED_BY",
+      "target": "bank_fee_income",
+      "properties": {
+        "definition": "銀行境內結構型商品業務帶來的相關手續費收入，納入銀行手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。"
+      }
+    },
+    {
+      "source": "bank_structured_offshore",
+      "type": "PB_INCOME_MEASURED_BY",
+      "target": "bank_fee_income",
+      "properties": {
+        "definition": "銀行境外結構型商品業務帶來的分行手續費收入，納入銀行手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。"
+      }
+    },
+    {
+      "source": "bank_fx",
+      "type": "PB_INCOME_MEASURED_BY",
+      "target": "bank_fee_income",
+      "properties": {
+        "definition": "銀行外匯交易歸入手續費類的兌換損益及相關交易損益，納入銀行手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。此分類可能含交易損益，不將其全部視為純手續費。"
+      }
+    },
+    {
+      "source": "bank_lc",
+      "type": "PB_INCOME_MEASURED_BY",
+      "target": "bank_fee_income",
+      "properties": {
+        "definition": "銀行開狀業務帶來的相關手續費收入，納入銀行手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。"
+      }
+    },
+    {
+      "source": "bank_planned_trust",
+      "type": "PB_INCOME_MEASURED_BY",
+      "target": "bank_fee_income",
+      "properties": {
+        "definition": "規劃型信託服務的借券、管理及成立費收入，涵蓋已納入的員工持股信託，納入銀行手續費類收入。",
+        "businessConstraint": "規劃型信託與信託保管具有不同業務意義；現有彙整收入合併分類，不能直接各自查取後相加。"
+      }
+    },
+    {
+      "source": "bank_trust_custody",
+      "type": "PB_INCOME_MEASURED_BY",
+      "target": "bank_fee_income",
+      "properties": {
+        "definition": "信託保管服務帶來的保管費收入，納入銀行手續費類收入。",
+        "businessConstraint": "規劃型信託與信託保管具有不同業務意義；現有彙整收入合併分類，不能直接各自查取後相加。"
+      }
+    },
+    {
+      "source": "bank_gold",
+      "type": "PB_INCOME_MEASURED_BY",
+      "target": "bank_fee_income",
+      "properties": {
+        "definition": "銀行黃金交易歸入手續費類的相關交易損益，納入銀行手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。現有黃金業務收入採交易損益，不將其寫成純手續費。"
+      }
+    },
+    {
+      "source": "securities_bond",
+      "type": "PB_INCOME_MEASURED_BY",
+      "target": "securities_fee_income",
+      "properties": {
+        "definition": "證券複委託債券交易帶來的客戶手續費收入，納入證券手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。"
+      }
+    },
+    {
+      "source": "securities_structured",
+      "type": "PB_INCOME_MEASURED_BY",
+      "target": "securities_fee_income",
+      "properties": {
+        "definition": "證券複委託結構型商品交易帶來的客戶手續費收入，納入證券手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。"
+      }
+    },
+    {
+      "source": "securities_fund",
+      "type": "PB_INCOME_MEASURED_BY",
+      "target": "securities_fee_income",
+      "properties": {
+        "definition": "證券複委託基金交易帶來、已納入業務範圍的手續費收入，納入證券手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。"
+      }
+    },
+    {
+      "source": "securities_foreign_stock",
+      "type": "PB_INCOME_MEASURED_BY",
+      "target": "securities_fee_income",
+      "properties": {
+        "definition": "證券複委託外國股票交易扣除上手手續費後的淨手續費收入，納入證券手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。淨收入可能為負值，不將其改寫為非負收入。"
+      }
+    },
+    {
+      "source": "deposit",
+      "type": "PB_INCOME_MEASURED_BY",
+      "target": "deposit_interest_income",
+      "properties": {
+        "definition": "存款業務歸入利收的收入，按存款整體衡量，納入存款利收。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。存款整體利收尚未拆分至台幣、外幣與結構型存款，不重複分配到各子類。"
+      }
+    },
+    {
+      "source": "loan",
+      "type": "PB_INCOME_MEASURED_BY",
+      "target": "loan_interest_income",
+      "properties": {
+        "definition": "放款業務歸入利收的收入，按已納入的業務收益口徑衡量，納入放款利收。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。此為業務收益口徑，不直接等同客戶支付的全部利息。"
+      }
+    },
+    {
+      "source": "deposit_twd",
+      "type": "PB_SUBCATEGORY_OF",
+      "target": "deposit",
+      "properties": {
+        "definition": "台幣存款是存款的子分類。",
+        "businessConstraint": "分類關係不表示已有獨立收入拆分，也不表示可在父項總額之外再次加入。"
+      }
+    },
+    {
+      "source": "deposit_foreign",
+      "type": "PB_SUBCATEGORY_OF",
+      "target": "deposit",
+      "properties": {
+        "definition": "外幣存款是存款的子分類。",
+        "businessConstraint": "分類關係不表示已有獨立收入拆分，也不表示可在父項總額之外再次加入。"
+      }
+    },
+    {
+      "source": "deposit_structured",
+      "type": "PB_SUBCATEGORY_OF",
+      "target": "deposit",
+      "properties": {
+        "definition": "結構型存款是存款的子分類。",
+        "businessConstraint": "分類關係不表示已有獨立收入拆分，也不表示可在父項總額之外再次加入。"
+      }
+    },
+    {
+      "source": "deposit",
+      "type": "PB_AUM_MEASURED_BY",
+      "target": "aum_deposit",
+      "properties": {
+        "definition": "存款所對應的客戶資產，是存款 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "source": "bank_insurance",
+      "type": "PB_AUM_MEASURED_BY",
+      "target": "aum_insurance",
+      "properties": {
+        "definition": "銀行保險所對應的客戶資產，是保險 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。保險資產的衡量基礎依產品口徑，不將其直接解讀為可變現市值。"
+      }
+    },
+    {
+      "source": "bank_fund",
+      "type": "PB_AUM_MEASURED_BY",
+      "target": "aum_bank_investment",
+      "properties": {
+        "definition": "銀行基金所對應的客戶資產，是銀行投資 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "source": "bank_etf",
+      "type": "PB_AUM_MEASURED_BY",
+      "target": "aum_bank_investment",
+      "properties": {
+        "definition": "銀行ETF所對應的客戶資產，是銀行投資 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "source": "bank_overseas_stock",
+      "type": "PB_AUM_MEASURED_BY",
+      "target": "aum_bank_investment",
+      "properties": {
+        "definition": "銀行海外股票所對應的客戶資產，是銀行投資 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "source": "bank_bond_trust",
+      "type": "PB_AUM_MEASURED_BY",
+      "target": "aum_bank_investment",
+      "properties": {
+        "definition": "海外債券（信託）所對應的客戶資產，是銀行投資 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "source": "bank_bond_proprietary",
+      "type": "PB_AUM_MEASURED_BY",
+      "target": "aum_bank_investment",
+      "properties": {
+        "definition": "海外債券（自營）所對應的客戶資產，是銀行投資 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。資產側與收入側的產品範圍對應仍待釐清。"
+      }
+    },
+    {
+      "source": "bank_collective_account",
+      "type": "PB_AUM_MEASURED_BY",
+      "target": "aum_bank_investment",
+      "properties": {
+        "definition": "集合管理帳戶所對應的客戶資產，是銀行投資 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "source": "bank_structured_offshore",
+      "type": "PB_AUM_MEASURED_BY",
+      "target": "aum_bank_investment",
+      "properties": {
+        "definition": "銀行境外結構型商品所對應的客戶資產，是銀行投資 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "source": "bank_planned_trust",
+      "type": "PB_AUM_MEASURED_BY",
+      "target": "aum_bank_investment",
+      "properties": {
+        "definition": "規劃型信託所對應的客戶資產，是銀行投資 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "source": "bank_trust_custody",
+      "type": "PB_AUM_MEASURED_BY",
+      "target": "aum_bank_investment",
+      "properties": {
+        "definition": "信託保管所對應的客戶資產，是銀行投資 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "source": "securities_bond",
+      "type": "PB_AUM_MEASURED_BY",
+      "target": "aum_securities",
+      "properties": {
+        "definition": "證券複委託債券所對應的客戶資產，是證券 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "source": "securities_structured",
+      "type": "PB_AUM_MEASURED_BY",
+      "target": "aum_securities",
+      "properties": {
+        "definition": "證券複委託結構型商品所對應的客戶資產，是證券 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "source": "securities_fund",
+      "type": "PB_AUM_MEASURED_BY",
+      "target": "aum_securities",
+      "properties": {
+        "definition": "證券複委託基金所對應的客戶資產，是證券 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "source": "securities_foreign_stock",
+      "type": "PB_AUM_MEASURED_BY",
+      "target": "aum_securities",
+      "properties": {
+        "definition": "證券複委託外國股票所對應的客戶資產，是證券 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "source": "deposit_twd",
+      "type": "PB_AUM_MEASURED_BY",
+      "target": "aum_deposit",
+      "properties": {
+        "definition": "台幣存款所對應的客戶資產，是存款 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "source": "deposit_foreign",
+      "type": "PB_AUM_MEASURED_BY",
+      "target": "aum_deposit",
+      "properties": {
+        "definition": "外幣存款所對應的客戶資產，是存款 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "source": "deposit_structured",
+      "type": "PB_AUM_MEASURED_BY",
+      "target": "aum_deposit",
+      "properties": {
+        "definition": "結構型存款所對應的客戶資產，是存款 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "source": "securities_taiwan_stock",
+      "type": "PB_AUM_MEASURED_BY",
+      "target": "aum_securities",
+      "properties": {
+        "definition": "證券台股所對應的客戶資產，是證券 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。台股與設質資產可能重疊的範圍須另行確認。"
+      }
+    },
+    {
+      "source": "aum_total",
+      "type": "PB_HAS_MEASUREMENT_SUBJECT",
+      "target": "customer",
+      "properties": {
+        "definition": "總 AUM以客戶作為衡量對象，反映客戶持有的相關資產規模。",
+        "businessConstraint": "衡量對象不表示所有來源已具備一致的客戶身分對照。"
+      }
+    },
+    {
+      "source": "aum_deposit",
+      "type": "PB_HAS_MEASUREMENT_SUBJECT",
+      "target": "customer",
+      "properties": {
+        "definition": "存款 AUM以客戶作為衡量對象，反映客戶持有的相關資產規模。",
+        "businessConstraint": "衡量對象不表示所有來源已具備一致的客戶身分對照。"
+      }
+    },
+    {
+      "source": "aum_investment",
+      "type": "PB_HAS_MEASUREMENT_SUBJECT",
+      "target": "customer",
+      "properties": {
+        "definition": "投資 AUM以客戶作為衡量對象，反映客戶持有的相關資產規模。",
+        "businessConstraint": "衡量對象不表示所有來源已具備一致的客戶身分對照。"
+      }
+    },
+    {
+      "source": "aum_bank_investment",
+      "type": "PB_HAS_MEASUREMENT_SUBJECT",
+      "target": "customer",
+      "properties": {
+        "definition": "銀行投資 AUM以客戶作為衡量對象，反映客戶持有的相關資產規模。",
+        "businessConstraint": "衡量對象不表示所有來源已具備一致的客戶身分對照。"
+      }
+    },
+    {
+      "source": "aum_securities",
+      "type": "PB_HAS_MEASUREMENT_SUBJECT",
+      "target": "customer",
+      "properties": {
+        "definition": "證券 AUM以客戶作為衡量對象，反映客戶持有的相關資產規模。",
+        "businessConstraint": "衡量對象不表示所有來源已具備一致的客戶身分對照。"
+      }
+    },
+    {
+      "source": "aum_insurance",
+      "type": "PB_HAS_MEASUREMENT_SUBJECT",
+      "target": "customer",
+      "properties": {
+        "definition": "保險 AUM以客戶作為衡量對象，反映客戶持有的相關資產規模。",
+        "businessConstraint": "衡量對象不表示所有來源已具備一致的客戶身分對照。"
+      }
+    },
+    {
+      "source": "income_total",
+      "type": "PB_HAS_MEASUREMENT_SUBJECT",
+      "target": "customer",
+      "properties": {
+        "definition": "總收入以客戶作為衡量對象，反映客戶往來帶來的相關業務收入。",
+        "businessConstraint": "衡量對象不表示所有來源已具備一致的客戶身分對照。"
+      }
+    },
+    {
+      "source": "fee_income",
+      "type": "PB_HAS_MEASUREMENT_SUBJECT",
+      "target": "customer",
+      "properties": {
+        "definition": "手續費類收入以客戶作為衡量對象，反映客戶往來帶來的相關業務收入。",
+        "businessConstraint": "衡量對象不表示所有來源已具備一致的客戶身分對照。"
+      }
+    },
+    {
+      "source": "bank_fee_income",
+      "type": "PB_HAS_MEASUREMENT_SUBJECT",
+      "target": "customer",
+      "properties": {
+        "definition": "銀行手續費類收入以客戶作為衡量對象，反映客戶往來帶來的相關業務收入。",
+        "businessConstraint": "衡量對象不表示所有來源已具備一致的客戶身分對照。"
+      }
+    },
+    {
+      "source": "securities_fee_income",
+      "type": "PB_HAS_MEASUREMENT_SUBJECT",
+      "target": "customer",
+      "properties": {
+        "definition": "證券手續費類收入以客戶作為衡量對象，反映客戶往來帶來的相關業務收入。",
+        "businessConstraint": "衡量對象不表示所有來源已具備一致的客戶身分對照。"
+      }
+    },
+    {
+      "source": "interest_income",
+      "type": "PB_HAS_MEASUREMENT_SUBJECT",
+      "target": "customer",
+      "properties": {
+        "definition": "利收以客戶作為衡量對象，反映客戶往來帶來的相關業務收入。",
+        "businessConstraint": "衡量對象不表示所有來源已具備一致的客戶身分對照。"
+      }
+    },
+    {
+      "source": "deposit_interest_income",
+      "type": "PB_HAS_MEASUREMENT_SUBJECT",
+      "target": "customer",
+      "properties": {
+        "definition": "存款利收以客戶作為衡量對象，反映客戶往來帶來的相關業務收入。",
+        "businessConstraint": "衡量對象不表示所有來源已具備一致的客戶身分對照。"
+      }
+    },
+    {
+      "source": "loan_interest_income",
+      "type": "PB_HAS_MEASUREMENT_SUBJECT",
+      "target": "customer",
+      "properties": {
+        "definition": "放款利收以客戶作為衡量對象，反映客戶往來帶來的相關業務收入。",
+        "businessConstraint": "衡量對象不表示所有來源已具備一致的客戶身分對照。"
+      }
+    },
+    {
+      "source": "customer",
+      "type": "PB_ASSIGNED_TO",
+      "target": "advisor",
+      "properties": {
+        "definition": "客戶與提供服務聯繫或關係管理的 AO 具有對應關係。",
+        "businessConstraint": "對應可隨時間改變；不表示永久或唯一 AO，也不直接決定收入或資產的業績分攤。"
+      }
+    },
+    {
+      "source": "customer",
+      "type": "PB_SCOPED_TO",
+      "target": "private_banking",
+      "properties": {
+        "definition": "符合業務歸屬條件的客戶，納入私人銀行處的客戶服務範圍。",
+        "businessConstraint": "不表示所有來源客戶都屬於私銀。"
+      }
+    },
+    {
+      "source": "advisor",
+      "type": "PB_SCOPED_TO",
+      "target": "private_banking",
+      "properties": {
+        "definition": "符合業務範圍條件的 AO，納入私人銀行處的服務人員範圍。",
+        "businessConstraint": "此關係表示業務範圍，不直接證明正式任職歸屬或特定專業資格。"
+      }
+    }
+  ],
+  "modelVersion": "business_v2",
+  "importReady": true,
+  "mappingRoutes": [
+    {
+      "productCode": "bank_bond_proprietary",
+      "domain": "aum",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_bond_proprietary",
+      "domain": "income",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_bond_trust",
+      "domain": "aum",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_bond_trust",
+      "domain": "income",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_collective_account",
+      "domain": "aum",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_dci",
+      "domain": "income",
+      "sourceGraph": "mapping_draft_rules",
+      "productKey": "draft:pb:20261012:product:bank_dci",
+      "metricKey": "draft:pb:20261012:metric:bank_fee_income"
+    },
+    {
+      "productCode": "bank_etf",
+      "domain": "aum",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_etf",
+      "domain": "income",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_fund",
+      "domain": "aum",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_fund",
+      "domain": "income",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_fx",
+      "domain": "income",
+      "sourceGraph": "mapping_draft_rules",
+      "productKey": "draft:pb:20261012:product:bank_fx",
+      "metricKey": "draft:pb:20261012:metric:bank_fee_income"
+    },
+    {
+      "productCode": "bank_gold",
+      "domain": "income",
+      "sourceGraph": "mapping_draft_rules",
+      "productKey": "draft:pb:20261012:product:bank_gold",
+      "metricKey": "draft:pb:20261012:metric:bank_fee_income"
+    },
+    {
+      "productCode": "bank_insurance",
+      "domain": "aum",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_insurance",
+      "domain": "income",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_lc",
+      "domain": "income",
+      "sourceGraph": "mapping_draft_rules",
+      "productKey": "draft:pb:20261012:product:bank_lc",
+      "metricKey": "draft:pb:20261012:metric:bank_fee_income"
+    },
+    {
+      "productCode": "bank_overseas_stock",
+      "domain": "aum",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_overseas_stock",
+      "domain": "income",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_planned_trust",
+      "domain": "aum",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_planned_trust",
+      "domain": "income",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_structured_domestic",
+      "domain": "income",
+      "sourceGraph": "mapping_draft_rules",
+      "productKey": "draft:pb:20261012:product:bank_structured_domestic",
+      "metricKey": "draft:pb:20261012:metric:bank_fee_income"
+    },
+    {
+      "productCode": "bank_structured_offshore",
+      "domain": "aum",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_structured_offshore",
+      "domain": "income",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_trust_custody",
+      "domain": "aum",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "bank_trust_custody",
+      "domain": "income",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "deposit",
+      "domain": "aum",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "deposit",
+      "domain": "income",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "deposit_foreign",
+      "domain": "aum",
+      "sourceGraph": "mapping_draft_rules",
+      "productKey": "draft:pb:20261012:product:deposit_foreign",
+      "metricKey": "draft:pb:20261012:metric:aum_deposit_month_end"
+    },
+    {
+      "productCode": "deposit_structured",
+      "domain": "aum",
+      "sourceGraph": "mapping_draft_rules",
+      "productKey": "draft:pb:20261012:product:deposit_structured",
+      "metricKey": "draft:pb:20261012:metric:aum_deposit_month_end"
+    },
+    {
+      "productCode": "deposit_twd",
+      "domain": "aum",
+      "sourceGraph": "mapping_draft_rules",
+      "productKey": "draft:pb:20261012:product:deposit_twd",
+      "metricKey": "draft:pb:20261012:metric:aum_deposit_month_end"
+    },
+    {
+      "productCode": "loan",
+      "domain": "income",
+      "sourceGraph": "mapping_draft_rules",
+      "productKey": "draft:pb:20261012:product:loan",
+      "metricKey": "draft:pb:20261012:metric:loan_interest_income"
+    },
+    {
+      "productCode": "securities_bond",
+      "domain": "aum",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "securities_bond",
+      "domain": "income",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "securities_foreign_stock",
+      "domain": "aum",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "securities_foreign_stock",
+      "domain": "income",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "securities_fund",
+      "domain": "aum",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "securities_fund",
+      "domain": "income",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "securities_structured",
+      "domain": "aum",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "securities_structured",
+      "domain": "income",
+      "sourceGraph": "shared_product_sql"
+    },
+    {
+      "productCode": "securities_taiwan_stock",
+      "domain": "aum",
+      "sourceGraph": "mapping_draft_rules",
+      "productKey": "draft:pb:20261012:product:securities_taiwan_stock",
+      "metricKey": "draft:pb:20261012:metric:aum_securities_month_end"
+    }
+  ]
+}

@@ -1,0 +1,4952 @@
+{
+  "repositoryVersion": "0.1",
+  "domain": {
+    "id": "aum",
+    "name": "AUM",
+    "defaultDomain": true,
+    "description": "AUM ontology following the datavane/tis resource model."
+  },
+  "generatedAt": "2026-09-24T03:59:36.482171+00:00",
+  "generationPolicy": "metadata_and_staging_sql_ast_only",
+  "sources": [
+    {
+      "path": "AUM_metadata.xlsx",
+      "role": "Object Type and Property metadata"
+    },
+    {
+      "path": "aum_detail.sql",
+      "role": "Staging SQL AST and business-flow evidence"
+    },
+    {
+      "path": "aum_rollup.sql",
+      "role": "Staging SQL AST and business-flow evidence"
+    },
+    {
+      "url": "https://github.com/datavane/tis",
+      "role": "TIS ontology persistence and plugin model"
+    }
+  ],
+  "curationVersion": "0.1",
+  "terms": [
+    {
+      "id": "aum_005_007_008_009_tmp01___aum",
+      "domain": "aum",
+      "term": "AUM_005_007_008_009_TMP01.存款AUM",
+      "displayName": "AUM_005_007_008_009_TMP01.存款AUM",
+      "definition": "AST observed aggregate output AUM_005_007_008_009_TMP01.存款AUM; source properties: DSDEP.DEP_NT_ACCT_HS.BAL_AMT.",
+      "aliases": [
+        "存款AUM"
+      ],
+      "formula": "SUM(BAL_AMT)",
+      "formulas": [
+        "SUM(BAL_AMT)",
+        "SUM(DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\""
+      ],
+      "grain": [
+        "cust_id",
+        "LST_MTN_DT",
+        "TRIM(PRFT_CNTR_CD)",
+        "ACT_CD",
+        "CASE WHEN TRIM(ACT_CD) IN ('2311', '2321', '2322', '2331', '2332', '2333', '2335', '2336') THEN '台幣存款' WHEN TRIM(ACT_CD) IN ('2545') THEN '結構型存款' END"
+      ],
+      "dimensionCandidates": [
+        "CUST_ID",
+        "LST_MTN_DT",
+        "TYP",
+        "TYP_DTL",
+        "DETAIL",
+        "PRFT_CNTR_CD",
+        "ACT_CD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_005_007_008_009_TMP01.存款AUM",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSDEP.DEP_NT_ACCT_HS",
+            "column": "BAL_AMT",
+            "objectTypeId": "DSDEP_DEP_NT_ACCT_HS",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_01_aum_005_007_008_009_tmp01"
+        ],
+        "rules": [
+          "TYP := '存款'",
+          "TYP_DTL := '台幣'",
+          "DETAIL := CASE WHEN TRIM(ACT_CD) IN ('2311', '2321', '2322', '2331', '2332', '2333', '2335', '2336') THEN '台幣存款' WHEN TRIM(ACT_CD) IN ('2545') THEN '結構型存款' END",
+          "PRFT_CNTR_CD := TRIM(PRFT_CNTR_CD)",
+          "CASE WHEN TRIM(ACT_CD) IN ('2311', '2321', '2322', '2331', '2332', '2333', '2335', '2336') THEN '台幣存款' WHEN TRIM(ACT_CD) IN ('2545') THEN '結構型存款' END",
+          "TRIM(PRFT_CNTR_CD) IN ('2E3000', '2E3200', '2E3300', '2E3400') AND LST_MTN_DT >= '20231201'"
+        ],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_005_007_008_009_tmp02___aum",
+      "domain": "aum",
+      "term": "AUM_005_007_008_009_TMP02.存款AUM",
+      "displayName": "AUM_005_007_008_009_TMP02.存款AUM",
+      "definition": "AST observed aggregate output AUM_005_007_008_009_TMP02.存款AUM; source properties: DSDEP.DEP_FN_ACCT_HS.AVAIL_BAL.",
+      "aliases": [
+        "存款AUM"
+      ],
+      "formula": "SUM(AVAIL_BAL)",
+      "formulas": [
+        "SUM(AVAIL_BAL)",
+        "SUM(DEP_FN_ACCT_HS.AVAIL_BAL) AS \"存款AUM\""
+      ],
+      "grain": [
+        "cust_id",
+        "lst_MTN_DT",
+        "TRIM(PRFT_CNTR_CD)",
+        "ACC_CD",
+        "CASE WHEN TRIM(ACC_CD) IN ('2317', '2327') THEN '外幣存款' WHEN TRIM(ACC_CD) IN ('2545') THEN '結構型存款' END"
+      ],
+      "dimensionCandidates": [
+        "CUST_ID",
+        "LST_MTN_DT",
+        "TYP",
+        "TYP_DTL",
+        "DETAIL",
+        "PRFT_CNTR_CD",
+        "ACC_CD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_005_007_008_009_TMP02.存款AUM",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSDEP.DEP_FN_ACCT_HS",
+            "column": "AVAIL_BAL",
+            "objectTypeId": "DSDEP_DEP_FN_ACCT_HS",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_02_aum_005_007_008_009_tmp02"
+        ],
+        "rules": [
+          "TYP := '存款'",
+          "TYP_DTL := '台幣'",
+          "DETAIL := CASE WHEN TRIM(ACC_CD) IN ('2317', '2327') THEN '外幣存款' WHEN TRIM(ACC_CD) IN ('2545') THEN '結構型存款' END",
+          "PRFT_CNTR_CD := TRIM(PRFT_CNTR_CD)",
+          "CASE WHEN TRIM(ACC_CD) IN ('2317', '2327') THEN '外幣存款' WHEN TRIM(ACC_CD) IN ('2545') THEN '結構型存款' END",
+          "TRIM(PRFT_CNTR_CD) IN ('2E3000', '2E3200', '2E3300', '2E3400') AND LST_MTN_DT >= '20231201'"
+        ],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_005_007_008_009_tmp03___aum",
+      "domain": "aum",
+      "term": "AUM_005_007_008_009_TMP03.存款AUM",
+      "displayName": "AUM_005_007_008_009_TMP03.存款AUM",
+      "definition": "AST observed aggregate output AUM_005_007_008_009_TMP03.存款AUM; source properties: DSDEP.EMP_DEP_NT_ACCT_HS.BAL_AMT.",
+      "aliases": [
+        "存款AUM"
+      ],
+      "formula": "SUM(BAL_AMT)",
+      "formulas": [
+        "SUM(BAL_AMT)",
+        "SUM(EMP_DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\""
+      ],
+      "grain": [
+        "cust_Id",
+        "LST_MTN_DT",
+        "TRIM(PRFT_CNTR_CD)",
+        "ACT_CD"
+      ],
+      "dimensionCandidates": [
+        "CUST_ID",
+        "LST_MTN_DT",
+        "TYP",
+        "TYP_DTL",
+        "DETAIL",
+        "PRFT_CNTR_CD",
+        "ACT_CD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_005_007_008_009_TMP03.存款AUM",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSDEP.EMP_DEP_NT_ACCT_HS",
+            "column": "BAL_AMT",
+            "objectTypeId": "DSDEP_EMP_DEP_NT_ACCT_HS",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_03_aum_005_007_008_009_tmp03"
+        ],
+        "rules": [
+          "TYP := '存款'",
+          "TYP_DTL := '外幣'",
+          "DETAIL := CASE WHEN TRIM(ACT_CD) IN ('2311', '2321', '2322', '2331', '2332', '2333', '2335', '2336') THEN '台幣存款' WHEN TRIM(ACT_CD) IN ('2545') THEN '結構型存款' END",
+          "PRFT_CNTR_CD := TRIM(PRFT_CNTR_CD)",
+          "CASE WHEN TRIM(ACT_CD) IN ('2311', '2321', '2322', '2331', '2332', '2333', '2335', '2336') THEN '台幣存款' WHEN TRIM(ACT_CD) IN ('2545') THEN '結構型存款' END",
+          "TRIM(PRFT_CNTR_CD) IN ('2E3000', '2E3200', '2E3300', '2E3400') AND LST_MTN_DT >= '20231201'"
+        ],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_005_007_008_009_tmp04__amt",
+      "domain": "aum",
+      "term": "AUM_005_007_008_009_TMP04.AMT",
+      "displayName": "AUM_005_007_008_009_TMP04.AMT",
+      "definition": "AST observed aggregate output AUM_005_007_008_009_TMP04.AMT; source properties: DSDEP.DEP_NT_ACCT.BAL_AMT.",
+      "aliases": [
+        "AMT"
+      ],
+      "formula": "SUM(BAL_AMT)",
+      "formulas": [
+        "SUM(BAL_AMT)",
+        "SUM(DEP_NT_ACCT.BAL_AMT) AS AMT"
+      ],
+      "grain": [
+        "cust_id",
+        "DATA_DT",
+        "TRIM(PRFT_CNTR_CD)",
+        "ACT_CD",
+        "CASE WHEN TRIM(ACT_CD) IN ('2311', '2321', '2322', '2331', '2332', '2333', '2335', '2336') THEN '台幣存款' WHEN TRIM(ACT_CD) IN ('2545') THEN '結構型存款' END"
+      ],
+      "dimensionCandidates": [
+        "CUST_ID",
+        "DATA_DT",
+        "TYP",
+        "TYP_DTL",
+        "DETAIL",
+        "PRFT_CNTR_CD",
+        "ACT_CD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_005_007_008_009_TMP04.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSDEP.DEP_NT_ACCT",
+            "column": "BAL_AMT",
+            "objectTypeId": "DSDEP_DEP_NT_ACCT",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_04_aum_005_007_008_009_tmp04"
+        ],
+        "rules": [
+          "TYP := '存款'",
+          "TYP_DTL := '台幣'",
+          "DETAIL := CASE WHEN TRIM(ACT_CD) IN ('2311', '2321', '2322', '2331', '2332', '2333', '2335', '2336') THEN '台幣存款' WHEN TRIM(ACT_CD) IN ('2545') THEN '結構型存款' END",
+          "PRFT_CNTR_CD := TRIM(PRFT_CNTR_CD)",
+          "CASE WHEN TRIM(ACT_CD) IN ('2311', '2321', '2322', '2331', '2332', '2333', '2335', '2336') THEN '台幣存款' WHEN TRIM(ACT_CD) IN ('2545') THEN '結構型存款' END"
+        ],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_005_007_008_009_tmp05___aum",
+      "domain": "aum",
+      "term": "AUM_005_007_008_009_TMP05.存款AUM",
+      "displayName": "AUM_005_007_008_009_TMP05.存款AUM",
+      "definition": "AST observed aggregate output AUM_005_007_008_009_TMP05.存款AUM; source properties: DSDEP.DEP_FN_ACCT.AVAIL_BAL.",
+      "aliases": [
+        "存款AUM"
+      ],
+      "formula": "SUM(AVAIL_BAL)",
+      "formulas": [
+        "SUM(AVAIL_BAL)",
+        "SUM(DEP_FN_ACCT.AVAIL_BAL) AS \"存款AUM\""
+      ],
+      "grain": [
+        "cust_Id",
+        "LST_MTN_DT",
+        "TRIM(PRFT_CNTR_CD)",
+        "ACC_CD",
+        "CASE WHEN TRIM(ACC_CD) IN ('2317', '2327') THEN '外幣存款' WHEN TRIM(ACC_CD) IN ('2545') THEN '結構型存款' END"
+      ],
+      "dimensionCandidates": [
+        "CUST_ID",
+        "LST_MTN_DT",
+        "TYP",
+        "TYP_DTL",
+        "DETAIL",
+        "PRFT_CNTR_CD",
+        "ACC_CD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_005_007_008_009_TMP05.存款AUM",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSDEP.DEP_FN_ACCT",
+            "column": "AVAIL_BAL",
+            "objectTypeId": "DSDEP_DEP_FN_ACCT",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_05_aum_005_007_008_009_tmp05"
+        ],
+        "rules": [
+          "TYP := '存款'",
+          "TYP_DTL := '台幣'",
+          "DETAIL := CASE WHEN TRIM(ACC_CD) IN ('2317', '2327') THEN '外幣存款' WHEN TRIM(ACC_CD) IN ('2545') THEN '結構型存款' END",
+          "PRFT_CNTR_CD := TRIM(PRFT_CNTR_CD)",
+          "CASE WHEN TRIM(ACC_CD) IN ('2317', '2327') THEN '外幣存款' WHEN TRIM(ACC_CD) IN ('2545') THEN '結構型存款' END"
+        ],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_005_007_008_009_tmp06___aum",
+      "domain": "aum",
+      "term": "AUM_005_007_008_009_TMP06.存款AUM",
+      "displayName": "AUM_005_007_008_009_TMP06.存款AUM",
+      "definition": "AST observed aggregate output AUM_005_007_008_009_TMP06.存款AUM; source properties: DSDEP.DEP_NT_ACCT_HS.BAL_AMT.",
+      "aliases": [
+        "存款AUM"
+      ],
+      "formula": "SUM(BAL_AMT)",
+      "formulas": [
+        "SUM(BAL_AMT)",
+        "SUM(DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\""
+      ],
+      "grain": [
+        "cust_id",
+        "LST_MTN_DT",
+        "TRIM(PRFT_CNTR_CD)",
+        "ACT_CD",
+        "CASE WHEN TRIM(ACT_CD) IN ('2311', '2321', '2322', '2331', '2332', '2333', '2335', '2336') THEN '台幣存款' WHEN TRIM(ACT_CD) IN ('2545') THEN '結構型存款' END"
+      ],
+      "dimensionCandidates": [
+        "CUST_ID",
+        "LST_MTN_DT",
+        "TYP",
+        "TYP_DTL",
+        "DETAIL",
+        "PRFT_CNTR_CD",
+        "ACT_CD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_005_007_008_009_TMP06.存款AUM",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSDEP.DEP_NT_ACCT_HS",
+            "column": "BAL_AMT",
+            "objectTypeId": "DSDEP_DEP_NT_ACCT_HS",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_06_aum_005_007_008_009_tmp06"
+        ],
+        "rules": [
+          "TYP := '存款'",
+          "TYP_DTL := '台幣'",
+          "DETAIL := CASE WHEN TRIM(ACT_CD) IN ('2311', '2321', '2322', '2331', '2332', '2333', '2335', '2336') THEN '台幣存款' WHEN TRIM(ACT_CD) IN ('2545') THEN '結構型存款' END",
+          "PRFT_CNTR_CD := TRIM(PRFT_CNTR_CD)",
+          "CASE WHEN TRIM(ACT_CD) IN ('2311', '2321', '2322', '2331', '2332', '2333', '2335', '2336') THEN '台幣存款' WHEN TRIM(ACT_CD) IN ('2545') THEN '結構型存款' END",
+          "YYYYMM >= '202506'"
+        ],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_005_007_008_009_tmp07___aum",
+      "domain": "aum",
+      "term": "AUM_005_007_008_009_TMP07.存款AUM",
+      "displayName": "AUM_005_007_008_009_TMP07.存款AUM",
+      "definition": "AST observed aggregate output AUM_005_007_008_009_TMP07.存款AUM; source properties: DSDEP.DEP_FN_ACCT_HS.AVAIL_BAL.",
+      "aliases": [
+        "存款AUM"
+      ],
+      "formula": "SUM(AVAIL_BAL)",
+      "formulas": [
+        "SUM(AVAIL_BAL)",
+        "SUM(DEP_FN_ACCT_HS.AVAIL_BAL) AS \"存款AUM\""
+      ],
+      "grain": [
+        "cust_id",
+        "lst_MTN_DT",
+        "TRIM(PRFT_CNTR_CD)",
+        "ACC_CD",
+        "CASE WHEN TRIM(ACC_CD) IN ('2317', '2327') THEN '外幣存款' WHEN TRIM(ACC_CD) IN ('2545') THEN '結構型存款' END"
+      ],
+      "dimensionCandidates": [
+        "CUST_ID",
+        "LST_MTN_DT",
+        "TYP",
+        "TYP_DTL",
+        "DETAIL",
+        "PRFT_CNTR_CD",
+        "ACC_CD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_005_007_008_009_TMP07.存款AUM",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSDEP.DEP_FN_ACCT_HS",
+            "column": "AVAIL_BAL",
+            "objectTypeId": "DSDEP_DEP_FN_ACCT_HS",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_07_aum_005_007_008_009_tmp07"
+        ],
+        "rules": [
+          "TYP := '存款'",
+          "TYP_DTL := '台幣'",
+          "DETAIL := CASE WHEN TRIM(ACC_CD) IN ('2317', '2327') THEN '外幣存款' WHEN TRIM(ACC_CD) IN ('2545') THEN '結構型存款' END",
+          "PRFT_CNTR_CD := TRIM(PRFT_CNTR_CD)",
+          "CASE WHEN TRIM(ACC_CD) IN ('2317', '2327') THEN '外幣存款' WHEN TRIM(ACC_CD) IN ('2545') THEN '結構型存款' END",
+          "YYYYMM >= '202506'"
+        ],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_005_007_008_009_tmp08___aum",
+      "domain": "aum",
+      "term": "AUM_005_007_008_009_TMP08.存款AUM",
+      "displayName": "AUM_005_007_008_009_TMP08.存款AUM",
+      "definition": "AST observed aggregate output AUM_005_007_008_009_TMP08.存款AUM; source properties: DSDEP.EMP_DEP_NT_ACCT_HS.BAL_AMT.",
+      "aliases": [
+        "存款AUM"
+      ],
+      "formula": "SUM(BAL_AMT)",
+      "formulas": [
+        "SUM(BAL_AMT)",
+        "SUM(EMP_DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\""
+      ],
+      "grain": [
+        "cust_Id",
+        "LST_MTN_DT",
+        "TRIM(PRFT_CNTR_CD)",
+        "ACT_CD"
+      ],
+      "dimensionCandidates": [
+        "CUST_ID",
+        "LST_MTN_DT",
+        "TYP",
+        "TYP_DTL",
+        "DETAIL",
+        "PRFT_CNTR_CD",
+        "ACT_CD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_005_007_008_009_TMP08.存款AUM",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSDEP.EMP_DEP_NT_ACCT_HS",
+            "column": "BAL_AMT",
+            "objectTypeId": "DSDEP_EMP_DEP_NT_ACCT_HS",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_08_aum_005_007_008_009_tmp08"
+        ],
+        "rules": [
+          "TYP := '存款'",
+          "TYP_DTL := '外幣'",
+          "DETAIL := CASE WHEN TRIM(ACT_CD) IN ('2311', '2321', '2322', '2331', '2332', '2333', '2335', '2336') THEN '台幣存款' WHEN TRIM(ACT_CD) IN ('2545') THEN '結構型存款' END",
+          "PRFT_CNTR_CD := TRIM(PRFT_CNTR_CD)",
+          "CASE WHEN TRIM(ACT_CD) IN ('2311', '2321', '2322', '2331', '2332', '2333', '2335', '2336') THEN '台幣存款' WHEN TRIM(ACT_CD) IN ('2545') THEN '結構型存款' END",
+          "YYYYMM >= '202506'"
+        ],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_005_007_008_009___aum",
+      "domain": "aum",
+      "term": "AUM_005_007_008_009.存款AUM",
+      "displayName": "AUM_005_007_008_009.存款AUM",
+      "definition": "AST observed aggregate output AUM_005_007_008_009.存款AUM; source properties: DSDEP.DEP_NT_ACCT_HS.BAL_AMT, DSDEP.DEP_FN_ACCT_HS.AVAIL_BAL, DSDEP.EMP_DEP_NT_ACCT_HS.BAL_AMT, DSDEP.DEP_NT_ACCT.BAL_AMT, DSDEP.DEP_FN_ACCT.AVAIL_BAL.",
+      "aliases": [
+        "存款AUM"
+      ],
+      "formula": "存款AUM",
+      "formulas": [
+        "SUM(BAL_AMT)",
+        "SUM(AVAIL_BAL)",
+        "SUM(DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\"",
+        "SUM(DEP_FN_ACCT_HS.AVAIL_BAL) AS \"存款AUM\"",
+        "SUM(EMP_DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\"",
+        "SUM(DEP_NT_ACCT.BAL_AMT) AS AMT",
+        "SUM(DEP_FN_ACCT.AVAIL_BAL) AS \"存款AUM\""
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "*",
+        "TYP_SUB_DTL"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_005_007_008_009.存款AUM",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSDEP.DEP_NT_ACCT_HS",
+            "column": "BAL_AMT",
+            "objectTypeId": "DSDEP_DEP_NT_ACCT_HS",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          },
+          {
+            "physicalTable": "DSDEP.DEP_FN_ACCT_HS",
+            "column": "AVAIL_BAL",
+            "objectTypeId": "DSDEP_DEP_FN_ACCT_HS",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          },
+          {
+            "physicalTable": "DSDEP.EMP_DEP_NT_ACCT_HS",
+            "column": "BAL_AMT",
+            "objectTypeId": "DSDEP_EMP_DEP_NT_ACCT_HS",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          },
+          {
+            "physicalTable": "DSDEP.DEP_NT_ACCT",
+            "column": "BAL_AMT",
+            "objectTypeId": "DSDEP_DEP_NT_ACCT",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          },
+          {
+            "physicalTable": "DSDEP.DEP_FN_ACCT",
+            "column": "AVAIL_BAL",
+            "objectTypeId": "DSDEP_DEP_FN_ACCT",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_01_aum_005_007_008_009_tmp01",
+          "sql_02_aum_005_007_008_009_tmp02",
+          "sql_03_aum_005_007_008_009_tmp03",
+          "sql_04_aum_005_007_008_009_tmp04",
+          "sql_05_aum_005_007_008_009_tmp05",
+          "sql_06_aum_005_007_008_009_tmp06",
+          "sql_07_aum_005_007_008_009_tmp07",
+          "sql_08_aum_005_007_008_009_tmp08",
+          "sql_09_aum_005_007_008_009"
+        ],
+        "rules": [
+          "* := a.*",
+          "TYP_SUB_DTL := CASE WHEN detail IN ('台幣存款', '外幣存款') THEN '台外幣存款' ELSE detail END",
+          "CASE WHEN detail IN ('台幣存款', '外幣存款') THEN '台外幣存款' ELSE detail END",
+          "CASE WHEN TRIM(ACT_CD) IN ('2311', '2321', '2322', '2331', '2332', '2333', '2335', '2336') THEN '台幣存款' WHEN TRIM(ACT_CD) IN ('2545') THEN '結構型存款' END",
+          "TRIM(PRFT_CNTR_CD) IN ('2E3000', '2E3200', '2E3300', '2E3400') AND LST_MTN_DT >= '20231201'",
+          "CASE WHEN TRIM(ACC_CD) IN ('2317', '2327') THEN '外幣存款' WHEN TRIM(ACC_CD) IN ('2545') THEN '結構型存款' END",
+          "YYYYMM >= '202506'"
+        ],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_012_tmp01__amt",
+      "domain": "aum",
+      "term": "AUM_012_TMP01.AMT",
+      "displayName": "AUM_012_TMP01.AMT / 保險AUM",
+      "definition": "AST observed aggregate output AUM_012_TMP01.AMT; source properties: DSKPI_AFAUM_AFCUST_MON_ASSET_RE.AMT_INVEST.",
+      "aliases": [
+        "AMT",
+        "保險AUM"
+      ],
+      "formula": "SUM(AMT_INVEST)",
+      "formulas": [
+        "SUM(AMT_INVEST)",
+        "SUM(AFAUM_AFCUST_MON_ASSET_REPORT.AMT_INVEST) AS AMT"
+      ],
+      "grain": [
+        "orgcust_key",
+        "date_key"
+      ],
+      "dimensionCandidates": [
+        "CUST_ID",
+        "YYYYMMDD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_012_TMP01.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT",
+            "column": "AMT_INVEST",
+            "objectTypeId": "DSKPI_AFAUM_AFCUST_MON_ASSET_RE",
+            "propertyRef": "DSKPI_AFAUM_AFCUST_MON_ASSET_RE.AMT_INVEST",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_10_aum_012_tmp01"
+        ],
+        "rules": [],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_012_tmp02__amt",
+      "domain": "aum",
+      "term": "AUM_012_TMP02.AMT",
+      "displayName": "AUM_012_TMP02.AMT / 保險AUM",
+      "definition": "AST observed aggregate output AUM_012_TMP02.AMT; source properties: DSKPI_AFAUM_AFCUST_MON_ASSET_RE.AMT_INVEST.",
+      "aliases": [
+        "AMT",
+        "保險AUM"
+      ],
+      "formula": "SUM(AMT_INVEST)",
+      "formulas": [
+        "SUM(AMT_INVEST)",
+        "TO_CHAR(SYSDATE - 1, 'yyyymmdd')",
+        "MAX(date_key)",
+        "SUM(AFAUM_AFCUST_MON_ASSET_REPORT.AMT_INVEST) AS AMT"
+      ],
+      "grain": [
+        "orgcust_key",
+        "TO_CHAR(SYSDATE, 'yyyymmdd')"
+      ],
+      "dimensionCandidates": [
+        "CUST_ID",
+        "YYYYMMDD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_012_TMP02.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT",
+            "column": "AMT_INVEST",
+            "objectTypeId": "DSKPI_AFAUM_AFCUST_MON_ASSET_RE",
+            "propertyRef": "DSKPI_AFAUM_AFCUST_MON_ASSET_RE.AMT_INVEST",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_11_aum_012_tmp02"
+        ],
+        "rules": [
+          "YYYYMMDD := TO_CHAR(SYSDATE - 1, 'yyyymmdd')",
+          "date_key = (SELECT MAX(date_key) AS date_key FROM DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT)"
+        ],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_012__amt",
+      "domain": "aum",
+      "term": "AUM_012.AMT",
+      "displayName": "AUM_012.AMT / 保險AUM",
+      "definition": "AST observed aggregate output AUM_012.AMT; source properties: DSKPI_AFAUM_AFCUST_MON_ASSET_RE.AMT_INVEST.",
+      "aliases": [
+        "AMT",
+        "保險AUM"
+      ],
+      "formula": "AMT",
+      "formulas": [
+        "SUM(AMT_INVEST)",
+        "TO_CHAR(SYSDATE - 1, 'yyyymmdd')",
+        "MAX(date_key)",
+        "SUM(AFAUM_AFCUST_MON_ASSET_REPORT.AMT_INVEST) AS AMT"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "*"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_012.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT",
+            "column": "AMT_INVEST",
+            "objectTypeId": "DSKPI_AFAUM_AFCUST_MON_ASSET_RE",
+            "propertyRef": "DSKPI_AFAUM_AFCUST_MON_ASSET_RE.AMT_INVEST",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_10_aum_012_tmp01",
+          "sql_11_aum_012_tmp02",
+          "sql_12_aum_012"
+        ],
+        "rules": [
+          "* := *",
+          "date_key = (SELECT MAX(date_key) AS date_key FROM DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT)"
+        ],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_013_015_015_016_017_018__currenttwdvalue",
+      "domain": "aum",
+      "term": "AUM_013_015_015_016_017_018.CURRENTTWDVALUE",
+      "displayName": "AUM_013_015_015_016_017_018.CURRENTTWDVALUE / 台幣餘額",
+      "definition": "AST observed aggregate output AUM_013_015_015_016_017_018.CURRENTTWDVALUE; source properties: DSFND_PB_FUND_MONTH.CURRENTTWDVALUE.",
+      "aliases": [
+        "CURRENTTWDVALUE",
+        "台幣餘額"
+      ],
+      "formula": "SUM(CurrentTWDValue)",
+      "formulas": [
+        "SUM(CurrentTWDValue)",
+        "CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END",
+        "SUM(PB_FUND_MONTH.CURRENTTWDVALUE) AS CURRENTTWDVALUE"
+      ],
+      "grain": [
+        "idno",
+        "TO_CHAR(exedate, 'yyyymmdd')",
+        "PCCCODE",
+        "idno",
+        "CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END"
+      ],
+      "dimensionCandidates": [
+        "CUST_ID",
+        "YYYYMMDD",
+        "PCCCODE",
+        "IDNO",
+        "TRUSTPRD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_013_015_015_016_017_018.CURRENTTWDVALUE",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSFND.PB_FUND_MONTH",
+            "column": "CURRENTTWDVALUE",
+            "objectTypeId": "DSFND_PB_FUND_MONTH",
+            "propertyRef": "DSFND_PB_FUND_MONTH.CURRENTTWDVALUE",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_13_aum_013_015_015_016_017_018"
+        ],
+        "rules": [
+          "YYYYMMDD := TO_CHAR(exedate, 'yyyymmdd')",
+          "TRUSTPRD := CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END",
+          "CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END"
+        ],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_019_tmp_01__amt",
+      "domain": "aum",
+      "term": "AUM_019_TMP_01.AMT",
+      "displayName": "AUM_019_TMP_01.AMT",
+      "definition": "AST observed aggregate output AUM_019_TMP_01.AMT; source properties: DSWTR_BOND_POS_DAY.STO_AMT, DSWTR_BOND_POS_DAY.EXC_RATE, DSWTR_BOND_POS_DAY.MKT_PRI.",
+      "aliases": [
+        "AMT",
+        "面額",
+        "參考匯率",
+        "參考賣出價格"
+      ],
+      "formula": "SUM(STO_AMT * MKT_PRI / 100 * EXC_RATE)",
+      "formulas": [
+        "SUM(STO_AMT * MKT_PRI / 100 * EXC_RATE)",
+        "SUM(BOND_POS_DAY.STO_AMT * BOND_POS_DAY.MKT_PRI / 100 * BOND_POS_DAY.EXC_RATE) AS AMT"
+      ],
+      "grain": [
+        "CIF_ID",
+        "Data_dt"
+      ],
+      "dimensionCandidates": [
+        "CUST_ID",
+        "YYYYMMDD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_019_TMP_01.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSWTR.BOND_POS_DAY",
+            "column": "STO_AMT",
+            "objectTypeId": "DSWTR_BOND_POS_DAY",
+            "propertyRef": "DSWTR_BOND_POS_DAY.STO_AMT",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSWTR.BOND_POS_DAY",
+            "column": "EXC_RATE",
+            "objectTypeId": "DSWTR_BOND_POS_DAY",
+            "propertyRef": "DSWTR_BOND_POS_DAY.EXC_RATE",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSWTR.BOND_POS_DAY",
+            "column": "MKT_PRI",
+            "objectTypeId": "DSWTR_BOND_POS_DAY",
+            "propertyRef": "DSWTR_BOND_POS_DAY.MKT_PRI",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_14_aum_019_tmp_01"
+        ],
+        "rules": [
+          "pcc_code LIKE '2E%'"
+        ],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_019__amt",
+      "domain": "aum",
+      "term": "AUM_019.AMT",
+      "displayName": "AUM_019.AMT",
+      "definition": "AST observed aggregate output AUM_019.AMT; source properties: DSWTR_BOND_POS_DAY.STO_AMT, DSWTR_BOND_POS_DAY.EXC_RATE, DSWTR_BOND_POS_DAY.MKT_PRI.",
+      "aliases": [
+        "AMT",
+        "面額",
+        "參考匯率",
+        "參考賣出價格"
+      ],
+      "formula": "AMT",
+      "formulas": [
+        "SUM(STO_AMT * MKT_PRI / 100 * EXC_RATE)",
+        "MAX(yyyymmdd)",
+        "SUM(BOND_POS_DAY.STO_AMT * BOND_POS_DAY.MKT_PRI / 100 * BOND_POS_DAY.EXC_RATE) AS AMT"
+      ],
+      "grain": [
+        "SUBSTR(yyyymmdd, 1, 6)"
+      ],
+      "dimensionCandidates": [
+        "*"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_019.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSWTR.BOND_POS_DAY",
+            "column": "STO_AMT",
+            "objectTypeId": "DSWTR_BOND_POS_DAY",
+            "propertyRef": "DSWTR_BOND_POS_DAY.STO_AMT",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSWTR.BOND_POS_DAY",
+            "column": "EXC_RATE",
+            "objectTypeId": "DSWTR_BOND_POS_DAY",
+            "propertyRef": "DSWTR_BOND_POS_DAY.EXC_RATE",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSWTR.BOND_POS_DAY",
+            "column": "MKT_PRI",
+            "objectTypeId": "DSWTR_BOND_POS_DAY",
+            "propertyRef": "DSWTR_BOND_POS_DAY.MKT_PRI",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_14_aum_019_tmp_01",
+          "sql_15_aum_019"
+        ],
+        "rules": [
+          "* := a.*",
+          "pcc_code LIKE '2E%'",
+          "a.yyyymmdd = b.yyyymmdd"
+        ],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_020_tmp01__amt",
+      "domain": "aum",
+      "term": "AUM_020_TMP01.AMT",
+      "displayName": "AUM_020_TMP01.AMT / AUM(投資現值)",
+      "definition": "AST observed aggregate output AUM_020_TMP01.AMT; source properties: DSEBS_EBTS_ACT_CNTAUMBAL_PB.PRESENTAMT.",
+      "aliases": [
+        "AMT",
+        "AUM(投資現值)"
+      ],
+      "formula": "SUM(PresentAmt)",
+      "formulas": [
+        "SUM(PresentAmt)",
+        "SUM(EBTS_ACT_CNTAUMBAL_PB.PRESENTAMT) AS AMT"
+      ],
+      "grain": [
+        "TO_CHAR(baldate, 'yyyymmdd')",
+        "idno"
+      ],
+      "dimensionCandidates": [
+        "YYYYMMDD",
+        "CUST_ID"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_020_TMP01.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSEBS.EBTS_ACT_CNTAUMBAL_PB",
+            "column": "PRESENTAMT",
+            "objectTypeId": "DSEBS_EBTS_ACT_CNTAUMBAL_PB",
+            "propertyRef": "DSEBS_EBTS_ACT_CNTAUMBAL_PB.PRESENTAMT",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_16_aum_020_tmp01"
+        ],
+        "rules": [
+          "YYYYMMDD := TO_CHAR(baldate, 'yyyymmdd')"
+        ],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_020__amt",
+      "domain": "aum",
+      "term": "AUM_020.AMT",
+      "displayName": "AUM_020.AMT / AUM(投資現值)",
+      "definition": "AST observed aggregate output AUM_020.AMT; source properties: DSEBS_EBTS_ACT_CNTAUMBAL_PB.PRESENTAMT.",
+      "aliases": [
+        "AMT",
+        "AUM(投資現值)"
+      ],
+      "formula": "a.AMT",
+      "formulas": [
+        "SUM(PresentAmt)",
+        "MAX(yyyymmdd)",
+        "SUM(EBTS_ACT_CNTAUMBAL_PB.PRESENTAMT) AS AMT"
+      ],
+      "grain": [
+        "SUBSTR(yyyymmdd, 1, 6)"
+      ],
+      "dimensionCandidates": [
+        "YYYYMMDD",
+        "CUST_ID"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_020.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSEBS.EBTS_ACT_CNTAUMBAL_PB",
+            "column": "PRESENTAMT",
+            "objectTypeId": "DSEBS_EBTS_ACT_CNTAUMBAL_PB",
+            "propertyRef": "DSEBS_EBTS_ACT_CNTAUMBAL_PB.PRESENTAMT",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_16_aum_020_tmp01",
+          "sql_17_aum_020"
+        ],
+        "rules": [
+          "YYYYMMDD := a.yyyymmdd",
+          "CUST_ID := a.cust_id",
+          "a.yyyymmdd = b.yyyymmdd"
+        ],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_021_tmp01__amt",
+      "domain": "aum",
+      "term": "AUM_021_TMP01.AMT",
+      "displayName": "AUM_021_TMP01.AMT / AUM市值",
+      "definition": "AST observed aggregate output AUM_021_TMP01.AMT; source properties: DSTAM_TRUCONTRACT_PB.MARKETVALUETWD.",
+      "aliases": [
+        "AMT",
+        "AUM市值"
+      ],
+      "formula": "SUM(MarketValueTWD)",
+      "formulas": [
+        "SUM(MarketValueTWD)",
+        "SUM(TRUCONTRACT_PB.MARKETVALUETWD) AS AMT"
+      ],
+      "grain": [
+        "SUBSTR(postdate, 1, 8)",
+        "id"
+      ],
+      "dimensionCandidates": [
+        "YYYYMMDD",
+        "CUST_ID"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_021_TMP01.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSTAM.TRUCONTRACT_PB",
+            "column": "MARKETVALUETWD",
+            "objectTypeId": "DSTAM_TRUCONTRACT_PB",
+            "propertyRef": "DSTAM_TRUCONTRACT_PB.MARKETVALUETWD",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_18_aum_021_tmp01"
+        ],
+        "rules": [
+          "YYYYMMDD := SUBSTR(postdate, 1, 8)"
+        ],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_021__amt",
+      "domain": "aum",
+      "term": "AUM_021.AMT",
+      "displayName": "AUM_021.AMT / AUM市值",
+      "definition": "AST observed aggregate output AUM_021.AMT; source properties: DSTAM_TRUCONTRACT_PB.MARKETVALUETWD.",
+      "aliases": [
+        "AMT",
+        "AUM市值"
+      ],
+      "formula": "a.AMT",
+      "formulas": [
+        "SUM(MarketValueTWD)",
+        "MAX(yyyymmdd)",
+        "SUM(TRUCONTRACT_PB.MARKETVALUETWD) AS AMT"
+      ],
+      "grain": [
+        "SUBSTR(yyyymmdd, 1, 6)"
+      ],
+      "dimensionCandidates": [
+        "YYYYMMDD",
+        "CUST_ID"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_021.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSTAM.TRUCONTRACT_PB",
+            "column": "MARKETVALUETWD",
+            "objectTypeId": "DSTAM_TRUCONTRACT_PB",
+            "propertyRef": "DSTAM_TRUCONTRACT_PB.MARKETVALUETWD",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_18_aum_021_tmp01",
+          "sql_19_aum_021"
+        ],
+        "rules": [
+          "YYYYMMDD := a.yyyymmdd",
+          "CUST_ID := a.cust_id",
+          "a.yyyymmdd = b.yyyymmdd"
+        ],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_022_tmp01__amt",
+      "domain": "aum",
+      "term": "AUM_022_TMP01.AMT",
+      "displayName": "AUM_022_TMP01.AMT / AUM現值合計",
+      "definition": "AST observed aggregate output AUM_022_TMP01.AMT; source properties: DSPMS_PB_PMS_AUM.AUM.",
+      "aliases": [
+        "AMT",
+        "AUM現值合計"
+      ],
+      "formula": "SUM(AUM)",
+      "formulas": [
+        "SUM(AUM)",
+        "SUM(PB_PMS_AUM.AUM) AS AMT"
+      ],
+      "grain": [
+        "cust_id",
+        "\"DATE\""
+      ],
+      "dimensionCandidates": [
+        "CUST_ID",
+        "YYYYMMDD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_022_TMP01.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSPMS.PB_PMS_AUM",
+            "column": "AUM",
+            "objectTypeId": "DSPMS_PB_PMS_AUM",
+            "propertyRef": "DSPMS_PB_PMS_AUM.AUM",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_20_aum_022_tmp01"
+        ],
+        "rules": [
+          "YYYYMMDD := \"DATE\""
+        ],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_022__amt",
+      "domain": "aum",
+      "term": "AUM_022.AMT",
+      "displayName": "AUM_022.AMT / AUM現值合計",
+      "definition": "AST observed aggregate output AUM_022.AMT; source properties: DSPMS_PB_PMS_AUM.AUM.",
+      "aliases": [
+        "AMT",
+        "AUM現值合計"
+      ],
+      "formula": "a.AMT",
+      "formulas": [
+        "SUM(AUM)",
+        "MAX(yyyymmdd)",
+        "SUM(PB_PMS_AUM.AUM) AS AMT"
+      ],
+      "grain": [
+        "SUBSTR(yyyymmdd, 1, 6)"
+      ],
+      "dimensionCandidates": [
+        "YYYYMMDD",
+        "CUST_ID"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_022.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSPMS.PB_PMS_AUM",
+            "column": "AUM",
+            "objectTypeId": "DSPMS_PB_PMS_AUM",
+            "propertyRef": "DSPMS_PB_PMS_AUM.AUM",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_20_aum_022_tmp01",
+          "sql_21_aum_022"
+        ],
+        "rules": [
+          "YYYYMMDD := a.yyyymmdd",
+          "CUST_ID := a.cust_id",
+          "a.yyyymmdd = b.yyyymmdd"
+        ],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_023_024_tmp0__amt",
+      "domain": "aum",
+      "term": "AUM_023_024_TMP0.AMT",
+      "displayName": "AUM_023_024_TMP0.AMT",
+      "definition": "AST observed aggregate output AUM_023_024_TMP0.AMT; source properties: unresolved.",
+      "aliases": [
+        "AMT"
+      ],
+      "formula": "SUM(NETQTY / 100 * CPRICE * exch_rt)",
+      "formulas": [
+        "SUM(NETQTY / 100 * CPRICE * exch_rt)",
+        "CASE WHEN bond LIKE 'TSSN%' THEN '複委託結構型商品' ELSE '複委託債券' END",
+        "MAX(prcs_dt)",
+        "SUM(NETQTY / 100 * CPRICE * EXCH_RT) AS AMT"
+      ],
+      "grain": [
+        "idno",
+        "prcs_dt",
+        "nm",
+        "SUBSTR(prcs_dt, 1, 6)"
+      ],
+      "dimensionCandidates": [
+        "CUST_ID",
+        "YYYYMMDD",
+        "NM"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_023_024_TMP0.AMT",
+        "sourceProperties": [],
+        "sqlEvidenceIds": [
+          "sql_22_aum_023_024_tmp0"
+        ],
+        "rules": [
+          "CASE WHEN bond LIKE 'TSSN%' THEN '複委託結構型商品' ELSE '複委託債券' END",
+          "a.currency = b.curr_cd AND a.yyyymm = SUBSTR(b.prcs_dt, 1, 6)",
+          "a.prcs_dt = b.prcs_dt"
+        ],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_023_024_tmp1__amt",
+      "domain": "aum",
+      "term": "AUM_023_024_TMP1.AMT",
+      "displayName": "AUM_023_024_TMP1.AMT",
+      "definition": "AST observed aggregate output AUM_023_024_TMP1.AMT; source properties: DSPBM.PB_BONDPOS_SEC.*, DSDEP.FN_EXCH_RT.*.",
+      "aliases": [
+        "AMT"
+      ],
+      "formula": "SUM(NETQTY / 100 * CPRICE * exch_rt)",
+      "formulas": [
+        "SUM(NETQTY / 100 * CPRICE * exch_rt)",
+        "CASE WHEN bond LIKE 'TSSN%' THEN '複委託結構型商品' ELSE '複委託債券' END",
+        "SUM(A.NETQTY / 100 * A.CPRICE * A.EXCH_RT) AS AMT"
+      ],
+      "grain": [
+        "idno",
+        "clrdate",
+        "nm"
+      ],
+      "dimensionCandidates": [
+        "CUST_ID",
+        "YYYYMMDD",
+        "NM"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_023_024_TMP1.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSPBM.PB_BONDPOS_SEC",
+            "column": "*",
+            "objectTypeId": "DSPBM_PB_BONDPOS_SEC",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          },
+          {
+            "physicalTable": "DSDEP.FN_EXCH_RT",
+            "column": "*",
+            "objectTypeId": null,
+            "propertyRef": null,
+            "mappingStatus": "unmapped"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_23_aum_023_024_tmp1"
+        ],
+        "rules": [
+          "CASE WHEN bond LIKE 'TSSN%' THEN '複委託結構型商品' ELSE '複委託債券' END",
+          "a.clrdate = b.prcs_dt AND a.currency = b.curr_cd"
+        ],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_023_024__amt",
+      "domain": "aum",
+      "term": "AUM_023_024.AMT",
+      "displayName": "AUM_023_024.AMT",
+      "definition": "AST observed aggregate output AUM_023_024.AMT; source properties: DSPBM.PB_BONDPOS_SEC.*, DSDEP.FN_EXCH_RT.*.",
+      "aliases": [
+        "AMT"
+      ],
+      "formula": "AMT",
+      "formulas": [
+        "SUM(NETQTY / 100 * CPRICE * exch_rt)",
+        "CASE WHEN bond LIKE 'TSSN%' THEN '複委託結構型商品' ELSE '複委託債券' END",
+        "MAX(prcs_dt)",
+        "SUM(NETQTY / 100 * CPRICE * EXCH_RT) AS AMT",
+        "SUM(A.NETQTY / 100 * A.CPRICE * A.EXCH_RT) AS AMT"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "*"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_023_024.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSPBM.PB_BONDPOS_SEC",
+            "column": "*",
+            "objectTypeId": "DSPBM_PB_BONDPOS_SEC",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          },
+          {
+            "physicalTable": "DSDEP.FN_EXCH_RT",
+            "column": "*",
+            "objectTypeId": null,
+            "propertyRef": null,
+            "mappingStatus": "unmapped"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_22_aum_023_024_tmp0",
+          "sql_23_aum_023_024_tmp1",
+          "sql_24_aum_023_024"
+        ],
+        "rules": [
+          "* := *",
+          "CASE WHEN bond LIKE 'TSSN%' THEN '複委託結構型商品' ELSE '複委託債券' END",
+          "a.currency = b.curr_cd AND a.yyyymm = SUBSTR(b.prcs_dt, 1, 6)",
+          "a.prcs_dt = b.prcs_dt",
+          "a.clrdate = b.prcs_dt AND a.currency = b.curr_cd"
+        ],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_025__amt",
+      "domain": "aum",
+      "term": "AUM_025.AMT",
+      "displayName": "AUM_025.AMT",
+      "definition": "AST observed aggregate output AUM_025.AMT; source properties: DSPBM_PB_FUNDPOSIT_SEC.WKB31, DSPBM_PB_FUNDPOSIT_SEC.WKB23, DSPBM_PB_FUNDPOSIT_SEC.WKB28.",
+      "aliases": [
+        "AMT",
+        "匯率",
+        "收盤價",
+        "基金單位數"
+      ],
+      "formula": "SUM(WKB28 * WKB23 * WKB31)",
+      "formulas": [
+        "SUM(WKB28 * WKB23 * WKB31)",
+        "SUM(PB_FUNDPOSIT_SEC_M.WKB28 * PB_FUNDPOSIT_SEC_M.WKB23 * PB_FUNDPOSIT_SEC_M.WKB31) AS AMT",
+        "SUM(PB_FUNDPOSIT_SEC.WKB28 * PB_FUNDPOSIT_SEC.WKB23 * PB_FUNDPOSIT_SEC.WKB31) AS AMT"
+      ],
+      "grain": [
+        "wkb02",
+        "yyyymmdd",
+        "wkb02",
+        "yyyymmdd"
+      ],
+      "dimensionCandidates": [
+        "CUST_ID",
+        "YYYYMMDD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_025.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSPBM.PB_FUNDPOSIT_SEC_M",
+            "column": "WKB31",
+            "objectTypeId": "DSPBM_PB_FUNDPOSIT_SEC",
+            "propertyRef": "DSPBM_PB_FUNDPOSIT_SEC.WKB31",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_FUNDPOSIT_SEC_M",
+            "column": "WKB23",
+            "objectTypeId": "DSPBM_PB_FUNDPOSIT_SEC",
+            "propertyRef": "DSPBM_PB_FUNDPOSIT_SEC.WKB23",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_FUNDPOSIT_SEC_M",
+            "column": "WKB28",
+            "objectTypeId": "DSPBM_PB_FUNDPOSIT_SEC",
+            "propertyRef": "DSPBM_PB_FUNDPOSIT_SEC.WKB28",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_FUNDPOSIT_SEC",
+            "column": "WKB23",
+            "objectTypeId": "DSPBM_PB_FUNDPOSIT_SEC",
+            "propertyRef": "DSPBM_PB_FUNDPOSIT_SEC.WKB23",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_FUNDPOSIT_SEC",
+            "column": "WKB28",
+            "objectTypeId": "DSPBM_PB_FUNDPOSIT_SEC",
+            "propertyRef": "DSPBM_PB_FUNDPOSIT_SEC.WKB28",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_FUNDPOSIT_SEC",
+            "column": "WKB31",
+            "objectTypeId": "DSPBM_PB_FUNDPOSIT_SEC",
+            "propertyRef": "DSPBM_PB_FUNDPOSIT_SEC.WKB31",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_25_aum_025"
+        ],
+        "rules": [],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_025__amt__branch_001",
+      "domain": "aum",
+      "term": "AUM_025.AMT[branch=1]",
+      "displayName": "AUM_025.AMT[branch=1]",
+      "definition": "AST observed aggregate output AUM_025.AMT[branch=1]; source properties: DSPBM_PB_FUNDPOSIT_SEC.WKB31, DSPBM_PB_FUNDPOSIT_SEC.WKB23, DSPBM_PB_FUNDPOSIT_SEC.WKB28.",
+      "aliases": [
+        "AMT",
+        "匯率",
+        "收盤價",
+        "基金單位數"
+      ],
+      "formula": "SUM(WKB28 * WKB23 * WKB31)",
+      "formulas": [
+        "SUM(WKB28 * WKB23 * WKB31)",
+        "SUM(PB_FUNDPOSIT_SEC_M.WKB28 * PB_FUNDPOSIT_SEC_M.WKB23 * PB_FUNDPOSIT_SEC_M.WKB31) AS AMT",
+        "SUM(PB_FUNDPOSIT_SEC.WKB28 * PB_FUNDPOSIT_SEC.WKB23 * PB_FUNDPOSIT_SEC.WKB31) AS AMT"
+      ],
+      "grain": [
+        "wkb02",
+        "yyyymmdd",
+        "wkb02",
+        "yyyymmdd"
+      ],
+      "dimensionCandidates": [
+        "CUST_ID",
+        "YYYYMMDD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_025.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSPBM.PB_FUNDPOSIT_SEC_M",
+            "column": "WKB31",
+            "objectTypeId": "DSPBM_PB_FUNDPOSIT_SEC",
+            "propertyRef": "DSPBM_PB_FUNDPOSIT_SEC.WKB31",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_FUNDPOSIT_SEC_M",
+            "column": "WKB23",
+            "objectTypeId": "DSPBM_PB_FUNDPOSIT_SEC",
+            "propertyRef": "DSPBM_PB_FUNDPOSIT_SEC.WKB23",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_FUNDPOSIT_SEC_M",
+            "column": "WKB28",
+            "objectTypeId": "DSPBM_PB_FUNDPOSIT_SEC",
+            "propertyRef": "DSPBM_PB_FUNDPOSIT_SEC.WKB28",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_25_aum_025"
+        ],
+        "rules": [],
+        "branchIndex": 1
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_025__amt__branch_002",
+      "domain": "aum",
+      "term": "AUM_025.AMT[branch=2]",
+      "displayName": "AUM_025.AMT[branch=2]",
+      "definition": "AST observed aggregate output AUM_025.AMT[branch=2]; source properties: DSPBM_PB_FUNDPOSIT_SEC.WKB23, DSPBM_PB_FUNDPOSIT_SEC.WKB28, DSPBM_PB_FUNDPOSIT_SEC.WKB31.",
+      "aliases": [
+        "AMT",
+        "收盤價",
+        "基金單位數",
+        "匯率"
+      ],
+      "formula": "SUM(WKB28 * WKB23 * WKB31)",
+      "formulas": [
+        "SUM(WKB28 * WKB23 * WKB31)",
+        "SUM(PB_FUNDPOSIT_SEC_M.WKB28 * PB_FUNDPOSIT_SEC_M.WKB23 * PB_FUNDPOSIT_SEC_M.WKB31) AS AMT",
+        "SUM(PB_FUNDPOSIT_SEC.WKB28 * PB_FUNDPOSIT_SEC.WKB23 * PB_FUNDPOSIT_SEC.WKB31) AS AMT"
+      ],
+      "grain": [
+        "wkb02",
+        "yyyymmdd",
+        "wkb02",
+        "yyyymmdd"
+      ],
+      "dimensionCandidates": [
+        "CUST_ID",
+        "YYYYMMDD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_025.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSPBM.PB_FUNDPOSIT_SEC",
+            "column": "WKB23",
+            "objectTypeId": "DSPBM_PB_FUNDPOSIT_SEC",
+            "propertyRef": "DSPBM_PB_FUNDPOSIT_SEC.WKB23",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_FUNDPOSIT_SEC",
+            "column": "WKB28",
+            "objectTypeId": "DSPBM_PB_FUNDPOSIT_SEC",
+            "propertyRef": "DSPBM_PB_FUNDPOSIT_SEC.WKB28",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_FUNDPOSIT_SEC",
+            "column": "WKB31",
+            "objectTypeId": "DSPBM_PB_FUNDPOSIT_SEC",
+            "propertyRef": "DSPBM_PB_FUNDPOSIT_SEC.WKB31",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_25_aum_025"
+        ],
+        "rules": [],
+        "branchIndex": 2
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_026_tmp0__yyyymmdd",
+      "domain": "aum",
+      "term": "AUM_026_TMP0.YYYYMMDD",
+      "displayName": "AUM_026_TMP0.YYYYMMDD",
+      "definition": "AST observed aggregate output AUM_026_TMP0.YYYYMMDD; source properties: DSDEP.FN_EXCH_RT.*.",
+      "aliases": [
+        "YYYYMMDD"
+      ],
+      "formula": "b.prcs_dt",
+      "formulas": [
+        "SUM(NETQTY * CPRICE * exch_rt)",
+        "MAX(prcs_dt)",
+        "SELECT SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6) AS YYYYYMM, MAX(FN_EXCH_RT.PRCS_DT) AS PRCS_DT FROM DSDEP.FN_EXCH_RT FN_EXCH_RT GROUP BY SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6)"
+      ],
+      "grain": [
+        "idno",
+        "b.prcs_dt",
+        "SUBSTR(prcs_dt, 1, 6)"
+      ],
+      "dimensionCandidates": [
+        "CUST_ID",
+        "AMT"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_026_TMP0.YYYYMMDD",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSDEP.FN_EXCH_RT",
+            "column": "*",
+            "objectTypeId": null,
+            "propertyRef": null,
+            "mappingStatus": "unmapped"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_26_aum_026_tmp0"
+        ],
+        "rules": [
+          "AMT := SUM(NETQTY * CPRICE * exch_rt)",
+          "a.currency = b.curr_cd AND a.yyyymm = SUBSTR(b.prcs_dt, 1, 6)",
+          "a.prcs_dt = b.prcs_dt"
+        ],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_026_tmp0__amt",
+      "domain": "aum",
+      "term": "AUM_026_TMP0.AMT",
+      "displayName": "AUM_026_TMP0.AMT",
+      "definition": "AST observed aggregate output AUM_026_TMP0.AMT; source properties: unresolved.",
+      "aliases": [
+        "AMT"
+      ],
+      "formula": "SUM(NETQTY * CPRICE * exch_rt)",
+      "formulas": [
+        "SUM(NETQTY * CPRICE * exch_rt)",
+        "MAX(prcs_dt)",
+        "SUM(NETQTY * CPRICE * EXCH_RT) AS AMT"
+      ],
+      "grain": [
+        "idno",
+        "b.prcs_dt",
+        "SUBSTR(prcs_dt, 1, 6)"
+      ],
+      "dimensionCandidates": [
+        "CUST_ID",
+        "YYYYMMDD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_026_TMP0.AMT",
+        "sourceProperties": [],
+        "sqlEvidenceIds": [
+          "sql_26_aum_026_tmp0"
+        ],
+        "rules": [
+          "YYYYMMDD := b.prcs_dt",
+          "a.currency = b.curr_cd AND a.yyyymm = SUBSTR(b.prcs_dt, 1, 6)",
+          "a.prcs_dt = b.prcs_dt"
+        ],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_026_tmp1__amt",
+      "domain": "aum",
+      "term": "AUM_026_TMP1.AMT",
+      "displayName": "AUM_026_TMP1.AMT",
+      "definition": "AST observed aggregate output AUM_026_TMP1.AMT; source properties: DSPBM_PB_STOCKPOS_SEC.CPRICE, DSDEP.FN_EXCH_RT.*, DSPBM_PB_STOCKPOS_SEC.NETQTY.",
+      "aliases": [
+        "AMT",
+        "收盤價",
+        "目前庫存"
+      ],
+      "formula": "SUM(NETQTY * CPRICE * exch_rt)",
+      "formulas": [
+        "SUM(NETQTY * CPRICE * exch_rt)",
+        "SUM(A.NETQTY * A.CPRICE * B.EXCH_RT) AS AMT"
+      ],
+      "grain": [
+        "idno",
+        "yyyymmdd"
+      ],
+      "dimensionCandidates": [
+        "CUST_ID",
+        "YYYYMMDD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_026_TMP1.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSPBM.PB_STOCKPOS_SEC",
+            "column": "CPRICE",
+            "objectTypeId": "DSPBM_PB_STOCKPOS_SEC",
+            "propertyRef": "DSPBM_PB_STOCKPOS_SEC.CPRICE",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSDEP.FN_EXCH_RT",
+            "column": "*",
+            "objectTypeId": null,
+            "propertyRef": null,
+            "mappingStatus": "unmapped"
+          },
+          {
+            "physicalTable": "DSPBM.PB_STOCKPOS_SEC",
+            "column": "NETQTY",
+            "objectTypeId": "DSPBM_PB_STOCKPOS_SEC",
+            "propertyRef": "DSPBM_PB_STOCKPOS_SEC.NETQTY",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_27_aum_026_tmp1"
+        ],
+        "rules": [
+          "a.currency = b.curr_cd AND yyyymmdd = prcs_dt"
+        ],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_026__yyyymmdd",
+      "domain": "aum",
+      "term": "AUM_026.YYYYMMDD",
+      "displayName": "AUM_026.YYYYMMDD",
+      "definition": "AST observed aggregate output AUM_026.YYYYMMDD; source properties: DSDEP.FN_EXCH_RT.*, DSPBM_PB_STOCKPOS_SEC.CLRDATE.",
+      "aliases": [
+        "YYYYMMDD",
+        "結算日期"
+      ],
+      "formula": "YYYYMMDD",
+      "formulas": [
+        "SUM(NETQTY * CPRICE * exch_rt)",
+        "MAX(prcs_dt)",
+        "SELECT SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6) AS YYYYYMM, MAX(FN_EXCH_RT.PRCS_DT) AS PRCS_DT FROM DSDEP.FN_EXCH_RT FN_EXCH_RT GROUP BY SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6)"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "*"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_026.YYYYMMDD",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSDEP.FN_EXCH_RT",
+            "column": "*",
+            "objectTypeId": null,
+            "propertyRef": null,
+            "mappingStatus": "unmapped"
+          },
+          {
+            "physicalTable": "DSPBM.PB_STOCKPOS_SEC",
+            "column": "CLRDATE",
+            "objectTypeId": "DSPBM_PB_STOCKPOS_SEC",
+            "propertyRef": "DSPBM_PB_STOCKPOS_SEC.CLRDATE",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_26_aum_026_tmp0",
+          "sql_27_aum_026_tmp1",
+          "sql_28_aum_026"
+        ],
+        "rules": [
+          "* := *",
+          "a.currency = b.curr_cd AND a.yyyymm = SUBSTR(b.prcs_dt, 1, 6)",
+          "a.prcs_dt = b.prcs_dt",
+          "a.currency = b.curr_cd AND yyyymmdd = prcs_dt"
+        ],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_026__amt",
+      "domain": "aum",
+      "term": "AUM_026.AMT",
+      "displayName": "AUM_026.AMT",
+      "definition": "AST observed aggregate output AUM_026.AMT; source properties: DSPBM_PB_STOCKPOS_SEC.CPRICE, DSDEP.FN_EXCH_RT.*, DSPBM_PB_STOCKPOS_SEC.NETQTY.",
+      "aliases": [
+        "AMT",
+        "收盤價",
+        "目前庫存"
+      ],
+      "formula": "AMT",
+      "formulas": [
+        "SUM(NETQTY * CPRICE * exch_rt)",
+        "MAX(prcs_dt)",
+        "SUM(NETQTY * CPRICE * EXCH_RT) AS AMT",
+        "SUM(A.NETQTY * A.CPRICE * B.EXCH_RT) AS AMT"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "*"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_026.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSPBM.PB_STOCKPOS_SEC",
+            "column": "CPRICE",
+            "objectTypeId": "DSPBM_PB_STOCKPOS_SEC",
+            "propertyRef": "DSPBM_PB_STOCKPOS_SEC.CPRICE",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSDEP.FN_EXCH_RT",
+            "column": "*",
+            "objectTypeId": null,
+            "propertyRef": null,
+            "mappingStatus": "unmapped"
+          },
+          {
+            "physicalTable": "DSPBM.PB_STOCKPOS_SEC",
+            "column": "NETQTY",
+            "objectTypeId": "DSPBM_PB_STOCKPOS_SEC",
+            "propertyRef": "DSPBM_PB_STOCKPOS_SEC.NETQTY",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_26_aum_026_tmp0",
+          "sql_27_aum_026_tmp1",
+          "sql_28_aum_026"
+        ],
+        "rules": [
+          "* := *",
+          "a.currency = b.curr_cd AND a.yyyymm = SUBSTR(b.prcs_dt, 1, 6)",
+          "a.prcs_dt = b.prcs_dt",
+          "a.currency = b.curr_cd AND yyyymmdd = prcs_dt"
+        ],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_027__amt",
+      "domain": "aum",
+      "term": "AUM_027.AMT",
+      "displayName": "AUM_027.AMT",
+      "definition": "AST observed aggregate output AUM_027.AMT; source properties: DSPBM_PB_YTRMRBP_SEC.YTRMRB150, DSPBM_PB_YTRMRBP_SEC.YTRMRB110.",
+      "aliases": [
+        "AMT",
+        "收盤價",
+        "集保庫存=目前庫存"
+      ],
+      "formula": "SUM(amt)",
+      "formulas": [
+        "SUM(amt)",
+        "YTRMRB110 * YTRMRB150",
+        "SUM(A.AMT) AS AMT",
+        "PB_YTRMRBP_SEC_M.YTRMRB110 * PB_YTRMRBP_SEC_M.YTRMRB150 AS AMT",
+        "PB_YTRMRBP_SEC.YTRMRB110 * PB_YTRMRBP_SEC.YTRMRB150 AS AMT"
+      ],
+      "grain": [
+        "cust_id",
+        "yyyymmdd"
+      ],
+      "dimensionCandidates": [
+        "CUST_ID",
+        "YYYYMMDD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_027.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSPBM.PB_YTRMRBP_SEC_M",
+            "column": "YTRMRB150",
+            "objectTypeId": "DSPBM_PB_YTRMRBP_SEC",
+            "propertyRef": "DSPBM_PB_YTRMRBP_SEC.YTRMRB150",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_YTRMRBP_SEC_M",
+            "column": "YTRMRB110",
+            "objectTypeId": "DSPBM_PB_YTRMRBP_SEC",
+            "propertyRef": "DSPBM_PB_YTRMRBP_SEC.YTRMRB110",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_YTRMRBP_SEC",
+            "column": "YTRMRB150",
+            "objectTypeId": "DSPBM_PB_YTRMRBP_SEC",
+            "propertyRef": "DSPBM_PB_YTRMRBP_SEC.YTRMRB150",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_YTRMRBP_SEC",
+            "column": "YTRMRB110",
+            "objectTypeId": "DSPBM_PB_YTRMRBP_SEC",
+            "propertyRef": "DSPBM_PB_YTRMRBP_SEC.YTRMRB110",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_29_aum_027"
+        ],
+        "rules": [],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum_028__amt",
+      "domain": "aum",
+      "term": "AUM_028.AMT",
+      "displayName": "AUM_028.AMT",
+      "definition": "AST observed aggregate output AUM_028.AMT; source properties: DSCSD.PBCMS_REPORTA03.PRODUCT_PRICE, DSCSD.PBCMS_REPORTA03.QTY.",
+      "aliases": [
+        "AMT"
+      ],
+      "formula": "SUM(Qty * Product_Price)",
+      "formulas": [
+        "SUM(Qty * Product_Price)",
+        "SUM(PBCMS_REPORTA03.QTY * PBCMS_REPORTA03.PRODUCT_PRICE) AS AMT"
+      ],
+      "grain": [
+        "TO_CHAR(TO_DATE(applydate, 'yyyy/mm/dd'), 'YYYYMMDD')",
+        "lendinguserid"
+      ],
+      "dimensionCandidates": [
+        "YYYYMMDD",
+        "CUST_ID"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM_028.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSCSD.PBCMS_REPORTA03",
+            "column": "PRODUCT_PRICE",
+            "objectTypeId": "DSCSD_PBCMS_REPORTA03",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          },
+          {
+            "physicalTable": "DSCSD.PBCMS_REPORTA03",
+            "column": "QTY",
+            "objectTypeId": "DSCSD_PBCMS_REPORTA03",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_30_aum_028"
+        ],
+        "rules": [
+          "YYYYMMDD := TO_CHAR(TO_DATE(applydate, 'yyyy/mm/dd'), 'YYYYMMDD')"
+        ],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum__yyyymmdd",
+      "domain": "aum",
+      "term": "AUM.YYYYMMDD",
+      "displayName": "AUM.YYYYMMDD",
+      "definition": "AST observed aggregate output AUM.YYYYMMDD; source properties: DSDEP.DEP_NT_ACCT_HS.LST_MTN_DT, DSDEP.DEP_FN_ACCT_HS.LST_MTN_DT, DSDEP.EMP_DEP_NT_ACCT_HS.LST_MTN_DT, DSDEP.DEP_NT_ACCT.DATA_DT, DSDEP.DEP_FN_ACCT.LST_MTN_DT, DSKPI_AFAUM_AFCUST_MON_ASSET_RE.DATE_KEY, DSFND_PB_FUND_MONTH.EXEDATE, DSWTR_BOND_POS_DAY.DATA_DT, DSEBS_EBTS_ACT_CNTAUMBAL_PB.BALDATE, DSTAM_TRUCONTRACT_PB.POSTDATE, DSPMS_PB_PMS_AUM.DATE, DSPBM.PB_BONDPOS_SEC.*, DSDEP.FN_EXCH_RT.*, DSPBM_PB_FUNDPOSIT_SEC.YYYYMMDD, DSPBM_PB_STOCKPOS_SEC.CLRDATE, DSPBM_PB_YTRMRBP_SEC.YYYYMMDD, DSCSD.PBCMS_REPORTA03.APPLYDATE.",
+      "aliases": [
+        "YYYYMMDD",
+        "資料日期",
+        "執行日",
+        "日結日期",
+        "資料日",
+        "傳檔日期",
+        "結算日期"
+      ],
+      "formula": "LST_MTN_DT",
+      "formulas": [
+        "SUM(BAL_AMT)",
+        "SUM(AVAIL_BAL)",
+        "SUM(AMT_INVEST)",
+        "TO_CHAR(SYSDATE - 1, 'yyyymmdd')",
+        "MAX(date_key)",
+        "CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END",
+        "SUM(CurrentTWDValue)",
+        "SUM(STO_AMT * MKT_PRI / 100 * EXC_RATE)",
+        "MAX(yyyymmdd)",
+        "SUM(PresentAmt)",
+        "SUM(MarketValueTWD)",
+        "SUM(AUM)",
+        "SUM(NETQTY / 100 * CPRICE * exch_rt)",
+        "CASE WHEN bond LIKE 'TSSN%' THEN '複委託結構型商品' ELSE '複委託債券' END",
+        "MAX(prcs_dt)",
+        "SUM(WKB28 * WKB23 * WKB31)",
+        "SUM(NETQTY * CPRICE * exch_rt)",
+        "SUM(amt)",
+        "YTRMRB110 * YTRMRB150",
+        "SUM(Qty * Product_Price)",
+        "TO_CHAR(SYSDATE - 1, 'yyyymmdd') AS YYYYMMDD",
+        "SELECT SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6) AS YYYYYMM, MAX(FN_EXCH_RT.PRCS_DT) AS PRCS_DT FROM DSDEP.FN_EXCH_RT FN_EXCH_RT GROUP BY SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6)"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "TYP",
+        "COMP",
+        "PROD",
+        "TYP_SUB_DTL",
+        "CUST_ID",
+        "AMT"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM.YYYYMMDD",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSDEP.DEP_NT_ACCT_HS",
+            "column": "LST_MTN_DT",
+            "objectTypeId": "DSDEP_DEP_NT_ACCT_HS",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          },
+          {
+            "physicalTable": "DSDEP.DEP_FN_ACCT_HS",
+            "column": "LST_MTN_DT",
+            "objectTypeId": "DSDEP_DEP_FN_ACCT_HS",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          },
+          {
+            "physicalTable": "DSDEP.EMP_DEP_NT_ACCT_HS",
+            "column": "LST_MTN_DT",
+            "objectTypeId": "DSDEP_EMP_DEP_NT_ACCT_HS",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          },
+          {
+            "physicalTable": "DSDEP.DEP_NT_ACCT",
+            "column": "DATA_DT",
+            "objectTypeId": "DSDEP_DEP_NT_ACCT",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          },
+          {
+            "physicalTable": "DSDEP.DEP_FN_ACCT",
+            "column": "LST_MTN_DT",
+            "objectTypeId": "DSDEP_DEP_FN_ACCT",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          },
+          {
+            "physicalTable": "DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT",
+            "column": "DATE_KEY",
+            "objectTypeId": "DSKPI_AFAUM_AFCUST_MON_ASSET_RE",
+            "propertyRef": "DSKPI_AFAUM_AFCUST_MON_ASSET_RE.DATE_KEY",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSFND.PB_FUND_MONTH",
+            "column": "EXEDATE",
+            "objectTypeId": "DSFND_PB_FUND_MONTH",
+            "propertyRef": "DSFND_PB_FUND_MONTH.EXEDATE",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSWTR.BOND_POS_DAY",
+            "column": "DATA_DT",
+            "objectTypeId": "DSWTR_BOND_POS_DAY",
+            "propertyRef": "DSWTR_BOND_POS_DAY.DATA_DT",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSEBS.EBTS_ACT_CNTAUMBAL_PB",
+            "column": "BALDATE",
+            "objectTypeId": "DSEBS_EBTS_ACT_CNTAUMBAL_PB",
+            "propertyRef": "DSEBS_EBTS_ACT_CNTAUMBAL_PB.BALDATE",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSTAM.TRUCONTRACT_PB",
+            "column": "POSTDATE",
+            "objectTypeId": "DSTAM_TRUCONTRACT_PB",
+            "propertyRef": "DSTAM_TRUCONTRACT_PB.POSTDATE",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPMS.PB_PMS_AUM",
+            "column": "DATE",
+            "objectTypeId": "DSPMS_PB_PMS_AUM",
+            "propertyRef": "DSPMS_PB_PMS_AUM.DATE",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_BONDPOS_SEC",
+            "column": "*",
+            "objectTypeId": "DSPBM_PB_BONDPOS_SEC",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          },
+          {
+            "physicalTable": "DSDEP.FN_EXCH_RT",
+            "column": "*",
+            "objectTypeId": null,
+            "propertyRef": null,
+            "mappingStatus": "unmapped"
+          },
+          {
+            "physicalTable": "DSPBM.PB_FUNDPOSIT_SEC_M",
+            "column": "YYYYMMDD",
+            "objectTypeId": "DSPBM_PB_FUNDPOSIT_SEC",
+            "propertyRef": "DSPBM_PB_FUNDPOSIT_SEC.YYYYMMDD",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_FUNDPOSIT_SEC",
+            "column": "YYYYMMDD",
+            "objectTypeId": "DSPBM_PB_FUNDPOSIT_SEC",
+            "propertyRef": "DSPBM_PB_FUNDPOSIT_SEC.YYYYMMDD",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_STOCKPOS_SEC",
+            "column": "CLRDATE",
+            "objectTypeId": "DSPBM_PB_STOCKPOS_SEC",
+            "propertyRef": "DSPBM_PB_STOCKPOS_SEC.CLRDATE",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_YTRMRBP_SEC_M",
+            "column": "YYYYMMDD",
+            "objectTypeId": "DSPBM_PB_YTRMRBP_SEC",
+            "propertyRef": "DSPBM_PB_YTRMRBP_SEC.YYYYMMDD",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_YTRMRBP_SEC",
+            "column": "YYYYMMDD",
+            "objectTypeId": "DSPBM_PB_YTRMRBP_SEC",
+            "propertyRef": "DSPBM_PB_YTRMRBP_SEC.YYYYMMDD",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSCSD.PBCMS_REPORTA03",
+            "column": "APPLYDATE",
+            "objectTypeId": "DSCSD_PBCMS_REPORTA03",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_01_aum_005_007_008_009_tmp01",
+          "sql_02_aum_005_007_008_009_tmp02",
+          "sql_03_aum_005_007_008_009_tmp03",
+          "sql_04_aum_005_007_008_009_tmp04",
+          "sql_05_aum_005_007_008_009_tmp05",
+          "sql_06_aum_005_007_008_009_tmp06",
+          "sql_07_aum_005_007_008_009_tmp07",
+          "sql_08_aum_005_007_008_009_tmp08",
+          "sql_09_aum_005_007_008_009",
+          "sql_10_aum_012_tmp01",
+          "sql_11_aum_012_tmp02",
+          "sql_12_aum_012",
+          "sql_13_aum_013_015_015_016_017_018",
+          "sql_14_aum_019_tmp_01",
+          "sql_15_aum_019",
+          "sql_16_aum_020_tmp01",
+          "sql_17_aum_020",
+          "sql_18_aum_021_tmp01",
+          "sql_19_aum_021",
+          "sql_20_aum_022_tmp01",
+          "sql_21_aum_022",
+          "sql_22_aum_023_024_tmp0",
+          "sql_23_aum_023_024_tmp1",
+          "sql_24_aum_023_024",
+          "sql_25_aum_025",
+          "sql_26_aum_026_tmp0",
+          "sql_27_aum_026_tmp1",
+          "sql_28_aum_026",
+          "sql_29_aum_027",
+          "sql_30_aum_028",
+          "sql_31_aum"
+        ],
+        "rules": [
+          "COMP := '銀行'",
+          "AMT := 存款AUM",
+          "CASE WHEN detail IN ('台幣存款', '外幣存款') THEN '台外幣存款' ELSE detail END",
+          "CASE WHEN TRIM(ACT_CD) IN ('2311', '2321', '2322', '2331', '2332', '2333', '2335', '2336') THEN '台幣存款' WHEN TRIM(ACT_CD) IN ('2545') THEN '結構型存款' END",
+          "CASE WHEN TRIM(ACC_CD) IN ('2317', '2327') THEN '外幣存款' WHEN TRIM(ACC_CD) IN ('2545') THEN '結構型存款' END",
+          "NOT DETAIL IS NULL",
+          "YYYYMM >= '202506'",
+          "TRIM(PRFT_CNTR_CD) IN ('2E3000', '2E3200', '2E3300', '2E3400') AND LST_MTN_DT >= '20231201'",
+          "TYP := '投資'",
+          "PROD := '保險'",
+          "date_key = (SELECT MAX(date_key) AS date_key FROM DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT)",
+          "CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END",
+          "PROD := '海外債券(自營)'",
+          "pcc_code LIKE '2E%'",
+          "a.yyyymmdd = b.yyyymmdd",
+          "PROD := '規劃型信託'",
+          "PROD := '信託保管'",
+          "COMP := '證券'",
+          "CASE WHEN bond LIKE 'TSSN%' THEN '複委託結構型商品' ELSE '複委託債券' END",
+          "a.currency = b.curr_cd AND a.yyyymm = SUBSTR(b.prcs_dt, 1, 6)",
+          "a.prcs_dt = b.prcs_dt",
+          "a.clrdate = b.prcs_dt AND a.currency = b.curr_cd",
+          "PROD := '基金'",
+          "PROD := '外國股票'",
+          "a.currency = b.curr_cd AND yyyymmdd = prcs_dt",
+          "PROD := '台股'"
+        ],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum__yyyymmdd__branch_001",
+      "domain": "aum",
+      "term": "AUM.YYYYMMDD[branch=1]",
+      "displayName": "AUM.YYYYMMDD[branch=1]",
+      "definition": "AST observed aggregate output AUM.YYYYMMDD[branch=1]; source properties: DSDEP.DEP_NT_ACCT_HS.LST_MTN_DT, DSDEP.DEP_FN_ACCT_HS.LST_MTN_DT, DSDEP.EMP_DEP_NT_ACCT_HS.LST_MTN_DT, DSDEP.DEP_NT_ACCT.DATA_DT, DSDEP.DEP_FN_ACCT.LST_MTN_DT.",
+      "aliases": [
+        "YYYYMMDD"
+      ],
+      "formula": "LST_MTN_DT",
+      "formulas": [
+        "SUM(BAL_AMT)",
+        "SUM(AVAIL_BAL)",
+        "TO_CHAR(SYSDATE - 1, 'yyyymmdd') AS YYYYMMDD",
+        "SELECT SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6) AS YYYYYMM, MAX(FN_EXCH_RT.PRCS_DT) AS PRCS_DT FROM DSDEP.FN_EXCH_RT FN_EXCH_RT GROUP BY SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6)"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "TYP",
+        "COMP",
+        "PROD",
+        "TYP_SUB_DTL",
+        "CUST_ID",
+        "AMT"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM.YYYYMMDD",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSDEP.DEP_NT_ACCT_HS",
+            "column": "LST_MTN_DT",
+            "objectTypeId": "DSDEP_DEP_NT_ACCT_HS",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          },
+          {
+            "physicalTable": "DSDEP.DEP_FN_ACCT_HS",
+            "column": "LST_MTN_DT",
+            "objectTypeId": "DSDEP_DEP_FN_ACCT_HS",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          },
+          {
+            "physicalTable": "DSDEP.EMP_DEP_NT_ACCT_HS",
+            "column": "LST_MTN_DT",
+            "objectTypeId": "DSDEP_EMP_DEP_NT_ACCT_HS",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          },
+          {
+            "physicalTable": "DSDEP.DEP_NT_ACCT",
+            "column": "DATA_DT",
+            "objectTypeId": "DSDEP_DEP_NT_ACCT",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          },
+          {
+            "physicalTable": "DSDEP.DEP_FN_ACCT",
+            "column": "LST_MTN_DT",
+            "objectTypeId": "DSDEP_DEP_FN_ACCT",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_01_aum_005_007_008_009_tmp01",
+          "sql_02_aum_005_007_008_009_tmp02",
+          "sql_03_aum_005_007_008_009_tmp03",
+          "sql_04_aum_005_007_008_009_tmp04",
+          "sql_05_aum_005_007_008_009_tmp05",
+          "sql_06_aum_005_007_008_009_tmp06",
+          "sql_07_aum_005_007_008_009_tmp07",
+          "sql_08_aum_005_007_008_009_tmp08",
+          "sql_31_aum"
+        ],
+        "rules": [
+          "COMP := '銀行'",
+          "AMT := 存款AUM",
+          "CASE WHEN detail IN ('台幣存款', '外幣存款') THEN '台外幣存款' ELSE detail END",
+          "CASE WHEN TRIM(ACT_CD) IN ('2311', '2321', '2322', '2331', '2332', '2333', '2335', '2336') THEN '台幣存款' WHEN TRIM(ACT_CD) IN ('2545') THEN '結構型存款' END",
+          "CASE WHEN TRIM(ACC_CD) IN ('2317', '2327') THEN '外幣存款' WHEN TRIM(ACC_CD) IN ('2545') THEN '結構型存款' END",
+          "NOT DETAIL IS NULL",
+          "YYYYMM >= '202506'",
+          "TRIM(PRFT_CNTR_CD) IN ('2E3000', '2E3200', '2E3300', '2E3400') AND LST_MTN_DT >= '20231201'"
+        ],
+        "branchIndex": 1
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum__yyyymmdd__branch_002",
+      "domain": "aum",
+      "term": "AUM.YYYYMMDD[branch=2]",
+      "displayName": "AUM.YYYYMMDD[branch=2] / 資料日期",
+      "definition": "AST observed aggregate output AUM.YYYYMMDD[branch=2]; source properties: DSKPI_AFAUM_AFCUST_MON_ASSET_RE.DATE_KEY.",
+      "aliases": [
+        "YYYYMMDD",
+        "資料日期"
+      ],
+      "formula": "YYYYMMDD",
+      "formulas": [
+        "SUM(AMT_INVEST)",
+        "TO_CHAR(SYSDATE - 1, 'yyyymmdd')",
+        "MAX(date_key)",
+        "TO_CHAR(SYSDATE - 1, 'yyyymmdd') AS YYYYMMDD",
+        "SELECT SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6) AS YYYYYMM, MAX(FN_EXCH_RT.PRCS_DT) AS PRCS_DT FROM DSDEP.FN_EXCH_RT FN_EXCH_RT GROUP BY SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6)"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "TYP",
+        "COMP",
+        "PROD",
+        "TYP_SUB_DTL",
+        "CUST_ID",
+        "AMT"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM.YYYYMMDD",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT",
+            "column": "DATE_KEY",
+            "objectTypeId": "DSKPI_AFAUM_AFCUST_MON_ASSET_RE",
+            "propertyRef": "DSKPI_AFAUM_AFCUST_MON_ASSET_RE.DATE_KEY",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_10_aum_012_tmp01",
+          "sql_11_aum_012_tmp02",
+          "sql_31_aum"
+        ],
+        "rules": [
+          "TYP := '投資'",
+          "COMP := '銀行'",
+          "PROD := '保險'",
+          "date_key = (SELECT MAX(date_key) AS date_key FROM DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT)"
+        ],
+        "branchIndex": 2
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum__yyyymmdd__branch_003",
+      "domain": "aum",
+      "term": "AUM.YYYYMMDD[branch=3]",
+      "displayName": "AUM.YYYYMMDD[branch=3] / 資料日期",
+      "definition": "AST observed aggregate output AUM.YYYYMMDD[branch=3]; source properties: DSKPI_AFAUM_AFCUST_MON_ASSET_RE.DATE_KEY.",
+      "aliases": [
+        "YYYYMMDD",
+        "資料日期"
+      ],
+      "formula": "YYYYMMDD",
+      "formulas": [
+        "SUM(AMT_INVEST)",
+        "TO_CHAR(SYSDATE - 1, 'yyyymmdd')",
+        "MAX(date_key)",
+        "TO_CHAR(SYSDATE - 1, 'yyyymmdd') AS YYYYMMDD",
+        "SELECT SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6) AS YYYYYMM, MAX(FN_EXCH_RT.PRCS_DT) AS PRCS_DT FROM DSDEP.FN_EXCH_RT FN_EXCH_RT GROUP BY SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6)"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "TYP",
+        "COMP",
+        "PROD",
+        "TYP_SUB_DTL",
+        "CUST_ID",
+        "AMT"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM.YYYYMMDD",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT",
+            "column": "DATE_KEY",
+            "objectTypeId": "DSKPI_AFAUM_AFCUST_MON_ASSET_RE",
+            "propertyRef": "DSKPI_AFAUM_AFCUST_MON_ASSET_RE.DATE_KEY",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_10_aum_012_tmp01",
+          "sql_11_aum_012_tmp02",
+          "sql_31_aum"
+        ],
+        "rules": [
+          "TYP := '投資'",
+          "COMP := '銀行'",
+          "PROD := '保險'",
+          "date_key = (SELECT MAX(date_key) AS date_key FROM DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT)"
+        ],
+        "branchIndex": 3
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum__yyyymmdd__branch_004",
+      "domain": "aum",
+      "term": "AUM.YYYYMMDD[branch=4]",
+      "displayName": "AUM.YYYYMMDD[branch=4] / 執行日",
+      "definition": "AST observed aggregate output AUM.YYYYMMDD[branch=4]; source properties: DSFND_PB_FUND_MONTH.EXEDATE.",
+      "aliases": [
+        "YYYYMMDD",
+        "執行日"
+      ],
+      "formula": "yyyymmdd",
+      "formulas": [
+        "CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END",
+        "SUM(CurrentTWDValue)",
+        "TO_CHAR(SYSDATE - 1, 'yyyymmdd') AS YYYYMMDD",
+        "SELECT SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6) AS YYYYYMM, MAX(FN_EXCH_RT.PRCS_DT) AS PRCS_DT FROM DSDEP.FN_EXCH_RT FN_EXCH_RT GROUP BY SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6)"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "TYP",
+        "COMP",
+        "PROD",
+        "TYP_SUB_DTL",
+        "CUST_ID",
+        "AMT"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM.YYYYMMDD",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSFND.PB_FUND_MONTH",
+            "column": "EXEDATE",
+            "objectTypeId": "DSFND_PB_FUND_MONTH",
+            "propertyRef": "DSFND_PB_FUND_MONTH.EXEDATE",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_13_aum_013_015_015_016_017_018",
+          "sql_31_aum"
+        ],
+        "rules": [
+          "TYP := '投資'",
+          "COMP := '銀行'",
+          "CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END"
+        ],
+        "branchIndex": 4
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum__yyyymmdd__branch_005",
+      "domain": "aum",
+      "term": "AUM.YYYYMMDD[branch=5]",
+      "displayName": "AUM.YYYYMMDD[branch=5] / 資料日期",
+      "definition": "AST observed aggregate output AUM.YYYYMMDD[branch=5]; source properties: DSWTR_BOND_POS_DAY.DATA_DT.",
+      "aliases": [
+        "YYYYMMDD",
+        "資料日期"
+      ],
+      "formula": "YYYYMMDD",
+      "formulas": [
+        "SUM(STO_AMT * MKT_PRI / 100 * EXC_RATE)",
+        "MAX(yyyymmdd)",
+        "TO_CHAR(SYSDATE - 1, 'yyyymmdd') AS YYYYMMDD",
+        "SELECT SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6) AS YYYYYMM, MAX(FN_EXCH_RT.PRCS_DT) AS PRCS_DT FROM DSDEP.FN_EXCH_RT FN_EXCH_RT GROUP BY SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6)"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "TYP",
+        "COMP",
+        "PROD",
+        "TYP_SUB_DTL",
+        "CUST_ID",
+        "AMT"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM.YYYYMMDD",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSWTR.BOND_POS_DAY",
+            "column": "DATA_DT",
+            "objectTypeId": "DSWTR_BOND_POS_DAY",
+            "propertyRef": "DSWTR_BOND_POS_DAY.DATA_DT",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_14_aum_019_tmp_01",
+          "sql_31_aum"
+        ],
+        "rules": [
+          "TYP := '投資'",
+          "COMP := '銀行'",
+          "PROD := '海外債券(自營)'",
+          "pcc_code LIKE '2E%'",
+          "a.yyyymmdd = b.yyyymmdd"
+        ],
+        "branchIndex": 5
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum__yyyymmdd__branch_006",
+      "domain": "aum",
+      "term": "AUM.YYYYMMDD[branch=6]",
+      "displayName": "AUM.YYYYMMDD[branch=6] / 日結日期",
+      "definition": "AST observed aggregate output AUM.YYYYMMDD[branch=6]; source properties: DSEBS_EBTS_ACT_CNTAUMBAL_PB.BALDATE.",
+      "aliases": [
+        "YYYYMMDD",
+        "日結日期"
+      ],
+      "formula": "yyyymmdd",
+      "formulas": [
+        "SUM(PresentAmt)",
+        "MAX(yyyymmdd)",
+        "TO_CHAR(SYSDATE - 1, 'yyyymmdd') AS YYYYMMDD",
+        "SELECT SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6) AS YYYYYMM, MAX(FN_EXCH_RT.PRCS_DT) AS PRCS_DT FROM DSDEP.FN_EXCH_RT FN_EXCH_RT GROUP BY SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6)"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "TYP",
+        "COMP",
+        "PROD",
+        "TYP_SUB_DTL",
+        "CUST_ID",
+        "AMT"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM.YYYYMMDD",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSEBS.EBTS_ACT_CNTAUMBAL_PB",
+            "column": "BALDATE",
+            "objectTypeId": "DSEBS_EBTS_ACT_CNTAUMBAL_PB",
+            "propertyRef": "DSEBS_EBTS_ACT_CNTAUMBAL_PB.BALDATE",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_16_aum_020_tmp01",
+          "sql_31_aum"
+        ],
+        "rules": [
+          "TYP := '投資'",
+          "COMP := '銀行'",
+          "PROD := '規劃型信託'",
+          "a.yyyymmdd = b.yyyymmdd"
+        ],
+        "branchIndex": 6
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum__yyyymmdd__branch_007",
+      "domain": "aum",
+      "term": "AUM.YYYYMMDD[branch=7]",
+      "displayName": "AUM.YYYYMMDD[branch=7] / 資料日",
+      "definition": "AST observed aggregate output AUM.YYYYMMDD[branch=7]; source properties: DSTAM_TRUCONTRACT_PB.POSTDATE.",
+      "aliases": [
+        "YYYYMMDD",
+        "資料日"
+      ],
+      "formula": "yyyymmdd",
+      "formulas": [
+        "SUM(MarketValueTWD)",
+        "MAX(yyyymmdd)",
+        "TO_CHAR(SYSDATE - 1, 'yyyymmdd') AS YYYYMMDD",
+        "SELECT SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6) AS YYYYYMM, MAX(FN_EXCH_RT.PRCS_DT) AS PRCS_DT FROM DSDEP.FN_EXCH_RT FN_EXCH_RT GROUP BY SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6)"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "TYP",
+        "COMP",
+        "PROD",
+        "TYP_SUB_DTL",
+        "CUST_ID",
+        "AMT"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM.YYYYMMDD",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSTAM.TRUCONTRACT_PB",
+            "column": "POSTDATE",
+            "objectTypeId": "DSTAM_TRUCONTRACT_PB",
+            "propertyRef": "DSTAM_TRUCONTRACT_PB.POSTDATE",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_18_aum_021_tmp01",
+          "sql_31_aum"
+        ],
+        "rules": [
+          "TYP := '投資'",
+          "COMP := '銀行'",
+          "PROD := '規劃型信託'",
+          "a.yyyymmdd = b.yyyymmdd"
+        ],
+        "branchIndex": 7
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum__yyyymmdd__branch_008",
+      "domain": "aum",
+      "term": "AUM.YYYYMMDD[branch=8]",
+      "displayName": "AUM.YYYYMMDD[branch=8] / 資料日期",
+      "definition": "AST observed aggregate output AUM.YYYYMMDD[branch=8]; source properties: DSPMS_PB_PMS_AUM.DATE.",
+      "aliases": [
+        "YYYYMMDD",
+        "資料日期"
+      ],
+      "formula": "yyyymmdd",
+      "formulas": [
+        "SUM(AUM)",
+        "MAX(yyyymmdd)",
+        "TO_CHAR(SYSDATE - 1, 'yyyymmdd') AS YYYYMMDD",
+        "SELECT SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6) AS YYYYYMM, MAX(FN_EXCH_RT.PRCS_DT) AS PRCS_DT FROM DSDEP.FN_EXCH_RT FN_EXCH_RT GROUP BY SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6)"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "TYP",
+        "COMP",
+        "PROD",
+        "TYP_SUB_DTL",
+        "CUST_ID",
+        "AMT"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM.YYYYMMDD",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSPMS.PB_PMS_AUM",
+            "column": "DATE",
+            "objectTypeId": "DSPMS_PB_PMS_AUM",
+            "propertyRef": "DSPMS_PB_PMS_AUM.DATE",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_20_aum_022_tmp01",
+          "sql_31_aum"
+        ],
+        "rules": [
+          "TYP := '投資'",
+          "COMP := '銀行'",
+          "PROD := '信託保管'",
+          "a.yyyymmdd = b.yyyymmdd"
+        ],
+        "branchIndex": 8
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum__yyyymmdd__branch_009",
+      "domain": "aum",
+      "term": "AUM.YYYYMMDD[branch=9]",
+      "displayName": "AUM.YYYYMMDD[branch=9]",
+      "definition": "AST observed aggregate output AUM.YYYYMMDD[branch=9]; source properties: DSPBM.PB_BONDPOS_SEC.*, DSDEP.FN_EXCH_RT.*.",
+      "aliases": [
+        "YYYYMMDD"
+      ],
+      "formula": "yyyymmdd",
+      "formulas": [
+        "SUM(NETQTY / 100 * CPRICE * exch_rt)",
+        "CASE WHEN bond LIKE 'TSSN%' THEN '複委託結構型商品' ELSE '複委託債券' END",
+        "MAX(prcs_dt)",
+        "TO_CHAR(SYSDATE - 1, 'yyyymmdd') AS YYYYMMDD",
+        "SELECT SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6) AS YYYYYMM, MAX(FN_EXCH_RT.PRCS_DT) AS PRCS_DT FROM DSDEP.FN_EXCH_RT FN_EXCH_RT GROUP BY SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6)"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "TYP",
+        "COMP",
+        "PROD",
+        "TYP_SUB_DTL",
+        "CUST_ID",
+        "AMT"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM.YYYYMMDD",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSPBM.PB_BONDPOS_SEC",
+            "column": "*",
+            "objectTypeId": "DSPBM_PB_BONDPOS_SEC",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          },
+          {
+            "physicalTable": "DSDEP.FN_EXCH_RT",
+            "column": "*",
+            "objectTypeId": null,
+            "propertyRef": null,
+            "mappingStatus": "unmapped"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_22_aum_023_024_tmp0",
+          "sql_23_aum_023_024_tmp1",
+          "sql_26_aum_026_tmp0",
+          "sql_27_aum_026_tmp1",
+          "sql_31_aum"
+        ],
+        "rules": [
+          "TYP := '投資'",
+          "COMP := '證券'",
+          "CASE WHEN bond LIKE 'TSSN%' THEN '複委託結構型商品' ELSE '複委託債券' END",
+          "a.currency = b.curr_cd AND a.yyyymm = SUBSTR(b.prcs_dt, 1, 6)",
+          "a.prcs_dt = b.prcs_dt",
+          "a.clrdate = b.prcs_dt AND a.currency = b.curr_cd"
+        ],
+        "branchIndex": 9
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum__yyyymmdd__branch_010",
+      "domain": "aum",
+      "term": "AUM.YYYYMMDD[branch=10]",
+      "displayName": "AUM.YYYYMMDD[branch=10]",
+      "definition": "AST observed aggregate output AUM.YYYYMMDD[branch=10]; source properties: DSPBM_PB_FUNDPOSIT_SEC.YYYYMMDD.",
+      "aliases": [
+        "YYYYMMDD",
+        "傳檔日期"
+      ],
+      "formula": "yyyymmdd",
+      "formulas": [
+        "SUM(WKB28 * WKB23 * WKB31)",
+        "TO_CHAR(SYSDATE - 1, 'yyyymmdd') AS YYYYMMDD",
+        "SELECT SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6) AS YYYYYMM, MAX(FN_EXCH_RT.PRCS_DT) AS PRCS_DT FROM DSDEP.FN_EXCH_RT FN_EXCH_RT GROUP BY SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6)"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "TYP",
+        "COMP",
+        "PROD",
+        "TYP_SUB_DTL",
+        "CUST_ID",
+        "AMT"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM.YYYYMMDD",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSPBM.PB_FUNDPOSIT_SEC_M",
+            "column": "YYYYMMDD",
+            "objectTypeId": "DSPBM_PB_FUNDPOSIT_SEC",
+            "propertyRef": "DSPBM_PB_FUNDPOSIT_SEC.YYYYMMDD",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_FUNDPOSIT_SEC",
+            "column": "YYYYMMDD",
+            "objectTypeId": "DSPBM_PB_FUNDPOSIT_SEC",
+            "propertyRef": "DSPBM_PB_FUNDPOSIT_SEC.YYYYMMDD",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_25_aum_025",
+          "sql_31_aum"
+        ],
+        "rules": [
+          "TYP := '投資'",
+          "COMP := '證券'",
+          "PROD := '基金'"
+        ],
+        "branchIndex": 10
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum__yyyymmdd__branch_011",
+      "domain": "aum",
+      "term": "AUM.YYYYMMDD[branch=11]",
+      "displayName": "AUM.YYYYMMDD[branch=11]",
+      "definition": "AST observed aggregate output AUM.YYYYMMDD[branch=11]; source properties: DSDEP.FN_EXCH_RT.*, DSPBM_PB_STOCKPOS_SEC.CLRDATE.",
+      "aliases": [
+        "YYYYMMDD",
+        "結算日期"
+      ],
+      "formula": "yyyymmdd",
+      "formulas": [
+        "SUM(NETQTY * CPRICE * exch_rt)",
+        "MAX(prcs_dt)",
+        "TO_CHAR(SYSDATE - 1, 'yyyymmdd') AS YYYYMMDD",
+        "SELECT SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6) AS YYYYYMM, MAX(FN_EXCH_RT.PRCS_DT) AS PRCS_DT FROM DSDEP.FN_EXCH_RT FN_EXCH_RT GROUP BY SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6)"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "TYP",
+        "COMP",
+        "PROD",
+        "TYP_SUB_DTL",
+        "CUST_ID",
+        "AMT"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM.YYYYMMDD",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSDEP.FN_EXCH_RT",
+            "column": "*",
+            "objectTypeId": null,
+            "propertyRef": null,
+            "mappingStatus": "unmapped"
+          },
+          {
+            "physicalTable": "DSPBM.PB_STOCKPOS_SEC",
+            "column": "CLRDATE",
+            "objectTypeId": "DSPBM_PB_STOCKPOS_SEC",
+            "propertyRef": "DSPBM_PB_STOCKPOS_SEC.CLRDATE",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_22_aum_023_024_tmp0",
+          "sql_23_aum_023_024_tmp1",
+          "sql_26_aum_026_tmp0",
+          "sql_27_aum_026_tmp1",
+          "sql_31_aum"
+        ],
+        "rules": [
+          "TYP := '投資'",
+          "COMP := '證券'",
+          "PROD := '外國股票'",
+          "a.currency = b.curr_cd AND a.yyyymm = SUBSTR(b.prcs_dt, 1, 6)",
+          "a.currency = b.curr_cd AND yyyymmdd = prcs_dt",
+          "a.prcs_dt = b.prcs_dt"
+        ],
+        "branchIndex": 11
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum__yyyymmdd__branch_012",
+      "domain": "aum",
+      "term": "AUM.YYYYMMDD[branch=12]",
+      "displayName": "AUM.YYYYMMDD[branch=12]",
+      "definition": "AST observed aggregate output AUM.YYYYMMDD[branch=12]; source properties: DSPBM_PB_YTRMRBP_SEC.YYYYMMDD.",
+      "aliases": [
+        "YYYYMMDD",
+        "傳檔日期"
+      ],
+      "formula": "yyyymmdd",
+      "formulas": [
+        "SUM(amt)",
+        "YTRMRB110 * YTRMRB150",
+        "TO_CHAR(SYSDATE - 1, 'yyyymmdd') AS YYYYMMDD",
+        "SELECT SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6) AS YYYYYMM, MAX(FN_EXCH_RT.PRCS_DT) AS PRCS_DT FROM DSDEP.FN_EXCH_RT FN_EXCH_RT GROUP BY SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6)"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "TYP",
+        "COMP",
+        "PROD",
+        "TYP_SUB_DTL",
+        "CUST_ID",
+        "AMT"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM.YYYYMMDD",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSPBM.PB_YTRMRBP_SEC_M",
+            "column": "YYYYMMDD",
+            "objectTypeId": "DSPBM_PB_YTRMRBP_SEC",
+            "propertyRef": "DSPBM_PB_YTRMRBP_SEC.YYYYMMDD",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_YTRMRBP_SEC",
+            "column": "YYYYMMDD",
+            "objectTypeId": "DSPBM_PB_YTRMRBP_SEC",
+            "propertyRef": "DSPBM_PB_YTRMRBP_SEC.YYYYMMDD",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_29_aum_027",
+          "sql_31_aum"
+        ],
+        "rules": [
+          "TYP := '投資'",
+          "COMP := '證券'",
+          "PROD := '台股'"
+        ],
+        "branchIndex": 12
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum__yyyymmdd__branch_013",
+      "domain": "aum",
+      "term": "AUM.YYYYMMDD[branch=13]",
+      "displayName": "AUM.YYYYMMDD[branch=13]",
+      "definition": "AST observed aggregate output AUM.YYYYMMDD[branch=13]; source properties: DSCSD.PBCMS_REPORTA03.APPLYDATE.",
+      "aliases": [
+        "YYYYMMDD"
+      ],
+      "formula": "yyyymmdd",
+      "formulas": [
+        "SUM(Qty * Product_Price)",
+        "TO_CHAR(SYSDATE - 1, 'yyyymmdd') AS YYYYMMDD",
+        "SELECT SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6) AS YYYYYMM, MAX(FN_EXCH_RT.PRCS_DT) AS PRCS_DT FROM DSDEP.FN_EXCH_RT FN_EXCH_RT GROUP BY SUBSTR(FN_EXCH_RT.PRCS_DT, 1, 6)"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "TYP",
+        "COMP",
+        "PROD",
+        "TYP_SUB_DTL",
+        "CUST_ID",
+        "AMT"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM.YYYYMMDD",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSCSD.PBCMS_REPORTA03",
+            "column": "APPLYDATE",
+            "objectTypeId": "DSCSD_PBCMS_REPORTA03",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_30_aum_028",
+          "sql_31_aum"
+        ],
+        "rules": [
+          "TYP := '投資'",
+          "COMP := '證券'",
+          "PROD := '台股'"
+        ],
+        "branchIndex": 13
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum__amt",
+      "domain": "aum",
+      "term": "AUM.AMT",
+      "displayName": "AUM.AMT",
+      "definition": "AST observed aggregate output AUM.AMT; source properties: DSDEP.DEP_NT_ACCT_HS.BAL_AMT, DSDEP.DEP_FN_ACCT_HS.AVAIL_BAL, DSDEP.EMP_DEP_NT_ACCT_HS.BAL_AMT, DSDEP.DEP_NT_ACCT.BAL_AMT, DSDEP.DEP_FN_ACCT.AVAIL_BAL, DSKPI_AFAUM_AFCUST_MON_ASSET_RE.AMT_INVEST, DSFND_PB_FUND_MONTH.CURRENTTWDVALUE, DSWTR_BOND_POS_DAY.STO_AMT, DSWTR_BOND_POS_DAY.EXC_RATE, DSWTR_BOND_POS_DAY.MKT_PRI, DSEBS_EBTS_ACT_CNTAUMBAL_PB.PRESENTAMT, DSTAM_TRUCONTRACT_PB.MARKETVALUETWD, DSPMS_PB_PMS_AUM.AUM, DSPBM.PB_BONDPOS_SEC.*, DSDEP.FN_EXCH_RT.*, DSPBM_PB_FUNDPOSIT_SEC.WKB31, DSPBM_PB_FUNDPOSIT_SEC.WKB23, DSPBM_PB_FUNDPOSIT_SEC.WKB28, DSPBM_PB_STOCKPOS_SEC.CPRICE, DSPBM_PB_STOCKPOS_SEC.NETQTY, DSPBM_PB_YTRMRBP_SEC.YTRMRB150, DSPBM_PB_YTRMRBP_SEC.YTRMRB110, DSCSD.PBCMS_REPORTA03.PRODUCT_PRICE, DSCSD.PBCMS_REPORTA03.QTY.",
+      "aliases": [
+        "AMT",
+        "保險AUM",
+        "台幣餘額",
+        "面額",
+        "參考匯率",
+        "參考賣出價格",
+        "AUM(投資現值)",
+        "AUM市值",
+        "AUM現值合計",
+        "匯率",
+        "收盤價",
+        "基金單位數",
+        "目前庫存",
+        "集保庫存=目前庫存"
+      ],
+      "formula": "存款AUM",
+      "formulas": [
+        "SUM(BAL_AMT)",
+        "SUM(AVAIL_BAL)",
+        "SUM(AMT_INVEST)",
+        "TO_CHAR(SYSDATE - 1, 'yyyymmdd')",
+        "MAX(date_key)",
+        "CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END",
+        "SUM(CurrentTWDValue)",
+        "SUM(STO_AMT * MKT_PRI / 100 * EXC_RATE)",
+        "MAX(yyyymmdd)",
+        "SUM(PresentAmt)",
+        "SUM(MarketValueTWD)",
+        "SUM(AUM)",
+        "SUM(NETQTY / 100 * CPRICE * exch_rt)",
+        "CASE WHEN bond LIKE 'TSSN%' THEN '複委託結構型商品' ELSE '複委託債券' END",
+        "MAX(prcs_dt)",
+        "SUM(WKB28 * WKB23 * WKB31)",
+        "SUM(NETQTY * CPRICE * exch_rt)",
+        "SUM(amt)",
+        "YTRMRB110 * YTRMRB150",
+        "SUM(Qty * Product_Price)",
+        "SUM(DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\"",
+        "SUM(DEP_FN_ACCT_HS.AVAIL_BAL) AS \"存款AUM\"",
+        "SUM(EMP_DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\"",
+        "SUM(DEP_NT_ACCT.BAL_AMT) AS AMT",
+        "SUM(DEP_FN_ACCT.AVAIL_BAL) AS \"存款AUM\"",
+        "SUM(AFAUM_AFCUST_MON_ASSET_REPORT.AMT_INVEST) AS AMT",
+        "SUM(PB_FUND_MONTH.CURRENTTWDVALUE) AS CURRENTTWDVALUE",
+        "SUM(BOND_POS_DAY.STO_AMT * BOND_POS_DAY.MKT_PRI / 100 * BOND_POS_DAY.EXC_RATE) AS AMT",
+        "SUM(EBTS_ACT_CNTAUMBAL_PB.PRESENTAMT) AS AMT",
+        "SUM(TRUCONTRACT_PB.MARKETVALUETWD) AS AMT",
+        "SUM(PB_PMS_AUM.AUM) AS AMT",
+        "SUM(NETQTY / 100 * CPRICE * EXCH_RT) AS AMT",
+        "SUM(A.NETQTY / 100 * A.CPRICE * A.EXCH_RT) AS AMT",
+        "SUM(PB_FUNDPOSIT_SEC_M.WKB28 * PB_FUNDPOSIT_SEC_M.WKB23 * PB_FUNDPOSIT_SEC_M.WKB31) AS AMT",
+        "SUM(PB_FUNDPOSIT_SEC.WKB28 * PB_FUNDPOSIT_SEC.WKB23 * PB_FUNDPOSIT_SEC.WKB31) AS AMT",
+        "SUM(NETQTY * CPRICE * EXCH_RT) AS AMT",
+        "SUM(A.NETQTY * A.CPRICE * B.EXCH_RT) AS AMT",
+        "SUM(A.AMT) AS AMT",
+        "PB_YTRMRBP_SEC_M.YTRMRB110 * PB_YTRMRBP_SEC_M.YTRMRB150 AS AMT",
+        "PB_YTRMRBP_SEC.YTRMRB110 * PB_YTRMRBP_SEC.YTRMRB150 AS AMT",
+        "SUM(PBCMS_REPORTA03.QTY * PBCMS_REPORTA03.PRODUCT_PRICE) AS AMT"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "TYP",
+        "COMP",
+        "PROD",
+        "TYP_SUB_DTL",
+        "CUST_ID",
+        "YYYYMMDD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSDEP.DEP_NT_ACCT_HS",
+            "column": "BAL_AMT",
+            "objectTypeId": "DSDEP_DEP_NT_ACCT_HS",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          },
+          {
+            "physicalTable": "DSDEP.DEP_FN_ACCT_HS",
+            "column": "AVAIL_BAL",
+            "objectTypeId": "DSDEP_DEP_FN_ACCT_HS",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          },
+          {
+            "physicalTable": "DSDEP.EMP_DEP_NT_ACCT_HS",
+            "column": "BAL_AMT",
+            "objectTypeId": "DSDEP_EMP_DEP_NT_ACCT_HS",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          },
+          {
+            "physicalTable": "DSDEP.DEP_NT_ACCT",
+            "column": "BAL_AMT",
+            "objectTypeId": "DSDEP_DEP_NT_ACCT",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          },
+          {
+            "physicalTable": "DSDEP.DEP_FN_ACCT",
+            "column": "AVAIL_BAL",
+            "objectTypeId": "DSDEP_DEP_FN_ACCT",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          },
+          {
+            "physicalTable": "DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT",
+            "column": "AMT_INVEST",
+            "objectTypeId": "DSKPI_AFAUM_AFCUST_MON_ASSET_RE",
+            "propertyRef": "DSKPI_AFAUM_AFCUST_MON_ASSET_RE.AMT_INVEST",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSFND.PB_FUND_MONTH",
+            "column": "CURRENTTWDVALUE",
+            "objectTypeId": "DSFND_PB_FUND_MONTH",
+            "propertyRef": "DSFND_PB_FUND_MONTH.CURRENTTWDVALUE",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSWTR.BOND_POS_DAY",
+            "column": "STO_AMT",
+            "objectTypeId": "DSWTR_BOND_POS_DAY",
+            "propertyRef": "DSWTR_BOND_POS_DAY.STO_AMT",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSWTR.BOND_POS_DAY",
+            "column": "EXC_RATE",
+            "objectTypeId": "DSWTR_BOND_POS_DAY",
+            "propertyRef": "DSWTR_BOND_POS_DAY.EXC_RATE",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSWTR.BOND_POS_DAY",
+            "column": "MKT_PRI",
+            "objectTypeId": "DSWTR_BOND_POS_DAY",
+            "propertyRef": "DSWTR_BOND_POS_DAY.MKT_PRI",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSEBS.EBTS_ACT_CNTAUMBAL_PB",
+            "column": "PRESENTAMT",
+            "objectTypeId": "DSEBS_EBTS_ACT_CNTAUMBAL_PB",
+            "propertyRef": "DSEBS_EBTS_ACT_CNTAUMBAL_PB.PRESENTAMT",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSTAM.TRUCONTRACT_PB",
+            "column": "MARKETVALUETWD",
+            "objectTypeId": "DSTAM_TRUCONTRACT_PB",
+            "propertyRef": "DSTAM_TRUCONTRACT_PB.MARKETVALUETWD",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPMS.PB_PMS_AUM",
+            "column": "AUM",
+            "objectTypeId": "DSPMS_PB_PMS_AUM",
+            "propertyRef": "DSPMS_PB_PMS_AUM.AUM",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_BONDPOS_SEC",
+            "column": "*",
+            "objectTypeId": "DSPBM_PB_BONDPOS_SEC",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          },
+          {
+            "physicalTable": "DSDEP.FN_EXCH_RT",
+            "column": "*",
+            "objectTypeId": null,
+            "propertyRef": null,
+            "mappingStatus": "unmapped"
+          },
+          {
+            "physicalTable": "DSPBM.PB_FUNDPOSIT_SEC_M",
+            "column": "WKB31",
+            "objectTypeId": "DSPBM_PB_FUNDPOSIT_SEC",
+            "propertyRef": "DSPBM_PB_FUNDPOSIT_SEC.WKB31",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_FUNDPOSIT_SEC_M",
+            "column": "WKB23",
+            "objectTypeId": "DSPBM_PB_FUNDPOSIT_SEC",
+            "propertyRef": "DSPBM_PB_FUNDPOSIT_SEC.WKB23",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_FUNDPOSIT_SEC_M",
+            "column": "WKB28",
+            "objectTypeId": "DSPBM_PB_FUNDPOSIT_SEC",
+            "propertyRef": "DSPBM_PB_FUNDPOSIT_SEC.WKB28",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_FUNDPOSIT_SEC",
+            "column": "WKB23",
+            "objectTypeId": "DSPBM_PB_FUNDPOSIT_SEC",
+            "propertyRef": "DSPBM_PB_FUNDPOSIT_SEC.WKB23",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_FUNDPOSIT_SEC",
+            "column": "WKB28",
+            "objectTypeId": "DSPBM_PB_FUNDPOSIT_SEC",
+            "propertyRef": "DSPBM_PB_FUNDPOSIT_SEC.WKB28",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_FUNDPOSIT_SEC",
+            "column": "WKB31",
+            "objectTypeId": "DSPBM_PB_FUNDPOSIT_SEC",
+            "propertyRef": "DSPBM_PB_FUNDPOSIT_SEC.WKB31",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_STOCKPOS_SEC",
+            "column": "CPRICE",
+            "objectTypeId": "DSPBM_PB_STOCKPOS_SEC",
+            "propertyRef": "DSPBM_PB_STOCKPOS_SEC.CPRICE",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_STOCKPOS_SEC",
+            "column": "NETQTY",
+            "objectTypeId": "DSPBM_PB_STOCKPOS_SEC",
+            "propertyRef": "DSPBM_PB_STOCKPOS_SEC.NETQTY",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_YTRMRBP_SEC_M",
+            "column": "YTRMRB150",
+            "objectTypeId": "DSPBM_PB_YTRMRBP_SEC",
+            "propertyRef": "DSPBM_PB_YTRMRBP_SEC.YTRMRB150",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_YTRMRBP_SEC_M",
+            "column": "YTRMRB110",
+            "objectTypeId": "DSPBM_PB_YTRMRBP_SEC",
+            "propertyRef": "DSPBM_PB_YTRMRBP_SEC.YTRMRB110",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_YTRMRBP_SEC",
+            "column": "YTRMRB150",
+            "objectTypeId": "DSPBM_PB_YTRMRBP_SEC",
+            "propertyRef": "DSPBM_PB_YTRMRBP_SEC.YTRMRB150",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_YTRMRBP_SEC",
+            "column": "YTRMRB110",
+            "objectTypeId": "DSPBM_PB_YTRMRBP_SEC",
+            "propertyRef": "DSPBM_PB_YTRMRBP_SEC.YTRMRB110",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSCSD.PBCMS_REPORTA03",
+            "column": "PRODUCT_PRICE",
+            "objectTypeId": "DSCSD_PBCMS_REPORTA03",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          },
+          {
+            "physicalTable": "DSCSD.PBCMS_REPORTA03",
+            "column": "QTY",
+            "objectTypeId": "DSCSD_PBCMS_REPORTA03",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_01_aum_005_007_008_009_tmp01",
+          "sql_02_aum_005_007_008_009_tmp02",
+          "sql_03_aum_005_007_008_009_tmp03",
+          "sql_04_aum_005_007_008_009_tmp04",
+          "sql_05_aum_005_007_008_009_tmp05",
+          "sql_06_aum_005_007_008_009_tmp06",
+          "sql_07_aum_005_007_008_009_tmp07",
+          "sql_08_aum_005_007_008_009_tmp08",
+          "sql_09_aum_005_007_008_009",
+          "sql_10_aum_012_tmp01",
+          "sql_11_aum_012_tmp02",
+          "sql_12_aum_012",
+          "sql_13_aum_013_015_015_016_017_018",
+          "sql_14_aum_019_tmp_01",
+          "sql_15_aum_019",
+          "sql_16_aum_020_tmp01",
+          "sql_17_aum_020",
+          "sql_18_aum_021_tmp01",
+          "sql_19_aum_021",
+          "sql_20_aum_022_tmp01",
+          "sql_21_aum_022",
+          "sql_22_aum_023_024_tmp0",
+          "sql_23_aum_023_024_tmp1",
+          "sql_24_aum_023_024",
+          "sql_25_aum_025",
+          "sql_26_aum_026_tmp0",
+          "sql_27_aum_026_tmp1",
+          "sql_28_aum_026",
+          "sql_29_aum_027",
+          "sql_30_aum_028",
+          "sql_31_aum"
+        ],
+        "rules": [
+          "COMP := '銀行'",
+          "CASE WHEN detail IN ('台幣存款', '外幣存款') THEN '台外幣存款' ELSE detail END",
+          "CASE WHEN TRIM(ACT_CD) IN ('2311', '2321', '2322', '2331', '2332', '2333', '2335', '2336') THEN '台幣存款' WHEN TRIM(ACT_CD) IN ('2545') THEN '結構型存款' END",
+          "CASE WHEN TRIM(ACC_CD) IN ('2317', '2327') THEN '外幣存款' WHEN TRIM(ACC_CD) IN ('2545') THEN '結構型存款' END",
+          "NOT DETAIL IS NULL",
+          "YYYYMM >= '202506'",
+          "TRIM(PRFT_CNTR_CD) IN ('2E3000', '2E3200', '2E3300', '2E3400') AND LST_MTN_DT >= '20231201'",
+          "TYP := '投資'",
+          "PROD := '保險'",
+          "date_key = (SELECT MAX(date_key) AS date_key FROM DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT)",
+          "CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END",
+          "PROD := '海外債券(自營)'",
+          "pcc_code LIKE '2E%'",
+          "a.yyyymmdd = b.yyyymmdd",
+          "PROD := '規劃型信託'",
+          "PROD := '信託保管'",
+          "COMP := '證券'",
+          "CASE WHEN bond LIKE 'TSSN%' THEN '複委託結構型商品' ELSE '複委託債券' END",
+          "a.currency = b.curr_cd AND a.yyyymm = SUBSTR(b.prcs_dt, 1, 6)",
+          "a.prcs_dt = b.prcs_dt",
+          "a.clrdate = b.prcs_dt AND a.currency = b.curr_cd",
+          "PROD := '基金'",
+          "PROD := '外國股票'",
+          "a.currency = b.curr_cd AND yyyymmdd = prcs_dt",
+          "PROD := '台股'"
+        ],
+        "branchIndex": null
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum__amt__branch_001",
+      "domain": "aum",
+      "term": "AUM.AMT[branch=1]",
+      "displayName": "AUM.AMT[branch=1]",
+      "definition": "AST observed aggregate output AUM.AMT[branch=1]; source properties: DSDEP.DEP_NT_ACCT_HS.BAL_AMT, DSDEP.DEP_FN_ACCT_HS.AVAIL_BAL, DSDEP.EMP_DEP_NT_ACCT_HS.BAL_AMT, DSDEP.DEP_NT_ACCT.BAL_AMT, DSDEP.DEP_FN_ACCT.AVAIL_BAL.",
+      "aliases": [
+        "AMT"
+      ],
+      "formula": "存款AUM",
+      "formulas": [
+        "SUM(BAL_AMT)",
+        "SUM(AVAIL_BAL)",
+        "SUM(DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\"",
+        "SUM(DEP_FN_ACCT_HS.AVAIL_BAL) AS \"存款AUM\"",
+        "SUM(EMP_DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\"",
+        "SUM(DEP_NT_ACCT.BAL_AMT) AS AMT",
+        "SUM(DEP_FN_ACCT.AVAIL_BAL) AS \"存款AUM\"",
+        "SUM(AFAUM_AFCUST_MON_ASSET_REPORT.AMT_INVEST) AS AMT",
+        "SUM(PB_FUND_MONTH.CURRENTTWDVALUE) AS CURRENTTWDVALUE",
+        "SUM(BOND_POS_DAY.STO_AMT * BOND_POS_DAY.MKT_PRI / 100 * BOND_POS_DAY.EXC_RATE) AS AMT",
+        "SUM(EBTS_ACT_CNTAUMBAL_PB.PRESENTAMT) AS AMT",
+        "SUM(TRUCONTRACT_PB.MARKETVALUETWD) AS AMT",
+        "SUM(PB_PMS_AUM.AUM) AS AMT",
+        "SUM(NETQTY / 100 * CPRICE * EXCH_RT) AS AMT",
+        "SUM(A.NETQTY / 100 * A.CPRICE * A.EXCH_RT) AS AMT",
+        "SUM(PB_FUNDPOSIT_SEC_M.WKB28 * PB_FUNDPOSIT_SEC_M.WKB23 * PB_FUNDPOSIT_SEC_M.WKB31) AS AMT",
+        "SUM(PB_FUNDPOSIT_SEC.WKB28 * PB_FUNDPOSIT_SEC.WKB23 * PB_FUNDPOSIT_SEC.WKB31) AS AMT",
+        "SUM(NETQTY * CPRICE * EXCH_RT) AS AMT",
+        "SUM(A.NETQTY * A.CPRICE * B.EXCH_RT) AS AMT",
+        "SUM(A.AMT) AS AMT",
+        "PB_YTRMRBP_SEC_M.YTRMRB110 * PB_YTRMRBP_SEC_M.YTRMRB150 AS AMT",
+        "PB_YTRMRBP_SEC.YTRMRB110 * PB_YTRMRBP_SEC.YTRMRB150 AS AMT",
+        "SUM(PBCMS_REPORTA03.QTY * PBCMS_REPORTA03.PRODUCT_PRICE) AS AMT"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "TYP",
+        "COMP",
+        "PROD",
+        "TYP_SUB_DTL",
+        "CUST_ID",
+        "YYYYMMDD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSDEP.DEP_NT_ACCT_HS",
+            "column": "BAL_AMT",
+            "objectTypeId": "DSDEP_DEP_NT_ACCT_HS",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          },
+          {
+            "physicalTable": "DSDEP.DEP_FN_ACCT_HS",
+            "column": "AVAIL_BAL",
+            "objectTypeId": "DSDEP_DEP_FN_ACCT_HS",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          },
+          {
+            "physicalTable": "DSDEP.EMP_DEP_NT_ACCT_HS",
+            "column": "BAL_AMT",
+            "objectTypeId": "DSDEP_EMP_DEP_NT_ACCT_HS",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          },
+          {
+            "physicalTable": "DSDEP.DEP_NT_ACCT",
+            "column": "BAL_AMT",
+            "objectTypeId": "DSDEP_DEP_NT_ACCT",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          },
+          {
+            "physicalTable": "DSDEP.DEP_FN_ACCT",
+            "column": "AVAIL_BAL",
+            "objectTypeId": "DSDEP_DEP_FN_ACCT",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_01_aum_005_007_008_009_tmp01",
+          "sql_02_aum_005_007_008_009_tmp02",
+          "sql_03_aum_005_007_008_009_tmp03",
+          "sql_04_aum_005_007_008_009_tmp04",
+          "sql_05_aum_005_007_008_009_tmp05",
+          "sql_06_aum_005_007_008_009_tmp06",
+          "sql_07_aum_005_007_008_009_tmp07",
+          "sql_08_aum_005_007_008_009_tmp08",
+          "sql_31_aum"
+        ],
+        "rules": [
+          "COMP := '銀行'",
+          "CASE WHEN detail IN ('台幣存款', '外幣存款') THEN '台外幣存款' ELSE detail END",
+          "CASE WHEN TRIM(ACT_CD) IN ('2311', '2321', '2322', '2331', '2332', '2333', '2335', '2336') THEN '台幣存款' WHEN TRIM(ACT_CD) IN ('2545') THEN '結構型存款' END",
+          "CASE WHEN TRIM(ACC_CD) IN ('2317', '2327') THEN '外幣存款' WHEN TRIM(ACC_CD) IN ('2545') THEN '結構型存款' END",
+          "NOT DETAIL IS NULL",
+          "YYYYMM >= '202506'",
+          "TRIM(PRFT_CNTR_CD) IN ('2E3000', '2E3200', '2E3300', '2E3400') AND LST_MTN_DT >= '20231201'"
+        ],
+        "branchIndex": 1
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum__amt__branch_002",
+      "domain": "aum",
+      "term": "AUM.AMT[branch=2]",
+      "displayName": "AUM.AMT[branch=2] / 保險AUM",
+      "definition": "AST observed aggregate output AUM.AMT[branch=2]; source properties: DSKPI_AFAUM_AFCUST_MON_ASSET_RE.AMT_INVEST.",
+      "aliases": [
+        "AMT",
+        "保險AUM"
+      ],
+      "formula": "amt",
+      "formulas": [
+        "SUM(AMT_INVEST)",
+        "TO_CHAR(SYSDATE - 1, 'yyyymmdd')",
+        "MAX(date_key)",
+        "SUM(DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\"",
+        "SUM(DEP_FN_ACCT_HS.AVAIL_BAL) AS \"存款AUM\"",
+        "SUM(EMP_DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\"",
+        "SUM(DEP_NT_ACCT.BAL_AMT) AS AMT",
+        "SUM(DEP_FN_ACCT.AVAIL_BAL) AS \"存款AUM\"",
+        "SUM(AFAUM_AFCUST_MON_ASSET_REPORT.AMT_INVEST) AS AMT",
+        "SUM(PB_FUND_MONTH.CURRENTTWDVALUE) AS CURRENTTWDVALUE",
+        "SUM(BOND_POS_DAY.STO_AMT * BOND_POS_DAY.MKT_PRI / 100 * BOND_POS_DAY.EXC_RATE) AS AMT",
+        "SUM(EBTS_ACT_CNTAUMBAL_PB.PRESENTAMT) AS AMT",
+        "SUM(TRUCONTRACT_PB.MARKETVALUETWD) AS AMT",
+        "SUM(PB_PMS_AUM.AUM) AS AMT",
+        "SUM(NETQTY / 100 * CPRICE * EXCH_RT) AS AMT",
+        "SUM(A.NETQTY / 100 * A.CPRICE * A.EXCH_RT) AS AMT",
+        "SUM(PB_FUNDPOSIT_SEC_M.WKB28 * PB_FUNDPOSIT_SEC_M.WKB23 * PB_FUNDPOSIT_SEC_M.WKB31) AS AMT",
+        "SUM(PB_FUNDPOSIT_SEC.WKB28 * PB_FUNDPOSIT_SEC.WKB23 * PB_FUNDPOSIT_SEC.WKB31) AS AMT",
+        "SUM(NETQTY * CPRICE * EXCH_RT) AS AMT",
+        "SUM(A.NETQTY * A.CPRICE * B.EXCH_RT) AS AMT",
+        "SUM(A.AMT) AS AMT",
+        "PB_YTRMRBP_SEC_M.YTRMRB110 * PB_YTRMRBP_SEC_M.YTRMRB150 AS AMT",
+        "PB_YTRMRBP_SEC.YTRMRB110 * PB_YTRMRBP_SEC.YTRMRB150 AS AMT",
+        "SUM(PBCMS_REPORTA03.QTY * PBCMS_REPORTA03.PRODUCT_PRICE) AS AMT"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "TYP",
+        "COMP",
+        "PROD",
+        "TYP_SUB_DTL",
+        "CUST_ID",
+        "YYYYMMDD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT",
+            "column": "AMT_INVEST",
+            "objectTypeId": "DSKPI_AFAUM_AFCUST_MON_ASSET_RE",
+            "propertyRef": "DSKPI_AFAUM_AFCUST_MON_ASSET_RE.AMT_INVEST",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_10_aum_012_tmp01",
+          "sql_11_aum_012_tmp02",
+          "sql_31_aum"
+        ],
+        "rules": [
+          "TYP := '投資'",
+          "COMP := '銀行'",
+          "PROD := '保險'",
+          "date_key = (SELECT MAX(date_key) AS date_key FROM DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT)"
+        ],
+        "branchIndex": 2
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum__amt__branch_003",
+      "domain": "aum",
+      "term": "AUM.AMT[branch=3]",
+      "displayName": "AUM.AMT[branch=3] / 保險AUM",
+      "definition": "AST observed aggregate output AUM.AMT[branch=3]; source properties: DSKPI_AFAUM_AFCUST_MON_ASSET_RE.AMT_INVEST.",
+      "aliases": [
+        "AMT",
+        "保險AUM"
+      ],
+      "formula": "amt",
+      "formulas": [
+        "SUM(AMT_INVEST)",
+        "TO_CHAR(SYSDATE - 1, 'yyyymmdd')",
+        "MAX(date_key)",
+        "SUM(DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\"",
+        "SUM(DEP_FN_ACCT_HS.AVAIL_BAL) AS \"存款AUM\"",
+        "SUM(EMP_DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\"",
+        "SUM(DEP_NT_ACCT.BAL_AMT) AS AMT",
+        "SUM(DEP_FN_ACCT.AVAIL_BAL) AS \"存款AUM\"",
+        "SUM(AFAUM_AFCUST_MON_ASSET_REPORT.AMT_INVEST) AS AMT",
+        "SUM(PB_FUND_MONTH.CURRENTTWDVALUE) AS CURRENTTWDVALUE",
+        "SUM(BOND_POS_DAY.STO_AMT * BOND_POS_DAY.MKT_PRI / 100 * BOND_POS_DAY.EXC_RATE) AS AMT",
+        "SUM(EBTS_ACT_CNTAUMBAL_PB.PRESENTAMT) AS AMT",
+        "SUM(TRUCONTRACT_PB.MARKETVALUETWD) AS AMT",
+        "SUM(PB_PMS_AUM.AUM) AS AMT",
+        "SUM(NETQTY / 100 * CPRICE * EXCH_RT) AS AMT",
+        "SUM(A.NETQTY / 100 * A.CPRICE * A.EXCH_RT) AS AMT",
+        "SUM(PB_FUNDPOSIT_SEC_M.WKB28 * PB_FUNDPOSIT_SEC_M.WKB23 * PB_FUNDPOSIT_SEC_M.WKB31) AS AMT",
+        "SUM(PB_FUNDPOSIT_SEC.WKB28 * PB_FUNDPOSIT_SEC.WKB23 * PB_FUNDPOSIT_SEC.WKB31) AS AMT",
+        "SUM(NETQTY * CPRICE * EXCH_RT) AS AMT",
+        "SUM(A.NETQTY * A.CPRICE * B.EXCH_RT) AS AMT",
+        "SUM(A.AMT) AS AMT",
+        "PB_YTRMRBP_SEC_M.YTRMRB110 * PB_YTRMRBP_SEC_M.YTRMRB150 AS AMT",
+        "PB_YTRMRBP_SEC.YTRMRB110 * PB_YTRMRBP_SEC.YTRMRB150 AS AMT",
+        "SUM(PBCMS_REPORTA03.QTY * PBCMS_REPORTA03.PRODUCT_PRICE) AS AMT"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "TYP",
+        "COMP",
+        "PROD",
+        "TYP_SUB_DTL",
+        "CUST_ID",
+        "YYYYMMDD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT",
+            "column": "AMT_INVEST",
+            "objectTypeId": "DSKPI_AFAUM_AFCUST_MON_ASSET_RE",
+            "propertyRef": "DSKPI_AFAUM_AFCUST_MON_ASSET_RE.AMT_INVEST",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_10_aum_012_tmp01",
+          "sql_11_aum_012_tmp02",
+          "sql_31_aum"
+        ],
+        "rules": [
+          "TYP := '投資'",
+          "COMP := '銀行'",
+          "PROD := '保險'",
+          "date_key = (SELECT MAX(date_key) AS date_key FROM DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT)"
+        ],
+        "branchIndex": 3
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum__amt__branch_004",
+      "domain": "aum",
+      "term": "AUM.AMT[branch=4]",
+      "displayName": "AUM.AMT[branch=4] / 台幣餘額",
+      "definition": "AST observed aggregate output AUM.AMT[branch=4]; source properties: DSFND_PB_FUND_MONTH.CURRENTTWDVALUE.",
+      "aliases": [
+        "AMT",
+        "台幣餘額"
+      ],
+      "formula": "CurrentTWDValue",
+      "formulas": [
+        "CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END",
+        "SUM(CurrentTWDValue)",
+        "SUM(DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\"",
+        "SUM(DEP_FN_ACCT_HS.AVAIL_BAL) AS \"存款AUM\"",
+        "SUM(EMP_DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\"",
+        "SUM(DEP_NT_ACCT.BAL_AMT) AS AMT",
+        "SUM(DEP_FN_ACCT.AVAIL_BAL) AS \"存款AUM\"",
+        "SUM(AFAUM_AFCUST_MON_ASSET_REPORT.AMT_INVEST) AS AMT",
+        "SUM(PB_FUND_MONTH.CURRENTTWDVALUE) AS CURRENTTWDVALUE",
+        "SUM(BOND_POS_DAY.STO_AMT * BOND_POS_DAY.MKT_PRI / 100 * BOND_POS_DAY.EXC_RATE) AS AMT",
+        "SUM(EBTS_ACT_CNTAUMBAL_PB.PRESENTAMT) AS AMT",
+        "SUM(TRUCONTRACT_PB.MARKETVALUETWD) AS AMT",
+        "SUM(PB_PMS_AUM.AUM) AS AMT",
+        "SUM(NETQTY / 100 * CPRICE * EXCH_RT) AS AMT",
+        "SUM(A.NETQTY / 100 * A.CPRICE * A.EXCH_RT) AS AMT",
+        "SUM(PB_FUNDPOSIT_SEC_M.WKB28 * PB_FUNDPOSIT_SEC_M.WKB23 * PB_FUNDPOSIT_SEC_M.WKB31) AS AMT",
+        "SUM(PB_FUNDPOSIT_SEC.WKB28 * PB_FUNDPOSIT_SEC.WKB23 * PB_FUNDPOSIT_SEC.WKB31) AS AMT",
+        "SUM(NETQTY * CPRICE * EXCH_RT) AS AMT",
+        "SUM(A.NETQTY * A.CPRICE * B.EXCH_RT) AS AMT",
+        "SUM(A.AMT) AS AMT",
+        "PB_YTRMRBP_SEC_M.YTRMRB110 * PB_YTRMRBP_SEC_M.YTRMRB150 AS AMT",
+        "PB_YTRMRBP_SEC.YTRMRB110 * PB_YTRMRBP_SEC.YTRMRB150 AS AMT",
+        "SUM(PBCMS_REPORTA03.QTY * PBCMS_REPORTA03.PRODUCT_PRICE) AS AMT"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "TYP",
+        "COMP",
+        "PROD",
+        "TYP_SUB_DTL",
+        "CUST_ID",
+        "YYYYMMDD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSFND.PB_FUND_MONTH",
+            "column": "CURRENTTWDVALUE",
+            "objectTypeId": "DSFND_PB_FUND_MONTH",
+            "propertyRef": "DSFND_PB_FUND_MONTH.CURRENTTWDVALUE",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_13_aum_013_015_015_016_017_018",
+          "sql_31_aum"
+        ],
+        "rules": [
+          "TYP := '投資'",
+          "COMP := '銀行'",
+          "CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END"
+        ],
+        "branchIndex": 4
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum__amt__branch_005",
+      "domain": "aum",
+      "term": "AUM.AMT[branch=5]",
+      "displayName": "AUM.AMT[branch=5]",
+      "definition": "AST observed aggregate output AUM.AMT[branch=5]; source properties: DSWTR_BOND_POS_DAY.STO_AMT, DSWTR_BOND_POS_DAY.EXC_RATE, DSWTR_BOND_POS_DAY.MKT_PRI.",
+      "aliases": [
+        "AMT",
+        "面額",
+        "參考匯率",
+        "參考賣出價格"
+      ],
+      "formula": "amt",
+      "formulas": [
+        "SUM(STO_AMT * MKT_PRI / 100 * EXC_RATE)",
+        "MAX(yyyymmdd)",
+        "SUM(DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\"",
+        "SUM(DEP_FN_ACCT_HS.AVAIL_BAL) AS \"存款AUM\"",
+        "SUM(EMP_DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\"",
+        "SUM(DEP_NT_ACCT.BAL_AMT) AS AMT",
+        "SUM(DEP_FN_ACCT.AVAIL_BAL) AS \"存款AUM\"",
+        "SUM(AFAUM_AFCUST_MON_ASSET_REPORT.AMT_INVEST) AS AMT",
+        "SUM(PB_FUND_MONTH.CURRENTTWDVALUE) AS CURRENTTWDVALUE",
+        "SUM(BOND_POS_DAY.STO_AMT * BOND_POS_DAY.MKT_PRI / 100 * BOND_POS_DAY.EXC_RATE) AS AMT",
+        "SUM(EBTS_ACT_CNTAUMBAL_PB.PRESENTAMT) AS AMT",
+        "SUM(TRUCONTRACT_PB.MARKETVALUETWD) AS AMT",
+        "SUM(PB_PMS_AUM.AUM) AS AMT",
+        "SUM(NETQTY / 100 * CPRICE * EXCH_RT) AS AMT",
+        "SUM(A.NETQTY / 100 * A.CPRICE * A.EXCH_RT) AS AMT",
+        "SUM(PB_FUNDPOSIT_SEC_M.WKB28 * PB_FUNDPOSIT_SEC_M.WKB23 * PB_FUNDPOSIT_SEC_M.WKB31) AS AMT",
+        "SUM(PB_FUNDPOSIT_SEC.WKB28 * PB_FUNDPOSIT_SEC.WKB23 * PB_FUNDPOSIT_SEC.WKB31) AS AMT",
+        "SUM(NETQTY * CPRICE * EXCH_RT) AS AMT",
+        "SUM(A.NETQTY * A.CPRICE * B.EXCH_RT) AS AMT",
+        "SUM(A.AMT) AS AMT",
+        "PB_YTRMRBP_SEC_M.YTRMRB110 * PB_YTRMRBP_SEC_M.YTRMRB150 AS AMT",
+        "PB_YTRMRBP_SEC.YTRMRB110 * PB_YTRMRBP_SEC.YTRMRB150 AS AMT",
+        "SUM(PBCMS_REPORTA03.QTY * PBCMS_REPORTA03.PRODUCT_PRICE) AS AMT"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "TYP",
+        "COMP",
+        "PROD",
+        "TYP_SUB_DTL",
+        "CUST_ID",
+        "YYYYMMDD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSWTR.BOND_POS_DAY",
+            "column": "STO_AMT",
+            "objectTypeId": "DSWTR_BOND_POS_DAY",
+            "propertyRef": "DSWTR_BOND_POS_DAY.STO_AMT",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSWTR.BOND_POS_DAY",
+            "column": "EXC_RATE",
+            "objectTypeId": "DSWTR_BOND_POS_DAY",
+            "propertyRef": "DSWTR_BOND_POS_DAY.EXC_RATE",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSWTR.BOND_POS_DAY",
+            "column": "MKT_PRI",
+            "objectTypeId": "DSWTR_BOND_POS_DAY",
+            "propertyRef": "DSWTR_BOND_POS_DAY.MKT_PRI",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_14_aum_019_tmp_01",
+          "sql_31_aum"
+        ],
+        "rules": [
+          "TYP := '投資'",
+          "COMP := '銀行'",
+          "PROD := '海外債券(自營)'",
+          "pcc_code LIKE '2E%'",
+          "a.yyyymmdd = b.yyyymmdd"
+        ],
+        "branchIndex": 5
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum__amt__branch_006",
+      "domain": "aum",
+      "term": "AUM.AMT[branch=6]",
+      "displayName": "AUM.AMT[branch=6] / AUM(投資現值)",
+      "definition": "AST observed aggregate output AUM.AMT[branch=6]; source properties: DSEBS_EBTS_ACT_CNTAUMBAL_PB.PRESENTAMT.",
+      "aliases": [
+        "AMT",
+        "AUM(投資現值)"
+      ],
+      "formula": "amt",
+      "formulas": [
+        "SUM(PresentAmt)",
+        "MAX(yyyymmdd)",
+        "SUM(DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\"",
+        "SUM(DEP_FN_ACCT_HS.AVAIL_BAL) AS \"存款AUM\"",
+        "SUM(EMP_DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\"",
+        "SUM(DEP_NT_ACCT.BAL_AMT) AS AMT",
+        "SUM(DEP_FN_ACCT.AVAIL_BAL) AS \"存款AUM\"",
+        "SUM(AFAUM_AFCUST_MON_ASSET_REPORT.AMT_INVEST) AS AMT",
+        "SUM(PB_FUND_MONTH.CURRENTTWDVALUE) AS CURRENTTWDVALUE",
+        "SUM(BOND_POS_DAY.STO_AMT * BOND_POS_DAY.MKT_PRI / 100 * BOND_POS_DAY.EXC_RATE) AS AMT",
+        "SUM(EBTS_ACT_CNTAUMBAL_PB.PRESENTAMT) AS AMT",
+        "SUM(TRUCONTRACT_PB.MARKETVALUETWD) AS AMT",
+        "SUM(PB_PMS_AUM.AUM) AS AMT",
+        "SUM(NETQTY / 100 * CPRICE * EXCH_RT) AS AMT",
+        "SUM(A.NETQTY / 100 * A.CPRICE * A.EXCH_RT) AS AMT",
+        "SUM(PB_FUNDPOSIT_SEC_M.WKB28 * PB_FUNDPOSIT_SEC_M.WKB23 * PB_FUNDPOSIT_SEC_M.WKB31) AS AMT",
+        "SUM(PB_FUNDPOSIT_SEC.WKB28 * PB_FUNDPOSIT_SEC.WKB23 * PB_FUNDPOSIT_SEC.WKB31) AS AMT",
+        "SUM(NETQTY * CPRICE * EXCH_RT) AS AMT",
+        "SUM(A.NETQTY * A.CPRICE * B.EXCH_RT) AS AMT",
+        "SUM(A.AMT) AS AMT",
+        "PB_YTRMRBP_SEC_M.YTRMRB110 * PB_YTRMRBP_SEC_M.YTRMRB150 AS AMT",
+        "PB_YTRMRBP_SEC.YTRMRB110 * PB_YTRMRBP_SEC.YTRMRB150 AS AMT",
+        "SUM(PBCMS_REPORTA03.QTY * PBCMS_REPORTA03.PRODUCT_PRICE) AS AMT"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "TYP",
+        "COMP",
+        "PROD",
+        "TYP_SUB_DTL",
+        "CUST_ID",
+        "YYYYMMDD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSEBS.EBTS_ACT_CNTAUMBAL_PB",
+            "column": "PRESENTAMT",
+            "objectTypeId": "DSEBS_EBTS_ACT_CNTAUMBAL_PB",
+            "propertyRef": "DSEBS_EBTS_ACT_CNTAUMBAL_PB.PRESENTAMT",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_16_aum_020_tmp01",
+          "sql_31_aum"
+        ],
+        "rules": [
+          "TYP := '投資'",
+          "COMP := '銀行'",
+          "PROD := '規劃型信託'",
+          "a.yyyymmdd = b.yyyymmdd"
+        ],
+        "branchIndex": 6
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum__amt__branch_007",
+      "domain": "aum",
+      "term": "AUM.AMT[branch=7]",
+      "displayName": "AUM.AMT[branch=7] / AUM市值",
+      "definition": "AST observed aggregate output AUM.AMT[branch=7]; source properties: DSTAM_TRUCONTRACT_PB.MARKETVALUETWD.",
+      "aliases": [
+        "AMT",
+        "AUM市值"
+      ],
+      "formula": "amt",
+      "formulas": [
+        "SUM(MarketValueTWD)",
+        "MAX(yyyymmdd)",
+        "SUM(DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\"",
+        "SUM(DEP_FN_ACCT_HS.AVAIL_BAL) AS \"存款AUM\"",
+        "SUM(EMP_DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\"",
+        "SUM(DEP_NT_ACCT.BAL_AMT) AS AMT",
+        "SUM(DEP_FN_ACCT.AVAIL_BAL) AS \"存款AUM\"",
+        "SUM(AFAUM_AFCUST_MON_ASSET_REPORT.AMT_INVEST) AS AMT",
+        "SUM(PB_FUND_MONTH.CURRENTTWDVALUE) AS CURRENTTWDVALUE",
+        "SUM(BOND_POS_DAY.STO_AMT * BOND_POS_DAY.MKT_PRI / 100 * BOND_POS_DAY.EXC_RATE) AS AMT",
+        "SUM(EBTS_ACT_CNTAUMBAL_PB.PRESENTAMT) AS AMT",
+        "SUM(TRUCONTRACT_PB.MARKETVALUETWD) AS AMT",
+        "SUM(PB_PMS_AUM.AUM) AS AMT",
+        "SUM(NETQTY / 100 * CPRICE * EXCH_RT) AS AMT",
+        "SUM(A.NETQTY / 100 * A.CPRICE * A.EXCH_RT) AS AMT",
+        "SUM(PB_FUNDPOSIT_SEC_M.WKB28 * PB_FUNDPOSIT_SEC_M.WKB23 * PB_FUNDPOSIT_SEC_M.WKB31) AS AMT",
+        "SUM(PB_FUNDPOSIT_SEC.WKB28 * PB_FUNDPOSIT_SEC.WKB23 * PB_FUNDPOSIT_SEC.WKB31) AS AMT",
+        "SUM(NETQTY * CPRICE * EXCH_RT) AS AMT",
+        "SUM(A.NETQTY * A.CPRICE * B.EXCH_RT) AS AMT",
+        "SUM(A.AMT) AS AMT",
+        "PB_YTRMRBP_SEC_M.YTRMRB110 * PB_YTRMRBP_SEC_M.YTRMRB150 AS AMT",
+        "PB_YTRMRBP_SEC.YTRMRB110 * PB_YTRMRBP_SEC.YTRMRB150 AS AMT",
+        "SUM(PBCMS_REPORTA03.QTY * PBCMS_REPORTA03.PRODUCT_PRICE) AS AMT"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "TYP",
+        "COMP",
+        "PROD",
+        "TYP_SUB_DTL",
+        "CUST_ID",
+        "YYYYMMDD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSTAM.TRUCONTRACT_PB",
+            "column": "MARKETVALUETWD",
+            "objectTypeId": "DSTAM_TRUCONTRACT_PB",
+            "propertyRef": "DSTAM_TRUCONTRACT_PB.MARKETVALUETWD",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_18_aum_021_tmp01",
+          "sql_31_aum"
+        ],
+        "rules": [
+          "TYP := '投資'",
+          "COMP := '銀行'",
+          "PROD := '規劃型信託'",
+          "a.yyyymmdd = b.yyyymmdd"
+        ],
+        "branchIndex": 7
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum__amt__branch_008",
+      "domain": "aum",
+      "term": "AUM.AMT[branch=8]",
+      "displayName": "AUM.AMT[branch=8] / AUM現值合計",
+      "definition": "AST observed aggregate output AUM.AMT[branch=8]; source properties: DSPMS_PB_PMS_AUM.AUM.",
+      "aliases": [
+        "AMT",
+        "AUM現值合計"
+      ],
+      "formula": "amt",
+      "formulas": [
+        "SUM(AUM)",
+        "MAX(yyyymmdd)",
+        "SUM(DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\"",
+        "SUM(DEP_FN_ACCT_HS.AVAIL_BAL) AS \"存款AUM\"",
+        "SUM(EMP_DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\"",
+        "SUM(DEP_NT_ACCT.BAL_AMT) AS AMT",
+        "SUM(DEP_FN_ACCT.AVAIL_BAL) AS \"存款AUM\"",
+        "SUM(AFAUM_AFCUST_MON_ASSET_REPORT.AMT_INVEST) AS AMT",
+        "SUM(PB_FUND_MONTH.CURRENTTWDVALUE) AS CURRENTTWDVALUE",
+        "SUM(BOND_POS_DAY.STO_AMT * BOND_POS_DAY.MKT_PRI / 100 * BOND_POS_DAY.EXC_RATE) AS AMT",
+        "SUM(EBTS_ACT_CNTAUMBAL_PB.PRESENTAMT) AS AMT",
+        "SUM(TRUCONTRACT_PB.MARKETVALUETWD) AS AMT",
+        "SUM(PB_PMS_AUM.AUM) AS AMT",
+        "SUM(NETQTY / 100 * CPRICE * EXCH_RT) AS AMT",
+        "SUM(A.NETQTY / 100 * A.CPRICE * A.EXCH_RT) AS AMT",
+        "SUM(PB_FUNDPOSIT_SEC_M.WKB28 * PB_FUNDPOSIT_SEC_M.WKB23 * PB_FUNDPOSIT_SEC_M.WKB31) AS AMT",
+        "SUM(PB_FUNDPOSIT_SEC.WKB28 * PB_FUNDPOSIT_SEC.WKB23 * PB_FUNDPOSIT_SEC.WKB31) AS AMT",
+        "SUM(NETQTY * CPRICE * EXCH_RT) AS AMT",
+        "SUM(A.NETQTY * A.CPRICE * B.EXCH_RT) AS AMT",
+        "SUM(A.AMT) AS AMT",
+        "PB_YTRMRBP_SEC_M.YTRMRB110 * PB_YTRMRBP_SEC_M.YTRMRB150 AS AMT",
+        "PB_YTRMRBP_SEC.YTRMRB110 * PB_YTRMRBP_SEC.YTRMRB150 AS AMT",
+        "SUM(PBCMS_REPORTA03.QTY * PBCMS_REPORTA03.PRODUCT_PRICE) AS AMT"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "TYP",
+        "COMP",
+        "PROD",
+        "TYP_SUB_DTL",
+        "CUST_ID",
+        "YYYYMMDD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSPMS.PB_PMS_AUM",
+            "column": "AUM",
+            "objectTypeId": "DSPMS_PB_PMS_AUM",
+            "propertyRef": "DSPMS_PB_PMS_AUM.AUM",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_20_aum_022_tmp01",
+          "sql_31_aum"
+        ],
+        "rules": [
+          "TYP := '投資'",
+          "COMP := '銀行'",
+          "PROD := '信託保管'",
+          "a.yyyymmdd = b.yyyymmdd"
+        ],
+        "branchIndex": 8
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum__amt__branch_009",
+      "domain": "aum",
+      "term": "AUM.AMT[branch=9]",
+      "displayName": "AUM.AMT[branch=9]",
+      "definition": "AST observed aggregate output AUM.AMT[branch=9]; source properties: DSPBM.PB_BONDPOS_SEC.*, DSDEP.FN_EXCH_RT.*.",
+      "aliases": [
+        "AMT"
+      ],
+      "formula": "AMT",
+      "formulas": [
+        "SUM(NETQTY / 100 * CPRICE * exch_rt)",
+        "CASE WHEN bond LIKE 'TSSN%' THEN '複委託結構型商品' ELSE '複委託債券' END",
+        "MAX(prcs_dt)",
+        "SUM(DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\"",
+        "SUM(DEP_FN_ACCT_HS.AVAIL_BAL) AS \"存款AUM\"",
+        "SUM(EMP_DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\"",
+        "SUM(DEP_NT_ACCT.BAL_AMT) AS AMT",
+        "SUM(DEP_FN_ACCT.AVAIL_BAL) AS \"存款AUM\"",
+        "SUM(AFAUM_AFCUST_MON_ASSET_REPORT.AMT_INVEST) AS AMT",
+        "SUM(PB_FUND_MONTH.CURRENTTWDVALUE) AS CURRENTTWDVALUE",
+        "SUM(BOND_POS_DAY.STO_AMT * BOND_POS_DAY.MKT_PRI / 100 * BOND_POS_DAY.EXC_RATE) AS AMT",
+        "SUM(EBTS_ACT_CNTAUMBAL_PB.PRESENTAMT) AS AMT",
+        "SUM(TRUCONTRACT_PB.MARKETVALUETWD) AS AMT",
+        "SUM(PB_PMS_AUM.AUM) AS AMT",
+        "SUM(NETQTY / 100 * CPRICE * EXCH_RT) AS AMT",
+        "SUM(A.NETQTY / 100 * A.CPRICE * A.EXCH_RT) AS AMT",
+        "SUM(PB_FUNDPOSIT_SEC_M.WKB28 * PB_FUNDPOSIT_SEC_M.WKB23 * PB_FUNDPOSIT_SEC_M.WKB31) AS AMT",
+        "SUM(PB_FUNDPOSIT_SEC.WKB28 * PB_FUNDPOSIT_SEC.WKB23 * PB_FUNDPOSIT_SEC.WKB31) AS AMT",
+        "SUM(NETQTY * CPRICE * EXCH_RT) AS AMT",
+        "SUM(A.NETQTY * A.CPRICE * B.EXCH_RT) AS AMT",
+        "SUM(A.AMT) AS AMT",
+        "PB_YTRMRBP_SEC_M.YTRMRB110 * PB_YTRMRBP_SEC_M.YTRMRB150 AS AMT",
+        "PB_YTRMRBP_SEC.YTRMRB110 * PB_YTRMRBP_SEC.YTRMRB150 AS AMT",
+        "SUM(PBCMS_REPORTA03.QTY * PBCMS_REPORTA03.PRODUCT_PRICE) AS AMT"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "TYP",
+        "COMP",
+        "PROD",
+        "TYP_SUB_DTL",
+        "CUST_ID",
+        "YYYYMMDD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSPBM.PB_BONDPOS_SEC",
+            "column": "*",
+            "objectTypeId": "DSPBM_PB_BONDPOS_SEC",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          },
+          {
+            "physicalTable": "DSDEP.FN_EXCH_RT",
+            "column": "*",
+            "objectTypeId": null,
+            "propertyRef": null,
+            "mappingStatus": "unmapped"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_22_aum_023_024_tmp0",
+          "sql_23_aum_023_024_tmp1",
+          "sql_26_aum_026_tmp0",
+          "sql_27_aum_026_tmp1",
+          "sql_31_aum"
+        ],
+        "rules": [
+          "TYP := '投資'",
+          "COMP := '證券'",
+          "CASE WHEN bond LIKE 'TSSN%' THEN '複委託結構型商品' ELSE '複委託債券' END",
+          "a.currency = b.curr_cd AND a.yyyymm = SUBSTR(b.prcs_dt, 1, 6)",
+          "a.prcs_dt = b.prcs_dt",
+          "a.clrdate = b.prcs_dt AND a.currency = b.curr_cd"
+        ],
+        "branchIndex": 9
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum__amt__branch_010",
+      "domain": "aum",
+      "term": "AUM.AMT[branch=10]",
+      "displayName": "AUM.AMT[branch=10]",
+      "definition": "AST observed aggregate output AUM.AMT[branch=10]; source properties: DSPBM_PB_FUNDPOSIT_SEC.WKB31, DSPBM_PB_FUNDPOSIT_SEC.WKB23, DSPBM_PB_FUNDPOSIT_SEC.WKB28.",
+      "aliases": [
+        "AMT",
+        "匯率",
+        "收盤價",
+        "基金單位數"
+      ],
+      "formula": "AMT",
+      "formulas": [
+        "SUM(WKB28 * WKB23 * WKB31)",
+        "SUM(DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\"",
+        "SUM(DEP_FN_ACCT_HS.AVAIL_BAL) AS \"存款AUM\"",
+        "SUM(EMP_DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\"",
+        "SUM(DEP_NT_ACCT.BAL_AMT) AS AMT",
+        "SUM(DEP_FN_ACCT.AVAIL_BAL) AS \"存款AUM\"",
+        "SUM(AFAUM_AFCUST_MON_ASSET_REPORT.AMT_INVEST) AS AMT",
+        "SUM(PB_FUND_MONTH.CURRENTTWDVALUE) AS CURRENTTWDVALUE",
+        "SUM(BOND_POS_DAY.STO_AMT * BOND_POS_DAY.MKT_PRI / 100 * BOND_POS_DAY.EXC_RATE) AS AMT",
+        "SUM(EBTS_ACT_CNTAUMBAL_PB.PRESENTAMT) AS AMT",
+        "SUM(TRUCONTRACT_PB.MARKETVALUETWD) AS AMT",
+        "SUM(PB_PMS_AUM.AUM) AS AMT",
+        "SUM(NETQTY / 100 * CPRICE * EXCH_RT) AS AMT",
+        "SUM(A.NETQTY / 100 * A.CPRICE * A.EXCH_RT) AS AMT",
+        "SUM(PB_FUNDPOSIT_SEC_M.WKB28 * PB_FUNDPOSIT_SEC_M.WKB23 * PB_FUNDPOSIT_SEC_M.WKB31) AS AMT",
+        "SUM(PB_FUNDPOSIT_SEC.WKB28 * PB_FUNDPOSIT_SEC.WKB23 * PB_FUNDPOSIT_SEC.WKB31) AS AMT",
+        "SUM(NETQTY * CPRICE * EXCH_RT) AS AMT",
+        "SUM(A.NETQTY * A.CPRICE * B.EXCH_RT) AS AMT",
+        "SUM(A.AMT) AS AMT",
+        "PB_YTRMRBP_SEC_M.YTRMRB110 * PB_YTRMRBP_SEC_M.YTRMRB150 AS AMT",
+        "PB_YTRMRBP_SEC.YTRMRB110 * PB_YTRMRBP_SEC.YTRMRB150 AS AMT",
+        "SUM(PBCMS_REPORTA03.QTY * PBCMS_REPORTA03.PRODUCT_PRICE) AS AMT"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "TYP",
+        "COMP",
+        "PROD",
+        "TYP_SUB_DTL",
+        "CUST_ID",
+        "YYYYMMDD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSPBM.PB_FUNDPOSIT_SEC_M",
+            "column": "WKB31",
+            "objectTypeId": "DSPBM_PB_FUNDPOSIT_SEC",
+            "propertyRef": "DSPBM_PB_FUNDPOSIT_SEC.WKB31",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_FUNDPOSIT_SEC_M",
+            "column": "WKB23",
+            "objectTypeId": "DSPBM_PB_FUNDPOSIT_SEC",
+            "propertyRef": "DSPBM_PB_FUNDPOSIT_SEC.WKB23",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_FUNDPOSIT_SEC_M",
+            "column": "WKB28",
+            "objectTypeId": "DSPBM_PB_FUNDPOSIT_SEC",
+            "propertyRef": "DSPBM_PB_FUNDPOSIT_SEC.WKB28",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_FUNDPOSIT_SEC",
+            "column": "WKB23",
+            "objectTypeId": "DSPBM_PB_FUNDPOSIT_SEC",
+            "propertyRef": "DSPBM_PB_FUNDPOSIT_SEC.WKB23",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_FUNDPOSIT_SEC",
+            "column": "WKB28",
+            "objectTypeId": "DSPBM_PB_FUNDPOSIT_SEC",
+            "propertyRef": "DSPBM_PB_FUNDPOSIT_SEC.WKB28",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_FUNDPOSIT_SEC",
+            "column": "WKB31",
+            "objectTypeId": "DSPBM_PB_FUNDPOSIT_SEC",
+            "propertyRef": "DSPBM_PB_FUNDPOSIT_SEC.WKB31",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_25_aum_025",
+          "sql_31_aum"
+        ],
+        "rules": [
+          "TYP := '投資'",
+          "COMP := '證券'",
+          "PROD := '基金'"
+        ],
+        "branchIndex": 10
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum__amt__branch_011",
+      "domain": "aum",
+      "term": "AUM.AMT[branch=11]",
+      "displayName": "AUM.AMT[branch=11]",
+      "definition": "AST observed aggregate output AUM.AMT[branch=11]; source properties: DSDEP.FN_EXCH_RT.*, DSPBM_PB_STOCKPOS_SEC.CPRICE, DSPBM_PB_STOCKPOS_SEC.NETQTY.",
+      "aliases": [
+        "AMT",
+        "收盤價",
+        "目前庫存"
+      ],
+      "formula": "AMT",
+      "formulas": [
+        "SUM(NETQTY * CPRICE * exch_rt)",
+        "MAX(prcs_dt)",
+        "SUM(DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\"",
+        "SUM(DEP_FN_ACCT_HS.AVAIL_BAL) AS \"存款AUM\"",
+        "SUM(EMP_DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\"",
+        "SUM(DEP_NT_ACCT.BAL_AMT) AS AMT",
+        "SUM(DEP_FN_ACCT.AVAIL_BAL) AS \"存款AUM\"",
+        "SUM(AFAUM_AFCUST_MON_ASSET_REPORT.AMT_INVEST) AS AMT",
+        "SUM(PB_FUND_MONTH.CURRENTTWDVALUE) AS CURRENTTWDVALUE",
+        "SUM(BOND_POS_DAY.STO_AMT * BOND_POS_DAY.MKT_PRI / 100 * BOND_POS_DAY.EXC_RATE) AS AMT",
+        "SUM(EBTS_ACT_CNTAUMBAL_PB.PRESENTAMT) AS AMT",
+        "SUM(TRUCONTRACT_PB.MARKETVALUETWD) AS AMT",
+        "SUM(PB_PMS_AUM.AUM) AS AMT",
+        "SUM(NETQTY / 100 * CPRICE * EXCH_RT) AS AMT",
+        "SUM(A.NETQTY / 100 * A.CPRICE * A.EXCH_RT) AS AMT",
+        "SUM(PB_FUNDPOSIT_SEC_M.WKB28 * PB_FUNDPOSIT_SEC_M.WKB23 * PB_FUNDPOSIT_SEC_M.WKB31) AS AMT",
+        "SUM(PB_FUNDPOSIT_SEC.WKB28 * PB_FUNDPOSIT_SEC.WKB23 * PB_FUNDPOSIT_SEC.WKB31) AS AMT",
+        "SUM(NETQTY * CPRICE * EXCH_RT) AS AMT",
+        "SUM(A.NETQTY * A.CPRICE * B.EXCH_RT) AS AMT",
+        "SUM(A.AMT) AS AMT",
+        "PB_YTRMRBP_SEC_M.YTRMRB110 * PB_YTRMRBP_SEC_M.YTRMRB150 AS AMT",
+        "PB_YTRMRBP_SEC.YTRMRB110 * PB_YTRMRBP_SEC.YTRMRB150 AS AMT",
+        "SUM(PBCMS_REPORTA03.QTY * PBCMS_REPORTA03.PRODUCT_PRICE) AS AMT"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "TYP",
+        "COMP",
+        "PROD",
+        "TYP_SUB_DTL",
+        "CUST_ID",
+        "YYYYMMDD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSDEP.FN_EXCH_RT",
+            "column": "*",
+            "objectTypeId": null,
+            "propertyRef": null,
+            "mappingStatus": "unmapped"
+          },
+          {
+            "physicalTable": "DSPBM.PB_STOCKPOS_SEC",
+            "column": "CPRICE",
+            "objectTypeId": "DSPBM_PB_STOCKPOS_SEC",
+            "propertyRef": "DSPBM_PB_STOCKPOS_SEC.CPRICE",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_STOCKPOS_SEC",
+            "column": "NETQTY",
+            "objectTypeId": "DSPBM_PB_STOCKPOS_SEC",
+            "propertyRef": "DSPBM_PB_STOCKPOS_SEC.NETQTY",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_22_aum_023_024_tmp0",
+          "sql_23_aum_023_024_tmp1",
+          "sql_26_aum_026_tmp0",
+          "sql_27_aum_026_tmp1",
+          "sql_31_aum"
+        ],
+        "rules": [
+          "TYP := '投資'",
+          "COMP := '證券'",
+          "PROD := '外國股票'",
+          "a.currency = b.curr_cd AND a.yyyymm = SUBSTR(b.prcs_dt, 1, 6)",
+          "a.currency = b.curr_cd AND yyyymmdd = prcs_dt",
+          "a.prcs_dt = b.prcs_dt"
+        ],
+        "branchIndex": 11
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum__amt__branch_012",
+      "domain": "aum",
+      "term": "AUM.AMT[branch=12]",
+      "displayName": "AUM.AMT[branch=12]",
+      "definition": "AST observed aggregate output AUM.AMT[branch=12]; source properties: DSPBM_PB_YTRMRBP_SEC.YTRMRB150, DSPBM_PB_YTRMRBP_SEC.YTRMRB110.",
+      "aliases": [
+        "AMT",
+        "收盤價",
+        "集保庫存=目前庫存"
+      ],
+      "formula": "AMT",
+      "formulas": [
+        "SUM(amt)",
+        "YTRMRB110 * YTRMRB150",
+        "SUM(DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\"",
+        "SUM(DEP_FN_ACCT_HS.AVAIL_BAL) AS \"存款AUM\"",
+        "SUM(EMP_DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\"",
+        "SUM(DEP_NT_ACCT.BAL_AMT) AS AMT",
+        "SUM(DEP_FN_ACCT.AVAIL_BAL) AS \"存款AUM\"",
+        "SUM(AFAUM_AFCUST_MON_ASSET_REPORT.AMT_INVEST) AS AMT",
+        "SUM(PB_FUND_MONTH.CURRENTTWDVALUE) AS CURRENTTWDVALUE",
+        "SUM(BOND_POS_DAY.STO_AMT * BOND_POS_DAY.MKT_PRI / 100 * BOND_POS_DAY.EXC_RATE) AS AMT",
+        "SUM(EBTS_ACT_CNTAUMBAL_PB.PRESENTAMT) AS AMT",
+        "SUM(TRUCONTRACT_PB.MARKETVALUETWD) AS AMT",
+        "SUM(PB_PMS_AUM.AUM) AS AMT",
+        "SUM(NETQTY / 100 * CPRICE * EXCH_RT) AS AMT",
+        "SUM(A.NETQTY / 100 * A.CPRICE * A.EXCH_RT) AS AMT",
+        "SUM(PB_FUNDPOSIT_SEC_M.WKB28 * PB_FUNDPOSIT_SEC_M.WKB23 * PB_FUNDPOSIT_SEC_M.WKB31) AS AMT",
+        "SUM(PB_FUNDPOSIT_SEC.WKB28 * PB_FUNDPOSIT_SEC.WKB23 * PB_FUNDPOSIT_SEC.WKB31) AS AMT",
+        "SUM(NETQTY * CPRICE * EXCH_RT) AS AMT",
+        "SUM(A.NETQTY * A.CPRICE * B.EXCH_RT) AS AMT",
+        "SUM(A.AMT) AS AMT",
+        "PB_YTRMRBP_SEC_M.YTRMRB110 * PB_YTRMRBP_SEC_M.YTRMRB150 AS AMT",
+        "PB_YTRMRBP_SEC.YTRMRB110 * PB_YTRMRBP_SEC.YTRMRB150 AS AMT",
+        "SUM(PBCMS_REPORTA03.QTY * PBCMS_REPORTA03.PRODUCT_PRICE) AS AMT"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "TYP",
+        "COMP",
+        "PROD",
+        "TYP_SUB_DTL",
+        "CUST_ID",
+        "YYYYMMDD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSPBM.PB_YTRMRBP_SEC_M",
+            "column": "YTRMRB150",
+            "objectTypeId": "DSPBM_PB_YTRMRBP_SEC",
+            "propertyRef": "DSPBM_PB_YTRMRBP_SEC.YTRMRB150",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_YTRMRBP_SEC_M",
+            "column": "YTRMRB110",
+            "objectTypeId": "DSPBM_PB_YTRMRBP_SEC",
+            "propertyRef": "DSPBM_PB_YTRMRBP_SEC.YTRMRB110",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_YTRMRBP_SEC",
+            "column": "YTRMRB150",
+            "objectTypeId": "DSPBM_PB_YTRMRBP_SEC",
+            "propertyRef": "DSPBM_PB_YTRMRBP_SEC.YTRMRB150",
+            "mappingStatus": "object_property"
+          },
+          {
+            "physicalTable": "DSPBM.PB_YTRMRBP_SEC",
+            "column": "YTRMRB110",
+            "objectTypeId": "DSPBM_PB_YTRMRBP_SEC",
+            "propertyRef": "DSPBM_PB_YTRMRBP_SEC.YTRMRB110",
+            "mappingStatus": "object_property"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_29_aum_027",
+          "sql_31_aum"
+        ],
+        "rules": [
+          "TYP := '投資'",
+          "COMP := '證券'",
+          "PROD := '台股'"
+        ],
+        "branchIndex": 12
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    },
+    {
+      "id": "aum__amt__branch_013",
+      "domain": "aum",
+      "term": "AUM.AMT[branch=13]",
+      "displayName": "AUM.AMT[branch=13]",
+      "definition": "AST observed aggregate output AUM.AMT[branch=13]; source properties: DSCSD.PBCMS_REPORTA03.PRODUCT_PRICE, DSCSD.PBCMS_REPORTA03.QTY.",
+      "aliases": [
+        "AMT"
+      ],
+      "formula": "AMT",
+      "formulas": [
+        "SUM(Qty * Product_Price)",
+        "SUM(DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\"",
+        "SUM(DEP_FN_ACCT_HS.AVAIL_BAL) AS \"存款AUM\"",
+        "SUM(EMP_DEP_NT_ACCT_HS.BAL_AMT) AS \"存款AUM\"",
+        "SUM(DEP_NT_ACCT.BAL_AMT) AS AMT",
+        "SUM(DEP_FN_ACCT.AVAIL_BAL) AS \"存款AUM\"",
+        "SUM(AFAUM_AFCUST_MON_ASSET_REPORT.AMT_INVEST) AS AMT",
+        "SUM(PB_FUND_MONTH.CURRENTTWDVALUE) AS CURRENTTWDVALUE",
+        "SUM(BOND_POS_DAY.STO_AMT * BOND_POS_DAY.MKT_PRI / 100 * BOND_POS_DAY.EXC_RATE) AS AMT",
+        "SUM(EBTS_ACT_CNTAUMBAL_PB.PRESENTAMT) AS AMT",
+        "SUM(TRUCONTRACT_PB.MARKETVALUETWD) AS AMT",
+        "SUM(PB_PMS_AUM.AUM) AS AMT",
+        "SUM(NETQTY / 100 * CPRICE * EXCH_RT) AS AMT",
+        "SUM(A.NETQTY / 100 * A.CPRICE * A.EXCH_RT) AS AMT",
+        "SUM(PB_FUNDPOSIT_SEC_M.WKB28 * PB_FUNDPOSIT_SEC_M.WKB23 * PB_FUNDPOSIT_SEC_M.WKB31) AS AMT",
+        "SUM(PB_FUNDPOSIT_SEC.WKB28 * PB_FUNDPOSIT_SEC.WKB23 * PB_FUNDPOSIT_SEC.WKB31) AS AMT",
+        "SUM(NETQTY * CPRICE * EXCH_RT) AS AMT",
+        "SUM(A.NETQTY * A.CPRICE * B.EXCH_RT) AS AMT",
+        "SUM(A.AMT) AS AMT",
+        "PB_YTRMRBP_SEC_M.YTRMRB110 * PB_YTRMRBP_SEC_M.YTRMRB150 AS AMT",
+        "PB_YTRMRBP_SEC.YTRMRB110 * PB_YTRMRBP_SEC.YTRMRB150 AS AMT",
+        "SUM(PBCMS_REPORTA03.QTY * PBCMS_REPORTA03.PRODUCT_PRICE) AS AMT"
+      ],
+      "grain": [],
+      "dimensionCandidates": [
+        "TYP",
+        "COMP",
+        "PROD",
+        "TYP_SUB_DTL",
+        "CUST_ID",
+        "YYYYMMDD"
+      ],
+      "status": "inferred",
+      "queryEnabled": true,
+      "evidence": {
+        "semanticOrigin": "metadata_sql_ast",
+        "measureLineageId": "AUM.AMT",
+        "sourceProperties": [
+          {
+            "physicalTable": "DSCSD.PBCMS_REPORTA03",
+            "column": "PRODUCT_PRICE",
+            "objectTypeId": "DSCSD_PBCMS_REPORTA03",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          },
+          {
+            "physicalTable": "DSCSD.PBCMS_REPORTA03",
+            "column": "QTY",
+            "objectTypeId": "DSCSD_PBCMS_REPORTA03",
+            "propertyRef": null,
+            "mappingStatus": "object_only"
+          }
+        ],
+        "sqlEvidenceIds": [
+          "sql_30_aum_028",
+          "sql_31_aum"
+        ],
+        "rules": [
+          "TYP := '投資'",
+          "COMP := '證券'",
+          "PROD := '台股'"
+        ],
+        "branchIndex": 13
+      },
+      "review": {
+        "confirmedBy": null,
+        "confirmedAt": null,
+        "comment": null
+      },
+      "curation": {
+        "applied": false,
+        "overriddenFields": []
+      }
+    }
+  ]
+}

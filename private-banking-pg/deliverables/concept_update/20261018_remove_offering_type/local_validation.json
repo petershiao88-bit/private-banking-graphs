@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "currentProducts": 25,
+  "currentClassificationValues": 42,
+  "currentConceptNodes": 41,
+  "currentConceptRelationships": 69,
+  "currentBusinessPaths": 39,
+  "retiredFieldInOutput": 0
+}

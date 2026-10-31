@@ -1,0 +1,83 @@
+私銀智能問答：通用回答 v11 最小對照結果與接續
+日期：2026-10-16，Asia/Taipei。
+
+一、實際停止點
+使用者已授權依通用回答方案開始測試。本輪完成兩版各一組 C1→C2，共四輪原生診斷；未完成獨立確認、F／P 組或完整回歸。這是開發診斷，不是準確率測量，不宣稱功能驗收完成。
+線上目前已保存 r2 通用回答候選，18 節點、active=false，未發布。
+workflowId：pqvhkncZ9bFlfe4B。
+URL：https://chiang4901.app.n8n.cloud/workflow/pqvhkncZ9bFlfe4B
+保存版本：926130e4-a3ae-4fbb-8092-61662068b886。
+最新完整匯出：deliverables/graph_qa/v11_direct_answer_20261016/workflow.after.json。
+保存核對：同目錄 saved_validation.final.json，status=passed；只表示保存／結構深比通過。
+參數 hash 使用本輪序列化定義：61e29e5f14b83706a5b4ff7e7a0293f14dce8695e19151f394c7162cecea9234。
+不要把這個 hash 與 v9 的不同序列化 hash 直接比較；以保存 JSON 深比為準。
+
+二、已實作的資料流
+Prepare Dialogue 讀原始問答 history；舊 topic 與 pending 不再作需求權威，輸出空相容欄位。
+Prepare Jev Request 保留完整圖驗證及 39 條路徑，只問路徑 relevance；移除 qa_route、qa_clarification、qa_answer_intent、qa_context、qa_style、qa_sql_scope、node:: 等題型控制。
+Jev API、模型及 QA Chat Model 設定不變。主要回答仍由 openai/gpt-5.6-luna 產生。
+Process Jev Decision 只驗證格式並組裝候選子圖，不做 domain→channel 等語意修補。
+fullConceptGraph 送回答端；conceptGraph／retrievalConceptGraph 只含候選路徑，供既有 Aura 映射 selector 使用。
+Needs Mapping? 依 needsMapping 判斷，沒有候選仍以完整概念圖回答。
+兩支證據節點提供 question、原始 history、fullConceptGraph、mappingEvidence、retrieval。
+Answer Question 以通用 prompt 理解完整對話、直接回答或自然澄清；原 SQL 日期、WHERE 血緣、CASE、UNION 去重、staging 與下游私銀母體限制保留為來源忠實規則。
+Finalize QA memory version=6，只保存原始問答；最近 12 輪、32KB、單答案長度限制保留。
+共改八個節點參數。節點身份、位置、接線、settings、模型與 Aura 查詢保持原樣；未新增前置 LLM、回答後修復或工具迴圈。
+
+三、原生診斷結果
+題目相同：C1「銀行基金與證券複委託基金差在哪？」→ C2「那 AUM 呢？」。
+每組先 Reset／新 session；同組兩輪保留記憶，首輪空白、第二輪只有本組第一輪，均以實際輸出驗證。
+
+r1：保存版本 918be63e-8a55-4917-ae37-3dc69ee11bc9。
+session：37cc439bd80649e3a9054b0838b97afb。
+C1 #2645：9 條候選，回答資料 227548 bytes，回答模型 UI 70924 tokens；歷史執行 11.69 秒。
+C2 #2651：21 條候選，回答資料 412621 bytes，UI 128330 tokens；歷史執行 17.195 秒。
+兩輪保留基金比較，但 C2 加入其他產品的上層分類清單，以及未由定義直接證實的資產池／資產性質比較；本組未全過。
+
+r2：收緊 relevance 為使用者所指產品／指標，歷史助手附帶介紹不擴張需求；比較表只寫來源支持的本題事實。不是部署舊 v10 草稿。
+session：e55c2b44c1324f41ba45a87f346f239c。
+C1 #2652：5 條候選，回答資料 181771 bytes，UI 56728 tokens；歷史執行 13.744 秒。
+C2 #2653：8 條候選，回答資料 218920 bytes，UI 69217 tokens；歷史執行 13.431 秒。
+C2 歷史執行 Autosave 連結確認使用 r2 保存版本。聊天面板曾顯示 50.176 秒，包含客戶端延遲，不能拿它取代保存執行秒數。
+r2 C2 的比較承接與回答範圍符合本組目標：兩基金 AUM 比較，不問通路二選一、不加入債券／結構型商品的說明；沒有產生公式或 SQL。
+但檢索仍不精準：C1 多選 securities_structured/aum；C2 兩基金 AUM 是 included，deposit、bank_etf、bank_structured_offshore、bank_insurance、securities_bond、securities_structured 的 AUM 均 uncertain。
+按試驗前固定的 included＋uncertain 政策，C2 共查八條路徑。沒有為了答案好看截斷 SQL、默默只取 top-1 或丟棄來源。
+額外檢索不等於回答範圍錯；r2 回答已有改善，檢索及證據量問題仍待處理。不得把一次診斷當成穩定成功，也不能宣稱架構本身已證明優於 v9。
+
+四、證據入口與邊界
+閱讀報告：deliverables/graph_qa/v11_direct_answer_20261016/通用回答最小對照結果.html。
+完整判定：同目錄 assessment.final.json。
+r1 原生輸出：runs/C_diagnostic/。
+r2 原生輸出：revisions/r2/runs/C_diagnostic/。
+每輪保存實際 Prepare Dialogue、完整 Prepare Jev Request、Jev answers／requestId／模型、Process、回答輸入證據及 Finalize／memoryState。r1 另有兩輪完整映射原生下載。
+native.json 是透過 n8n 原生輸出介面複製／下載，不是 raw HTTP log。
+*.answer_user_prompt.reconstructed.txt 依實際回答輸入契約與凍結 expression 重建，已明確標示，不能稱實際 provider request trace。
+QA Chat Model 子節點 Input／Output 面板為 []，不代表模型沒有收到資料，也不能當 API 實際訊息。實際回答輸入契約、答案及執行樹另有保存。
+每輪執行樹只有一個 Jev HTTP 節點及一個 QA Chat Model；程式 audit 的 calls=1 是結構紀錄，不是獨立的網路計量。原 HTTP retry 設定保留，UI 未單列實際 transport retry 次數。
+6 組離線資料契約通過；這不替代原生答案驗收。
+原始 SQL、Aura 圖譜、已發布 KB、12 節點單輪工作流程均非本輪修改範圍。
+
+五、已還原與保存
+Graph Chat 原 pinData 已完全還原：
+sessionId=4753afde49b44d0899cb8b9d103b9862
+chatInput=證券複委託基金的收入怎麼計算？請說明來源與日期規則。
+聊天已 Reset，新 UI session 前綴 23e57；沒有執行中的測試。
+暫時關閉過 Sync selection with canvas，結束已讀取 check 圖示確認還原 true。
+最終匯出深比：r2 全部參數一致；18 節點身份與位置、接線、settings、原 pinData 一致，active=false。
+沒有發布、沒有執行 Oracle／實際金額、沒有新 thread／排程／背景測試、沒有 commit／PR。
+
+六、尚未執行與下一步
+仍未執行：C 組兩次獨立確認、F 澄清接短答、P 換通路／指標及其確認、完整回歸與原生 SQL 回歸。
+先逐層評估檢索誤納及 uncertain 政策，避免繼續疊加題型修補。若改候選政策，另立版本與預先判定條件；不得事後改成預先規劃。
+原計畫仍見 20261016_通用回答簡化方案與測試交接.txt 及同名測試計畫 JSON。C/F/P 在同一凍結候選各通過兩組預先安排的獨立確認，才完整回歸。
+下一輪必須重新匯出線上現況，保留使用者後續變更；先備份再解除 pinData，每組先驗證空白，同組內不重設。
+維持 18 節點、每輪一次 Jev 與既有主要回答、不新增前後置 LLM、不發布、不改圖譜與原 SQL、不執行 Oracle。原 SQL 是 CP950／Big5，不順手改編碼。
+
+七、UI 取證注意事項
+檔案匯入受 Chrome 擴充功能 file URL 設定限制，未更改權限；以原節點編輯器更新，匯出深比確認內容。
+大表格及畫布同步會令 DOM／滑鼠事件逾時。先重新觀察，再繼續；不要重送模型題目。
+JSON 輸出可用原生 Copy to Clipboard；過大資料用原生 Download，不能 Show data 後把未呈現部分當成完整資料。
+複製可能仍是上一輪剪貼簿，要核對 question、節點特徵欄位及 session，再存檔。
+畫面與節點導覽可能延遲；每次先確認 node-title-container，避免重點兩次而跨過節點。
+新 session 重新取得分頁，不沿用舊 REPL 變數；Browser Use 分頁曾一次失效，重新綁定同一分頁後恢復，未重跑題目。
+原 v9 與本輪 r1/r2 全部保留；舊 v10 草稿仍未部署。

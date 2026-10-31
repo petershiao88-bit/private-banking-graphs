@@ -1,0 +1,347 @@
+# 客戶360語意模型 v0.2.0，2026-10-21，設計草案。
+# example.org 為示意命名空間；不是實際服務位址。
+# 本檔以 RDF/Turtle 表示 OWL 本體。
+
+@prefix fh: <https://example.org/ontology/holding#> .
+@prefix bank: <https://example.org/ontology/bank#> .
+@prefix sec: <https://example.org/ontology/securities#> .
+@prefix life: <https://example.org/ontology/life#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+# ==========================================================
+# 本體資訊
+# ==========================================================
+
+<https://example.org/ontology/customer360>
+    a owl:Ontology ;
+    rdfs:label "客戶360核心與通聯資訊整合本體"@zh-TW ;
+    owl:versionIRI <https://example.org/ontology/customer360/0.2.0> ;
+    owl:versionInfo "0.2.0 / design draft / 2026-10-21" ;
+    rdfs:comment "金控核心與銀行、證券、人壽通聯模型的自含整合版。子公司先完成golden record整理，再映射共用基本資料；部門承接並映射業務資料。"@zh-TW .
+
+
+# ==========================================================
+# Annotation Property：名稱、定義與治理歸屬
+# ==========================================================
+
+rdfs:label
+    a owl:AnnotationProperty ;
+    rdfs:label "名稱"@zh-TW ;
+    skos:definition "提供類別或屬性的顯示名稱。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+skos:definition
+    a owl:AnnotationProperty ;
+    rdfs:label "定義"@zh-TW ;
+    skos:definition "提供類別或屬性的業務意義描述。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:department
+    a owl:AnnotationProperty ;
+    rdfs:label "所屬部門"@zh-TW ;
+    skos:definition "標示類別或屬性定義的部門治理歸屬；不適用時省略。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:governanceLevel
+    a owl:AnnotationProperty ;
+    rdfs:label "治理層級"@zh-TW ;
+    skos:definition "標示定義所屬層級；本案約定使用金控、子公司或部門。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:subsidiary
+    a owl:AnnotationProperty ;
+    rdfs:label "所屬子公司"@zh-TW ;
+    skos:definition "標示類別或屬性定義的子公司治理歸屬；不適用時省略。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+
+# ==========================================================
+# Class：概念類別與繼承
+# ==========================================================
+
+bank:AddressContactInformation
+    a owl:Class ;
+    rdfs:subClassOf fh:ContactInformation ;
+    rdfs:label "銀行地址通聯資訊"@zh-TW ;
+    skos:definition "由銀行整理及提供、與客戶相關的地址通聯資訊，承接該公司系統建立的權威通聯資料。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+bank:MobileContactInformation
+    a owl:Class ;
+    rdfs:subClassOf fh:ContactInformation ;
+    rdfs:label "銀行手機通聯資訊"@zh-TW ;
+    skos:definition "由銀行整理及提供、與客戶相關的手機通聯資訊，承接該公司系統建立的權威通聯資料。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+fh:ContactInformation
+    a owl:Class ;
+    rdfs:label "通聯資訊"@zh-TW ;
+    skos:definition "由來源單位記錄、與客戶相關的通聯資訊。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:Customer
+    a owl:Class ;
+    rdfs:label "客戶"@zh-TW ;
+    skos:definition "集團業務中所服務的客戶；本次以自然人客戶為使用情境，尚未形式化自然人範圍限制。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:FinancialProduct
+    a owl:Class ;
+    rdfs:label "金融商品"@zh-TW ;
+    skos:definition "供各子公司延伸具體商品分類的共同上位概念。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+life:AddressContactInformation
+    a owl:Class ;
+    rdfs:subClassOf fh:ContactInformation ;
+    rdfs:label "人壽地址通聯資訊"@zh-TW ;
+    skos:definition "由人壽整理及提供、與客戶相關的地址通聯資訊，承接該公司系統建立的權威通聯資料。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "人壽" .
+
+life:MobileContactInformation
+    a owl:Class ;
+    rdfs:subClassOf fh:ContactInformation ;
+    rdfs:label "人壽手機通聯資訊"@zh-TW ;
+    skos:definition "由人壽整理及提供、與客戶相關的手機通聯資訊，承接該公司系統建立的權威通聯資料。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "人壽" .
+
+sec:AddressContactInformation
+    a owl:Class ;
+    rdfs:subClassOf fh:ContactInformation ;
+    rdfs:label "證券地址通聯資訊"@zh-TW ;
+    skos:definition "由證券整理及提供、與客戶相關的地址通聯資訊，承接該公司系統建立的權威通聯資料。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "證券" .
+
+sec:MobileContactInformation
+    a owl:Class ;
+    rdfs:subClassOf fh:ContactInformation ;
+    rdfs:label "證券手機通聯資訊"@zh-TW ;
+    skos:definition "由證券整理及提供、與客戶相關的手機通聯資訊，承接該公司系統建立的權威通聯資料。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "證券" .
+
+
+# ==========================================================
+# Object Property：業務關係
+# ==========================================================
+
+fh:hasContactPoint
+    a owl:ObjectProperty ;
+    rdfs:label "具有通聯資訊"@zh-TW ;
+    skos:definition "連接客戶與來源單位所記錄、與該客戶相關的通聯紀錄；實際使用由下層系統提供的權威通聯資料承接。"@zh-TW ;
+    rdfs:domain fh:Customer ;
+    rdfs:range fh:ContactInformation ;
+    fh:governanceLevel "金控" .
+
+fh:holds
+    a owl:ObjectProperty ;
+    rdfs:label "持有金融商品"@zh-TW ;
+    skos:definition "表達客戶持有金融商品的關係；具體持有認定、基數與時間範圍尚待後續確認。"@zh-TW ;
+    rdfs:domain fh:Customer ;
+    rdfs:range fh:FinancialProduct ;
+    fh:governanceLevel "金控" .
+
+
+# ==========================================================
+# Data Property：字面資料值
+# ==========================================================
+
+bank:addressLine
+    a owl:DatatypeProperty ;
+    rdfs:label "街道門牌地址"@zh-TW ;
+    skos:definition "縣市與鄉鎮市區以外的詳細地址內容，可包含路、街、段、巷、弄、號、樓層與室等。"@zh-TW ;
+    rdfs:domain bank:AddressContactInformation ;
+    rdfs:range xsd:string ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+bank:city
+    a owl:DatatypeProperty ;
+    rdfs:label "縣市"@zh-TW ;
+    skos:definition "該筆地址的縣市，例如臺北市或新竹縣；國際地址的行政層級對應尚待確認。"@zh-TW ;
+    rdfs:domain bank:AddressContactInformation ;
+    rdfs:range xsd:string ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+bank:countryCode
+    a owl:DatatypeProperty ;
+    rdfs:label "國家／地區代碼"@zh-TW ;
+    skos:definition "該筆地址所屬國家或地區的代碼；代碼標準尚待確認。"@zh-TW ;
+    rdfs:domain bank:AddressContactInformation ;
+    rdfs:range xsd:string ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+bank:district
+    a owl:DatatypeProperty ;
+    rdfs:label "鄉鎮市區"@zh-TW ;
+    skos:definition "該筆地址的鄉鎮市區，例如大安區或竹北市。"@zh-TW ;
+    rdfs:domain bank:AddressContactInformation ;
+    rdfs:range xsd:string ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+bank:fullAddress
+    a owl:DatatypeProperty ;
+    rdfs:label "完整地址"@zh-TW ;
+    skos:definition "子公司提供的完整地址文字；本版未規定其由拆分欄位自動組合或互相同步。"@zh-TW ;
+    rdfs:domain bank:AddressContactInformation ;
+    rdfs:range xsd:string ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+bank:mobileNumber
+    a owl:DatatypeProperty ;
+    rdfs:label "手機號碼"@zh-TW ;
+    skos:definition "該筆手機通聯紀錄的號碼字串，依來源保留國碼、前導零與其他必要字元；標準化格式尚未核定。"@zh-TW ;
+    rdfs:domain bank:MobileContactInformation ;
+    rdfs:range xsd:string ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+bank:postalCode
+    a owl:DatatypeProperty ;
+    rdfs:label "郵遞區號"@zh-TW ;
+    skos:definition "該筆地址的郵遞區號字串，保留前導零及必要字元；格式尚未限制。"@zh-TW ;
+    rdfs:domain bank:AddressContactInformation ;
+    rdfs:range xsd:string ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+life:addressLine
+    a owl:DatatypeProperty ;
+    rdfs:label "街道門牌地址"@zh-TW ;
+    skos:definition "縣市與鄉鎮市區以外的詳細地址內容，可包含路、街、段、巷、弄、號、樓層與室等。"@zh-TW ;
+    rdfs:domain life:AddressContactInformation ;
+    rdfs:range xsd:string ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "人壽" .
+
+life:city
+    a owl:DatatypeProperty ;
+    rdfs:label "縣市"@zh-TW ;
+    skos:definition "該筆地址的縣市，例如臺北市或新竹縣；國際地址的行政層級對應尚待確認。"@zh-TW ;
+    rdfs:domain life:AddressContactInformation ;
+    rdfs:range xsd:string ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "人壽" .
+
+life:countryCode
+    a owl:DatatypeProperty ;
+    rdfs:label "國家／地區代碼"@zh-TW ;
+    skos:definition "該筆地址所屬國家或地區的代碼；代碼標準尚待確認。"@zh-TW ;
+    rdfs:domain life:AddressContactInformation ;
+    rdfs:range xsd:string ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "人壽" .
+
+life:district
+    a owl:DatatypeProperty ;
+    rdfs:label "鄉鎮市區"@zh-TW ;
+    skos:definition "該筆地址的鄉鎮市區，例如大安區或竹北市。"@zh-TW ;
+    rdfs:domain life:AddressContactInformation ;
+    rdfs:range xsd:string ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "人壽" .
+
+life:fullAddress
+    a owl:DatatypeProperty ;
+    rdfs:label "完整地址"@zh-TW ;
+    skos:definition "子公司提供的完整地址文字；本版未規定其由拆分欄位自動組合或互相同步。"@zh-TW ;
+    rdfs:domain life:AddressContactInformation ;
+    rdfs:range xsd:string ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "人壽" .
+
+life:mobileNumber
+    a owl:DatatypeProperty ;
+    rdfs:label "手機號碼"@zh-TW ;
+    skos:definition "該筆手機通聯紀錄的號碼字串，依來源保留國碼、前導零與其他必要字元；標準化格式尚未核定。"@zh-TW ;
+    rdfs:domain life:MobileContactInformation ;
+    rdfs:range xsd:string ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "人壽" .
+
+life:postalCode
+    a owl:DatatypeProperty ;
+    rdfs:label "郵遞區號"@zh-TW ;
+    skos:definition "該筆地址的郵遞區號字串，保留前導零及必要字元；格式尚未限制。"@zh-TW ;
+    rdfs:domain life:AddressContactInformation ;
+    rdfs:range xsd:string ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "人壽" .
+
+sec:addressLine
+    a owl:DatatypeProperty ;
+    rdfs:label "街道門牌地址"@zh-TW ;
+    skos:definition "縣市與鄉鎮市區以外的詳細地址內容，可包含路、街、段、巷、弄、號、樓層與室等。"@zh-TW ;
+    rdfs:domain sec:AddressContactInformation ;
+    rdfs:range xsd:string ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "證券" .
+
+sec:city
+    a owl:DatatypeProperty ;
+    rdfs:label "縣市"@zh-TW ;
+    skos:definition "該筆地址的縣市，例如臺北市或新竹縣；國際地址的行政層級對應尚待確認。"@zh-TW ;
+    rdfs:domain sec:AddressContactInformation ;
+    rdfs:range xsd:string ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "證券" .
+
+sec:countryCode
+    a owl:DatatypeProperty ;
+    rdfs:label "國家／地區代碼"@zh-TW ;
+    skos:definition "該筆地址所屬國家或地區的代碼；代碼標準尚待確認。"@zh-TW ;
+    rdfs:domain sec:AddressContactInformation ;
+    rdfs:range xsd:string ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "證券" .
+
+sec:district
+    a owl:DatatypeProperty ;
+    rdfs:label "鄉鎮市區"@zh-TW ;
+    skos:definition "該筆地址的鄉鎮市區，例如大安區或竹北市。"@zh-TW ;
+    rdfs:domain sec:AddressContactInformation ;
+    rdfs:range xsd:string ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "證券" .
+
+sec:fullAddress
+    a owl:DatatypeProperty ;
+    rdfs:label "完整地址"@zh-TW ;
+    skos:definition "子公司提供的完整地址文字；本版未規定其由拆分欄位自動組合或互相同步。"@zh-TW ;
+    rdfs:domain sec:AddressContactInformation ;
+    rdfs:range xsd:string ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "證券" .
+
+sec:mobileNumber
+    a owl:DatatypeProperty ;
+    rdfs:label "手機號碼"@zh-TW ;
+    skos:definition "該筆手機通聯紀錄的號碼字串，依來源保留國碼、前導零與其他必要字元；標準化格式尚未核定。"@zh-TW ;
+    rdfs:domain sec:MobileContactInformation ;
+    rdfs:range xsd:string ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "證券" .
+
+sec:postalCode
+    a owl:DatatypeProperty ;
+    rdfs:label "郵遞區號"@zh-TW ;
+    skos:definition "該筆地址的郵遞區號字串，保留前導零及必要字元；格式尚未限制。"@zh-TW ;
+    rdfs:domain sec:AddressContactInformation ;
+    rdfs:range xsd:string ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "證券" .
+

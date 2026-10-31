@@ -1,0 +1,15 @@
+{
+  "command": [
+    "C:\\Users\\petershiao\\Desktop\\Ontology\\客戶360\\customer360-rdf-owl\\semantica-poc\\vendor\\java\\jdk-17.0.17+10-jre\\bin\\java.exe",
+    "-Xmx2000M",
+    "-cp",
+    "C:\\Users\\petershiao\\Desktop\\Ontology\\客戶360\\customer360-rdf-owl\\semantica-poc\\.venv\\Lib\\site-packages\\owlready2\\hermit;C:\\Users\\petershiao\\Desktop\\Ontology\\客戶360\\customer360-rdf-owl\\semantica-poc\\.venv\\Lib\\site-packages\\owlready2\\hermit\\HermiT.jar",
+    "org.semanticweb.HermiT.cli.CommandLine",
+    "-c",
+    "-O",
+    "-D",
+    "-I",
+    "file:///C:/Users/PETERS~1/AppData/Local/Temp/tmpwnrew4is",
+    "--ignoreUnsupportedDatatypes"
+  ]
+}

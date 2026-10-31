@@ -1,0 +1,230 @@
+{
+  "version": "0.16.0",
+  "date": "2026-10-24",
+  "status": "implemented_locally_not_deployed",
+  "backup": "archive/before-department-v0.16.0",
+  "new_rdf_classes": [
+    "https://example.org/ontology/holding#Department",
+    "https://example.org/ontology/bank#PrivateBankingDepartment"
+  ],
+  "new_rdf_object_properties": [
+    "https://example.org/ontology/holding#usesMetric"
+  ],
+  "new_department_concept": "bank.private_banking",
+  "metric_ids": [
+    "bank.collective_account_aum",
+    "bank.dci_fee_income",
+    "bank.deposit_interest_income",
+    "bank.domestic_structured_eli_fee_income",
+    "bank.domestic_structured_fci_fee_income",
+    "bank.domestic_structured_si_fee_income",
+    "bank.etf_aum",
+    "bank.etf_fee_income",
+    "bank.foreign_currency_deposit_aum",
+    "bank.fund_aum",
+    "bank.fund_fee_income",
+    "bank.fx_fee_income",
+    "bank.gold_fee_income",
+    "bank.insurance_aum",
+    "bank.insurance_fee_income",
+    "bank.lc_fee_income",
+    "bank.loan_income",
+    "bank.loan_lum",
+    "bank.offshore_structured_aum",
+    "bank.offshore_structured_fee_income",
+    "bank.overseas_bond_proprietary_aum",
+    "bank.overseas_bond_proprietary_fee_income",
+    "bank.overseas_bond_trust_aum",
+    "bank.overseas_bond_trust_fee_income",
+    "bank.overseas_stock_aum",
+    "bank.overseas_stock_fee_income",
+    "bank.planned_trust_aum",
+    "bank.planned_trust_fee_income",
+    "bank.product_fee_income",
+    "bank.structured_deposit_aum",
+    "bank.trust_custody_aum",
+    "bank.trust_custody_fee_income",
+    "bank.twd_deposit_aum",
+    "securities.bond_aum",
+    "securities.bond_fee_income",
+    "securities.foreign_stock_aum",
+    "securities.foreign_stock_fee_income",
+    "securities.fund_aum",
+    "securities.fund_fee_income",
+    "securities.structured_aum",
+    "securities.structured_fee_income",
+    "securities.taiwan_stock_aum"
+  ],
+  "metric_name_changes": {
+    "bank.product_fee_income": {
+      "before": "商品手收",
+      "after": "私銀－銀行商品手收"
+    },
+    "bank.domestic_structured_si_fee_income": {
+      "before": "境內結構型商品手收（SI）",
+      "after": "私銀－銀行境內結構型商品手收（SI）"
+    },
+    "bank.offshore_structured_fee_income": {
+      "before": "境外結構型商品手收",
+      "after": "私銀－銀行境外結構型商品手收"
+    },
+    "bank.overseas_stock_fee_income": {
+      "before": "銀行海外股票手收",
+      "after": "私銀－銀行海外股票手收"
+    },
+    "bank.domestic_structured_eli_fee_income": {
+      "before": "境內結構型商品手收（ELI）",
+      "after": "私銀－銀行境內結構型商品手收（ELI）"
+    },
+    "bank.domestic_structured_fci_fee_income": {
+      "before": "境內結構型商品手收（FCI）",
+      "after": "私銀－銀行境內結構型商品手收（FCI）"
+    },
+    "bank.dci_fee_income": {
+      "before": "銀行 DCI 手收",
+      "after": "私銀－銀行 DCI 手收"
+    },
+    "bank.twd_deposit_aum": {
+      "before": "台幣存款 AUM",
+      "after": "私銀－銀行台幣存款 AUM"
+    },
+    "bank.foreign_currency_deposit_aum": {
+      "before": "外幣存款 AUM",
+      "after": "私銀－銀行外幣存款 AUM"
+    },
+    "bank.structured_deposit_aum": {
+      "before": "結構型存款 AUM",
+      "after": "私銀－銀行結構型存款 AUM"
+    },
+    "bank.overseas_stock_aum": {
+      "before": "海外股票 AUM",
+      "after": "私銀－銀行海外股票 AUM"
+    },
+    "bank.overseas_bond_trust_aum": {
+      "before": "海外債券（信託）AUM",
+      "after": "私銀－銀行海外債券（信託）AUM"
+    },
+    "bank.offshore_structured_aum": {
+      "before": "境外結構型商品 AUM",
+      "after": "私銀－銀行境外結構型商品 AUM"
+    },
+    "bank.overseas_bond_proprietary_aum": {
+      "before": "海外債券（自營）AUM",
+      "after": "私銀－銀行海外債券（自營）AUM"
+    },
+    "bank.fund_aum": {
+      "before": "銀行基金 AUM",
+      "after": "私銀－銀行基金 AUM"
+    },
+    "bank.fund_fee_income": {
+      "before": "銀行基金手收",
+      "after": "私銀－銀行基金手收"
+    },
+    "securities.bond_aum": {
+      "before": "證券複委託債券 AUM",
+      "after": "私銀－證券複委託債券 AUM"
+    },
+    "securities.structured_aum": {
+      "before": "證券複委託結構型商品 AUM",
+      "after": "私銀－證券複委託結構型商品 AUM"
+    },
+    "securities.fund_aum": {
+      "before": "證券複委託基金 AUM",
+      "after": "私銀－證券複委託基金 AUM"
+    },
+    "securities.foreign_stock_aum": {
+      "before": "證券複委託外國股票 AUM",
+      "after": "私銀－證券複委託外國股票 AUM"
+    },
+    "securities.taiwan_stock_aum": {
+      "before": "證券台股 AUM",
+      "after": "私銀－證券台股 AUM"
+    },
+    "securities.bond_fee_income": {
+      "before": "證券複委託債券手收",
+      "after": "私銀－證券複委託債券手收"
+    },
+    "securities.structured_fee_income": {
+      "before": "證券複委託結構型商品手收",
+      "after": "私銀－證券複委託結構型商品手收"
+    },
+    "securities.fund_fee_income": {
+      "before": "證券複委託基金手收",
+      "after": "私銀－證券複委託基金手收"
+    },
+    "securities.foreign_stock_fee_income": {
+      "before": "證券複委託外國股票淨手收",
+      "after": "私銀－證券複委託外國股票淨手收"
+    },
+    "bank.insurance_aum": {
+      "before": "銀行保險 AUM",
+      "after": "私銀－銀行保險 AUM"
+    },
+    "bank.insurance_fee_income": {
+      "before": "銀行保險手收",
+      "after": "私銀－銀行保險手收"
+    },
+    "bank.etf_aum": {
+      "before": "銀行 ETF AUM",
+      "after": "私銀－銀行 ETF AUM"
+    },
+    "bank.etf_fee_income": {
+      "before": "銀行 ETF 手續費收入",
+      "after": "私銀－銀行 ETF 手續費收入"
+    },
+    "bank.collective_account_aum": {
+      "before": "銀行集合管理帳戶 AUM",
+      "after": "私銀－銀行集合管理帳戶 AUM"
+    },
+    "bank.planned_trust_aum": {
+      "before": "銀行規劃型信託 AUM",
+      "after": "私銀－銀行規劃型信託 AUM"
+    },
+    "bank.planned_trust_fee_income": {
+      "before": "銀行規劃型信託手收",
+      "after": "私銀－銀行規劃型信託手收"
+    },
+    "bank.trust_custody_aum": {
+      "before": "銀行信託保管 AUM",
+      "after": "私銀－銀行信託保管 AUM"
+    },
+    "bank.trust_custody_fee_income": {
+      "before": "銀行信託保管手收",
+      "after": "私銀－銀行信託保管手收"
+    },
+    "bank.fx_fee_income": {
+      "before": "銀行外匯手收",
+      "after": "私銀－銀行外匯手收"
+    },
+    "bank.lc_fee_income": {
+      "before": "銀行開狀手收",
+      "after": "私銀－銀行開狀手收"
+    },
+    "bank.gold_fee_income": {
+      "before": "銀行黃金手收",
+      "after": "私銀－銀行黃金手收"
+    },
+    "bank.loan_income": {
+      "before": "銀行放款利收（來源業務收益口徑）",
+      "after": "私銀－銀行放款利收（來源業務收益口徑）"
+    },
+    "bank.loan_lum": {
+      "before": "銀行放款 LUM",
+      "after": "私銀－銀行放款 LUM"
+    },
+    "bank.deposit_interest_income": {
+      "before": "銀行存款利收",
+      "after": "私銀－銀行存款利收"
+    },
+    "bank.overseas_bond_trust_fee_income": {
+      "before": "銀行海外債券（信託）手收",
+      "after": "私銀－銀行海外債券（信託）手收"
+    },
+    "bank.overseas_bond_proprietary_fee_income": {
+      "before": "銀行外國債券（自營）手收",
+      "after": "私銀－銀行外國債券（自營）手收"
+    }
+  },
+  "scope": "42 existing metrics adopted; no total metrics, source rules, field mapping or deployment",
+  "source_data_owner": null
+}

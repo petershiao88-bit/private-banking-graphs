@@ -1,0 +1,127 @@
+{
+  "review_date": "2026-10-24",
+  "ontology_version": "0.15.0",
+  "status": "reviewed_documentation_not_build_input",
+  "user_decision": "依 SQL 查核結果處理；缺少可支持的來源或分類不生效者先不建立，保留已有台股與集合管理 AUM。",
+  "evidence": {
+    "stock_pledge_valuation": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "encoding": "cp950",
+      "lines": [
+        432,
+        438
+      ],
+      "sha256": "f13683032e1b733af240eb941047b2a57e299db459fc7fda317352057c80b96a"
+    },
+    "taiwan_stock_aum": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "encoding": "cp950",
+      "lines": [
+        418,
+        431
+      ],
+      "sha256": "f13683032e1b733af240eb941047b2a57e299db459fc7fda317352057c80b96a"
+    },
+    "collective_aum": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "encoding": "cp950",
+      "lines": [
+        211,
+        230
+      ],
+      "sha256": "f13683032e1b733af240eb941047b2a57e299db459fc7fda317352057c80b96a"
+    },
+    "collective_fee_case": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "encoding": "cp950",
+      "lines": [
+        62,
+        88
+      ],
+      "sha256": "b257b8e2dff0088cab5e505228fcc7a05200a5c572c6f607c642d21b9fb2277e"
+    },
+    "securities_fee_scope": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "encoding": "cp950",
+      "lines": [
+        329,
+        496
+      ],
+      "sha256": "b257b8e2dff0088cab5e505228fcc7a05200a5c572c6f607c642d21b9fb2277e"
+    },
+    "securities_fee_summary": {
+      "file": "Ontology/私銀智能問答/sources/sql/9.INCOME_SMY.sql",
+      "encoding": "cp950",
+      "lines": [
+        201,
+        230
+      ],
+      "sha256": "6361b14ced76443a5f10f64838219d177a1d1cc76e553be565f7c1233b870588"
+    },
+    "collective_fee_summary": {
+      "file": "Ontology/私銀智能問答/sources/sql/9.INCOME_SMY.sql",
+      "encoding": "cp950",
+      "lines": [
+        61,
+        70
+      ],
+      "sha256": "6361b14ced76443a5f10f64838219d177a1d1cc76e553be565f7c1233b870588"
+    }
+  },
+  "findings": [
+    {
+      "scope": "securities.stock_pledge_lum",
+      "conclusion": "存在股票設質估值 SQL，但未找到可確認的借款／融通餘額 SQL；估值不得直接作 LUM。",
+      "action": "不建立 active AUM／LUM；保留既有退場歷史與 pending_source_definition。",
+      "evidence": [
+        "stock_pledge_valuation"
+      ]
+    },
+    {
+      "scope": "securities.taiwan_stock_aum",
+      "conclusion": "存在台股庫存估值 SQL 與明確底表。",
+      "action": "保留既有 active AUM，不改欄位或範圍。",
+      "evidence": [
+        "taiwan_stock_aum"
+      ]
+    },
+    {
+      "scope": "securities.taiwan_stock_fee_income",
+      "conclusion": "現有收入明細／彙總的證券分支為複委託債券、結構型、基金、外國股票，未找到可辨識的台股手收分支。",
+      "action": "不建立 active 手收；保留 pending_source_definition，不推論實際業務無收入。",
+      "evidence": [
+        "securities_fee_scope",
+        "securities_fee_summary"
+      ]
+    },
+    {
+      "scope": "bank.collective_account_aum",
+      "conclusion": "存在集合管理 AUM 分類與 DSFND.PB_FUND_MONTH 底表。",
+      "action": "保留既有 active AUM，不改欄位或範圍。",
+      "evidence": [
+        "collective_aum"
+      ]
+    },
+    {
+      "scope": "bank.collective_account_fee_income",
+      "conclusion": "存在集合管理手收 CASE 分支與共用底表；依原條件順序，TA／TB／TD／TE 代碼先符合基金條件，因此後方集合管理分類被遮蔽。",
+      "action": "不另建 active 集合管理手收；保留 pending_business_semantics，不自行修正原 SQL、不另行重複計入。",
+      "evidence": [
+        "collective_fee_case",
+        "collective_fee_summary"
+      ]
+    }
+  ],
+  "historical_cross_check": {
+    "note": "同步回查 sources/sql 的 .~sql 備份與 N8N AUM 版本；未因此找到可新增台股手收或股票設質借款餘額的來源，集合管理的 CASE 順序問題亦保留。",
+    "files": [
+      "1.AUM_DETAIL.~sql",
+      "2._AUM_SUMY.~sql",
+      "8.INCOME_DETAIL.~sql",
+      "aum_N8N_DETAIL.SQL",
+      "AUM_N8N_SUMY.sql"
+    ]
+  },
+  "architecture_note": "圖譜記錄語意與來源 metadata。實際 SQL／查詢／計算封裝於 Tool；指標到 Tool 的對應及 Tool 實作尚未建立。本次不新增 Tool、不執行 SQL。",
+  "changes": "僅新增查核紀錄及更新文件；不改 RDF、active JSON、指標、關係、來源 SQL 或資料庫。"
+}

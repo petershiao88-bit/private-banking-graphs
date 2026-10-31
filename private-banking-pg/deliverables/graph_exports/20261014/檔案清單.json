@@ -1,0 +1,62 @@
+[
+  {
+    "file": "Aura_完整原始下載.json",
+    "bytes": 11550936,
+    "sha256": "37eea4bb560ed9bcbd8d5ab0a08fc50d61d1837dfc8a3f2ae635a1a4d446d739"
+  },
+  {
+    "file": "Aura_完整圖譜快照.json",
+    "bytes": 11075267,
+    "sha256": "4e38cc63bd2ee48bef65ddf1163003e8adf0b69fbe403b8698719b21d22e2e7e"
+  },
+  {
+    "file": "使用說明.txt",
+    "bytes": 3975,
+    "sha256": "dcfa286ca8c28da4a983c024928e3f86bac0bee2b8f4c9cb4628e5b532fedf20"
+  },
+  {
+    "file": "匯出核對.json",
+    "bytes": 1579,
+    "sha256": "d73bd2cab2480ee62f6148e1e36ff73cb2860a2e55cfb7d764d5a5ce0fc9ab1e"
+  },
+  {
+    "file": "完整圖譜_唯讀分段匯出.cypher",
+    "bytes": 830,
+    "sha256": "1170c523052f4b7d8d0ee1651fc1e45570a424dcb14031b9bbc2480d8286565a"
+  },
+  {
+    "file": "完整映射與SQL血緣_20261014.json",
+    "bytes": 11460209,
+    "sha256": "57c37b21fc446de0c0c0be78e841aac65d6e4ffe21416c67d16ef926c747a175"
+  },
+  {
+    "file": "底表映射圖_20261014.json",
+    "bytes": 2020061,
+    "sha256": "51241979d364f1234f5562a7d771cce88550bac8b06e362e7596198916ae60d6"
+  },
+  {
+    "file": "映射概念檢視_20261014.json",
+    "bytes": 1116816,
+    "sha256": "dd6faa04521964e655e19a0306e9368a3ae284f2eb5d1ea4c45107e4ed2471ce"
+  },
+  {
+    "file": "本機對照字典/business_dictionary.json",
+    "bytes": 21264,
+    "sha256": "71935dfce062cf569e8939e2ef0c151cd295082e0d43f7c0667972919c7164db"
+  },
+  {
+    "file": "本機對照字典/mapping_routes.json",
+    "bytes": 3704,
+    "sha256": "52c4e599d5fb1d27488fec6805b8a1ef3386994bb59622eddf7c5456f637c692"
+  },
+  {
+    "file": "本機對照字典/relationship_dictionary.json",
+    "bytes": 33861,
+    "sha256": "e117d13b712993d29898d6829971a1bf80159866a8fadf8e93df5d2fbe56492e"
+  },
+  {
+    "file": "正式概念圖_20261014.json",
+    "bytes": 90274,
+    "sha256": "115107f2c579c97940071df855233bf515452f535121e4a49116d969e7a42c98"
+  }
+]

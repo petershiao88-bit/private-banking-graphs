@@ -1,0 +1,60 @@
+<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><title>主流程副本逐節點檢查</title><style>body{font:16px/1.7 system-ui,sans-serif;max-width:1320px;margin:42px auto;padding:0 24px;color:#192a3b}h1{font-size:30px}table{border-collapse:collapse;width:100%;margin:24px 0}td,th{padding:12px;border:1px solid #d8e1e8;text-align:left;vertical-align:top}th{background:#eff4f8}td:first-child{min-width:150px}pre{white-space:pre-wrap;font:inherit;font-size:14px}.note{background:#fff4dc;padding:18px;border-radius:8px}a{color:#0761ac}</style><h1>智能查詢 — 概念圖 KB 測試版</h1>
+<p>檢查日期：2026-10-07。副本已保存，保留為未發布的測試流程。原版的節點參數與連線已還原並比對整合前備份。</p>
+<p><a href="https://chiang4901.app.n8n.cloud/workflow/nBrzHm3pNsVcOpeu">開啟副本</a> · <a href="https://chiang4901.app.n8n.cloud/workflow/glxRvnXZ1bCtknVi">開啟原版</a></p>
+<p>資料查詢路徑：入口分類／必要追問 → metric router → 實際來源欄位清單 → 固定執行 Product Concept KB（原生 Jev Decisions API）→ SQL Chain → SQL 查詢 → 結果整理 → 回覆 → 保留全部候選機率。</p>
+<p>KB v3 已發布，使用 typesafe/jev-1.13，實際回傳版本 typesafe/jev-1.13-20260917。每個產品與領域獨立保留 included／uncertain／excluded 分布，probability 為原始 included 機率；confidence 分開保留。沒有跨候選正規化、top-1 截斷或數值門檻；分流使用原生 choice 與歧義攔截，數值門檻尚未校準。詳細證據：<a href="jev_deployment_validation.json">本次驗證報告</a>。</p>
+<div class="note">KB 的圖譜映射與執行資料庫的實際資料分開看待。目前 ds 業務 schema 可見五張存款來源表；基金所需來源尚未具備。測試確認缺來源時不虛構金額，並不表示基金 AUM 金額已驗證。主流程目前僅配置 AUM registry；KB 本身可接受 Income，但本副本會清楚回覆 Income 路由尚未配置。SQL 節點的來源比對支援目前的明確 FROM/JOIN 與簡單 CTE；它不是完整 SQL parser，複雜 SQL 語法仍需獨立測試。</div>
+<h2>逐節點檢查</h2><p>目前副本有 35 個節點。審查表包含之前移除的 SQL KB／If，以及本次新增的保留候選機率節點。</p>
+<table><thead><tr><th>節點</th><th>處理</th><th>檢查結果／理由</th><th>下一步</th></tr></thead><tbody><tr><td>Execute a SQL query</td><td>已調整</td><td>接受 Chain 的 text 欄位；KB 不明確時阻止業務查詢，保留原可用來源檢查。</td><td>Normalize SQL Result</td></tr><tr><td>SQL Reasoning Agent</td><td>已調整</td><td>改用標準 LLM Chain，使用已執行的 KB 結果，不自行呼叫工具或重新選品。</td><td>Execute a SQL query</td></tr><tr><td>If</td><td>移除</td><td>移除空字串等於空字串的恆真判斷及無效重試回圈；查詢結果直接整理。</td><td>—</td></tr><tr><td>Router Input</td><td>保留</td><td>將聊天內容與 sessionId 整理成 user_query、session_id；後續完整問題由分類器與 metric router 傳遞。</td><td>Merge</td></tr><tr><td>Aggregate</td><td>已調整</td><td>只提供指標分類資料，不再將未執行的 SQL Asset 選擇帶入路由。</td><td>Merge</td></tr><tr><td>Structured Output Parser</td><td>已調整</td><td>改為 metric 分類、完整問題與原因；移除未使用的 executable_sql 等欄位。</td><td>metric router（工具／模型連線）</td></tr><tr><td>metric router</td><td>已調整</td><td>專注 metric 範圍辨識；保留細項產品文字及完整問題，支援多 metric。</td><td>Available Source Metadata</td></tr><tr><td>Router Model</td><td>保留</td><td>保留已使用的模型，負責 metric 分類。</td><td>metric router（工具／模型連線）</td></tr><tr><td>SQL Model</td><td>已調整</td><td>沿用原 SQL 生成模型；產品辨識已獨立改為原生 Jev Decisions API。</td><td>SQL Reasoning Agent（工具／模型連線）</td></tr><tr><td>SQL KB</td><td>移除</td><td>移除；SQL Reasoning Agent 改用 Product Concept KB。</td><td>—</td></tr><tr><td>Normalize SQL Result</td><td>已調整</td><td>增加 candidateScores、decision、kbStatus 和 kbMessage，原樣保留機率。</td><td>Response</td></tr><tr><td>User Query</td><td>已調整</td><td>保留原節點用途；為副本產生獨立 webhook ID，避免與原版共用聊天入口。</td><td>Router Input、Get row(s)</td></tr><tr><td>Postgres Chat Memory</td><td>已調整</td><td>保留知識分支的記憶連線；SQL Chain 不使用舊聊天覆蓋本次證據。</td><td>—</td></tr><tr><td>Response Model</td><td>保留</td><td>保留回答模型，由 Response 的新狀態規則產生自然中文。</td><td>Response（工具／模型連線）</td></tr><tr><td>Response</td><td>已調整</td><td>回覆文字後交保留候選機率節點追加全部候選，避免模型省略。</td><td>保留候選機率</td></tr><tr><td>Get row(s)</td><td>保留</td><td>讀取既有 AUM Metric Registry；目前六種 AUM 類別，未配置 Income registry。</td><td>Aggregate</td></tr><tr><td>Merge</td><td>保留</td><td>合併使用者問題與 registry，提供入口分類器。</td><td>Basic LLM Chain</td></tr><tr><td>Basic LLM Chain</td><td>已調整</td><td>保留原完整性判斷，明確標示此主流程尚未配置 Income registry。</td><td>Switch</td></tr><tr><td>OpenRouter Chat Model</td><td>已調整</td><td>移除誤放在 responseFormat 的範例 JSON；格式由既有 Structured Output Parser1 控制。</td><td>Basic LLM Chain（工具／模型連線）</td></tr><tr><td>Switch</td><td>已調整</td><td>補上 unsupported/其他路由的回覆出口，避免流程無輸出。</td><td>知識分支 Metric 清單、追問、metric router、超出 Metric 範圍</td></tr><tr><td>追問</td><td>已調整</td><td>保留原節點用途；為副本產生獨立 webhook ID，避免與原版共用聊天入口。</td><td>整理追問回覆</td></tr><tr><td>Structured Output Parser1</td><td>保留</td><td>保留入口分類結果 route、resolved_query、missing_fields 等欄位；完整性檢查仍只在主流程。</td><td>Basic LLM Chain（工具／模型連線）</td></tr><tr><td>整理追問回覆</td><td>保留</td><td>保留原問題、上一輪追問與本次補充的整合，再交回入口分類器；已實測補年份流程。</td><td>Basic LLM Chain</td></tr><tr><td>送出查詢回答</td><td>已調整</td><td>保留原節點用途；為副本產生獨立 webhook ID，避免與原版共用聊天入口。</td><td>—</td></tr><tr><td>知識分支 Metric 清單</td><td>保留</td><td>獨立讀取原 registry，供知識問題的範圍檢查。</td><td>Metric 範圍檢查</td></tr><tr><td>Metric 範圍檢查</td><td>已調整</td><td>知識分支使用已整合追問的完整問題，避免回到原始未釐清文字。</td><td>是否可回答</td></tr><tr><td>是否可回答</td><td>保留</td><td>保留知識分支的原有範圍分流；未新增任何 IF。</td><td>AUM 知識回答 Agent、超出 Metric 範圍</td></tr><tr><td>AUM 知識回答 Agent</td><td>保留</td><td>保留原知識解釋用途；此次只替換 SQL Reasoning Agent 的 KB。</td><td>整理知識回答</td></tr><tr><td>知識回答 Model</td><td>保留</td><td>保留知識回答模型與既有設定。</td><td>AUM 知識回答 Agent（工具／模型連線）</td></tr><tr><td>AUM Knowledge Lookup</td><td>保留</td><td>仍服務獨立的知識回答分支。此分支沒有 metric router，不直接接需要 metricCodes 的新 KB。</td><td>AUM 知識回答 Agent（工具／模型連線）</td></tr><tr><td>整理知識回答</td><td>保留</td><td>將知識 Agent 的 output/text 整理成最終聊天文字。</td><td>送出知識回答</td></tr><tr><td>超出 Metric 範圍</td><td>已調整</td><td>同時接收入口 unsupported 的原因並回覆。</td><td>送出範圍說明</td></tr><tr><td>送出知識回答</td><td>已調整</td><td>保留原節點用途；為副本產生獨立 webhook ID，避免與原版共用聊天入口。</td><td>—</td></tr><tr><td>送出範圍說明</td><td>已調整</td><td>保留原節點用途；為副本產生獨立 webhook ID，避免與原版共用聊天入口。</td><td>—</td></tr><tr><td>Product Concept KB</td><td>已調整</td><td>改為主流程固定執行的子流程節點，完整保留每個候選 object 的機率。</td><td>SQL Reasoning Agent</td></tr><tr><td>Available Source Metadata</td><td>新增</td><td>新增固定唯讀查詢，提供本次連線實際可见的 ds 業務資料表及欄位；不查客戶資料。</td><td>Product Concept KB</td></tr><tr><td>保留候選機率</td><td>新增</td><td>依原始數值產生完整候選機率表，保留候選與原始 decision 結構。</td><td>送出查詢回答</td></tr></tbody></table><h2>實際執行驗證</h2><p>第一列是此次端到端測試，後續列保留先前的基線紀錄。此次另測明確多產品、產品歧義與候選不相關，並對線上匯出通過 56 項契約檢查及 19 項實際機率證據檢查。測試固定資料已移除。</p><table><tr><th>案例</th><th>觀察結果</th></tr><tr><td>原生 Jev：完整主流程</td><td><pre>目前缺少查詢2026年9月底全體客戶證券基金 AUM 所需的資料來源，無法提供此數值。
+
+候選產品的納入機率（0～1）：
+
+| 產品 | 領域 | 機率 |
+|---|---|---|
+| 證券複委託債券 | AUM | 0 |
+| 證券複委託外國股票 | AUM | 0 |
+| 證券複委託基金 | AUM | 0.74 |
+| 證券複委託結構型商品 | AUM | 0 |</pre></td></tr><tr><td>fund_missing_source</td><td><pre>        - paragraph: 請查 2026 年 9 月月底，全體客戶的證券複委託基金 AUM 總額，以新臺幣呈現。
+        - paragraph: 目前無法提供2026年9月底全體客戶的證券複委託基金AUM總額新臺幣金額，因為缺少所需的資料來源或欄位，無法計算此數值。
+    - generic: Success in 23.559s
+    - generic: Success in 945ms</pre></td></tr><tr><td>multiple_metrics</td><td><pre>        - paragraph: 請查2026年9月底，全體客戶的銀行基金與證券基金 AUM，分別以新臺幣呈現。
+        - paragraph: 抱歉，目前無法查詢到2026年9月底全體客戶的銀行基金AUM與證券基金AUM，因為缺少所需的資料來源，無法提供相關數值。
+    - generic: Success in 23.463s
+    - generic: Success in 880ms</pre></td></tr><tr><td>income_unsupported</td><td><pre>        - paragraph: 請查2026年9月全體客戶的基金 Income 總額。
+        - paragraph: 系統僅登錄AUM相關指標，尚未配置Income指標路由，無法提供Income數值查詢。
+    - generic: Success in 5.658s
+      - treeitem &quot;Aggregate Success in 1ms Started 09:01:02.287, 7 Oct&quot;:
+      - treeitem &quot;Merge Success in 2ms Started 09:01:02.289, 7 Oct&quot;:
+      - treeitem &quot;Basic LLM Chain Success in 1.962s Started 09:01:02.292, 7 Oct Toggle row&quot; [expanded]:
+      - treeitem &quot;OpenRouter Chat Model Success in 1.93s Started 09:01:02.321, 7 Oct 1,809 Tokens&quot;:
+      - treeitem &quot;Structured Output Parser1 Success in 0s Started 09:01:04.253, 7 Oct&quot;:
+      - treeitem &quot;Switch Success in 6ms Started 09:01:04.254, 7 Oct&quot;:
+      - treeitem &quot;超出 Metric 範圍 Success in 1.537s Started 09:01:04.260, 7 Oct&quot;:
+      - treeitem &quot;送出範圍說明 Success in 1ms Started 09:01:06.469, 7 Oct&quot;:</pre></td></tr><tr><td>clarification_then_query</td><td><pre>        - paragraph: 8月底全體客戶的證券基金AUM有多少？以新臺幣呈現。
+        - paragraph: 請問是哪一年的8月底？
+        - paragraph: 2026年。
+        - paragraph: 抱歉，目前缺少查詢2026年8月底全體客戶證券相關基金AUM所需的資料來源，無法提供該數值。
+    - generic: Success in 50.591s
+      - treeitem &quot;Product Concept KB Success in 5.508s Started 09:02:09.849, 7 Oct Toggle row&quot;:
+      - treeitem &quot;Postgres Chat Memory Success in 1.03s Started 09:02:15.369, 7 Oct&quot;:
+      - treeitem &quot;SQL Model Success in 1.394s Started 09:02:16.422, 7 Oct 2,778 Tokens&quot;:
+      - treeitem &quot;Execute a SQL query Success in 876ms Started 09:02:18.329, 7 Oct&quot;:
+      - treeitem &quot;Normalize SQL Result Success in 25ms Started 09:02:19.206, 7 Oct&quot;:
+      - treeitem &quot;Response Success in 1.253s Started 09:02:19.231, 7 Oct Toggle row&quot; [expanded]:
+      - treeitem &quot;Response Model Success in 1.239s Started 09:02:19.244, 7 Oct 353 Tokens&quot;:
+      - treeitem &quot;送出查詢回答 Success in 1ms Started 09:02:21.239, 7 Oct&quot;:</pre></td></tr><tr><td>legacy_knowledge_branch</td><td><pre>        - paragraph: 月底存款 AUM 的定義是什麼？
+        - paragraph: 月底存款 AUM 的定義依據多個 staging SQL，主要來自以下來源資料表：
+          - paragraph: &quot;台幣存款及結構型存款，資料來自 DSDEP.DEP_NT_ACCT_HS 表 (staging_sql_id: STG_AUM_005_007_008_009_TMP01、STG_AUM_005_007_008_009_TMP06)，以欄位 BAL_AMT 加總得到存款AUM，並依 ACT_CD 區分存款類型（如台幣存款代碼 2311、2321 等，結構型存款代碼 2545）以及核算中心（PRFT_CNTR_CD）。&quot;
+          - paragraph: &quot;外幣存款及結構型存款，資料來自 DSDEP.DEP_FN_ACCT_HS 表 (staging_sql_id: STG_AUM_005_007_008_009_TMP02)、DSDEP.EMP_DEP_NT_ACCT_HS 表 (STG_AUM_005_007_008_009_TMP03)、以及 DSDEP.DEP_FN_ACCT (STG_AUM_005_007_008_009_TMP05)，以 AVAIL_BAL 加總得到存款AUM，依 ACC_CD 區分外幣存款與結構型存款。&quot;
+          - paragraph: AUM 指標以「存款AUM」為欄位表示，計算範圍限制於指定核算中心碼 『2E3000』『2E3200』『2E3300』『2E3400』。時間範圍通常以月底 (LST_MTN_DT 或 DATA_DT) 為依據。
+        - paragraph: 綜合說明，月底存款 AUM 是指在月底當天，於指定核算中心下，依不同存款種類（如台幣存款、外幣存款、結構型存款）分類後，加總的存款餘額（BAL_AMT 或 AVAIL_BAL）。
+        - paragraph: 如需進一步欄位定義或特定表的詳細資料，請告知。
+    - generic: Success in 11.664s
+      - treeitem &quot;Metric 範圍檢查 Success in 1.698s Started 09:03:37.109, 7 Oct&quot;:
+      - treeitem &quot;是否可回答 Success in 2ms Started 09:03:38.807, 7 Oct&quot;:
+      - treeitem &quot;AUM 知識回答 Agent Success in 3.536s Started 09:03:41.306, 7 Oct Toggle row&quot; [expanded]:
+      - treeitem &quot;知識回答 Model Success in 2.177s Started 09:03:38.834, 7 Oct 457 Tokens&quot;:
+      - treeitem &quot;AUM Knowledge Lookup Success in 292ms Started 09:03:41.013, 7 Oct Toggle row&quot;:
+      - treeitem &quot;知識回答 Model Success in 3.484s Started 09:03:41.356, 7 Oct 3,404 Tokens&quot;:
+      - treeitem &quot;整理知識回答 Success in 8ms Started 09:03:44.842, 7 Oct&quot;:
+      - treeitem &quot;送出知識回答 Success in 1ms Started 09:03:45.414, 7 Oct&quot;:</pre></td></tr></table></html>

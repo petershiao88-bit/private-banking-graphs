@@ -1,0 +1,291 @@
+[
+  {
+    "node": "Execute a SQL query",
+    "action": "changed",
+    "reason": "接受 Chain 的 text 欄位；KB 不明確時阻止業務查詢，保留原可用來源檢查。",
+    "next": [
+      "Normalize SQL Result"
+    ]
+  },
+  {
+    "node": "SQL Reasoning Agent",
+    "action": "changed",
+    "reason": "改用標準 LLM Chain，使用已執行的 KB 結果，不自行呼叫工具或重新選品。",
+    "next": [
+      "Execute a SQL query"
+    ]
+  },
+  {
+    "node": "If",
+    "action": "removed",
+    "reason": "移除空字串等於空字串的恆真判斷及無效重試回圈；查詢結果直接整理。",
+    "next": []
+  },
+  {
+    "node": "Router Input",
+    "action": "retained",
+    "reason": "將聊天內容與 sessionId 整理成 user_query、session_id；後續完整問題由分類器與 metric router 傳遞。",
+    "next": [
+      "Merge"
+    ]
+  },
+  {
+    "node": "Aggregate",
+    "action": "changed",
+    "reason": "只提供指標分類資料，不再將未執行的 SQL Asset 選擇帶入路由。",
+    "next": [
+      "Merge"
+    ]
+  },
+  {
+    "node": "Structured Output Parser",
+    "action": "changed",
+    "reason": "改為 metric 分類、完整問題與原因；移除未使用的 executable_sql 等欄位。",
+    "next": [
+      "metric router（工具／模型連線）"
+    ]
+  },
+  {
+    "node": "metric router",
+    "action": "changed",
+    "reason": "專注 metric 範圍辨識；保留細項產品文字及完整問題，支援多 metric。",
+    "next": [
+      "Available Source Metadata"
+    ]
+  },
+  {
+    "node": "Router Model",
+    "action": "retained",
+    "reason": "保留已使用的模型，負責 metric 分類。",
+    "next": [
+      "metric router（工具／模型連線）"
+    ]
+  },
+  {
+    "node": "SQL Model",
+    "action": "changed",
+    "reason": "沿用原 SQL 生成模型；產品辨識已獨立改為原生 Jev Decisions API。",
+    "next": [
+      "SQL Reasoning Agent（工具／模型連線）"
+    ]
+  },
+  {
+    "node": "SQL KB",
+    "action": "removed",
+    "reason": "移除；SQL Reasoning Agent 改用 Product Concept KB。",
+    "next": []
+  },
+  {
+    "node": "Normalize SQL Result",
+    "action": "changed",
+    "reason": "增加 candidateScores、decision、kbStatus 和 kbMessage，原樣保留機率。",
+    "next": [
+      "Response"
+    ]
+  },
+  {
+    "node": "User Query",
+    "action": "changed",
+    "reason": "保留原節點用途；為副本產生獨立 webhook ID，避免與原版共用聊天入口。",
+    "next": [
+      "Router Input",
+      "Get row(s)"
+    ]
+  },
+  {
+    "node": "Postgres Chat Memory",
+    "action": "changed",
+    "reason": "保留知識分支的記憶連線；SQL Chain 不使用舊聊天覆蓋本次證據。",
+    "next": []
+  },
+  {
+    "node": "Response Model",
+    "action": "retained",
+    "reason": "保留回答模型，由 Response 的新狀態規則產生自然中文。",
+    "next": [
+      "Response（工具／模型連線）"
+    ]
+  },
+  {
+    "node": "Response",
+    "action": "changed",
+    "reason": "回覆文字後交保留候選機率節點追加全部候選，避免模型省略。",
+    "next": [
+      "保留候選機率"
+    ]
+  },
+  {
+    "node": "Get row(s)",
+    "action": "retained",
+    "reason": "讀取既有 AUM Metric Registry；目前六種 AUM 類別，未配置 Income registry。",
+    "next": [
+      "Aggregate"
+    ]
+  },
+  {
+    "node": "Merge",
+    "action": "retained",
+    "reason": "合併使用者問題與 registry，提供入口分類器。",
+    "next": [
+      "Basic LLM Chain"
+    ]
+  },
+  {
+    "node": "Basic LLM Chain",
+    "action": "changed",
+    "reason": "保留原完整性判斷，明確標示此主流程尚未配置 Income registry。",
+    "next": [
+      "Switch"
+    ]
+  },
+  {
+    "node": "OpenRouter Chat Model",
+    "action": "changed",
+    "reason": "移除誤放在 responseFormat 的範例 JSON；格式由既有 Structured Output Parser1 控制。",
+    "next": [
+      "Basic LLM Chain（工具／模型連線）"
+    ]
+  },
+  {
+    "node": "Switch",
+    "action": "changed",
+    "reason": "補上 unsupported/其他路由的回覆出口，避免流程無輸出。",
+    "next": [
+      "知識分支 Metric 清單",
+      "追問",
+      "metric router",
+      "超出 Metric 範圍"
+    ]
+  },
+  {
+    "node": "追問",
+    "action": "changed",
+    "reason": "保留原節點用途；為副本產生獨立 webhook ID，避免與原版共用聊天入口。",
+    "next": [
+      "整理追問回覆"
+    ]
+  },
+  {
+    "node": "Structured Output Parser1",
+    "action": "retained",
+    "reason": "保留入口分類結果 route、resolved_query、missing_fields 等欄位；完整性檢查仍只在主流程。",
+    "next": [
+      "Basic LLM Chain（工具／模型連線）"
+    ]
+  },
+  {
+    "node": "整理追問回覆",
+    "action": "retained",
+    "reason": "保留原問題、上一輪追問與本次補充的整合，再交回入口分類器；已實測補年份流程。",
+    "next": [
+      "Basic LLM Chain"
+    ]
+  },
+  {
+    "node": "送出查詢回答",
+    "action": "changed",
+    "reason": "保留原節點用途；為副本產生獨立 webhook ID，避免與原版共用聊天入口。",
+    "next": []
+  },
+  {
+    "node": "知識分支 Metric 清單",
+    "action": "retained",
+    "reason": "獨立讀取原 registry，供知識問題的範圍檢查。",
+    "next": [
+      "Metric 範圍檢查"
+    ]
+  },
+  {
+    "node": "Metric 範圍檢查",
+    "action": "changed",
+    "reason": "知識分支使用已整合追問的完整問題，避免回到原始未釐清文字。",
+    "next": [
+      "是否可回答"
+    ]
+  },
+  {
+    "node": "是否可回答",
+    "action": "retained",
+    "reason": "保留知識分支的原有範圍分流；未新增任何 IF。",
+    "next": [
+      "AUM 知識回答 Agent",
+      "超出 Metric 範圍"
+    ]
+  },
+  {
+    "node": "AUM 知識回答 Agent",
+    "action": "retained",
+    "reason": "保留原知識解釋用途；此次只替換 SQL Reasoning Agent 的 KB。",
+    "next": [
+      "整理知識回答"
+    ]
+  },
+  {
+    "node": "知識回答 Model",
+    "action": "retained",
+    "reason": "保留知識回答模型與既有設定。",
+    "next": [
+      "AUM 知識回答 Agent（工具／模型連線）"
+    ]
+  },
+  {
+    "node": "AUM Knowledge Lookup",
+    "action": "retained",
+    "reason": "仍服務獨立的知識回答分支。此分支沒有 metric router，不直接接需要 metricCodes 的新 KB。",
+    "next": [
+      "AUM 知識回答 Agent（工具／模型連線）"
+    ]
+  },
+  {
+    "node": "整理知識回答",
+    "action": "retained",
+    "reason": "將知識 Agent 的 output/text 整理成最終聊天文字。",
+    "next": [
+      "送出知識回答"
+    ]
+  },
+  {
+    "node": "超出 Metric 範圍",
+    "action": "changed",
+    "reason": "同時接收入口 unsupported 的原因並回覆。",
+    "next": [
+      "送出範圍說明"
+    ]
+  },
+  {
+    "node": "送出知識回答",
+    "action": "changed",
+    "reason": "保留原節點用途；為副本產生獨立 webhook ID，避免與原版共用聊天入口。",
+    "next": []
+  },
+  {
+    "node": "送出範圍說明",
+    "action": "changed",
+    "reason": "保留原節點用途；為副本產生獨立 webhook ID，避免與原版共用聊天入口。",
+    "next": []
+  },
+  {
+    "node": "Product Concept KB",
+    "action": "changed",
+    "reason": "改為主流程固定執行的子流程節點，完整保留每個候選 object 的機率。",
+    "next": [
+      "SQL Reasoning Agent"
+    ]
+  },
+  {
+    "node": "Available Source Metadata",
+    "action": "added",
+    "reason": "新增固定唯讀查詢，提供本次連線實際可见的 ds 業務資料表及欄位；不查客戶資料。",
+    "next": [
+      "Product Concept KB"
+    ]
+  },
+  {
+    "node": "保留候選機率",
+    "action": "added",
+    "reason": "依原始數值產生完整候選機率表，保留候選與原始 decision 結構。",
+    "next": [
+      "送出查詢回答"
+    ]
+  }
+]

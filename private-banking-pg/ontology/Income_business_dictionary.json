@@ -1,0 +1,1599 @@
+{
+  "id": "income",
+  "version": "0.1",
+  "status": "inferred_business_dictionary",
+  "scope": "現有Income JSON、staging SQL與metadata的定義及血緣；沒有客戶收入實際資料。",
+  "sourceFiles": [
+    "ontology/Income Ontology.json",
+    "sources/sql/8.INCOME_DETAIL.sql",
+    "sources/sql/9.INCOME_SMY.sql",
+    "sources/sql/10._INCOME_ROA.sql",
+    "sources/sql/X-INCOME_MOTHLY.sql",
+    "sources/metadata/收入_metadata.xlsx",
+    "sources/metadata/收入_20250527.xlsx"
+  ],
+  "metrics": [
+    {
+      "code": "income_total_customer_month",
+      "name": "每客戶每月總收入",
+      "definition": "10._INCOME_ROA.sql 的收入子查詢按 CUST_ID 與 SUBSTR(YYYYMMDD,1,6) 加總 INCOME_TMP02.AMT；涵蓋 SQL 歸類的手收及利收。",
+      "grain": "CUST_ID × YYYYMM",
+      "implementation": "INCOME_TMP02",
+      "formula": "SUM(AMT) GROUP BY CUST_ID, SUBSTR(YYYYMMDD,1,6)",
+      "status": "observed_in_sql"
+    },
+    {
+      "code": "fee_income",
+      "name": "手收（SQL分類）",
+      "definition": "TYP='手收' 的收入；其中包含手續費、貢獻度及部分損益欄位。",
+      "filter": "TYP='手收'",
+      "status": "inferred"
+    },
+    {
+      "code": "bank_fee_income",
+      "name": "銀行手收",
+      "definition": "TYP='手收' 且 PROD_TYPE='銀行' 的 AMT。",
+      "filter": "TYP='手收' AND PROD_TYPE='銀行'",
+      "status": "inferred"
+    },
+    {
+      "code": "securities_fee_income",
+      "name": "證券手收",
+      "definition": "TYP='手收' 且 PROD_TYPE='證券' 的 AMT。",
+      "filter": "TYP='手收' AND PROD_TYPE='證券'",
+      "status": "inferred"
+    },
+    {
+      "code": "interest_income",
+      "name": "利息收入",
+      "definition": "TYP='利收' 的存款與放款 AMT。",
+      "filter": "TYP='利收'",
+      "status": "inferred"
+    },
+    {
+      "code": "deposit_interest_income",
+      "name": "存款利收",
+      "definition": "INCOME_066 以 GROSS_INCM 彙總存款利收；現況來源僅使用外幣存款表。",
+      "filter": "TYP='利收' AND SUB_TYPE='存款'",
+      "status": "observed_in_sql"
+    },
+    {
+      "code": "loan_interest_income",
+      "name": "放款利收",
+      "definition": "INCOME_067 以台幣 GROSS_INCM 及外幣 INT_INCM-CB_INT_AMT 彙總；現況來源僅使用外幣放款表。",
+      "filter": "TYP='利收' AND SUB_TYPE='放款'",
+      "status": "observed_in_sql"
+    },
+    {
+      "code": "report_income_amount",
+      "name": "組織收入報表金額",
+      "definition": "INCOME_REPORT 排除 PRFT_CNTR_CD 為 NULL 的列，再按日期、收入類型、機構、產品與組織加總 AMT。",
+      "implementation": "INCOME_REPORT",
+      "formula": "SUM(AMT)",
+      "grain": "YYYYMMDD × TYP × PROD_TYPE × SUB_TYPE × 組織",
+      "status": "observed_in_sql"
+    },
+    {
+      "code": "report_row_count",
+      "name": "組織收入報表列數",
+      "definition": "INCOME_REPORT 的 COUNT(*) 是各組的來源列數，不能直接當成不重複客戶數或交易數。",
+      "implementation": "INCOME_REPORT",
+      "formula": "COUNT(*)",
+      "status": "observed_in_sql"
+    }
+  ],
+  "metricHierarchy": [
+    [
+      "income_total_customer_month",
+      "fee_income"
+    ],
+    [
+      "income_total_customer_month",
+      "interest_income"
+    ],
+    [
+      "fee_income",
+      "bank_fee_income"
+    ],
+    [
+      "fee_income",
+      "securities_fee_income"
+    ],
+    [
+      "interest_income",
+      "deposit_interest_income"
+    ],
+    [
+      "interest_income",
+      "loan_interest_income"
+    ]
+  ],
+  "products": [
+    {
+      "code": "bank_insurance",
+      "name": "銀行保險",
+      "parentMetric": "bank_fee_income",
+      "stages": [
+        "INCOME_028",
+        "INCOME_029",
+        "INCOME_030"
+      ],
+      "classification": "手收／銀行／保險",
+      "amountBasis": "COMM_AMT 或 PS（metadata 定義為客戶貢獻度）",
+      "includedByCurrentSql": true,
+      "status": "inferred",
+      "overlapRisk": true
+    },
+    {
+      "code": "bank_bond_trust",
+      "name": "海外債券（信託）",
+      "parentMetric": "bank_fee_income",
+      "stages": [
+        "INCOME_031"
+      ],
+      "classification": "手收／銀行／海外債券_信託",
+      "amountBasis": "SUM(BRHREBATEAMT + WKR028/100)",
+      "includedByCurrentSql": true,
+      "status": "inferred"
+    },
+    {
+      "code": "bank_bond_proprietary",
+      "name": "外國債券（自營）",
+      "parentMetric": "bank_fee_income",
+      "stages": [
+        "INCOME_032"
+      ],
+      "classification": "手收／銀行／外國債券_自營",
+      "amountBasis": "SUM(ABS(INC_AMT_NT))",
+      "includedByCurrentSql": true,
+      "status": "inferred",
+      "signRule": "absolute_value"
+    },
+    {
+      "code": "bank_fund",
+      "name": "銀行基金",
+      "parentMetric": "bank_fee_income",
+      "stages": [
+        "INCOME_033_034_035_036"
+      ],
+      "classification": "手收／銀行／基金",
+      "amountBasis": "SUM(BRHREBATEAMT)",
+      "includedByCurrentSql": true,
+      "status": "inferred",
+      "stageFilter": "FH_TYP='基金'"
+    },
+    {
+      "code": "bank_etf",
+      "name": "銀行ETF",
+      "parentMetric": "bank_fee_income",
+      "stages": [
+        "INCOME_033_034_035_036"
+      ],
+      "classification": "手收／銀行／ETF",
+      "amountBasis": "SUM(BRHREBATEAMT)",
+      "includedByCurrentSql": true,
+      "status": "inferred",
+      "stageFilter": "FH_TYP='ETF'"
+    },
+    {
+      "code": "bank_overseas_stock",
+      "name": "銀行海外股票",
+      "parentMetric": "bank_fee_income",
+      "stages": [
+        "INCOME_033_034_035_036"
+      ],
+      "classification": "手收／銀行／海外股票",
+      "amountBasis": "SUM(BRHREBATEAMT)",
+      "includedByCurrentSql": true,
+      "status": "inferred",
+      "stageFilter": "FH_TYP='海外股票'"
+    },
+    {
+      "code": "bank_collective_account",
+      "name": "集合管理帳戶（定義存在，SQL分支被遮蔽）",
+      "parentMetric": "bank_fee_income",
+      "stages": [
+        "INCOME_033_034_035_036"
+      ],
+      "classification": "預期：手收／銀行／集合管理帳戶",
+      "amountBasis": "SUM(BRHREBATEAMT)",
+      "includedByCurrentSql": false,
+      "status": "metadata_sql_conflict",
+      "stageFilter": "FHID starts TA/TB/TD/TE",
+      "reason": "CASE 第一個 NOT IN 條件先把這些代碼歸到基金。"
+    },
+    {
+      "code": "bank_dci",
+      "name": "銀行DCI",
+      "parentMetric": "bank_fee_income",
+      "stages": [
+        "INCOME_037",
+        "INCOME_038"
+      ],
+      "classification": "手收／銀行／DCI",
+      "amountBasis": "FEE_AMOUNT_TWD + DCD 的 TMUPROFIT（來源以 UNION 匯集）",
+      "includedByCurrentSql": true,
+      "status": "inferred"
+    },
+    {
+      "code": "bank_structured_domestic",
+      "name": "境內結構型商品",
+      "parentMetric": "bank_fee_income",
+      "stages": [
+        "INCOME_039",
+        "INCOME_040",
+        "INCOME_041"
+      ],
+      "classification": "手收／銀行／結構型_境內",
+      "amountBasis": "SI/FCI FEE_AMOUNT_TWD；ELI FEE_AMOUNT",
+      "includedByCurrentSql": true,
+      "status": "inferred"
+    },
+    {
+      "code": "bank_structured_offshore",
+      "name": "境外結構型商品",
+      "parentMetric": "bank_fee_income",
+      "stages": [
+        "INCOME_042"
+      ],
+      "classification": "手收／銀行／結構型_境外",
+      "amountBasis": "SN 的 SUM(BRHREBATEAMT)",
+      "includedByCurrentSql": true,
+      "status": "inferred"
+    },
+    {
+      "code": "bank_fx",
+      "name": "銀行FX收入",
+      "parentMetric": "bank_fee_income",
+      "stages": [
+        "INCOME_043",
+        "INCOME_044"
+      ],
+      "classification": "手收／銀行／FX",
+      "amountBasis": "BAL_AMT_TWD（兌換損益）與 TMUPROFIT",
+      "includedByCurrentSql": true,
+      "status": "inferred"
+    },
+    {
+      "code": "bank_lc",
+      "name": "銀行開狀",
+      "parentMetric": "bank_fee_income",
+      "stages": [
+        "INCOME_045"
+      ],
+      "classification": "手收／銀行／開狀",
+      "amountBasis": "SUM(FEE_AMT)；SQL未做 ÷12 或匯率換算",
+      "includedByCurrentSql": true,
+      "status": "inferred",
+      "definitionConflict": true
+    },
+    {
+      "code": "bank_planned_trust",
+      "name": "規劃型信託／保管",
+      "parentMetric": "bank_fee_income",
+      "stages": [
+        "INCOME_046",
+        "INCOME_047",
+        "INCOME_048"
+      ],
+      "classification": "手收／銀行／規劃型信託",
+      "amountBasis": "借券、管理、成立費；Fee+CreateFee；保管FEE",
+      "includedByCurrentSql": true,
+      "status": "inferred",
+      "cumulativeRisk": true
+    },
+    {
+      "code": "bank_gold",
+      "name": "銀行黃金",
+      "parentMetric": "bank_fee_income",
+      "stages": [
+        "INCOME_049"
+      ],
+      "classification": "手收／銀行／黃金",
+      "amountBasis": "SUM(PLAMT_TWD)",
+      "includedByCurrentSql": true,
+      "status": "inferred"
+    },
+    {
+      "code": "securities_bond",
+      "name": "證券複委託債券",
+      "parentMetric": "securities_fee_income",
+      "stages": [
+        "INCOME_051_054"
+      ],
+      "classification": "手收／證券／債券",
+      "amountBasis": "SUM(CFEE*FXRATE)",
+      "includedByCurrentSql": true,
+      "status": "inferred",
+      "stageFilter": "FLG='債券'"
+    },
+    {
+      "code": "securities_structured",
+      "name": "證券複委託結構型商品",
+      "parentMetric": "securities_fee_income",
+      "stages": [
+        "INCOME_051_054"
+      ],
+      "classification": "手收／證券／結構型商品",
+      "amountBasis": "SUM(CFEE*FXRATE)",
+      "includedByCurrentSql": true,
+      "status": "inferred",
+      "stageFilter": "FLG='結構型商品'"
+    },
+    {
+      "code": "securities_fund",
+      "name": "證券複委託基金",
+      "parentMetric": "securities_fee_income",
+      "stages": [
+        "INCOME_052"
+      ],
+      "classification": "手收／證券／基金",
+      "amountBasis": "SUM(WKA31)",
+      "includedByCurrentSql": true,
+      "status": "inferred",
+      "snapshotReferenceRisk": true
+    },
+    {
+      "code": "securities_foreign_stock",
+      "name": "證券複委託外國股票",
+      "parentMetric": "securities_fee_income",
+      "stages": [
+        "INCOME_053"
+      ],
+      "classification": "手收／證券／外國股票",
+      "amountBasis": "SUM((CFEE-ABFEE)*FXRATE)",
+      "includedByCurrentSql": true,
+      "status": "inferred",
+      "signRule": "preserve_source_sign",
+      "sourceSelectionRisk": true
+    },
+    {
+      "code": "deposit_interest",
+      "name": "存款利息",
+      "parentMetric": "deposit_interest_income",
+      "stages": [
+        "INCOME_066"
+      ],
+      "classification": "利收／銀行／存款",
+      "amountBasis": "SUM(GROSS_INCM)",
+      "includedByCurrentSql": true,
+      "status": "inferred"
+    },
+    {
+      "code": "loan_interest",
+      "name": "放款利息",
+      "parentMetric": "loan_interest_income",
+      "stages": [
+        "INCOME_067"
+      ],
+      "classification": "利收／銀行／放款",
+      "amountBasis": "台幣 SUM(GROSS_INCM) + 外幣 SUM(INT_INCM-CB_INT_AMT)",
+      "includedByCurrentSql": true,
+      "status": "inferred"
+    }
+  ],
+  "rules": [
+    {
+      "code": "final_union_distinct",
+      "name": "24條收入來源整列去重",
+      "description": "INCOME_TMP01 使用 UNION，對 TYP、PROD_TYPE、SUB_TYPE、NM、CUST_ID、YYYYMMDD、AMT 完全相同的輸出列去重；不按保單或交易ID去重。",
+      "stages": [
+        "INCOME_TMP01"
+      ],
+      "metrics": [],
+      "products": [],
+      "status": "observed_in_sql"
+    },
+    {
+      "code": "customer_month_sum",
+      "name": "依收入認列月份加總",
+      "description": "ROA收入子查詢對 INCOME_TMP02 依 CUST_ID × SUBSTR(YYYYMMDD,1,6) 執行 SUM(AMT)，沒有取每月最後一日或最新一筆；YYYYMMDD 的來源口徑依產品而異。",
+      "stages": [],
+      "metrics": [
+        "income_total_customer_month"
+      ],
+      "products": [],
+      "status": "observed_in_sql"
+    },
+    {
+      "code": "insurance_next_month",
+      "name": "保險PS認列次月",
+      "description": "INCOME_029/030 將 LST_MTN_DT ADD_MONTHS(...,1) 後轉成 YYYYMMDD；029 排除空 PS，030 篩 OPEN_ACCOUNT='Y'。028 則使用 APPLY_DT。",
+      "stages": [
+        "INCOME_028",
+        "INCOME_029",
+        "INCOME_030"
+      ],
+      "metrics": [],
+      "products": [],
+      "status": "observed_in_sql"
+    },
+    {
+      "code": "insurance_overlap",
+      "name": "保險日月來源重疊待確認",
+      "description": "metadata 建議調整版本第28-30列將028定為日檔保險手收、029定為月批保險手收、030定為月批保險續期手收。三者在SQL都納入；028的NM為部門名稱，029/030為空，UNION不能依保單去重。文件未證明日檔與月批來源互斥。",
+      "stages": [],
+      "metrics": [],
+      "products": [
+        "bank_insurance"
+      ],
+      "status": "requires_business_confirmation",
+      "issue": true
+    },
+    {
+      "code": "insurance_ps_meaning",
+      "name": "保險PS與COMM_AMT口徑待確認",
+      "description": "業務參考表第29/30列明確指定保險／續期手收取PS，與SQL一致。欄位metadata則將PS稱為客戶貢獻度，並另有BRANCH_FEE手續費欄位。保留取值PS，但不能單憑欄位名稱證明PS與COMM_AMT完全等價。",
+      "stages": [
+        "INCOME_029",
+        "INCOME_030"
+      ],
+      "metrics": [],
+      "products": [],
+      "status": "requires_business_confirmation",
+      "issue": true
+    },
+    {
+      "code": "securities_recognition_month",
+      "name": "證券月底認列次月",
+      "description": "依 T_LAST_TWO_WORKDAYS.LAST2_WD 判斷交易／清算日；日期 >= LAST2_WD 時歸入次月，其他歸當月，輸出日期均為該月01日。行事曆缺漏時比較為NULL，CASE會落入當月ELSE。",
+      "stages": [
+        "INCOME_051_054_TMP01",
+        "INCOME_051_054_TMP02",
+        "INCOME_052_TMP01",
+        "INCOME_052_TMP02",
+        "INCOME_053_TMP01",
+        "INCOME_053_TMP02"
+      ],
+      "metrics": [],
+      "products": [],
+      "status": "observed_in_sql"
+    },
+    {
+      "code": "bond_absolute_value",
+      "name": "自營債券金額取絕對值",
+      "description": "INCOME_032 先對 INC_AMT_NT 取 ABS 再 SUM，因此此來源的負值也轉成正值。",
+      "stages": [
+        "INCOME_032"
+      ],
+      "metrics": [],
+      "products": [],
+      "status": "observed_in_sql"
+    },
+    {
+      "code": "stock_negative_preserved",
+      "name": "外國股票保留來源正負號",
+      "description": "INCOME_053 使用 (CFEE-ABFEE)*FXRATE，沒有截負為0；metadata 也提到報表可能將負手收調成0，而儀表盤可依DW資料。這份圖保留現行SQL口徑。",
+      "stages": [],
+      "metrics": [],
+      "products": [
+        "securities_foreign_stock"
+      ],
+      "status": "observed_in_sql"
+    },
+    {
+      "code": "fund_case_shadow",
+      "name": "集合管理帳戶分支被基金遮蔽",
+      "description": "TA/TB/TD/TE 開頭不在 PS/CB/YB/SN 清單內，因此先命中 CASE 第一條 NOT IN 並輸出基金，後面的集合管理帳戶 WHEN 無法命中。未修改來源SQL。",
+      "stages": [
+        "INCOME_033_034_035_036"
+      ],
+      "metrics": [],
+      "products": [
+        "bank_collective_account",
+        "bank_fund"
+      ],
+      "status": "metadata_sql_conflict",
+      "issue": true
+    },
+    {
+      "code": "lc_formula_gap",
+      "name": "開狀攤提與匯率口徑差異",
+      "description": "metadata 建議調整版本第45列描述 FEE_AMT ÷12 * 前日清算匯率；SQL實作 SUM(FEE_AMT)，只篩有效 FEE_END_DATE，未攤提或換匯。",
+      "stages": [
+        "INCOME_045"
+      ],
+      "metrics": [],
+      "products": [],
+      "status": "metadata_sql_conflict",
+      "issue": true
+    },
+    {
+      "code": "deposit_refresh_union",
+      "name": "存款月更新使用UNION",
+      "description": "存款歷史TMP02用 UNION ALL；上月更新TMP_DETAIL_04卻用 UNION。不同存款來源若 CUST_ID、YYYYMMDD、AMT 恰好相同，月更新可能先去掉其中一列再SUM。放款月更新使用 UNION ALL。",
+      "stages": [
+        "INCOME_066_TMP02",
+        "INCOME_066_TMP_DETAIL_04",
+        "INCOME_067_TMP_DETAIL_03"
+      ],
+      "metrics": [],
+      "products": [],
+      "status": "observed_in_sql",
+      "issue": true
+    },
+    {
+      "code": "monthly_refresh_scope",
+      "name": "上月重載與篩選範圍",
+      "description": "月更新先DELETE上一月份再INSERT；月更新來源只有月份條件，沒有歷史初始化的私銀 PRFT_CNTR_CD 篩選。X-INCOME_MOTHLY.sql 註明已放回每日項目，不能當作額外可加總收入。",
+      "stages": [
+        "INCOME_066",
+        "INCOME_067"
+      ],
+      "metrics": [],
+      "products": [],
+      "status": "observed_in_sql",
+      "issue": true
+    },
+    {
+      "code": "current_foreign_only",
+      "name": "存放款現況只讀外幣",
+      "description": "存款 TMP03 只讀 DEP_FN_ACCT.GROSS_INCM；放款 TMP03 只讀 LN_FN_ACCT 的 INT_INCM-CB_INT_AMT。SQL註解說台幣現況表無 GROSS_INCM；台幣當期涵蓋範圍需核對。",
+      "stages": [
+        "INCOME_066_TMP03",
+        "INCOME_067_TMP03"
+      ],
+      "metrics": [],
+      "products": [],
+      "status": "requires_business_confirmation",
+      "issue": true
+    },
+    {
+      "code": "customer_org_join",
+      "name": "按客戶與月份串聯組織",
+      "description": "INCOME_TMP02 LEFT JOIN PB_CUST_005，連接 CUST_ID 與收入月份=YYYYMM；若客戶月份在PB_CUST_005不唯一，收入列可能被放大。目前未取得資料驗證唯一性。",
+      "stages": [
+        "INCOME_TMP02"
+      ],
+      "metrics": [],
+      "products": [],
+      "status": "observed_in_sql",
+      "issue": true
+    },
+    {
+      "code": "report_scope",
+      "name": "報表排除無組織收入",
+      "description": "INCOME_REPORT 只保留 PRFT_CNTR_CD IS NOT NULL；ROA的收入子查詢對INCOME_TMP02未加這個條件，再LEFT JOIN PB_CUST_TMP06的客戶月份母體。兩個輸出的收入涵蓋範圍需分開理解。",
+      "stages": [],
+      "metrics": [
+        "report_income_amount",
+        "income_total_customer_month"
+      ],
+      "products": [],
+      "status": "observed_in_sql"
+    },
+    {
+      "code": "report_count",
+      "name": "CNT是列數",
+      "description": "INCOME_REPORT 使用 COUNT(*)，沒有 COUNT(DISTINCT CUST_ID)，也沒有依交易ID計數。",
+      "stages": [],
+      "metrics": [
+        "report_row_count"
+      ],
+      "products": [],
+      "status": "observed_in_sql"
+    },
+    {
+      "code": "fund_snapshot_reference",
+      "name": "基金現況引用債券最大快照日",
+      "description": "INCOME_052_TMP02 的 MAX(YYYYMMDD) 子查詢取自 PB_BONDTRADM_SEC，不是 PB_FUNDTRADM_SEC；是否共用快照日需確認。",
+      "stages": [
+        "INCOME_052_TMP02"
+      ],
+      "metrics": [],
+      "products": [],
+      "status": "requires_business_confirmation",
+      "issue": true
+    },
+    {
+      "code": "stock_am_source",
+      "name": "股票AM現況來源待確認",
+      "description": "INCOME_053_TMP02 的PM分支讀 PB_STOCKTRADM_PM_SEC，但AM分支仍讀 PB_STOCKTRADM_AM_SEC_M，並與非_M的最大快照日比較。保留實際來源以供核對。",
+      "stages": [
+        "INCOME_053_TMP02"
+      ],
+      "metrics": [],
+      "products": [],
+      "status": "requires_business_confirmation",
+      "issue": true
+    },
+    {
+      "code": "historical_precondition",
+      "name": "歷史TMP01需要既有表",
+      "description": "INCOME_066/067 初始化仍FROM TMP01，但同檔的TMP01建表區塊被 /*...*/ 註解。將TMP01標為外部前置依賴，保留註解定義，不能宣稱整份SQL可從空庫獨立執行。",
+      "stages": [
+        "INCOME_066",
+        "INCOME_067",
+        "INCOME_066_TMP01",
+        "INCOME_067_TMP01"
+      ],
+      "metrics": [],
+      "products": [],
+      "status": "observed_in_sql",
+      "issue": true
+    },
+    {
+      "code": "trust_cumulative",
+      "name": "員工持股費用期間待確認",
+      "description": "INCOME_047 註解標示累計，實際按 BALDATE SUM(FEE+CREATEFEE)；metadata 將FEE稱管理費（每月）、CREATEFEE稱成立費（一次性）。若每日重複累計值，直接月SUM可能重複認列，需依資料確認。",
+      "stages": [
+        "INCOME_047"
+      ],
+      "metrics": [],
+      "products": [],
+      "status": "requires_business_confirmation",
+      "issue": true
+    }
+  ],
+  "dimensions": [
+    {
+      "code": "customer",
+      "name": "客戶",
+      "field": "CUST_ID",
+      "definition": "各來源ID由SQL映射為CUST_ID；沒有額外的身分合併規則。"
+    },
+    {
+      "code": "recognition_date",
+      "name": "收入認列日／月份",
+      "field": "YYYYMMDD / SUBSTR(YYYYMMDD,1,6)",
+      "definition": "各來源日期不同，包含交易日、寫入日次月與月份01日。"
+    },
+    {
+      "code": "income_type",
+      "name": "收入類型",
+      "field": "TYP",
+      "definition": "手收或利收，依9.INCOME_SMY.sql常數分類。"
+    },
+    {
+      "code": "institution",
+      "name": "機構別",
+      "field": "PROD_TYPE",
+      "definition": "銀行或證券。"
+    },
+    {
+      "code": "product",
+      "name": "產品分類",
+      "field": "SUB_TYPE",
+      "definition": "來源產品分類、FH_TYP或FLG。"
+    },
+    {
+      "code": "organization",
+      "name": "組織歸屬",
+      "field": "PRFT_CNTR_CD / SHT_NM",
+      "definition": "依PB_CUST_005的客戶月份取得，與來源NM/PCCODE不同。"
+    },
+    {
+      "code": "source_nm",
+      "name": "來源識別NM",
+      "field": "NM",
+      "definition": "保險028為DEPT_EASY_NM，部分來源為PCCODE，其他為空；不是統一的組織鍵。"
+    }
+  ],
+  "pendingBusinessQuestions": [
+    "保險028/029/030是否互斥且可加總？PS是否等同收入？",
+    "集合管理帳戶分類與開狀計價應以哪份定義為準？",
+    "每日累計／月更新的收入是否會重複認列？",
+    "各來源是否皆已採一致的新台幣收入口徑？"
+  ],
+  "insuranceSources": [
+    {
+      "stage": "INCOME_028",
+      "name": "保險手收（日檔）",
+      "basis": "COMM_AMT",
+      "date": "APPLY_DT",
+      "reference": "建議調整版本第28列"
+    },
+    {
+      "stage": "INCOME_029",
+      "name": "保險手收（月批）",
+      "basis": "PS",
+      "date": "LST_MTN_DT次月",
+      "reference": "建議調整版本第29列"
+    },
+    {
+      "stage": "INCOME_030",
+      "name": "保險續期手收（月批）",
+      "basis": "PS",
+      "date": "LST_MTN_DT次月",
+      "reference": "建議調整版本第30列"
+    }
+  ],
+  "ontologySummary": {
+    "termCount": 90,
+    "branchTermCount": 38,
+    "reviewedTermCount": 0,
+    "stageCount": 55,
+    "sqlStatementCount": 64
+  },
+  "stagingRegistry": [
+    {
+      "id": "8.INCOME_DETAIL.sql:L12",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_028",
+      "operation": "create",
+      "lineStart": 12,
+      "lineEnd": 16,
+      "references": [
+        "DSINS.INSU_RPT_Q01"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L20",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_029",
+      "operation": "create",
+      "lineStart": 20,
+      "lineEnd": 27,
+      "references": [
+        "DSKPI.KPI_DET_IU_002_NEW"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L33",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_030",
+      "operation": "create",
+      "lineStart": 33,
+      "lineEnd": 38,
+      "references": [
+        "DSKPI.KPI_DET_OFI_001"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L42",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_031",
+      "operation": "create",
+      "lineStart": 42,
+      "lineEnd": 51,
+      "references": [
+        "DSFND.PB_FUND_SPREAD_DAILY"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L56",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_032",
+      "operation": "create",
+      "lineStart": 56,
+      "lineEnd": 61,
+      "references": [
+        "DSWTR.BOND_TXN"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L65",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_033_034_035_036",
+      "operation": "create",
+      "lineStart": 65,
+      "lineEnd": 88,
+      "references": [
+        "DSFND.PB_FUND_SPREAD_DAILY"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L92",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_037",
+      "operation": "create",
+      "lineStart": 92,
+      "lineEnd": 115,
+      "references": [
+        "DSDEP.DCI_PERFO_RPT",
+        "DSDEP.DCI_PERFO_RPT_HS"
+      ],
+      "setOperation": "UNION",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L118",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_038",
+      "operation": "create",
+      "lineStart": 118,
+      "lineEnd": 129,
+      "references": [
+        "DSTAS.FO108_W"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L134",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_039",
+      "operation": "create",
+      "lineStart": 134,
+      "lineEnd": 148,
+      "references": [
+        "DSDEP.SI_PERFO_RPT",
+        "DSDEP.SI_PERFO_RPT_HS"
+      ],
+      "setOperation": "UNION",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L152",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_040",
+      "operation": "create",
+      "lineStart": 152,
+      "lineEnd": 167,
+      "references": [
+        "DSDEP.ELI_PERFO_RPT",
+        "DSDEP.ELI_PERFO_RPT_HS"
+      ],
+      "setOperation": "UNION",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L172",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_041",
+      "operation": "create",
+      "lineStart": 172,
+      "lineEnd": 188,
+      "references": [
+        "DSDEP.FCI_PERFO_RPT",
+        "DSDEP.FCI_PERFO_RPT_HS"
+      ],
+      "setOperation": "UNION",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L194",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_042",
+      "operation": "create",
+      "lineStart": 194,
+      "lineEnd": 202,
+      "references": [
+        "DSFND.PB_FUND_SPREAD_DAILY"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L208",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_043_TMP01",
+      "operation": "create",
+      "lineStart": 208,
+      "lineEnd": 216,
+      "references": [
+        "DSWBS.PB_SPOT_DAILY"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L219",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_043_TMP02",
+      "operation": "create",
+      "lineStart": 219,
+      "lineEnd": 228,
+      "references": [
+        "DSWBS.PB_SPOT_DAILY_HS"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L231",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_043",
+      "operation": "create",
+      "lineStart": 231,
+      "lineEnd": 235,
+      "references": [
+        "INCOME_043_TMP01",
+        "INCOME_043_TMP02"
+      ],
+      "setOperation": "UNION",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L240",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_044",
+      "operation": "create",
+      "lineStart": 240,
+      "lineEnd": 247,
+      "references": [
+        "DSTAS.FO108_W"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L251",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_045",
+      "operation": "create",
+      "lineStart": 251,
+      "lineEnd": 272,
+      "references": [
+        "DSWBS.IMPM007",
+        "DSWBS.IMPM007_HS"
+      ],
+      "setOperation": "UNION",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L277",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_046",
+      "operation": "create",
+      "lineStart": 277,
+      "lineEnd": 283,
+      "references": [
+        "DSTAM.TRUCONTRACT_PB"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L287",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_047",
+      "operation": "create",
+      "lineStart": 287,
+      "lineEnd": 293,
+      "references": [
+        "DSEBS.EBTS_ACT_CNTAUMBAL_PB"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L297",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_048",
+      "operation": "create",
+      "lineStart": 297,
+      "lineEnd": 301,
+      "references": [
+        "DSPMS.PB_PMS_AUM"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L305",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_049_TMP01",
+      "operation": "create",
+      "lineStart": 305,
+      "lineEnd": 311,
+      "references": [
+        "DSDEP.GD_PERFO_RPT"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L314",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_049_TMP02",
+      "operation": "create",
+      "lineStart": 314,
+      "lineEnd": 320,
+      "references": [
+        "DSDEP.GD_PERFO_RPT_HS"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L323",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_049",
+      "operation": "create",
+      "lineStart": 323,
+      "lineEnd": 327,
+      "references": [
+        "INCOME_049_TMP01",
+        "INCOME_049_TMP02"
+      ],
+      "setOperation": "UNION",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L333",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_051_054_TMP01",
+      "operation": "create",
+      "lineStart": 333,
+      "lineEnd": 354,
+      "references": [
+        "DSPBM.PB_BONDTRADM_SEC_M",
+        "T_LAST_TWO_WORKDAYS"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L357",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_051_054_TMP02",
+      "operation": "create",
+      "lineStart": 357,
+      "lineEnd": 379,
+      "references": [
+        "DSPBM.PB_BONDTRADM_SEC",
+        "T_LAST_TWO_WORKDAYS"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L382",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_051_054",
+      "operation": "create",
+      "lineStart": 382,
+      "lineEnd": 386,
+      "references": [
+        "INCOME_051_054_TMP01",
+        "INCOME_051_054_TMP02"
+      ],
+      "setOperation": "UNION",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L390",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_052_TMP01",
+      "operation": "create",
+      "lineStart": 390,
+      "lineEnd": 403,
+      "references": [
+        "DSPBM.PB_FUNDTRADM_SEC_M",
+        "T_LAST_TWO_WORKDAYS"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L406",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_052_TMP02",
+      "operation": "create",
+      "lineStart": 406,
+      "lineEnd": 420,
+      "references": [
+        "DSPBM.PB_BONDTRADM_SEC",
+        "DSPBM.PB_FUNDTRADM_SEC",
+        "T_LAST_TWO_WORKDAYS"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L423",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_052",
+      "operation": "create",
+      "lineStart": 423,
+      "lineEnd": 427,
+      "references": [
+        "INCOME_052_TMP01",
+        "INCOME_052_TMP02"
+      ],
+      "setOperation": "UNION",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L432",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_053_TMP01",
+      "operation": "create",
+      "lineStart": 432,
+      "lineEnd": 458,
+      "references": [
+        "DSPBM.PB_STOCKTRADM_AM_SEC_M",
+        "DSPBM.PB_STOCKTRADM_PM_SEC_M",
+        "T_LAST_TWO_WORKDAYS"
+      ],
+      "setOperation": "UNION",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L461",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_053_TMP02",
+      "operation": "create",
+      "lineStart": 461,
+      "lineEnd": 489,
+      "references": [
+        "DSPBM.PB_STOCKTRADM_AM_SEC",
+        "DSPBM.PB_STOCKTRADM_AM_SEC_M",
+        "DSPBM.PB_STOCKTRADM_PM_SEC",
+        "T_LAST_TWO_WORKDAYS"
+      ],
+      "setOperation": "UNION",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L492",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_053",
+      "operation": "create",
+      "lineStart": 492,
+      "lineEnd": 496,
+      "references": [
+        "INCOME_053_TMP01",
+        "INCOME_053_TMP02"
+      ],
+      "setOperation": "UNION",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L547",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_066_TMP021",
+      "operation": "create",
+      "lineStart": 547,
+      "lineEnd": 552,
+      "references": [
+        "DSDEP.DEP_NT_ACCT_HS"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L555",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_066_TMP022",
+      "operation": "create",
+      "lineStart": 555,
+      "lineEnd": 560,
+      "references": [
+        "DSDEP.DEP_FN_ACCT_HS"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L563",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_066_TMP023",
+      "operation": "create",
+      "lineStart": 563,
+      "lineEnd": 568,
+      "references": [
+        "DSDEP.EMP_DEP_NT_ACCT_HS"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L571",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_066_TMP02",
+      "operation": "create",
+      "lineStart": 571,
+      "lineEnd": 581,
+      "references": [
+        "INCOME_066_TMP021",
+        "INCOME_066_TMP022",
+        "INCOME_066_TMP023"
+      ],
+      "setOperation": "UNION ALL",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L585",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_066_TMP03",
+      "operation": "create",
+      "lineStart": 585,
+      "lineEnd": 590,
+      "references": [
+        "DSDEP.DEP_FN_ACCT"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L593",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_066",
+      "operation": "create",
+      "lineStart": 593,
+      "lineEnd": 600,
+      "references": [
+        "INCOME_066_TMP01",
+        "INCOME_066_TMP02",
+        "INCOME_066_TMP03"
+      ],
+      "setOperation": "UNION",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L604",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_066_TMP_DETAIL_01",
+      "operation": "create",
+      "lineStart": 604,
+      "lineEnd": 609,
+      "references": [
+        "DSDEP.DEP_NT_ACCT_HS"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L612",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_066_TMP_DETAIL_02",
+      "operation": "create",
+      "lineStart": 612,
+      "lineEnd": 617,
+      "references": [
+        "DSDEP.DEP_FN_ACCT_HS"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L620",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_066_TMP_DETAIL_03",
+      "operation": "create",
+      "lineStart": 620,
+      "lineEnd": 625,
+      "references": [
+        "DSDEP.EMP_DEP_NT_ACCT_HS"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L628",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_066_TMP_DETAIL_04",
+      "operation": "create",
+      "lineStart": 628,
+      "lineEnd": 638,
+      "references": [
+        "INCOME_066_TMP_DETAIL_01",
+        "INCOME_066_TMP_DETAIL_02",
+        "INCOME_066_TMP_DETAIL_03"
+      ],
+      "setOperation": "UNION",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L642",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_066",
+      "operation": "insert_refresh",
+      "lineStart": 642,
+      "lineEnd": 643,
+      "references": [
+        "INCOME_066_TMP_DETAIL_04"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L691",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_067_TMP021",
+      "operation": "create",
+      "lineStart": 691,
+      "lineEnd": 697,
+      "references": [
+        "DSLON.LN_NT_ACCT_HS"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L700",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_067_TMP022",
+      "operation": "create",
+      "lineStart": 700,
+      "lineEnd": 706,
+      "references": [
+        "DSLON.LN_FN_ACCT_HS"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L709",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_067_TMP02",
+      "operation": "create",
+      "lineStart": 709,
+      "lineEnd": 717,
+      "references": [
+        "INCOME_067_TMP021",
+        "INCOME_067_TMP022"
+      ],
+      "setOperation": "UNION ALL",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L721",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_067_TMP03",
+      "operation": "create",
+      "lineStart": 721,
+      "lineEnd": 726,
+      "references": [
+        "DSLON.LN_FN_ACCT"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L739",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_067",
+      "operation": "create",
+      "lineStart": 739,
+      "lineEnd": 745,
+      "references": [
+        "INCOME_067_TMP01",
+        "INCOME_067_TMP02",
+        "INCOME_067_TMP03"
+      ],
+      "setOperation": "UNION",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L753",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_067_TMP_DETAIL_01",
+      "operation": "create",
+      "lineStart": 753,
+      "lineEnd": 758,
+      "references": [
+        "DSLON.LN_NT_ACCT_HS"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L761",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_067_TMP_DETAIL_02",
+      "operation": "create",
+      "lineStart": 761,
+      "lineEnd": 766,
+      "references": [
+        "DSLON.LN_FN_ACCT_HS"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L769",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_067_TMP_DETAIL_03",
+      "operation": "create",
+      "lineStart": 769,
+      "lineEnd": 778,
+      "references": [
+        "INCOME_067_TMP_DETAIL_01",
+        "INCOME_067_TMP_DETAIL_02"
+      ],
+      "setOperation": "UNION ALL",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "8.INCOME_DETAIL.sql:L783",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "output": "INCOME_067",
+      "operation": "insert_refresh",
+      "lineStart": 783,
+      "lineEnd": 784,
+      "references": [
+        "INCOME_067_TMP_DETAIL_03"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "9.INCOME_SMY.sql:L9",
+      "file": "sources/sql/9.INCOME_SMY.sql",
+      "output": "INCOME_TMP01",
+      "operation": "create",
+      "lineStart": 9,
+      "lineEnd": 251,
+      "references": [
+        "INCOME_028",
+        "INCOME_029",
+        "INCOME_030",
+        "INCOME_031",
+        "INCOME_032",
+        "INCOME_033_034_035_036",
+        "INCOME_037",
+        "INCOME_038",
+        "INCOME_039",
+        "INCOME_040",
+        "INCOME_041",
+        "INCOME_042",
+        "INCOME_043",
+        "INCOME_044",
+        "INCOME_045",
+        "INCOME_046",
+        "INCOME_047",
+        "INCOME_048",
+        "INCOME_049",
+        "INCOME_051_054",
+        "INCOME_052",
+        "INCOME_053",
+        "INCOME_066",
+        "INCOME_067"
+      ],
+      "setOperation": "UNION",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "9.INCOME_SMY.sql:L255",
+      "file": "sources/sql/9.INCOME_SMY.sql",
+      "output": "INCOME_TMP02",
+      "operation": "create",
+      "lineStart": 255,
+      "lineEnd": 274,
+      "references": [
+        "INCOME_TMP01",
+        "PB_CUST_005"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "9.INCOME_SMY.sql:L277",
+      "file": "sources/sql/9.INCOME_SMY.sql",
+      "output": "INCOME_REPORT",
+      "operation": "create",
+      "lineStart": 277,
+      "lineEnd": 304,
+      "references": [
+        "INCOME_TMP02"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "X-INCOME_MOTHLY.sql:L9",
+      "file": "sources/sql/X-INCOME_MOTHLY.sql",
+      "output": "INCOME_066_TMP_DETAIL_01",
+      "operation": "create",
+      "lineStart": 9,
+      "lineEnd": 14,
+      "references": [
+        "DSDEP.DEP_NT_ACCT_HS"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "X-INCOME_MOTHLY.sql:L17",
+      "file": "sources/sql/X-INCOME_MOTHLY.sql",
+      "output": "INCOME_066_TMP_DETAIL_02",
+      "operation": "create",
+      "lineStart": 17,
+      "lineEnd": 22,
+      "references": [
+        "DSDEP.DEP_FN_ACCT_HS"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "X-INCOME_MOTHLY.sql:L25",
+      "file": "sources/sql/X-INCOME_MOTHLY.sql",
+      "output": "INCOME_066_TMP_DETAIL_03",
+      "operation": "create",
+      "lineStart": 25,
+      "lineEnd": 30,
+      "references": [
+        "DSDEP.EMP_DEP_NT_ACCT_HS"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "X-INCOME_MOTHLY.sql:L33",
+      "file": "sources/sql/X-INCOME_MOTHLY.sql",
+      "output": "INCOME_066_TMP_DETAIL_04",
+      "operation": "create",
+      "lineStart": 33,
+      "lineEnd": 43,
+      "references": [
+        "INCOME_066_TMP_DETAIL_01",
+        "INCOME_066_TMP_DETAIL_02",
+        "INCOME_066_TMP_DETAIL_03"
+      ],
+      "setOperation": "UNION",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "X-INCOME_MOTHLY.sql:L47",
+      "file": "sources/sql/X-INCOME_MOTHLY.sql",
+      "output": "INCOME_066",
+      "operation": "insert_refresh",
+      "lineStart": 47,
+      "lineEnd": 48,
+      "references": [
+        "INCOME_066_TMP_DETAIL_04"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "X-INCOME_MOTHLY.sql:L56",
+      "file": "sources/sql/X-INCOME_MOTHLY.sql",
+      "output": "INCOME_067_TMP_DETAIL_01",
+      "operation": "create",
+      "lineStart": 56,
+      "lineEnd": 61,
+      "references": [
+        "DSLON.LN_NT_ACCT_HS"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "X-INCOME_MOTHLY.sql:L64",
+      "file": "sources/sql/X-INCOME_MOTHLY.sql",
+      "output": "INCOME_067_TMP_DETAIL_02",
+      "operation": "create",
+      "lineStart": 64,
+      "lineEnd": 69,
+      "references": [
+        "DSLON.LN_FN_ACCT_HS"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "X-INCOME_MOTHLY.sql:L72",
+      "file": "sources/sql/X-INCOME_MOTHLY.sql",
+      "output": "INCOME_067_TMP_DETAIL_03",
+      "operation": "create",
+      "lineStart": 72,
+      "lineEnd": 81,
+      "references": [
+        "INCOME_067_TMP_DETAIL_01",
+        "INCOME_067_TMP_DETAIL_02"
+      ],
+      "setOperation": "UNION ALL",
+      "status": "observed_in_sql"
+    },
+    {
+      "id": "X-INCOME_MOTHLY.sql:L86",
+      "file": "sources/sql/X-INCOME_MOTHLY.sql",
+      "output": "INCOME_067",
+      "operation": "insert_refresh",
+      "lineStart": 86,
+      "lineEnd": 87,
+      "references": [
+        "INCOME_067_TMP_DETAIL_03"
+      ],
+      "setOperation": "none",
+      "status": "observed_in_sql"
+    }
+  ]
+}

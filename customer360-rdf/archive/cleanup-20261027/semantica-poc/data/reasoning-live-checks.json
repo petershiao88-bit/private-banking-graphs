@@ -1,0 +1,657 @@
+[
+  {
+    "sources": [
+      {
+        "id": "R1",
+        "kind": "reasoning",
+        "engine": "HermiT",
+        "tool": "check_subclass",
+        "arguments": {
+          "class_uri": "https://example.org/ontology/bank#BankAUM",
+          "parent_uri": "https://example.org/ontology/securities#SecuritiesAUM"
+        },
+        "source_sha256": "54ce033c671dde9c75ad572c32660bafa05ec94c671b6516a220f6421beaa697",
+        "pg_included": false,
+        "cached": true,
+        "executed_at": "2026-10-25T15:43:13.637716+00:00",
+        "duration_seconds": 2.718,
+        "ontology_consistent": true,
+        "consistency_complete": false,
+        "limitations": [
+          "HermiT 不檢查 xsd:date 的 datatype 語意；一致性檢查限於支援的語意範圍。"
+        ],
+        "status": "completed",
+        "verdict": "not_entailed",
+        "asserted_directly": false,
+        "supporting_asserted_path": [],
+        "path_note": "此為原始繼承公理的佐證路徑，不是通用 HermiT 證明輸出。",
+        "summary": "目前公理無法證明銀行 AUM是證券 AUM的子類別；這不代表已證明兩者互斥。"
+      },
+      {
+        "id": "N1",
+        "kind": "node",
+        "entity_id": "https://example.org/ontology/bank#BankAUM",
+        "label": "銀行 AUM",
+        "type": "OntologyClass",
+        "origin": "rdf",
+        "definition": "衡量指定快照日依銀行管理與認列口徑計算之客戶資產規模的指標。",
+        "details": {
+          "scope": "holding_and_subsidiary_owl_only"
+        }
+      },
+      {
+        "id": "N2",
+        "kind": "node",
+        "entity_id": "https://example.org/ontology/securities#SecuritiesAUM",
+        "label": "證券 AUM",
+        "type": "OntologyClass",
+        "origin": "rdf",
+        "definition": "衡量指定快照日依證券公司管理與認列口徑計算之客戶資產規模的指標。",
+        "details": {
+          "scope": "holding_and_subsidiary_owl_only"
+        }
+      }
+    ],
+    "roots": [
+      "https://example.org/ontology/bank#BankAUM",
+      "https://example.org/ontology/securities#SecuritiesAUM"
+    ],
+    "truncated": false,
+    "graph": {
+      "nodes": 146,
+      "edges": 246,
+      "types": {
+        "Metric": 44,
+        "BusinessConcept": 7,
+        "OntologyClass": 43,
+        "SourceTable": 52
+      }
+    },
+    "answer": "目前公理無法證明銀行 AUM是證券 AUM的子類別；這不代表已證明兩者互斥。 [R1]",
+    "answer_guard": "canonical_tool_verdict",
+    "route": "ontology",
+    "plan": {
+      "route": "ontology",
+      "tool": "check_subclass",
+      "class_uri": "https://example.org/ontology/bank#BankAUM",
+      "parent_uri": "https://example.org/ontology/securities#SecuritiesAUM"
+    },
+    "tool_calls": [
+      {
+        "id": "R1",
+        "kind": "reasoning",
+        "engine": "HermiT",
+        "tool": "check_subclass",
+        "arguments": {
+          "class_uri": "https://example.org/ontology/bank#BankAUM",
+          "parent_uri": "https://example.org/ontology/securities#SecuritiesAUM"
+        },
+        "source_sha256": "54ce033c671dde9c75ad572c32660bafa05ec94c671b6516a220f6421beaa697",
+        "pg_included": false,
+        "cached": true,
+        "executed_at": "2026-10-25T15:43:13.637716+00:00",
+        "duration_seconds": 2.718,
+        "ontology_consistent": true,
+        "consistency_complete": false,
+        "limitations": [
+          "HermiT 不檢查 xsd:date 的 datatype 語意；一致性檢查限於支援的語意範圍。"
+        ],
+        "status": "completed",
+        "verdict": "not_entailed",
+        "asserted_directly": false,
+        "supporting_asserted_path": [],
+        "path_note": "此為原始繼承公理的佐證路徑，不是通用 HermiT 證明輸出。",
+        "summary": "目前公理無法證明銀行 AUM是證券 AUM的子類別；這不代表已證明兩者互斥。"
+      }
+    ],
+    "used_llm": true,
+    "model": "openai/gpt-4o-mini",
+    "citations_valid": true
+  },
+  {
+    "sources": [
+      {
+        "kind": "node",
+        "entity_id": "securities.total_aum",
+        "label": "私銀－證券總 AUM",
+        "type": "Metric",
+        "definition": "私銀－證券總 AUM；僅涵蓋目前已納入私銀模型的證券商品分項，金額與期間口徑待 Tool 定義。",
+        "origin": "pg",
+        "details": {
+          "scope": "metadata_only",
+          "metric_kind": "aum",
+          "subsidiary": "securities",
+          "calculation_status": "pending_tool_definition",
+          "coverage_status": "included_products_only",
+          "lineage_mode": "via_component_metrics",
+          "excluded_metric_ids_json": "[\"securities.stock_pledge_aum\"]",
+          "component_metric_ids_json": "[\"securities.bond_aum\",\"securities.foreign_stock_aum\",\"securities.fund_aum\",\"securities.structured_aum\",\"securities.taiwan_stock_aum\"]"
+        },
+        "gaps": [
+          "涵蓋分項是 PG metadata，不表示已核定 SUM、去重或跨分項合計公式；計算由 Tool 承接。",
+          "本指標只代表目前已納入的私銀證券商品範圍，不宣稱證券公司全部業務。",
+          "不新增底表、欄位映射、理專關係或資料權責；沿分項保留金額來源／估值輔助／日期查詢角色。",
+          "總指標與其分項不得再一起加總；兩項總指標不新增可執行 SQL 或 Tool 綁定。",
+          "已提供檔案缺 AUM_TMP02／AUM_REPORT 完整產製邏輯；12.GRANT.sql 只有遠端複製，不能視為已確認計算。"
+        ],
+        "coverage": "已納入的複委託債券、結構型、基金、外國股票與台股五項 AUM；股票設質估值排除。",
+        "id": "N1"
+      },
+      {
+        "kind": "node",
+        "entity_id": "https://example.org/ontology/securities#SecuritiesAUM",
+        "label": "證券 AUM",
+        "type": "OntologyClass",
+        "definition": "衡量指定快照日依證券公司管理與認列口徑計算之客戶資產規模的指標。",
+        "origin": "pg+rdf",
+        "details": {
+          "scope": "metadata_only"
+        },
+        "gaps": [],
+        "coverage": "",
+        "id": "N2"
+      },
+      {
+        "kind": "node",
+        "entity_id": "securities.taiwan_stock_aum",
+        "label": "私銀－證券台股 AUM",
+        "type": "Metric",
+        "definition": "證券台股 AUM；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+        "origin": "pg",
+        "details": {
+          "scope": "metadata_only",
+          "metric_kind": "aum",
+          "subsidiary": "securities"
+        },
+        "gaps": [
+          "台股手收來源尚缺；不從 AUM 推導手收。",
+          "未核定合併、估值、幣別及去重。"
+        ],
+        "coverage": "證券台股 AUM",
+        "id": "N3"
+      },
+      {
+        "kind": "node",
+        "entity_id": "securities.bond_aum",
+        "label": "私銀－證券複委託債券 AUM",
+        "type": "Metric",
+        "definition": "證券複委託債券 AUM；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+        "origin": "pg",
+        "details": {
+          "scope": "metadata_only",
+          "metric_kind": "aum",
+          "subsidiary": "securities"
+        },
+        "gaps": [
+          "折台為 SQL 意圖，幣別及匯率口徑待確認。",
+          "未核定 BOND 單一商品識別、理專與客戶跨系統識別。"
+        ],
+        "coverage": "證券複委託債券 AUM",
+        "id": "N4"
+      },
+      {
+        "kind": "node",
+        "entity_id": "securities.fund_aum",
+        "label": "私銀－證券複委託基金 AUM",
+        "type": "Metric",
+        "definition": "證券複委託基金 AUM；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+        "origin": "pg",
+        "details": {
+          "scope": "metadata_only",
+          "metric_kind": "aum",
+          "subsidiary": "securities"
+        },
+        "gaps": [
+          "WKB02 是投資人帳號，WKB24 是客戶身分證字號；保留兩個不同角色，不核定客戶連接。",
+          "current metadata 不自動證明歷史表語意或計價幣別。"
+        ],
+        "coverage": "證券複委託基金 AUM",
+        "id": "N5"
+      },
+      {
+        "kind": "node",
+        "entity_id": "securities.foreign_stock_aum",
+        "label": "私銀－證券複委託外國股票 AUM",
+        "type": "Metric",
+        "definition": "證券複委託外國股票 AUM；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+        "origin": "pg",
+        "details": {
+          "scope": "metadata_only",
+          "metric_kind": "aum",
+          "subsidiary": "securities"
+        },
+        "gaps": [
+          "FX 日期、部位日期不可自動視為同義；幣別及去重待確認。"
+        ],
+        "coverage": "證券複委託外國股票 AUM",
+        "id": "N6"
+      },
+      {
+        "kind": "node",
+        "entity_id": "securities.structured_aum",
+        "label": "私銀－證券複委託結構型商品 AUM",
+        "type": "Metric",
+        "definition": "證券複委託結構型商品 AUM；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+        "origin": "pg",
+        "details": {
+          "scope": "metadata_only",
+          "metric_kind": "aum",
+          "subsidiary": "securities"
+        },
+        "gaps": [
+          "折台為 SQL 意圖，幣別及匯率口徑待確認。",
+          "未核定 BOND 單一商品識別、理專與客戶跨系統識別。"
+        ],
+        "coverage": "證券複委託結構型商品 AUM",
+        "id": "N7"
+      },
+      {
+        "kind": "node",
+        "entity_id": "https://example.org/ontology/bank#PrivateBankingDepartment",
+        "label": "私人銀行部門",
+        "type": "OntologyClass",
+        "definition": "銀行從事私人銀行業務的部門類型；具體指標採用範圍在部門 PG 描述，暫不細分一部、二部、分行或團隊。",
+        "origin": "pg+rdf",
+        "details": {
+          "scope": "metadata_only"
+        },
+        "gaps": [],
+        "coverage": "",
+        "id": "N8"
+      },
+      {
+        "kind": "node",
+        "entity_id": "source:DSDEP.FN_EXCH_RT",
+        "label": "DSDEP.FN_EXCH_RT",
+        "type": "SourceTable",
+        "definition": "",
+        "origin": "pg",
+        "details": {
+          "scope": "metadata_only",
+          "status": "observed_in_files",
+          "database_verified_json": "false"
+        },
+        "gaps": [],
+        "coverage": "",
+        "id": "N9"
+      },
+      {
+        "kind": "node",
+        "entity_id": "source:DSPBM.PB_BONDPOS_SEC",
+        "label": "DSPBM.PB_BONDPOS_SEC",
+        "type": "SourceTable",
+        "definition": "",
+        "origin": "pg",
+        "details": {
+          "scope": "metadata_only",
+          "status": "observed_in_files",
+          "database_verified_json": "false"
+        },
+        "gaps": [],
+        "coverage": "",
+        "id": "N10"
+      },
+      {
+        "kind": "node",
+        "entity_id": "source:DSPBM.PB_BONDPOS_SEC_M",
+        "label": "DSPBM.PB_BONDPOS_SEC_M",
+        "type": "SourceTable",
+        "definition": "",
+        "origin": "pg",
+        "details": {
+          "scope": "metadata_only",
+          "status": "observed_in_files",
+          "database_verified_json": "false"
+        },
+        "gaps": [],
+        "coverage": "",
+        "id": "N11"
+      },
+      {
+        "kind": "node",
+        "entity_id": "source:DSPBM.PB_FUNDPOSIT_SEC",
+        "label": "DSPBM.PB_FUNDPOSIT_SEC",
+        "type": "SourceTable",
+        "definition": "",
+        "origin": "pg",
+        "details": {
+          "scope": "metadata_only",
+          "status": "observed_in_files",
+          "database_verified_json": "false"
+        },
+        "gaps": [],
+        "coverage": "",
+        "id": "N12"
+      },
+      {
+        "kind": "node",
+        "entity_id": "source:DSPBM.PB_FUNDPOSIT_SEC_M",
+        "label": "DSPBM.PB_FUNDPOSIT_SEC_M",
+        "type": "SourceTable",
+        "definition": "",
+        "origin": "pg",
+        "details": {
+          "scope": "metadata_only",
+          "status": "observed_in_files",
+          "database_verified_json": "false"
+        },
+        "gaps": [],
+        "coverage": "",
+        "id": "N13"
+      },
+      {
+        "kind": "node",
+        "entity_id": "source:DSPBM.PB_STOCKPOS_SEC",
+        "label": "DSPBM.PB_STOCKPOS_SEC",
+        "type": "SourceTable",
+        "definition": "",
+        "origin": "pg",
+        "details": {
+          "scope": "metadata_only",
+          "status": "observed_in_files",
+          "database_verified_json": "false"
+        },
+        "gaps": [],
+        "coverage": "",
+        "id": "N14"
+      },
+      {
+        "kind": "node",
+        "entity_id": "source:DSPBM.PB_STOCKPOS_SEC_M",
+        "label": "DSPBM.PB_STOCKPOS_SEC_M",
+        "type": "SourceTable",
+        "definition": "",
+        "origin": "pg",
+        "details": {
+          "scope": "metadata_only",
+          "status": "observed_in_files",
+          "database_verified_json": "false"
+        },
+        "gaps": [],
+        "coverage": "",
+        "id": "N15"
+      },
+      {
+        "kind": "node",
+        "entity_id": "source:DSPBM.PB_YTRMRBP_SEC",
+        "label": "DSPBM.PB_YTRMRBP_SEC",
+        "type": "SourceTable",
+        "definition": "",
+        "origin": "pg",
+        "details": {
+          "scope": "metadata_only",
+          "status": "observed_in_files",
+          "database_verified_json": "false"
+        },
+        "gaps": [],
+        "coverage": "",
+        "id": "N16"
+      },
+      {
+        "kind": "node",
+        "entity_id": "source:DSPBM.PB_YTRMRBP_SEC_M",
+        "label": "DSPBM.PB_YTRMRBP_SEC_M",
+        "type": "SourceTable",
+        "definition": "",
+        "origin": "pg",
+        "details": {
+          "scope": "metadata_only",
+          "status": "observed_in_files",
+          "database_verified_json": "false"
+        },
+        "gaps": [],
+        "coverage": "",
+        "id": "N17"
+      },
+      {
+        "id": "E1",
+        "kind": "edge",
+        "source": "securities.total_aum",
+        "source_label": "私銀－證券總 AUM",
+        "relation": "HAS_COMPONENT_METRIC",
+        "target": "securities.bond_aum",
+        "target_label": "私銀－證券複委託債券 AUM"
+      },
+      {
+        "id": "E2",
+        "kind": "edge",
+        "source": "securities.total_aum",
+        "source_label": "私銀－證券總 AUM",
+        "relation": "HAS_COMPONENT_METRIC",
+        "target": "securities.foreign_stock_aum",
+        "target_label": "私銀－證券複委託外國股票 AUM"
+      },
+      {
+        "id": "E3",
+        "kind": "edge",
+        "source": "securities.total_aum",
+        "source_label": "私銀－證券總 AUM",
+        "relation": "HAS_COMPONENT_METRIC",
+        "target": "securities.fund_aum",
+        "target_label": "私銀－證券複委託基金 AUM"
+      },
+      {
+        "id": "E4",
+        "kind": "edge",
+        "source": "securities.total_aum",
+        "source_label": "私銀－證券總 AUM",
+        "relation": "HAS_COMPONENT_METRIC",
+        "target": "securities.structured_aum",
+        "target_label": "私銀－證券複委託結構型商品 AUM"
+      },
+      {
+        "id": "E5",
+        "kind": "edge",
+        "source": "securities.total_aum",
+        "source_label": "私銀－證券總 AUM",
+        "relation": "HAS_COMPONENT_METRIC",
+        "target": "securities.taiwan_stock_aum",
+        "target_label": "私銀－證券台股 AUM"
+      },
+      {
+        "id": "E6",
+        "kind": "edge",
+        "source": "securities.total_aum",
+        "source_label": "私銀－證券總 AUM",
+        "relation": "REFERS_TO_CLASS",
+        "target": "https://example.org/ontology/securities#SecuritiesAUM",
+        "target_label": "證券 AUM"
+      },
+      {
+        "id": "E7",
+        "kind": "edge",
+        "source": "https://example.org/ontology/bank#PrivateBankingDepartment",
+        "source_label": "私人銀行部門",
+        "relation": "USES_METRIC",
+        "target": "securities.total_aum",
+        "target_label": "私銀－證券總 AUM"
+      },
+      {
+        "id": "E8",
+        "kind": "edge",
+        "source": "securities.bond_aum",
+        "source_label": "私銀－證券複委託債券 AUM",
+        "relation": "REFERS_TO_CLASS",
+        "target": "https://example.org/ontology/securities#SecuritiesAUM",
+        "target_label": "證券 AUM"
+      },
+      {
+        "id": "E9",
+        "kind": "edge",
+        "source": "securities.foreign_stock_aum",
+        "source_label": "私銀－證券複委託外國股票 AUM",
+        "relation": "REFERS_TO_CLASS",
+        "target": "https://example.org/ontology/securities#SecuritiesAUM",
+        "target_label": "證券 AUM"
+      },
+      {
+        "id": "E10",
+        "kind": "edge",
+        "source": "securities.fund_aum",
+        "source_label": "私銀－證券複委託基金 AUM",
+        "relation": "REFERS_TO_CLASS",
+        "target": "https://example.org/ontology/securities#SecuritiesAUM",
+        "target_label": "證券 AUM"
+      },
+      {
+        "id": "E11",
+        "kind": "edge",
+        "source": "securities.structured_aum",
+        "source_label": "私銀－證券複委託結構型商品 AUM",
+        "relation": "REFERS_TO_CLASS",
+        "target": "https://example.org/ontology/securities#SecuritiesAUM",
+        "target_label": "證券 AUM"
+      },
+      {
+        "id": "E12",
+        "kind": "edge",
+        "source": "securities.taiwan_stock_aum",
+        "source_label": "私銀－證券台股 AUM",
+        "relation": "REFERS_TO_CLASS",
+        "target": "https://example.org/ontology/securities#SecuritiesAUM",
+        "target_label": "證券 AUM"
+      },
+      {
+        "id": "E13",
+        "kind": "edge",
+        "source": "securities.taiwan_stock_aum",
+        "source_label": "私銀－證券台股 AUM",
+        "relation": "HAS_SOURCE_TABLE",
+        "target": "source:DSPBM.PB_YTRMRBP_SEC",
+        "target_label": "DSPBM.PB_YTRMRBP_SEC"
+      },
+      {
+        "id": "E14",
+        "kind": "edge",
+        "source": "securities.taiwan_stock_aum",
+        "source_label": "私銀－證券台股 AUM",
+        "relation": "HAS_SOURCE_TABLE",
+        "target": "source:DSPBM.PB_YTRMRBP_SEC_M",
+        "target_label": "DSPBM.PB_YTRMRBP_SEC_M"
+      },
+      {
+        "id": "E15",
+        "kind": "edge",
+        "source": "securities.bond_aum",
+        "source_label": "私銀－證券複委託債券 AUM",
+        "relation": "HAS_SOURCE_TABLE",
+        "target": "source:DSPBM.PB_BONDPOS_SEC",
+        "target_label": "DSPBM.PB_BONDPOS_SEC"
+      },
+      {
+        "id": "E16",
+        "kind": "edge",
+        "source": "securities.bond_aum",
+        "source_label": "私銀－證券複委託債券 AUM",
+        "relation": "HAS_SOURCE_TABLE",
+        "target": "source:DSPBM.PB_BONDPOS_SEC_M",
+        "target_label": "DSPBM.PB_BONDPOS_SEC_M"
+      },
+      {
+        "id": "E17",
+        "kind": "edge",
+        "source": "securities.fund_aum",
+        "source_label": "私銀－證券複委託基金 AUM",
+        "relation": "HAS_SOURCE_TABLE",
+        "target": "source:DSPBM.PB_FUNDPOSIT_SEC",
+        "target_label": "DSPBM.PB_FUNDPOSIT_SEC"
+      },
+      {
+        "id": "E18",
+        "kind": "edge",
+        "source": "securities.fund_aum",
+        "source_label": "私銀－證券複委託基金 AUM",
+        "relation": "HAS_SOURCE_TABLE",
+        "target": "source:DSPBM.PB_FUNDPOSIT_SEC_M",
+        "target_label": "DSPBM.PB_FUNDPOSIT_SEC_M"
+      },
+      {
+        "id": "E19",
+        "kind": "edge",
+        "source": "securities.bond_aum",
+        "source_label": "私銀－證券複委託債券 AUM",
+        "relation": "USES_VALUATION_SOURCE",
+        "target": "source:DSDEP.FN_EXCH_RT",
+        "target_label": "DSDEP.FN_EXCH_RT"
+      },
+      {
+        "id": "E20",
+        "kind": "edge",
+        "source": "securities.foreign_stock_aum",
+        "source_label": "私銀－證券複委託外國股票 AUM",
+        "relation": "HAS_SOURCE_TABLE",
+        "target": "source:DSPBM.PB_STOCKPOS_SEC",
+        "target_label": "DSPBM.PB_STOCKPOS_SEC"
+      },
+      {
+        "id": "E21",
+        "kind": "edge",
+        "source": "securities.foreign_stock_aum",
+        "source_label": "私銀－證券複委託外國股票 AUM",
+        "relation": "HAS_SOURCE_TABLE",
+        "target": "source:DSPBM.PB_STOCKPOS_SEC_M",
+        "target_label": "DSPBM.PB_STOCKPOS_SEC_M"
+      },
+      {
+        "id": "E22",
+        "kind": "edge",
+        "source": "securities.foreign_stock_aum",
+        "source_label": "私銀－證券複委託外國股票 AUM",
+        "relation": "USES_VALUATION_SOURCE",
+        "target": "source:DSDEP.FN_EXCH_RT",
+        "target_label": "DSDEP.FN_EXCH_RT"
+      },
+      {
+        "id": "E23",
+        "kind": "edge",
+        "source": "securities.structured_aum",
+        "source_label": "私銀－證券複委託結構型商品 AUM",
+        "relation": "HAS_SOURCE_TABLE",
+        "target": "source:DSPBM.PB_BONDPOS_SEC",
+        "target_label": "DSPBM.PB_BONDPOS_SEC"
+      },
+      {
+        "id": "E24",
+        "kind": "edge",
+        "source": "securities.structured_aum",
+        "source_label": "私銀－證券複委託結構型商品 AUM",
+        "relation": "HAS_SOURCE_TABLE",
+        "target": "source:DSPBM.PB_BONDPOS_SEC_M",
+        "target_label": "DSPBM.PB_BONDPOS_SEC_M"
+      },
+      {
+        "id": "E25",
+        "kind": "edge",
+        "source": "securities.structured_aum",
+        "source_label": "私銀－證券複委託結構型商品 AUM",
+        "relation": "USES_VALUATION_SOURCE",
+        "target": "source:DSDEP.FN_EXCH_RT",
+        "target_label": "DSDEP.FN_EXCH_RT"
+      }
+    ],
+    "roots": [
+      "securities.total_aum"
+    ],
+    "truncated": false,
+    "graph": {
+      "nodes": 146,
+      "edges": 246,
+      "types": {
+        "Metric": 44,
+        "BusinessConcept": 7,
+        "OntologyClass": 43,
+        "SourceTable": 52
+      }
+    },
+    "answer": "- **證券總 AUM 的定義**：私銀－證券總 AUM；僅涵蓋目前已納入私銀模型的證券商品分項，金額與期間口徑待 Tool 定義 [N1]。\n  \n- **來自的資料表**：\n  - DSPBM.PB_YTRMRBP_SEC [E13]\n  - DSPBM.PB_YTRMRBP_SEC_M [E14]\n  - DSPBM.PB_BONDPOS_SEC [E15]\n  - DSPBM.PB_BONDPOS_SEC_M [E16]\n  - DSPBM.PB_FUNDPOSIT_SEC [E17]\n  - DSPBM.PB_FUNDPOSIT_SEC_M [E18]\n  - DSPBM.PB_STOCKPOS_SEC [E20]\n  - DSPBM.PB_STOCKPOS_SEC_M [E21]\n  - DSPBM.PB_BONDPOS_SEC [E23]\n  - DSPBM.PB_BONDPOS_SEC_M [E24]",
+    "answer_guard": null,
+    "route": "pg",
+    "plan": {
+      "route": "pg"
+    },
+    "tool_calls": [],
+    "used_llm": true,
+    "model": "openai/gpt-4o-mini",
+    "citations_valid": true
+  }
+]

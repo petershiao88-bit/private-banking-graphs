@@ -1,0 +1,32 @@
+{
+  "id": "tL7HTesvAzqwsqv6",
+  "url": "https://chiang4901.app.n8n.cloud/workflow/tL7HTesvAzqwsqv6",
+  "state": "saved_unpublished",
+  "intendedVersion": "KB v4 — Complete business paths before mapping",
+  "contractVersion": "pb_kb_path_evidence_v2",
+  "nodes": 11,
+  "model": "typesafe/jev-1.13",
+  "resolvedModel": "typesafe/jev-1.13-20260917",
+  "pinDataEmpty": true,
+  "savedExport": "PB_AUM_Income_KB.paths.saved.json",
+  "validationReport": "path_deployment_validation.json",
+  "previousPublishedExport": "PB_AUM_Income_KB.deployed.json",
+  "publication": {
+    "state": "saved_unpublished",
+    "blockedByAutomaticApprovalReview": true,
+    "action": "publish KB v4 to live n8n workflow",
+    "reason": "Implementation and validation authorized; explicit live publication authorization required."
+  },
+  "mainWorkflowIntegration": {
+    "id": "nBrzHm3pNsVcOpeu",
+    "name": "智能查詢 - 概念圖 KB 測試版",
+    "url": "https://chiang4901.app.n8n.cloud/workflow/nBrzHm3pNsVcOpeu",
+    "state": "saved_unpublished",
+    "nodes": 34,
+    "export": "main.paths.saved.json",
+    "validationReport": "path_deployment_validation.json",
+    "contractChecksPassed": 142,
+    "endToEndState": "success",
+    "originalMainModified": false
+  }
+}

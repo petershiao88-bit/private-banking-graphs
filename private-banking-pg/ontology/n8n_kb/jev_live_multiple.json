@@ -1,0 +1,680 @@
+{
+  "metricCodes": [
+    "aum_bank_investment_month_end",
+    "aum_securities_month_end"
+  ],
+  "status": "selected",
+  "candidateScores": [
+    {
+      "objectKey": "bank_bond_proprietary::aum",
+      "productCode": "bank_bond_proprietary",
+      "productName": "海外債券（自營）",
+      "domain": "aum",
+      "definition": "銀行自營通路的海外債券業務，涵蓋客戶持有資產與相關收入；兩側業務對應仍屬推論。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_bank_investment_month_end"
+      ],
+      "probability": 0,
+      "probabilities": {
+        "uncertain": 0,
+        "excluded": 1,
+        "included": 0
+      },
+      "confidence": 1,
+      "judgement": "excluded"
+    },
+    {
+      "objectKey": "bank_bond_trust::aum",
+      "productCode": "bank_bond_trust",
+      "productName": "海外債券（信託）",
+      "domain": "aum",
+      "definition": "以信託方式持有的海外債券業務，涵蓋客戶持有市值與相關信託收入。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_bank_investment_month_end"
+      ],
+      "probability": 0,
+      "probabilities": {
+        "excluded": 1,
+        "uncertain": 0,
+        "included": 0
+      },
+      "confidence": 1,
+      "judgement": "excluded"
+    },
+    {
+      "objectKey": "bank_collective_account::aum",
+      "productCode": "bank_collective_account",
+      "productName": "集合管理帳戶",
+      "domain": "aum",
+      "definition": "集合管理帳戶業務。AUM衡量客戶持有資產；Income的獨立業務定義待確認，不代表已確認計入獨立收入。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_bank_investment_month_end"
+      ],
+      "probability": 0,
+      "probabilities": {
+        "uncertain": 0,
+        "excluded": 1,
+        "included": 0
+      },
+      "confidence": 1,
+      "judgement": "excluded"
+    },
+    {
+      "objectKey": "bank_etf::aum",
+      "productCode": "bank_etf",
+      "productName": "銀行ETF",
+      "domain": "aum",
+      "definition": "銀行通路的指數股票型基金業務，涵蓋客戶持有資產與相關收入。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_bank_investment_month_end"
+      ],
+      "probability": 0.01,
+      "probabilities": {
+        "uncertain": 0,
+        "excluded": 0.99,
+        "included": 0.01
+      },
+      "confidence": 0.98,
+      "judgement": "excluded"
+    },
+    {
+      "objectKey": "bank_fund::aum",
+      "productCode": "bank_fund",
+      "productName": "銀行基金",
+      "domain": "aum",
+      "definition": "銀行通路的基金業務，涵蓋客戶持有資產與相關收入。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_bank_investment_month_end"
+      ],
+      "probability": 1,
+      "probabilities": {
+        "uncertain": 0,
+        "excluded": 0,
+        "included": 1
+      },
+      "confidence": 0.99,
+      "judgement": "included"
+    },
+    {
+      "objectKey": "bank_insurance::aum",
+      "productCode": "bank_insurance",
+      "productName": "銀行保險",
+      "domain": "aum",
+      "definition": "銀行通路保險業務。AUM衡量原始投資金額；Income衡量相關收入，收入是否重複計入仍待確認。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_bank_investment_month_end"
+      ],
+      "probability": 0,
+      "probabilities": {
+        "excluded": 1,
+        "uncertain": 0,
+        "included": 0
+      },
+      "confidence": 1,
+      "judgement": "excluded"
+    },
+    {
+      "objectKey": "bank_overseas_stock::aum",
+      "productCode": "bank_overseas_stock",
+      "productName": "銀行海外股票",
+      "domain": "aum",
+      "definition": "銀行通路的海外股票業務，涵蓋客戶持有資產與相關收入。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_bank_investment_month_end"
+      ],
+      "probability": 0,
+      "probabilities": {
+        "uncertain": 0,
+        "excluded": 1,
+        "included": 0
+      },
+      "confidence": 1,
+      "judgement": "excluded"
+    },
+    {
+      "objectKey": "bank_planned_trust::aum",
+      "productCode": "bank_planned_trust",
+      "productName": "規劃型信託",
+      "domain": "aum",
+      "definition": "規劃型信託業務，涵蓋受託管理資產及相關管理、成立與借券收入。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_bank_investment_month_end"
+      ],
+      "probability": 0,
+      "probabilities": {
+        "uncertain": 0,
+        "excluded": 1,
+        "included": 0
+      },
+      "confidence": 1,
+      "judgement": "excluded"
+    },
+    {
+      "objectKey": "bank_structured_offshore::aum",
+      "productCode": "bank_structured_offshore",
+      "productName": "銀行境外結構型商品",
+      "domain": "aum",
+      "definition": "銀行通路的境外結構型商品業務，涵蓋客戶持有資產與相關收入。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_bank_investment_month_end"
+      ],
+      "probability": 0,
+      "probabilities": {
+        "uncertain": 0,
+        "excluded": 1,
+        "included": 0
+      },
+      "confidence": 1,
+      "judgement": "excluded"
+    },
+    {
+      "objectKey": "bank_trust_custody::aum",
+      "productCode": "bank_trust_custody",
+      "productName": "信託保管",
+      "domain": "aum",
+      "definition": "信託保管業務，涵蓋保管資產與保管費收入。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_bank_investment_month_end"
+      ],
+      "probability": 0,
+      "probabilities": {
+        "uncertain": 0,
+        "excluded": 1,
+        "included": 0
+      },
+      "confidence": 1,
+      "judgement": "excluded"
+    },
+    {
+      "objectKey": "securities_bond::aum",
+      "productCode": "securities_bond",
+      "productName": "證券複委託債券",
+      "domain": "aum",
+      "definition": "證券通路的複委託債券業務，涵蓋部位估值與交易手續費收入。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_securities_month_end"
+      ],
+      "probability": 0,
+      "probabilities": {
+        "excluded": 1,
+        "uncertain": 0,
+        "included": 0
+      },
+      "confidence": 1,
+      "judgement": "excluded"
+    },
+    {
+      "objectKey": "securities_foreign_stock::aum",
+      "productCode": "securities_foreign_stock",
+      "productName": "證券複委託外國股票",
+      "domain": "aum",
+      "definition": "證券通路的複委託外國股票業務，涵蓋客戶持有資產與淨手續費收入；淨收入可能為負值。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_securities_month_end"
+      ],
+      "probability": 0,
+      "probabilities": {
+        "uncertain": 0,
+        "excluded": 1,
+        "included": 0
+      },
+      "confidence": 0.99,
+      "judgement": "excluded"
+    },
+    {
+      "objectKey": "securities_fund::aum",
+      "productCode": "securities_fund",
+      "productName": "證券複委託基金",
+      "domain": "aum",
+      "definition": "證券通路的複委託基金業務，涵蓋客戶持有資產與交易費收入。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_securities_month_end"
+      ],
+      "probability": 0.83,
+      "probabilities": {
+        "uncertain": 0.07,
+        "excluded": 0.1,
+        "included": 0.83
+      },
+      "confidence": 0.74,
+      "judgement": "included"
+    },
+    {
+      "objectKey": "securities_structured::aum",
+      "productCode": "securities_structured",
+      "productName": "證券複委託結構型商品",
+      "domain": "aum",
+      "definition": "證券通路的複委託結構型商品業務，涵蓋客戶持有資產與相关收入。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_securities_month_end"
+      ],
+      "probability": 0,
+      "probabilities": {
+        "uncertain": 0,
+        "excluded": 1,
+        "included": 0
+      },
+      "confidence": 1,
+      "judgement": "excluded"
+    }
+  ],
+  "decision": {
+    "requestId": "gen-dec-1791337283-EeoyugGFiY6czt0SriUt",
+    "model": "typesafe/jev-1.13-20260917",
+    "provider": "TypeSafe",
+    "scope": {
+      "type": "choice",
+      "choice": "clear",
+      "probabilities": {
+        "clear": 0.76,
+        "none": 0,
+        "ambiguous": 0.24
+      },
+      "confidence": 0.63
+    },
+    "answers": {
+      "scope": {
+        "type": "choice",
+        "choice": "clear",
+        "probabilities": {
+          "clear": 0.76,
+          "none": 0,
+          "ambiguous": 0.24
+        },
+        "confidence": 0.63
+      },
+      "bank_bond_proprietary::aum": {
+        "type": "choice",
+        "choice": "excluded",
+        "probabilities": {
+          "uncertain": 0,
+          "excluded": 1,
+          "included": 0
+        },
+        "confidence": 1
+      },
+      "bank_bond_trust::aum": {
+        "type": "choice",
+        "choice": "excluded",
+        "probabilities": {
+          "excluded": 1,
+          "uncertain": 0,
+          "included": 0
+        },
+        "confidence": 1
+      },
+      "bank_collective_account::aum": {
+        "type": "choice",
+        "choice": "excluded",
+        "probabilities": {
+          "uncertain": 0,
+          "excluded": 1,
+          "included": 0
+        },
+        "confidence": 1
+      },
+      "bank_etf::aum": {
+        "type": "choice",
+        "choice": "excluded",
+        "probabilities": {
+          "uncertain": 0,
+          "excluded": 0.99,
+          "included": 0.01
+        },
+        "confidence": 0.98
+      },
+      "bank_fund::aum": {
+        "type": "choice",
+        "choice": "included",
+        "probabilities": {
+          "uncertain": 0,
+          "excluded": 0,
+          "included": 1
+        },
+        "confidence": 0.99
+      },
+      "bank_insurance::aum": {
+        "type": "choice",
+        "choice": "excluded",
+        "probabilities": {
+          "excluded": 1,
+          "uncertain": 0,
+          "included": 0
+        },
+        "confidence": 1
+      },
+      "bank_overseas_stock::aum": {
+        "type": "choice",
+        "choice": "excluded",
+        "probabilities": {
+          "uncertain": 0,
+          "excluded": 1,
+          "included": 0
+        },
+        "confidence": 1
+      },
+      "bank_planned_trust::aum": {
+        "type": "choice",
+        "choice": "excluded",
+        "probabilities": {
+          "uncertain": 0,
+          "excluded": 1,
+          "included": 0
+        },
+        "confidence": 1
+      },
+      "bank_structured_offshore::aum": {
+        "type": "choice",
+        "choice": "excluded",
+        "probabilities": {
+          "uncertain": 0,
+          "excluded": 1,
+          "included": 0
+        },
+        "confidence": 1
+      },
+      "bank_trust_custody::aum": {
+        "type": "choice",
+        "choice": "excluded",
+        "probabilities": {
+          "uncertain": 0,
+          "excluded": 1,
+          "included": 0
+        },
+        "confidence": 1
+      },
+      "securities_bond::aum": {
+        "type": "choice",
+        "choice": "excluded",
+        "probabilities": {
+          "excluded": 1,
+          "uncertain": 0,
+          "included": 0
+        },
+        "confidence": 1
+      },
+      "securities_foreign_stock::aum": {
+        "type": "choice",
+        "choice": "excluded",
+        "probabilities": {
+          "uncertain": 0,
+          "excluded": 1,
+          "included": 0
+        },
+        "confidence": 0.99
+      },
+      "securities_fund::aum": {
+        "type": "choice",
+        "choice": "included",
+        "probabilities": {
+          "uncertain": 0.07,
+          "excluded": 0.1,
+          "included": 0.83
+        },
+        "confidence": 0.74
+      },
+      "securities_structured::aum": {
+        "type": "choice",
+        "choice": "excluded",
+        "probabilities": {
+          "uncertain": 0,
+          "excluded": 1,
+          "included": 0
+        },
+        "confidence": 1
+      }
+    },
+    "usage": {
+      "input_tokens": 9077,
+      "output_tokens": 699,
+      "cost": 0.000381234
+    },
+    "policy": {
+      "method": "native_choice_with_ambiguity_gate",
+      "numericThreshold": null,
+      "calibrated": false
+    },
+    "probabilityMeaning": "P(included) for each productCode/domain; candidate probabilities are independent and are not normalized across objects."
+  },
+  "products": [
+    {
+      "productCode": "bank_fund",
+      "productName": "銀行基金",
+      "domain": "aum",
+      "probability": 1,
+      "definition": "銀行通路的基金業務，涵蓋客戶持有資產與相關收入。",
+      "definitionStatus": "inferred",
+      "metrics": [
+        {
+          "metricCode": "aum_bank_investment_month_end",
+          "name": "月底銀行投資AUM",
+          "definition": "月底衡量的銀行通路投資資產。",
+          "status": "inferred"
+        },
+        {
+          "metricCode": "aum_investment_month_end",
+          "name": "月底投資AUM",
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "status": "inferred"
+        },
+        {
+          "metricCode": "aum_total_month_end",
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "status": "draft"
+        }
+      ],
+      "matchedMetricCodes": [
+        "aum_bank_investment_month_end"
+      ],
+      "mappingStatus": "inferred",
+      "mappings": [
+        {
+          "lineage": [
+            {
+              "tablePath": [
+                "DSFND.PB_FUND_MONTH",
+                "AUM_013_015_015_016_017_018"
+              ],
+              "baseTable": "DSFND.PB_FUND_MONTH",
+              "rules": [
+                {
+                  "lineStart": 213,
+                  "selectExpressions": [
+                    "idno AS cust_id",
+                    "TO_CHAR(exedate, 'yyyymmdd') AS yyyymmdd",
+                    "PCCCODE",
+                    "idno",
+                    "CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END AS trustprd",
+                    "SUM(CurrentTWDValue) AS CurrentTWDValue"
+                  ],
+                  "whereConditions": [],
+                  "unionDeduplication": [],
+                  "lineEnd": 230,
+                  "operationTypes": [
+                    "AGGREGATE",
+                    "SELECT",
+                    "CASE",
+                    "CREATE TABLE AS"
+                  ],
+                  "sql": "create table AUM_013_015_015_016_017_018\nas \nselect \n    idno cust_id,to_char(exedate,'yyyymmdd') yyyymmdd,PCCCODE,idno,\n    case \n       when trustprd in ('其他-國外有價證券','其他-國外股票','股票') then '海外股票'\n       when trustprd ='集合' then '集合管理帳戶'\n       when trustprd ='海外債券' then '海外債券(信託)'\n       when trustprd ='結構型商品' then '境外結構型商品'\n    else trustprd end as trustprd,\n    sum(CurrentTWDValue) CurrentTWDValue    \nfrom DSFND.PB_FUND_MONTH@anadbp01_dwdbp01\ngroup by  idno,to_char(exedate,'yyyymmdd') ,PCCCODE,idno,case \n       when trustprd in ('其他-國外有價證券','其他-國外股票','股票') then '海外股票'\n       when trustprd ='集合' then '集合管理帳戶'\n       when trustprd ='海外債券' then '海外債券(信託)'\n       when trustprd ='結構型商品' then '境外結構型商品'\n    else trustprd end;",
+                  "unionBranchOrders": [],
+                  "file": "sources/sql/1.AUM_DETAIL.sql",
+                  "aggregateExpressions": [
+                    "SUM(CurrentTWDValue)"
+                  ],
+                  "groupExpressions": [
+                    "idno",
+                    "TO_CHAR(exedate, 'yyyymmdd')",
+                    "PCCCODE",
+                    "idno",
+                    "CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END"
+                  ],
+                  "caseExpressions": [
+                    "CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END"
+                  ],
+                  "operation": "TRANSFORMS_TO",
+                  "status": "active_sql",
+                  "joinConditions": []
+                }
+              ]
+            }
+          ],
+          "mappingStatus": "observed_in_sql",
+          "outputTable": "AUM_013_015_015_016_017_018",
+          "mappingType": "AUM_IMPLEMENTED_BY",
+          "lineageStatus": "traced",
+          "productScope": "PROD='基金'",
+          "sqlTable": "AUM_013_015_015_016_017_018"
+        }
+      ]
+    },
+    {
+      "productCode": "securities_fund",
+      "productName": "證券複委託基金",
+      "domain": "aum",
+      "probability": 0.83,
+      "definition": "證券通路的複委託基金業務，涵蓋客戶持有資產與交易費收入。",
+      "definitionStatus": "inferred",
+      "metrics": [
+        {
+          "metricCode": "aum_securities_month_end",
+          "name": "月底證券AUM",
+          "definition": "月底衡量的證券通路投資資產。",
+          "status": "inferred"
+        },
+        {
+          "metricCode": "aum_investment_month_end",
+          "name": "月底投資AUM",
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "status": "inferred"
+        },
+        {
+          "metricCode": "aum_total_month_end",
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "status": "draft"
+        }
+      ],
+      "matchedMetricCodes": [
+        "aum_securities_month_end"
+      ],
+      "mappingStatus": "inferred",
+      "mappings": [
+        {
+          "lineage": [
+            {
+              "tablePath": [
+                "DSPBM.PB_FUNDPOSIT_SEC",
+                "AUM_025"
+              ],
+              "baseTable": "DSPBM.PB_FUNDPOSIT_SEC",
+              "rules": [
+                {
+                  "lineStart": 366,
+                  "selectExpressions": [
+                    "wkb02 AS cust_id",
+                    "yyyymmdd",
+                    "SUM(WKB28 * WKB23 * WKB31) AS amt"
+                  ],
+                  "whereConditions": [],
+                  "unionDeduplication": [
+                    "exact_projected_rows"
+                  ],
+                  "lineEnd": 375,
+                  "operationTypes": [
+                    "AGGREGATE",
+                    "SELECT",
+                    "UNION",
+                    "CREATE TABLE AS"
+                  ],
+                  "sql": "create table AUM_025\n  as \n  select wkb02 as cust_id,yyyymmdd ,sum(WKB28 * WKB23 * WKB31) as amt\n  from DSPBM.PB_FUNDPOSIT_SEC_M@anadbp01_dwdbp01\n  group by wkb02,yyyymmdd\n  union \n  select wkb02 as cust_id,yyyymmdd ,sum(WKB28* WKB23 * WKB31) as amt\n  from DSPBM.PB_FUNDPOSIT_SEC@anadbp01_dwdbp01\n  group by wkb02,yyyymmdd\n  ;",
+                  "unionBranchOrders": [
+                    2
+                  ],
+                  "file": "sources/sql/1.AUM_DETAIL.sql",
+                  "aggregateExpressions": [
+                    "SUM(WKB28 * WKB23 * WKB31)"
+                  ],
+                  "groupExpressions": [
+                    "wkb02",
+                    "yyyymmdd"
+                  ],
+                  "caseExpressions": [],
+                  "operation": "UNION",
+                  "status": "active_sql",
+                  "joinConditions": []
+                }
+              ]
+            },
+            {
+              "tablePath": [
+                "DSPBM.PB_FUNDPOSIT_SEC_M",
+                "AUM_025"
+              ],
+              "baseTable": "DSPBM.PB_FUNDPOSIT_SEC_M",
+              "rules": [
+                {
+                  "lineStart": 366,
+                  "selectExpressions": [
+                    "wkb02 AS cust_id",
+                    "yyyymmdd",
+                    "SUM(WKB28 * WKB23 * WKB31) AS amt"
+                  ],
+                  "whereConditions": [],
+                  "unionDeduplication": [
+                    "exact_projected_rows"
+                  ],
+                  "lineEnd": 375,
+                  "operationTypes": [
+                    "AGGREGATE",
+                    "SELECT",
+                    "UNION",
+                    "CREATE TABLE AS"
+                  ],
+                  "sql": "create table AUM_025\n  as \n  select wkb02 as cust_id,yyyymmdd ,sum(WKB28 * WKB23 * WKB31) as amt\n  from DSPBM.PB_FUNDPOSIT_SEC_M@anadbp01_dwdbp01\n  group by wkb02,yyyymmdd\n  union \n  select wkb02 as cust_id,yyyymmdd ,sum(WKB28* WKB23 * WKB31) as amt\n  from DSPBM.PB_FUNDPOSIT_SEC@anadbp01_dwdbp01\n  group by wkb02,yyyymmdd\n  ;",
+                  "unionBranchOrders": [
+                    1
+                  ],
+                  "file": "sources/sql/1.AUM_DETAIL.sql",
+                  "aggregateExpressions": [
+                    "SUM(WKB28 * WKB23 * WKB31)"
+                  ],
+                  "groupExpressions": [
+                    "wkb02",
+                    "yyyymmdd"
+                  ],
+                  "caseExpressions": [],
+                  "operation": "UNION",
+                  "status": "active_sql",
+                  "joinConditions": []
+                }
+              ]
+            }
+          ],
+          "mappingStatus": "observed_in_sql",
+          "outputTable": "AUM_025",
+          "mappingType": "AUM_IMPLEMENTED_BY",
+          "lineageStatus": "traced",
+          "productScope": "PROD='基金' AND COMP='證券'",
+          "sqlTable": "AUM_025"
+        }
+      ]
+    }
+  ],
+  "message": "已依 Jev 逐 object 評估選定產品；完整候選機率已保留。\n月底總AUM：指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。"
+}

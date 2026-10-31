@@ -1,0 +1,16 @@
+{
+  "version": "0.6.0",
+  "date": "2026-10-22",
+  "sources": [
+    "holding-core.ttl",
+    "bank-deposit.ttl",
+    "bank-common.ttl",
+    "bank-investment-products.ttl"
+  ],
+  "ontology_uri": "https://example.org/ontology/customer360",
+  "label": "客戶360共通語意整合本體",
+  "outputs": {
+    "turtle": "customer360-ontology.ttl",
+    "xml": "customer360-ontology.owl"
+  }
+}

@@ -1,0 +1,4853 @@
+[
+  {
+    "source": "HANDOFF-ZED-RDF-20261021.md",
+    "destination": "archive/cleanup-20261027/HANDOFF-ZED-RDF-20261021.md",
+    "files": [
+      {
+        "path": "",
+        "sha256": "38180a37f01a988917dbf528fc410a6a5a6545a1c219a4c63b0d70ade1e24617",
+        "bytes": 1316
+      }
+    ]
+  },
+  {
+    "source": "MIGRATION-v0.3.0.md",
+    "destination": "archive/cleanup-20261027/MIGRATION-v0.3.0.md",
+    "files": [
+      {
+        "path": "",
+        "sha256": "5a4ff5d93a762ba6c41e08674a5c01f4c54d49ea6f839f90f5c421a121c77b2a",
+        "bytes": 2462
+      }
+    ]
+  },
+  {
+    "source": "README.txt",
+    "destination": "archive/cleanup-20261027/README.txt",
+    "files": [
+      {
+        "path": "",
+        "sha256": "50e86018fe6b827a8cd49dfdd5d87514c382d83524ecefc70cc4247e538d04a2",
+        "bytes": 1399
+      }
+    ]
+  },
+  {
+    "source": "tools/legacy-v0.2.0",
+    "destination": "archive/cleanup-20261027/tools/legacy-v0.2.0",
+    "files": [
+      {
+        "path": "build_ontology.py",
+        "sha256": "470a60d5a0393f1a542401dda5b33ca05250c20eb40f7b79f9439f591d65a6c7",
+        "bytes": 16302
+      },
+      {
+        "path": "README.md",
+        "sha256": "f193fff18f5266289f33f571a49b6e632f76b8ab9f22564a5f7af21573d71a66",
+        "bytes": 783
+      },
+      {
+        "path": "reference-graph.json",
+        "sha256": "a8fb8ea1ae92f22d6863c78b2badaaaf9aebf15216cccfc556de520f8d8aeb1a",
+        "bytes": 81515
+      },
+      {
+        "path": "validation.json",
+        "sha256": "8ac8c3efcd4ddf1f0aef15cfe0514ce374f102679b80c05545b11f8363e525f6",
+        "bytes": 488
+      },
+      {
+        "path": "verify_ontology.py",
+        "sha256": "211beeb60ceb8fb80f3ea2b33e07e55863b4fe56522383927bcb02959e69bbc3",
+        "bytes": 11072
+      }
+    ]
+  },
+  {
+    "source": "tools/seed_investment_metrics.py",
+    "destination": "archive/cleanup-20261027/tools/seed_investment_metrics.py",
+    "files": [
+      {
+        "path": "",
+        "sha256": "450ecd9a7bb61e53ba29b4afe7694d440b7e5f36040b6e6a03be5dc85fdfe4d1",
+        "bytes": 19262
+      }
+    ]
+  },
+  {
+    "source": "tools/seed_product_aum.py",
+    "destination": "archive/cleanup-20261027/tools/seed_product_aum.py",
+    "files": [
+      {
+        "path": "",
+        "sha256": "9542f7ffd9e3a2943bbe5867a1cd8136768d80319babfec4d91ded4def13d327",
+        "bytes": 9907
+      }
+    ]
+  },
+  {
+    "source": "tools/seed_product_fees.py",
+    "destination": "archive/cleanup-20261027/tools/seed_product_fees.py",
+    "files": [
+      {
+        "path": "",
+        "sha256": "0f42678860d8c905715249a1895d2c00c677b314e305f428466a6192d774e4ce",
+        "bytes": 9749
+      }
+    ]
+  },
+  {
+    "source": "outputs/department-v0.16.0",
+    "destination": "archive/cleanup-20261027/outputs/department-v0.16.0",
+    "files": [
+      {
+        "path": "apply.py",
+        "sha256": "b3dcc4157bb178684223e4c7b2f80e143e1113aa9fb89d644caf3374c33f7f0e",
+        "bytes": 3660
+      },
+      {
+        "path": "update_docs.py",
+        "sha256": "5d6a96f50c862edef143c1d0e2c0fbbe1a6cc3a0dbb3a80f011d1474ed332b09",
+        "bytes": 21361
+      }
+    ]
+  },
+  {
+    "source": "outputs/pg-income-extension-20261024",
+    "destination": "archive/cleanup-20261027/outputs/pg-income-extension-20261024",
+    "files": [
+      {
+        "path": "apply.py",
+        "sha256": "f5c6b1101ab1c16f6c72734c0580c8ced94bc0a246aa3a687af74d5a749c2dfe",
+        "bytes": 13577
+      },
+      {
+        "path": "HANDOFF-current.md",
+        "sha256": "0666f80b6bd2ad662089fdf437bc468aad60664bdd1aa4dbcf8aa2e12b6cb114",
+        "bytes": 11559
+      },
+      {
+        "path": "update_docs.py",
+        "sha256": "49d62edb114cd1d7b2631ab50732ef37cd651b3e8fea58093c1c41747e8416be",
+        "bytes": 8146
+      }
+    ]
+  },
+  {
+    "source": "outputs/previews",
+    "destination": "archive/cleanup-20261027/outputs/previews",
+    "files": [
+      {
+        "path": "customer360-graph.html",
+        "sha256": "7c633de3d966ecb31a29e9fa9b1ddb6d0bf0a557cd80edc28be84bb0fb41f1cf",
+        "bytes": 63249
+      }
+    ]
+  },
+  {
+    "source": "outputs/rdf-review-v0.6.0",
+    "destination": "archive/cleanup-20261027/outputs/rdf-review-v0.6.0",
+    "files": [
+      {
+        "path": "rdf-graph.json",
+        "sha256": "2b5063fcf6df68946c69218f4fdd4aa5734ac3c9f1e6ec194dddb929ededab52",
+        "bytes": 11003
+      },
+      {
+        "path": "rdf-graph.png",
+        "sha256": "e5fa1052404cf06ff1247335a7ffd43808a2825bbb91d427b039ef3781d5ccf6",
+        "bytes": 238488
+      },
+      {
+        "path": "rdf-graph.svg",
+        "sha256": "2b276ef325e366c99258cca92fd8f138522e3939d4dd4828cb4c0995d1af7664",
+        "bytes": 18113
+      }
+    ]
+  },
+  {
+    "source": "outputs/rdf-review-v0.7.0",
+    "destination": "archive/cleanup-20261027/outputs/rdf-review-v0.7.0",
+    "files": [
+      {
+        "path": "rdf-graph.json",
+        "sha256": "261a2775e23f619b2b2ed3670d4ab186ae5047ac362a1166760ef54c434e04fa",
+        "bytes": 11816
+      },
+      {
+        "path": "rdf-graph.png",
+        "sha256": "f86601fbf7299648a593f31b1e12bb21d6f179e6c1a8f9885faa817d5b3795bb",
+        "bytes": 240905
+      },
+      {
+        "path": "rdf-graph.svg",
+        "sha256": "e2a4fe3d14a1a46cf1b340f2ce8a6b4c69344fca238587a3b0e12a14367c958f",
+        "bytes": 19175
+      }
+    ]
+  },
+  {
+    "source": "outputs/securities-summary-20261024",
+    "destination": "archive/cleanup-20261027/outputs/securities-summary-20261024",
+    "files": [
+      {
+        "path": "apply.py",
+        "sha256": "3d0b2d4f033c02decdf1518c64a813251011b704fe767906aa4a13f5cc43c8b0",
+        "bytes": 8195
+      },
+      {
+        "path": "update_docs.py",
+        "sha256": "3085ec82b58b7fa8567af0534051d81b347f74d50972a853c9d6d25ff91e9072",
+        "bytes": 11489
+      }
+    ]
+  },
+  {
+    "source": "semantica-poc/vendor",
+    "destination": "archive/cleanup-20261027/semantica-poc/vendor",
+    "files": [
+      {
+        "path": "httptools-0.9.0-cp311-cp311-win_amd64.whl",
+        "sha256": "c4fa57d3c31889722f64bfa785545a5e603a893b6f29ac1a41bfa830abeaefd5",
+        "bytes": 92421
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-core-console-l1-1-0.dll",
+        "sha256": "88ace577a9c51061cb7d1a36babbbefa48212fadc838ffde98fdfff60de18386",
+        "bytes": 22072
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-core-console-l1-2-0.dll",
+        "sha256": "c062477ad3bfdc57b0cc402179637a214dab5045c8d644592c7decca7d18aa50",
+        "bytes": 22056
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-core-datetime-l1-1-0.dll",
+        "sha256": "1bd81dfd19204b44662510d9054852fb77c9f25c1088d647881c9b976cc16818",
+        "bytes": 22056
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-core-debug-l1-1-0.dll",
+        "sha256": "591358eb4d1531e9563ee0813e4301c552ce364c912ce684d16576eabf195dc3",
+        "bytes": 21944
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-core-errorhandling-l1-1-0.dll",
+        "sha256": "d56ce7b1cd76108ad6c137326ec694a14c99d48c3d7b0ace8c3ff4d9bcee3ce8",
+        "bytes": 22096
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-core-fibers-l1-1-0.dll",
+        "sha256": "91d249d7bc0e38ef6bcb17158b1fdc6dd8888dc086615c9b8b750b87e52a5fb3",
+        "bytes": 22072
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-core-fibers-l1-1-1.dll",
+        "sha256": "fc9d86cec621383eab636ebc87ddd3f5c19a3cb2a33d97be112c051d0b275429",
+        "bytes": 22072
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-core-file-l1-1-0.dll",
+        "sha256": "1ca895aba4e7435563a6b43e85eba67a0f8c74aa6a6a94d0fc48fa35535e2585",
+        "bytes": 26152
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-core-file-l1-2-0.dll",
+        "sha256": "4cadbc0c39da7c6722206fdcebd670abe5b8d261e7b041dd94f9397a89d1990d",
+        "bytes": 22056
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-core-file-l2-1-0.dll",
+        "sha256": "93c624b366ba16c643fc8933070a26f03b073ad0cf7f80173266d67536c61989",
+        "bytes": 21960
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-core-handle-l1-1-0.dll",
+        "sha256": "39095f59c41d76ec81bb2723d646fde4c148e7cc3402f4980d2ade95cb9c84f9",
+        "bytes": 21944
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-core-heap-l1-1-0.dll",
+        "sha256": "8f105771b236dbcb859de271f0a6822ce1cb79c36988dd42c9e3f6f55c5f7eb9",
+        "bytes": 22072
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-core-interlocked-l1-1-0.dll",
+        "sha256": "53b25e753ca785bf8b695d89dde5818a318890211dc992a89146f16658f0b606",
+        "bytes": 22072
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-core-kernel32-legacy-l1-1-1.dll",
+        "sha256": "a9b13a1cd1b8c19b0c6b4afcd5bb0dd29c0e2288231ac9e6db8510094ce68ba6",
+        "bytes": 22080
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-core-libraryloader-l1-1-0.dll",
+        "sha256": "7f39ba298b41e4963047341288cab36b6a241835ee11ba4ad70f44dacd40906c",
+        "bytes": 22056
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-core-localization-l1-2-0.dll",
+        "sha256": "6ee44dd0d8510dc024c9f7c79b1b9fa88c987b26b6beb6653ddd11751c34e5dc",
+        "bytes": 22080
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-core-memory-l1-1-0.dll",
+        "sha256": "0512a35316ec9180437f86696a84c5c06a7e4e82e050055a656e5bf9fca206f9",
+        "bytes": 22056
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-core-namedpipe-l1-1-0.dll",
+        "sha256": "c05f1fffe3b5a2738ea54ce9485cca026fb9635f982626fba1e1dcc531897273",
+        "bytes": 22096
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-core-processenvironment-l1-1-0.dll",
+        "sha256": "c4eca98c3c67b6395d5b005b00ac1eb0318b86b23aa71035a44c2b1602befba9",
+        "bytes": 21968
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-core-processthreads-l1-1-0.dll",
+        "sha256": "5ccb89e93d67bc3288d4e84649c5346e66e15e3d7cd65d989daf3f4cb584be9a",
+        "bytes": 22096
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-core-processthreads-l1-1-1.dll",
+        "sha256": "4ad565a8ba3ef0ea8ab87221ad11f83ee0bc844ce236607958406663b407333e",
+        "bytes": 22072
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-core-profile-l1-1-0.dll",
+        "sha256": "7809160932f44e59b021699f5bc68799eb7293ee1fa926d6fcca3c3445302e61",
+        "bytes": 22080
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-core-rtlsupport-l1-1-0.dll",
+        "sha256": "9dc1e91e71c7c054854bd1487cb4e6946d82c9f463430f1c4e8d1471005172b1",
+        "bytes": 21960
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-core-string-l1-1-0.dll",
+        "sha256": "60fc31d2a0c634412f529dba76af3b9bf991352877c6dae528186d3935704cfd",
+        "bytes": 22056
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-core-synch-l1-1-0.dll",
+        "sha256": "3a72b4f29f39a265d32ad12f0ce15dbf60129c840e10d84d427829ede45e78ad",
+        "bytes": 22056
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-core-synch-l1-2-0.dll",
+        "sha256": "efc1e4460984a73cf47a3def033af1c8f3b1dbc1a56cd27781d3aacf3e3330cb",
+        "bytes": 22080
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-core-sysinfo-l1-1-0.dll",
+        "sha256": "b203d862ddef1dd62bf623fc866c7f7a9c317c1c2ae30d1f52cb41f955b5698e",
+        "bytes": 22072
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-core-sysinfo-l1-2-0.dll",
+        "sha256": "2703635d835396afd0f138d7c73751afe7e33a24f4225d08c1690b0a371932c0",
+        "bytes": 22080
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-core-timezone-l1-1-0.dll",
+        "sha256": "33f4fddc181066fce06b2227bded813f95e94ed1f3d785e982c6b6b56c510c57",
+        "bytes": 22056
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-core-util-l1-1-0.dll",
+        "sha256": "6eda016742a6171205a387a14b3c0b331841567740376f56768f8c151724207d",
+        "bytes": 21944
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-crt-conio-l1-1-0.dll",
+        "sha256": "b762061b688aae679afe788904d2c9970f74a7dac98f3b42463d08f25e483d3f",
+        "bytes": 22056
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-crt-convert-l1-1-0.dll",
+        "sha256": "ebb2ae5535a64f65daeab8235585114fc9dd2cf1a49f5852d446250b998b6ae4",
+        "bytes": 26056
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-crt-environment-l1-1-0.dll",
+        "sha256": "17d63275d00bdd8670422b95bd264c532998e0a1b041079e54fce4b6b7a55819",
+        "bytes": 22080
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-crt-filesystem-l1-1-0.dll",
+        "sha256": "9a9e2a65a281644e368d0f272b95ba5f6b445d1c35910d06056c5ebeb77402db",
+        "bytes": 22056
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-crt-heap-l1-1-0.dll",
+        "sha256": "bab9ac3ec83e380ae51e4295ef3bf2c738627812d3a49d1e713661abbc8dc57a",
+        "bytes": 22096
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-crt-locale-l1-1-0.dll",
+        "sha256": "bd14c67ea28e21d6257ad780a37122c9b5773f69e693f5db6bffaee4d839526e",
+        "bytes": 22080
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-crt-math-l1-1-0.dll",
+        "sha256": "606d66d82db562ea7979179d06486a0f94d079941d26b80a1e2c49d29959df6f",
+        "bytes": 30248
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-crt-multibyte-l1-1-0.dll",
+        "sha256": "95f49efbe8107786733fa7c474025cf3fee0ac632f240367b296c736d06572aa",
+        "bytes": 30248
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-crt-private-l1-1-0.dll",
+        "sha256": "1bc82bed6143d2bf1b6b08a7809f4a5e29317d6fddd338a7da3c0223522e4bbf",
+        "bytes": 75328
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-crt-process-l1-1-0.dll",
+        "sha256": "f6156b1020380ec4f0e48577ebedaaef5fb1ab1f337d8b4e72e6a33a7567a9cc",
+        "bytes": 22096
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-crt-runtime-l1-1-0.dll",
+        "sha256": "c5902934d026d7e15fbe9917d474f3322846a41a25e66f4b2b1f758801879f4b",
+        "bytes": 26152
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-crt-stdio-l1-1-0.dll",
+        "sha256": "a9c5a153d8c0286f9b41a2b1c65854ad9e6471b8755b7de87bae4470e60bcab6",
+        "bytes": 26168
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-crt-string-l1-1-0.dll",
+        "sha256": "25b8f83a7767211b11132775a0e27a45aa4ec8ab4e6572599f9c172ae3606b40",
+        "bytes": 26176
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-crt-time-l1-1-0.dll",
+        "sha256": "7c7f6393f06de11750adb09cc5698ae55cd9fb27b2e51e207286feb1b5b2b156",
+        "bytes": 22096
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/api-ms-win-crt-utility-l1-1-0.dll",
+        "sha256": "d8ba5f17b9ffcbf3aeaf3fa1da226832d2fa90f81acce0cd669464e76ce434ac",
+        "bytes": 21952
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/awt.dll",
+        "sha256": "3a08da4cf9614add3adcc2414a15400464372238101899db914e3c73a8e5d8b2",
+        "bytes": 1492136
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/dt_socket.dll",
+        "sha256": "1a5c8a2a198c8645f892cb68dca87885ad759c3a3f1f828167dcdb3ac41d4874",
+        "bytes": 36520
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/extnet.dll",
+        "sha256": "521686111498f05b06d918008b836e88c050fae99408fe973c5afc1846fec43b",
+        "bytes": 24232
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/fontmanager.dll",
+        "sha256": "21951c96e6f44c37a413e9fafd6a57aa49674aba6193242f8bd681f0d1d89a40",
+        "bytes": 973992
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/freetype.dll",
+        "sha256": "f9e7df49f9b888a1ab81c85b18ee81532700d9fb032a30d616577e497feab8f9",
+        "bytes": 546984
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/instrument.dll",
+        "sha256": "47a92ef549e5b9bb0078e16a72b38ffd0fa9bcbc5e158ce12e73aaaa1145cebf",
+        "bytes": 51880
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/j2gss.dll",
+        "sha256": "cdd2505bc5684c141d0de043a67bb19218597ed52f16afa369ffeb5d68172e8b",
+        "bytes": 50856
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/j2pcsc.dll",
+        "sha256": "e87f123a856525179f36b4cda37f527d9b054f18569a71042046a832e3ccdb1b",
+        "bytes": 26792
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/j2pkcs11.dll",
+        "sha256": "371b0f3ae8a83faf17b06d4e4582dbc714f121c999bfb5651d59ff4b8e68ff8d",
+        "bytes": 80040
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/jaas.dll",
+        "sha256": "00182782159e642cdd4efa5f21320cb0c9820b4fabc9917e4cce5faf73ad2fbb",
+        "bytes": 28840
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/jabswitch.exe",
+        "sha256": "1c76ec49a8b5107f03e59e37b1b71d897f8c1918cf89d40c0ce0e491af4e8c25",
+        "bytes": 45224
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/jaccessinspector.exe",
+        "sha256": "f8d54bfa1e6312070f4c7f2b167b82502e151e528ac453eab39136860f773243",
+        "bytes": 106152
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/jaccesswalker.exe",
+        "sha256": "7309e084c5fe4afc9bb0b1d67d6a30dc404218045703505ba4b22c5e9dae4f2b",
+        "bytes": 71336
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/java.dll",
+        "sha256": "18b105254c16e1d83614ff4e32cd62ce402fbe6339bdd1b24ccc7d999fed7f5f",
+        "bytes": 148136
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/java.exe",
+        "sha256": "974fd93b1279f87db5c86e15469dc5f76e708c3a341847523170c532118c8841",
+        "bytes": 50344
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/javaaccessbridge.dll",
+        "sha256": "22d1c2b0d3fce0e5dc1a5d3ebd62b125788a9cf4c0846f1dda271419b784a3ae",
+        "bytes": 308904
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/javajpeg.dll",
+        "sha256": "cffd57c27ea8df642777ad37e4a795140769b6c9dc48ad9272a286d475784889",
+        "bytes": 182952
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/javaw.exe",
+        "sha256": "767e6219738867eaa40cb6d80edb6f17090558b67ce101a00e27b99cdaac2277",
+        "bytes": 50344
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/jawt.dll",
+        "sha256": "30475691705580b4a0073f54b26fd7c7e20bb2b7694d2554cb0d40b3fde8a17a",
+        "bytes": 21672
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/jdwp.dll",
+        "sha256": "4ff7345a0a66091f519a7546f1a865c4cbc9cc132fba31608604e88dec1cedf2",
+        "bytes": 230056
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/jfr.exe",
+        "sha256": "8e1d58dd899cdfef0e396b453aac0fba202e0c8737a79a37524ad0f9644827b3",
+        "bytes": 24232
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/jimage.dll",
+        "sha256": "f01c057da0222bc70a7f904c3104dedfc6f268446ee797c6dd70f9651a52265f",
+        "bytes": 34472
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/jli.dll",
+        "sha256": "5d6a3581649cf281a2a4db2aeff53ccb1134b45cb04fa282efa7eb9a58cf5b79",
+        "bytes": 89768
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/jrunscript.exe",
+        "sha256": "cbb7a3db12d864630cc6e72d2285bdfea344fc50d357fcdb8693057dc96074f1",
+        "bytes": 24744
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/jsound.dll",
+        "sha256": "b400272a3394ab9bebfa2df42ce02496df63c9a7a40064ebdf2650c5ddce4469",
+        "bytes": 61096
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/jsvml.dll",
+        "sha256": "d0971a028ff3e94ec749e5ab62abfc4d883b1c85550521ac120b622982fb8114",
+        "bytes": 870056
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/keytool.exe",
+        "sha256": "60e8a80621d077d88976dfe0589a6d7d533d598e194dae9434a1260c1356f08a",
+        "bytes": 24232
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/kinit.exe",
+        "sha256": "8672c2b7afa4f93cb40f07b50d2894a12702824a957927fbef0b5ba552322c99",
+        "bytes": 24232
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/klist.exe",
+        "sha256": "7a63233cf426c26cf0db0f32551a879195a1e0f65dcbd37891ddbc3e71b20d30",
+        "bytes": 24232
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/ktab.exe",
+        "sha256": "76c0cabb8b526a3b40f2cd877ca79826742dfd478a43dc32de211e31ef76ca1e",
+        "bytes": 24232
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/lcms.dll",
+        "sha256": "3f0b6392a8a93903a3b2d1aede053778ebfc81ad99ae3deeaf074abc659a5dc8",
+        "bytes": 261288
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/management.dll",
+        "sha256": "4d90ddc5f9ceefc8952b708f9a6f28c18325ed57e8ab65331d6cace79b5f0726",
+        "bytes": 29864
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/management_agent.dll",
+        "sha256": "eb32c1b912bf7caddc0f90893574313cc83f53319e2429d48019abf30d695be5",
+        "bytes": 25256
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/management_ext.dll",
+        "sha256": "43e43d079b33651a1aff67b5aa767fd37b520a0608c7a127c11c08d6a374f0c3",
+        "bytes": 36520
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/mlib_image.dll",
+        "sha256": "fb083ef29d4120f2bf84240a4f250f815f131c9e2a186371ed2ce9a5478c9b8a",
+        "bytes": 519848
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/msvcp140.dll",
+        "sha256": "a4c2229bdc2a2a630acdc095b4d86008e5c3e3bc7773174354f3da4f5beb9cde",
+        "bytes": 575056
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/net.dll",
+        "sha256": "aa178fbeb19980dfbb6827b3b2532cd110d585192041883032bf2dbb20e4785d",
+        "bytes": 98472
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/nio.dll",
+        "sha256": "1d3f193e94d404a18caa24440e61af652ec705258f5fa5a3cb90bc790e9b98ba",
+        "bytes": 80552
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/prefs.dll",
+        "sha256": "44102e7e881e84a1e888319ca147f444aeed5203dffd8e52b61e9c44d15c7bc7",
+        "bytes": 25768
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/rmi.dll",
+        "sha256": "1ccf35d5de3355126459104af0e3722a2332d3bb9dd593b5286e6b71c25ce774",
+        "bytes": 21160
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/rmiregistry.exe",
+        "sha256": "f22c565c22928e8f1d32c1586e816599efceb39e7971baaa767ac2df9023793b",
+        "bytes": 24744
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/server/classes.jsa",
+        "sha256": "8347a88483e44b9acd4ad1edf78d0b5519c999f15d5548add755b551d12ce2bc",
+        "bytes": 11075584
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/server/classes_nocoops.jsa",
+        "sha256": "9059d2fc64666713ebecbb57bd6f26d50ef20c877666d18cfe21813d1398b0f0",
+        "bytes": 11075584
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/server/jvm.dll",
+        "sha256": "5539382b75556a9873fafa2d8b7d0b36b169ac436a3608467da4f74c2600cbce",
+        "bytes": 12681896
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/splashscreen.dll",
+        "sha256": "b29d5fb8dfb2987feccd38a23b1d7a63b97bc32f4f320fa6fd8779754d625920",
+        "bytes": 218280
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/sspi_bridge.dll",
+        "sha256": "bf5fbdd58b6f6c0bb773b2afa6dcea93a71f564c27483c635fdcd9067d88c153",
+        "bytes": 45224
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/sunmscapi.dll",
+        "sha256": "22509cf54a6d0936631671b22d86ceb895d7960ce907099a23543bc0645a22a8",
+        "bytes": 47784
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/ucrtbase.dll",
+        "sha256": "2e5fb14b7bf8540278f3614a12f0226e56a7cc9e64b81cbd976c6fcf2f71cbfb",
+        "bytes": 1361448
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/vcruntime140.dll",
+        "sha256": "02c6aa0e6e624411a9f19b0360a7865ab15908e26024510e5c38a9c08362c35a",
+        "bytes": 119888
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/vcruntime140_1.dll",
+        "sha256": "7dd9aa02e271c68ca6d5f18d651d23a15d7259715af43326578f7dde27f37637",
+        "bytes": 49640
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/verify.dll",
+        "sha256": "ab1003530e431300e043a3a2b311201a7b6b844b28929863465f1f5f99de4db9",
+        "bytes": 54952
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/w2k_lsa_auth.dll",
+        "sha256": "0ee09fadcd8073e6622b3b69f0a09deaa273351c1a7f71ba439b2ab620a534df",
+        "bytes": 31400
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/windowsaccessbridge-64.dll",
+        "sha256": "3ad47ee124bea23b0cecbc92cf61022a73567986d6ff3ff1d893447418c1d8d6",
+        "bytes": 72872
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/WinFallbackLookup.dll",
+        "sha256": "bfe0df7203d03be06d1e4ac1eaf51512d8a2cb24797e245bba36325387ac66b8",
+        "bytes": 28840
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/bin/zip.dll",
+        "sha256": "2cc26c530a65b8a839e40ce820565e531fefcc5a207822e09f7a073fb8676b70",
+        "bytes": 89256
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/conf/logging.properties",
+        "sha256": "b62d2733ab99556b108a1951d894c5a8d76b1ac7a00c02c388f9eb9be046c56f",
+        "bytes": 2732
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/conf/management/jmxremote.access",
+        "sha256": "0c25d26ee212ca1e8c33f67c3c460d43fe849c3a1d23dbe341148517602b280c",
+        "bytes": 3997
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/conf/management/jmxremote.password.template",
+        "sha256": "0273b6a6b9e20e6ce54c5aee70164028e0395063b2b7d39060a40b6495543dbf",
+        "bytes": 5690
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/conf/management/management.properties",
+        "sha256": "f80096ec028dcb71625c398ec16d12023cafc6a1c055aceaed07d02e8d56f637",
+        "bytes": 14410
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/conf/net.properties",
+        "sha256": "56dd1f6095c189c1052f6baa32e457efc09de4832e19cdb82bb236dc8abfee9f",
+        "bytes": 7504
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/conf/security/java.policy",
+        "sha256": "1224c11b69032c80e1493416641c82a37e558913a41f959f83ab2f96f097d6c0",
+        "bytes": 2293
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/conf/security/java.security",
+        "sha256": "0b2800e2ba1ba7566dbd628269969f585d8634fdbf088cc64a682d1ee10f713b",
+        "bytes": 63790
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/conf/security/policy/limited/default_local.policy",
+        "sha256": "2b2627548e61316150d47ffc3e6cad465ca05b3cccd4785eb7d21aa7baa0f441",
+        "bytes": 647
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/conf/security/policy/limited/default_US_export.policy",
+        "sha256": "758b930a526fc670ab7537f8c26321527050a31f5f42149a2dda623c56a0a1a9",
+        "bytes": 146
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/conf/security/policy/limited/exempt_local.policy",
+        "sha256": "8c3d7648abcd95a272ce12db870082937f4d7f6878d730d83cb7fbb31eb8b2c9",
+        "bytes": 566
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/conf/security/policy/README.txt",
+        "sha256": "6da0747334b0fea7592fd92614b2bbc8b126535e129b1fee483774d914e98eb5",
+        "bytes": 2390
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/conf/security/policy/unlimited/default_local.policy",
+        "sha256": "8d8a318e6d90dfd7e26612d2b6385aa704f686ca6134c551f8928418d92b851a",
+        "bytes": 193
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/conf/security/policy/unlimited/default_US_export.policy",
+        "sha256": "758b930a526fc670ab7537f8c26321527050a31f5f42149a2dda623c56a0a1a9",
+        "bytes": 146
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/conf/sound.properties",
+        "sha256": "299c2360b6155eb28990ec49cd21753f97e43442fe8fab03e04f3e213df43a66",
+        "bytes": 1210
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.base/ADDITIONAL_LICENSE_INFO",
+        "sha256": "a69bce275ba7a3570af6579cb0f55682cd75fedfcd49e0e8e9022270c447c916",
+        "bytes": 2114
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.base/aes.md",
+        "sha256": "45c6d4da48325edfbff3dcf71c704e504c057904435ed23c6d57046d551eb69d",
+        "bytes": 1444
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.base/asm.md",
+        "sha256": "1ff912740e84e024711def5fa482ffbb46eff64559760c467352dfa7c39a3307",
+        "bytes": 1584
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.base/ASSEMBLY_EXCEPTION",
+        "sha256": "a44eb7b5caf5534c6ef536b21edb40b4d6babf91bf97d9d45596868618b2c6fb",
+        "bytes": 1522
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.base/c-libutl.md",
+        "sha256": "bef40679922d6fdfb7e4ddb223ad6722300f6054ba737bbf6188d60fcec517f9",
+        "bytes": 1556
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.base/cldr.md",
+        "sha256": "f2bd33ded550a05d59e8f659416ef382490504548d846e6388b1dffd273aa077",
+        "bytes": 9130
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.base/icu.md",
+        "sha256": "af0057e8553906083f69c2fb9fe9ed4ae8bc2340a0b1e376a424702f00300b29",
+        "bytes": 11086
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.base/LICENSE",
+        "sha256": "4b9abebc4338048a7c2dc184e9f800deb349366bdf28eb23c2677a77b4c87726",
+        "bytes": 19274
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.base/public_suffix.md",
+        "sha256": "54bd8ebaa51b530b13082da28457ae188f76cc64977607e0bc61e0ab11cd7aa7",
+        "bytes": 17785
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.base/siphash.md",
+        "sha256": "5a792b5a74ad2a5f3d6a7ad8b7a841116e58a772c18bc6e392320a365b222c76",
+        "bytes": 8256
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.base/unicode.md",
+        "sha256": "5e4e6623a21a63f9bc16ea54af4133b8038e490c0d499a74676f9e5a61b9c5b2",
+        "bytes": 2384
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.base/wepoll.md",
+        "sha256": "3ac2992770080453b98c42afa807ba4b2c1738ef756b92a55c645f55e7df48f0",
+        "bytes": 1454
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.base/zlib.md",
+        "sha256": "809b62ba648e02302f7d9ea6b6886c10d5253ac86ad528038a50c73eada5fce2",
+        "bytes": 1010
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.compiler/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.compiler/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.compiler/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.datatransfer/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.datatransfer/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.datatransfer/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.desktop/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.desktop/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.desktop/colorimaging.md",
+        "sha256": "04d61e3e8e71dd452ebe52008af5378d9f6640d14578aeb515dc5375973b0189",
+        "bytes": 167
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.desktop/freetype.md",
+        "sha256": "f49d5fb98475239073dc657e689b85d3125a2b30bf3ee137db17541878f1cbe8",
+        "bytes": 30422
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.desktop/giflib.md",
+        "sha256": "6cd971730d3047ea57f6865b7bdca2509a9876ae24d5c0ed0c4e32def5f9107e",
+        "bytes": 1646
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.desktop/harfbuzz.md",
+        "sha256": "b3f327a8b36d56beb152b3fd1bb5a7f245362cbea123ebbc68f8907f741b552a",
+        "bytes": 3628
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.desktop/jpeg.md",
+        "sha256": "580be596216ee11e2554b24ce944973acaede2ebf5ffba34a6bd8cc441c05043",
+        "bytes": 3475
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.desktop/lcms.md",
+        "sha256": "fc1d7f60c7cdc96b5cadafd4f3610c6a74f2d0afa08852036929c7a1474ebab6",
+        "bytes": 2641
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.desktop/libpng.md",
+        "sha256": "4e4c0ecd9795b9181538ea94fa63e6817e6e1f4b51481d720adaee0fde409c20",
+        "bytes": 7212
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.desktop/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.desktop/mesa3d.md",
+        "sha256": "63f4e6f75caebbccb95d903fb43e46ac7111b3624d0a34f146b276d7d9e7b152",
+        "bytes": 5732
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.instrument/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.instrument/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.instrument/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.logging/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.logging/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.logging/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.management/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.management/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.management/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.management.rmi/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.management.rmi/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.management.rmi/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.naming/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.naming/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.naming/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.net.http/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.net.http/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.net.http/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.prefs/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.prefs/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.prefs/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.rmi/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.rmi/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.rmi/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.scripting/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.scripting/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.scripting/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.se/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.se/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.se/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.security.jgss/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.security.jgss/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.security.jgss/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.security.sasl/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.security.sasl/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.security.sasl/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.smartcardio/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.smartcardio/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.smartcardio/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.sql/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.sql/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.sql/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.sql.rowset/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.sql.rowset/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.sql.rowset/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.transaction.xa/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.transaction.xa/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.transaction.xa/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.xml/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.xml/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.xml/bcel.md",
+        "sha256": "853a1e7ce397bb10de0e2b3bde0844bcc651f17d983decd07d2d003c0304c311",
+        "bytes": 11195
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.xml/dom.md",
+        "sha256": "6686e8877667584a3a7c07344baadca1a03e29f677162d87c3c0811e990d1148",
+        "bytes": 3761
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.xml/jcup.md",
+        "sha256": "8d5dcfdf50455a3c34c753a98f21e953248af200415a9084e3f102cb6c43b8bf",
+        "bytes": 1448
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.xml/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.xml/xalan.md",
+        "sha256": "ea67226be5cfe19c7e79725c2c24a16676323264d69f9747c528de0b44541b03",
+        "bytes": 13494
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.xml/xerces.md",
+        "sha256": "472224f99de833f4f4c19f2f8a0317f22114e1c641f5d77ffa3a4280a1b80176",
+        "bytes": 11852
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.xml.crypto/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.xml.crypto/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.xml.crypto/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/java.xml.crypto/santuario.md",
+        "sha256": "d08690d25f660f145c73365d260ed522cd0aace8a0e1396706551b7a1ae8c9a3",
+        "bytes": 11505
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.accessibility/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.accessibility/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.accessibility/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.charsets/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.charsets/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.charsets/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.crypto.cryptoki/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.crypto.cryptoki/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.crypto.cryptoki/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.crypto.cryptoki/pkcs11cryptotoken.md",
+        "sha256": "1f36ff1342a581142c858f90064e20633d43529ac82adb85345bd902a14e18b2",
+        "bytes": 4095
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.crypto.cryptoki/pkcs11wrapper.md",
+        "sha256": "371974b1fca3744a3892c7ee1fcc593b8b4281fc218f4cafd2f709e9df5fd81d",
+        "bytes": 2131
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.crypto.ec/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.crypto.ec/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.crypto.ec/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.crypto.mscapi/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.crypto.mscapi/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.crypto.mscapi/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.dynalink/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.dynalink/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.dynalink/dynalink.md",
+        "sha256": "17312591cabee3ef6c34ed8897d92e4e361ba9cea41ec00dcd61a322a8fc2cdb",
+        "bytes": 1502
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.dynalink/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.httpserver/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.httpserver/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.httpserver/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.incubator.foreign/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.incubator.foreign/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.incubator.foreign/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.incubator.vector/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.incubator.vector/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.incubator.vector/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.internal.vm.ci/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.internal.vm.ci/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.internal.vm.ci/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.internal.vm.compiler/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.internal.vm.compiler/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.internal.vm.compiler/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.internal.vm.compiler.management/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.internal.vm.compiler.management/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.internal.vm.compiler.management/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.jdwp.agent/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.jdwp.agent/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.jdwp.agent/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.jfr/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.jfr/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.jfr/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.jsobject/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.jsobject/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.jsobject/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.localedata/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.localedata/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.localedata/cldr.md",
+        "sha256": "09972449731a1d1a0863af0384aeb7839f84cac74983c96856e6c305e31ed8b2",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.localedata/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.localedata/thaidict.md",
+        "sha256": "c326144a2351c9608fa708b5d7d3c5a3da03e82b66479b128e9db4969539824a",
+        "bytes": 1346
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.management/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.management/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.management/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.management.agent/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.management.agent/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.management.agent/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.management.jfr/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.management.jfr/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.management.jfr/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.naming.dns/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.naming.dns/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.naming.dns/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.naming.rmi/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.naming.rmi/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.naming.rmi/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.net/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.net/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.net/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.nio.mapmode/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.nio.mapmode/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.nio.mapmode/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.sctp/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.sctp/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.sctp/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.security.auth/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.security.auth/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.security.auth/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.security.jgss/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.security.jgss/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.security.jgss/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.unsupported/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.unsupported/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.unsupported/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.xml.dom/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.xml.dom/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.xml.dom/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.zipfs/ADDITIONAL_LICENSE_INFO",
+        "sha256": "ebf9777bd307ed789ceabf282a9aca168c391c7f48e15a60939352efb3ea33f9",
+        "bytes": 49
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.zipfs/ASSEMBLY_EXCEPTION",
+        "sha256": "b998cda101e5a1ebcfb5ff9cddd76ed43a2f2169676592d428b7c0d780665f2a",
+        "bytes": 44
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/legal/jdk.zipfs/LICENSE",
+        "sha256": "86e0516b888276a492b19f9a84f5a866ed36925fae1510b3a94a0b6213e69192",
+        "bytes": 33
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/lib/classlist",
+        "sha256": "5e70bc24a91a857eb0d01eefe04a9a2d4726010a89046d972b37378336ea046d",
+        "bytes": 72950
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/lib/fontconfig.bfc",
+        "sha256": "968ac99bbaaf8a49a474c934e73ad58f88c6c7f2a363cb44771e0378444e36ba",
+        "bytes": 4630
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/lib/fontconfig.properties.src",
+        "sha256": "b44540473b97364e0f7a8a0002dd21d7a0717028fa1533f139bc98f40c91c0f0",
+        "bytes": 12345
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/lib/jawt.lib",
+        "sha256": "af64af138d14b9fd0849d7f66ad6b529a4e5ec9c25476557bf6b3d65a8ac6884",
+        "bytes": 1682
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/lib/jfr/default.jfc",
+        "sha256": "361f53708abb16fad960cc1acdbf2e0c44d26bba19f25f0f701c7b956b8c207e",
+        "bytes": 35912
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/lib/jfr/profile.jfc",
+        "sha256": "9da7ab71c763344677cabe8898496b0aad1fb42fe49363d5e1ae00df8a1baded",
+        "bytes": 35871
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/lib/jrt-fs.jar",
+        "sha256": "27e91a5584ca721eedd3577bdc104994b40dea4a8fa492b71c5a18f4015a8816",
+        "bytes": 110511
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/lib/jvm.cfg",
+        "sha256": "aa9efb969444c1484e29adecab55a122458090616e766b2f1230ef05bc3867e0",
+        "bytes": 29
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/lib/jvm.lib",
+        "sha256": "edd4a1a4668e3037ebddb632fad132276d56e808165d6d1bc3854a9f305e73a6",
+        "bytes": 1040306
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/lib/modules",
+        "sha256": "deed1075e644993fbfc4ecfe898fa7e8fcd6d799647e68ac88e45b7548ce1ca7",
+        "bytes": 83132009
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/lib/psfont.properties.ja",
+        "sha256": "5a4bd51b969bf187ff86d94f4a71fdfbfa602762975fa3c73d264b4575f7c78f",
+        "bytes": 3793
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/lib/psfontj2d.properties",
+        "sha256": "780c565d5af3ee6f68b887b75c041cdf46a0592f67012f12eeb691283e92630a",
+        "bytes": 11390
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/lib/security/blocked.certs",
+        "sha256": "583500b76965eb54b03493372989ab4d3426f85462d1db232c5ae6706a4d6c58",
+        "bytes": 2527
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/lib/security/cacerts",
+        "sha256": "44926c840e9a3dab7fef5c7f2be199ee4a3e96c47366605f799bfd63ad5c7f61",
+        "bytes": 169941
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/lib/security/default.policy",
+        "sha256": "f6340c1f4084d6927dc6491d9a1747e5d9b761f9f8158c0e36cb4d3ce519fcda",
+        "bytes": 10936
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/lib/security/public_suffix_list.dat",
+        "sha256": "3a2e10e573625dab5489812711b874c05a115ac2471bf90776e45561e8f52e8a",
+        "bytes": 230382
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/lib/tzdb.dat",
+        "sha256": "7be2a3adf10ff841579629f7725b15f0db41e8856527ec72847b5477073a3d29",
+        "bytes": 102492
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/lib/tzmappings",
+        "sha256": "36dc51c4bf787f640a4b45cbb84ab6954f6e595cbd3617c2f5a4e1e607b38bff",
+        "bytes": 22143
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/NOTICE",
+        "sha256": "c02756bcd9fa8191bf0fda4451bc018414dd44ee35bf09922c24377a475e4b5a",
+        "bytes": 2400
+      },
+      {
+        "path": "java/jdk-17.0.17+10-jre/release",
+        "sha256": "aaaaf2d364df3d3d06fc6ad985b89e3a875028077526f5f3b798a64642f7ff93",
+        "bytes": 1667
+      },
+      {
+        "path": "java-download.json",
+        "sha256": "3ce4d9aa38416c09e3893c838dc2d959c7e4f1b7ae2ac36ef0002176f99fb6b7",
+        "bytes": 1754
+      },
+      {
+        "path": "java-runtime.json",
+        "sha256": "213377ef5ba295aad3105a197dea577d8e8d3ff91b2842a7768babb0d4295356",
+        "bytes": 361
+      },
+      {
+        "path": "markdown_it_py-4.2.0-py3-none-any.whl",
+        "sha256": "9f7ebbcd14fe59494226453aed97c1070d83f8d24b6fc3a3bcf9a38092641c4a",
+        "bytes": 91687
+      },
+      {
+        "path": "mdurl-0.1.2-py3-none-any.whl",
+        "sha256": "84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8",
+        "bytes": 9979
+      },
+      {
+        "path": "OpenJDK17U-jre_x64_windows_hotspot_17.0.17_10.zip",
+        "sha256": "bd17db1cc08b3a8a98cedc7b8b8a203f683793be65a9ffbe4ceaacde71fc2b6b",
+        "bytes": 43740928
+      },
+      {
+        "path": "owlready2-0.51.tar.gz",
+        "sha256": "65adebc79ff6abdd2a0bde8d3aac21c6beed8699bf1e7c849d30eba9c513795e",
+        "bytes": 27435504
+      },
+      {
+        "path": "package/integrations/__init__.py",
+        "sha256": "46006de18c9ffc8b175c3b32c53c64b3f1acd8e9aab385525141e9f5e0fd831e",
+        "bytes": 352
+      },
+      {
+        "path": "package/integrations/agno/__init__.py",
+        "sha256": "1e2e2878100f602e9a299aebfc0c11fd95dd58b31e4d7caca2c712f3192123bc",
+        "bytes": 1574
+      },
+      {
+        "path": "package/integrations/agno/context_store.py",
+        "sha256": "c540018b18ddeb17a903c17c0e4ac558de957e1f515d5123bffabc4c282fdce1",
+        "bytes": 13607
+      },
+      {
+        "path": "package/integrations/agno/decision_kit.py",
+        "sha256": "02c0b000fbd43c8491de0510d3bcde9ed11608ee9f3797a8ce08ccef72428c5a",
+        "bytes": 17555
+      },
+      {
+        "path": "package/integrations/agno/kg_toolkit.py",
+        "sha256": "5cd7756e4552b80f4cee5e5f08495045593916a36d8b747a848f0ddf30b221df",
+        "bytes": 17997
+      },
+      {
+        "path": "package/integrations/agno/knowledge_graph.py",
+        "sha256": "fc3a4d5d9726de82058117848f2ee4b06089883d6abf0d639e7ae3896bc09b65",
+        "bytes": 17208
+      },
+      {
+        "path": "package/integrations/agno/shared_context.py",
+        "sha256": "b8a2709c56625d25f408f36e7cdba88c097bc5ed642fc42ba61c7f9e412b91d2",
+        "bytes": 10043
+      },
+      {
+        "path": "package/integrations/crewai/__init__.py",
+        "sha256": "b03d549f49b0ac58d59102defc17c1cc539aa018c9b83968d0122674a2606610",
+        "bytes": 1424
+      },
+      {
+        "path": "package/integrations/crewai/_availability.py",
+        "sha256": "249fed8f249e7c8b579cb8ccfdcd2a891e02068cc45837ac84c3a1f055a7b230",
+        "bytes": 748
+      },
+      {
+        "path": "package/integrations/crewai/decision_tool.py",
+        "sha256": "79860ecef493ed2c0a376159eab1b7e8cf61695df17106477d73c65945d84101",
+        "bytes": 20728
+      },
+      {
+        "path": "package/integrations/crewai/kg_tool.py",
+        "sha256": "719df9cc589ebe2d8444bdfbe6174f8c40d2ca02ebe8942f6410b64600be21bf",
+        "bytes": 22392
+      },
+      {
+        "path": "package/integrations/crewai/knowledge_source.py",
+        "sha256": "dbbaf0d695109ab9856c138de2dfc1d57d47ae2fb792451b08c0929a17f2da7e",
+        "bytes": 12302
+      },
+      {
+        "path": "package/integrations/google_adk/__init__.py",
+        "sha256": "c9c1e9c40cc545d3eb0bba14ebf7aa5046975f2168d3dfda2a6096a67b246a1f",
+        "bytes": 934
+      },
+      {
+        "path": "package/integrations/google_adk/_shared.py",
+        "sha256": "2a8951f4ab57c4529c01f1ddbbf3ba0a48b92f354fdf5a4ab061c10116df3562",
+        "bytes": 1268
+      },
+      {
+        "path": "package/integrations/google_adk/decision_tools.py",
+        "sha256": "d9adc65b719f724d6ee5e1ce1cef7a53b4fd1bc92a39de27d57dabf08f4980cb",
+        "bytes": 8340
+      },
+      {
+        "path": "package/integrations/google_adk/kg_tools.py",
+        "sha256": "84b26c37e5acea4a2dbf728e2e541c82c63c69e3b5491a3ca307945569658b9c",
+        "bytes": 18133
+      },
+      {
+        "path": "package/integrations/google_adk/session_service.py",
+        "sha256": "c95bf3abe0d4228a9c6169e8d5e81370cb7a1e1f276121d80eedb4d741e31c4a",
+        "bytes": 20758
+      },
+      {
+        "path": "package/integrations/langchain/__init__.py",
+        "sha256": "bc58384fbc0dea2ca69e2e7561912601863949b7f9554d9ac3dcc8a2d71d5877",
+        "bytes": 1523
+      },
+      {
+        "path": "package/integrations/langchain/retriever.py",
+        "sha256": "ad6d130cbc977087c733427c5f68c0d3874e78d0416d99e05cb90eb032a98b2f",
+        "bytes": 7645
+      },
+      {
+        "path": "package/integrations/langchain/tools.py",
+        "sha256": "72822b059cdde5366fd510e220f296a450ae7edd6b2feee486e95497e208e44b",
+        "bytes": 4279
+      },
+      {
+        "path": "package/integrations/langchain/vectorstore.py",
+        "sha256": "cea0cf733f2a38d8ec63fc6df1ae7df2b64aedffc4ac65b16d62582a39c8527a",
+        "bytes": 4821
+      },
+      {
+        "path": "package/integrations/open_ontologies/__init__.py",
+        "sha256": "81e2773662dd8ed6cb9bc2a39f55c7b778ced6395480a9eea97533dabccaaf79",
+        "bytes": 5310
+      },
+      {
+        "path": "package/integrations/open_ontologies/verify.py",
+        "sha256": "d8dad3b1d4b0f29b3bb397761a7ef05f9dd3661c1adcdc191b26af00d174953b",
+        "bytes": 5899
+      },
+      {
+        "path": "package/integrations/openclaw/__init__.py",
+        "sha256": "b7dd1899a3ed3a74e416aa89d5d964f75510c9fa62c3e79dc4f0779d13353372",
+        "bytes": 1959
+      },
+      {
+        "path": "package/integrations/openclaw/mcp_tool.py",
+        "sha256": "8240785885a54b2243f5734ec6497a361f538da1f9ec4bb3671b48db003e29e8",
+        "bytes": 11315
+      },
+      {
+        "path": "package/semantica/__init__.py",
+        "sha256": "3aa34f2dba1de32146fb9c567caaf8acaab83d87bb66a625f6cd6190f9deecf0",
+        "bytes": 5881
+      },
+      {
+        "path": "package/semantica/change_management/__init__.py",
+        "sha256": "3ca75f78d8ff81ed0e396ab0b7147fa0fffa440f0e0ce116bfef30265d8688e3",
+        "bytes": 1813
+      },
+      {
+        "path": "package/semantica/change_management/change_log.py",
+        "sha256": "ca8ea681a25120ed4b1fada1482d6782870b3cd8520a5fceacd47ea35dbd5b18",
+        "bytes": 10886
+      },
+      {
+        "path": "package/semantica/change_management/managers.py",
+        "sha256": "9e883789998c9d40731bafcb4b06d7c9b373977da4168fdbf83a76e0374db838",
+        "bytes": 26141
+      },
+      {
+        "path": "package/semantica/change_management/ontology_version_manager.py",
+        "sha256": "6f8009d30ca5e82f3438646091d45f3d7a5756ee83eb934043493eaf4f09a7c5",
+        "bytes": 17232
+      },
+      {
+        "path": "package/semantica/change_management/version_storage.py",
+        "sha256": "1eb08197bbe4dc37a3d5c1e6358fd5f50c43cc008bf6e6f31921cedcf39ace22",
+        "bytes": 21976
+      },
+      {
+        "path": "package/semantica/cli.py",
+        "sha256": "96996c1511acbc46366a964cdcbe0d469c409a4d2e8d5309438bacf424ad9768",
+        "bytes": 221717
+      },
+      {
+        "path": "package/semantica/conflicts/__init__.py",
+        "sha256": "4fcfaedccf119ca25eff67443b07e60e62ec4491ee85a759f59cf196f9dbf820",
+        "bytes": 5785
+      },
+      {
+        "path": "package/semantica/conflicts/config.py",
+        "sha256": "d6fd3608467d96c12322ee59115a8aefb84fa774347f94f005d247e91e0092e5",
+        "bytes": 6611
+      },
+      {
+        "path": "package/semantica/conflicts/conflict_analyzer.py",
+        "sha256": "162cf79fb61cf411b429e88d6aa2386f43d4b908e0bdc600492e99dc67d40332",
+        "bytes": 23449
+      },
+      {
+        "path": "package/semantica/conflicts/conflict_detector.py",
+        "sha256": "e0f849aa3691831ecf76dd3ff66d7e71935fb2a44d498a39ceab39b3f5411cff",
+        "bytes": 58516
+      },
+      {
+        "path": "package/semantica/conflicts/conflict_resolver.py",
+        "sha256": "3dcd49b518e3aca99c2382fd8cd9e2a8e6f6fb361d035e2b605c3cc3b5246c92",
+        "bytes": 23766
+      },
+      {
+        "path": "package/semantica/conflicts/conflicts_provenance.py",
+        "sha256": "0f57c89bd85c36c20497495273a3620eb86e223fc0cfd9975a7b60163db25cac",
+        "bytes": 2855
+      },
+      {
+        "path": "package/semantica/conflicts/investigation_guide.py",
+        "sha256": "a174cf1d490aeea5799d04c28597dd5b95dc823d06ba1f5969fe6184671c6ea5",
+        "bytes": 17306
+      },
+      {
+        "path": "package/semantica/conflicts/methods.py",
+        "sha256": "d8965481713b52e7a995ec31d09205fd33b202cdfcfdd4821f8119c6c5e1b952",
+        "bytes": 25008
+      },
+      {
+        "path": "package/semantica/conflicts/registry.py",
+        "sha256": "c034c6ee99f66bec6fbca62d69d2f0173113749951bd5226e42088d6136e6135",
+        "bytes": 4173
+      },
+      {
+        "path": "package/semantica/conflicts/source_tracker.py",
+        "sha256": "953709026f3767c9ac940a1fbeb44b014baf6525ab2a00b80096205ea146a9b8",
+        "bytes": 24245
+      },
+      {
+        "path": "package/semantica/context/__init__.py",
+        "sha256": "5677746c67b62b4360d62254b4177011103c73cfa82d8891fca45653d44575b4",
+        "bytes": 8767
+      },
+      {
+        "path": "package/semantica/context/_markdown_filesystem.py",
+        "sha256": "5c806fb9df67a612fa2f9306eee9061b88a5e6550b1ba0173f4f86f79e0cb011",
+        "bytes": 990
+      },
+      {
+        "path": "package/semantica/context/agent_context.py",
+        "sha256": "d5c6ff530aa6623c8706d711fa2c5a6c5c7a1b4c4adfcffda8b4c4699b5e1729",
+        "bytes": 96693
+      },
+      {
+        "path": "package/semantica/context/agent_memory.py",
+        "sha256": "24acad0ce388ca6b6551dc6a6d25aec9a9d4f7a3f8e2ff3b0119c6156548f5eb",
+        "bytes": 88409
+      },
+      {
+        "path": "package/semantica/context/causal_analyzer.py",
+        "sha256": "e7cd1dc98667a786432aa299974fb7b5861441d1c4e7ac3c148b66a30ec37a7a",
+        "bytes": 31596
+      },
+      {
+        "path": "package/semantica/context/context_graph.py",
+        "sha256": "1e0e50e2afdd17fffa38a50e3d3d2b43a11874ef22ffc5b844e94efb83688945",
+        "bytes": 230316
+      },
+      {
+        "path": "package/semantica/context/context_provenance.py",
+        "sha256": "cacd7768e180b4fa7e568e26abcf14a04583a2ffe069273a29fde5ee67fcd5cf",
+        "bytes": 2326
+      },
+      {
+        "path": "package/semantica/context/context_retriever.py",
+        "sha256": "d2bf519ed124001f5dc578f6133d6942c5170782048e1fb3afd810877954049a",
+        "bytes": 130415
+      },
+      {
+        "path": "package/semantica/context/decision_context.py",
+        "sha256": "31b97c4f53af32940873cb8a36cd18974f7d81a4336349b2f1922160235fa5b4",
+        "bytes": 17378
+      },
+      {
+        "path": "package/semantica/context/decision_methods.py",
+        "sha256": "fa916e0184dff199c15f872d2162040e52b5a593e017640936c68371d4568366",
+        "bytes": 30209
+      },
+      {
+        "path": "package/semantica/context/decision_models.py",
+        "sha256": "bf9e12ace1639e7d4a0bdc8927a70a093bc197fc49964c03d26db7d5139dbae2",
+        "bytes": 15656
+      },
+      {
+        "path": "package/semantica/context/decision_query.py",
+        "sha256": "8d07bda0261608ddf08a024d7f0c96eab6600ff882ba1c27226636f4851f39c1",
+        "bytes": 57731
+      },
+      {
+        "path": "package/semantica/context/decision_recorder.py",
+        "sha256": "a70989fa9f1488f3634c8856aa87b2345fe9419562b1897916321b0cb9617118",
+        "bytes": 25192
+      },
+      {
+        "path": "package/semantica/context/drift_search.py",
+        "sha256": "e9a54e17da3cb85b2ad313578a6d67c15a2c66f8a99ca84886a900300c04a977",
+        "bytes": 69147
+      },
+      {
+        "path": "package/semantica/context/entity_linker.py",
+        "sha256": "3cfbf2f2715b265fda637f7f76cfe11966dc5159e43a5858f959cf196d20aade",
+        "bytes": 30037
+      },
+      {
+        "path": "package/semantica/context/erasure.py",
+        "sha256": "aa70a99d3924bd429bb0e034c5fb03639f2210cfeeaad46a2c0652847e866b4c",
+        "bytes": 34405
+      },
+      {
+        "path": "package/semantica/context/global_retriever.py",
+        "sha256": "7dd2ca1f0bb17b2dda09c92121eecabd38df7c04dffa82d0a747fdf450eb5d7b",
+        "bytes": 49831
+      },
+      {
+        "path": "package/semantica/context/graph_schema.py",
+        "sha256": "56b9dd5dd53c8349eb17225c94dee70fb6b9a0e456aef04fe8a31f0694286d1c",
+        "bytes": 23240
+      },
+      {
+        "path": "package/semantica/context/markdown.py",
+        "sha256": "3aeda281c78e6449b60005de57768f2ae66a5db010a681ef67a2d2e2faebe019",
+        "bytes": 856
+      },
+      {
+        "path": "package/semantica/context/methods.py",
+        "sha256": "14361c5aab5b12fa745a71e756d6ec656bd424e001ad62351e150a645a50f025",
+        "bytes": 5862
+      },
+      {
+        "path": "package/semantica/context/policy_engine.py",
+        "sha256": "6281dff164f3a0502a7626ef4379209efddf13a984265f5f56239f171db8e397",
+        "bytes": 43641
+      },
+      {
+        "path": "package/semantica/context/registry.py",
+        "sha256": "21ae2aa6bbc09a21817ee8229f887e01b8020cf04983f5238d10437fbce2fafa",
+        "bytes": 2850
+      },
+      {
+        "path": "package/semantica/context/tiers.py",
+        "sha256": "fd5bd4e36dc987fe5d9f7d32237a3001ff898bc9dcb778759adc68067889b61c",
+        "bytes": 11798
+      },
+      {
+        "path": "package/semantica/context/truth_maintenance_filter.py",
+        "sha256": "1f88d594d799394046934569e17b968cd092564a48d5fa8789acd85efd2f333f",
+        "bytes": 10221
+      },
+      {
+        "path": "package/semantica/core/__init__.py",
+        "sha256": "4c8e6fcf8202750ef32f2d0f9367a4fd80f519803b31362ac5e3426b3d54659d",
+        "bytes": 3138
+      },
+      {
+        "path": "package/semantica/core/config_manager.py",
+        "sha256": "7372b66f25fadf9b4e75a80d5eff20d871d45bdd621fe66a3a585917e774551c",
+        "bytes": 21926
+      },
+      {
+        "path": "package/semantica/core/lifecycle.py",
+        "sha256": "ec6f4e82e25acafa29987f6fdb668d57a6c680d076d86f2b05ccb9ebf4b31d2f",
+        "bytes": 21287
+      },
+      {
+        "path": "package/semantica/core/methods.py",
+        "sha256": "97d1116875f5d9ec47339f7cb77e2b38780c063a1ad79613a197b7c3eab27aa8",
+        "bytes": 14213
+      },
+      {
+        "path": "package/semantica/core/orchestrator.py",
+        "sha256": "ba146abe46d2b1dac869bf1b9b093ead35beeae7c819da10958a37e53fa4dafb",
+        "bytes": 38752
+      },
+      {
+        "path": "package/semantica/core/plugin_registry.py",
+        "sha256": "7dc27563574c38f28533d901f25518835e8f385ce37a09753fdf17cd4187e87e",
+        "bytes": 24231
+      },
+      {
+        "path": "package/semantica/core/registry.py",
+        "sha256": "8b1b1c947c039a34789be2eeea4b11efb6238f7e5c10a08132a6a9c13f9230e5",
+        "bytes": 4025
+      },
+      {
+        "path": "package/semantica/deduplication/__init__.py",
+        "sha256": "dbfc0d14d9d84d9b8fdc70e88848abf898d2223f9baa1ee9919a65796a17c1c3",
+        "bytes": 5264
+      },
+      {
+        "path": "package/semantica/deduplication/cluster_builder.py",
+        "sha256": "92e2860dce3baa57643f08947e6d038048d760edd660d5021e9f6c413e7eda26",
+        "bytes": 23409
+      },
+      {
+        "path": "package/semantica/deduplication/config.py",
+        "sha256": "047bacefed6cafd0708de720829cd6246533209feedf3ebacb8e42fda306cc8c",
+        "bytes": 6860
+      },
+      {
+        "path": "package/semantica/deduplication/deduplication_provenance.py",
+        "sha256": "58a8f116b5eb92837d699465435873a3c7c533ba679cbb536b7309619fc67151",
+        "bytes": 2525
+      },
+      {
+        "path": "package/semantica/deduplication/duplicate_detector.py",
+        "sha256": "cc7deb8881e2f51baa4b21615b9ff3f9277872c59589ac48f81e9cf0745b1b87",
+        "bytes": 40779
+      },
+      {
+        "path": "package/semantica/deduplication/entity_merger.py",
+        "sha256": "ccfd8c14097e7f6dcbbae54ff45e4516d96de6c34628d39753bba5d09771f040",
+        "bytes": 22999
+      },
+      {
+        "path": "package/semantica/deduplication/merge_strategy.py",
+        "sha256": "56aff738bc4813e8b93f6a3a4a8a67476958c54f4a9e37578236cf6dcca3ce0c",
+        "bytes": 23232
+      },
+      {
+        "path": "package/semantica/deduplication/methods.py",
+        "sha256": "8336e778543a863f477a48e22df108acdbbaeb50424235ae7391824e3e228289",
+        "bytes": 23350
+      },
+      {
+        "path": "package/semantica/deduplication/registry.py",
+        "sha256": "2d653b82e71fa4dbac75c2d90a7dc1d820e8347c03309c516272243e6acfd18f",
+        "bytes": 3961
+      },
+      {
+        "path": "package/semantica/deduplication/similarity_calculator.py",
+        "sha256": "c8e276f4c1a7af5569f67422586ae40befbd8a9318560acd0509c1ac2d138ab8",
+        "bytes": 31213
+      },
+      {
+        "path": "package/semantica/embeddings/__init__.py",
+        "sha256": "d4ee8d12d0eb24cea2f34604d2539b439c580dfa70882cd35daf450a628aa60c",
+        "bytes": 4937
+      },
+      {
+        "path": "package/semantica/embeddings/config.py",
+        "sha256": "c4c8e76826c176cfa39604ad4e8f2e6aefa48e6312f5bb87d87a3a0bd52552e0",
+        "bytes": 7594
+      },
+      {
+        "path": "package/semantica/embeddings/embedding_generator.py",
+        "sha256": "891228e7e1ccd26bbe818abe40ee245812fdc338074414b1b57bf2da2d44fc8b",
+        "bytes": 11425
+      },
+      {
+        "path": "package/semantica/embeddings/embeddings_provenance.py",
+        "sha256": "df495839b4df0edc8bc5979e6894efb2f5bb5a39a66aaeb5651386811aeb3bc3",
+        "bytes": 3030
+      },
+      {
+        "path": "package/semantica/embeddings/graph_embedding_manager.py",
+        "sha256": "a68183cd72981b86e0ed45d252af6f2a5b6f5b6bff973242b2b5cbd25335f635",
+        "bytes": 14150
+      },
+      {
+        "path": "package/semantica/embeddings/methods.py",
+        "sha256": "288358db4848392ea30d86b44547c84c61f714d791a543137bfea017007b2eb3",
+        "bytes": 14270
+      },
+      {
+        "path": "package/semantica/embeddings/pooling_strategies.py",
+        "sha256": "76edde179a490cd89adf2d51653d3ee0c1345705d095c218dd04a7979b7536fb",
+        "bytes": 5628
+      },
+      {
+        "path": "package/semantica/embeddings/provider_stores.py",
+        "sha256": "16cdce6aa9164fdf78c0591851dc5d2d370c918fe7b285da258d58728e2332fc",
+        "bytes": 9049
+      },
+      {
+        "path": "package/semantica/embeddings/registry.py",
+        "sha256": "1042a033e50a54448cad4dc9b725671cc0bdcdd682be48c9a4755cb6e7e3abe6",
+        "bytes": 4453
+      },
+      {
+        "path": "package/semantica/embeddings/text_embedder.py",
+        "sha256": "a1efc1e139ebbf94b58a61d86306ec00809b04f1caf971218feeb965928e3e90",
+        "bytes": 20755
+      },
+      {
+        "path": "package/semantica/embeddings/vector_embedding_manager.py",
+        "sha256": "60ebc85c4af79989f0a16b3ec66622be570ad92bb78ace6e06351421923c74c6",
+        "bytes": 12885
+      },
+      {
+        "path": "package/semantica/evals/__init__.py",
+        "sha256": "4d376d73c0b44aef40f5626cee4000526c8e281bf349183689abdab56d9c4293",
+        "bytes": 863
+      },
+      {
+        "path": "package/semantica/evals/decision_evaluators.py",
+        "sha256": "c4e894531be905bf389a64a3ea2514343081341cb44fdc2412809ed4e1d9f466",
+        "bytes": 3401
+      },
+      {
+        "path": "package/semantica/evals/evaluators.py",
+        "sha256": "55316de5c7b3bd83aa15abe03e98ba32b563f3b5059097bc3da1b4a2fc95870e",
+        "bytes": 6237
+      },
+      {
+        "path": "package/semantica/evals/registry.py",
+        "sha256": "48bbefeb76a952392690b06e47e3f61a7fd5183d68606597d6873d3d9b4b5d27",
+        "bytes": 1101
+      },
+      {
+        "path": "package/semantica/evals/runner.py",
+        "sha256": "508b58742ec18f5affb377b1b677da5d99a4309614deaa451e8704c8d52dadd3",
+        "bytes": 16644
+      },
+      {
+        "path": "package/semantica/evals/types.py",
+        "sha256": "9cfaec4d1d6a0e4731cbb8ea43fd8d0a98ca7f6851f8feeb4ac344e14111b9c2",
+        "bytes": 2217
+      },
+      {
+        "path": "package/semantica/explorer/__init__.py",
+        "sha256": "17ae11d05ce8fb2b79b4da4d071051b39f13686c4045e1983c5bb3dcf9f1022f",
+        "bytes": 3713
+      },
+      {
+        "path": "package/semantica/explorer/__main__.py",
+        "sha256": "c1bc260fbcc3929a5a10a197cf88790a6ed2dcb40dadaa7b01774acb8d48e46d",
+        "bytes": 123
+      },
+      {
+        "path": "package/semantica/explorer/app.py",
+        "sha256": "9aacb5126c9d036d29aef44fd758ae585a020c50202598d7239aa9f7a0c2cf5b",
+        "bytes": 10630
+      },
+      {
+        "path": "package/semantica/explorer/dependencies.py",
+        "sha256": "f99ff76f0050dec391482ed3d43ef307719e34377704a6d680170716dc73b84b",
+        "bytes": 3962
+      },
+      {
+        "path": "package/semantica/explorer/markdown_resources.py",
+        "sha256": "fee1f072bffcbd2f7663588a0e2e60ae6aa03642545bf358f4d982f597fad074",
+        "bytes": 8308
+      },
+      {
+        "path": "package/semantica/explorer/routes/__init__.py",
+        "sha256": "b58715f11df60621a2df5b9e4f3590585361fdfe5ed7f2a29c9fcb188796d094",
+        "bytes": 62
+      },
+      {
+        "path": "package/semantica/explorer/routes/analytics.py",
+        "sha256": "ce2d435ffa3ab93c566667b0c77d6d402f4268d04fe64a54bf303448c5f1d89b",
+        "bytes": 3861
+      },
+      {
+        "path": "package/semantica/explorer/routes/annotations.py",
+        "sha256": "357991795385ce424756a538c775d1946730e654524b39e22b02a680c05ffcb9",
+        "bytes": 2122
+      },
+      {
+        "path": "package/semantica/explorer/routes/decisions.py",
+        "sha256": "2323fc8777a7034b0cb80994628adc6daca514467f92cc392ec7da6456fbc53c",
+        "bytes": 6014
+      },
+      {
+        "path": "package/semantica/explorer/routes/enrich.py",
+        "sha256": "0b9296ca9f6ac6060f589678850387fe1f8b67ec3b07bd9cc8531ce11a645733",
+        "bytes": 17564
+      },
+      {
+        "path": "package/semantica/explorer/routes/export_import.py",
+        "sha256": "90b0efe93ed6dc4be31cc95d0b320646742f93b3c761f27b38d96578ef05ea23",
+        "bytes": 17254
+      },
+      {
+        "path": "package/semantica/explorer/routes/graph.py",
+        "sha256": "6e9a9a5e442b94e12d8f0a38d883476707275ea7dcfe47f062e2658bf6e50472",
+        "bytes": 22684
+      },
+      {
+        "path": "package/semantica/explorer/routes/markdown.py",
+        "sha256": "d23d82fa69200893102e953ef7196b8cda21c4b5d60145e70f55fb74a11349e6",
+        "bytes": 3534
+      },
+      {
+        "path": "package/semantica/explorer/routes/memories.py",
+        "sha256": "6841f06c5b2053fa631f6222dbd36be3300f0b58199f47811b9d0118d0136536",
+        "bytes": 1347
+      },
+      {
+        "path": "package/semantica/explorer/routes/ontology.py",
+        "sha256": "ceec6e0775a8040e8151908379c4b09e6565fd668ad6fc7aafc14fdc3a3f77eb",
+        "bytes": 144402
+      },
+      {
+        "path": "package/semantica/explorer/routes/provenance.py",
+        "sha256": "79494ea42b4f540827aed8acfcc3056743005f6c6583aada0a2923b0f47a4e5a",
+        "bytes": 14467
+      },
+      {
+        "path": "package/semantica/explorer/routes/sparql.py",
+        "sha256": "3dd5794cfdac52930b55aa9291fbd6815b335b135e6399eda40b2465a71cecfa",
+        "bytes": 12501
+      },
+      {
+        "path": "package/semantica/explorer/routes/temporal.py",
+        "sha256": "e8135b15f1d5f05bc6d3fd379550da546b6179cca5cf444a675e9d2dae2e22c8",
+        "bytes": 9910
+      },
+      {
+        "path": "package/semantica/explorer/routes/vocabulary.py",
+        "sha256": "f7146ebebffa011d45b3e31e2fad481cb999d0605942a66f1a4aa70342d995ec",
+        "bytes": 8579
+      },
+      {
+        "path": "package/semantica/explorer/runtime.py",
+        "sha256": "16c1ec32bb5a9e4e145eb310a7fe1c6666e494ef5fe57113546f42d110a7700a",
+        "bytes": 1686
+      },
+      {
+        "path": "package/semantica/explorer/schemas.py",
+        "sha256": "5ee94e6cd643db9d9130bf5c4d9ab4606ca82d741f3ffd782dc97f563033a2ab",
+        "bytes": 15827
+      },
+      {
+        "path": "package/semantica/explorer/search_index.py",
+        "sha256": "4f4a5e172149cdf59568d4a67e396de8a5bf16290d5bffb8dce5f968fc2e9f79",
+        "bytes": 14120
+      },
+      {
+        "path": "package/semantica/explorer/session.py",
+        "sha256": "6d0bb57dd29d4eb989a1b0d5e31363c22624b32b695892920e3670c55358fd16",
+        "bytes": 32532
+      },
+      {
+        "path": "package/semantica/explorer/utils/__init__.py",
+        "sha256": "16d16e43b50e7b620cffc1ead5b62955b27a2feea5cb003111e8ef40a67c17f5",
+        "bytes": 60
+      },
+      {
+        "path": "package/semantica/explorer/utils/rdf_parser.py",
+        "sha256": "cfae54a7eb94aee4a15f582e9d000994134752b2c85ef44c86aa48154898c93a",
+        "bytes": 5734
+      },
+      {
+        "path": "package/semantica/explorer/ws.py",
+        "sha256": "3595ccaf6864608225feec3a1dcb64337fe22eafcfd338d7010febf2f6fda89c",
+        "bytes": 4454
+      },
+      {
+        "path": "package/semantica/export/__init__.py",
+        "sha256": "fc4790904209d502461672fc33171f7105d1a85ebec31f1dbe4b557eda6e2642",
+        "bytes": 10753
+      },
+      {
+        "path": "package/semantica/export/arango_aql_exporter.py",
+        "sha256": "002f6ee7a601ba8850207afd72673193f8b9b28dade18b4dd0af85c1ad5bb713",
+        "bytes": 22124
+      },
+      {
+        "path": "package/semantica/export/arrow_exporter.py",
+        "sha256": "576dc9c0cb1d970910e0e2c66861426127d879e3fef0d02d3f7d5b6432ace0d2",
+        "bytes": 25577
+      },
+      {
+        "path": "package/semantica/export/config.py",
+        "sha256": "0a0709517e5726d40a6493554b6447ae07f71dc6ca91f0b1c23c219f20e8a369",
+        "bytes": 7390
+      },
+      {
+        "path": "package/semantica/export/csv_exporter.py",
+        "sha256": "f21672d0b1fdec665132d3f824bf7444046b6112ef46a1ff252ceb21372b015f",
+        "bytes": 20904
+      },
+      {
+        "path": "package/semantica/export/distance_exporter.py",
+        "sha256": "4f9d4e52296c7073296621308cae4f3ee9a9bc0b5619fb35b91a0ed388ad9d21",
+        "bytes": 11236
+      },
+      {
+        "path": "package/semantica/export/export_provenance.py",
+        "sha256": "092311276872e7a7386385ffe4ccb20ff9a0d859af7b15b62b28cfce6b778254",
+        "bytes": 2291
+      },
+      {
+        "path": "package/semantica/export/graph_exporter.py",
+        "sha256": "18c15847bd22364c84da310391b3c4861e65246fc3889c5b4dc377feee825c58",
+        "bytes": 20237
+      },
+      {
+        "path": "package/semantica/export/json_exporter.py",
+        "sha256": "634d24a5ff3ced54e3d5ac7f281c91938d80fb12383c95670a6e5f3f25815135",
+        "bytes": 29592
+      },
+      {
+        "path": "package/semantica/export/lpg_exporter.py",
+        "sha256": "0a91d31f831c20d6d92327679c7dc165df7069ebddfa934a21074a2022123fc4",
+        "bytes": 12888
+      },
+      {
+        "path": "package/semantica/export/methods.py",
+        "sha256": "cd8d53e40e293ca9a1cffd20a28a979e85b4e43505025683330c0ca611f0cd4e",
+        "bytes": 39892
+      },
+      {
+        "path": "package/semantica/export/neo4j_csv_exporter.py",
+        "sha256": "4a852b74ae8041b3539734eb93edc1453178f23cc9c426d8d7593cc68ef953e7",
+        "bytes": 35861
+      },
+      {
+        "path": "package/semantica/export/owl_exporter.py",
+        "sha256": "c7daea71950e7af131c331910e1b03a153d2e9978d337d05bc49742ca6640cd5",
+        "bytes": 33006
+      },
+      {
+        "path": "package/semantica/export/parquet_exporter.py",
+        "sha256": "06ac5d20db4d146b69710eca476ec935b07c1f59d771e112e5cc533e7fc0ffed",
+        "bytes": 27458
+      },
+      {
+        "path": "package/semantica/export/rdf_exporter.py",
+        "sha256": "7ec627261d5b0a26d0de0168ecd2bf4cb6dbdb691d4d563680c9300d39732fef",
+        "bytes": 79719
+      },
+      {
+        "path": "package/semantica/export/registry.py",
+        "sha256": "94e6ec363699faaa9d5f608f78207c8baa9502d74b76ee96696f4e93af2ead54",
+        "bytes": 4472
+      },
+      {
+        "path": "package/semantica/export/report_generator.py",
+        "sha256": "0fc06cf90f3831e800afba23e003646cd60c88d5c228b4aaf2aef8179b02395e",
+        "bytes": 20004
+      },
+      {
+        "path": "package/semantica/export/vector_exporter.py",
+        "sha256": "3f7483d9536374dd845d977092ac2fcec9c77ae8f030b7f03a4e91ba3b6872ba",
+        "bytes": 18990
+      },
+      {
+        "path": "package/semantica/export/yaml_exporter.py",
+        "sha256": "e70c3716fd49b3c6dde8d82113b22cbcac148e016392bf34b6b0a267cc0ba4fd",
+        "bytes": 19743
+      },
+      {
+        "path": "package/semantica/graph_store/__init__.py",
+        "sha256": "2bac4274d6a7092f62e8ab9c971aa3fdb0608c2d1d299834259a0bd5e0c93af5",
+        "bytes": 7412
+      },
+      {
+        "path": "package/semantica/graph_store/age_store.py",
+        "sha256": "e62503036eac497ce9bf2342f70782601c95bc024b1300c772aa82684ffde636",
+        "bytes": 45062
+      },
+      {
+        "path": "package/semantica/graph_store/amazon_neptune.py",
+        "sha256": "a9f148266c6707282f946a637825992cc9207cb03dfa66ebbc7731578690e6d1",
+        "bytes": 61953
+      },
+      {
+        "path": "package/semantica/graph_store/config.py",
+        "sha256": "bda966056155dc932f1837368c735464855bd441622d51796a735148960ff7bd",
+        "bytes": 12178
+      },
+      {
+        "path": "package/semantica/graph_store/falkordb_store.py",
+        "sha256": "cd73b50ecaf23a51d0640dcd594f21d4e1e7b9f581712dc91dedc4b112f53405",
+        "bytes": 33247
+      },
+      {
+        "path": "package/semantica/graph_store/graph_store.py",
+        "sha256": "0e2e6ff77a4d42feaadf494f852984084fbb80e3eb4c16bc2be3048ddf75016e",
+        "bytes": 38574
+      },
+      {
+        "path": "package/semantica/graph_store/graph_store_provenance.py",
+        "sha256": "ffa461e60f82baaf245f5220af9b85098e309ec14338680fbac4940c3aa30a2f",
+        "bytes": 2253
+      },
+      {
+        "path": "package/semantica/graph_store/methods.py",
+        "sha256": "8c2c3b63cb5824ef471ffac4f762d781e8a3519addc5fa184092ca283e8877e0",
+        "bytes": 16287
+      },
+      {
+        "path": "package/semantica/graph_store/neo4j_store.py",
+        "sha256": "bc0e1edabb2f0c922aa70d7615c584662ae588aa5d76522fda80c903d1e71d41",
+        "bytes": 34446
+      },
+      {
+        "path": "package/semantica/graph_store/query_sanitize.py",
+        "sha256": "1a45b14d1d8691cffaf2ed710201fe24de420db215ea6fed623a4de8da2df879",
+        "bytes": 1189
+      },
+      {
+        "path": "package/semantica/graph_store/registry.py",
+        "sha256": "f6b2d69726a4d5ca9309dc2b431bf517288f0a8901e433acd9218acbab13b5a3",
+        "bytes": 4952
+      },
+      {
+        "path": "package/semantica/ingest/__init__.py",
+        "sha256": "bcdcbb926f9777830f7b67b9e2e9645eeb9edc608ae1dd9c44de8e70d61316b1",
+        "bytes": 21058
+      },
+      {
+        "path": "package/semantica/ingest/airflow_ingestor.py",
+        "sha256": "af729a68537f2173ec787609c3c6234384b819f69ad2d0587e58a5a4124f5043",
+        "bytes": 13431
+      },
+      {
+        "path": "package/semantica/ingest/api_ingestor.py",
+        "sha256": "45b138c330c06ad0d552dd8359eca65bd7608065a3e2e9eddf2e94a6671dcb99",
+        "bytes": 13156
+      },
+      {
+        "path": "package/semantica/ingest/arrow_ingestor.py",
+        "sha256": "1dfdf6a8f6d5bfae3785c2937d80273310f9f376bb676873182c16dd02b835c1",
+        "bytes": 17491
+      },
+      {
+        "path": "package/semantica/ingest/bigquery_ingestor.py",
+        "sha256": "e7ca7d15225a06239de7de89b41d01556b707e9505e224cb683434d93b47efa0",
+        "bytes": 51363
+      },
+      {
+        "path": "package/semantica/ingest/config.py",
+        "sha256": "eb644ba21b911e0730349aa6757ec08fc9325ffe6419e78cbd3dc04d604fc60d",
+        "bytes": 8815
+      },
+      {
+        "path": "package/semantica/ingest/databricks_ingestor.py",
+        "sha256": "470742eb3a754b21d66dbd3af1c56510021767a43a85b4acc01e2956f6e85d55",
+        "bytes": 38601
+      },
+      {
+        "path": "package/semantica/ingest/db_ingestor.py",
+        "sha256": "f60b2d18bb54fb5af67ae8a4cee1787a6e9653eba46925b2e74b8da51a6c2fde",
+        "bytes": 36963
+      },
+      {
+        "path": "package/semantica/ingest/duckdb_ingestor.py",
+        "sha256": "1c69410d7c708db73549bfefe3b4412ccb9af7a22e579bf725fdb16fd38d736b",
+        "bytes": 13745
+      },
+      {
+        "path": "package/semantica/ingest/elastic_ingestor.py",
+        "sha256": "c73ee890e85466453089cf0e96325752afa7b015297fcc6acf7d75a721985af2",
+        "bytes": 11709
+      },
+      {
+        "path": "package/semantica/ingest/email_ingestor.py",
+        "sha256": "5b3e50b1fbee2809c712fc0e1547831459732188d9fbec04b3262e9966bd7db6",
+        "bytes": 32937
+      },
+      {
+        "path": "package/semantica/ingest/feed_ingestor.py",
+        "sha256": "64ec00745bcd0b0e61d807bc39e48ca039557f4f627cf8f51bd4dc043ac242c3",
+        "bytes": 28288
+      },
+      {
+        "path": "package/semantica/ingest/file_ingestor.py",
+        "sha256": "6847815acf4e53e2eaff9e927d454aba2df3ce782fc6ac5a8030086e0f5e1253",
+        "bytes": 28256
+      },
+      {
+        "path": "package/semantica/ingest/gdrive_ingestor.py",
+        "sha256": "516f14697f02f21a86c28460bd3e22b3c209d50e0eef121e01a640617a94ee1f",
+        "bytes": 14298
+      },
+      {
+        "path": "package/semantica/ingest/huggingface_ingestor.py",
+        "sha256": "1cedcaf3c58c6c16d11c25ce5bd0d69deae531596970304069f66b9b09d9d94c",
+        "bytes": 10356
+      },
+      {
+        "path": "package/semantica/ingest/ingest_provenance.py",
+        "sha256": "5ad4a4bc5a0097be5939168e403ae29d38fa7d84a917ee4b6d7dd7d3e042b50f",
+        "bytes": 2849
+      },
+      {
+        "path": "package/semantica/ingest/mcp_client.py",
+        "sha256": "6de5d59422c55fbae22d03c817432dd65fd21cf875c6d5dba262474876862a5b",
+        "bytes": 19324
+      },
+      {
+        "path": "package/semantica/ingest/mcp_ingestor.py",
+        "sha256": "5488a88b9e8557bfd41b28e17debc2d35f96d06bdcc0b0c00899ee1f6d507a2e",
+        "bytes": 16014
+      },
+      {
+        "path": "package/semantica/ingest/methods.py",
+        "sha256": "2cc4a7afb2e9711848f222edcff6afeadd047f9fdd991ed07fbadead0d2f7f82",
+        "bytes": 69572
+      },
+      {
+        "path": "package/semantica/ingest/mongo_ingestor.py",
+        "sha256": "8ec6235f5997d32f421060055dc633898184e82e242aab4cb06e617e91c0f490",
+        "bytes": 15359
+      },
+      {
+        "path": "package/semantica/ingest/ontology_ingestor.py",
+        "sha256": "31123d29f7632045395c083ab4edc6085fb5d9411c2354d24409e5d9fc775210",
+        "bytes": 15734
+      },
+      {
+        "path": "package/semantica/ingest/pandas_ingestor.py",
+        "sha256": "4f58be8170063ef0558fad07806d1e518433b299fa51100a6ab6c7d9e5641dbd",
+        "bytes": 14201
+      },
+      {
+        "path": "package/semantica/ingest/parquet_ingestor.py",
+        "sha256": "212fa57cdc914ac41f27fed0aefd5acaf731c845743df2ba5cf4b9c49e82bb15",
+        "bytes": 27959
+      },
+      {
+        "path": "package/semantica/ingest/powerbi_ingestor.py",
+        "sha256": "7412b427b8ff61584cac10a0b9c70c4c0f40ad8ea45c76ac3b9be88b4cc1795e",
+        "bytes": 31607
+      },
+      {
+        "path": "package/semantica/ingest/public_api_ingestor.py",
+        "sha256": "d0c9b1169468b8e8ae9bdda94684c2c852d2cbf079ef210d443662f0db9f29a3",
+        "bytes": 34373
+      },
+      {
+        "path": "package/semantica/ingest/redshift_ingestor.py",
+        "sha256": "8c71ede3d570280fd7ff4119860e2e2dfc2ae2b8cd153e9dcf43b4b71601f8ac",
+        "bytes": 59368
+      },
+      {
+        "path": "package/semantica/ingest/registry.py",
+        "sha256": "b143152004f094860b69e200fe1f5dc5cb14c5259629f207b439e8e73d72590c",
+        "bytes": 4711
+      },
+      {
+        "path": "package/semantica/ingest/repo_ingestor.py",
+        "sha256": "c85228167b1b2d3febc954170119a254784ec19eb98e817b4ee5fe6b0e026ab0",
+        "bytes": 40005
+      },
+      {
+        "path": "package/semantica/ingest/salesforce_ingestor.py",
+        "sha256": "11e26802396531d554ca0406b430d5a1d427fa78f25f26e8c6d0b2ce420173ec",
+        "bytes": 60029
+      },
+      {
+        "path": "package/semantica/ingest/sap_ingestor.py",
+        "sha256": "3dd2c6c8480355ab1f8d7addfb38260976feaadc1f8f10fbf4be6e9091d3e4e2",
+        "bytes": 25333
+      },
+      {
+        "path": "package/semantica/ingest/snowflake_ingestor.py",
+        "sha256": "f28019d731ace235b012ed9293f33da16cd0496a5af1b5c0b0caf18433b08d9e",
+        "bytes": 32262
+      },
+      {
+        "path": "package/semantica/ingest/ssrf.py",
+        "sha256": "985c379caa5293bb473ac45b74b9a83d8ec741c0c27846439c526f48af72246f",
+        "bytes": 31445
+      },
+      {
+        "path": "package/semantica/ingest/stream_ingestor.py",
+        "sha256": "3106a8bf4059daa2e346445c74f275a0dcdc1620c1c3dcf56eb5ec69856e382f",
+        "bytes": 22019
+      },
+      {
+        "path": "package/semantica/ingest/web_ingestor.py",
+        "sha256": "6dc0ccaf0451b971955b204ca38beacf1ac635744418437a6c7cb51d5dfddaa9",
+        "bytes": 32151
+      },
+      {
+        "path": "package/semantica/ingest/xml_ingestor.py",
+        "sha256": "7c5be963b42363484f879a651f45bd9540ae7cbb20c1b7b59cd273227d74393e",
+        "bytes": 28679
+      },
+      {
+        "path": "package/semantica/kg/__init__.py",
+        "sha256": "14a256c2a8bb7ebc9d0c6bad12b7732d2be377950f305f338665734370151963",
+        "bytes": 8205
+      },
+      {
+        "path": "package/semantica/kg/_graph_view.py",
+        "sha256": "d4f0cc3391cd7077f67fb0568ae9a080d5308fcee3b730b82d9dc21533e4cbba",
+        "bytes": 5788
+      },
+      {
+        "path": "package/semantica/kg/centrality_calculator.py",
+        "sha256": "837b01eef950d5a5430c9fa344ed04d970c5f4a913433723c62061a88f439bd7",
+        "bytes": 28351
+      },
+      {
+        "path": "package/semantica/kg/community_detector.py",
+        "sha256": "9b04198d8581afa0689355b4851ab8299b42b6b46e6a69c08ca42ebd61139e26",
+        "bytes": 37010
+      },
+      {
+        "path": "package/semantica/kg/community_hierarchy.py",
+        "sha256": "5c04b39098918f06d9f5531e0d7d31039d64762f755e56dfadc0ce2c7b94721c",
+        "bytes": 52882
+      },
+      {
+        "path": "package/semantica/kg/community_summarizer.py",
+        "sha256": "a8a9f5efca9dc7aa1e58b405d063e1fb27f3a3ffad5ae486c0caaa56bf03b700",
+        "bytes": 85665
+      },
+      {
+        "path": "package/semantica/kg/config.py",
+        "sha256": "2a7d78ac50234e49064954df3c32157131ce63935ec28e9030a3b6545f2f68a6",
+        "bytes": 7789
+      },
+      {
+        "path": "package/semantica/kg/connectivity_analyzer.py",
+        "sha256": "5e87910c2ff0587b3bbcd1db2ee24536622a186165773a62d1b0e3db1da2fd16",
+        "bytes": 18338
+      },
+      {
+        "path": "package/semantica/kg/entity_resolver.py",
+        "sha256": "924c55293e5f88165b40fade1420c77cb4f9077aab583d5345abccb47acf4670",
+        "bytes": 11285
+      },
+      {
+        "path": "package/semantica/kg/graph_analyzer.py",
+        "sha256": "f4d291f01b7ccce646716a60b89f5d7eeb179af6910ceef694ae0ef59c8c36ae",
+        "bytes": 10234
+      },
+      {
+        "path": "package/semantica/kg/graph_builder.py",
+        "sha256": "c3d697d5dc4a3156781072bfe4d4970ea75d1e1320423f5cc6111aaabfd5f580",
+        "bytes": 68879
+      },
+      {
+        "path": "package/semantica/kg/graph_validator.py",
+        "sha256": "be6474c63cfd601a5208f424eaed07d3e732df1577debe3b7ab62c2e48f000e7",
+        "bytes": 12349
+      },
+      {
+        "path": "package/semantica/kg/kg_provenance.py",
+        "sha256": "eaa97cfe28db366046e31e3a8369232ba45c4597a44adbd57a76f838c2d1224d",
+        "bytes": 45230
+      },
+      {
+        "path": "package/semantica/kg/knowledge_graph.py",
+        "sha256": "fcb8a95cf037cb211bfb1d8d10dc6d8d708f14325f9178c9654fdd96ae1cca52",
+        "bytes": 1661
+      },
+      {
+        "path": "package/semantica/kg/link_predictor.py",
+        "sha256": "e0d222fbb302a819e6ecf95e339d4cf56d611614775da7285f5817aee97de177",
+        "bytes": 22130
+      },
+      {
+        "path": "package/semantica/kg/methods.py",
+        "sha256": "a28744f2a2b68e998e1bd0b490cb2ca5308bd349e034c32ead965ba878d0d48f",
+        "bytes": 40419
+      },
+      {
+        "path": "package/semantica/kg/node_embeddings.py",
+        "sha256": "73885248ff256d993f90b7d56ca13256937a51cc8da2596550889644f6ef3b6b",
+        "bytes": 21868
+      },
+      {
+        "path": "package/semantica/kg/path_finder.py",
+        "sha256": "22ed2f5eb4293530cee6cd33b9b86a2ab65ade31a74a2af14ac1d9b6dd2798c8",
+        "bytes": 24663
+      },
+      {
+        "path": "package/semantica/kg/provenance_tracker.py",
+        "sha256": "e18b2bfa6d640f429bd8c079a8d3f0508c2543e74ca74230b459b178f85b5df5",
+        "bytes": 8531
+      },
+      {
+        "path": "package/semantica/kg/registry.py",
+        "sha256": "2058c76f8d0a9124a2fbc7391983a26c6f49ee480058b1a08fd3da4c88d9b25a",
+        "bytes": 23788
+      },
+      {
+        "path": "package/semantica/kg/seed_manager.py",
+        "sha256": "846bb37aa3a13acbf263548f4aa82ece3d02f89ea48b04b55828c9e429c8b788",
+        "bytes": 7359
+      },
+      {
+        "path": "package/semantica/kg/similarity_calculator.py",
+        "sha256": "da265bf3ba844439567cf47587119a6a819dfdb6a690563c4fa8617567bd5e77",
+        "bytes": 18145
+      },
+      {
+        "path": "package/semantica/kg/temporal_model.py",
+        "sha256": "77565e904672d81b4c26ba5e9eba1b133d9e17b7e9c2bea66d80dd1a6f057cd1",
+        "bytes": 6154
+      },
+      {
+        "path": "package/semantica/kg/temporal_normalizer.py",
+        "sha256": "c60e1e41fab987ad22afb6074570c4a2d808eaad62a09f2384278d9bfcd1f102",
+        "bytes": 16456
+      },
+      {
+        "path": "package/semantica/kg/temporal_query.py",
+        "sha256": "086435fc9e6e67102984836a5441da6b44c7adc95dbdc318d7399e4481b370a7",
+        "bytes": 71282
+      },
+      {
+        "path": "package/semantica/kg/temporal_query_rewriter.py",
+        "sha256": "5b1c203e1fd78b250955009c1d26f44b917e4ea86559bb519ab5796c60244415",
+        "bytes": 17103
+      },
+      {
+        "path": "package/semantica/kg/temporal_reasoning.py",
+        "sha256": "b0b2e6fc308c08c2d2d8aa1da3672372f7916a43b3113ea60c11bd24b16ba6df",
+        "bytes": 15012
+      },
+      {
+        "path": "package/semantica/llms/__init__.py",
+        "sha256": "6ea7fe9ad96f8b91a2861ed1923892e0ea90137971e8ec3bbdb2a8196e4698af",
+        "bytes": 3140
+      },
+      {
+        "path": "package/semantica/llms/anthropic.py",
+        "sha256": "0309e6456592f43644a117e76ad13664a311bb95bb26e2984818c972be8454d0",
+        "bytes": 3669
+      },
+      {
+        "path": "package/semantica/llms/deepseek.py",
+        "sha256": "8cb6baa704564912f4c798f61380bdceab480ab48cefe1baa4d79f73d3578679",
+        "bytes": 3626
+      },
+      {
+        "path": "package/semantica/llms/gemini.py",
+        "sha256": "7528e44da4dbf9d29dd8c6739a25e4cfc215ffc574a22c0b3be95958c160ef91",
+        "bytes": 3583
+      },
+      {
+        "path": "package/semantica/llms/groq.py",
+        "sha256": "fe5c95a9a9c0d7b3399115b6b98f1bc4266c626d0f4b38d347ea6f567512e643",
+        "bytes": 3575
+      },
+      {
+        "path": "package/semantica/llms/huggingface.py",
+        "sha256": "13b44b01f30a33bcb7652951a5a303b68fb439523ee9713a5d3e43410dd23bca",
+        "bytes": 4100
+      },
+      {
+        "path": "package/semantica/llms/litellm.py",
+        "sha256": "d4087c255f00a995fdd04d8b5cf3cad4c43d6310e2222f010fb41df051acfd6b",
+        "bytes": 12462
+      },
+      {
+        "path": "package/semantica/llms/llms_provenance.py",
+        "sha256": "8a259c4e5b848a950beffe5dc71d5899e440f40e4b8c44a78ba191e9a3f4cbce",
+        "bytes": 15336
+      },
+      {
+        "path": "package/semantica/llms/novita.py",
+        "sha256": "d961ad2648fe3c1becb47d9784061b014485eb223e011ad609509da43320560e",
+        "bytes": 3630
+      },
+      {
+        "path": "package/semantica/llms/ollama.py",
+        "sha256": "d84f3c7d12324a7221215f708b8289fc898d40941dbfc5ff4c4bc197b001c85c",
+        "bytes": 3852
+      },
+      {
+        "path": "package/semantica/llms/openai.py",
+        "sha256": "74e0459c0ccfacfd9fd40629a8ce964dcba07148ae11e382d30e3ebf7f688ef1",
+        "bytes": 3590
+      },
+      {
+        "path": "package/semantica/mcp_server/__init__.py",
+        "sha256": "31cf6c666ac5c534977a18d71ab9bdf5c8d733698a883f29fdadba4d56bde36f",
+        "bytes": 42274
+      },
+      {
+        "path": "package/semantica/mcp_server/__main__.py",
+        "sha256": "5f3a2b61238c4950c32b484450558b569ab375aba6c738b39f17ea68a8c4c183",
+        "bytes": 133
+      },
+      {
+        "path": "package/semantica/normalize/__init__.py",
+        "sha256": "62b25633269098519978f01d2cd2805a14efe1cea4b0a428ce306e536c128c77",
+        "bytes": 10879
+      },
+      {
+        "path": "package/semantica/normalize/config.py",
+        "sha256": "503f58dd490ce1f366d460e1a32e09a00023e33a73663c93d1dae809c5c264fb",
+        "bytes": 6902
+      },
+      {
+        "path": "package/semantica/normalize/data_cleaner.py",
+        "sha256": "99c90d0585c845b7d464e3ed0315c1bed1f988ed3cda1d600162a8b8b25f77a5",
+        "bytes": 32901
+      },
+      {
+        "path": "package/semantica/normalize/date_normalizer.py",
+        "sha256": "2fe2e2bb23dfd4950cafc1413fb9ce9b66d9e441e81b5314fd21d65e5ce1e6fa",
+        "bytes": 23437
+      },
+      {
+        "path": "package/semantica/normalize/encoding_handler.py",
+        "sha256": "cf6515451cce1d3d2dba96eabd0b968337b3bde6a5689750ae57e23fa039ff29",
+        "bytes": 13047
+      },
+      {
+        "path": "package/semantica/normalize/entity_normalizer.py",
+        "sha256": "9929955ac7a349e07ed4034c56fa396e78a2c7bdf51ae9841f71e300e9512d23",
+        "bytes": 19351
+      },
+      {
+        "path": "package/semantica/normalize/language_detector.py",
+        "sha256": "4d46c2befa524700c777a95fae6543709f1472d836791521d1a95afb2c484d64",
+        "bytes": 14862
+      },
+      {
+        "path": "package/semantica/normalize/methods.py",
+        "sha256": "4149372bc5bc6b49452d5e6558e720bae58d4bb49bc1cb5fcae7e4041893de70",
+        "bytes": 31061
+      },
+      {
+        "path": "package/semantica/normalize/normalize_provenance.py",
+        "sha256": "006011283d79aa267f542036f1d8034e76563b997798fa35e24432ef94e7a4e7",
+        "bytes": 2201
+      },
+      {
+        "path": "package/semantica/normalize/number_normalizer.py",
+        "sha256": "0a41d0ba8bbe50955ad409296262f572782aea57edc34137c35d8af9e5090dda",
+        "bytes": 26260
+      },
+      {
+        "path": "package/semantica/normalize/registry.py",
+        "sha256": "a7b0fba393d58fe1c5db16abb6e674ccab7a54e219d6060ca2c320c5d4917ecd",
+        "bytes": 4166
+      },
+      {
+        "path": "package/semantica/normalize/text_cleaner.py",
+        "sha256": "9690bc8921976ad7aa1b6d5100f7c32917a418ac4cde80c691f720e2fc733f4d",
+        "bytes": 11649
+      },
+      {
+        "path": "package/semantica/normalize/text_normalizer.py",
+        "sha256": "d42835a47c45f939fd3f110cee0cc8dcfe2bf3ae0fa60ef4b07e06556a864ae5",
+        "bytes": 26911
+      },
+      {
+        "path": "package/semantica/ontology/__init__.py",
+        "sha256": "acf09c13ba20c53a1d0e09ec25a032b40b96ecb1c218b18471c5593456e93d13",
+        "bytes": 12320
+      },
+      {
+        "path": "package/semantica/ontology/associative_class.py",
+        "sha256": "9df6c4047895028da7dadaa70fe0559bd169f16c09ea4db17f860f2371e4da9b",
+        "bytes": 13863
+      },
+      {
+        "path": "package/semantica/ontology/bootstrap_schema.py",
+        "sha256": "9b08d0cfdff90424b3148b4ae844a7bbb5827fb228d9ffe51b7f56670bace2f1",
+        "bytes": 5217
+      },
+      {
+        "path": "package/semantica/ontology/class_inferrer.py",
+        "sha256": "808dd6d85d69badae02ba83a99823b7b0241b38411624d2a66504f9acbfa5b97",
+        "bytes": 16511
+      },
+      {
+        "path": "package/semantica/ontology/competency_questions.py",
+        "sha256": "91627fec4a8d8b80a64a248c334d61dcdb7a9749241368359e216287cf1a39ef",
+        "bytes": 14398
+      },
+      {
+        "path": "package/semantica/ontology/config.py",
+        "sha256": "1cb11fd103d7e8925b523b7ff9d28414ebdcc06320e9310c5523cb1a3689a163",
+        "bytes": 6983
+      },
+      {
+        "path": "package/semantica/ontology/domain_ontologies.py",
+        "sha256": "1d0a92868f0a8817af8025def0593963346aec288e4a2e36a019be2cadbcae2f",
+        "bytes": 7376
+      },
+      {
+        "path": "package/semantica/ontology/engine.py",
+        "sha256": "7664a49eaa1c19b0cdf4bafb089acb2ba15316965be4add946fa8e4f6c8eeb94",
+        "bytes": 29870
+      },
+      {
+        "path": "package/semantica/ontology/llm_generator.py",
+        "sha256": "39048d31efee56748ef247e9c7b3ce084390ecc7a609fb1f496e647965e1a55d",
+        "bytes": 5803
+      },
+      {
+        "path": "package/semantica/ontology/methods.py",
+        "sha256": "515875ecaf20d3f3153cf88b6b1969104c00fb88af023dd222fc3a5efb5c1607",
+        "bytes": 8187
+      },
+      {
+        "path": "package/semantica/ontology/module_manager.py",
+        "sha256": "7f122748af6884089697c066b7f38ddcb73b74b960f3fea3ec77c2ec9432a769",
+        "bytes": 8526
+      },
+      {
+        "path": "package/semantica/ontology/namespace_manager.py",
+        "sha256": "2c0a09fb8a6353a339961237e44ba75866139cf845c94dc13837b3d7db509ef2",
+        "bytes": 10449
+      },
+      {
+        "path": "package/semantica/ontology/naming_conventions.py",
+        "sha256": "f4101434d10e3428d38a05d398e6ce4798ee0e9ec2d9f9cf2d939175fe7df6a3",
+        "bytes": 13559
+      },
+      {
+        "path": "package/semantica/ontology/ontology_documentation.py",
+        "sha256": "0d3a203d271ae8ab93d7a777e45b51b782ee895da0d7df38c2c277a8435fc654",
+        "bytes": 11956
+      },
+      {
+        "path": "package/semantica/ontology/ontology_evaluator.py",
+        "sha256": "a09c98ad343f8c04f919ded8329d58d0ffcc3d80662f2ea0d99ef78ada54c4d5",
+        "bytes": 13619
+      },
+      {
+        "path": "package/semantica/ontology/ontology_generator.py",
+        "sha256": "f2c6085b07f7858315b40af1e81eba4d66967e3ca3fac0364f0f72a23cbc47fe",
+        "bytes": 57606
+      },
+      {
+        "path": "package/semantica/ontology/ontology_provenance.py",
+        "sha256": "e75a8fa23529b2848050226a8c981b613c66f87cadd43b4cee2684716a0c46ae",
+        "bytes": 2232
+      },
+      {
+        "path": "package/semantica/ontology/ontology_validator.py",
+        "sha256": "4e3679dcf042d123f77bee2a4ad00aa581972f24738000cae1d9dac07111997f",
+        "bytes": 14787
+      },
+      {
+        "path": "package/semantica/ontology/owl_generator.py",
+        "sha256": "1254e3ae9de81625d5aef3ba3839305b9d3c42d1dbfe4737af9faeacfdd2320e",
+        "bytes": 18395
+      },
+      {
+        "path": "package/semantica/ontology/property_generator.py",
+        "sha256": "cfc67014b2cae3d808b6f8277ee82107438f429e1ec3a0aefca11c3276bec14c",
+        "bytes": 18792
+      },
+      {
+        "path": "package/semantica/ontology/quality_gate.py",
+        "sha256": "7937db13885ab517e66ae7f111552e92247bbb9fcedb15af8e5903c0d60fab75",
+        "bytes": 31121
+      },
+      {
+        "path": "package/semantica/ontology/registry.py",
+        "sha256": "27f53b1bb47034ffc9e79314f4ea025e1faefc350c724c8b77815c0655494a0f",
+        "bytes": 4554
+      },
+      {
+        "path": "package/semantica/ontology/relationship_utils.py",
+        "sha256": "94488e241930bd633800022014d3f4db50e013c0cf3c32d6b7abc3326e649f91",
+        "bytes": 2089
+      },
+      {
+        "path": "package/semantica/ontology/requirements_spec.py",
+        "sha256": "ac18772057f728ac39e6b4ea7819ccf6e4309c49d1175048890daceb6aa6ddf9",
+        "bytes": 8671
+      },
+      {
+        "path": "package/semantica/ontology/reuse_manager.py",
+        "sha256": "0802546fc792fad92ba0a0f91316e10649b154c0e45fd6a6cfa93347aeda9911",
+        "bytes": 18193
+      },
+      {
+        "path": "package/semantica/ontology/vocabulary/__init__.py",
+        "sha256": "635a4a483ed0bc227f65c0b6b61166be659ba2f1bbed2e684a3d29afed52753f",
+        "bytes": 1246
+      },
+      {
+        "path": "package/semantica/ontology/vocabulary/semantica-ns.ttl",
+        "sha256": "a0eea991c95f4873bdd06e9e12a24c46fd5886d1ee0bbc129702aa4f7fbfd2ba",
+        "bytes": 11799
+      },
+      {
+        "path": "package/semantica/parse/__init__.py",
+        "sha256": "ce06bf6a7e92f516a048c26741a3356c36833eed63ab8c9173db4f35ebc30cb7",
+        "bytes": 15338
+      },
+      {
+        "path": "package/semantica/parse/code_parser.py",
+        "sha256": "1465cefd9fe9b68f25ab8cb82eb266acc4acade9581d98a5e9ec6bde55c535c5",
+        "bytes": 20353
+      },
+      {
+        "path": "package/semantica/parse/config.py",
+        "sha256": "fc23395a44bed31989e0f24bdcbb41758b411cbc0c816ea0765bf9a51b8bf0d1",
+        "bytes": 6816
+      },
+      {
+        "path": "package/semantica/parse/csv_parser.py",
+        "sha256": "75967f4ea37f24c282f8743c2021a57c67a824daa008a340c3ed10d27633b811",
+        "bytes": 6305
+      },
+      {
+        "path": "package/semantica/parse/docling_parser.py",
+        "sha256": "c5eb916e0caff693887fbe3fa53e9a9ffcd37f55e57c47adc09df3ef5f6feb58",
+        "bytes": 30076
+      },
+      {
+        "path": "package/semantica/parse/document_parser.py",
+        "sha256": "ad9f01587889b7664734f433c5ac61d09bb625cc44357831cd92d0705d5338e0",
+        "bytes": 13350
+      },
+      {
+        "path": "package/semantica/parse/docx_parser.py",
+        "sha256": "4d2657f9040f3aa6cf8abd2cece3277ba78709cb13d0ad8df5a83b57f7ced46b",
+        "bytes": 11031
+      },
+      {
+        "path": "package/semantica/parse/email_parser.py",
+        "sha256": "1f28de30c2024128559cc036f373cba7ed72463eb77092e33703af84d9144916",
+        "bytes": 14822
+      },
+      {
+        "path": "package/semantica/parse/excel_parser.py",
+        "sha256": "59f82d418183960ffd6a00fc0dded7bbeeb7d5c22b51de973ce8215e05dd115f",
+        "bytes": 9927
+      },
+      {
+        "path": "package/semantica/parse/html_parser.py",
+        "sha256": "59487b3c1253279a714c20de673bb09280cbb1c3f9710fc576fdae0e1f0482e1",
+        "bytes": 14216
+      },
+      {
+        "path": "package/semantica/parse/image_parser.py",
+        "sha256": "f846dd63fae4a47ba70c0bc9f717fe17bf4fff20da78868fbd158bd9bc0a3bf2",
+        "bytes": 10561
+      },
+      {
+        "path": "package/semantica/parse/json_parser.py",
+        "sha256": "805628b612000812ad9ad02824b57424322779498f4059dfe83e1c9ba1091f6c",
+        "bytes": 9633
+      },
+      {
+        "path": "package/semantica/parse/mcp_parser.py",
+        "sha256": "4d478f71a4b0a01341dc4e4e5a0ece02f23c84841c748377d04fa981a8a5854d",
+        "bytes": 9962
+      },
+      {
+        "path": "package/semantica/parse/media_parser.py",
+        "sha256": "0f3dae1032d626de23f96aa5e7b9de619351e7e352f93a9344a3acd2ad1159dd",
+        "bytes": 10296
+      },
+      {
+        "path": "package/semantica/parse/methods.py",
+        "sha256": "032148a0525532dd6fa6e63a9676cbf8f31b09aee5e6de8121a8f52ff0a0edc4",
+        "bytes": 32660
+      },
+      {
+        "path": "package/semantica/parse/parse_provenance.py",
+        "sha256": "662d6c0558573b4f2dd7ee05a260794b96738b2730710de4730edd355185eab9",
+        "bytes": 2235
+      },
+      {
+        "path": "package/semantica/parse/pdf_parser.py",
+        "sha256": "37b4e037fb878385cd8907b95ecbc81b65063f1228e182315ad0ea3498201af6",
+        "bytes": 10681
+      },
+      {
+        "path": "package/semantica/parse/pptx_parser.py",
+        "sha256": "0446be86c3f0aa7a79b60635dc441d3456bbc31ca5da5a1f012387aeb5a35abf",
+        "bytes": 7752
+      },
+      {
+        "path": "package/semantica/parse/registry.py",
+        "sha256": "b537bf5add8b40729605828f4e079acf6a547dccdd08a3747a66ad84bda32fd5",
+        "bytes": 4130
+      },
+      {
+        "path": "package/semantica/parse/structured_data_parser.py",
+        "sha256": "6e09008b6802fbb96ab683b6cd89d859133f3ead3c3d6c611342ee1146c111d7",
+        "bytes": 13065
+      },
+      {
+        "path": "package/semantica/parse/web_parser.py",
+        "sha256": "c754167202072df92fc77929c3425cb248a0254bdb361e8efb863f886a455f90",
+        "bytes": 15017
+      },
+      {
+        "path": "package/semantica/parse/xml_parser.py",
+        "sha256": "a56f5682273cc4b44a94501f170060d2da58ffedbfec26d54b0a8fc539c23f52",
+        "bytes": 11280
+      },
+      {
+        "path": "package/semantica/pipeline/__init__.py",
+        "sha256": "f057ebb9848856caf073f430246a3c4f2eadc6e9f021615fdd18139a6b73c34b",
+        "bytes": 3151
+      },
+      {
+        "path": "package/semantica/pipeline/execution_engine.py",
+        "sha256": "9347abd8b9affd0754531a685dc100e7a79b9254d89bfeb9b323205bd1b6a2ee",
+        "bytes": 32570
+      },
+      {
+        "path": "package/semantica/pipeline/failure_handler.py",
+        "sha256": "ff697f40800494e7e730794d6bbe26cf997c9721e46fafb8015a8e8c22f50ae1",
+        "bytes": 17000
+      },
+      {
+        "path": "package/semantica/pipeline/parallelism_manager.py",
+        "sha256": "add460878622623e410a091bc7685d260b2cff2348d220789f4ba0b9244be2db",
+        "bytes": 15982
+      },
+      {
+        "path": "package/semantica/pipeline/pipeline_builder.py",
+        "sha256": "d4891e479e1d2f8af06cd5ba7e09bf89326480b9ad49a8ee164f14dff6770516",
+        "bytes": 18477
+      },
+      {
+        "path": "package/semantica/pipeline/pipeline_provenance.py",
+        "sha256": "5bf171c534869b11f4743f8af6666fb79ca8039bc23d4f12db627b17df6490af",
+        "bytes": 3830
+      },
+      {
+        "path": "package/semantica/pipeline/pipeline_templates.py",
+        "sha256": "3afa9b6b41ca2243362c5126bdd9fe1e00767ba12fd38ed93ac5d27e782cf96b",
+        "bytes": 12591
+      },
+      {
+        "path": "package/semantica/pipeline/pipeline_validator.py",
+        "sha256": "585a38593d771038d9033526b1869bc4566c9f9591efe70d6e4b563ec875fbb3",
+        "bytes": 17981
+      },
+      {
+        "path": "package/semantica/pipeline/resource_scheduler.py",
+        "sha256": "df982ec550124295fcd39fb4d55d1ff8f41cbc47b4ada6c88b68c35a71e84205",
+        "bytes": 17310
+      },
+      {
+        "path": "package/semantica/provenance/__init__.py",
+        "sha256": "f2ec0b2b9ca0d4ec341f1373a89fd05d0e8265e55c0e27bc15848eaa68e45b6c",
+        "bytes": 2287
+      },
+      {
+        "path": "package/semantica/provenance/bridge_axiom.py",
+        "sha256": "76b09ed4d32e19574365eb92a6d116d4edd8f4c642aa533df58091defe467003",
+        "bytes": 14424
+      },
+      {
+        "path": "package/semantica/provenance/integrity.py",
+        "sha256": "7af67d2e8526a93a7124f52c0b489d75e53ba77e592d80d6c119d0fdde19692e",
+        "bytes": 8210
+      },
+      {
+        "path": "package/semantica/provenance/manager.py",
+        "sha256": "5b897806b26c86b163539054430acbdd673682a87c530a92df77605b8c3e2fc5",
+        "bytes": 63084
+      },
+      {
+        "path": "package/semantica/provenance/schemas.py",
+        "sha256": "89fa15470f9a6a64ea729801a5b437efe2a19df1474ca6f13855493f745672d0",
+        "bytes": 18554
+      },
+      {
+        "path": "package/semantica/provenance/storage.py",
+        "sha256": "514464dca885f17d34ef30c21b5edb655b12e5297fdd4ef0b7b7dbbf34767fd4",
+        "bytes": 37770
+      },
+      {
+        "path": "package/semantica/reasoning/__init__.py",
+        "sha256": "848cfd4f36f2e4d1ce0f895e741123f0fad42c0b3f98555230932570dbd31b3f",
+        "bytes": 2136
+      },
+      {
+        "path": "package/semantica/reasoning/_rule_matching.py",
+        "sha256": "dd01fc1dc3c7b3695faa935b4d5a7972a8fee0928aa115e9d6da3e98efbab49f",
+        "bytes": 5983
+      },
+      {
+        "path": "package/semantica/reasoning/_truth_maintenance_validation.py",
+        "sha256": "ef516243cec1da96aa5e9a22223648d94f082cdf0bc1f0c5edcca993a51dd1b0",
+        "bytes": 10112
+      },
+      {
+        "path": "package/semantica/reasoning/abductive_reasoner.py",
+        "sha256": "9625510ca919c7e62befe94b552442d56e86c96ad05588769f216aae7744f295",
+        "bytes": 13844
+      },
+      {
+        "path": "package/semantica/reasoning/datalog_reasoner.py",
+        "sha256": "901676257437fd056203ea572bb750f84c528b1693a5ef8149c68d5725a3c78d",
+        "bytes": 16421
+      },
+      {
+        "path": "package/semantica/reasoning/deductive_reasoner.py",
+        "sha256": "8591edfbc66b58c1e8b8ceeede17797eed515f770f70909bba04347cc48d7c89",
+        "bytes": 18576
+      },
+      {
+        "path": "package/semantica/reasoning/explanation_generator.py",
+        "sha256": "bec47e3c3eabda2141566ec6d9f94900054d6b771efb81aed1b68c8a46b4dcb1",
+        "bytes": 16417
+      },
+      {
+        "path": "package/semantica/reasoning/graph_reasoner.py",
+        "sha256": "d1e5ae05dd68be2234ad7ca62513c6a74fb72f59e499ccee4b7c6245e6266015",
+        "bytes": 6739
+      },
+      {
+        "path": "package/semantica/reasoning/reasoner.py",
+        "sha256": "a5fad94a00bfd065f49b59d6fe8fc59a5aba872de1fc0a4c982ac85e24ed7e4c",
+        "bytes": 33448
+      },
+      {
+        "path": "package/semantica/reasoning/reasoning_provenance.py",
+        "sha256": "8f9a1691c3c4e4c041200b8d0e0fb6cdee69ab1a20fac4b0ea9153037ee4f60e",
+        "bytes": 3122
+      },
+      {
+        "path": "package/semantica/reasoning/rete_engine.py",
+        "sha256": "0ce59128934dfb211699b3a9cf179229da4bc5b20de63dfde316fd2ca4204515",
+        "bytes": 23419
+      },
+      {
+        "path": "package/semantica/reasoning/sparql_reasoner.py",
+        "sha256": "822dd56220cf9d5f9083774d721455aa8f3cb873b009da7a26eb566a2d7440a5",
+        "bytes": 41574
+      },
+      {
+        "path": "package/semantica/reasoning/temporal_reasoning.py",
+        "sha256": "58065d4fa80dbad51126c7fb986e3496e3143ea401f323236f77acabc15f55be",
+        "bytes": 324
+      },
+      {
+        "path": "package/semantica/reasoning/truth_maintenance.py",
+        "sha256": "a70b1f861bcba9af1c5a2d1e9b6cf0249f4292fc4bb220354a551f0a1b78157b",
+        "bytes": 22109
+      },
+      {
+        "path": "package/semantica/reasoning/truth_maintenance_types.py",
+        "sha256": "c998e5d54a8fba4670c8d6050cab3e76a99f7ab676306e125eab0de4eb951b25",
+        "bytes": 2423
+      },
+      {
+        "path": "package/semantica/seed/__init__.py",
+        "sha256": "e5217d863e48a58ba2b1c7ec3e1417c8b6b573410f065e0a9d28e40bc76cef8f",
+        "bytes": 4729
+      },
+      {
+        "path": "package/semantica/seed/seed_manager.py",
+        "sha256": "a5f94106b9ca19c4d629ae65d912821e7af365081fd68e0710faae884eb2e3c9",
+        "bytes": 41264
+      },
+      {
+        "path": "package/semantica/semantic_extract/__init__.py",
+        "sha256": "8c5004ccddb8934ab51087361236662219d14358ae6d8f32be4d53adbede1a4f",
+        "bytes": 9091
+      },
+      {
+        "path": "package/semantica/semantic_extract/cache.py",
+        "sha256": "d3c59882b6cb79d8c8aec9cff04b87ee5d2b95369e53b0119b8541c420139ac6",
+        "bytes": 30589
+      },
+      {
+        "path": "package/semantica/semantic_extract/config.py",
+        "sha256": "68c280b2d3a01091bc8c6b67c69fe67119bf381d8034b420908644ef153c3baf",
+        "bytes": 8615
+      },
+      {
+        "path": "package/semantica/semantic_extract/coreference_resolver.py",
+        "sha256": "6156dc496f3316068ce2dc4b9dca36c58001698925fc78d1872879d61f9aa884",
+        "bytes": 25399
+      },
+      {
+        "path": "package/semantica/semantic_extract/event_detector.py",
+        "sha256": "ef935cb5a803a92868e03b868819ff9bc647a6488d2803ca991f631916ec343e",
+        "bytes": 24881
+      },
+      {
+        "path": "package/semantica/semantic_extract/extraction_validator.py",
+        "sha256": "1fb98c9ebe45daa12faa435bfd1dd5773a41f7f845261db12f80b28f63240f8b",
+        "bytes": 13945
+      },
+      {
+        "path": "package/semantica/semantic_extract/llm_extraction.py",
+        "sha256": "aaf01f6d3a2f2029ef4644e80af46c5f4ab80dd04d227ff6f62800d33d4bd574",
+        "bytes": 31172
+      },
+      {
+        "path": "package/semantica/semantic_extract/methods.py",
+        "sha256": "f0640db1cd662325b9fa4bb57d5536577f43471c8ada9eebad65949191201851",
+        "bytes": 115739
+      },
+      {
+        "path": "package/semantica/semantic_extract/named_entity_recognizer.py",
+        "sha256": "2d162b8fe1c8dede122c7700d348a207d5e1e15ed28894f917258ffe689688cf",
+        "bytes": 12968
+      },
+      {
+        "path": "package/semantica/semantic_extract/ner_extractor.py",
+        "sha256": "d1a320ac8a23c1cda185c898745517530f446bf0d7bcfa6151679d39e816229c",
+        "bytes": 60343
+      },
+      {
+        "path": "package/semantica/semantic_extract/providers.py",
+        "sha256": "14cef6e26942d604cf89b4d1b7a68f91c426fabe20d1ec550c386ad7297cd7c9",
+        "bytes": 75945
+      },
+      {
+        "path": "package/semantica/semantic_extract/registry.py",
+        "sha256": "709a7345f0ea0a77b622ffabb3cb58163d8352c8b655f0662d8c4b41c52a1656",
+        "bytes": 4012
+      },
+      {
+        "path": "package/semantica/semantic_extract/relation_extractor.py",
+        "sha256": "f7f013a562ee8febb6e847fb3a0541df964d6c189c061dfc70b52611d2f8c10d",
+        "bytes": 28787
+      },
+      {
+        "path": "package/semantica/semantic_extract/schema.py",
+        "sha256": "1f4f7a548c2c5fddfc62444648c60b64bd8f693a63b57f72bd542441966c13f0",
+        "bytes": 9489
+      },
+      {
+        "path": "package/semantica/semantic_extract/schema_validator.py",
+        "sha256": "f015a358445d3fc1514448ab620fa24f32f6b6a19123464ed70140cf9ed44888",
+        "bytes": 7683
+      },
+      {
+        "path": "package/semantica/semantic_extract/schemas.py",
+        "sha256": "deafb123dbbb18dca55cec352c7669f400d7dafc0e1650679657d9dc95fee70d",
+        "bytes": 7151
+      },
+      {
+        "path": "package/semantica/semantic_extract/semantic_analyzer.py",
+        "sha256": "322090dfaf07c7232a4712c2545f5d527ddf6f014ad890d852343a8e534ee63b",
+        "bytes": 23683
+      },
+      {
+        "path": "package/semantica/semantic_extract/semantic_extract_provenance.py",
+        "sha256": "3eea47704dec7c19b74b01d562e2f9370f0acbfafdc92a4faba6abf4139bd53f",
+        "bytes": 16852
+      },
+      {
+        "path": "package/semantica/semantic_extract/semantic_network_extractor.py",
+        "sha256": "9c7353753828a8d062d9eb4ba70dc302ff75d72f1005383162ed33f3d09c7466",
+        "bytes": 26371
+      },
+      {
+        "path": "package/semantica/semantic_extract/triplet_extractor.py",
+        "sha256": "ec20d79534287a933ee707de8c9f7edd1430e7c68d4fd1835ada51e9d645a985",
+        "bytes": 36273
+      },
+      {
+        "path": "package/semantica/semantic_extract/types.py",
+        "sha256": "5ec796e1b8d9dbeca24d06e96f67b91a65453f60483c60049e4030e59d432def",
+        "bytes": 2592
+      },
+      {
+        "path": "package/semantica/server.py",
+        "sha256": "c163e2df5d9f8ce6de2925568264c3ae00700a39f89e80660b3f2c296f53bdda",
+        "bytes": 10353
+      },
+      {
+        "path": "package/semantica/split/__init__.py",
+        "sha256": "1f91850d2a8dd43ac149c2d6718fea81a207241d238122e21b33e3923a13eed0",
+        "bytes": 4972
+      },
+      {
+        "path": "package/semantica/split/config.py",
+        "sha256": "9afa9986d9f15aeaf4388b420cb3b8235dab170cd2907ba137c98a84d9f9f835",
+        "bytes": 6076
+      },
+      {
+        "path": "package/semantica/split/kg_chunkers.py",
+        "sha256": "9acb589ca434de200467c2aa690073fdaa767950a85fcfb0d4368ba09725e569",
+        "bytes": 14195
+      },
+      {
+        "path": "package/semantica/split/methods.py",
+        "sha256": "f6bee3c268d7b022597737856394831ce86ca9e60d61bc886f2fc5726753dcaa",
+        "bytes": 56433
+      },
+      {
+        "path": "package/semantica/split/provenance_tracker.py",
+        "sha256": "4a9705f4dd6994c0fc83c0bebd505d95732a6aafd20133c6413ca6471622bf75",
+        "bytes": 19464
+      },
+      {
+        "path": "package/semantica/split/registry.py",
+        "sha256": "f54096e8fec4a31d5d3c553c702ba5bce95bce1ed7ddfbb0a597104d21e85368",
+        "bytes": 3511
+      },
+      {
+        "path": "package/semantica/split/semantic_chunker.py",
+        "sha256": "a265ea83bad7be893ddb241e142399bad5cae0627fc70723da6640ab4da3719d",
+        "bytes": 12738
+      },
+      {
+        "path": "package/semantica/split/sliding_window_chunker.py",
+        "sha256": "d175551068f43aaf3ad513bc2e2e5350bd60120f0307b3a40e36da470a1001d3",
+        "bytes": 8017
+      },
+      {
+        "path": "package/semantica/split/splitter.py",
+        "sha256": "ce4cb80f1bb8afdb91b73873f8358209c997d063a739bee82c1755ca5d8b2d53",
+        "bytes": 10207
+      },
+      {
+        "path": "package/semantica/split/structural_chunker.py",
+        "sha256": "2774b643fe3beac853e5072c09ff200f7e8a4db44d1ccf20d826e4d2ac28ece9",
+        "bytes": 12312
+      },
+      {
+        "path": "package/semantica/split/table_chunker.py",
+        "sha256": "043a44ec2d93628ea694c174677328a9913892f6d7211b3c6bdd812d5270be16",
+        "bytes": 11629
+      },
+      {
+        "path": "package/semantica/static/assets/book-open-Due40JNM.js",
+        "sha256": "473c6592c64d12039075bde250adffbaea2460b38c6d467e0ac44acced678d8e",
+        "bytes": 450
+      },
+      {
+        "path": "package/semantica/static/assets/chevron-right-DVFTC2rf.js",
+        "sha256": "fe21bdd75199c9d14f49c11784cf429de59b16c051ae6418aa9dd8ea12159016",
+        "bytes": 551
+      },
+      {
+        "path": "package/semantica/static/assets/circle-check-DspmkRLn.js",
+        "sha256": "b5b32d64df364db2632a1166cc8dbf0b7ec9a8d9363c7453ec226ad49a28afa2",
+        "bytes": 349
+      },
+      {
+        "path": "package/semantica/static/assets/copy-DgtYINVh.js",
+        "sha256": "04afbdf80504f1a0ecd4d39451818b0db538019bb2cb4bc8b11222f775fe091b",
+        "bytes": 407
+      },
+      {
+        "path": "package/semantica/static/assets/DecisionWorkspace-DLnQoq1W.js",
+        "sha256": "2931bcd450b2663dee908ed08116511adf15b2dcc0ed13bb98a42e984d8d7aca",
+        "bytes": 10320
+      },
+      {
+        "path": "package/semantica/static/assets/DiffMergeWorkspace-DIj2n0oj.js",
+        "sha256": "472b427535dff2e56419113b330888fe3ead3c0081ad0e6e4070f1b5afe1c1a2",
+        "bytes": 5434
+      },
+      {
+        "path": "package/semantica/static/assets/download-D6KY8v_c.js",
+        "sha256": "7794ebf97a19cd963127817e31ce34512da6ee83f14973eb5f3dc5067a634216",
+        "bytes": 403
+      },
+      {
+        "path": "package/semantica/static/assets/EntityResolutionTab-DogkN3fi.js",
+        "sha256": "b81b291b093a956e46aceb03b9370d6bc38e005057e8d0e457ca5538fee72c49",
+        "bytes": 12230
+      },
+      {
+        "path": "package/semantica/static/assets/external-link-CMyTuHz0.js",
+        "sha256": "d57b9b2d791dd4c2db42a1068e92063f4038ebab3176abe26697b16d664ffe4e",
+        "bytes": 422
+      },
+      {
+        "path": "package/semantica/static/assets/file-text-DPB4thcG.js",
+        "sha256": "ab54f783d1611b44875d294a23c011be7acb2b81d51cb183b446e5862f9eb834",
+        "bytes": 556
+      },
+      {
+        "path": "package/semantica/static/assets/git-branch-B3NGDAwg.js",
+        "sha256": "9e10b017e9cc4fb37e0fcb3adf09db1fd4d183c8ade791bfc180a39174c9545b",
+        "bytes": 400
+      },
+      {
+        "path": "package/semantica/static/assets/graph-vendor-C_DST6AN.js",
+        "sha256": "7dbb4c4bbfb97689a8b5f1e7e84e2ea1dd48a2e64862347251905a89b539ec0c",
+        "bytes": 171179
+      },
+      {
+        "path": "package/semantica/static/assets/GraphInspectorPanel-BScvRBzt.js",
+        "sha256": "f31ae2696b191fc1ddaa7e6dcd111a23a81b968d54d465ebc57f2e28e6ea1aab",
+        "bytes": 23635
+      },
+      {
+        "path": "package/semantica/static/assets/graphTheme-CZgtRLnq.js",
+        "sha256": "62cf7be61dd3c96cb7377236a573da9f65f4bbbeebb2fa64be1dfa77cac15f79",
+        "bytes": 14093
+      },
+      {
+        "path": "package/semantica/static/assets/GraphWorkspace-Dny3nAOi.js",
+        "sha256": "107abcdf452209b485ad71d1e100c6c3b0f8a445f0d85d3afd420391e911a53d",
+        "bytes": 268088
+      },
+      {
+        "path": "package/semantica/static/assets/ImportExportWorkspace-XEcfgbkG.js",
+        "sha256": "99c5292c4164edb70ff892e2fb73b9e2421dc211115ba6c3353700b73fe7df12",
+        "bytes": 7540
+      },
+      {
+        "path": "package/semantica/static/assets/index-1gKdBBTm.css",
+        "sha256": "9fb3cc80ba125e01b1732dfb986c3647916717633c03d7da26a3088fa813cffd",
+        "bytes": 1029
+      },
+      {
+        "path": "package/semantica/static/assets/index-CbqBGY6W.js",
+        "sha256": "7e0c921c63e7371b927482f0af17db81acbfe7fade5892fc2225d76c15a1c536",
+        "bytes": 128833
+      },
+      {
+        "path": "package/semantica/static/assets/index-CgN8BDMH.js",
+        "sha256": "cb2f236eb83179755bdfffed3da1e600bc73f0806e1747aaf55cc0188fa44dac",
+        "bytes": 259184
+      },
+      {
+        "path": "package/semantica/static/assets/index-CVqD6U61.js",
+        "sha256": "b8c7787dc90b677f5ff18f285021aba8d782be95f537cd58da46775f8ad80c15",
+        "bytes": 1166
+      },
+      {
+        "path": "package/semantica/static/assets/index-DeRyCZnz.js",
+        "sha256": "d2dc88edf8386bb967d47252a281b8fa18f4761626e213d1f1c76346e8665698",
+        "bytes": 61991
+      },
+      {
+        "path": "package/semantica/static/assets/index-LxgeY4aO.js",
+        "sha256": "6e60c0e05240def9c6e6edc93745002c1c9c39d92901c2551a73656673ccd2f6",
+        "bytes": 15038
+      },
+      {
+        "path": "package/semantica/static/assets/info-BUvV26o9.js",
+        "sha256": "cfe6d0b57f50c6a11cc5c68d0accb6b1c689acfe298f336cdc5e083040ffbf5f",
+        "bytes": 375
+      },
+      {
+        "path": "package/semantica/static/assets/KGOverviewTab-lmsMI0ma.js",
+        "sha256": "e11b935e00bd457f4e0517f2f12b4ff32cfadbd4a13ae468588ccb11e6a6717e",
+        "bytes": 8697
+      },
+      {
+        "path": "package/semantica/static/assets/layers-CQLDPxzU.js",
+        "sha256": "93a0d5ee09343c871cc416422f5c7cfae15e4dbbff726753ed90094446c3c9fa",
+        "bytes": 592
+      },
+      {
+        "path": "package/semantica/static/assets/LineageDiagram-B3vC6gPJ.js",
+        "sha256": "ce2ddf67e5f7547f0a4ec83dfb3e96b5f9c59b2b1594862255656828354c9473",
+        "bytes": 5188
+      },
+      {
+        "path": "package/semantica/static/assets/loader-circle-Do0Q6Lag.js",
+        "sha256": "02dedddb47982820e56f410ad6fbf1a422826abec21f97cd4bc23143d0e8d3ff",
+        "bytes": 315
+      },
+      {
+        "path": "package/semantica/static/assets/MarkdownContentViewer-BllL_0Qy.js",
+        "sha256": "8c0732a542787493af0b9550863006a70657cd7cafd1e004f08f9b3d9b5c5774",
+        "bytes": 176112
+      },
+      {
+        "path": "package/semantica/static/assets/MemoryWorkspace-sxRCjA3X.js",
+        "sha256": "63362e7ca3dbdc16fd41b242eefab5d16e9e7ca66b302517a0f23c7caf4a1424",
+        "bytes": 7525
+      },
+      {
+        "path": "package/semantica/static/assets/neighborhoodPanelPlugin-uCipY1mo.js",
+        "sha256": "9387fdad5379afd006f37e531a0457edf3bcbc525fb87e5ab5babe55589708c9",
+        "bytes": 3766
+      },
+      {
+        "path": "package/semantica/static/assets/OntologySummaryTab-CUk0k8ue.js",
+        "sha256": "a5db02a791a78af6f9b45016102d1754573cdd80632ea8c6dbeec2c6245b6ae5",
+        "bytes": 9585
+      },
+      {
+        "path": "package/semantica/static/assets/pencil-BlxMtHjL.js",
+        "sha256": "5560234f20bf5189df86d0803e77801bb26ab5755582a5d51c29f3215a43e04a",
+        "bytes": 447
+      },
+      {
+        "path": "package/semantica/static/assets/play-B-Zhq3Fq.js",
+        "sha256": "49096a202168209040c34b610f6bf5a34ea9c38b65dd929c21cb8552e0927e2c",
+        "bytes": 361
+      },
+      {
+        "path": "package/semantica/static/assets/queries-C9olL73s.js",
+        "sha256": "dd8e2b31dccd60bb4fe84b6d043739b640c1a6e02ee1ce2eeabcb82da6cadf74",
+        "bytes": 1166
+      },
+      {
+        "path": "package/semantica/static/assets/query-vendor-CCrh9h3E.js",
+        "sha256": "18a90c9d68b73907f3eaa38cb58a5af47219aac04660b491bfeb828eb4f48860",
+        "bytes": 44346
+      },
+      {
+        "path": "package/semantica/static/assets/ReasoningWorkspace-DIR9Cx8Q.js",
+        "sha256": "70ae3388c5ec5c060ff8e712111eb04d26349a4f926351153de87eb6614dbc38",
+        "bytes": 9394
+      },
+      {
+        "path": "package/semantica/static/assets/refresh-cw-gtzKVcUm.js",
+        "sha256": "85a9afe37dea9bf6383901afe2e973599e78a36d71d5efb85e1853bb3f934717",
+        "bytes": 492
+      },
+      {
+        "path": "package/semantica/static/assets/registryStore-Bnz_Y7r9.js",
+        "sha256": "13ab9508f6226791839904e476c8fb607307f10643b5c2d9aaf76c2e981024ad",
+        "bytes": 550
+      },
+      {
+        "path": "package/semantica/static/assets/RegistryTab-B0_aYFx8.js",
+        "sha256": "0450b0f8f124796884c6408206972aa95771b78c7834605a6ac601a3132e9711",
+        "bytes": 8589
+      },
+      {
+        "path": "package/semantica/static/assets/SparqlWorkspace-Cb9BLgce.js",
+        "sha256": "a357f7a0bb6a36188198de58fe72da41ffed01d72110998047b84c0ecb4f3aa4",
+        "bytes": 8823
+      },
+      {
+        "path": "package/semantica/static/assets/style-BZV40eAE.css",
+        "sha256": "77eb229e70c7949e1d9e4f542afdf7b38d85eccc656a7c3ee9b8429a339872be",
+        "bytes": 15851
+      },
+      {
+        "path": "package/semantica/static/assets/style-CAMR42T6.js",
+        "sha256": "361325b2d01390cfe4a0495ff017eacafc125c6166518ffadaeb31bd3a7059e6",
+        "bytes": 175972
+      },
+      {
+        "path": "package/semantica/static/assets/temporalOverlayPlugin-S8JyrPOb.js",
+        "sha256": "c3d22319f4bf107a83ecebac6264bb6d8970ad28ee1c05149da785594dc41ea1",
+        "bytes": 2497
+      },
+      {
+        "path": "package/semantica/static/assets/timeline-vendor-DeCuzv8t.js",
+        "sha256": "0d31aebcc5d140850237ae4156eea58893b88b43b3f8734ff9eae4b6d95faf59",
+        "bytes": 604250
+      },
+      {
+        "path": "package/semantica/static/assets/timeline-vendor-lG7zfUUF.css",
+        "sha256": "a1dce3a9f4b0b1866da5c9e9c46e99ea8746338c732018cce0f4fbcde18ad341",
+        "bytes": 19641
+      },
+      {
+        "path": "package/semantica/static/assets/TimelinePanel-3O4ItTHe.js",
+        "sha256": "3ff02d759a900f0057b7d1815cf4aed161bce13aa153fbcdf3de994b2c470e10",
+        "bytes": 7338
+      },
+      {
+        "path": "package/semantica/static/assets/trash-2-DgKzgfKH.js",
+        "sha256": "622ae5b076d89e108e1e71df5e37ee8ac15e65a93b2e6c9d8820e279b0a5cd7b",
+        "bytes": 499
+      },
+      {
+        "path": "package/semantica/static/assets/VocabularyWorkspace-CWWyOE4h.js",
+        "sha256": "d344f354b57d455a735848dbc10c2cdfd87bdb8f5facffef3762a167cc7e8f2e",
+        "bytes": 132492
+      },
+      {
+        "path": "package/semantica/static/assets/x-DOS2XFef.js",
+        "sha256": "277902444c4ffca6c1040a8332bccde3f35b540d483443205eeac919c533544e",
+        "bytes": 325
+      },
+      {
+        "path": "package/semantica/static/favicon.svg",
+        "sha256": "fa3e54e8b61159757d117a3480d1bf4f15f216854e47b6f39bc608e4751645ff",
+        "bytes": 2023
+      },
+      {
+        "path": "package/semantica/static/icons.svg",
+        "sha256": "b45fa506195cfcdef406ba9f0c77b36ddc1a7c224040926ec70abc2fdea7b93a",
+        "bytes": 5031
+      },
+      {
+        "path": "package/semantica/static/index.html",
+        "sha256": "c02d302108f8e6d7afff0c437133704de8d2e8027efa8edf1059def81e25e150",
+        "bytes": 561
+      },
+      {
+        "path": "package/semantica/triplet_store/__init__.py",
+        "sha256": "9340d95c9392b6c499e9182cdfb7b2a4e165992d491a676e0f85b3a4d38de300",
+        "bytes": 2348
+      },
+      {
+        "path": "package/semantica/triplet_store/anzo_store.py",
+        "sha256": "4fb9b9a5a9536ebd4c607ba37b22a4c861744c09189f22ab8111a44285a12a7f",
+        "bytes": 19600
+      },
+      {
+        "path": "package/semantica/triplet_store/blazegraph_store.py",
+        "sha256": "f3e468c416cc0308289fe01acc81ad1278b46bd7ad47394e0b5391856c93831a",
+        "bytes": 22267
+      },
+      {
+        "path": "package/semantica/triplet_store/bulk_loader.py",
+        "sha256": "4a51c5f08b41229cec9b41493ff8e559115ab4f224712db22c1584a49218473f",
+        "bytes": 13337
+      },
+      {
+        "path": "package/semantica/triplet_store/config.py",
+        "sha256": "cd9298d84dd4a148e9f95987721b354df168d238e9c54f64ea50a15a0f33ecf9",
+        "bytes": 9575
+      },
+      {
+        "path": "package/semantica/triplet_store/construct_templates.py",
+        "sha256": "9c4097446d01de2f9310b5cf96cb06628673336dc59f9ab8aabecae6aa8db480",
+        "bytes": 38079
+      },
+      {
+        "path": "package/semantica/triplet_store/jena_store.py",
+        "sha256": "7b8fa813a0e88e2697973056f63085cac558b758589c526b7dafe1274868d055",
+        "bytes": 22382
+      },
+      {
+        "path": "package/semantica/triplet_store/methods.py",
+        "sha256": "9fe88940d64b1305a38160c1614824c5ce6cfab4dd786cd5e59624978fa64476",
+        "bytes": 14880
+      },
+      {
+        "path": "package/semantica/triplet_store/oxigraph_store.py",
+        "sha256": "b5ccfd13624fb479319dea9aafb022b80a95c16470ca24a62b3d840a4b8161ed",
+        "bytes": 14779
+      },
+      {
+        "path": "package/semantica/triplet_store/query_engine.py",
+        "sha256": "27ee7e27beadb57595331fa83b61fd7d2217ed21321149dd1df46d279e918894",
+        "bytes": 20431
+      },
+      {
+        "path": "package/semantica/triplet_store/rdf4j_store.py",
+        "sha256": "a3e6f19da1c0ce4844a3fd1aeea63e4c5d66cb55c382b7dfcba72b44fb78a448",
+        "bytes": 22932
+      },
+      {
+        "path": "package/semantica/triplet_store/registry.py",
+        "sha256": "3625b8b8e71dc78756ae4343d7fed8044d8e38fe301f4e3c60abad9bb798e52f",
+        "bytes": 5213
+      },
+      {
+        "path": "package/semantica/triplet_store/sparql_escaping.py",
+        "sha256": "e8e9a5507ebd2a2fbe5708acde25407bd5cce3ed39365027accfb16326c5ba47",
+        "bytes": 7672
+      },
+      {
+        "path": "package/semantica/triplet_store/triplet_store.py",
+        "sha256": "d442a0919ad8c98d17f6e9fd3d5bb8b6dfe761f07e71fb3fa8805d2be70dc4e0",
+        "bytes": 27277
+      },
+      {
+        "path": "package/semantica/triplet_store/triplet_store_provenance.py",
+        "sha256": "03bc5e3e6ece92fcea425ec4ed62c2509a0ffdec2f085198ce656eda28133378",
+        "bytes": 2401
+      },
+      {
+        "path": "package/semantica/utils/__init__.py",
+        "sha256": "754dad2eb215643f0e9ee4144b701a85418002bcaa71f8704db29e1a11a531ea",
+        "bytes": 6447
+      },
+      {
+        "path": "package/semantica/utils/constants.py",
+        "sha256": "43bcdf4c8e97abe9cf8a268b77d61b5f3eff0e1a74bcb746ce267fdaf1c8f841",
+        "bytes": 6108
+      },
+      {
+        "path": "package/semantica/utils/custom_methods.py",
+        "sha256": "d0a44f9692bfd6f18ca2cca4d4391a3d6ae0a6c115e080066deb72cca1bb9139",
+        "bytes": 2622
+      },
+      {
+        "path": "package/semantica/utils/entity_ids.py",
+        "sha256": "31648136bcb90122fbfbb735e49a43f9d287115789794130004c278d222d066d",
+        "bytes": 610
+      },
+      {
+        "path": "package/semantica/utils/exceptions.py",
+        "sha256": "2cc526ff70338a002ef3f004818c8c2a1629e958643530de39a080ab96fc6c74",
+        "bytes": 12539
+      },
+      {
+        "path": "package/semantica/utils/helpers.py",
+        "sha256": "3a38797b1f668838ada7716327dce487189d6ea433efbb670bb2a44dfaff85ed",
+        "bytes": 35500
+      },
+      {
+        "path": "package/semantica/utils/logging.py",
+        "sha256": "e56a9fd21f88f7ce17e32b97fc4f248f5588d3d36ec498ebb6387e33d5c78185",
+        "bytes": 12709
+      },
+      {
+        "path": "package/semantica/utils/progress_tracker.py",
+        "sha256": "b58189e3f4b4720c55212d4cabb6ef1cb59b3bcc2f4f106281c8b5abfc5af3e5",
+        "bytes": 62958
+      },
+      {
+        "path": "package/semantica/utils/skos.py",
+        "sha256": "06870db663ab31924f1bfcd77b8438f9cac09d59345a980d2cef419a0e2cc661",
+        "bytes": 3242
+      },
+      {
+        "path": "package/semantica/utils/types.py",
+        "sha256": "bccaa6435b75845f8d11ab1c7751750aa537b652fb28597e18f02a796f12ab78",
+        "bytes": 11019
+      },
+      {
+        "path": "package/semantica/utils/validators.py",
+        "sha256": "7241ebe0158d3a7a1331744321fe0bf9a248949dc7c07857d5b7a94d89d06613",
+        "bytes": 17928
+      },
+      {
+        "path": "package/semantica/vector_store/__init__.py",
+        "sha256": "7edb37aad8f4ad4d49d9518e57bdb751ea7c0b55a1dcbe38bffdedaed1b7098b",
+        "bytes": 13172
+      },
+      {
+        "path": "package/semantica/vector_store/config.py",
+        "sha256": "69313a401898769011f377adc27964a5316c9460c4de45437aa540f36d9f50f7",
+        "bytes": 8301
+      },
+      {
+        "path": "package/semantica/vector_store/decision_embedding_pipeline.py",
+        "sha256": "375801ff0c4e13837701407efa30705e38667cd39108be9e0aebc22fde191c6c",
+        "bytes": 39708
+      },
+      {
+        "path": "package/semantica/vector_store/decision_vector_methods.py",
+        "sha256": "347c1d4e31167b301c89dbdba702cf7fa2790a826f248f8eebb7831d3491d263",
+        "bytes": 13605
+      },
+      {
+        "path": "package/semantica/vector_store/faiss_store.py",
+        "sha256": "6026fe4385a01ca832a42469a278695089d9eb2bad66f224e9bf0a77b308eb36",
+        "bytes": 36355
+      },
+      {
+        "path": "package/semantica/vector_store/hybrid_search.py",
+        "sha256": "ff14966d299b476400f21c2e40479d5cab31f3b43f80474449d1979804e3e436",
+        "bytes": 21926
+      },
+      {
+        "path": "package/semantica/vector_store/hybrid_similarity.py",
+        "sha256": "aa8af33562bf90cdc7d937a36f78b9803391c2640dc152542841eb9efb70a0de",
+        "bytes": 18108
+      },
+      {
+        "path": "package/semantica/vector_store/metadata_store.py",
+        "sha256": "cc63cf5f0d372840ed270e82b28bb98d20723393dcc29d5f978c4125c8cc8410",
+        "bytes": 13543
+      },
+      {
+        "path": "package/semantica/vector_store/methods.py",
+        "sha256": "0f0bde5d0e8cdc221a02073f21c2a93d411d2ad8eb6b97fdd32ac57c92aaa51e",
+        "bytes": 14584
+      },
+      {
+        "path": "package/semantica/vector_store/milvus_store.py",
+        "sha256": "4818a3bfd1e394fd3d6bbb99cfd09f766a9d8d92ee46c7712936bb75e861c223",
+        "bytes": 30530
+      },
+      {
+        "path": "package/semantica/vector_store/namespace_manager.py",
+        "sha256": "88f0eacda5a1929110a6f56c359e9bc710f7179330373e66976760a29875b27c",
+        "bytes": 19049
+      },
+      {
+        "path": "package/semantica/vector_store/pgvector_store.py",
+        "sha256": "d5f7121538662ffa9d501b1045e182f099fb17413482371600c5a68d63648814",
+        "bytes": 37702
+      },
+      {
+        "path": "package/semantica/vector_store/pinecone_store.py",
+        "sha256": "b260eca802c36ff7c0dcb967b60c91e3c5b2e0f3d76128f03e4262367351f73f",
+        "bytes": 31105
+      },
+      {
+        "path": "package/semantica/vector_store/qdrant_store.py",
+        "sha256": "9a2c5b013cb7c10076474898442dace4bcc6703e3f5a7e52b2d136d0711df30c",
+        "bytes": 26421
+      },
+      {
+        "path": "package/semantica/vector_store/registry.py",
+        "sha256": "6dfec496fc37f3a5efc15b2ba60fae448910596524705637943a9b2f3c3870a3",
+        "bytes": 4991
+      },
+      {
+        "path": "package/semantica/vector_store/sqlite_vec_store.py",
+        "sha256": "d796c1acd6e2af46ee4329d6e3671d8f12f63ce973542c7a90b01ca3462fa153",
+        "bytes": 30679
+      },
+      {
+        "path": "package/semantica/vector_store/vector_store.py",
+        "sha256": "d9f2a262448b0540844c0bcd07143c19e74ec03f0e15d13619a6c6c988f68922",
+        "bytes": 68648
+      },
+      {
+        "path": "package/semantica/vector_store/vector_store_provenance.py",
+        "sha256": "c96730ec130cf01427ab0d627302e02cbb03eaa111fb64e56fd5971d65292fb3",
+        "bytes": 2346
+      },
+      {
+        "path": "package/semantica/vector_store/weaviate_store.py",
+        "sha256": "4c469787a8feac1ff89ffc62bdaaca178f4fe4025e4233253ef459c5cdfdee28",
+        "bytes": 31868
+      },
+      {
+        "path": "package/semantica/visualization/__init__.py",
+        "sha256": "0e78f419de3cbad889220bea166fb84963a26bec987f272af715358374403313",
+        "bytes": 11249
+      },
+      {
+        "path": "package/semantica/visualization/analytics_visualizer.py",
+        "sha256": "2aeba155097f160b4c44b0536777c3c5f06ff79a16a3a7a856004d8601bd2822",
+        "bytes": 19218
+      },
+      {
+        "path": "package/semantica/visualization/config.py",
+        "sha256": "2c20d3c383df941b127c2b88343b88960e618e5f8997b16537b7b2106db99a8a",
+        "bytes": 9831
+      },
+      {
+        "path": "package/semantica/visualization/embedding_visualizer.py",
+        "sha256": "19f2e9d4d85844d5c5fe57cf691b61fad0aac5df6faea60432500020ae52c9ad",
+        "bytes": 28855
+      },
+      {
+        "path": "package/semantica/visualization/kg_visualizer.py",
+        "sha256": "616a81ada114d5064b2a489fcfe299aeb0bc5226ec427b05d6b32fbb6b4c1cf4",
+        "bytes": 31793
+      },
+      {
+        "path": "package/semantica/visualization/methods.py",
+        "sha256": "390cca58e098ebe6af993ddd517c2392c60004d53327b67b7dcd8dbd0813db54",
+        "bytes": 19396
+      },
+      {
+        "path": "package/semantica/visualization/ontology_visualizer.py",
+        "sha256": "51e5ab33d13d352bbd5a021d4e1f7d42c1002baf7c24b0c6badf830dd86d7371",
+        "bytes": 36528
+      },
+      {
+        "path": "package/semantica/visualization/registry.py",
+        "sha256": "c7c2754f1f1c14c46337b922f0ee1cf671ccd82c4a2e4c36de1ee14733bf3e05",
+        "bytes": 5224
+      },
+      {
+        "path": "package/semantica/visualization/semantic_network_visualizer.py",
+        "sha256": "375a2fec106815e140da4deadb366f6697c0cb9b3bb1bc8e293bbe027cf6ebd9",
+        "bytes": 15147
+      },
+      {
+        "path": "package/semantica/visualization/temporal_visualizer.py",
+        "sha256": "31eda334c0e7c28d1c5431a76e3950e30985984e46f805fc2129cd4d43760f4e",
+        "bytes": 32589
+      },
+      {
+        "path": "package/semantica/visualization/utils/__init__.py",
+        "sha256": "87b0ab8c3f00e9e356dce846a1dc9e63e7525844a8cce2a2e5aad9eaca1119e0",
+        "bytes": 1946
+      },
+      {
+        "path": "package/semantica/visualization/utils/color_schemes.py",
+        "sha256": "68ca801ec33a0ae44b69a6adb26325169e79d14a7363d85cedc9a5912e35f9bf",
+        "bytes": 5586
+      },
+      {
+        "path": "package/semantica/visualization/utils/export_formats.py",
+        "sha256": "47ff7b0ee743d03074fe82f553f67d93f6f4f05e2a03f995f45acd2029ac09e4",
+        "bytes": 4193
+      },
+      {
+        "path": "package/semantica/visualization/utils/layout_algorithms.py",
+        "sha256": "eddc2723dc4a3ea1dab0895a136e79cf416b2fd27385e8d08fcc00a7348e8aa6",
+        "bytes": 11056
+      },
+      {
+        "path": "package/semantica/visualization/visualization_provenance.py",
+        "sha256": "2d5a02332806d6dab0ef2e311491e0188769fea7cad4522b1be7a248edec8993",
+        "bytes": 2208
+      },
+      {
+        "path": "package/semantica/worker.py",
+        "sha256": "3f3868abfd341f417ac5585f26f1f68ad156b77ce15c70c34105d4372d294f3e",
+        "bytes": 1459
+      },
+      {
+        "path": "package/semantica-0.7.0.dist-info/entry_points.txt",
+        "sha256": "3deb236c2f598f291ad8f92210d6ce40183f1760505c3c72dcfe051eed4896c9",
+        "bytes": 218
+      },
+      {
+        "path": "package/semantica-0.7.0.dist-info/licenses/LICENSE",
+        "sha256": "7650ef0576603b337c310b9ad9dc051819257213abc44b720d9e678f8e4f4c40",
+        "bytes": 1066
+      },
+      {
+        "path": "package/semantica-0.7.0.dist-info/METADATA",
+        "sha256": "f39e7934567116b79e64efb5c6ccf54ba475aca2eee3d5af6b8f116763d6a981",
+        "bytes": 91936
+      },
+      {
+        "path": "package/semantica-0.7.0.dist-info/RECORD",
+        "sha256": "fe093e0861495f0d1cd4495d9f9aa522d7267f1d0b355725343357e039842c86",
+        "bytes": 46110
+      },
+      {
+        "path": "package/semantica-0.7.0.dist-info/top_level.txt",
+        "sha256": "da4bcb98ac3e21551b383405c9a2e8bd5628222324be88a3466676702347f308",
+        "bytes": 37
+      },
+      {
+        "path": "package/semantica-0.7.0.dist-info/WHEEL",
+        "sha256": "61532836a2b3111b7ec23519c09df7c41180c27165fb872a6d8913b566b88ad1",
+        "bytes": 91
+      },
+      {
+        "path": "package/semantica_mcp/__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "package/semantica_mcp/mcp/__init__.py",
+        "sha256": "8487fb1147cec4ced72cafd534376fd74046fd61538bf13bab30e5306695eb34",
+        "bytes": 1604
+      },
+      {
+        "path": "package/semantica_mcp/mcp/__main__.py",
+        "sha256": "21435b3d213e308f5aa403578586cf4b2a3c1b4c9a8cef5cfcc22469ac13bfa7",
+        "bytes": 111
+      },
+      {
+        "path": "package/semantica_mcp/mcp/resources/__init__.py",
+        "sha256": "0da598749b67c827c5092595c4949a6d7febda8343434067a416801b48700e4b",
+        "bytes": 236
+      },
+      {
+        "path": "package/semantica_mcp/mcp/resources/registry.py",
+        "sha256": "dd889219536ad3eaada697f6ba3061e12b6f793254c8266b0086b1968e4b9709",
+        "bytes": 5289
+      },
+      {
+        "path": "package/semantica_mcp/mcp/schemas.py",
+        "sha256": "c4e9876defc4b30e04eb45fc096b6f8d95c99e43d488b87e9c7a6b8933bb5de2",
+        "bytes": 11526
+      },
+      {
+        "path": "package/semantica_mcp/mcp/server.py",
+        "sha256": "255c45e4706fe766d9bbc699fa1d2470be5bc61295efe14457e40f3fd0247173",
+        "bytes": 8500
+      },
+      {
+        "path": "package/semantica_mcp/mcp/session.py",
+        "sha256": "5a1d4df720ab13d379ec4e03f2749c5dec483519be49af4931075b80d0a29ca0",
+        "bytes": 7066
+      },
+      {
+        "path": "package/semantica_mcp/mcp/tools/__init__.py",
+        "sha256": "4fb947d20203d54044afc9f1a5e2bc52927856ebac5c4b904096a3a823c052ea",
+        "bytes": 608
+      },
+      {
+        "path": "package/semantica_mcp/mcp/tools/decisions.py",
+        "sha256": "6c8cd5cd92bb7d360f2754196424cc96fd9bf2d0179bfb9f0230efa97340a6a2",
+        "bytes": 14162
+      },
+      {
+        "path": "package/semantica_mcp/mcp/tools/export.py",
+        "sha256": "793133f820de70854847d18952bd43b046f0d3c946d980259190462f15c5e91e",
+        "bytes": 9009
+      },
+      {
+        "path": "package/semantica_mcp/mcp/tools/extraction.py",
+        "sha256": "e2c303441040ae1002f99ed4aa959bdd07145805698e94ce0b3b0639a8a70e97",
+        "bytes": 7100
+      },
+      {
+        "path": "package/semantica_mcp/mcp/tools/graph.py",
+        "sha256": "1017002233c4d156a53b5b78dec3286e5962059cfa66085eb911d61114ef2591",
+        "bytes": 10555
+      },
+      {
+        "path": "package/semantica_mcp/mcp/tools/reasoning.py",
+        "sha256": "08b9056bda1301897f6eae065884bbffbc4e9ad7ae42dab06349ebd2774fde63",
+        "bytes": 2642
+      },
+      {
+        "path": "package/semantica_mcp/mcp/tools/retrieval.py",
+        "sha256": "084b8298752ee033b1b4434c0e387d0fbcd89b94c2a3fc3e70de06f76ff454aa",
+        "bytes": 19466
+      },
+      {
+        "path": "pillow-13.0.0-cp311-cp311-win_amd64.whl",
+        "sha256": "d7710eb676e9bb68965cb045be0d333b4c0d7f9dfbaa7fbf121385b1588683d3",
+        "bytes": 7278471
+      },
+      {
+        "path": "pydantic-2.14.1-py3-none-any.whl",
+        "sha256": "9195d967ec791692a04438115466764fb8b9a27b31f14a760437694f40d6b454",
+        "bytes": 488106
+      },
+      {
+        "path": "pydantic_core-2.50.1-cp311-cp311-win_amd64.whl",
+        "sha256": "0048b6dddc8ef4b64fccaad878bd143b0c3882ea9936279dc11d613f6b7dd1bc",
+        "bytes": 2176332
+      },
+      {
+        "path": "python_multipart-0.0.32-py3-none-any.whl",
+        "sha256": "ff6d3f776f16878c894e52e107296ffc890e913c611b1a4ec6c44e2821fe2e23",
+        "bytes": 30042
+      },
+      {
+        "path": "rdflib-7.6.0-py3-none-any.whl",
+        "sha256": "30c0a3ebf4c0e09215f066be7246794b6492e054e782d7ac2a34c9f70a15e0dd",
+        "bytes": 615416
+      },
+      {
+        "path": "requests-2.34.2-py3-none-any.whl",
+        "sha256": "2a0d60c172f83ac6ab31e4554906c0f3b3588d37b5cb939b1c061f4907e278e0",
+        "bytes": 73075
+      },
+      {
+        "path": "rich-15.0.0-py3-none-any.whl",
+        "sha256": "33bd4ef74232fb73fe9279a257718407f169c09b78a87ad3d296f548e27de0bb",
+        "bytes": 310654
+      },
+      {
+        "path": "semantica-0.7.0-py3-none-any.whl",
+        "sha256": "faf27d6259ae813ddb44c5213e2f8867592f27e6e3d6b47cea10f1844513799f",
+        "bytes": 2691390
+      },
+      {
+        "path": "starlette-1.10.0-py3-none-any.whl",
+        "sha256": "478c0ab3b4ced6e82719849c118fa406f0278a3499c1a898cd15cd31bdc38ce4",
+        "bytes": 80571
+      },
+      {
+        "path": "structlog-26.1.0-py3-none-any.whl",
+        "sha256": "e081a26d6c373e6d201eca24eede26d8ffab07f88f477822e679183428d3d91e",
+        "bytes": 73764
+      },
+      {
+        "path": "tqdm-4.70.1-py3-none-any.whl",
+        "sha256": "c293e525e6fef9c20e8728fd4612df02a0aa31bb5fe91ecd93e123b1b7bffa73",
+        "bytes": 80199
+      },
+      {
+        "path": "typing_extensions-4.16.0-py3-none-any.whl",
+        "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+        "bytes": 45571
+      },
+      {
+        "path": "typing_inspection-0.4.4-py3-none-any.whl",
+        "sha256": "65b8397ba37ccbce054456aaccddfc91e6e3083c92824df348d96ca832f3f147",
+        "bytes": 14750
+      },
+      {
+        "path": "uvicorn-0.54.0-py3-none-any.whl",
+        "sha256": "505bdb0f318731d45f1f712071fc781a8981f6847a31c902c9f5e652d4f67faf",
+        "bytes": 87427
+      },
+      {
+        "path": "watchfiles-1.3.0-cp310-abi3-win_amd64.whl",
+        "sha256": "1acabde19b67e673274e89a04d613b7fb1f122e2c4b8ec9a581e59c149264b61",
+        "bytes": 290643
+      }
+    ]
+  },
+  {
+    "source": "semantica-poc/owl_reasoner.py",
+    "destination": "archive/cleanup-20261027/semantica-poc/owl_reasoner.py",
+    "files": [
+      {
+        "path": "",
+        "sha256": "813f81d0941dd4673088681b4567aac9595779408cb6d09ba983613f25da9c53",
+        "bytes": 12470
+      }
+    ]
+  },
+  {
+    "source": "semantica-poc/reasoner_worker.py",
+    "destination": "archive/cleanup-20261027/semantica-poc/reasoner_worker.py",
+    "files": [
+      {
+        "path": "",
+        "sha256": "6c78c6cea6ed6015593508a0357edecd6f48d11d9964b5b442bcd3b0496716b9",
+        "bytes": 3184
+      }
+    ]
+  },
+  {
+    "source": "semantica-poc/test_owl_reasoner.py",
+    "destination": "archive/cleanup-20261027/semantica-poc/test_owl_reasoner.py",
+    "files": [
+      {
+        "path": "",
+        "sha256": "4c07ab3869def76df6960dd3ad86cad12ee71b127aea0dff98c6d379c91d7a7f",
+        "bytes": 7270
+      }
+    ]
+  },
+  {
+    "source": "semantica-poc/requirements-reasoning.txt",
+    "destination": "archive/cleanup-20261027/semantica-poc/requirements-reasoning.txt",
+    "files": [
+      {
+        "path": "",
+        "sha256": "95dfdf5d2b4daa505d340c5cdb793762ff65e725b1729bd54ffb2648ebead033",
+        "bytes": 16
+      }
+    ]
+  },
+  {
+    "source": "semantica-poc/logs",
+    "destination": "archive/cleanup-20261027/semantica-poc/logs",
+    "files": [
+      {
+        "path": "full-handoff.err.log",
+        "sha256": "46aad7981286278fce87c1f883407634f36da35f3db1f24861cb6c2605443015",
+        "bytes": 142
+      },
+      {
+        "path": "full-handoff.out.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "full-semantica.err.log",
+        "sha256": "8539833bee76498e9a9a6d4e4b928cd3751de82c5ee1179a2d8c16adc885a795",
+        "bytes": 208
+      },
+      {
+        "path": "full-semantica.out.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "full.err.log",
+        "sha256": "62a7533571084312d0fd74b14f0222870791a65a7f2aaf6b2b800c3f8fbc5075",
+        "bytes": 4497
+      },
+      {
+        "path": "full.out.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "full.stderr.log",
+        "sha256": "8539833bee76498e9a9a6d4e4b928cd3751de82c5ee1179a2d8c16adc885a795",
+        "bytes": 208
+      },
+      {
+        "path": "full.stdout.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "securities.err.log",
+        "sha256": "46aad7981286278fce87c1f883407634f36da35f3db1f24861cb6c2605443015",
+        "bytes": 142
+      },
+      {
+        "path": "securities.out.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "securities.stderr.log",
+        "sha256": "46aad7981286278fce87c1f883407634f36da35f3db1f24861cb6c2605443015",
+        "bytes": 142
+      },
+      {
+        "path": "securities.stdout.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "services.json",
+        "sha256": "b1e630f1fec5b52c2e84085c4cf2d80c3935788a76360a963314f5a9954451cf",
+        "bytes": 228
+      }
+    ]
+  },
+  {
+    "source": "semantica-poc/data/reasoner-io",
+    "destination": "archive/cleanup-20261027/semantica-poc/data/reasoner-io",
+    "files": [
+      {
+        "path": "hermit-input.nt",
+        "sha256": "b0a8b4ee2c2f7bb3733cc6c9c228471d0e1abcb57a23d2365da3ede0d064ebe0",
+        "bytes": 67712
+      },
+      {
+        "path": "hermit-output.txt",
+        "sha256": "80f0891b0422b420f612dcb174c9438e008385a5c38be4138775828b44a1ad75",
+        "bytes": 4545
+      },
+      {
+        "path": "java-command.json",
+        "sha256": "cef0a7be1be7c33780f2e8f35c4328be8ed558758555e6e3f6af20616b69546e",
+        "bytes": 680
+      },
+      {
+        "path": "parsed-report.json",
+        "sha256": "5d58975e9f9876b28ca304464e9ed232b5e13171d208a38e5ddea6bad19ae42f",
+        "bytes": 6288
+      }
+    ]
+  },
+  {
+    "source": "semantica-poc/data/reasoning",
+    "destination": "archive/cleanup-20261027/semantica-poc/data/reasoning",
+    "files": [
+      {
+        "path": "101dad8af07713430fd071ed617cec5082da969575ae5a816168dbee6454b17d/ontology.owl",
+        "sha256": "ce9fa3771f77ab30d6a72cf6bbf89d711776682aca3a9e561bd5cbbddc6b3323",
+        "bytes": 42185
+      },
+      {
+        "path": "101dad8af07713430fd071ed617cec5082da969575ae5a816168dbee6454b17d/report.json",
+        "sha256": "59347136e9659a6e5041b4789343d1e66ca756a5dae7840df7433667ae7edcc1",
+        "bytes": 6288
+      },
+      {
+        "path": "3a6bf0a7618f3e7f6fb674bc7f22972ab7c54caf8209f005266227b4de19196b/ontology.owl",
+        "sha256": "c45c53b2b8ae8fe99051967137a813ea07457d92111df194b4d2674f4bcb10ad",
+        "bytes": 42185
+      },
+      {
+        "path": "3a6bf0a7618f3e7f6fb674bc7f22972ab7c54caf8209f005266227b4de19196b/worker-error.log",
+        "sha256": "9ae26b464d90b391272031dc46938b0fcea8a3af4b67274ed0aa1fa9e7345f67",
+        "bytes": 3919
+      },
+      {
+        "path": "886bb19d246ed115fd18d9944689b07502022cdc43f244ac45ddd828c376bd93/ontology.owl",
+        "sha256": "6e4f7f8e02139afc003faf27812362d06b8221e94740873e83f3defeede232be",
+        "bytes": 827
+      },
+      {
+        "path": "886bb19d246ed115fd18d9944689b07502022cdc43f244ac45ddd828c376bd93/report.json",
+        "sha256": "62f2eda7db76aca564edbed76f0de5111dd5078d2f46f70bd781ebf5d0e062fe",
+        "bytes": 550
+      },
+      {
+        "path": "d894704f386b97237dcabc1a9a9e45bf9de314dac71a7ccdf8e327b775a9d6b9/ontology.owl",
+        "sha256": "8801ea1ddc1cefcd5d0de9c490e5f0c1859a62d52eea61a213bd97d3a974b074",
+        "bytes": 42185
+      },
+      {
+        "path": "d894704f386b97237dcabc1a9a9e45bf9de314dac71a7ccdf8e327b775a9d6b9/worker-error.log",
+        "sha256": "ba8dc2ee9a622f7ca9b0aa15a5fcd937c26c58988e8a3305291f65cf0c22acd0",
+        "bytes": 858
+      }
+    ]
+  },
+  {
+    "source": "semantica-poc/data/graph-qa.jpg",
+    "destination": "archive/cleanup-20261027/semantica-poc/data/graph-qa.jpg",
+    "files": [
+      {
+        "path": "",
+        "sha256": "153b01f50846128509e21795c199fae8db5142132c03b34caf6a91edacc7ac2e",
+        "bytes": 54624
+      }
+    ]
+  },
+  {
+    "source": "semantica-poc/data/llm-hermit.jpg",
+    "destination": "archive/cleanup-20261027/semantica-poc/data/llm-hermit.jpg",
+    "files": [
+      {
+        "path": "",
+        "sha256": "3b80e85cd71e47d4da1c7ef5908192d6566ea492730a163b7c993e25978fd33d",
+        "bytes": 54147
+      }
+    ]
+  },
+  {
+    "source": "semantica-poc/data/reasoning-browser-example.json",
+    "destination": "archive/cleanup-20261027/semantica-poc/data/reasoning-browser-example.json",
+    "files": [
+      {
+        "path": "",
+        "sha256": "c3e770cec43fce2206fda9bf752ff475475b01b4073da9f7f6cc6260ef462eb9",
+        "bytes": 1806
+      }
+    ]
+  },
+  {
+    "source": "semantica-poc/data/reasoning-live-checks.json",
+    "destination": "archive/cleanup-20261027/semantica-poc/data/reasoning-live-checks.json",
+    "files": [
+      {
+        "path": "",
+        "sha256": "21f7fd51c961fceb185192eeebc54f936719c27581609ee9827ad860cc5ae840",
+        "bytes": 23691
+      }
+    ]
+  },
+  {
+    "source": "semantica-poc/data/reasoning-verification.json",
+    "destination": "archive/cleanup-20261027/semantica-poc/data/reasoning-verification.json",
+    "files": [
+      {
+        "path": "",
+        "sha256": "064d6f44e8b147ef8dd292befa16418310737d3c6466df64128f800ea97e49e0",
+        "bytes": 1107
+      }
+    ]
+  },
+  {
+    "source": "department-pg/history",
+    "destination": "archive/department-pg/history",
+    "files": [
+      {
+        "path": "changes-v0.15.0.json",
+        "sha256": "b593fc5bc33e9ea0b83d6a04a8b4293df676b2fcdcc2548559c7adb8b947e407",
+        "bytes": 1816
+      },
+      {
+        "path": "department-v0.16.0.json",
+        "sha256": "38a38c76383948b8d3415b594fb1f64dc1a1ac43816f9953a73f2d4178045d0a",
+        "bytes": 8170
+      },
+      {
+        "path": "pg-income-extension-20261024.json",
+        "sha256": "bde5ab4dadc5cbcdce3d8a5093d85260efdf391ebce1de174004b5f812e8796e",
+        "bytes": 3974
+      },
+      {
+        "path": "securities-summary-20261024.json",
+        "sha256": "0e9a89ed36804b4ec62e4702e91322bd55b87e6eca883235b5341a1b7970445b",
+        "bytes": 3512
+      },
+      {
+        "path": "sql-scope-review-20261024.json",
+        "sha256": "53666e415ecc8e3eacc187b812cfa3376bcc4e2e051ee40ed3afb9a345076b6b",
+        "bytes": 4872
+      },
+      {
+        "path": "stock-pledge-aum-retired-v0.15.0.json",
+        "sha256": "f7af7ddc5fd34ab5052ade5c90f13a45a490dd59bd39ea350f55d9cef698433a",
+        "bytes": 5571
+      }
+    ]
+  },
+  {
+    "source": "department-pg/drafts",
+    "destination": "archive/department-pg/drafts",
+    "files": [
+      {
+        "path": "employee-deposit.json",
+        "sha256": "cc1349c735769bbc5dfd0e3c9fb1a88452a45d0ecdb6562c5eef247ad1904e20",
+        "bytes": 6786
+      },
+      {
+        "path": "README.md",
+        "sha256": "2233a8f694b40024ebe678fd4197bf0bf0fc1f481bb522038a690bd5b969e453",
+        "bytes": 1866
+      }
+    ]
+  },
+  {
+    "source": "department-pg/review_contract_pg_income.py",
+    "destination": "tests/pg/review_contract_pg_income.py",
+    "files": [
+      {
+        "path": "",
+        "sha256": "c06479448875e4fda7dc8a88810b436f96b71282e0287a93c9464f91d31aa7b4",
+        "bytes": 2316
+      }
+    ]
+  },
+  {
+    "source": "department-pg/review_contract_v015.py",
+    "destination": "tests/pg/review_contract_v015.py",
+    "files": [
+      {
+        "path": "",
+        "sha256": "ec108e993ae9a9c0870003bbac5c10b3433b35ed49eb729b07b40ac533f23321",
+        "bytes": 1207
+      }
+    ]
+  },
+  {
+    "source": "department-pg/review_contract_v016.py",
+    "destination": "tests/pg/review_contract_v016.py",
+    "files": [
+      {
+        "path": "",
+        "sha256": "e37ab3a7bd1a10b834b8ce5dc5defd6abf24834db72d6641ca883788e3ad31cb",
+        "bytes": 1823
+      }
+    ]
+  },
+  {
+    "source": "department-pg/test_advisory_income.py",
+    "destination": "tests/pg/test_advisory_income.py",
+    "files": [
+      {
+        "path": "",
+        "sha256": "0ed3c709fc3564dd2f7925d295b2f4be0522ea175743b92f364816c958c16a9f",
+        "bytes": 12162
+      }
+    ]
+  },
+  {
+    "source": "department-pg/test_bank_business.py",
+    "destination": "tests/pg/test_bank_business.py",
+    "files": [
+      {
+        "path": "",
+        "sha256": "efdd1d0a472a56cd1bce1f2aad2dc90476daaca479c7478f4240e7734d749b51",
+        "bytes": 16010
+      }
+    ]
+  },
+  {
+    "source": "department-pg/test_bank_collective_management.py",
+    "destination": "tests/pg/test_bank_collective_management.py",
+    "files": [
+      {
+        "path": "",
+        "sha256": "3fabc11c21f5a640ad5aea5ab752dedae1034a9c49a183ee2139827dd1fdce79",
+        "bytes": 4478
+      }
+    ]
+  },
+  {
+    "source": "department-pg/test_bank_etf.py",
+    "destination": "tests/pg/test_bank_etf.py",
+    "files": [
+      {
+        "path": "",
+        "sha256": "51029eacc59b2cbe9e89988a34e1e359c1223c22f6873d95be55c23f8fa9169f",
+        "bytes": 3942
+      }
+    ]
+  },
+  {
+    "source": "department-pg/test_bank_insurance.py",
+    "destination": "tests/pg/test_bank_insurance.py",
+    "files": [
+      {
+        "path": "",
+        "sha256": "cf9448f01f70d491974fa34778b44caa805f83dd48b6e6f3708136401348a3a3",
+        "bytes": 4959
+      }
+    ]
+  },
+  {
+    "source": "department-pg/test_departments.py",
+    "destination": "tests/pg/test_departments.py",
+    "files": [
+      {
+        "path": "",
+        "sha256": "9d993ad9aea5f33b18d9038c3b48c2a4137c8d1a23f37622297feb2b943634e5",
+        "bytes": 10300
+      }
+    ]
+  },
+  {
+    "source": "department-pg/test_deposits.py",
+    "destination": "tests/pg/test_deposits.py",
+    "files": [
+      {
+        "path": "",
+        "sha256": "2fe472b36fc87d21ee8040a51dc2f8f0683675aae77d8f9c88a15bd6927002bf",
+        "bytes": 23550
+      }
+    ]
+  },
+  {
+    "source": "department-pg/test_investment_metrics.py",
+    "destination": "tests/pg/test_investment_metrics.py",
+    "files": [
+      {
+        "path": "",
+        "sha256": "cafcd280ade7f1398f4ff15e083686a98989a1d9d37048e0017ff3c7686a93df",
+        "bytes": 12134
+      }
+    ]
+  },
+  {
+    "source": "department-pg/test_metric_tables.py",
+    "destination": "tests/pg/test_metric_tables.py",
+    "files": [
+      {
+        "path": "",
+        "sha256": "a8dd81359ee5f028c86517fc5c71bcf13d0bde2895f2fdaccc07841fb62fa906",
+        "bytes": 11791
+      }
+    ]
+  },
+  {
+    "source": "department-pg/test_model.py",
+    "destination": "tests/pg/test_model.py",
+    "files": [
+      {
+        "path": "",
+        "sha256": "686fd578bc188b306d7b9ff542d752b74f07efc9af260b7e135c643d7c66a35b",
+        "bytes": 11830
+      }
+    ]
+  },
+  {
+    "source": "department-pg/test_pg_income.py",
+    "destination": "tests/pg/test_pg_income.py",
+    "files": [
+      {
+        "path": "",
+        "sha256": "94e0fb0a2ef6fed80236782558039d55b4dda84dcdfadd418d4c905a31f26dc7",
+        "bytes": 11301
+      }
+    ]
+  },
+  {
+    "source": "department-pg/test_product_aum.py",
+    "destination": "tests/pg/test_product_aum.py",
+    "files": [
+      {
+        "path": "",
+        "sha256": "803a6ca07b069b7c1dc621034e68049fe9e14bf5611b8e231fdfaa21ce63f931",
+        "bytes": 7790
+      }
+    ]
+  },
+  {
+    "source": "department-pg/test_product_fees.py",
+    "destination": "tests/pg/test_product_fees.py",
+    "files": [
+      {
+        "path": "",
+        "sha256": "15520db71eda913637b5d961ddcb5ca71f3a98dbe27fb78d009cbbcd7990336e",
+        "bytes": 13741
+      }
+    ]
+  },
+  {
+    "source": "department-pg/test_securities_stock_pledge.py",
+    "destination": "tests/pg/test_securities_stock_pledge.py",
+    "files": [
+      {
+        "path": "",
+        "sha256": "1cf592b8f489dd326c67d61128b0fbc5ef50ddc95b8b2a41a32f1632aab56d37",
+        "bytes": 4706
+      }
+    ]
+  },
+  {
+    "source": "department-pg/test_securities_summary.py",
+    "destination": "tests/pg/test_securities_summary.py",
+    "files": [
+      {
+        "path": "",
+        "sha256": "681bf986222ea3144139be6833138c4c7d910ade076e6e5bc61c7239104cd3a5",
+        "bytes": 12241
+      }
+    ]
+  }
+]

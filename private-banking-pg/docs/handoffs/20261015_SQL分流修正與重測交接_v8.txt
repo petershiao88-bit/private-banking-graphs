@@ -1,0 +1,88 @@
+私銀智能問答：新 session Resume
+更新日期：2026-10-15，Asia/Taipei
+
+新 session 起手順序
+專案根目錄：C:\Users\petershiao\Desktop\Ontology\私銀智能問答
+1. 先讀本檔，再讀 deliverables/graph_qa/v8/更新紀錄.txt、live_audit.json、workflow.saved.json。
+2. 目前沒有執行中的測試、等待核准或尚未保存的流程變更。先承接最新使用者指示，不必重跑已完成的四題。
+3. 若要繼續改 n8n，先從線上匯出新鮮版本再比較 v8；不能直接把本機歷史匯出匯入覆蓋線上。
+
+最新狀態
+v8 已保存，18 節點，active=false，未發布。
+https://chiang4901.app.n8n.cloud/workflow/pqvhkncZ9bFlfe4B
+workflowId：pqvhkncZ9bFlfe4B
+最新版本：58fa2a3f-8d88-4f46-b316-4cf9c80f977c
+權威匯出：deliverables/graph_qa/v8/workflow.saved.json
+本輪變更前備份：deliverables/graph_qa/v8/workflow.before.json
+報告：deliverables/graph_qa/v8/SQL重測與路徑報告.html；文字版：v8/更新紀錄.txt。
+
+使用者最新要求
+1. 調整 SQL 題分流與 prompt，直接產生 SQL，修正來源資料日與收入歸月日混用。
+2. 重測原三題，每題先 Reset 清記憶；不發布。
+3. 不可為通過這三題，把 prompt 寫成已知產品、表名或參考答案的特例。
+4. 問回答裡的路徑如何呈現。已建議業務路徑加 SQL 資料依賴，報告已展示；尚未在 n8n 回覆中自動附加路徑。
+5. 業務題要站在理專／不熟悉資料撈取的人角度，例如「海外資產有哪些」，不要改成分析師式問題。SQL 題則直接要求寫 SQL。
+
+本輪實作
+只改五個節點參數：Prepare Jev Request、Process Jev Decision、Prepare Calculation Evidence、Prepare Concept Response、Answer Question。
+Jev qa_route 新增 sql。Process 對 sql 採 handling=calculation、outputMode=sql，沿原 mapping 分支取證據。沒有依文字私自預篩實體表。
+同一 Jev 呼叫新增 qa_sql_scope：source_staging／private_banking_report／none。單純按客戶或月份彙總，不自動加入下游私銀客戶／AO 名單。
+Answer 支援完整 Oracle WITH／SELECT。通用規則保留來源 WHERE、CASE 次序、公式、JOIN、粒度、UNION、歷史預建表及來源日期血緣。
+原 SQL 的來源 YYYYMMDD 篩選必須留在來源欄位，不可改用衍生收入月份第一天與 MAX 來源日比較；原 MAX 引用哪張表也保留並註記疑義。
+新增指令未寫入測試產品、表名、專屬欄位公式、帳戶碼或參考 SQL；完整 41 節點／39 路徑候選仍保留。
+沒有重新加入 v7 已移除的回答後核對／修正節點，沒有改 Aura、來源 SQL 或共用已發布 KB。
+
+原生重測（皆不同 session，Prepare Dialogue.history=[]、previousTopic={}）
+S1 #2597：外幣存款 AUM；保存執行 37.427 秒。sql / source_staging，只有 deposit_foreign AUM 路徑。
+S2 #2598：證券複委託基金收入，保留歸月與合併去重；19.893 秒。兩個 CTE 的 SELECT 與原 staging 正規化後相符，來源 t.yyyymmdd 篩選已正確保留。原碼採債券表 MAX 的疑義仍保留。
+S3 #2599：銀行基金手續費收入，按客戶／收入月份彙總；16.535 秒。原 staging SELECT 對照相符，未額外 JOIN PB_CUST_005。
+H1 #2600：額外證券複委託外國股票收入；22.492 秒。測試前已寫獨立參考並記錄凍結參數，之後用相同提示詞測試；保留 PM／AM、淨手續費、交割日歸月、原始來源分支與日期依賴。
+執行網址為流程網址加 /executions/<編號>。
+
+實際原題（未來要比較時保持原話，不需現在重跑）
+S1：請依現有 staging SQL，直接寫出外幣存款 AUM 的 Oracle 查詢 SQL。
+S2：請依現有 staging SQL，直接寫出證券複委託基金收入的 Oracle 查詢 SQL，保留收入歸月與合併去重規則。
+S3：請依現有 staging SQL，直接寫出銀行基金手續費收入的 Oracle 查詢 SQL，按客戶與收入月份彙總。
+H1：請依現有 staging SQL，直接寫出證券複委託外國股票收入的 Oracle 查詢 SQL。
+
+驗證界線
+- SQL 都已直接產出，但沒有執行 Oracle、確認 schema／欄位型別、查真實金額或比對結果資料列。
+- S1 引用既有 TMP01–TMP06，TMP05 為當期來源、TMP02 保留舊歷史，TMP07／TMP08 在 WITH 重建。既有表、欄位順序與資料可用性是前提。
+- S1 與較早獨立參考的客戶／日期 SUM 輸出粒度不同，亦投影移除帳戶／利潤中心；來源範圍檢查符合，不宣稱兩份完整結果列等價。
+- S2 來源 YYYYMMDD 欄位存在與型別、日曆及 DB link 仍待實際環境確認；忠實保留來源不代表證明來源業務邏輯本身正確。
+- H1 的原碼 AM 分支從 *_M 取列、從當期表取 MAX，保持原樣並註解。
+- 九組離線流程契約檢查、四題靜態來源規則檢查、合成日期反例及 prompt_audit 皆符合各自檢查範圍。
+- 第一輪 #2594–2596 是調整中的試跑，保存在 native_runs.round1.json；不能當最終答案。最後三題與 H1 見 native_runs.json、live_audit.json。
+
+保存與恢復
+重新載入後再匯出核對，18 節點完整參數、接線、憑證引用、身份、settings、active=false、pinData 均符合 proposed。
+Graph Chat 固定資料已還原：sessionId 4753afde49b44d0899cb8b9d103b9862，原固定基金來源／日期題。最終聊天面板也已 Reset。
+本輪新鮮線上匯出版本最初是 3a3d68cf-d7ad-43d9-8148-9af9d2c3cee6，與舊 v7 文件記載的 a5dc4c32 不同；18 節點參數與 v7 一致。本輪以新鮮匯出為基準，沒有把舊保存檔覆蓋回去。
+
+主要檔案
+v8/workflow.saved.json：重新載入後最終匯出；workflow.before.json：本輪權威備份。
+v8/answer_prompt.txt、Prepare_Jev_Request.js、Process_Jev_Decision.js：提示詞與分流。
+v8/native_runs.json、execution_2597.txt 至 execution_2599.txt、execution_list.json：原生測試紀錄。
+v8/S1_actual.sql、S2_actual.sql、S3_actual.sql、H1_actual.sql：最終原生 SQL。
+v8/sql_review.json、prompt_audit.json、validation.json、saved_validation.final.json：驗證。
+v8/paths.json：實際選路與返回 SQL 的資料依賴；未把模型內部推理當成路徑。
+v8/SQL重測與路徑報告.html、更新紀錄.txt：使用者閱讀版。
+v8/build_report.py 可重建報告；prepare_holdout.py 是測試前的準備歷史，不要事後重跑覆寫凍結證據。
+更早六題業務／SQL 實測與獨立參考：deliverables/graph_qa/testing_20261015/測試結果與SQL對照.html。
+
+接續注意
+1. 若下一輪要自動附路徑，從既有 selectedConceptPaths／conceptGraph 組裝可追溯業務關係；SQL 題可用註解或展開區。不要讓模型編造路徑或顯示內部推理。
+2. 報告已展示路徑，不代表 n8n 回答已實作；本輪尚未修改 Finalize QA 組裝路徑。
+3. 新修改前重新匯出線上最新版。新的聊天實測先 unpin Graph Chat 並 Reset，測完還原固定資料。不發布，除非另有授權。
+4. 保持 v7 移除驗證／修正節點的決定。v6 單包 evidence、同包 $ref 與固定 conceptGraph mapping 查詢架構仍沿用。
+5. 多產品跨指標選路、必要澄清一致性、實際 customerId/asOfDate 擷取及金額查詢等原有議題沒有在本輪宣稱解決。
+6. 舊 v7 Resume 已存 docs/handoffs/archive/RESUME_v7_20261015.txt；更早架構細節見該檔及 v6／v7 更新紀錄。
+
+工具與檔案注意
+- 瀏覽器操作使用 computer-use skill 與 cua_repl，優先重用現有 Chrome n8n 分頁。新 session 需自行重新讀 skill、取得分頁；舊 REPL 變數不是可攜交接內容。
+- 每題 Reset 會建立新的 session，必須再從 Prepare Dialogue 的實際輸出確認 history=[]、previousTopic={}；不要以只看到按鈕就宣稱已驗證。
+- n8n CodeMirror 編輯大量程式碼，用剪貼簿貼上搭配全選替換；先前 fill 曾部分追加。修改後重新匯出 JSON 深度比較節點參數、接線、身份、憑證引用、settings、pinData。
+- 匯出會下載到使用者 Downloads；原測試所需固定 Graph Chat 資料在 workflow.saved.json 的 pinData。測完務必還原，避免把新題目固定成入口。
+- sources/sql/*.sql 原始中文使用 CP950／Big5；明確指定編碼讀取，維持來源檔原樣。新交接與 JSON／SQL 成品使用 UTF-8。
+- 先前瀏覽器安全機制拒絕觀察本機 file:// HTML，不要以啟動其他服務、換瀏覽器或其他途徑繞過拒絕。可提供現有本機檔案連結，n8n 的正常網頁操作不受此影響。
+- 此工作目錄沒有 Git 儲存庫，不要宣稱已提交 commit／PR。

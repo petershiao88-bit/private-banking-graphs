@@ -1,0 +1,483 @@
+{
+  "id": "pb_shared",
+  "version": "0.2-with-hierarchy",
+  "directionStatus": "user_confirmed",
+  "direction": "共用產品 -> 分類AUM -> 總AUM；共用產品 -> 分類Income -> 總Income",
+  "scope": "15個共用概念的試作；單側產品仍留在原圖。連線為業務映射，不執行金額計算。",
+  "status": "inferred_business_dictionary",
+  "products": [
+    {
+      "code": "deposit",
+      "name": "存款",
+      "key": "pb_shared:product:deposit",
+      "definition": "AUM保留台幣、外幣、結構型子分類；Income僅映射到存款總類。月更新SQL含台幣、外幣及員工台幣存款，未依產品代碼拆分；不可把總利收重複分配到各子類。",
+      "status": "aggregate_scope",
+      "mappingStatus": "inferred",
+      "aumMetricKey": "aum:metric:aum_deposit_month_end",
+      "incomeMetricKey": "income:metric:deposit_interest_income",
+      "aumLegacyProducts": [
+        "deposit_twd",
+        "deposit_foreign",
+        "deposit_structured"
+      ],
+      "incomeLegacyProducts": [
+        "deposit_interest"
+      ],
+      "aumStages": [
+        "AUM_005_007_008_009"
+      ],
+      "incomeStages": [
+        "INCOME_066"
+      ],
+      "aumFilter": "TYP='存款'",
+      "incomeFilter": "利收／銀行／存款",
+      "incomeMappingActive": true,
+      "aumValuationBasis": "balance",
+      "incomeAmountBasis": "SUM(GROSS_INCM)"
+    },
+    {
+      "code": "bank_insurance",
+      "name": "銀行保險",
+      "key": "pb_shared:product:bank_insurance",
+      "definition": "AUM衡量原始投資金額；Income保留028、029、030三條来源。日檔及月檔重疊尚未證實，概念共用不代表可消除重複計入。",
+      "status": "overlap_unresolved",
+      "mappingStatus": "inferred",
+      "aumMetricKey": "aum:metric:aum_insurance_month_end",
+      "incomeMetricKey": "income:metric:bank_fee_income",
+      "aumLegacyProducts": [
+        "insurance"
+      ],
+      "incomeLegacyProducts": [
+        "bank_insurance"
+      ],
+      "aumStages": [
+        "AUM_012"
+      ],
+      "incomeStages": [
+        "INCOME_028",
+        "INCOME_029",
+        "INCOME_030"
+      ],
+      "aumFilter": "PROD='保險'",
+      "incomeFilter": "手收／銀行／保險",
+      "incomeMappingActive": true,
+      "aumValuationBasis": "original_invested_amount",
+      "incomeAmountBasis": "COMM_AMT 或 PS（metadata 定義為客戶貢獻度）"
+    },
+    {
+      "code": "bank_fund",
+      "name": "銀行基金",
+      "key": "pb_shared:product:bank_fund",
+      "definition": "由AUM銀行信託產品分類拆出；Income以FH_TYP基金分類。",
+      "status": "inferred",
+      "mappingStatus": "inferred",
+      "aumMetricKey": "aum:metric:aum_bank_investment_month_end",
+      "incomeMetricKey": "income:metric:bank_fee_income",
+      "aumLegacyProducts": [
+        "bank_trust_products"
+      ],
+      "incomeLegacyProducts": [
+        "bank_fund"
+      ],
+      "aumStages": [
+        "AUM_013_015_015_016_017_018"
+      ],
+      "incomeStages": [
+        "INCOME_033_034_035_036"
+      ],
+      "aumFilter": "PROD='基金'",
+      "incomeFilter": "FH_TYP='基金'",
+      "incomeMappingActive": true,
+      "aumValuationBasis": "CurrentTWDValue",
+      "incomeAmountBasis": "SUM(BRHREBATEAMT)"
+    },
+    {
+      "code": "bank_etf",
+      "name": "銀行ETF",
+      "key": "pb_shared:product:bank_etf",
+      "definition": "由AUM銀行信託產品分類拆出；Income以FH_TYP ETF分類。",
+      "status": "inferred",
+      "mappingStatus": "inferred",
+      "aumMetricKey": "aum:metric:aum_bank_investment_month_end",
+      "incomeMetricKey": "income:metric:bank_fee_income",
+      "aumLegacyProducts": [
+        "bank_trust_products"
+      ],
+      "incomeLegacyProducts": [
+        "bank_etf"
+      ],
+      "aumStages": [
+        "AUM_013_015_015_016_017_018"
+      ],
+      "incomeStages": [
+        "INCOME_033_034_035_036"
+      ],
+      "aumFilter": "PROD='ETF'",
+      "incomeFilter": "FH_TYP='ETF'",
+      "incomeMappingActive": true,
+      "aumValuationBasis": "CurrentTWDValue",
+      "incomeAmountBasis": "SUM(BRHREBATEAMT)"
+    },
+    {
+      "code": "bank_overseas_stock",
+      "name": "銀行海外股票",
+      "key": "pb_shared:product:bank_overseas_stock",
+      "definition": "保留銀行通路，與證券複委託股票分開。",
+      "status": "inferred",
+      "mappingStatus": "inferred",
+      "aumMetricKey": "aum:metric:aum_bank_investment_month_end",
+      "incomeMetricKey": "income:metric:bank_fee_income",
+      "aumLegacyProducts": [
+        "bank_trust_products"
+      ],
+      "incomeLegacyProducts": [
+        "bank_overseas_stock"
+      ],
+      "aumStages": [
+        "AUM_013_015_015_016_017_018"
+      ],
+      "incomeStages": [
+        "INCOME_033_034_035_036"
+      ],
+      "aumFilter": "PROD='海外股票'",
+      "incomeFilter": "FH_TYP='海外股票'",
+      "incomeMappingActive": true,
+      "aumValuationBasis": "CurrentTWDValue",
+      "incomeAmountBasis": "SUM(BRHREBATEAMT)"
+    },
+    {
+      "code": "bank_bond_trust",
+      "name": "海外債券（信託）",
+      "key": "pb_shared:product:bank_bond_trust",
+      "definition": "信託持有市值與信託收入來源共用概念。",
+      "status": "inferred",
+      "mappingStatus": "inferred",
+      "aumMetricKey": "aum:metric:aum_bank_investment_month_end",
+      "incomeMetricKey": "income:metric:bank_fee_income",
+      "aumLegacyProducts": [
+        "bank_trust_products"
+      ],
+      "incomeLegacyProducts": [
+        "bank_bond_trust"
+      ],
+      "aumStages": [
+        "AUM_013_015_015_016_017_018"
+      ],
+      "incomeStages": [
+        "INCOME_031"
+      ],
+      "aumFilter": "PROD='海外債券(信託)'",
+      "incomeFilter": "手收／銀行／海外債券_信託",
+      "incomeMappingActive": true,
+      "aumValuationBasis": "CurrentTWDValue",
+      "incomeAmountBasis": "SUM(BRHREBATEAMT + WKR028/100)"
+    },
+    {
+      "code": "bank_bond_proprietary",
+      "name": "海外債券（自營）",
+      "key": "pb_shared:product:bank_bond_proprietary",
+      "definition": "AUM海外債券自營與Income外國債券自營的對應為推論；Income保留ABS規則。",
+      "status": "inferred",
+      "mappingStatus": "inferred",
+      "aumMetricKey": "aum:metric:aum_bank_investment_month_end",
+      "incomeMetricKey": "income:metric:bank_fee_income",
+      "aumLegacyProducts": [
+        "bank_overseas_bond"
+      ],
+      "incomeLegacyProducts": [
+        "bank_bond_proprietary"
+      ],
+      "aumStages": [
+        "AUM_019"
+      ],
+      "incomeStages": [
+        "INCOME_032"
+      ],
+      "aumFilter": "PROD='海外債券(自營)'",
+      "incomeFilter": "手收／銀行／外國債券_自營",
+      "incomeMappingActive": true,
+      "aumValuationBasis": "face_amount × reference_price × exchange_rate",
+      "incomeAmountBasis": "SUM(ABS(INC_AMT_NT))"
+    },
+    {
+      "code": "bank_collective_account",
+      "name": "集合管理帳戶",
+      "key": "pb_shared:product:bank_collective_account",
+      "definition": "Income CASE先將TA/TB/TD/TE歸為基金，集合分類不可達；Income連線表示定義待確認，不表示獨立收入已計入。",
+      "status": "metadata_sql_conflict",
+      "mappingStatus": "inferred",
+      "aumMetricKey": "aum:metric:aum_bank_investment_month_end",
+      "incomeMetricKey": "income:metric:bank_fee_income",
+      "aumLegacyProducts": [
+        "bank_trust_products"
+      ],
+      "incomeLegacyProducts": [
+        "bank_collective_account"
+      ],
+      "aumStages": [
+        "AUM_013_015_015_016_017_018"
+      ],
+      "incomeStages": [
+        "INCOME_033_034_035_036"
+      ],
+      "aumFilter": "PROD='集合管理帳戶'",
+      "incomeFilter": "FHID starts TA/TB/TD/TE",
+      "incomeMappingActive": false,
+      "aumValuationBasis": "CurrentTWDValue",
+      "incomeAmountBasis": "SUM(BRHREBATEAMT)"
+    },
+    {
+      "code": "bank_structured_offshore",
+      "name": "銀行境外結構型商品",
+      "key": "pb_shared:product:bank_structured_offshore",
+      "definition": "境內結構型、DCI及結構型存款均不併入此概念。",
+      "status": "inferred",
+      "mappingStatus": "inferred",
+      "aumMetricKey": "aum:metric:aum_bank_investment_month_end",
+      "incomeMetricKey": "income:metric:bank_fee_income",
+      "aumLegacyProducts": [
+        "bank_trust_products"
+      ],
+      "incomeLegacyProducts": [
+        "bank_structured_offshore"
+      ],
+      "aumStages": [
+        "AUM_013_015_015_016_017_018"
+      ],
+      "incomeStages": [
+        "INCOME_042"
+      ],
+      "aumFilter": "PROD='境外結構型商品'",
+      "incomeFilter": "手收／銀行／結構型_境外",
+      "incomeMappingActive": true,
+      "aumValuationBasis": "CurrentTWDValue",
+      "incomeAmountBasis": "SN 的 SUM(BRHREBATEAMT)"
+    },
+    {
+      "code": "bank_planned_trust",
+      "name": "規劃型信託",
+      "key": "pb_shared:product:bank_planned_trust",
+      "definition": "Income舊分類含保管；此共用概念只連046、047，保管048另立概念。",
+      "status": "inferred",
+      "mappingStatus": "inferred",
+      "aumMetricKey": "aum:metric:aum_bank_investment_month_end",
+      "incomeMetricKey": "income:metric:bank_fee_income",
+      "aumLegacyProducts": [
+        "bank_planned_trust"
+      ],
+      "incomeLegacyProducts": [
+        "bank_planned_trust"
+      ],
+      "aumStages": [
+        "AUM_020",
+        "AUM_021"
+      ],
+      "incomeStages": [
+        "INCOME_046",
+        "INCOME_047"
+      ],
+      "aumFilter": "PROD='規劃型信託'",
+      "incomeFilter": "手收／銀行／規劃型信託",
+      "incomeMappingActive": true,
+      "aumValuationBasis": "PresentAmt or MarketValueTWD",
+      "incomeAmountBasis": "借券、管理、成立費；Fee+CreateFee"
+    },
+    {
+      "code": "bank_trust_custody",
+      "name": "信託保管",
+      "key": "pb_shared:product:bank_trust_custody",
+      "definition": "按DSPMS.PB_PMS_AUM的AUM與FEE拆出；Income的SUB_TYPE仍保留現行規劃型信託分類。",
+      "status": "inferred",
+      "mappingStatus": "inferred",
+      "aumMetricKey": "aum:metric:aum_bank_investment_month_end",
+      "incomeMetricKey": "income:metric:bank_fee_income",
+      "aumLegacyProducts": [
+        "bank_trust_custody"
+      ],
+      "incomeLegacyProducts": [
+        "bank_planned_trust"
+      ],
+      "aumStages": [
+        "AUM_022"
+      ],
+      "incomeStages": [
+        "INCOME_048"
+      ],
+      "aumFilter": "PROD='信託保管'",
+      "incomeFilter": "手收／銀行／規劃型信託",
+      "incomeMappingActive": true,
+      "aumValuationBasis": "source_AUM",
+      "incomeAmountBasis": "保管FEE"
+    },
+    {
+      "code": "securities_bond",
+      "name": "證券複委託債券",
+      "key": "pb_shared:product:securities_bond",
+      "definition": "證券通路：部位估值與交易手續費共用概念。",
+      "status": "inferred",
+      "mappingStatus": "inferred",
+      "aumMetricKey": "aum:metric:aum_securities_month_end",
+      "incomeMetricKey": "income:metric:securities_fee_income",
+      "aumLegacyProducts": [
+        "securities_bond"
+      ],
+      "incomeLegacyProducts": [
+        "securities_bond"
+      ],
+      "aumStages": [
+        "AUM_023_024"
+      ],
+      "incomeStages": [
+        "INCOME_051_054"
+      ],
+      "aumFilter": "PROD='複委託債券'",
+      "incomeFilter": "FLG='債券'",
+      "incomeMappingActive": true,
+      "aumValuationBasis": "NETQTY / 100 × CPRICE × EXCH_RT",
+      "incomeAmountBasis": "SUM(CFEE*FXRATE)"
+    },
+    {
+      "code": "securities_structured",
+      "name": "證券複委託結構型商品",
+      "key": "pb_shared:product:securities_structured",
+      "definition": "AUM以BOND的TSSN前綴區分，Income以FLG分類。",
+      "status": "inferred",
+      "mappingStatus": "inferred",
+      "aumMetricKey": "aum:metric:aum_securities_month_end",
+      "incomeMetricKey": "income:metric:securities_fee_income",
+      "aumLegacyProducts": [
+        "securities_structured"
+      ],
+      "incomeLegacyProducts": [
+        "securities_structured"
+      ],
+      "aumStages": [
+        "AUM_023_024"
+      ],
+      "incomeStages": [
+        "INCOME_051_054"
+      ],
+      "aumFilter": "PROD='複委託結構型商品'",
+      "incomeFilter": "FLG='結構型商品'",
+      "incomeMappingActive": true,
+      "aumValuationBasis": "NETQTY / 100 × CPRICE × EXCH_RT",
+      "incomeAmountBasis": "SUM(CFEE*FXRATE)"
+    },
+    {
+      "code": "securities_fund",
+      "name": "證券複委託基金",
+      "key": "pb_shared:product:securities_fund",
+      "definition": "與銀行基金分開，保留證券持有及交易費來源。",
+      "status": "inferred",
+      "mappingStatus": "inferred",
+      "aumMetricKey": "aum:metric:aum_securities_month_end",
+      "incomeMetricKey": "income:metric:securities_fee_income",
+      "aumLegacyProducts": [
+        "securities_fund"
+      ],
+      "incomeLegacyProducts": [
+        "securities_fund"
+      ],
+      "aumStages": [
+        "AUM_025"
+      ],
+      "incomeStages": [
+        "INCOME_052"
+      ],
+      "aumFilter": "PROD='基金' AND COMP='證券'",
+      "incomeFilter": "手收／證券／基金",
+      "incomeMappingActive": true,
+      "aumValuationBasis": "fund_units × closing_price × exchange_rate",
+      "incomeAmountBasis": "SUM(WKA31)"
+    },
+    {
+      "code": "securities_foreign_stock",
+      "name": "證券複委託外國股票",
+      "key": "pb_shared:product:securities_foreign_stock",
+      "definition": "Income為CFEE減ABFEE乘匯率，保留可能負值。",
+      "status": "inferred",
+      "mappingStatus": "inferred",
+      "aumMetricKey": "aum:metric:aum_securities_month_end",
+      "incomeMetricKey": "income:metric:securities_fee_income",
+      "aumLegacyProducts": [
+        "securities_foreign_stock"
+      ],
+      "incomeLegacyProducts": [
+        "securities_foreign_stock"
+      ],
+      "aumStages": [
+        "AUM_026"
+      ],
+      "incomeStages": [
+        "INCOME_053"
+      ],
+      "aumFilter": "PROD='外國股票' AND COMP='證券'",
+      "incomeFilter": "手收／證券／外國股票",
+      "incomeMappingActive": true,
+      "aumValuationBasis": "NETQTY × CPRICE × EXCH_RT",
+      "incomeAmountBasis": "SUM((CFEE-ABFEE)*FXRATE)"
+    }
+  ],
+  "sourceFiles": [
+    "ontology/AUM Ontology.json",
+    "ontology/Income Ontology.json",
+    "ontology/AUM_business_dictionary.json",
+    "ontology/Income_business_dictionary.json",
+    "sources/sql/1.AUM_DETAIL.sql",
+    "sources/sql/8.INCOME_DETAIL.sql",
+    "sources/sql/9.INCOME_SMY.sql",
+    "sources/sql/X-INCOME_MOTHLY.sql",
+    "sources/metadata/AUM_20250516.xlsx",
+    "sources/metadata/收入_20250527.xlsx"
+  ],
+  "metricHierarchy": {
+    "aum": [
+      [
+        "aum_deposit_month_end",
+        "aum_total_month_end"
+      ],
+      [
+        "aum_investment_month_end",
+        "aum_total_month_end"
+      ],
+      [
+        "aum_bank_investment_month_end",
+        "aum_investment_month_end"
+      ],
+      [
+        "aum_securities_month_end",
+        "aum_investment_month_end"
+      ],
+      [
+        "aum_insurance_month_end",
+        "aum_bank_investment_month_end"
+      ]
+    ],
+    "income": [
+      [
+        "interest_income",
+        "income_total_customer_month"
+      ],
+      [
+        "fee_income",
+        "income_total_customer_month"
+      ],
+      [
+        "securities_fee_income",
+        "fee_income"
+      ],
+      [
+        "bank_fee_income",
+        "fee_income"
+      ],
+      [
+        "loan_interest_income",
+        "interest_income"
+      ],
+      [
+        "deposit_interest_income",
+        "interest_income"
+      ]
+    ]
+  }
+}

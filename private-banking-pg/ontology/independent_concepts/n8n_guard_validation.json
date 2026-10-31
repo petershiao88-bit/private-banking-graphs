@@ -1,0 +1,11 @@
+{
+  "successfulPairs": 29,
+  "invalidInputsRejected": 5,
+  "missingCatalogRejected": true,
+  "firstRequestIgnoresInjectedStatement": true,
+  "extraMetricPropertyRejected": true,
+  "technicalTextRejected": true,
+  "rawApiErrorsNotForwarded": true,
+  "exampleProjections": 4,
+  "liveN8nExecution": false
+}

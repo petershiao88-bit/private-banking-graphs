@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "removedProperties": 25,
+  "remainingOfferingType": 0,
+  "nodes": 41,
+  "relationships": 69,
+  "nodeIdsPreserved": true,
+  "otherPropertiesUnchanged": true,
+  "relationshipsUnchanged": true,
+  "mappingUnchanged": true,
+  "businessPaths": 39,
+  "crossEdges": 0,
+  "canonicalSourcesSynchronized": true,
+  "idempotentRerunRemovedProperties": 0,
+  "pythonTestsPassed": 8,
+  "historicalTemplateChecksPassed": true,
+  "currentTemplateChecks": {
+    "passed": true,
+    "currentProducts": 25,
+    "currentClassificationValues": 42,
+    "currentConceptNodes": 41,
+    "currentConceptRelationships": 69,
+    "currentBusinessPaths": 39,
+    "retiredFieldInOutput": 0
+  },
+  "liveN8nWorkflowChanged": false,
+  "pendingConfirmedClassificationValues": 5
+}

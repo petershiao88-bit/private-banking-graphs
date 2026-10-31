@@ -1,0 +1,18 @@
+{
+  "status": "PARTIAL_VENDOR_REFERENCE_UNAVAILABLE",
+  "reachable_constraints": "PASS",
+  "schemas_retrieved": 7,
+  "parts_validated": 4,
+  "unavailable_schema_urls": [
+    "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/common/identifiers/1.0.0/schema.json"
+  ],
+  "identifier_constraints_not_authoritatively_verified": [
+    "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/common/identifiers/1.0.0/schema.json#/definitions/InternalIdentifier",
+    "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/common/identifiers/1.0.0/schema.json#/definitions/Name"
+  ],
+  "validation_copy_fallback": "Unavailable identifier references checked only as nonempty strings; not full official validation.",
+  "binding": "Materialized with synthetic valid UUIDs and table paths for structure validation only; no real workspace selected.",
+  "errors": [],
+  "cloud_status": "NOT_RUN",
+  "content_sha256": "fd0b9fd05c31f1cdabc4f66c597c783fcaa7107dd0a166e766067ed8ec308c7b"
+}

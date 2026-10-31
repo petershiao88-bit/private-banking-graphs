@@ -1,0 +1,3005 @@
+{
+  "data": {
+    "fields": [
+      "bundles"
+    ],
+    "values": [
+      [
+        [
+          {
+            "paths": [
+              {
+                "relationships": [
+                  {
+                    "from": "bank_etf",
+                    "to": "aum_bank_investment",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4583",
+                    "type": "PB_AUM_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。",
+                      "definition": "銀行ETF所對應的客戶資產，是銀行投資 AUM衡量範圍的一部分。"
+                    }
+                  },
+                  {
+                    "from": "aum_bank_investment",
+                    "to": "aum_investment",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4634",
+                    "type": "PB_AUM_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "客戶銀行通路投資資產納入投資 AUM。"
+                    }
+                  },
+                  {
+                    "from": "aum_investment",
+                    "to": "aum_total",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4633",
+                    "type": "PB_AUM_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "客戶銀行及證券通路投資資產納入總 AUM 的資產業務範圍。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "bank_etf",
+                  "aum_bank_investment",
+                  "aum_investment",
+                  "aum_total"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4583",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4634",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4633"
+                ],
+                "nodes": [
+                  {
+                    "key": "bank_etf",
+                    "properties": {
+                      "fundType": "ETF",
+                      "customerNeed": "投資配置",
+                      "productCode": "bank_etf",
+                      "incomeDefinition": "銀行 ETF 業務帶來的分行手續費收入。",
+                      "name": "銀行ETF",
+                      "serviceDescription": "ETF 交易及持有相關服務。",
+                      "definition": "客戶透過銀行通路交易或持有的 ETF 產品。",
+                      "aumDefinition": "客戶透過銀行通路持有的 ETF 資產規模。",
+                      "subsidiary": "銀行",
+                      "businessChannel": "銀行通路",
+                      "productCategory": "ETF"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "aum_bank_investment",
+                    "properties": {
+                      "name": "銀行投資 AUM",
+                      "definition": "某一衡量時點的客戶銀行通路投資資產合計，涵蓋保險、信託及其他已納入的投資產品與服務所對應資產。",
+                      "metricCode": "aum_bank_investment"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptAUM",
+                      "PBConceptMetric"
+                    ]
+                  },
+                  {
+                    "key": "aum_investment",
+                    "properties": {
+                      "name": "投資 AUM",
+                      "definition": "某一衡量時點的客戶銀行及證券通路投資資產合計。",
+                      "metricCode": "aum_investment"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptAUM",
+                      "PBConceptMetric"
+                    ]
+                  },
+                  {
+                    "key": "aum_total",
+                    "properties": {
+                      "name": "總 AUM",
+                      "definition": "某一衡量時點的客戶存款與銀行及證券通路投資資產合計，表達已納入業務範圍的資產規模。",
+                      "metricCode": "aum_total"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptAUM",
+                      "PBConceptMetric"
+                    ]
+                  }
+                ]
+              },
+              {
+                "relationships": [
+                  {
+                    "from": "bank_etf",
+                    "to": "aum_bank_investment",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4583",
+                    "type": "PB_AUM_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。",
+                      "definition": "銀行ETF所對應的客戶資產，是銀行投資 AUM衡量範圍的一部分。"
+                    }
+                  },
+                  {
+                    "from": "aum_bank_investment",
+                    "to": "aum_investment",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4634",
+                    "type": "PB_AUM_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "客戶銀行通路投資資產納入投資 AUM。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "bank_etf",
+                  "aum_bank_investment",
+                  "aum_investment"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4583",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4634"
+                ],
+                "nodes": [
+                  {
+                    "key": "bank_etf",
+                    "properties": {
+                      "fundType": "ETF",
+                      "customerNeed": "投資配置",
+                      "productCode": "bank_etf",
+                      "incomeDefinition": "銀行 ETF 業務帶來的分行手續費收入。",
+                      "name": "銀行ETF",
+                      "serviceDescription": "ETF 交易及持有相關服務。",
+                      "definition": "客戶透過銀行通路交易或持有的 ETF 產品。",
+                      "aumDefinition": "客戶透過銀行通路持有的 ETF 資產規模。",
+                      "subsidiary": "銀行",
+                      "businessChannel": "銀行通路",
+                      "productCategory": "ETF"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "aum_bank_investment",
+                    "properties": {
+                      "name": "銀行投資 AUM",
+                      "definition": "某一衡量時點的客戶銀行通路投資資產合計，涵蓋保險、信託及其他已納入的投資產品與服務所對應資產。",
+                      "metricCode": "aum_bank_investment"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptAUM",
+                      "PBConceptMetric"
+                    ]
+                  },
+                  {
+                    "key": "aum_investment",
+                    "properties": {
+                      "name": "投資 AUM",
+                      "definition": "某一衡量時點的客戶銀行及證券通路投資資產合計。",
+                      "metricCode": "aum_investment"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptAUM",
+                      "PBConceptMetric"
+                    ]
+                  }
+                ]
+              },
+              {
+                "relationships": [
+                  {
+                    "from": "bank_etf",
+                    "to": "aum_bank_investment",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4583",
+                    "type": "PB_AUM_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。",
+                      "definition": "銀行ETF所對應的客戶資產，是銀行投資 AUM衡量範圍的一部分。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "bank_etf",
+                  "aum_bank_investment"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4583"
+                ],
+                "nodes": [
+                  {
+                    "key": "bank_etf",
+                    "properties": {
+                      "fundType": "ETF",
+                      "customerNeed": "投資配置",
+                      "productCode": "bank_etf",
+                      "incomeDefinition": "銀行 ETF 業務帶來的分行手續費收入。",
+                      "name": "銀行ETF",
+                      "serviceDescription": "ETF 交易及持有相關服務。",
+                      "definition": "客戶透過銀行通路交易或持有的 ETF 產品。",
+                      "aumDefinition": "客戶透過銀行通路持有的 ETF 資產規模。",
+                      "subsidiary": "銀行",
+                      "businessChannel": "銀行通路",
+                      "productCategory": "ETF"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "aum_bank_investment",
+                    "properties": {
+                      "name": "銀行投資 AUM",
+                      "definition": "某一衡量時點的客戶銀行通路投資資產合計，涵蓋保險、信託及其他已納入的投資產品與服務所對應資產。",
+                      "metricCode": "aum_bank_investment"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptAUM",
+                      "PBConceptMetric"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "id": "etf"
+          },
+          {
+            "paths": [
+              {
+                "relationships": [
+                  {
+                    "from": "bank_collective_account",
+                    "to": "aum_bank_investment",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4587",
+                    "type": "PB_AUM_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。",
+                      "definition": "集合管理帳戶所對應的客戶資產，是銀行投資 AUM衡量範圍的一部分。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "bank_collective_account",
+                  "aum_bank_investment"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4587"
+                ],
+                "nodes": [
+                  {
+                    "key": "bank_collective_account",
+                    "properties": {
+                      "customerNeed": "信託資金管理、投資配置",
+                      "productCode": "bank_collective_account",
+                      "incomeDefinition": "",
+                      "name": "集合管理帳戶",
+                      "serviceDescription": "集合管理帳戶的資金管理及投資相關服務。",
+                      "definition": "透過帳戶安排集合管理運用信託資金的投資產品。",
+                      "aumDefinition": "客戶持有的集合管理帳戶資產規模。",
+                      "subsidiary": "銀行",
+                      "productCategory": "集合管理帳戶",
+                      "businessChannel": "銀行信託通路"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "aum_bank_investment",
+                    "properties": {
+                      "name": "銀行投資 AUM",
+                      "definition": "某一衡量時點的客戶銀行通路投資資產合計，涵蓋保險、信託及其他已納入的投資產品與服務所對應資產。",
+                      "metricCode": "aum_bank_investment"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptAUM",
+                      "PBConceptMetric"
+                    ]
+                  }
+                ]
+              },
+              {
+                "relationships": [
+                  {
+                    "from": "bank_fund",
+                    "to": "aum_bank_investment",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4582",
+                    "type": "PB_AUM_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。",
+                      "definition": "銀行基金所對應的客戶資產，是銀行投資 AUM衡量範圍的一部分。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "bank_fund",
+                  "aum_bank_investment"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4582"
+                ],
+                "nodes": [
+                  {
+                    "key": "bank_fund",
+                    "properties": {
+                      "fundType": "基金",
+                      "customerNeed": "投資配置",
+                      "productCode": "bank_fund",
+                      "incomeDefinition": "銀行基金業務帶來的分行手續費收入。",
+                      "name": "銀行基金",
+                      "serviceDescription": "基金申購、贖回及持有相關服務。",
+                      "definition": "客戶透過銀行通路申購或持有的基金產品。",
+                      "aumDefinition": "客戶透過銀行通路持有的基金資產規模。",
+                      "subsidiary": "銀行",
+                      "productCategory": "基金",
+                      "businessChannel": "銀行通路"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "aum_bank_investment",
+                    "properties": {
+                      "name": "銀行投資 AUM",
+                      "definition": "某一衡量時點的客戶銀行通路投資資產合計，涵蓋保險、信託及其他已納入的投資產品與服務所對應資產。",
+                      "metricCode": "aum_bank_investment"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptAUM",
+                      "PBConceptMetric"
+                    ]
+                  }
+                ]
+              },
+              {
+                "relationships": [
+                  {
+                    "from": "bank_trust_custody",
+                    "to": "aum_bank_investment",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4590",
+                    "type": "PB_AUM_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。",
+                      "definition": "信託保管所對應的客戶資產，是銀行投資 AUM衡量範圍的一部分。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "bank_trust_custody",
+                  "aum_bank_investment"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4590"
+                ],
+                "nodes": [
+                  {
+                    "key": "bank_trust_custody",
+                    "properties": {
+                      "customerNeed": "資產保管",
+                      "productCode": "bank_trust_custody",
+                      "incomeDefinition": "信託保管服務帶來的保管費收入。",
+                      "name": "信託保管",
+                      "serviceDescription": "依保管安排提供資產保管相關服務。",
+                      "definition": "客戶將資產交付信託保管安排的服務。",
+                      "aumDefinition": "客戶交付信託保管的資產規模。",
+                      "subsidiary": "銀行",
+                      "productCategory": "信託保管",
+                      "businessChannel": "銀行信託通路"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "aum_bank_investment",
+                    "properties": {
+                      "name": "銀行投資 AUM",
+                      "definition": "某一衡量時點的客戶銀行通路投資資產合計，涵蓋保險、信託及其他已納入的投資產品與服務所對應資產。",
+                      "metricCode": "aum_bank_investment"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptAUM",
+                      "PBConceptMetric"
+                    ]
+                  }
+                ]
+              },
+              {
+                "relationships": [
+                  {
+                    "from": "bank_bond_trust",
+                    "to": "aum_bank_investment",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4585",
+                    "type": "PB_AUM_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。",
+                      "definition": "海外債券（信託）所對應的客戶資產，是銀行投資 AUM衡量範圍的一部分。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "bank_bond_trust",
+                  "aum_bank_investment"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4585"
+                ],
+                "nodes": [
+                  {
+                    "key": "bank_bond_trust",
+                    "properties": {
+                      "marketRegion": "海外",
+                      "customerNeed": "海外債券投資配置",
+                      "productCode": "bank_bond_trust",
+                      "incomeDefinition": "海外債券信託業務的分行手續費及已納入的交易利得。",
+                      "dealingMode": "信託",
+                      "name": "海外債券（信託）",
+                      "serviceDescription": "信託通路的海外債券交易及持有相關服務。",
+                      "definition": "客戶透過銀行信託通路交易或持有的海外債券產品。",
+                      "aumDefinition": "客戶透過銀行信託通路持有的海外債券資產規模。",
+                      "subsidiary": "銀行",
+                      "productCategory": "債券",
+                      "businessChannel": "銀行信託通路"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "aum_bank_investment",
+                    "properties": {
+                      "name": "銀行投資 AUM",
+                      "definition": "某一衡量時點的客戶銀行通路投資資產合計，涵蓋保險、信託及其他已納入的投資產品與服務所對應資產。",
+                      "metricCode": "aum_bank_investment"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptAUM",
+                      "PBConceptMetric"
+                    ]
+                  }
+                ]
+              },
+              {
+                "relationships": [
+                  {
+                    "from": "bank_planned_trust",
+                    "to": "aum_bank_investment",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4589",
+                    "type": "PB_AUM_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。",
+                      "definition": "規劃型信託所對應的客戶資產，是銀行投資 AUM衡量範圍的一部分。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "bank_planned_trust",
+                  "aum_bank_investment"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4589"
+                ],
+                "nodes": [
+                  {
+                    "key": "bank_planned_trust",
+                    "properties": {
+                      "customerNeed": "財產管理、信託安排",
+                      "productCode": "bank_planned_trust",
+                      "incomeDefinition": "規劃型信託服務的借券、管理及成立費收入，涵蓋已納入的員工持股信託。",
+                      "name": "規劃型信託",
+                      "serviceDescription": "信託契約安排、財產管理及相關服務。",
+                      "definition": "依信託目的與契約安排管理或運用客戶財產的信託服務。",
+                      "aumDefinition": "客戶交付規劃型信託安排的資產規模，涵蓋已納入的一般信託與員工持股信託。",
+                      "subsidiary": "銀行",
+                      "businessChannel": "銀行信託通路",
+                      "productCategory": "信託"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "aum_bank_investment",
+                    "properties": {
+                      "name": "銀行投資 AUM",
+                      "definition": "某一衡量時點的客戶銀行通路投資資產合計，涵蓋保險、信託及其他已納入的投資產品與服務所對應資產。",
+                      "metricCode": "aum_bank_investment"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptAUM",
+                      "PBConceptMetric"
+                    ]
+                  }
+                ]
+              },
+              {
+                "relationships": [
+                  {
+                    "from": "bank_structured_offshore",
+                    "to": "aum_bank_investment",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4588",
+                    "type": "PB_AUM_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。",
+                      "definition": "銀行境外結構型商品所對應的客戶資產，是銀行投資 AUM衡量範圍的一部分。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "bank_structured_offshore",
+                  "aum_bank_investment"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4588"
+                ],
+                "nodes": [
+                  {
+                    "key": "bank_structured_offshore",
+                    "properties": {
+                      "customerNeed": "依契約安排投資配置",
+                      "productCode": "bank_structured_offshore",
+                      "incomeDefinition": "銀行境外結構型商品業務帶來的分行手續費收入。",
+                      "name": "銀行境外結構型商品",
+                      "serviceDescription": "境外結構型商品的交易及持有相關服務。",
+                      "definition": "客戶透過銀行通路交易或持有的境外結構型商品。",
+                      "aumDefinition": "客戶透過銀行通路持有的境外結構型商品資產規模。",
+                      "subsidiary": "銀行",
+                      "productCategory": "結構型商品",
+                      "businessChannel": "銀行通路"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "aum_bank_investment",
+                    "properties": {
+                      "name": "銀行投資 AUM",
+                      "definition": "某一衡量時點的客戶銀行通路投資資產合計，涵蓋保險、信託及其他已納入的投資產品與服務所對應資產。",
+                      "metricCode": "aum_bank_investment"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptAUM",
+                      "PBConceptMetric"
+                    ]
+                  }
+                ]
+              },
+              {
+                "relationships": [
+                  {
+                    "from": "bank_etf",
+                    "to": "aum_bank_investment",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4583",
+                    "type": "PB_AUM_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。",
+                      "definition": "銀行ETF所對應的客戶資產，是銀行投資 AUM衡量範圍的一部分。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "bank_etf",
+                  "aum_bank_investment"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4583"
+                ],
+                "nodes": [
+                  {
+                    "key": "bank_etf",
+                    "properties": {
+                      "fundType": "ETF",
+                      "customerNeed": "投資配置",
+                      "productCode": "bank_etf",
+                      "incomeDefinition": "銀行 ETF 業務帶來的分行手續費收入。",
+                      "name": "銀行ETF",
+                      "serviceDescription": "ETF 交易及持有相關服務。",
+                      "definition": "客戶透過銀行通路交易或持有的 ETF 產品。",
+                      "aumDefinition": "客戶透過銀行通路持有的 ETF 資產規模。",
+                      "subsidiary": "銀行",
+                      "businessChannel": "銀行通路",
+                      "productCategory": "ETF"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "aum_bank_investment",
+                    "properties": {
+                      "name": "銀行投資 AUM",
+                      "definition": "某一衡量時點的客戶銀行通路投資資產合計，涵蓋保險、信託及其他已納入的投資產品與服務所對應資產。",
+                      "metricCode": "aum_bank_investment"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptAUM",
+                      "PBConceptMetric"
+                    ]
+                  }
+                ]
+              },
+              {
+                "relationships": [
+                  {
+                    "from": "bank_overseas_stock",
+                    "to": "aum_bank_investment",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4584",
+                    "type": "PB_AUM_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。",
+                      "definition": "銀行海外股票所對應的客戶資產，是銀行投資 AUM衡量範圍的一部分。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "bank_overseas_stock",
+                  "aum_bank_investment"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4584"
+                ],
+                "nodes": [
+                  {
+                    "key": "bank_overseas_stock",
+                    "properties": {
+                      "marketRegion": "海外",
+                      "customerNeed": "海外股票投資配置",
+                      "productCode": "bank_overseas_stock",
+                      "incomeDefinition": "銀行海外股票業務帶來的分行手續費收入。",
+                      "name": "銀行海外股票",
+                      "serviceDescription": "海外股票交易及持有相關服務。",
+                      "definition": "客戶透過銀行通路交易或持有的海外股票產品。",
+                      "aumDefinition": "客戶透過銀行通路持有的海外股票資產規模。",
+                      "subsidiary": "銀行",
+                      "businessChannel": "銀行通路",
+                      "productCategory": "股票"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "aum_bank_investment",
+                    "properties": {
+                      "name": "銀行投資 AUM",
+                      "definition": "某一衡量時點的客戶銀行通路投資資產合計，涵蓋保險、信託及其他已納入的投資產品與服務所對應資產。",
+                      "metricCode": "aum_bank_investment"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptAUM",
+                      "PBConceptMetric"
+                    ]
+                  }
+                ]
+              },
+              {
+                "relationships": [
+                  {
+                    "from": "bank_bond_proprietary",
+                    "to": "aum_bank_investment",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4586",
+                    "type": "PB_AUM_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。資產側與收入側的產品範圍對應仍待釐清。",
+                      "definition": "海外債券（自營）所對應的客戶資產，是銀行投資 AUM衡量範圍的一部分。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "bank_bond_proprietary",
+                  "aum_bank_investment"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4586"
+                ],
+                "nodes": [
+                  {
+                    "key": "bank_bond_proprietary",
+                    "properties": {
+                      "marketRegion": "海外",
+                      "customerNeed": "海外債券投資配置",
+                      "productCode": "bank_bond_proprietary",
+                      "incomeDefinition": "銀行自營海外債券業務歸入手續費類的相關收入。",
+                      "dealingMode": "自營",
+                      "name": "海外債券（自營）",
+                      "serviceDescription": "自營通路的海外債券交易及持有相關服務。",
+                      "definition": "客戶透過銀行自營通路交易或持有的海外債券產品。",
+                      "aumDefinition": "客戶透過銀行自營通路持有的海外債券資產規模。",
+                      "subsidiary": "銀行",
+                      "businessChannel": "銀行自營通路",
+                      "productCategory": "債券"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "aum_bank_investment",
+                    "properties": {
+                      "name": "銀行投資 AUM",
+                      "definition": "某一衡量時點的客戶銀行通路投資資產合計，涵蓋保險、信託及其他已納入的投資產品與服務所對應資產。",
+                      "metricCode": "aum_bank_investment"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptAUM",
+                      "PBConceptMetric"
+                    ]
+                  }
+                ]
+              },
+              {
+                "relationships": [
+                  {
+                    "from": "bank_insurance",
+                    "to": "aum_insurance",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4581",
+                    "type": "PB_AUM_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。保險資產的衡量基礎依產品口徑，不將其直接解讀為可變現市值。",
+                      "definition": "銀行保險所對應的客戶資產，是保險 AUM衡量範圍的一部分。"
+                    }
+                  },
+                  {
+                    "from": "aum_insurance",
+                    "to": "aum_bank_investment",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4636",
+                    "type": "PB_AUM_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "銀行通路保險資產納入銀行投資 AUM 的業務範圍。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "bank_insurance",
+                  "aum_insurance",
+                  "aum_bank_investment"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4581",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4636"
+                ],
+                "nodes": [
+                  {
+                    "key": "bank_insurance",
+                    "properties": {
+                      "productCode": "bank_insurance",
+                      "customerNeed": "保障安排、保險資產配置",
+                      "incomeDefinition": "銀行保險業務的手續費及已納入的客戶貢獻度收入。",
+                      "name": "銀行保險",
+                      "serviceDescription": "銀行通路的保險產品與保單相關服務。",
+                      "definition": "客戶透過銀行通路辦理或持有的保險產品。",
+                      "aumDefinition": "客戶透過銀行通路持有的保險資產規模。",
+                      "subsidiary": "銀行",
+                      "businessChannel": "銀行通路",
+                      "productCategory": "保險"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "aum_insurance",
+                    "properties": {
+                      "name": "保險 AUM",
+                      "definition": "某一衡量時點的客戶銀行通路保險資產規模。",
+                      "metricCode": "aum_insurance"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptAUM",
+                      "PBConceptMetric"
+                    ]
+                  },
+                  {
+                    "key": "aum_bank_investment",
+                    "properties": {
+                      "name": "銀行投資 AUM",
+                      "definition": "某一衡量時點的客戶銀行通路投資資產合計，涵蓋保險、信託及其他已納入的投資產品與服務所對應資產。",
+                      "metricCode": "aum_bank_investment"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptAUM",
+                      "PBConceptMetric"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "id": "bank_composition"
+          },
+          {
+            "paths": [
+              {
+                "relationships": [
+                  {
+                    "from": "bank_bond_proprietary",
+                    "to": "bank_fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4605",
+                    "type": "PB_INCOME_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。收入與資產側產品範圍對應仍待釐清。",
+                      "definition": "銀行自營海外債券業務歸入手續費類的相關收入，納入銀行手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "bank_fee_income",
+                    "to": "fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4638",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "銀行通路產品與服務的手續費類收入，納入整體手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "fee_income",
+                    "to": "income_total",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "已納入的手續費、客戶貢獻度及部分交易損益，構成總收入中的手續費類收入。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "bank_bond_proprietary",
+                  "bank_fee_income",
+                  "fee_income",
+                  "income_total"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4605",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4638",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637"
+                ],
+                "nodes": [
+                  {
+                    "key": "bank_bond_proprietary",
+                    "properties": {
+                      "marketRegion": "海外",
+                      "customerNeed": "海外債券投資配置",
+                      "productCode": "bank_bond_proprietary",
+                      "incomeDefinition": "銀行自營海外債券業務歸入手續費類的相關收入。",
+                      "dealingMode": "自營",
+                      "name": "海外債券（自營）",
+                      "serviceDescription": "自營通路的海外債券交易及持有相關服務。",
+                      "definition": "客戶透過銀行自營通路交易或持有的海外債券產品。",
+                      "aumDefinition": "客戶透過銀行自營通路持有的海外債券資產規模。",
+                      "subsidiary": "銀行",
+                      "businessChannel": "銀行自營通路",
+                      "productCategory": "債券"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "bank_fee_income",
+                    "properties": {
+                      "name": "銀行手續費類收入",
+                      "definition": "銀行通路產品與服務歸入手續費類的收入，涵蓋已納入的手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "bank_fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "fee_income",
+                    "properties": {
+                      "name": "手續費類收入",
+                      "definition": "業務上歸入手續費類的收入，涵蓋手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "income_total",
+                    "properties": {
+                      "name": "總收入",
+                      "definition": "某一衡量期間內，已納入業務範圍的客戶相關手續費類收入與利收合計。",
+                      "metricCode": "income_total"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  }
+                ]
+              },
+              {
+                "relationships": [
+                  {
+                    "from": "bank_structured_offshore",
+                    "to": "bank_fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4606",
+                    "type": "PB_INCOME_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。",
+                      "definition": "銀行境外結構型商品業務帶來的分行手續費收入，納入銀行手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "bank_fee_income",
+                    "to": "fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4638",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "銀行通路產品與服務的手續費類收入，納入整體手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "fee_income",
+                    "to": "income_total",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "已納入的手續費、客戶貢獻度及部分交易損益，構成總收入中的手續費類收入。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "bank_structured_offshore",
+                  "bank_fee_income",
+                  "fee_income",
+                  "income_total"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4606",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4638",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637"
+                ],
+                "nodes": [
+                  {
+                    "key": "bank_structured_offshore",
+                    "properties": {
+                      "customerNeed": "依契約安排投資配置",
+                      "productCode": "bank_structured_offshore",
+                      "incomeDefinition": "銀行境外結構型商品業務帶來的分行手續費收入。",
+                      "name": "銀行境外結構型商品",
+                      "serviceDescription": "境外結構型商品的交易及持有相關服務。",
+                      "definition": "客戶透過銀行通路交易或持有的境外結構型商品。",
+                      "aumDefinition": "客戶透過銀行通路持有的境外結構型商品資產規模。",
+                      "subsidiary": "銀行",
+                      "productCategory": "結構型商品",
+                      "businessChannel": "銀行通路"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "bank_fee_income",
+                    "properties": {
+                      "name": "銀行手續費類收入",
+                      "definition": "銀行通路產品與服務歸入手續費類的收入，涵蓋已納入的手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "bank_fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "fee_income",
+                    "properties": {
+                      "name": "手續費類收入",
+                      "definition": "業務上歸入手續費類的收入，涵蓋手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "income_total",
+                    "properties": {
+                      "name": "總收入",
+                      "definition": "某一衡量期間內，已納入業務範圍的客戶相關手續費類收入與利收合計。",
+                      "metricCode": "income_total"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  }
+                ]
+              },
+              {
+                "relationships": [
+                  {
+                    "from": "bank_overseas_stock",
+                    "to": "bank_fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4603",
+                    "type": "PB_INCOME_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。",
+                      "definition": "銀行海外股票業務帶來的分行手續費收入，納入銀行手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "bank_fee_income",
+                    "to": "fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4638",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "銀行通路產品與服務的手續費類收入，納入整體手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "fee_income",
+                    "to": "income_total",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "已納入的手續費、客戶貢獻度及部分交易損益，構成總收入中的手續費類收入。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "bank_overseas_stock",
+                  "bank_fee_income",
+                  "fee_income",
+                  "income_total"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4603",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4638",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637"
+                ],
+                "nodes": [
+                  {
+                    "key": "bank_overseas_stock",
+                    "properties": {
+                      "marketRegion": "海外",
+                      "customerNeed": "海外股票投資配置",
+                      "productCode": "bank_overseas_stock",
+                      "incomeDefinition": "銀行海外股票業務帶來的分行手續費收入。",
+                      "name": "銀行海外股票",
+                      "serviceDescription": "海外股票交易及持有相關服務。",
+                      "definition": "客戶透過銀行通路交易或持有的海外股票產品。",
+                      "aumDefinition": "客戶透過銀行通路持有的海外股票資產規模。",
+                      "subsidiary": "銀行",
+                      "businessChannel": "銀行通路",
+                      "productCategory": "股票"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "bank_fee_income",
+                    "properties": {
+                      "name": "銀行手續費類收入",
+                      "definition": "銀行通路產品與服務歸入手續費類的收入，涵蓋已納入的手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "bank_fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "fee_income",
+                    "properties": {
+                      "name": "手續費類收入",
+                      "definition": "業務上歸入手續費類的收入，涵蓋手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "income_total",
+                    "properties": {
+                      "name": "總收入",
+                      "definition": "某一衡量期間內，已納入業務範圍的客戶相關手續費類收入與利收合計。",
+                      "metricCode": "income_total"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  }
+                ]
+              },
+              {
+                "relationships": [
+                  {
+                    "from": "bank_insurance",
+                    "to": "bank_fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4600",
+                    "type": "PB_INCOME_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。不同保險收入來源是否重疊仍待確認。",
+                      "definition": "銀行保險業務的手續費及已納入的客戶貢獻度收入，納入銀行手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "bank_fee_income",
+                    "to": "fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4638",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "銀行通路產品與服務的手續費類收入，納入整體手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "fee_income",
+                    "to": "income_total",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "已納入的手續費、客戶貢獻度及部分交易損益，構成總收入中的手續費類收入。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "bank_insurance",
+                  "bank_fee_income",
+                  "fee_income",
+                  "income_total"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4600",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4638",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637"
+                ],
+                "nodes": [
+                  {
+                    "key": "bank_insurance",
+                    "properties": {
+                      "productCode": "bank_insurance",
+                      "customerNeed": "保障安排、保險資產配置",
+                      "incomeDefinition": "銀行保險業務的手續費及已納入的客戶貢獻度收入。",
+                      "name": "銀行保險",
+                      "serviceDescription": "銀行通路的保險產品與保單相關服務。",
+                      "definition": "客戶透過銀行通路辦理或持有的保險產品。",
+                      "aumDefinition": "客戶透過銀行通路持有的保險資產規模。",
+                      "subsidiary": "銀行",
+                      "businessChannel": "銀行通路",
+                      "productCategory": "保險"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "bank_fee_income",
+                    "properties": {
+                      "name": "銀行手續費類收入",
+                      "definition": "銀行通路產品與服務歸入手續費類的收入，涵蓋已納入的手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "bank_fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "fee_income",
+                    "properties": {
+                      "name": "手續費類收入",
+                      "definition": "業務上歸入手續費類的收入，涵蓋手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "income_total",
+                    "properties": {
+                      "name": "總收入",
+                      "definition": "某一衡量期間內，已納入業務範圍的客戶相關手續費類收入與利收合計。",
+                      "metricCode": "income_total"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  }
+                ]
+              },
+              {
+                "relationships": [
+                  {
+                    "from": "bank_fx",
+                    "to": "bank_fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4615",
+                    "type": "PB_INCOME_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。此分類可能含交易損益，不將其全部視為純手續費。",
+                      "definition": "銀行外匯交易歸入手續費類的兌換損益及相關交易損益，納入銀行手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "bank_fee_income",
+                    "to": "fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4638",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "銀行通路產品與服務的手續費類收入，納入整體手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "fee_income",
+                    "to": "income_total",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "已納入的手續費、客戶貢獻度及部分交易損益，構成總收入中的手續費類收入。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "bank_fx",
+                  "bank_fee_income",
+                  "fee_income",
+                  "income_total"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4615",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4638",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637"
+                ],
+                "nodes": [
+                  {
+                    "key": "bank_fx",
+                    "properties": {
+                      "customerNeed": "貨幣兌換、外匯交易",
+                      "productCode": "bank_fx",
+                      "incomeDefinition": "銀行外匯交易歸入手續費類的兌換損益及相關交易損益。",
+                      "name": "銀行外匯服務",
+                      "serviceDescription": "貨幣兌換與外匯交易相關服務。",
+                      "definition": "銀行為客戶提供的外匯交易相關服務。",
+                      "aumDefinition": "",
+                      "subsidiary": "銀行",
+                      "productCategory": "外匯服務",
+                      "businessChannel": "銀行通路"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "bank_fee_income",
+                    "properties": {
+                      "name": "銀行手續費類收入",
+                      "definition": "銀行通路產品與服務歸入手續費類的收入，涵蓋已納入的手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "bank_fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "fee_income",
+                    "properties": {
+                      "name": "手續費類收入",
+                      "definition": "業務上歸入手續費類的收入，涵蓋手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "income_total",
+                    "properties": {
+                      "name": "總收入",
+                      "definition": "某一衡量期間內，已納入業務範圍的客戶相關手續費類收入與利收合計。",
+                      "metricCode": "income_total"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  }
+                ]
+              },
+              {
+                "relationships": [
+                  {
+                    "from": "bank_dci",
+                    "to": "bank_fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4613",
+                    "type": "PB_INCOME_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。此業務收入包含已納入的手續費及相關交易損益，不將其全部視為純手續費。",
+                      "definition": "銀行雙元貨幣組合式商品業務的手續費及已納入的相關交易損益，納入銀行手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "bank_fee_income",
+                    "to": "fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4638",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "銀行通路產品與服務的手續費類收入，納入整體手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "fee_income",
+                    "to": "income_total",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "已納入的手續費、客戶貢獻度及部分交易損益，構成總收入中的手續費類收入。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "bank_dci",
+                  "bank_fee_income",
+                  "fee_income",
+                  "income_total"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4613",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4638",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637"
+                ],
+                "nodes": [
+                  {
+                    "key": "bank_dci",
+                    "properties": {
+                      "productCode": "bank_dci",
+                      "customerNeed": "依貨幣與收益條件安排投資",
+                      "incomeDefinition": "銀行雙元貨幣組合式商品業務的手續費及已納入的相關交易損益。",
+                      "name": "銀行雙元貨幣組合式商品（DCI）",
+                      "serviceDescription": "雙元貨幣組合式商品的承作及契約相關服務。",
+                      "definition": "銀行通路提供、結合投資本金與外匯選擇權的雙元貨幣組合式商品。",
+                      "aumDefinition": "",
+                      "subsidiary": "銀行",
+                      "productCategory": "雙元貨幣組合式商品",
+                      "businessChannel": "銀行通路"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "bank_fee_income",
+                    "properties": {
+                      "name": "銀行手續費類收入",
+                      "definition": "銀行通路產品與服務歸入手續費類的收入，涵蓋已納入的手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "bank_fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "fee_income",
+                    "properties": {
+                      "name": "手續費類收入",
+                      "definition": "業務上歸入手續費類的收入，涵蓋手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "income_total",
+                    "properties": {
+                      "name": "總收入",
+                      "definition": "某一衡量期間內，已納入業務範圍的客戶相關手續費類收入與利收合計。",
+                      "metricCode": "income_total"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  }
+                ]
+              },
+              {
+                "relationships": [
+                  {
+                    "from": "bank_structured_domestic",
+                    "to": "bank_fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4614",
+                    "type": "PB_INCOME_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。",
+                      "definition": "銀行境內結構型商品業務帶來的相關手續費收入，納入銀行手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "bank_fee_income",
+                    "to": "fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4638",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "銀行通路產品與服務的手續費類收入，納入整體手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "fee_income",
+                    "to": "income_total",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "已納入的手續費、客戶貢獻度及部分交易損益，構成總收入中的手續費類收入。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "bank_structured_domestic",
+                  "bank_fee_income",
+                  "fee_income",
+                  "income_total"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4614",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4638",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637"
+                ],
+                "nodes": [
+                  {
+                    "key": "bank_structured_domestic",
+                    "properties": {
+                      "customerNeed": "依商品契約安排投資配置",
+                      "productCode": "bank_structured_domestic",
+                      "incomeDefinition": "銀行境內結構型商品業務帶來的相關手續費收入。",
+                      "name": "境內結構型商品",
+                      "serviceDescription": "境內結構型商品的承作及契約相關服務。",
+                      "definition": "銀行通路提供的境內結構型商品，收益條件依商品契約安排。",
+                      "aumDefinition": "",
+                      "subsidiary": "銀行",
+                      "productCategory": "結構型商品",
+                      "businessChannel": "銀行通路"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "bank_fee_income",
+                    "properties": {
+                      "name": "銀行手續費類收入",
+                      "definition": "銀行通路產品與服務歸入手續費類的收入，涵蓋已納入的手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "bank_fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "fee_income",
+                    "properties": {
+                      "name": "手續費類收入",
+                      "definition": "業務上歸入手續費類的收入，涵蓋手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "income_total",
+                    "properties": {
+                      "name": "總收入",
+                      "definition": "某一衡量期間內，已納入業務範圍的客戶相關手續費類收入與利收合計。",
+                      "metricCode": "income_total"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  }
+                ]
+              },
+              {
+                "relationships": [
+                  {
+                    "from": "bank_planned_trust",
+                    "to": "bank_fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4607",
+                    "type": "PB_INCOME_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "規劃型信託與信託保管具有不同業務意義；現有彙整收入合併分類，不能直接各自查取後相加。",
+                      "definition": "規劃型信託服務的借券、管理及成立費收入，涵蓋已納入的員工持股信託，納入銀行手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "bank_fee_income",
+                    "to": "fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4638",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "銀行通路產品與服務的手續費類收入，納入整體手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "fee_income",
+                    "to": "income_total",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "已納入的手續費、客戶貢獻度及部分交易損益，構成總收入中的手續費類收入。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "bank_planned_trust",
+                  "bank_fee_income",
+                  "fee_income",
+                  "income_total"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4607",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4638",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637"
+                ],
+                "nodes": [
+                  {
+                    "key": "bank_planned_trust",
+                    "properties": {
+                      "customerNeed": "財產管理、信託安排",
+                      "productCode": "bank_planned_trust",
+                      "incomeDefinition": "規劃型信託服務的借券、管理及成立費收入，涵蓋已納入的員工持股信託。",
+                      "name": "規劃型信託",
+                      "serviceDescription": "信託契約安排、財產管理及相關服務。",
+                      "definition": "依信託目的與契約安排管理或運用客戶財產的信託服務。",
+                      "aumDefinition": "客戶交付規劃型信託安排的資產規模，涵蓋已納入的一般信託與員工持股信託。",
+                      "subsidiary": "銀行",
+                      "businessChannel": "銀行信託通路",
+                      "productCategory": "信託"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "bank_fee_income",
+                    "properties": {
+                      "name": "銀行手續費類收入",
+                      "definition": "銀行通路產品與服務歸入手續費類的收入，涵蓋已納入的手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "bank_fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "fee_income",
+                    "properties": {
+                      "name": "手續費類收入",
+                      "definition": "業務上歸入手續費類的收入，涵蓋手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "income_total",
+                    "properties": {
+                      "name": "總收入",
+                      "definition": "某一衡量期間內，已納入業務範圍的客戶相關手續費類收入與利收合計。",
+                      "metricCode": "income_total"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  }
+                ]
+              },
+              {
+                "relationships": [
+                  {
+                    "from": "bank_gold",
+                    "to": "bank_fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4617",
+                    "type": "PB_INCOME_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。現有黃金業務收入採交易損益，不將其寫成純手續費。",
+                      "definition": "銀行黃金交易歸入手續費類的相關交易損益，納入銀行手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "bank_fee_income",
+                    "to": "fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4638",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "銀行通路產品與服務的手續費類收入，納入整體手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "fee_income",
+                    "to": "income_total",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "已納入的手續費、客戶貢獻度及部分交易損益，構成總收入中的手續費類收入。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "bank_gold",
+                  "bank_fee_income",
+                  "fee_income",
+                  "income_total"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4617",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4638",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637"
+                ],
+                "nodes": [
+                  {
+                    "key": "bank_gold",
+                    "properties": {
+                      "customerNeed": "黃金投資與交易",
+                      "productCode": "bank_gold",
+                      "incomeDefinition": "銀行黃金交易歸入手續費類的相關交易損益。",
+                      "name": "銀行黃金",
+                      "serviceDescription": "銀行通路的黃金交易相關服務。",
+                      "definition": "客戶透過銀行通路承作的黃金類產品。",
+                      "aumDefinition": "",
+                      "subsidiary": "銀行",
+                      "productCategory": "黃金",
+                      "businessChannel": "銀行通路"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "bank_fee_income",
+                    "properties": {
+                      "name": "銀行手續費類收入",
+                      "definition": "銀行通路產品與服務歸入手續費類的收入，涵蓋已納入的手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "bank_fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "fee_income",
+                    "properties": {
+                      "name": "手續費類收入",
+                      "definition": "業務上歸入手續費類的收入，涵蓋手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "income_total",
+                    "properties": {
+                      "name": "總收入",
+                      "definition": "某一衡量期間內，已納入業務範圍的客戶相關手續費類收入與利收合計。",
+                      "metricCode": "income_total"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  }
+                ]
+              },
+              {
+                "relationships": [
+                  {
+                    "from": "bank_etf",
+                    "to": "bank_fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4602",
+                    "type": "PB_INCOME_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。",
+                      "definition": "銀行 ETF 業務帶來的分行手續費收入，納入銀行手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "bank_fee_income",
+                    "to": "fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4638",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "銀行通路產品與服務的手續費類收入，納入整體手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "fee_income",
+                    "to": "income_total",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "已納入的手續費、客戶貢獻度及部分交易損益，構成總收入中的手續費類收入。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "bank_etf",
+                  "bank_fee_income",
+                  "fee_income",
+                  "income_total"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4602",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4638",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637"
+                ],
+                "nodes": [
+                  {
+                    "key": "bank_etf",
+                    "properties": {
+                      "fundType": "ETF",
+                      "customerNeed": "投資配置",
+                      "productCode": "bank_etf",
+                      "incomeDefinition": "銀行 ETF 業務帶來的分行手續費收入。",
+                      "name": "銀行ETF",
+                      "serviceDescription": "ETF 交易及持有相關服務。",
+                      "definition": "客戶透過銀行通路交易或持有的 ETF 產品。",
+                      "aumDefinition": "客戶透過銀行通路持有的 ETF 資產規模。",
+                      "subsidiary": "銀行",
+                      "businessChannel": "銀行通路",
+                      "productCategory": "ETF"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "bank_fee_income",
+                    "properties": {
+                      "name": "銀行手續費類收入",
+                      "definition": "銀行通路產品與服務歸入手續費類的收入，涵蓋已納入的手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "bank_fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "fee_income",
+                    "properties": {
+                      "name": "手續費類收入",
+                      "definition": "業務上歸入手續費類的收入，涵蓋手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "income_total",
+                    "properties": {
+                      "name": "總收入",
+                      "definition": "某一衡量期間內，已納入業務範圍的客戶相關手續費類收入與利收合計。",
+                      "metricCode": "income_total"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  }
+                ]
+              },
+              {
+                "relationships": [
+                  {
+                    "from": "bank_trust_custody",
+                    "to": "bank_fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4608",
+                    "type": "PB_INCOME_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "規劃型信託與信託保管具有不同業務意義；現有彙整收入合併分類，不能直接各自查取後相加。",
+                      "definition": "信託保管服務帶來的保管費收入，納入銀行手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "bank_fee_income",
+                    "to": "fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4638",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "銀行通路產品與服務的手續費類收入，納入整體手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "fee_income",
+                    "to": "income_total",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "已納入的手續費、客戶貢獻度及部分交易損益，構成總收入中的手續費類收入。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "bank_trust_custody",
+                  "bank_fee_income",
+                  "fee_income",
+                  "income_total"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4608",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4638",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637"
+                ],
+                "nodes": [
+                  {
+                    "key": "bank_trust_custody",
+                    "properties": {
+                      "customerNeed": "資產保管",
+                      "productCode": "bank_trust_custody",
+                      "incomeDefinition": "信託保管服務帶來的保管費收入。",
+                      "name": "信託保管",
+                      "serviceDescription": "依保管安排提供資產保管相關服務。",
+                      "definition": "客戶將資產交付信託保管安排的服務。",
+                      "aumDefinition": "客戶交付信託保管的資產規模。",
+                      "subsidiary": "銀行",
+                      "productCategory": "信託保管",
+                      "businessChannel": "銀行信託通路"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "bank_fee_income",
+                    "properties": {
+                      "name": "銀行手續費類收入",
+                      "definition": "銀行通路產品與服務歸入手續費類的收入，涵蓋已納入的手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "bank_fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "fee_income",
+                    "properties": {
+                      "name": "手續費類收入",
+                      "definition": "業務上歸入手續費類的收入，涵蓋手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "income_total",
+                    "properties": {
+                      "name": "總收入",
+                      "definition": "某一衡量期間內，已納入業務範圍的客戶相關手續費類收入與利收合計。",
+                      "metricCode": "income_total"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  }
+                ]
+              },
+              {
+                "relationships": [
+                  {
+                    "from": "bank_bond_trust",
+                    "to": "bank_fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4604",
+                    "type": "PB_INCOME_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。",
+                      "definition": "海外債券信託業務的分行手續費及已納入的交易利得，納入銀行手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "bank_fee_income",
+                    "to": "fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4638",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "銀行通路產品與服務的手續費類收入，納入整體手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "fee_income",
+                    "to": "income_total",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "已納入的手續費、客戶貢獻度及部分交易損益，構成總收入中的手續費類收入。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "bank_bond_trust",
+                  "bank_fee_income",
+                  "fee_income",
+                  "income_total"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4604",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4638",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637"
+                ],
+                "nodes": [
+                  {
+                    "key": "bank_bond_trust",
+                    "properties": {
+                      "marketRegion": "海外",
+                      "customerNeed": "海外債券投資配置",
+                      "productCode": "bank_bond_trust",
+                      "incomeDefinition": "海外債券信託業務的分行手續費及已納入的交易利得。",
+                      "dealingMode": "信託",
+                      "name": "海外債券（信託）",
+                      "serviceDescription": "信託通路的海外債券交易及持有相關服務。",
+                      "definition": "客戶透過銀行信託通路交易或持有的海外債券產品。",
+                      "aumDefinition": "客戶透過銀行信託通路持有的海外債券資產規模。",
+                      "subsidiary": "銀行",
+                      "productCategory": "債券",
+                      "businessChannel": "銀行信託通路"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "bank_fee_income",
+                    "properties": {
+                      "name": "銀行手續費類收入",
+                      "definition": "銀行通路產品與服務歸入手續費類的收入，涵蓋已納入的手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "bank_fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "fee_income",
+                    "properties": {
+                      "name": "手續費類收入",
+                      "definition": "業務上歸入手續費類的收入，涵蓋手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "income_total",
+                    "properties": {
+                      "name": "總收入",
+                      "definition": "某一衡量期間內，已納入業務範圍的客戶相關手續費類收入與利收合計。",
+                      "metricCode": "income_total"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  }
+                ]
+              },
+              {
+                "relationships": [
+                  {
+                    "from": "bank_lc",
+                    "to": "bank_fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4616",
+                    "type": "PB_INCOME_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。",
+                      "definition": "銀行開狀業務帶來的相關手續費收入，納入銀行手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "bank_fee_income",
+                    "to": "fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4638",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "銀行通路產品與服務的手續費類收入，納入整體手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "fee_income",
+                    "to": "income_total",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "已納入的手續費、客戶貢獻度及部分交易損益，構成總收入中的手續費類收入。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "bank_lc",
+                  "bank_fee_income",
+                  "fee_income",
+                  "income_total"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4616",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4638",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637"
+                ],
+                "nodes": [
+                  {
+                    "key": "bank_lc",
+                    "properties": {
+                      "customerNeed": "貿易支付安排",
+                      "productCode": "bank_lc",
+                      "incomeDefinition": "銀行開狀業務帶來的相關手續費收入。",
+                      "name": "銀行開狀服務",
+                      "serviceDescription": "開狀及相關契約服務。",
+                      "definition": "銀行為客戶提供的開狀相關服務。",
+                      "aumDefinition": "",
+                      "subsidiary": "銀行",
+                      "productCategory": "開狀服務",
+                      "businessChannel": "銀行通路"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "bank_fee_income",
+                    "properties": {
+                      "name": "銀行手續費類收入",
+                      "definition": "銀行通路產品與服務歸入手續費類的收入，涵蓋已納入的手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "bank_fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "fee_income",
+                    "properties": {
+                      "name": "手續費類收入",
+                      "definition": "業務上歸入手續費類的收入，涵蓋手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "income_total",
+                    "properties": {
+                      "name": "總收入",
+                      "definition": "某一衡量期間內，已納入業務範圍的客戶相關手續費類收入與利收合計。",
+                      "metricCode": "income_total"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  }
+                ]
+              },
+              {
+                "relationships": [
+                  {
+                    "from": "bank_fund",
+                    "to": "bank_fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4601",
+                    "type": "PB_INCOME_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。",
+                      "definition": "銀行基金業務帶來的分行手續費收入，納入銀行手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "bank_fee_income",
+                    "to": "fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4638",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "銀行通路產品與服務的手續費類收入，納入整體手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "fee_income",
+                    "to": "income_total",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "已納入的手續費、客戶貢獻度及部分交易損益，構成總收入中的手續費類收入。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "bank_fund",
+                  "bank_fee_income",
+                  "fee_income",
+                  "income_total"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4601",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4638",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637"
+                ],
+                "nodes": [
+                  {
+                    "key": "bank_fund",
+                    "properties": {
+                      "fundType": "基金",
+                      "customerNeed": "投資配置",
+                      "productCode": "bank_fund",
+                      "incomeDefinition": "銀行基金業務帶來的分行手續費收入。",
+                      "name": "銀行基金",
+                      "serviceDescription": "基金申購、贖回及持有相關服務。",
+                      "definition": "客戶透過銀行通路申購或持有的基金產品。",
+                      "aumDefinition": "客戶透過銀行通路持有的基金資產規模。",
+                      "subsidiary": "銀行",
+                      "productCategory": "基金",
+                      "businessChannel": "銀行通路"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "bank_fee_income",
+                    "properties": {
+                      "name": "銀行手續費類收入",
+                      "definition": "銀行通路產品與服務歸入手續費類的收入，涵蓋已納入的手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "bank_fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "fee_income",
+                    "properties": {
+                      "name": "手續費類收入",
+                      "definition": "業務上歸入手續費類的收入，涵蓋手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "income_total",
+                    "properties": {
+                      "name": "總收入",
+                      "definition": "某一衡量期間內，已納入業務範圍的客戶相關手續費類收入與利收合計。",
+                      "metricCode": "income_total"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  }
+                ]
+              },
+              {
+                "relationships": [
+                  {
+                    "from": "securities_fund",
+                    "to": "securities_fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4611",
+                    "type": "PB_INCOME_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。",
+                      "definition": "證券複委託基金交易帶來、已納入業務範圍的手續費收入，納入證券手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "securities_fee_income",
+                    "to": "fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4639",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "證券通路產品與服務的手續費類收入，納入整體手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "fee_income",
+                    "to": "income_total",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "已納入的手續費、客戶貢獻度及部分交易損益，構成總收入中的手續費類收入。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "securities_fund",
+                  "securities_fee_income",
+                  "fee_income",
+                  "income_total"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4611",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4639",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637"
+                ],
+                "nodes": [
+                  {
+                    "key": "securities_fund",
+                    "properties": {
+                      "fundType": "基金",
+                      "customerNeed": "投資配置",
+                      "productCode": "securities_fund",
+                      "incomeDefinition": "證券複委託基金交易帶來、已納入業務範圍的手續費收入。",
+                      "name": "證券複委託基金",
+                      "serviceDescription": "複委託基金申購及持有相關服務。",
+                      "definition": "客戶透過證券複委託通路申購或持有的基金產品。",
+                      "aumDefinition": "客戶透過證券複委託持有的基金資產規模。",
+                      "subsidiary": "證券",
+                      "productCategory": "基金",
+                      "businessChannel": "證券複委託通路"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "securities_fee_income",
+                    "properties": {
+                      "name": "證券手續費類收入",
+                      "definition": "證券通路產品與服務歸入手續費類的收入。",
+                      "metricCode": "securities_fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "fee_income",
+                    "properties": {
+                      "name": "手續費類收入",
+                      "definition": "業務上歸入手續費類的收入，涵蓋手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "income_total",
+                    "properties": {
+                      "name": "總收入",
+                      "definition": "某一衡量期間內，已納入業務範圍的客戶相關手續費類收入與利收合計。",
+                      "metricCode": "income_total"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  }
+                ]
+              },
+              {
+                "relationships": [
+                  {
+                    "from": "securities_bond",
+                    "to": "securities_fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4609",
+                    "type": "PB_INCOME_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。",
+                      "definition": "證券複委託債券交易帶來的客戶手續費收入，納入證券手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "securities_fee_income",
+                    "to": "fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4639",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "證券通路產品與服務的手續費類收入，納入整體手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "fee_income",
+                    "to": "income_total",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "已納入的手續費、客戶貢獻度及部分交易損益，構成總收入中的手續費類收入。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "securities_bond",
+                  "securities_fee_income",
+                  "fee_income",
+                  "income_total"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4609",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4639",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637"
+                ],
+                "nodes": [
+                  {
+                    "key": "securities_bond",
+                    "properties": {
+                      "marketRegion": "海外",
+                      "customerNeed": "海外債券投資配置",
+                      "productCode": "securities_bond",
+                      "incomeDefinition": "證券複委託債券交易帶來的客戶手續費收入。",
+                      "dealingMode": "複委託",
+                      "name": "證券複委託債券",
+                      "serviceDescription": "複委託債券交易及持有相關服務。",
+                      "definition": "客戶透過證券複委託通路交易或持有的債券產品。",
+                      "aumDefinition": "客戶透過證券複委託持有的債券資產規模。",
+                      "subsidiary": "證券",
+                      "productCategory": "債券",
+                      "businessChannel": "證券複委託通路"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "securities_fee_income",
+                    "properties": {
+                      "name": "證券手續費類收入",
+                      "definition": "證券通路產品與服務歸入手續費類的收入。",
+                      "metricCode": "securities_fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "fee_income",
+                    "properties": {
+                      "name": "手續費類收入",
+                      "definition": "業務上歸入手續費類的收入，涵蓋手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "income_total",
+                    "properties": {
+                      "name": "總收入",
+                      "definition": "某一衡量期間內，已納入業務範圍的客戶相關手續費類收入與利收合計。",
+                      "metricCode": "income_total"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  }
+                ]
+              },
+              {
+                "relationships": [
+                  {
+                    "from": "securities_structured",
+                    "to": "securities_fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4610",
+                    "type": "PB_INCOME_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。",
+                      "definition": "證券複委託結構型商品交易帶來的客戶手續費收入，納入證券手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "securities_fee_income",
+                    "to": "fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4639",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "證券通路產品與服務的手續費類收入，納入整體手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "fee_income",
+                    "to": "income_total",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "已納入的手續費、客戶貢獻度及部分交易損益，構成總收入中的手續費類收入。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "securities_structured",
+                  "securities_fee_income",
+                  "fee_income",
+                  "income_total"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4610",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4639",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637"
+                ],
+                "nodes": [
+                  {
+                    "key": "securities_structured",
+                    "properties": {
+                      "customerNeed": "依契約安排投資配置",
+                      "productCode": "securities_structured",
+                      "incomeDefinition": "證券複委託結構型商品交易帶來的客戶手續費收入。",
+                      "dealingMode": "複委託",
+                      "name": "證券複委託結構型商品",
+                      "serviceDescription": "複委託結構型商品交易及持有相關服務。",
+                      "definition": "客戶透過證券複委託通路交易或持有的結構型商品。",
+                      "aumDefinition": "客戶透過證券複委託持有的結構型商品資產規模。",
+                      "subsidiary": "證券",
+                      "productCategory": "結構型商品",
+                      "businessChannel": "證券複委託通路"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "securities_fee_income",
+                    "properties": {
+                      "name": "證券手續費類收入",
+                      "definition": "證券通路產品與服務歸入手續費類的收入。",
+                      "metricCode": "securities_fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "fee_income",
+                    "properties": {
+                      "name": "手續費類收入",
+                      "definition": "業務上歸入手續費類的收入，涵蓋手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "income_total",
+                    "properties": {
+                      "name": "總收入",
+                      "definition": "某一衡量期間內，已納入業務範圍的客戶相關手續費類收入與利收合計。",
+                      "metricCode": "income_total"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  }
+                ]
+              },
+              {
+                "relationships": [
+                  {
+                    "from": "securities_foreign_stock",
+                    "to": "securities_fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4612",
+                    "type": "PB_INCOME_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。淨收入可能為負值，不將其改寫為非負收入。",
+                      "definition": "證券複委託外國股票交易扣除上手手續費後的淨手續費收入，納入證券手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "securities_fee_income",
+                    "to": "fee_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4639",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "證券通路產品與服務的手續費類收入，納入整體手續費類收入。"
+                    }
+                  },
+                  {
+                    "from": "fee_income",
+                    "to": "income_total",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "已納入的手續費、客戶貢獻度及部分交易損益，構成總收入中的手續費類收入。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "securities_foreign_stock",
+                  "securities_fee_income",
+                  "fee_income",
+                  "income_total"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4612",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4639",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4637"
+                ],
+                "nodes": [
+                  {
+                    "key": "securities_foreign_stock",
+                    "properties": {
+                      "marketRegion": "海外",
+                      "customerNeed": "海外股票投資配置",
+                      "productCode": "securities_foreign_stock",
+                      "incomeDefinition": "證券複委託外國股票交易扣除上手手續費後的淨手續費收入。",
+                      "dealingMode": "複委託",
+                      "name": "證券複委託外國股票",
+                      "serviceDescription": "複委託外國股票交易及持有相關服務。",
+                      "definition": "客戶透過證券複委託通路交易或持有的外國股票產品。",
+                      "aumDefinition": "客戶透過證券複委託持有的外國股票資產規模。",
+                      "subsidiary": "證券",
+                      "businessChannel": "證券複委託通路",
+                      "productCategory": "股票"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "securities_fee_income",
+                    "properties": {
+                      "name": "證券手續費類收入",
+                      "definition": "證券通路產品與服務歸入手續費類的收入。",
+                      "metricCode": "securities_fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "fee_income",
+                    "properties": {
+                      "name": "手續費類收入",
+                      "definition": "業務上歸入手續費類的收入，涵蓋手續費、客戶貢獻度及部分交易損益。",
+                      "metricCode": "fee_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "income_total",
+                    "properties": {
+                      "name": "總收入",
+                      "definition": "某一衡量期間內，已納入業務範圍的客戶相關手續費類收入與利收合計。",
+                      "metricCode": "income_total"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  }
+                ]
+              },
+              {
+                "relationships": [
+                  {
+                    "from": "loan",
+                    "to": "loan_interest_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4618",
+                    "type": "PB_INCOME_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。此為業務收益口徑，不直接等同客戶支付的全部利息。",
+                      "definition": "放款業務歸入利收的收入，按已納入的業務收益口徑衡量，納入放款利收。"
+                    }
+                  },
+                  {
+                    "from": "loan_interest_income",
+                    "to": "interest_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4642",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "放款業務的利收納入整體利收。"
+                    }
+                  },
+                  {
+                    "from": "interest_income",
+                    "to": "income_total",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4640",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "存款與放款業務的利收，納入總收入的業務範圍。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "loan",
+                  "loan_interest_income",
+                  "interest_income",
+                  "income_total"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4618",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4642",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4640"
+                ],
+                "nodes": [
+                  {
+                    "key": "loan",
+                    "properties": {
+                      "customerNeed": "融資、資金調度",
+                      "productCode": "loan",
+                      "incomeDefinition": "放款業務歸入利收的收入，按已納入的業務收益口徑衡量。",
+                      "name": "放款",
+                      "definition": "銀行依授信安排提供客戶使用資金的融資產品。",
+                      "serviceDescription": "授信及放款相關服務。",
+                      "aumDefinition": "",
+                      "subsidiary": "銀行",
+                      "productCategory": "放款",
+                      "businessChannel": "銀行通路"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "loan_interest_income",
+                    "properties": {
+                      "name": "放款利收",
+                      "definition": "放款業務歸入利收的收入，按既有業務收益口徑衡量，不直接等同客戶支付的全部利息。",
+                      "metricCode": "loan_interest_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "interest_income",
+                    "properties": {
+                      "name": "利收",
+                      "definition": "存款與放款業務歸入利收的收入。",
+                      "metricCode": "interest_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "income_total",
+                    "properties": {
+                      "name": "總收入",
+                      "definition": "某一衡量期間內，已納入業務範圍的客戶相關手續費類收入與利收合計。",
+                      "metricCode": "income_total"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  }
+                ]
+              },
+              {
+                "relationships": [
+                  {
+                    "from": "deposit",
+                    "to": "deposit_interest_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4599",
+                    "type": "PB_INCOME_MEASURED_BY",
+                    "properties": {
+                      "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。存款整體利收尚未拆分至台幣、外幣與結構型存款，不重複分配到各子類。",
+                      "definition": "存款業務歸入利收的收入，按存款整體衡量，納入存款利收。"
+                    }
+                  },
+                  {
+                    "from": "deposit_interest_income",
+                    "to": "interest_income",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4641",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "存款業務的利收納入整體利收。"
+                    }
+                  },
+                  {
+                    "from": "interest_income",
+                    "to": "income_total",
+                    "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4640",
+                    "type": "PB_INCOME_ROLLS_UP_TO",
+                    "properties": {
+                      "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。",
+                      "definition": "存款與放款業務的利收，納入總收入的業務範圍。"
+                    }
+                  }
+                ],
+                "nodeKeys": [
+                  "deposit",
+                  "deposit_interest_income",
+                  "interest_income",
+                  "income_total"
+                ],
+                "relationshipIds": [
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4599",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4641",
+                  "5:0b04c939-4af9-4a93-8154-9c90912e1dce:4640"
+                ],
+                "nodes": [
+                  {
+                    "key": "deposit",
+                    "properties": {
+                      "customerNeed": "資金存放、資金調度",
+                      "productCode": "deposit",
+                      "incomeDefinition": "存款業務歸入利收的收入，按存款整體衡量。",
+                      "name": "存款",
+                      "serviceDescription": "存款帳戶與資金存放相關服務。",
+                      "definition": "客戶將資金存放於銀行的存款產品，涵蓋台幣、外幣及結構型存款。",
+                      "aumDefinition": "客戶在銀行持有的存款資產規模。",
+                      "subsidiary": "銀行",
+                      "productCategory": "存款",
+                      "businessChannel": "銀行通路"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  },
+                  {
+                    "key": "deposit_interest_income",
+                    "properties": {
+                      "name": "存款利收",
+                      "definition": "存款業務歸入利收的收入，按存款整體衡量。",
+                      "metricCode": "deposit_interest_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "interest_income",
+                    "properties": {
+                      "name": "利收",
+                      "definition": "存款與放款業務歸入利收的收入。",
+                      "metricCode": "interest_income"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  },
+                  {
+                    "key": "income_total",
+                    "properties": {
+                      "name": "總收入",
+                      "definition": "某一衡量期間內，已納入業務範圍的客戶相關手續費類收入與利收合計。",
+                      "metricCode": "income_total"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptMetric",
+                      "PBConceptIncome"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "id": "income_total"
+          },
+          {
+            "paths": [
+              {
+                "relationships": [],
+                "nodeKeys": [
+                  "bank_gold"
+                ],
+                "relationshipIds": [],
+                "nodes": [
+                  {
+                    "key": "bank_gold",
+                    "properties": {
+                      "customerNeed": "黃金投資與交易",
+                      "productCode": "bank_gold",
+                      "incomeDefinition": "銀行黃金交易歸入手續費類的相關交易損益。",
+                      "name": "銀行黃金",
+                      "serviceDescription": "銀行通路的黃金交易相關服務。",
+                      "definition": "客戶透過銀行通路承作的黃金類產品。",
+                      "aumDefinition": "",
+                      "subsidiary": "銀行",
+                      "productCategory": "黃金",
+                      "businessChannel": "銀行通路"
+                    },
+                    "labels": [
+                      "PBConcept",
+                      "PBConceptProduct"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "id": "property_only"
+          }
+        ]
+      ]
+    ]
+  },
+  "queryType": "r",
+  "resultAvailableAfter": 799,
+  "resultConsumedAfter": 837,
+  "bookmarks": [
+    "FB:kcwQCwTJOUr5SpOBVJyQkS4dzskBfpA="
+  ]
+}

@@ -1,0 +1,297 @@
+{
+  "metricCodes": [
+    "aum_securities_month_end"
+  ],
+  "status": "selected",
+  "candidateScores": [
+    {
+      "objectKey": "securities_bond::aum",
+      "productCode": "securities_bond",
+      "productName": "證券複委託債券",
+      "domain": "aum",
+      "definition": "證券通路的複委託債券業務，涵蓋部位估值與交易手續費收入。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_securities_month_end"
+      ],
+      "probability": 0.11,
+      "probabilities": {
+        "included": 0.11,
+        "uncertain": 0.01,
+        "excluded": 0.88
+      },
+      "confidence": 0.81,
+      "judgement": "excluded"
+    },
+    {
+      "objectKey": "securities_foreign_stock::aum",
+      "productCode": "securities_foreign_stock",
+      "productName": "證券複委託外國股票",
+      "domain": "aum",
+      "definition": "證券通路的複委託外國股票業務，涵蓋客戶持有資產與淨手續費收入；淨收入可能為負值。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_securities_month_end"
+      ],
+      "probability": 0.16,
+      "probabilities": {
+        "included": 0.16,
+        "uncertain": 0.02,
+        "excluded": 0.82
+      },
+      "confidence": 0.74,
+      "judgement": "excluded"
+    },
+    {
+      "objectKey": "securities_fund::aum",
+      "productCode": "securities_fund",
+      "productName": "證券複委託基金",
+      "domain": "aum",
+      "definition": "證券通路的複委託基金業務，涵蓋客戶持有資產與交易費收入。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_securities_month_end"
+      ],
+      "probability": 0.96,
+      "probabilities": {
+        "included": 0.96,
+        "uncertain": 0.01,
+        "excluded": 0.03
+      },
+      "confidence": 0.95,
+      "judgement": "included"
+    },
+    {
+      "objectKey": "securities_structured::aum",
+      "productCode": "securities_structured",
+      "productName": "證券複委託結構型商品",
+      "domain": "aum",
+      "definition": "證券通路的複委託結構型商品業務，涵蓋客戶持有資產與相关收入。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_securities_month_end"
+      ],
+      "probability": 0.07,
+      "probabilities": {
+        "included": 0.07,
+        "uncertain": 0.01,
+        "excluded": 0.92
+      },
+      "confidence": 0.89,
+      "judgement": "excluded"
+    }
+  ],
+  "decision": {
+    "requestId": "gen-dec-1791337153-0OAa1avErCZEES2oMLTQ",
+    "model": "typesafe/jev-1.13-20260917",
+    "provider": "TypeSafe",
+    "scope": {
+      "type": "choice",
+      "choice": "clear",
+      "probabilities": {
+        "ambiguous": 0.05,
+        "none": 0,
+        "clear": 0.95
+      },
+      "confidence": 0.92
+    },
+    "answers": {
+      "scope": {
+        "type": "choice",
+        "choice": "clear",
+        "probabilities": {
+          "ambiguous": 0.05,
+          "none": 0,
+          "clear": 0.95
+        },
+        "confidence": 0.92
+      },
+      "securities_bond::aum": {
+        "type": "choice",
+        "choice": "excluded",
+        "probabilities": {
+          "included": 0.11,
+          "uncertain": 0.01,
+          "excluded": 0.88
+        },
+        "confidence": 0.81
+      },
+      "securities_foreign_stock::aum": {
+        "type": "choice",
+        "choice": "excluded",
+        "probabilities": {
+          "included": 0.16,
+          "uncertain": 0.02,
+          "excluded": 0.82
+        },
+        "confidence": 0.74
+      },
+      "securities_fund::aum": {
+        "type": "choice",
+        "choice": "included",
+        "probabilities": {
+          "included": 0.96,
+          "uncertain": 0.01,
+          "excluded": 0.03
+        },
+        "confidence": 0.95
+      },
+      "securities_structured::aum": {
+        "type": "choice",
+        "choice": "excluded",
+        "probabilities": {
+          "included": 0.07,
+          "uncertain": 0.01,
+          "excluded": 0.92
+        },
+        "confidence": 0.89
+      }
+    },
+    "usage": {
+      "input_tokens": 2328,
+      "output_tokens": 229,
+      "cost": 0.000097776
+    },
+    "policy": {
+      "method": "native_choice_with_ambiguity_gate",
+      "numericThreshold": null,
+      "calibrated": false
+    },
+    "probabilityMeaning": "P(included) for each productCode/domain; candidate probabilities are independent and are not normalized across objects."
+  },
+  "products": [
+    {
+      "productCode": "securities_fund",
+      "productName": "證券複委託基金",
+      "domain": "aum",
+      "probability": 0.96,
+      "definition": "證券通路的複委託基金業務，涵蓋客戶持有資產與交易費收入。",
+      "definitionStatus": "inferred",
+      "metrics": [
+        {
+          "metricCode": "aum_securities_month_end",
+          "name": "月底證券AUM",
+          "definition": "月底衡量的證券通路投資資產。",
+          "status": "inferred"
+        },
+        {
+          "metricCode": "aum_investment_month_end",
+          "name": "月底投資AUM",
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "status": "inferred"
+        },
+        {
+          "metricCode": "aum_total_month_end",
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "status": "draft"
+        }
+      ],
+      "matchedMetricCodes": [
+        "aum_securities_month_end"
+      ],
+      "mappingStatus": "inferred",
+      "mappings": [
+        {
+          "lineage": [
+            {
+              "tablePath": [
+                "DSPBM.PB_FUNDPOSIT_SEC",
+                "AUM_025"
+              ],
+              "baseTable": "DSPBM.PB_FUNDPOSIT_SEC",
+              "rules": [
+                {
+                  "lineStart": 366,
+                  "selectExpressions": [
+                    "wkb02 AS cust_id",
+                    "yyyymmdd",
+                    "SUM(WKB28 * WKB23 * WKB31) AS amt"
+                  ],
+                  "whereConditions": [],
+                  "unionDeduplication": [
+                    "exact_projected_rows"
+                  ],
+                  "lineEnd": 375,
+                  "operationTypes": [
+                    "AGGREGATE",
+                    "SELECT",
+                    "UNION",
+                    "CREATE TABLE AS"
+                  ],
+                  "sql": "create table AUM_025\n  as \n  select wkb02 as cust_id,yyyymmdd ,sum(WKB28 * WKB23 * WKB31) as amt\n  from DSPBM.PB_FUNDPOSIT_SEC_M@anadbp01_dwdbp01\n  group by wkb02,yyyymmdd\n  union \n  select wkb02 as cust_id,yyyymmdd ,sum(WKB28* WKB23 * WKB31) as amt\n  from DSPBM.PB_FUNDPOSIT_SEC@anadbp01_dwdbp01\n  group by wkb02,yyyymmdd\n  ;",
+                  "unionBranchOrders": [
+                    2
+                  ],
+                  "file": "sources/sql/1.AUM_DETAIL.sql",
+                  "aggregateExpressions": [
+                    "SUM(WKB28 * WKB23 * WKB31)"
+                  ],
+                  "groupExpressions": [
+                    "wkb02",
+                    "yyyymmdd"
+                  ],
+                  "caseExpressions": [],
+                  "operation": "UNION",
+                  "status": "active_sql",
+                  "joinConditions": []
+                }
+              ]
+            },
+            {
+              "tablePath": [
+                "DSPBM.PB_FUNDPOSIT_SEC_M",
+                "AUM_025"
+              ],
+              "baseTable": "DSPBM.PB_FUNDPOSIT_SEC_M",
+              "rules": [
+                {
+                  "lineStart": 366,
+                  "selectExpressions": [
+                    "wkb02 AS cust_id",
+                    "yyyymmdd",
+                    "SUM(WKB28 * WKB23 * WKB31) AS amt"
+                  ],
+                  "whereConditions": [],
+                  "unionDeduplication": [
+                    "exact_projected_rows"
+                  ],
+                  "lineEnd": 375,
+                  "operationTypes": [
+                    "AGGREGATE",
+                    "SELECT",
+                    "UNION",
+                    "CREATE TABLE AS"
+                  ],
+                  "sql": "create table AUM_025\n  as \n  select wkb02 as cust_id,yyyymmdd ,sum(WKB28 * WKB23 * WKB31) as amt\n  from DSPBM.PB_FUNDPOSIT_SEC_M@anadbp01_dwdbp01\n  group by wkb02,yyyymmdd\n  union \n  select wkb02 as cust_id,yyyymmdd ,sum(WKB28* WKB23 * WKB31) as amt\n  from DSPBM.PB_FUNDPOSIT_SEC@anadbp01_dwdbp01\n  group by wkb02,yyyymmdd\n  ;",
+                  "unionBranchOrders": [
+                    1
+                  ],
+                  "file": "sources/sql/1.AUM_DETAIL.sql",
+                  "aggregateExpressions": [
+                    "SUM(WKB28 * WKB23 * WKB31)"
+                  ],
+                  "groupExpressions": [
+                    "wkb02",
+                    "yyyymmdd"
+                  ],
+                  "caseExpressions": [],
+                  "operation": "UNION",
+                  "status": "active_sql",
+                  "joinConditions": []
+                }
+              ]
+            }
+          ],
+          "mappingStatus": "observed_in_sql",
+          "outputTable": "AUM_025",
+          "mappingType": "AUM_IMPLEMENTED_BY",
+          "lineageStatus": "traced",
+          "productScope": "PROD='基金' AND COMP='證券'",
+          "sqlTable": "AUM_025"
+        }
+      ]
+    }
+  ],
+  "message": "已依 Jev 逐 object 評估選定產品；完整候選機率已保留。\n月底總AUM：指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。"
+}

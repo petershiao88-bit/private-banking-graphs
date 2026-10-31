@@ -1,0 +1,326 @@
+{
+  "version": "0.7.0",
+  "nodes": [
+    {
+      "id": "https://example.org/ontology/bank#BankEmployee",
+      "label": "行員",
+      "owner": "bank",
+      "definition": "任職於銀行的職員。",
+      "properties": [
+        {
+          "id": "https://example.org/ontology/bank#employeeId",
+          "label": "行員編號",
+          "range": "http://www.w3.org/2001/XMLSchema#string"
+        }
+      ]
+    },
+    {
+      "id": "https://example.org/ontology/bank#BankFeeIncome",
+      "label": "銀行手續費收入指標",
+      "owner": "bank",
+      "definition": "衡量銀行於指定收入期間內依銀行認列規則形成之手續費收入的指標。",
+      "properties": []
+    },
+    {
+      "id": "https://example.org/ontology/bank#BondProduct",
+      "label": "債券商品",
+      "owner": "bank",
+      "definition": "發行人為籌資而發行、約定清償條件的債務型金融商品。",
+      "properties": []
+    },
+    {
+      "id": "https://example.org/ontology/bank#DepositProduct",
+      "label": "存款商品",
+      "owner": "bank",
+      "definition": "銀行提供、供客戶依約定存放資金的金融商品。",
+      "properties": []
+    },
+    {
+      "id": "https://example.org/ontology/bank#FinancialAdvisor",
+      "label": "理專",
+      "owner": "bank",
+      "definition": "擔任理財諮詢與金融商品服務職務的銀行行員。",
+      "properties": []
+    },
+    {
+      "id": "https://example.org/ontology/bank#ForeignCurrencyFinancialProduct",
+      "label": "外幣金融商品",
+      "owner": "bank",
+      "definition": "以新臺幣以外貨幣計價的金融商品。",
+      "properties": []
+    },
+    {
+      "id": "https://example.org/ontology/bank#OverseasFinancialProduct",
+      "label": "海外金融商品",
+      "owner": "bank",
+      "definition": "銀行業務中歸入海外投資範圍的金融商品。",
+      "properties": []
+    },
+    {
+      "id": "https://example.org/ontology/bank#StockProduct",
+      "label": "股票商品",
+      "owner": "bank",
+      "definition": "代表公司股權的金融商品。",
+      "properties": []
+    },
+    {
+      "id": "https://example.org/ontology/bank#StructuredFinancialProduct",
+      "label": "結構型金融商品",
+      "owner": "bank",
+      "definition": "報酬條件依約定公式連結金融指標或標的表現的金融商品。",
+      "properties": []
+    },
+    {
+      "id": "https://example.org/ontology/bank#TWDFinancialProduct",
+      "label": "台幣金融商品",
+      "owner": "bank",
+      "definition": "以新臺幣計價的金融商品。",
+      "properties": []
+    },
+    {
+      "id": "https://example.org/ontology/holding#AddressContactInformation",
+      "label": "地址通聯資訊",
+      "owner": "holding",
+      "definition": "以實體地址聯絡客戶的通聯資訊。",
+      "properties": [
+        {
+          "id": "https://example.org/ontology/holding#addressLine",
+          "label": "街道門牌地址",
+          "range": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        {
+          "id": "https://example.org/ontology/holding#city",
+          "label": "縣市",
+          "range": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        {
+          "id": "https://example.org/ontology/holding#countryCode",
+          "label": "國家／地區代碼",
+          "range": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        {
+          "id": "https://example.org/ontology/holding#district",
+          "label": "鄉鎮市區",
+          "range": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        {
+          "id": "https://example.org/ontology/holding#fullAddress",
+          "label": "完整地址",
+          "range": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        {
+          "id": "https://example.org/ontology/holding#postalCode",
+          "label": "郵遞區號",
+          "range": "http://www.w3.org/2001/XMLSchema#string"
+        }
+      ]
+    },
+    {
+      "id": "https://example.org/ontology/holding#ContactInformation",
+      "label": "通聯資訊",
+      "owner": "holding",
+      "definition": "與客戶相關的聯絡資訊。",
+      "properties": []
+    },
+    {
+      "id": "https://example.org/ontology/holding#Customer",
+      "label": "客戶",
+      "owner": "holding",
+      "definition": "集團業務中所服務的客戶。",
+      "properties": []
+    },
+    {
+      "id": "https://example.org/ontology/holding#Employee",
+      "label": "職員",
+      "owner": "holding",
+      "definition": "任職於金控或旗下子公司的人員。",
+      "properties": []
+    },
+    {
+      "id": "https://example.org/ontology/holding#FeeIncome",
+      "label": "手續費收入指標",
+      "owner": "holding",
+      "definition": "衡量指定收入期間內依認列規則形成之手續費收入的指標。",
+      "properties": []
+    },
+    {
+      "id": "https://example.org/ontology/holding#FinancialProduct",
+      "label": "金融商品",
+      "owner": "holding",
+      "definition": "金融機構提供的金融商品。",
+      "properties": []
+    },
+    {
+      "id": "https://example.org/ontology/holding#Metric",
+      "label": "指標",
+      "owner": "holding",
+      "definition": "依明確口徑衡量業務狀況的量化項目。",
+      "properties": []
+    },
+    {
+      "id": "https://example.org/ontology/holding#MobileContactInformation",
+      "label": "手機通聯資訊",
+      "owner": "holding",
+      "definition": "以手機號碼聯絡客戶的通聯資訊。",
+      "properties": [
+        {
+          "id": "https://example.org/ontology/holding#mobileNumber",
+          "label": "手機號碼",
+          "range": "http://www.w3.org/2001/XMLSchema#string"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "https://example.org/ontology/bank#BankEmployee",
+      "target": "https://example.org/ontology/holding#Employee",
+      "kind": "subclass",
+      "label": "繼承",
+      "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+    },
+    {
+      "source": "https://example.org/ontology/bank#BankFeeIncome",
+      "target": "https://example.org/ontology/holding#FeeIncome",
+      "kind": "subclass",
+      "label": "繼承",
+      "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+    },
+    {
+      "source": "https://example.org/ontology/bank#BankFeeIncome",
+      "target": "https://example.org/ontology/bank#FinancialAdvisor",
+      "kind": "relationship",
+      "label": "歸屬理專",
+      "predicate": "https://example.org/ontology/bank#attributedToAdvisor"
+    },
+    {
+      "source": "https://example.org/ontology/bank#BondProduct",
+      "target": "https://example.org/ontology/holding#FinancialProduct",
+      "kind": "subclass",
+      "label": "繼承",
+      "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+    },
+    {
+      "source": "https://example.org/ontology/bank#DepositProduct",
+      "target": "https://example.org/ontology/holding#FinancialProduct",
+      "kind": "subclass",
+      "label": "繼承",
+      "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+    },
+    {
+      "source": "https://example.org/ontology/bank#FinancialAdvisor",
+      "target": "https://example.org/ontology/bank#BankEmployee",
+      "kind": "subclass",
+      "label": "繼承",
+      "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+    },
+    {
+      "source": "https://example.org/ontology/bank#ForeignCurrencyFinancialProduct",
+      "target": "https://example.org/ontology/holding#FinancialProduct",
+      "kind": "subclass",
+      "label": "繼承",
+      "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+    },
+    {
+      "source": "https://example.org/ontology/bank#OverseasFinancialProduct",
+      "target": "https://example.org/ontology/holding#FinancialProduct",
+      "kind": "subclass",
+      "label": "繼承",
+      "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+    },
+    {
+      "source": "https://example.org/ontology/bank#StockProduct",
+      "target": "https://example.org/ontology/holding#FinancialProduct",
+      "kind": "subclass",
+      "label": "繼承",
+      "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+    },
+    {
+      "source": "https://example.org/ontology/bank#StructuredFinancialProduct",
+      "target": "https://example.org/ontology/holding#FinancialProduct",
+      "kind": "subclass",
+      "label": "繼承",
+      "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+    },
+    {
+      "source": "https://example.org/ontology/bank#TWDFinancialProduct",
+      "target": "https://example.org/ontology/holding#FinancialProduct",
+      "kind": "subclass",
+      "label": "繼承",
+      "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+    },
+    {
+      "source": "https://example.org/ontology/holding#AddressContactInformation",
+      "target": "https://example.org/ontology/holding#ContactInformation",
+      "kind": "subclass",
+      "label": "繼承",
+      "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+    },
+    {
+      "source": "https://example.org/ontology/holding#Customer",
+      "target": "https://example.org/ontology/holding#ContactInformation",
+      "kind": "relationship",
+      "label": "具有通聯資訊",
+      "predicate": "https://example.org/ontology/holding#hasContactPoint"
+    },
+    {
+      "source": "https://example.org/ontology/holding#Customer",
+      "target": "https://example.org/ontology/holding#FinancialProduct",
+      "kind": "relationship",
+      "label": "持有金融商品",
+      "predicate": "https://example.org/ontology/holding#holds"
+    },
+    {
+      "source": "https://example.org/ontology/holding#Employee",
+      "target": "https://example.org/ontology/holding#Customer",
+      "kind": "relationship",
+      "label": "服務客戶",
+      "predicate": "https://example.org/ontology/holding#serves"
+    },
+    {
+      "source": "https://example.org/ontology/holding#FeeIncome",
+      "target": "https://example.org/ontology/holding#Metric",
+      "kind": "subclass",
+      "label": "繼承",
+      "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+    },
+    {
+      "source": "https://example.org/ontology/holding#Metric",
+      "target": "https://example.org/ontology/holding#FinancialProduct",
+      "kind": "relationship",
+      "label": "衡量金融商品",
+      "predicate": "https://example.org/ontology/holding#measuresProduct"
+    },
+    {
+      "source": "https://example.org/ontology/holding#MobileContactInformation",
+      "target": "https://example.org/ontology/holding#ContactInformation",
+      "kind": "subclass",
+      "label": "繼承",
+      "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf"
+    }
+  ],
+  "annotations": [
+    {
+      "id": "http://www.w3.org/2000/01/rdf-schema#label",
+      "label": "名稱"
+    },
+    {
+      "id": "http://www.w3.org/2004/02/skos/core#definition",
+      "label": "定義"
+    },
+    {
+      "id": "https://example.org/ontology/holding#department",
+      "label": "所屬部門"
+    },
+    {
+      "id": "https://example.org/ontology/holding#governanceLevel",
+      "label": "治理層級"
+    },
+    {
+      "id": "https://example.org/ontology/holding#subsidiary",
+      "label": "所屬子公司"
+    }
+  ],
+  "scope": "rdf_schema_only",
+  "projection": "class nodes, domain/range edges, datatype fields in nodes"
+}

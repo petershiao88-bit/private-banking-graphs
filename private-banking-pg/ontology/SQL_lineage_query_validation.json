@@ -1,0 +1,57 @@
+{
+  "representation": "table_nodes_sql_rules_on_relationships",
+  "queries": [
+    {
+      "query": 1,
+      "resultRows": 3,
+      "passed": true
+    },
+    {
+      "query": 2,
+      "resultRows": 3,
+      "passed": true
+    },
+    {
+      "query": 3,
+      "resultRows": 3,
+      "passed": true
+    },
+    {
+      "query": 4,
+      "resultRows": 2,
+      "passed": true
+    },
+    {
+      "query": 5,
+      "resultRows": 6,
+      "passed": true
+    },
+    {
+      "query": 6,
+      "resultRows": 3,
+      "passed": true
+    },
+    {
+      "query": 7,
+      "resultRows": 1,
+      "passed": true
+    },
+    {
+      "query": 8,
+      "resultRows": 1,
+      "passed": true
+    },
+    {
+      "query": 9,
+      "resultRows": 1,
+      "passed": true
+    },
+    {
+      "query": 10,
+      "resultRows": 7,
+      "passed": true
+    }
+  ],
+  "insuranceIncomeNodes": 7,
+  "insuranceIncomeLinks": 6
+}

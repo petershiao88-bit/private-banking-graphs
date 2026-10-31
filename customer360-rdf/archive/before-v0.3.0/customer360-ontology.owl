@@ -1,0 +1,311 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rdf:RDF xmlns:fh="https://example.org/ontology/holding#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+  <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#label">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty" />
+    <rdfs:label xml:lang="zh-TW">名稱</rdfs:label>
+    <skos:definition xml:lang="zh-TW">提供類別或屬性的顯示名稱。</skos:definition>
+    <fh:governanceLevel>金控</fh:governanceLevel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#definition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty" />
+    <rdfs:label xml:lang="zh-TW">定義</rdfs:label>
+    <skos:definition xml:lang="zh-TW">提供類別或屬性的業務意義描述。</skos:definition>
+    <fh:governanceLevel>金控</fh:governanceLevel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/bank#AddressContactInformation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+    <rdfs:label xml:lang="zh-TW">銀行地址通聯資訊</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/ontology/holding#ContactInformation" />
+    <skos:definition xml:lang="zh-TW">由銀行整理及提供、與客戶相關的地址通聯資訊，承接該公司系統建立的權威通聯資料。</skos:definition>
+    <fh:governanceLevel>子公司</fh:governanceLevel>
+    <fh:subsidiary>銀行</fh:subsidiary>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/bank#MobileContactInformation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+    <rdfs:label xml:lang="zh-TW">銀行手機通聯資訊</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/ontology/holding#ContactInformation" />
+    <skos:definition xml:lang="zh-TW">由銀行整理及提供、與客戶相關的手機通聯資訊，承接該公司系統建立的權威通聯資料。</skos:definition>
+    <fh:governanceLevel>子公司</fh:governanceLevel>
+    <fh:subsidiary>銀行</fh:subsidiary>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/bank#addressLine">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:domain rdf:resource="https://example.org/ontology/bank#AddressContactInformation" />
+    <rdfs:label xml:lang="zh-TW">街道門牌地址</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+    <skos:definition xml:lang="zh-TW">縣市與鄉鎮市區以外的詳細地址內容，可包含路、街、段、巷、弄、號、樓層與室等。</skos:definition>
+    <fh:governanceLevel>子公司</fh:governanceLevel>
+    <fh:subsidiary>銀行</fh:subsidiary>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/bank#city">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:domain rdf:resource="https://example.org/ontology/bank#AddressContactInformation" />
+    <rdfs:label xml:lang="zh-TW">縣市</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+    <skos:definition xml:lang="zh-TW">該筆地址的縣市，例如臺北市或新竹縣；國際地址的行政層級對應尚待確認。</skos:definition>
+    <fh:governanceLevel>子公司</fh:governanceLevel>
+    <fh:subsidiary>銀行</fh:subsidiary>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/bank#countryCode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:domain rdf:resource="https://example.org/ontology/bank#AddressContactInformation" />
+    <rdfs:label xml:lang="zh-TW">國家／地區代碼</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+    <skos:definition xml:lang="zh-TW">該筆地址所屬國家或地區的代碼；代碼標準尚待確認。</skos:definition>
+    <fh:governanceLevel>子公司</fh:governanceLevel>
+    <fh:subsidiary>銀行</fh:subsidiary>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/bank#district">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:domain rdf:resource="https://example.org/ontology/bank#AddressContactInformation" />
+    <rdfs:label xml:lang="zh-TW">鄉鎮市區</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+    <skos:definition xml:lang="zh-TW">該筆地址的鄉鎮市區，例如大安區或竹北市。</skos:definition>
+    <fh:governanceLevel>子公司</fh:governanceLevel>
+    <fh:subsidiary>銀行</fh:subsidiary>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/bank#fullAddress">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:domain rdf:resource="https://example.org/ontology/bank#AddressContactInformation" />
+    <rdfs:label xml:lang="zh-TW">完整地址</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+    <skos:definition xml:lang="zh-TW">子公司提供的完整地址文字；本版未規定其由拆分欄位自動組合或互相同步。</skos:definition>
+    <fh:governanceLevel>子公司</fh:governanceLevel>
+    <fh:subsidiary>銀行</fh:subsidiary>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/bank#mobileNumber">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:domain rdf:resource="https://example.org/ontology/bank#MobileContactInformation" />
+    <rdfs:label xml:lang="zh-TW">手機號碼</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+    <skos:definition xml:lang="zh-TW">該筆手機通聯紀錄的號碼字串，依來源保留國碼、前導零與其他必要字元；標準化格式尚未核定。</skos:definition>
+    <fh:governanceLevel>子公司</fh:governanceLevel>
+    <fh:subsidiary>銀行</fh:subsidiary>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/bank#postalCode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:domain rdf:resource="https://example.org/ontology/bank#AddressContactInformation" />
+    <rdfs:label xml:lang="zh-TW">郵遞區號</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+    <skos:definition xml:lang="zh-TW">該筆地址的郵遞區號字串，保留前導零及必要字元；格式尚未限制。</skos:definition>
+    <fh:governanceLevel>子公司</fh:governanceLevel>
+    <fh:subsidiary>銀行</fh:subsidiary>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/customer360">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology" />
+    <rdfs:comment xml:lang="zh-TW">金控核心與銀行、證券、人壽通聯模型的自含整合版。子公司先完成golden record整理，再映射共用基本資料；部門承接並映射業務資料。</rdfs:comment>
+    <rdfs:label xml:lang="zh-TW">客戶360核心與通聯資訊整合本體</rdfs:label>
+    <owl:versionIRI rdf:resource="https://example.org/ontology/customer360/0.2.0" />
+    <owl:versionInfo>0.2.0 / design draft / 2026-10-21</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/holding#ContactInformation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+    <rdfs:label xml:lang="zh-TW">通聯資訊</rdfs:label>
+    <skos:definition xml:lang="zh-TW">由來源單位記錄、與客戶相關的通聯資訊。</skos:definition>
+    <fh:governanceLevel>金控</fh:governanceLevel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/holding#Customer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+    <rdfs:label xml:lang="zh-TW">客戶</rdfs:label>
+    <skos:definition xml:lang="zh-TW">集團業務中所服務的客戶；本次以自然人客戶為使用情境，尚未形式化自然人範圍限制。</skos:definition>
+    <fh:governanceLevel>金控</fh:governanceLevel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/holding#FinancialProduct">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+    <rdfs:label xml:lang="zh-TW">金融商品</rdfs:label>
+    <skos:definition xml:lang="zh-TW">供各子公司延伸具體商品分類的共同上位概念。</skos:definition>
+    <fh:governanceLevel>金控</fh:governanceLevel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/holding#department">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty" />
+    <rdfs:label xml:lang="zh-TW">所屬部門</rdfs:label>
+    <skos:definition xml:lang="zh-TW">標示類別或屬性定義的部門治理歸屬；不適用時省略。</skos:definition>
+    <fh:governanceLevel>金控</fh:governanceLevel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/holding#governanceLevel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty" />
+    <rdfs:label xml:lang="zh-TW">治理層級</rdfs:label>
+    <skos:definition xml:lang="zh-TW">標示定義所屬層級；本案約定使用金控、子公司或部門。</skos:definition>
+    <fh:governanceLevel>金控</fh:governanceLevel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/holding#hasContactPoint">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:domain rdf:resource="https://example.org/ontology/holding#Customer" />
+    <rdfs:label xml:lang="zh-TW">具有通聯資訊</rdfs:label>
+    <rdfs:range rdf:resource="https://example.org/ontology/holding#ContactInformation" />
+    <skos:definition xml:lang="zh-TW">連接客戶與來源單位所記錄、與該客戶相關的通聯紀錄；實際使用由下層系統提供的權威通聯資料承接。</skos:definition>
+    <fh:governanceLevel>金控</fh:governanceLevel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/holding#holds">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:domain rdf:resource="https://example.org/ontology/holding#Customer" />
+    <rdfs:label xml:lang="zh-TW">持有金融商品</rdfs:label>
+    <rdfs:range rdf:resource="https://example.org/ontology/holding#FinancialProduct" />
+    <skos:definition xml:lang="zh-TW">表達客戶持有金融商品的關係；具體持有認定、基數與時間範圍尚待後續確認。</skos:definition>
+    <fh:governanceLevel>金控</fh:governanceLevel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/holding#subsidiary">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty" />
+    <rdfs:label xml:lang="zh-TW">所屬子公司</rdfs:label>
+    <skos:definition xml:lang="zh-TW">標示類別或屬性定義的子公司治理歸屬；不適用時省略。</skos:definition>
+    <fh:governanceLevel>金控</fh:governanceLevel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/life#AddressContactInformation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+    <rdfs:label xml:lang="zh-TW">人壽地址通聯資訊</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/ontology/holding#ContactInformation" />
+    <skos:definition xml:lang="zh-TW">由人壽整理及提供、與客戶相關的地址通聯資訊，承接該公司系統建立的權威通聯資料。</skos:definition>
+    <fh:governanceLevel>子公司</fh:governanceLevel>
+    <fh:subsidiary>人壽</fh:subsidiary>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/life#MobileContactInformation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+    <rdfs:label xml:lang="zh-TW">人壽手機通聯資訊</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/ontology/holding#ContactInformation" />
+    <skos:definition xml:lang="zh-TW">由人壽整理及提供、與客戶相關的手機通聯資訊，承接該公司系統建立的權威通聯資料。</skos:definition>
+    <fh:governanceLevel>子公司</fh:governanceLevel>
+    <fh:subsidiary>人壽</fh:subsidiary>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/life#addressLine">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:domain rdf:resource="https://example.org/ontology/life#AddressContactInformation" />
+    <rdfs:label xml:lang="zh-TW">街道門牌地址</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+    <skos:definition xml:lang="zh-TW">縣市與鄉鎮市區以外的詳細地址內容，可包含路、街、段、巷、弄、號、樓層與室等。</skos:definition>
+    <fh:governanceLevel>子公司</fh:governanceLevel>
+    <fh:subsidiary>人壽</fh:subsidiary>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/life#city">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:domain rdf:resource="https://example.org/ontology/life#AddressContactInformation" />
+    <rdfs:label xml:lang="zh-TW">縣市</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+    <skos:definition xml:lang="zh-TW">該筆地址的縣市，例如臺北市或新竹縣；國際地址的行政層級對應尚待確認。</skos:definition>
+    <fh:governanceLevel>子公司</fh:governanceLevel>
+    <fh:subsidiary>人壽</fh:subsidiary>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/life#countryCode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:domain rdf:resource="https://example.org/ontology/life#AddressContactInformation" />
+    <rdfs:label xml:lang="zh-TW">國家／地區代碼</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+    <skos:definition xml:lang="zh-TW">該筆地址所屬國家或地區的代碼；代碼標準尚待確認。</skos:definition>
+    <fh:governanceLevel>子公司</fh:governanceLevel>
+    <fh:subsidiary>人壽</fh:subsidiary>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/life#district">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:domain rdf:resource="https://example.org/ontology/life#AddressContactInformation" />
+    <rdfs:label xml:lang="zh-TW">鄉鎮市區</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+    <skos:definition xml:lang="zh-TW">該筆地址的鄉鎮市區，例如大安區或竹北市。</skos:definition>
+    <fh:governanceLevel>子公司</fh:governanceLevel>
+    <fh:subsidiary>人壽</fh:subsidiary>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/life#fullAddress">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:domain rdf:resource="https://example.org/ontology/life#AddressContactInformation" />
+    <rdfs:label xml:lang="zh-TW">完整地址</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+    <skos:definition xml:lang="zh-TW">子公司提供的完整地址文字；本版未規定其由拆分欄位自動組合或互相同步。</skos:definition>
+    <fh:governanceLevel>子公司</fh:governanceLevel>
+    <fh:subsidiary>人壽</fh:subsidiary>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/life#mobileNumber">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:domain rdf:resource="https://example.org/ontology/life#MobileContactInformation" />
+    <rdfs:label xml:lang="zh-TW">手機號碼</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+    <skos:definition xml:lang="zh-TW">該筆手機通聯紀錄的號碼字串，依來源保留國碼、前導零與其他必要字元；標準化格式尚未核定。</skos:definition>
+    <fh:governanceLevel>子公司</fh:governanceLevel>
+    <fh:subsidiary>人壽</fh:subsidiary>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/life#postalCode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:domain rdf:resource="https://example.org/ontology/life#AddressContactInformation" />
+    <rdfs:label xml:lang="zh-TW">郵遞區號</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+    <skos:definition xml:lang="zh-TW">該筆地址的郵遞區號字串，保留前導零及必要字元；格式尚未限制。</skos:definition>
+    <fh:governanceLevel>子公司</fh:governanceLevel>
+    <fh:subsidiary>人壽</fh:subsidiary>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/securities#AddressContactInformation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+    <rdfs:label xml:lang="zh-TW">證券地址通聯資訊</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/ontology/holding#ContactInformation" />
+    <skos:definition xml:lang="zh-TW">由證券整理及提供、與客戶相關的地址通聯資訊，承接該公司系統建立的權威通聯資料。</skos:definition>
+    <fh:governanceLevel>子公司</fh:governanceLevel>
+    <fh:subsidiary>證券</fh:subsidiary>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/securities#MobileContactInformation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+    <rdfs:label xml:lang="zh-TW">證券手機通聯資訊</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/ontology/holding#ContactInformation" />
+    <skos:definition xml:lang="zh-TW">由證券整理及提供、與客戶相關的手機通聯資訊，承接該公司系統建立的權威通聯資料。</skos:definition>
+    <fh:governanceLevel>子公司</fh:governanceLevel>
+    <fh:subsidiary>證券</fh:subsidiary>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/securities#addressLine">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:domain rdf:resource="https://example.org/ontology/securities#AddressContactInformation" />
+    <rdfs:label xml:lang="zh-TW">街道門牌地址</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+    <skos:definition xml:lang="zh-TW">縣市與鄉鎮市區以外的詳細地址內容，可包含路、街、段、巷、弄、號、樓層與室等。</skos:definition>
+    <fh:governanceLevel>子公司</fh:governanceLevel>
+    <fh:subsidiary>證券</fh:subsidiary>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/securities#city">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:domain rdf:resource="https://example.org/ontology/securities#AddressContactInformation" />
+    <rdfs:label xml:lang="zh-TW">縣市</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+    <skos:definition xml:lang="zh-TW">該筆地址的縣市，例如臺北市或新竹縣；國際地址的行政層級對應尚待確認。</skos:definition>
+    <fh:governanceLevel>子公司</fh:governanceLevel>
+    <fh:subsidiary>證券</fh:subsidiary>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/securities#countryCode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:domain rdf:resource="https://example.org/ontology/securities#AddressContactInformation" />
+    <rdfs:label xml:lang="zh-TW">國家／地區代碼</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+    <skos:definition xml:lang="zh-TW">該筆地址所屬國家或地區的代碼；代碼標準尚待確認。</skos:definition>
+    <fh:governanceLevel>子公司</fh:governanceLevel>
+    <fh:subsidiary>證券</fh:subsidiary>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/securities#district">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:domain rdf:resource="https://example.org/ontology/securities#AddressContactInformation" />
+    <rdfs:label xml:lang="zh-TW">鄉鎮市區</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+    <skos:definition xml:lang="zh-TW">該筆地址的鄉鎮市區，例如大安區或竹北市。</skos:definition>
+    <fh:governanceLevel>子公司</fh:governanceLevel>
+    <fh:subsidiary>證券</fh:subsidiary>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/securities#fullAddress">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:domain rdf:resource="https://example.org/ontology/securities#AddressContactInformation" />
+    <rdfs:label xml:lang="zh-TW">完整地址</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+    <skos:definition xml:lang="zh-TW">子公司提供的完整地址文字；本版未規定其由拆分欄位自動組合或互相同步。</skos:definition>
+    <fh:governanceLevel>子公司</fh:governanceLevel>
+    <fh:subsidiary>證券</fh:subsidiary>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/securities#mobileNumber">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:domain rdf:resource="https://example.org/ontology/securities#MobileContactInformation" />
+    <rdfs:label xml:lang="zh-TW">手機號碼</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+    <skos:definition xml:lang="zh-TW">該筆手機通聯紀錄的號碼字串，依來源保留國碼、前導零與其他必要字元；標準化格式尚未核定。</skos:definition>
+    <fh:governanceLevel>子公司</fh:governanceLevel>
+    <fh:subsidiary>證券</fh:subsidiary>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/ontology/securities#postalCode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:domain rdf:resource="https://example.org/ontology/securities#AddressContactInformation" />
+    <rdfs:label xml:lang="zh-TW">郵遞區號</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+    <skos:definition xml:lang="zh-TW">該筆地址的郵遞區號字串，保留前導零及必要字元；格式尚未限制。</skos:definition>
+    <fh:governanceLevel>子公司</fh:governanceLevel>
+    <fh:subsidiary>證券</fh:subsidiary>
+  </rdf:Description>
+</rdf:RDF>

@@ -1,0 +1,1658 @@
+{
+  "schema_version": "1.0.0",
+  "ontology_version": "0.13.0",
+  "status": "active",
+  "scope": "metadata_only",
+  "inference": false,
+  "instance_mapping": false,
+  "access_policy_status": "deferred_by_user",
+  "field_definitions": {
+    "customerId": {
+      "name": "客戶識別",
+      "definition": "AUM 所衡量客戶的來源識別欄位。",
+      "data_type_hint": "string",
+      "property_uri": null,
+      "entity_class_uri": "https://example.org/ontology/holding#Customer"
+    },
+    "productId": {
+      "name": "商品識別",
+      "definition": "AUM 所對應金融商品的來源識別欄位。",
+      "data_type_hint": "string",
+      "property_uri": null,
+      "entity_class_uri": "https://example.org/ontology/holding#FinancialProduct"
+    },
+    "amount": {
+      "name": "AUM 金額",
+      "definition": "依指定快照日與核定管理、認列及估值口徑形成的資產規模金額。",
+      "data_type_hint": "decimal",
+      "property_uri": "https://example.org/ontology/holding#metricAmount",
+      "entity_class_uri": null
+    },
+    "currency": {
+      "name": "金額幣別",
+      "definition": "AUM 金額的計價或報表幣別。",
+      "data_type_hint": "string",
+      "property_uri": null,
+      "entity_class_uri": null
+    },
+    "snapshotDate": {
+      "name": "快照日期",
+      "definition": "AUM 所衡量的資產規模之資料基準日期。",
+      "data_type_hint": null,
+      "property_uri": null,
+      "entity_class_uri": null
+    },
+    "aumAsOfDate": {
+      "name": "AUM 基準日",
+      "definition": "AUM 所衡量資產規模對應的日期；具體選日規則由子公司或部門描述。",
+      "data_type_hint": "date",
+      "property_uri": "https://example.org/ontology/holding#aumAsOfDate",
+      "entity_class_uri": null
+    },
+    "valuationQuantity": {
+      "name": "估值數量",
+      "definition": "適用 AUM 估值情境中作為計算輸入的數量，例如股數、單位數或面額；具體數量單位由子公司或部門描述。",
+      "data_type_hint": "decimal",
+      "property_uri": "https://example.org/ontology/holding#valuationQuantity",
+      "entity_class_uri": null
+    },
+    "valuationUnitPrice": {
+      "name": "估值單價",
+      "definition": "適用 AUM 估值情境中作為計算輸入的價格或淨值；具體報價基準由子公司或部門描述。",
+      "data_type_hint": "decimal",
+      "property_uri": "https://example.org/ontology/holding#valuationUnitPrice",
+      "entity_class_uri": null
+    }
+  },
+  "execution": {
+    "sql": null,
+    "join_rules": null,
+    "filter_rules": null,
+    "aggregation_rules": null,
+    "row_grain": null,
+    "valuation_rules": null,
+    "deduplication_rules": null,
+    "snapshot_selection": null,
+    "currency_conversion": null
+  },
+  "evidence": {
+    "sql_nt_current": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "lines": [
+        59,
+        74
+      ]
+    },
+    "sql_fn_current": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "lines": [
+        75,
+        89
+      ]
+    },
+    "sql_nt_history": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "lines": [
+        91,
+        106
+      ]
+    },
+    "sql_fn_history": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "lines": [
+        108,
+        123
+      ]
+    },
+    "sql_employee": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "lines": [
+        125,
+        136
+      ]
+    },
+    "sql_union": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "lines": [
+        140,
+        182
+      ]
+    },
+    "income_nt": {
+      "file": "Ontology/私銀智能問答/sources/metadata/收入_metadata.xlsx",
+      "sheet": "DSDEP.DEP_NT_ACCT_HS",
+      "rows": [
+        12,
+        20,
+        22,
+        39,
+        78
+      ]
+    },
+    "income_employee": {
+      "file": "Ontology/私銀智能問答/sources/metadata/收入_metadata.xlsx",
+      "sheet": "DSDEP.EMP_DEP_NT_ACCT_HS",
+      "rows": [
+        12,
+        20,
+        22,
+        39,
+        77
+      ]
+    },
+    "aum_employee_naming": {
+      "file": "Ontology/私銀智能問答/sources/metadata/AUM_metadata.xlsx",
+      "sheet": "DSDEP.EMP_NT_ACCT_HS",
+      "rows": [
+        12,
+        20,
+        22,
+        39,
+        77
+      ]
+    },
+    "sql_advisor": {
+      "file": "Ontology/私銀智能問答/sources/sql/2._AUM_SUMY.~sql",
+      "lines": [
+        198,
+        217
+      ]
+    },
+    "sql_advisor_identity": {
+      "file": "Ontology/私銀智能問答/sources/sql/0_PB_CUST_DEATAIL.sql",
+      "lines": [
+        102,
+        110
+      ]
+    },
+    "sql_bank_investment_aum": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "lines": [
+        211,
+        230
+      ],
+      "encoding": "cp950"
+    },
+    "sql_bank_bond_proprietary_aum": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "lines": [
+        232,
+        251
+      ],
+      "encoding": "cp950"
+    }
+  },
+  "sources": [
+    {
+      "table": "DSDEP.DEP_NT_ACCT",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sql_nt_current"
+      ]
+    },
+    {
+      "table": "DSDEP.DEP_NT_ACCT_HS",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sql_nt_history",
+        "income_nt"
+      ]
+    },
+    {
+      "table": "DSDEP.DEP_FN_ACCT",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sql_fn_current"
+      ]
+    },
+    {
+      "table": "DSDEP.DEP_FN_ACCT_HS",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sql_fn_history"
+      ]
+    },
+    {
+      "table": "DSDEP.EMP_DEP_NT_ACCT_HS",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sql_employee",
+        "income_employee"
+      ]
+    },
+    {
+      "table": "DSFND.PB_FUND_MONTH",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sql_bank_investment_aum"
+      ]
+    },
+    {
+      "table": "DSWTR.BOND_POS_DAY",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sql_bank_bond_proprietary_aum"
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "id": "bank.twd_deposit_aum",
+      "name": "台幣存款 AUM",
+      "definition": "台幣存款 AUM所描述的客戶資產規模指標。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/bank#BankAUM",
+      "specific_product_class_uri": null,
+      "product_class_uris": [
+        "https://example.org/ontology/bank#DepositProduct",
+        "https://example.org/ontology/bank#TWDFinancialProduct"
+      ],
+      "basis_concept": "bank.twd_deposit",
+      "fields": [
+        {
+          "field": "customerId",
+          "status": "observed_raw_candidate",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSDEP.DEP_NT_ACCT",
+              "column": "CUST_ID",
+              "meaning": "來源客戶識別",
+              "evidence": [
+                "sql_nt_current"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_NT_ACCT_HS",
+              "column": "CUST_ID",
+              "meaning": "來源客戶識別",
+              "evidence": [
+                "sql_nt_history",
+                "income_nt"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "productId",
+          "status": "pending_product_identity",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "amount",
+          "status": "pending_aum_recognition",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSDEP.DEP_NT_ACCT",
+              "column": "BAL_AMT",
+              "meaning": "原始餘額，非 SUM 結果",
+              "evidence": [
+                "sql_nt_current"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_NT_ACCT_HS",
+              "column": "BAL_AMT",
+              "meaning": "原始餘額，非 SUM 結果",
+              "evidence": [
+                "sql_nt_history",
+                "income_nt"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "currency",
+          "status": "pending_currency",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending_time_semantics",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSDEP.DEP_NT_ACCT",
+              "column": "DATA_DT",
+              "meaning": "current SQL 使用；快照口徑待確認",
+              "evidence": [
+                "sql_nt_current"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_NT_ACCT_HS",
+              "column": "LST_MTN_DT",
+              "meaning": "history SQL 使用；metadata row 39 未定義",
+              "evidence": [
+                "sql_nt_history",
+                "income_nt"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_NT_ACCT_HS",
+              "column": "DATA_DT",
+              "meaning": "資料日期；metadata row 22",
+              "evidence": [
+                "income_nt"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_NT_ACCT_HS",
+              "column": "YYYYMM",
+              "meaning": "Snapshot年月；metadata row 78，不補為某日",
+              "evidence": [
+                "income_nt"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "aumAsOfDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "valuationQuantity",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "valuationUnitPrice",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "沿用已盤點存款來源候選，不承諾完整業務覆蓋；原始餘額與正式 AUM 的認列仍待確認。",
+        "classification_evidence": [
+          {
+            "table": "DSDEP.DEP_NT_ACCT",
+            "column": "ACT_CD",
+            "codes": [
+              "2311",
+              "2321",
+              "2322",
+              "2331",
+              "2332",
+              "2333",
+              "2335",
+              "2336"
+            ],
+            "status": "evidence_only",
+            "evidence": [
+              "sql_nt_current"
+            ]
+          },
+          {
+            "table": "DSDEP.DEP_NT_ACCT_HS",
+            "column": "ACT_CD",
+            "codes": [
+              "2311",
+              "2321",
+              "2322",
+              "2331",
+              "2332",
+              "2333",
+              "2335",
+              "2336"
+            ],
+            "status": "evidence_only",
+            "evidence": [
+              "sql_nt_history"
+            ]
+          }
+        ],
+        "valuation_observation": "既有 SQL 依來源日期、客戶、PCC、分類碼彙總原始 BAL_AMT／AVAIL_BAL。",
+        "date_observation": "DATA_DT、LST_MTN_DT 或 YYYYMM 的適用語意仍待確認，未選定快照日。",
+        "gaps": [
+          "原始餘額不直接等同核定 AUM。",
+          "來源幣別、去重、跨表識別與聚合未定案。",
+          "分類碼及歷史時間門檻只作來源觀察，不自動轉成新版篩選規則。",
+          "台幣／外幣／結構型分類可能重疊，銀行 AUM 不自動將本清單相加。"
+        ],
+        "evidence": [
+          "sql_nt_current",
+          "sql_nt_history"
+        ]
+      },
+      "table_sources": {
+        "status": "observed_in_files",
+        "coverage": "此 AUM／手收指標在既有 SQL 與 metadata 中的表級來源觀察；欄位映射、選日及執行規則未指定。",
+        "tables": [
+          {
+            "table": "DSDEP.DEP_NT_ACCT",
+            "role": "primary",
+            "evidence": [
+              "sql_nt_current"
+            ]
+          },
+          {
+            "table": "DSDEP.DEP_NT_ACCT_HS",
+            "role": "primary",
+            "evidence": [
+              "income_nt",
+              "sql_nt_history"
+            ]
+          }
+        ],
+        "unresolved_supporting_relations": []
+      }
+    },
+    {
+      "id": "bank.foreign_currency_deposit_aum",
+      "name": "外幣存款 AUM",
+      "definition": "外幣存款 AUM所描述的客戶資產規模指標。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/bank#BankAUM",
+      "specific_product_class_uri": null,
+      "product_class_uris": [
+        "https://example.org/ontology/bank#DepositProduct",
+        "https://example.org/ontology/bank#ForeignCurrencyFinancialProduct"
+      ],
+      "basis_concept": "bank.foreign_currency_deposit",
+      "fields": [
+        {
+          "field": "customerId",
+          "status": "observed_raw_candidate",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSDEP.DEP_FN_ACCT",
+              "column": "CUST_ID",
+              "meaning": "來源客戶識別",
+              "evidence": [
+                "sql_fn_current"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_FN_ACCT_HS",
+              "column": "CUST_ID",
+              "meaning": "來源客戶識別",
+              "evidence": [
+                "sql_fn_history"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "productId",
+          "status": "pending_product_identity",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "amount",
+          "status": "pending_aum_recognition",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSDEP.DEP_FN_ACCT",
+              "column": "AVAIL_BAL",
+              "meaning": "原始餘額，非 SUM 結果",
+              "evidence": [
+                "sql_fn_current"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_FN_ACCT_HS",
+              "column": "AVAIL_BAL",
+              "meaning": "原始餘額，非 SUM 結果",
+              "evidence": [
+                "sql_fn_history"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "currency",
+          "status": "pending_currency",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending_time_semantics",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSDEP.DEP_FN_ACCT",
+              "column": "LST_MTN_DT",
+              "meaning": "current SQL 使用；業務日期定義待確認",
+              "evidence": [
+                "sql_fn_current"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_FN_ACCT_HS",
+              "column": "LST_MTN_DT",
+              "meaning": "history SQL 使用；業務日期定義待確認",
+              "evidence": [
+                "sql_fn_history"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "aumAsOfDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "valuationQuantity",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "valuationUnitPrice",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "沿用已盤點存款來源候選，不承諾完整業務覆蓋；原始餘額與正式 AUM 的認列仍待確認。",
+        "classification_evidence": [
+          {
+            "table": "DSDEP.DEP_FN_ACCT",
+            "column": "ACC_CD",
+            "codes": [
+              "2317",
+              "2327"
+            ],
+            "status": "evidence_only",
+            "evidence": [
+              "sql_fn_current"
+            ]
+          },
+          {
+            "table": "DSDEP.DEP_FN_ACCT_HS",
+            "column": "ACC_CD",
+            "codes": [
+              "2317",
+              "2327"
+            ],
+            "status": "evidence_only",
+            "evidence": [
+              "sql_fn_history"
+            ]
+          }
+        ],
+        "valuation_observation": "既有 SQL 依來源日期、客戶、PCC、分類碼彙總原始 BAL_AMT／AVAIL_BAL。",
+        "date_observation": "DATA_DT、LST_MTN_DT 或 YYYYMM 的適用語意仍待確認，未選定快照日。",
+        "gaps": [
+          "原始餘額不直接等同核定 AUM。",
+          "來源幣別、去重、跨表識別與聚合未定案。",
+          "分類碼及歷史時間門檻只作來源觀察，不自動轉成新版篩選規則。",
+          "台幣／外幣／結構型分類可能重疊，銀行 AUM 不自動將本清單相加。"
+        ],
+        "evidence": [
+          "sql_fn_current",
+          "sql_fn_history"
+        ]
+      },
+      "table_sources": {
+        "status": "observed_in_files",
+        "coverage": "此 AUM／手收指標在既有 SQL 與 metadata 中的表級來源觀察；欄位映射、選日及執行規則未指定。",
+        "tables": [
+          {
+            "table": "DSDEP.DEP_FN_ACCT",
+            "role": "primary",
+            "evidence": [
+              "sql_fn_current"
+            ]
+          },
+          {
+            "table": "DSDEP.DEP_FN_ACCT_HS",
+            "role": "primary",
+            "evidence": [
+              "sql_fn_history"
+            ]
+          }
+        ],
+        "unresolved_supporting_relations": []
+      }
+    },
+    {
+      "id": "bank.structured_deposit_aum",
+      "name": "結構型存款 AUM",
+      "definition": "結構型存款 AUM所描述的客戶資產規模指標。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/bank#BankAUM",
+      "specific_product_class_uri": null,
+      "product_class_uris": [
+        "https://example.org/ontology/bank#DepositProduct",
+        "https://example.org/ontology/bank#StructuredFinancialProduct"
+      ],
+      "basis_concept": "bank.structured_deposit",
+      "fields": [
+        {
+          "field": "customerId",
+          "status": "observed_raw_candidate",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSDEP.DEP_NT_ACCT",
+              "column": "CUST_ID",
+              "meaning": "來源客戶識別",
+              "evidence": [
+                "sql_nt_current"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_NT_ACCT_HS",
+              "column": "CUST_ID",
+              "meaning": "來源客戶識別",
+              "evidence": [
+                "sql_nt_history",
+                "income_nt"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_FN_ACCT",
+              "column": "CUST_ID",
+              "meaning": "來源客戶識別",
+              "evidence": [
+                "sql_fn_current"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_FN_ACCT_HS",
+              "column": "CUST_ID",
+              "meaning": "來源客戶識別",
+              "evidence": [
+                "sql_fn_history"
+              ]
+            },
+            {
+              "table": "DSDEP.EMP_DEP_NT_ACCT_HS",
+              "column": "CUST_ID",
+              "meaning": "來源客戶識別",
+              "evidence": [
+                "sql_employee",
+                "income_employee"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "productId",
+          "status": "pending_product_identity",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "amount",
+          "status": "pending_aum_recognition",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSDEP.DEP_NT_ACCT",
+              "column": "BAL_AMT",
+              "meaning": "原始餘額，非 SUM 結果",
+              "evidence": [
+                "sql_nt_current"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_NT_ACCT_HS",
+              "column": "BAL_AMT",
+              "meaning": "原始餘額，非 SUM 結果",
+              "evidence": [
+                "sql_nt_history",
+                "income_nt"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_FN_ACCT",
+              "column": "AVAIL_BAL",
+              "meaning": "原始餘額，非 SUM 結果",
+              "evidence": [
+                "sql_fn_current"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_FN_ACCT_HS",
+              "column": "AVAIL_BAL",
+              "meaning": "原始餘額，非 SUM 結果",
+              "evidence": [
+                "sql_fn_history"
+              ]
+            },
+            {
+              "table": "DSDEP.EMP_DEP_NT_ACCT_HS",
+              "column": "BAL_AMT",
+              "meaning": "原始餘額，非 SUM 結果",
+              "evidence": [
+                "sql_employee",
+                "income_employee"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "currency",
+          "status": "pending_currency",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending_time_semantics",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSDEP.DEP_NT_ACCT",
+              "column": "DATA_DT",
+              "meaning": "current SQL 使用；快照口徑待確認",
+              "evidence": [
+                "sql_nt_current"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_NT_ACCT_HS",
+              "column": "LST_MTN_DT",
+              "meaning": "history SQL 使用；metadata row 39 未定義",
+              "evidence": [
+                "sql_nt_history",
+                "income_nt"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_NT_ACCT_HS",
+              "column": "DATA_DT",
+              "meaning": "資料日期；metadata row 22",
+              "evidence": [
+                "income_nt"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_NT_ACCT_HS",
+              "column": "YYYYMM",
+              "meaning": "Snapshot年月；metadata row 78，不補為某日",
+              "evidence": [
+                "income_nt"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_FN_ACCT",
+              "column": "LST_MTN_DT",
+              "meaning": "current SQL 使用；業務日期定義待確認",
+              "evidence": [
+                "sql_fn_current"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_FN_ACCT_HS",
+              "column": "LST_MTN_DT",
+              "meaning": "history SQL 使用；業務日期定義待確認",
+              "evidence": [
+                "sql_fn_history"
+              ]
+            },
+            {
+              "table": "DSDEP.EMP_DEP_NT_ACCT_HS",
+              "column": "LST_MTN_DT",
+              "meaning": "employee SQL 使用；metadata row 39 未定義",
+              "evidence": [
+                "sql_employee",
+                "income_employee"
+              ]
+            },
+            {
+              "table": "DSDEP.EMP_DEP_NT_ACCT_HS",
+              "column": "DATA_DT",
+              "meaning": "資料日期；metadata row 22",
+              "evidence": [
+                "income_employee"
+              ]
+            },
+            {
+              "table": "DSDEP.EMP_DEP_NT_ACCT_HS",
+              "column": "YYYYMM",
+              "meaning": "Snapshot年月；metadata row 77，不補為某日",
+              "evidence": [
+                "income_employee"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "aumAsOfDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "valuationQuantity",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "valuationUnitPrice",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "沿用已盤點存款來源候選，不承諾完整業務覆蓋；原始餘額與正式 AUM 的認列仍待確認。",
+        "classification_evidence": [
+          {
+            "table": "DSDEP.DEP_NT_ACCT",
+            "column": "ACT_CD",
+            "codes": [
+              "2545"
+            ],
+            "status": "evidence_only",
+            "evidence": [
+              "sql_nt_current"
+            ]
+          },
+          {
+            "table": "DSDEP.DEP_NT_ACCT_HS",
+            "column": "ACT_CD",
+            "codes": [
+              "2545"
+            ],
+            "status": "evidence_only",
+            "evidence": [
+              "sql_nt_history"
+            ]
+          },
+          {
+            "table": "DSDEP.DEP_FN_ACCT",
+            "column": "ACC_CD",
+            "codes": [
+              "2545"
+            ],
+            "status": "evidence_only",
+            "evidence": [
+              "sql_fn_current"
+            ]
+          },
+          {
+            "table": "DSDEP.DEP_FN_ACCT_HS",
+            "column": "ACC_CD",
+            "codes": [
+              "2545"
+            ],
+            "status": "evidence_only",
+            "evidence": [
+              "sql_fn_history"
+            ]
+          },
+          {
+            "table": "DSDEP.EMP_DEP_NT_ACCT_HS",
+            "column": "ACT_CD",
+            "codes": [
+              "2545"
+            ],
+            "status": "evidence_only",
+            "evidence": [
+              "sql_employee"
+            ]
+          }
+        ],
+        "valuation_observation": "既有 SQL 依來源日期、客戶、PCC、分類碼彙總原始 BAL_AMT／AVAIL_BAL。",
+        "date_observation": "DATA_DT、LST_MTN_DT 或 YYYYMM 的適用語意仍待確認，未選定快照日。",
+        "gaps": [
+          "原始餘額不直接等同核定 AUM。",
+          "來源幣別、去重、跨表識別與聚合未定案。",
+          "分類碼及歷史時間門檻只作來源觀察，不自動轉成新版篩選規則。",
+          "台幣／外幣／結構型分類可能重疊，銀行 AUM 不自動將本清單相加。"
+        ],
+        "evidence": [
+          "sql_employee",
+          "sql_fn_current",
+          "sql_fn_history",
+          "sql_nt_current",
+          "sql_nt_history"
+        ]
+      },
+      "table_sources": {
+        "status": "observed_in_files",
+        "coverage": "此 AUM／手收指標在既有 SQL 與 metadata 中的表級來源觀察；欄位映射、選日及執行規則未指定。",
+        "tables": [
+          {
+            "table": "DSDEP.DEP_FN_ACCT",
+            "role": "primary",
+            "evidence": [
+              "sql_fn_current"
+            ]
+          },
+          {
+            "table": "DSDEP.DEP_FN_ACCT_HS",
+            "role": "primary",
+            "evidence": [
+              "sql_fn_history"
+            ]
+          },
+          {
+            "table": "DSDEP.DEP_NT_ACCT",
+            "role": "primary",
+            "evidence": [
+              "sql_nt_current"
+            ]
+          },
+          {
+            "table": "DSDEP.DEP_NT_ACCT_HS",
+            "role": "primary",
+            "evidence": [
+              "income_nt",
+              "sql_nt_history"
+            ]
+          },
+          {
+            "table": "DSDEP.EMP_DEP_NT_ACCT_HS",
+            "role": "primary",
+            "evidence": [
+              "income_employee",
+              "sql_employee"
+            ]
+          }
+        ],
+        "unresolved_supporting_relations": []
+      }
+    },
+    {
+      "id": "bank.overseas_stock_aum",
+      "name": "海外股票 AUM",
+      "definition": "海外股票 AUM所描述的客戶資產規模指標。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/bank#BankAUM",
+      "specific_product_class_uri": null,
+      "product_class_uris": [
+        "https://example.org/ontology/bank#StockProduct",
+        "https://example.org/ontology/bank#OverseasFinancialProduct"
+      ],
+      "basis_concept": null,
+      "fields": [
+        {
+          "field": "customerId",
+          "status": "observed_raw_candidate",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSFND.PB_FUND_MONTH",
+              "column": "IDNO",
+              "meaning": "SQL 客戶識別欄位。",
+              "evidence": [
+                "sql_bank_investment_aum"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "productId",
+          "status": "pending_product_identity",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "amount",
+          "status": "pending_aum_recognition",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSFND.PB_FUND_MONTH",
+              "column": "CurrentTWDValue",
+              "meaning": "SQL 投資 AUM 加總欄位，正式估值與認列待確認。",
+              "evidence": [
+                "sql_bank_investment_aum"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "currency",
+          "status": "pending_currency",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending_time_semantics",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSFND.PB_FUND_MONTH",
+              "column": "EXEDATE",
+              "meaning": "SQL 使用日期候選，尚未核定統一快照日。",
+              "evidence": [
+                "sql_bank_investment_aum"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "aumAsOfDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "valuationQuantity",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "valuationUnitPrice",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "僅依既有銀行投資 AUM 分支建立來源候選。",
+        "sql_output": "AUM_013_015_015_016_017_018",
+        "sql_group_by": [
+          "IDNO",
+          "TO_CHAR(EXEDATE,'YYYYMMDD')",
+          "PCCCODE",
+          "normalized TRUSTPRD"
+        ],
+        "valuation_observation": "SUM(CurrentTWDValue)",
+        "classification_evidence": [
+          {
+            "table": "DSFND.PB_FUND_MONTH",
+            "column": "TRUSTPRD",
+            "values": [
+              "其他-國外有價證券",
+              "其他-國外股票",
+              "股票"
+            ],
+            "mapped_label": "海外股票",
+            "status": "evidence_only",
+            "evidence": [
+              "sql_bank_investment_aum"
+            ]
+          }
+        ],
+        "date_observation": "SQL 將 EXEDATE 轉成 YYYYMMDD；來源日期業務定義與統一快照口徑尚未選定。",
+        "gaps": [
+          "CurrentTWDValue 的台幣語意目前僅見欄位名稱與 SQL；未獨立核對 metadata，currency 不填常數。",
+          "TRUSTPRD 是業務分類，不當作單一商品 ID；來源聚合未保留商品識別。",
+          "既有 SQL 的股票分類包含『其他-國外有價證券』，分類範圍需覆核。"
+        ],
+        "evidence": [
+          "sql_bank_investment_aum"
+        ]
+      },
+      "table_sources": {
+        "status": "observed_in_files",
+        "coverage": "此 AUM／手收指標在既有 SQL 與 metadata 中的表級來源觀察；欄位映射、選日及執行規則未指定。",
+        "tables": [
+          {
+            "table": "DSFND.PB_FUND_MONTH",
+            "role": "primary",
+            "evidence": [
+              "sql_bank_investment_aum"
+            ]
+          }
+        ],
+        "unresolved_supporting_relations": []
+      }
+    },
+    {
+      "id": "bank.overseas_bond_trust_aum",
+      "name": "海外債券（信託）AUM",
+      "definition": "海外債券（信託）AUM所描述的客戶資產規模指標。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/bank#BankAUM",
+      "specific_product_class_uri": null,
+      "product_class_uris": [
+        "https://example.org/ontology/bank#BondProduct",
+        "https://example.org/ontology/bank#OverseasFinancialProduct"
+      ],
+      "basis_concept": null,
+      "fields": [
+        {
+          "field": "customerId",
+          "status": "observed_raw_candidate",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSFND.PB_FUND_MONTH",
+              "column": "IDNO",
+              "meaning": "SQL 客戶識別欄位。",
+              "evidence": [
+                "sql_bank_investment_aum"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "productId",
+          "status": "pending_product_identity",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "amount",
+          "status": "pending_aum_recognition",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSFND.PB_FUND_MONTH",
+              "column": "CurrentTWDValue",
+              "meaning": "SQL 投資 AUM 加總欄位，正式估值與認列待確認。",
+              "evidence": [
+                "sql_bank_investment_aum"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "currency",
+          "status": "pending_currency",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending_time_semantics",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSFND.PB_FUND_MONTH",
+              "column": "EXEDATE",
+              "meaning": "SQL 使用日期候選，尚未核定統一快照日。",
+              "evidence": [
+                "sql_bank_investment_aum"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "aumAsOfDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "valuationQuantity",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "valuationUnitPrice",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "僅依既有銀行投資 AUM 分支建立來源候選。",
+        "sql_output": "AUM_013_015_015_016_017_018",
+        "sql_group_by": [
+          "IDNO",
+          "TO_CHAR(EXEDATE,'YYYYMMDD')",
+          "PCCCODE",
+          "normalized TRUSTPRD"
+        ],
+        "valuation_observation": "SUM(CurrentTWDValue)",
+        "classification_evidence": [
+          {
+            "table": "DSFND.PB_FUND_MONTH",
+            "column": "TRUSTPRD",
+            "values": [
+              "海外債券"
+            ],
+            "mapped_label": "海外債券(信託)",
+            "status": "evidence_only",
+            "evidence": [
+              "sql_bank_investment_aum"
+            ]
+          }
+        ],
+        "date_observation": "SQL 將 EXEDATE 轉成 YYYYMMDD；來源日期業務定義與統一快照口徑尚未選定。",
+        "gaps": [
+          "CurrentTWDValue 的台幣語意目前僅見欄位名稱與 SQL；未獨立核對 metadata，currency 不填常數。",
+          "TRUSTPRD 是業務分類，不當作單一商品 ID；來源聚合未保留商品識別。",
+          "業務通路與商品細分類只保留為部門情境，不新增組合 OWL Class。"
+        ],
+        "evidence": [
+          "sql_bank_investment_aum"
+        ]
+      },
+      "table_sources": {
+        "status": "observed_in_files",
+        "coverage": "此 AUM／手收指標在既有 SQL 與 metadata 中的表級來源觀察；欄位映射、選日及執行規則未指定。",
+        "tables": [
+          {
+            "table": "DSFND.PB_FUND_MONTH",
+            "role": "primary",
+            "evidence": [
+              "sql_bank_investment_aum"
+            ]
+          }
+        ],
+        "unresolved_supporting_relations": []
+      }
+    },
+    {
+      "id": "bank.offshore_structured_aum",
+      "name": "境外結構型商品 AUM",
+      "definition": "境外結構型商品 AUM所描述的客戶資產規模指標。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/bank#BankAUM",
+      "specific_product_class_uri": null,
+      "product_class_uris": [
+        "https://example.org/ontology/bank#StructuredFinancialProduct",
+        "https://example.org/ontology/bank#OverseasFinancialProduct"
+      ],
+      "basis_concept": null,
+      "fields": [
+        {
+          "field": "customerId",
+          "status": "observed_raw_candidate",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSFND.PB_FUND_MONTH",
+              "column": "IDNO",
+              "meaning": "SQL 客戶識別欄位。",
+              "evidence": [
+                "sql_bank_investment_aum"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "productId",
+          "status": "pending_product_identity",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "amount",
+          "status": "pending_aum_recognition",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSFND.PB_FUND_MONTH",
+              "column": "CurrentTWDValue",
+              "meaning": "SQL 投資 AUM 加總欄位，正式估值與認列待確認。",
+              "evidence": [
+                "sql_bank_investment_aum"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "currency",
+          "status": "pending_currency",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending_time_semantics",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSFND.PB_FUND_MONTH",
+              "column": "EXEDATE",
+              "meaning": "SQL 使用日期候選，尚未核定統一快照日。",
+              "evidence": [
+                "sql_bank_investment_aum"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "aumAsOfDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "valuationQuantity",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "valuationUnitPrice",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "僅依既有銀行投資 AUM 分支建立來源候選。",
+        "sql_output": "AUM_013_015_015_016_017_018",
+        "sql_group_by": [
+          "IDNO",
+          "TO_CHAR(EXEDATE,'YYYYMMDD')",
+          "PCCCODE",
+          "normalized TRUSTPRD"
+        ],
+        "valuation_observation": "SUM(CurrentTWDValue)",
+        "classification_evidence": [
+          {
+            "table": "DSFND.PB_FUND_MONTH",
+            "column": "TRUSTPRD",
+            "values": [
+              "結構型商品"
+            ],
+            "mapped_label": "境外結構型商品",
+            "status": "evidence_only",
+            "evidence": [
+              "sql_bank_investment_aum"
+            ]
+          }
+        ],
+        "date_observation": "SQL 將 EXEDATE 轉成 YYYYMMDD；來源日期業務定義與統一快照口徑尚未選定。",
+        "gaps": [
+          "CurrentTWDValue 的台幣語意目前僅見欄位名稱與 SQL；未獨立核對 metadata，currency 不填常數。",
+          "TRUSTPRD 是業務分類，不當作單一商品 ID；來源聚合未保留商品識別。",
+          "業務通路與商品細分類只保留為部門情境，不新增組合 OWL Class。"
+        ],
+        "evidence": [
+          "sql_bank_investment_aum"
+        ]
+      },
+      "table_sources": {
+        "status": "observed_in_files",
+        "coverage": "此 AUM／手收指標在既有 SQL 與 metadata 中的表級來源觀察；欄位映射、選日及執行規則未指定。",
+        "tables": [
+          {
+            "table": "DSFND.PB_FUND_MONTH",
+            "role": "primary",
+            "evidence": [
+              "sql_bank_investment_aum"
+            ]
+          }
+        ],
+        "unresolved_supporting_relations": []
+      }
+    },
+    {
+      "id": "bank.overseas_bond_proprietary_aum",
+      "name": "海外債券（自營）AUM",
+      "definition": "海外債券（自營）AUM所描述的客戶資產規模指標。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/bank#BankAUM",
+      "specific_product_class_uri": null,
+      "product_class_uris": [
+        "https://example.org/ontology/bank#BondProduct",
+        "https://example.org/ontology/bank#OverseasFinancialProduct"
+      ],
+      "basis_concept": null,
+      "fields": [
+        {
+          "field": "customerId",
+          "status": "observed_raw_candidate",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSWTR.BOND_POS_DAY",
+              "column": "CIF_ID",
+              "meaning": "既有 SQL 的來源識別／日期欄位候選。",
+              "evidence": [
+                "sql_bank_bond_proprietary_aum"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "productId",
+          "status": "pending_product_identity",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "amount",
+          "status": "pending_aum_recognition",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSWTR.BOND_POS_DAY",
+              "column": "STO_AMT",
+              "meaning": "估值公式輸入。",
+              "evidence": [
+                "sql_bank_bond_proprietary_aum"
+              ]
+            },
+            {
+              "table": "DSWTR.BOND_POS_DAY",
+              "column": "MKT_PRI",
+              "meaning": "估值公式輸入。",
+              "evidence": [
+                "sql_bank_bond_proprietary_aum"
+              ]
+            },
+            {
+              "table": "DSWTR.BOND_POS_DAY",
+              "column": "EXC_RATE",
+              "meaning": "估值公式輸入。",
+              "evidence": [
+                "sql_bank_bond_proprietary_aum"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "currency",
+          "status": "pending_currency",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending_time_semantics",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSWTR.BOND_POS_DAY",
+              "column": "DATA_DT",
+              "meaning": "既有 SQL 的來源識別／日期欄位候選。",
+              "evidence": [
+                "sql_bank_bond_proprietary_aum"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "aumAsOfDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "valuationQuantity",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "valuationUnitPrice",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "既有自營平台外國債券 AUM 分支；不與信託分支自動合併。",
+        "sql_output": "AUM_019",
+        "sql_group_by": [
+          "CIF_ID",
+          "DATA_DT"
+        ],
+        "valuation_observation": "SUM(STO_AMT * MKT_PRI / 100 * EXC_RATE)",
+        "sql_filter_observation": "PCC_CODE LIKE '2E%'",
+        "date_observation": "先日彙總，再取全體資料每月最大日期；不是每位客戶各自最後交易日。",
+        "classification_evidence": [],
+        "gaps": [
+          "amount 的三個來源欄位為同一估值公式的輸入，不是可任選的三種金額。",
+          "來源日期、幣別、估值、跨來源去重與統一快照規則仍待核定。",
+          "既有全體每月最大日期只作觀察，不轉成新版預設選日規則。"
+        ],
+        "evidence": [
+          "sql_bank_bond_proprietary_aum"
+        ]
+      },
+      "table_sources": {
+        "status": "observed_in_files",
+        "coverage": "此 AUM／手收指標在既有 SQL 與 metadata 中的表級來源觀察；欄位映射、選日及執行規則未指定。",
+        "tables": [
+          {
+            "table": "DSWTR.BOND_POS_DAY",
+            "role": "primary",
+            "evidence": [
+              "sql_bank_bond_proprietary_aum"
+            ]
+          }
+        ],
+        "unresolved_supporting_relations": []
+      }
+    }
+  ],
+  "relation_definitions": [
+    {
+      "id": "bank.twd_deposit_aum.product",
+      "name": "台幣存款 AUM衡量金融商品",
+      "source_concept": "bank.twd_deposit_aum",
+      "property_uri": "https://example.org/ontology/holding#measuresProduct",
+      "domain_uri": "https://example.org/ontology/holding#AUM",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "bank.foreign_currency_deposit_aum.product",
+      "name": "外幣存款 AUM衡量金融商品",
+      "source_concept": "bank.foreign_currency_deposit_aum",
+      "property_uri": "https://example.org/ontology/holding#measuresProduct",
+      "domain_uri": "https://example.org/ontology/holding#AUM",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "bank.structured_deposit_aum.product",
+      "name": "結構型存款 AUM衡量金融商品",
+      "source_concept": "bank.structured_deposit_aum",
+      "property_uri": "https://example.org/ontology/holding#measuresProduct",
+      "domain_uri": "https://example.org/ontology/holding#AUM",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "bank.overseas_stock_aum.product",
+      "name": "海外股票 AUM衡量金融商品",
+      "source_concept": "bank.overseas_stock_aum",
+      "property_uri": "https://example.org/ontology/holding#measuresProduct",
+      "domain_uri": "https://example.org/ontology/holding#AUM",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "bank.overseas_bond_trust_aum.product",
+      "name": "海外債券（信託）AUM衡量金融商品",
+      "source_concept": "bank.overseas_bond_trust_aum",
+      "property_uri": "https://example.org/ontology/holding#measuresProduct",
+      "domain_uri": "https://example.org/ontology/holding#AUM",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "bank.offshore_structured_aum.product",
+      "name": "境外結構型商品 AUM衡量金融商品",
+      "source_concept": "bank.offshore_structured_aum",
+      "property_uri": "https://example.org/ontology/holding#measuresProduct",
+      "domain_uri": "https://example.org/ontology/holding#AUM",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "bank.overseas_bond_proprietary_aum.product",
+      "name": "海外債券（自營）AUM衡量金融商品",
+      "source_concept": "bank.overseas_bond_proprietary_aum",
+      "property_uri": "https://example.org/ontology/holding#measuresProduct",
+      "domain_uri": "https://example.org/ontology/holding#AUM",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": []
+    }
+  ]
+}

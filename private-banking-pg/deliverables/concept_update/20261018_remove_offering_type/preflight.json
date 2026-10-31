@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "products": 25,
+  "propertiesToRemove": 25,
+  "nodes": 41,
+  "relationships": 69,
+  "businessPaths": 39,
+  "mapping": {
+    "mappingSha256": "acfefe8fff1d09083766999c11f8503d4472059b6d918871f7049b5f42151856",
+    "mappingNodes": 1577,
+    "mappingRelationships": 4580,
+    "crossEdges": 0
+  }
+}

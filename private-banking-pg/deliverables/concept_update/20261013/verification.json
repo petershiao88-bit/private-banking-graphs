@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "nodes": 41,
+  "relationships": 69,
+  "mappingUnchanged": true,
+  "mapping": {
+    "sha256": "acfefe8fff1d09083766999c11f8503d4472059b6d918871f7049b5f42151856",
+    "nodes": 1577,
+    "relationships": 4580
+  },
+  "existingNodeIdsPreserved": true,
+  "existingRelationshipIdsPreserved": true,
+  "crossGraphEdges": 0
+}

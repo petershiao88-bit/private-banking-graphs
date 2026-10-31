@@ -1,0 +1,35 @@
+私銀智能問答：最新 Resume
+更新：2026-10-16，Asia/Taipei。
+
+最新入口：docs/handoffs/20261016_通用回答最小對照結果_v11.txt。
+已完成 v11 通用回答兩版各一組 C1→C2，共四輪原生診斷；功能驗收未完成。
+閱讀報告：deliverables/graph_qa/v11_direct_answer_20261016/通用回答最小對照結果.html。
+完整判定：同目錄 assessment.final.json；保存核對 saved_validation.final.json。
+
+線上：https://chiang4901.app.n8n.cloud/workflow/pqvhkncZ9bFlfe4B
+保存版本：926130e4-a3ae-4fbb-8092-61662068b886；18 節點，active=false，未發布。
+最新完整匯出：deliverables/graph_qa/v11_direct_answer_20261016/workflow.after.json。
+已還原原 Graph Chat pinData、Reset 聊天、還原畫布同步 true；沒有執行中的測試。
+保存深比通過只代表參數／結構保存一致，不代表答案驗收通過。
+
+已改為：原始對話與完整概念圖送回答模型；Jev 只做 39 條路徑 relevance，映射入口只使用候選子圖；取消 qa_* 題型硬性攔截。memory version=6，只保存原始問答。
+維持同一 Jev API／模型、QA Chat Model、18 節點身份與接線、Aura 查詢、原 SQL 及已發布 KB。
+
+r1：#2645／#2651，候選 9／21；第二輪回答含額外產品清單與來源未直接支持的比較，未全過。
+r2：#2652／#2653，候選 5／8；第二輪比較承接及答案範圍符合本組目標，但檢索仍有額外候選。
+r2 C1 多選證券結構型商品 AUM；C2 兩基金 AUM included，另六條 AUM uncertain 按既定政策一併檢索。
+兩組均實際驗證首輪空白、第二輪只有本組歷史；完整圖及原始對話到達回答端，記憶不再從證據推導需求。
+這些是開發診斷，不是獨立準確率或已證實穩定成功。不要抹去 r1 失敗，也不要因額外檢索就否定 r2 答案承接的改善。
+
+尚未執行：C 兩次獨立確認、F 澄清短答、P 通路／指標切換及其確認、完整回歸、原生 SQL 回歸。未執行 Oracle。
+下一步先評估檢索誤納及 uncertain 政策，另版預先規劃測試；不要繼續疊加題型閘門。
+C/F/P 在同一凍結候選各通過兩組預先安排的獨立確認，才做完整回歸。
+原計畫：docs/handoffs/20261016_通用回答簡化方案與測試交接.txt 及 20261016_通用回答簡化_測試計畫.json。
+
+下一輪先重新匯出線上現況、備份並比對，保留使用者後續變更。真實聊天前解除原 pinData；每組新 session 並驗證 history=[]、previousTopic={}、pendingClarification=null，同組不重設。
+維持 18 節點、單次 Jev 與既有主要回答、不增前置 LLM／回答後修正、不發布、不改 Aura／原 SQL／已發布 KB、不執行 Oracle。SQL 原始編碼 CP950／Big5。
+
+native.json 是 n8n 原生輸出介面的複製／下載，不是 raw HTTP log；user prompt 重建檔已明確標示。QA Chat Model 子節點 UI 資料為 []，不能當 provider 訊息追蹤；實際回答輸入契約、答案與執行樹另存。
+UI 匯入因擴充功能 file URL 設定受限，未改權限，改用節點編輯器且保存深比通過。大表格／滑鼠逾時／剪貼簿舊值均先重新觀察及驗證，沒有因此重送模型題目。
+沒有新 thread、排程、背景測試或 commit／PR；本目錄沒有 Git 儲存庫。
+前版 Resume 完整保留於 docs/handoffs/archive/RESUME_before_v11_diagnostic_20261016.txt。

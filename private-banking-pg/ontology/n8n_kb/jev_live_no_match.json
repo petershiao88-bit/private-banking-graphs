@@ -1,0 +1,164 @@
+{
+  "metricCodes": [
+    "aum_securities_month_end"
+  ],
+  "status": "no_match",
+  "candidateScores": [
+    {
+      "objectKey": "securities_bond::aum",
+      "productCode": "securities_bond",
+      "productName": "證券複委託債券",
+      "domain": "aum",
+      "definition": "證券通路的複委託債券業務，涵蓋部位估值與交易手續費收入。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_securities_month_end"
+      ],
+      "probability": 0.03,
+      "probabilities": {
+        "uncertain": 0,
+        "excluded": 0.97,
+        "included": 0.03
+      },
+      "confidence": 0.94,
+      "judgement": "excluded"
+    },
+    {
+      "objectKey": "securities_foreign_stock::aum",
+      "productCode": "securities_foreign_stock",
+      "productName": "證券複委託外國股票",
+      "domain": "aum",
+      "definition": "證券通路的複委託外國股票業務，涵蓋客戶持有資產與淨手續費收入；淨收入可能為負值。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_securities_month_end"
+      ],
+      "probability": 0.03,
+      "probabilities": {
+        "uncertain": 0,
+        "excluded": 0.97,
+        "included": 0.03
+      },
+      "confidence": 0.95,
+      "judgement": "excluded"
+    },
+    {
+      "objectKey": "securities_fund::aum",
+      "productCode": "securities_fund",
+      "productName": "證券複委託基金",
+      "domain": "aum",
+      "definition": "證券通路的複委託基金業務，涵蓋客戶持有資產與交易費收入。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_securities_month_end"
+      ],
+      "probability": 0.04,
+      "probabilities": {
+        "uncertain": 0,
+        "excluded": 0.96,
+        "included": 0.04
+      },
+      "confidence": 0.94,
+      "judgement": "excluded"
+    },
+    {
+      "objectKey": "securities_structured::aum",
+      "productCode": "securities_structured",
+      "productName": "證券複委託結構型商品",
+      "domain": "aum",
+      "definition": "證券通路的複委託結構型商品業務，涵蓋客戶持有資產與相关收入。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_securities_month_end"
+      ],
+      "probability": 0.04,
+      "probabilities": {
+        "uncertain": 0,
+        "excluded": 0.96,
+        "included": 0.04
+      },
+      "confidence": 0.93,
+      "judgement": "excluded"
+    }
+  ],
+  "decision": {
+    "requestId": "gen-dec-1791337422-MjBwUNAvdJYSBvEmtKbC",
+    "model": "typesafe/jev-1.13-20260917",
+    "provider": "TypeSafe",
+    "scope": {
+      "type": "choice",
+      "choice": "ambiguous",
+      "probabilities": {
+        "clear": 0.15,
+        "ambiguous": 0.47,
+        "none": 0.38
+      },
+      "confidence": 0.2
+    },
+    "answers": {
+      "scope": {
+        "type": "choice",
+        "choice": "ambiguous",
+        "probabilities": {
+          "clear": 0.15,
+          "ambiguous": 0.47,
+          "none": 0.38
+        },
+        "confidence": 0.2
+      },
+      "securities_bond::aum": {
+        "type": "choice",
+        "choice": "excluded",
+        "probabilities": {
+          "uncertain": 0,
+          "excluded": 0.97,
+          "included": 0.03
+        },
+        "confidence": 0.94
+      },
+      "securities_foreign_stock::aum": {
+        "type": "choice",
+        "choice": "excluded",
+        "probabilities": {
+          "uncertain": 0,
+          "excluded": 0.97,
+          "included": 0.03
+        },
+        "confidence": 0.95
+      },
+      "securities_fund::aum": {
+        "type": "choice",
+        "choice": "excluded",
+        "probabilities": {
+          "uncertain": 0,
+          "excluded": 0.96,
+          "included": 0.04
+        },
+        "confidence": 0.94
+      },
+      "securities_structured::aum": {
+        "type": "choice",
+        "choice": "excluded",
+        "probabilities": {
+          "uncertain": 0,
+          "excluded": 0.96,
+          "included": 0.04
+        },
+        "confidence": 0.93
+      }
+    },
+    "usage": {
+      "input_tokens": 3096,
+      "output_tokens": 233,
+      "cost": 0.000130032
+    },
+    "policy": {
+      "method": "native_choice_with_ambiguity_gate",
+      "numericThreshold": null,
+      "calibrated": false
+    },
+    "probabilityMeaning": "P(included) for each productCode/domain; candidate probabilities are independent and are not normalized across objects."
+  },
+  "products": [],
+  "message": "指定範圍沒有符合問題的候選產品。"
+}

@@ -1,0 +1,273 @@
+{
+  "name": "私銀 AUM Income KB",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "question"
+            },
+            {
+              "name": "domains",
+              "type": "array"
+            },
+            {
+              "name": "metricCodes",
+              "type": "array"
+            }
+          ]
+        }
+      },
+      "id": "20e27855-2e0e-4294-b4c2-9b437bb8ed04",
+      "name": "KB Input",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        6944,
+        1040
+      ],
+      "notes": "供主 Agent 呼叫。question 為已確認的完整問題；domains 為 [\"aum\"]、[\"income\"] 或兩者；metricCodes 直接傳入 metric router 的完整 selected_metric_codes 陣列。"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://4bb479b2.databases.neo4j.io/db/neo4j/query/v2",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ (() => { const parameters={}; return {statement:\"// Full business context; calculation paths contain measurement and rollup links only.\\nCALL {\\n MATCH (n:PBConcept)\\n RETURN collect({key:coalesce(n.productCode,n.metricCode,n.conceptCode),labels:labels(n),properties:n{.advisorId,.advisorName,.aliases,.aumDefinition,.businessChannel,.businessPurpose,.businessRole,.conceptCode,.customerId,.customerName,.customerNeed,.customerNumber,.definition,.employeeNumber,.incomeDefinition,.metricCode,.name,.offeringType,.organizationType,.productCategory,.productCode,.roleResponsibilities,.serviceDescription,.serviceScope,.targetCustomer} }) AS conceptNodes\\n}\\nCALL {\\n MATCH (a:PBConcept)-[r]->(b:PBConcept)\\n RETURN collect({id:elementId(r),from:coalesce(a.productCode,a.metricCode,a.conceptCode),to:coalesce(b.productCode,b.metricCode,b.conceptCode),type:type(r),properties:r{.definition,.businessConstraint} }) AS conceptRelationships\\n}\\nCALL {\\n MATCH path=(leaf:PBConcept:PBConceptProduct)-[:PB_AUM_MEASURED_BY|PB_INCOME_MEASURED_BY|PB_AUM_ROLLS_UP_TO|PB_INCOME_ROLLS_UP_TO*1..]->(root:PBConcept:PBConceptMetric)\\n WHERE all(n IN nodes(path) WHERE n:PBConcept)\\n  AND ((root:PBConceptAUM AND root.metricCode='aum_total' AND all(r IN relationships(path) WHERE type(r) IN ['PB_AUM_MEASURED_BY','PB_AUM_ROLLS_UP_TO']))\\n   OR (root:PBConceptIncome AND root.metricCode='income_total' AND all(r IN relationships(path) WHERE type(r) IN ['PB_INCOME_MEASURED_BY','PB_INCOME_ROLLS_UP_TO'])))\\n RETURN collect(DISTINCT {domain:CASE WHEN root:PBConceptAUM THEN 'aum' ELSE 'income' END,\\n  nodeKeys:[n IN nodes(path)|coalesce(n.productCode,n.metricCode,n.conceptCode)],relationshipIds:[r IN relationships(path)|elementId(r)]}) AS businessPaths\\n}\\nRETURN {nodes:conceptNodes,relationships:conceptRelationships} AS conceptGraph,businessPaths\",parameters}; })() }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          },
+          "timeout": 60000
+        }
+      },
+      "id": "ad6158b0-5200-4caf-93ba-0af7e9a941ec",
+      "name": "Aura - Full Concept Graph",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        7184,
+        1040
+      ],
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "w0t2jys33reSEGAk",
+          "name": "Unnamed credential"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const graphRows=body=>body.data.values.map(row=>Object.fromEntries(body.data.fields.map((key,i)=>[key,row[i]])));\nconst canonical=value=>Array.isArray(value)?value.map(canonical):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(key=>[key,canonical(value[key])])):value;\nconst stableKey=(prefix,value)=>{const text=JSON.stringify(canonical(value));let a=2166136261,b=3339675911;for(let i=0;i<text.length;i++){a=Math.imul(a^text.charCodeAt(i),16777619);b=Math.imul(b^text.charCodeAt(i),2246822519);}return `${prefix}::${(a>>>0).toString(16).padStart(8,'0')}${(b>>>0).toString(16).padStart(8,'0')}`;};\nconst uniqueBy=(values,key)=>[...new Map(values.map(value=>[key(value),value])).values()];\nconst decisionEvidence=(body,phase)=>({requestId:body.id,model:body.model,provider:body.provider,answers:body.answers,usage:body.usage,phase,...(body.error?{error:body.error}:{})});\nconst scored=(candidate,answer)=>({...candidate,choice:answer.choice,judgement:answer.choice,probability:answer.probabilities.included,probabilities:answer.probabilities,confidence:answer.confidence});\n\nconst response=$input.first().json,input=$('KB Input').first().json;\nconst fail=()=>{throw new Error('Business concept graph unavailable');};\nif(response.errors?.length||!response.data||JSON.stringify(response.data.fields)!==JSON.stringify(['conceptGraph','businessPaths'])||response.data.values?.length!==1)fail();\nlet {conceptGraph,businessPaths}=graphRows(response)[0];\nif(!conceptGraph||!Array.isArray(conceptGraph.nodes)||!Array.isArray(conceptGraph.relationships)||!Array.isArray(businessPaths))fail();\nconst fieldsByLabel={\n PBConceptProduct:['productCode','name','aumDefinition','incomeDefinition','offeringType','definition','productCategory','businessChannel','customerNeed','serviceDescription'],\n PBConceptMetric:['metricCode','name','definition'],\n PBConceptCustomer:['conceptCode','name','definition','businessRole','customerId','customerName','customerNumber'],\n PBConceptAdvisor:['conceptCode','name','definition','roleResponsibilities','serviceDescription','advisorId','advisorName','employeeNumber'],\n PBConceptOrganization:['conceptCode','name','definition','aliases','organizationType','businessPurpose','targetCustomer','serviceScope']\n};\nconst allBusinessFields=new Set(Object.values(fieldsByLabel).flat());\nconst technical=/\\b(?:SQL|CASE|SELECT|WHERE|JOIN|STAGE|FH_TYP|SUB_TYPE|CUST_ID|AMT|PROD_TYPE|CFEE|ABFEE|TSSN)\\b|(?:AUM|INCOME)_[0-9]|DSPMS\\.|\\b\\w+\\.\\w+\\b/i;\nconceptGraph={nodes:conceptGraph.nodes.map(node=>{\n if(!node||!Array.isArray(node.labels)||!node.labels.includes('PBConcept')||!node.properties)fail();\n const kinds=Object.keys(fieldsByLabel).filter(label=>node.labels.includes(label));\n if(kinds.length!==1)fail();\n // Explicit Cypher projections return null for absent fields of other node kinds.\n for(const [field,value] of Object.entries(node.properties))if(!allBusinessFields.has(field)||(value!=null&&!fieldsByLabel[kinds[0]].includes(field)))fail();\n const properties=Object.fromEntries(Object.entries(node.properties).filter(([,value])=>value!=null));\n for(const [field,value] of Object.entries(properties)){\n  if(['aliases','roleResponsibilities'].includes(field)){if(!Array.isArray(value)||!value.length||!value.every(v=>typeof v==='string'&&v))fail();}\n  else if(typeof value!=='string')fail();\n }\n const code=properties.productCode||properties.metricCode||properties.conceptCode;\n if(node.key!==code||!properties.name||!code)fail();\n if(technical.test(JSON.stringify(properties)))fail();\n return {key:node.key,labels:node.labels,properties};\n}),relationships:conceptGraph.relationships.map(edge=>{\n if(!edge||!edge.id||!edge.from||!edge.to||!edge.properties)fail();\n if(Object.keys(edge.properties).some(field=>!['definition','businessConstraint'].includes(field)))fail();\n if(!['PB_AUM_MEASURED_BY','PB_INCOME_MEASURED_BY','PB_AUM_ROLLS_UP_TO','PB_INCOME_ROLLS_UP_TO','PB_HAS_MEASUREMENT_SUBJECT','PB_SUBCATEGORY_OF','PB_ASSIGNED_TO','PB_SCOPED_TO'].includes(edge.type))fail();\n const properties=Object.fromEntries(Object.entries(edge.properties).filter(([,value])=>value!=null));\n if(typeof properties.definition!=='string'||!properties.definition||Object.values(properties).some(v=>typeof v!=='string')||technical.test(JSON.stringify(properties)))fail();\n return {...edge,properties};\n})};\nif(new Set(conceptGraph.nodes.map(n=>n.key)).size!==conceptGraph.nodes.length||new Set(conceptGraph.relationships.map(r=>r.id)).size!==conceptGraph.relationships.length)fail();\nif(conceptGraph.relationships.some(r=>!conceptGraph.nodes.some(n=>n.key===r.from)||!conceptGraph.nodes.some(n=>n.key===r.to)))fail();\nconst conceptPathCandidates=uniqueBy(businessPaths.map(path=>{\n if(!['aum','income'].includes(path.domain)||!Array.isArray(path.nodeKeys)||!Array.isArray(path.relationshipIds)||path.nodeKeys.length!==path.relationshipIds.length+1)fail();\n const nodes=path.nodeKeys.map(key=>conceptGraph.nodes.find(node=>node.key===key));\n const relationships=path.relationshipIds.map(id=>conceptGraph.relationships.find(edge=>edge.id===id));\n if(nodes.some(n=>!n)||relationships.some(r=>!r)||!nodes[0].properties.productCode||nodes.slice(1).some(n=>!n.properties.metricCode))fail();\n if(!nodes[0].properties[path.domain+'Definition']||nodes.at(-1).properties.metricCode!==(path.domain==='aum'?'aum_total':'income_total'))fail();\n for(let i=0;i<relationships.length;i++){\n  const expected=i===0?(path.domain==='aum'?'PB_AUM_MEASURED_BY':'PB_INCOME_MEASURED_BY'):(path.domain==='aum'?'PB_AUM_ROLLS_UP_TO':'PB_INCOME_ROLLS_UP_TO');\n  if(relationships[i].from!==nodes[i].key||relationships[i].to!==nodes[i+1].key||relationships[i].type!==expected)fail();\n }\n const productNodes=nodes.filter(node=>node.properties.productCode);\n const metricNodes=nodes.filter(node=>node.properties.metricCode);\n return {pathKey:stableKey('concept',[path.nodeKeys,path.relationshipIds]),domain:path.domain,nodeKeys:path.nodeKeys,relationshipIds:path.relationshipIds,\n  productCodes:productNodes.map(node=>node.properties.productCode),anchorConceptKeys:productNodes.map(node=>node.key),\n  metricCodes:metricNodes.map(node=>node.properties.metricCode),nodes,relationships};\n}),path=>path.pathKey);\nconst decisionRules='依 conceptGraph 的業務定義、方向、產品或服務類型、業務分類、通路、客戶需求與服務內容，以及 AUM／Income 領域，判斷路徑是否為回答 question 所需的業務路徑之一。產品的基本意義使用 definition，領域意義使用 aumDefinition 或 incomeDefinition，關係的 definition 與 businessConstraint 必須一併理解。客戶需求描述是一般業務需求，不表示個別客戶需求或適合度。路徑已延伸到最上層，上層節點提供上下文，問題不必要求根指標才可納入。依 question 指定的顆粒度判斷，不能因共享上層指標而納入所有兄弟產品。可同時納入多條，共享節點不代表互斥。父產品與子分類可能包含相同業務範圍，不可據多條路徑重複加總。客戶、AO、私銀組織與分類關係只作業務上下文，不是金額計算根節點或額外加總路徑；服務對應不表示唯一 AO、正式任職或業績分攤。只判斷業務概念，不猜實體表或 SQL。';\nconst questions=Object.fromEntries(conceptPathCandidates.map(path=>[path.pathKey,{type:'choice',\n instructions:`依 state.decisionRules 評估 businessPaths 中 pathKey=${path.pathKey} 的完整路徑。`,\n criteria:{included:'符合問題，是所需業務範圍的一部分。',uncertain:'可能符合，但業務範圍、通路或領域不足以確定。',excluded:'不符合問題，或不在問題要求的範圍。'}}]));\nreturn [{json:{question:input.question,domains:input.domains||[],metricCodes:input.metricCodes||[],conceptGraph,conceptPathCandidates,\n decisionRequest:{model:'typesafe/jev-1.13',state:{question:input.question,decisionRules,contextHints:{domains:input.domains||[],metricCodes:input.metricCodes||[]},conceptGraph,\n  businessPaths:conceptPathCandidates.map(({nodes,relationships,...path})=>path)},questions}}}];\n"
+      },
+      "id": "f2c5c6a6-3ee7-45f7-b960-c616a8819138",
+      "name": "Jev - Prepare Concept Paths",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        7424,
+        1040
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://openrouter.ai/api/alpha/decisions",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "openRouterApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.decisionRequest }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          },
+          "timeout": 60000
+        }
+      },
+      "name": "Jev - Concept Path Decisions API",
+      "id": "5b57183f-069b-47f6-ac3b-a77d7adc29e9",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        7664,
+        1040
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 1500,
+      "credentials": {
+        "openRouterApi": {
+          "id": "kHmQcximG3HXh42b",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const graphRows=body=>body.data.values.map(row=>Object.fromEntries(body.data.fields.map((key,i)=>[key,row[i]])));\nconst canonical=value=>Array.isArray(value)?value.map(canonical):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(key=>[key,canonical(value[key])])):value;\nconst stableKey=(prefix,value)=>{const text=JSON.stringify(canonical(value));let a=2166136261,b=3339675911;for(let i=0;i<text.length;i++){a=Math.imul(a^text.charCodeAt(i),16777619);b=Math.imul(b^text.charCodeAt(i),2246822519);}return `${prefix}::${(a>>>0).toString(16).padStart(8,'0')}${(b>>>0).toString(16).padStart(8,'0')}`;};\nconst uniqueBy=(values,key)=>[...new Map(values.map(value=>[key(value),value])).values()];\nconst decisionEvidence=(body,phase)=>({requestId:body.id,model:body.model,provider:body.provider,answers:body.answers,usage:body.usage,phase,...(body.error?{error:body.error}:{})});\nconst scored=(candidate,answer)=>({...candidate,choice:answer.choice,judgement:answer.choice,probability:answer.probabilities.included,probabilities:answer.probabilities,confidence:answer.confidence});\n\nconst body=$input.first().json,context=$('Jev - Prepare Concept Paths').first().json;\nconst conceptPathScores=context.conceptPathCandidates.map(path=>scored({pathKey:path.pathKey,domain:path.domain,productCodes:path.productCodes,metricCodes:path.metricCodes},body.answers[path.pathKey]));\nconst selectedConceptPaths=context.conceptPathCandidates.filter(path=>body.answers[path.pathKey].choice==='included');\nconst {decisionRequest,...rest}=context;\nreturn [{json:{...rest,conceptPathScores,selectedConceptPaths,selectedPaths:selectedConceptPaths.map(({pathKey,domain,productCodes,metricCodes})=>({pathKey,domain,productCodes,metricCodes})),\n conceptDecision:decisionEvidence(body,'concept_path_selection')}}];\n"
+      },
+      "id": "76ac8758-a3df-491e-a7aa-f6143e4fa15c",
+      "name": "Concept Path Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        7904,
+        1040
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://4bb479b2.databases.neo4j.io/db/neo4j/query/v2",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ (() => { const parameters={selectedPaths:$json.selectedPaths||[]}; return JSON.stringify({statement:\"CALL {\\nUNWIND $selectedPaths AS selection\\nUNWIND selection.productCodes AS productCode\\nMATCH (p:SharedProduct {ontologyId:'pb_shared',code:productCode})\\nWITH DISTINCT p,selection,null AS measure\\nCALL (p,selection,measure) {\\n OPTIONAL MATCH (p)-[mapping:AUM_IMPLEMENTED_BY|INCOME_IMPLEMENTED_BY|INCOME_DECLARED_BY]->(stage:StagingOutput)\\n WHERE stage.ontologyId=selection.domain\\n  AND ((selection.domain='aum' AND type(mapping)='AUM_IMPLEMENTED_BY') OR\\n       (selection.domain='income' AND type(mapping) IN ['INCOME_IMPLEMENTED_BY','INCOME_DECLARED_BY']))\\n\\n WITH p,selection,measure,mapping,stage,\\n 'candidate_bridge' AS bindingStatus\\n OPTIONAL MATCH (stage)-[bridge:REPRESENTS_SQL_TABLE]->(target:SqlTable)\\n OPTIONAL MATCH path=(upstream:SqlTable)-[:TRANSFORMS_TO|UNION|UNION_ALL|LEFT_JOIN|INNER_JOIN|INSERT_FROM*0..16]->(target)\\n WHERE all(r IN relationships(path) WHERE r.status='active_sql' AND r.sourceRole='primary_reference')\\n WITH p,selection,mapping,stage,bridge,target,bindingStatus,collect(DISTINCT path) AS paths\\n WITH *,reduce(acc=[],path IN paths | acc+nodes(path)) AS tableNodes\\n CALL (tableNodes) {\\n  UNWIND tableNodes AS t\\n  WITH DISTINCT t\\n  OPTIONAL MATCH (s:SqlStatement)-[:TARGETS_TABLE]->(t)\\n  WHERE s.status='active_sql' AND s.sourceRole='primary_reference'\\n  OPTIONAL MATCH (s)-[:READS_TABLE]->(source:SqlTable)\\n  WITH t,s,collect(DISTINCT source.key) AS requiredTableKeys\\n  WITH t,collect(DISTINCT CASE WHEN s IS NULL THEN null ELSE\\n   {statementKey:s.key,properties:properties(s),requiredTableKeys:requiredTableKeys} END) AS statements\\n  OPTIONAL MATCH (incoming:SqlTable)-[r:TRANSFORMS_TO|UNION|UNION_ALL|LEFT_JOIN|INNER_JOIN|INSERT_FROM]->(t)\\n  WHERE r.status='active_sql' AND r.sourceRole='primary_reference'\\n  WITH t,statements,collect(DISTINCT CASE WHEN r IS NULL THEN null ELSE\\n   {from:incoming.key,to:t.key,type:type(r),properties:properties(r)} END) AS requiredIncoming\\n  RETURN collect({key:t.key,labels:labels(t),properties:properties(t),statements:statements,requiredIncoming:requiredIncoming}) AS tables\\n }\\n WITH p,selection,mapping,stage,bridge,target,bindingStatus,paths,tables,\\n [path IN paths WHERE head(nodes(path)).tableKind='external_source' | {\\n  baseTable:head(nodes(path)).name,tablePath:[n IN nodes(path)|n.name],\\n  rules:[r IN relationships(path)|{operation:type(r),statementKey:r.statementKey,lineageEdgeId:r.lineageEdgeId,\\n   operationTypes:r.operationTypes,whereConditions:r.whereConditions,joinConditions:r.joinConditions,\\n   groupExpressions:r.groupExpressions,aggregateExpressions:r.aggregateExpressions,selectExpressions:r.selectExpressions,\\n   caseExpressions:r.caseExpressions,unionBranchOrders:r.unionBranchOrders,unionBranchCounts:r.unionBranchCounts,\\n   unionDeduplication:r.unionDeduplication,joinTypes:r.joinTypes,joinInputRoles:r.joinInputRoles,\\n   havingConditions:r.havingConditions,inputSteps:r.inputSteps,ruleSteps:r.ruleSteps,\\n   file:r.file,lineStart:r.lineStart,lineEnd:r.lineEnd,status:r.status,sourceRole:r.sourceRole,sqlTextKind:r.sqlTextKind,sql:r.sql}]\\n }] AS lineage\\n RETURN collect(DISTINCT CASE WHEN stage IS NULL THEN null ELSE {\\n  mappingType:type(mapping),mappingStatus:mapping.status,productScope:mapping.scope,\\n  bindingConceptKey:p.key,bindingStatus:bindingStatus,\\n  implementation:{from:p.key,to:stage.key,type:type(mapping),properties:properties(mapping)},\\n  stage:{key:stage.key,labels:labels(stage),properties:properties(stage)},\\n  bridge:CASE WHEN bridge IS NULL THEN null ELSE {from:stage.key,to:target.key,type:type(bridge),properties:properties(bridge)} END,\\n  outputTable:stage.outputObject,sqlTable:target.name,targetTableKey:target.key,\\n  lineageStatus:CASE WHEN size(lineage)=0 THEN 'missing_evidence' ELSE 'traced' END,lineage:lineage,\\n  sqlEvidence:{maxDepth:16,tables:tables,\\n   paths:[path IN paths|{tableKeys:[n IN nodes(path)|n.key],relationships:[r IN relationships(path)|\\n    {from:startNode(r).key,to:endNode(r).key,type:type(r),properties:properties(r)}]}]}\\n } END) AS mappings\\n}\\nRETURN selection.pathKey AS pathKey,p.key AS bindingConceptKey,p.code AS productCode,p.name AS productName,selection.domain AS domain,\\n CASE WHEN selection.domain='income' AND p.incomeMappingActive=false THEN 'pending_confirmation' ELSE p.status END AS status,mappings\\n\\n\\nUNION ALL\\nUNWIND $selectedPaths AS selection\\nUNWIND selection.productCodes AS productCode\\nMATCH (p:MappingDraftProduct {code:productCode})\\nWHERE p.key='draft:pb:20261012:product:'+productCode\\nMATCH (p)-[measure:MEASURED_BY_AUM|MEASURED_BY_INCOME]->(metric:MappingDraftMetric)\\nWHERE type(measure)=CASE WHEN selection.domain='aum' THEN 'MEASURED_BY_AUM' ELSE 'MEASURED_BY_INCOME' END\\n AND metric.key='draft:pb:20261012:metric:'+CASE head(selection.metricCodes)\\n WHEN 'aum_deposit' THEN 'aum_deposit_month_end'\\n WHEN 'aum_bank_investment' THEN 'aum_bank_investment_month_end'\\n WHEN 'aum_securities' THEN 'aum_securities_month_end'\\n WHEN 'aum_insurance' THEN 'aum_insurance_month_end'\\n ELSE head(selection.metricCodes) END\\n AND metric.key STARTS WITH 'draft:pb:20261012:metric:'\\nMATCH (p)-[mapping:AUM_IMPLEMENTED_BY|INCOME_IMPLEMENTED_BY]->(source:MappingDraftTable)\\nWHERE type(mapping)=CASE WHEN selection.domain='aum' THEN 'AUM_IMPLEMENTED_BY' ELSE 'INCOME_IMPLEMENTED_BY' END\\n AND mapping.mappingRole='base_source' AND source.tableRole='source'\\n AND source.key STARTS WITH 'draft:pb:20261012:table:'\\nCALL (mapping,source) {\\n MATCH (dependency:MappingDraftTable)\\n WHERE dependency.tableRole='source' AND dependency.key STARTS WITH 'draft:pb:20261012:table:'\\n  AND (dependency.name IN coalesce(mapping.dependencySourceTables,[]) OR dependency=source)\\n RETURN collect({key:dependency.key,labels:labels(dependency),properties:properties(dependency)}) AS sourceTables\\n}\\nCALL {\\n MATCH (a)-[r]->(b)\\n WHERE a.key STARTS WITH 'draft:pb:20261012:'\\n  AND (a:MappingDraftEntity OR a:MappingDraftOrganization OR a:MappingDraftMetric)\\n  AND b.key STARTS WITH 'draft:pb:20261012:'\\n  AND (b:MappingDraftEntity OR b:MappingDraftOrganization OR b:MappingDraftTable)\\n  AND type(r) IN ['ASSIGNED_TO','SCOPED_TO','IDENTIFIED_IN']\\n RETURN collect({id:elementId(r),from:a.key,to:b.key,type:type(r),properties:properties(r),\\n  sourceNode:{key:a.key,labels:labels(a),properties:properties(a)},\\n  targetNode:{key:b.key,labels:labels(b),properties:properties(b)} }) AS dimensionEvidence\\n}\\nWITH p,selection,metric,measure,mapping,source,sourceTables,dimensionEvidence ORDER BY source.name\\nRETURN selection.pathKey AS pathKey,p.key AS bindingConceptKey,p.code AS productCode,p.name AS productName,selection.domain AS domain,\\n 'mapping_draft_rules' AS status,\\n collect({mappingFormat:'mapping_draft_rules',mappingKey:mapping.draftEdgeKey,\\n  implementation:{from:p.key,to:source.key,type:type(mapping),properties:properties(mapping)},\\n  measurement:{id:elementId(measure),from:p.key,to:metric.key,type:type(measure),properties:properties(measure)},\\n  sourceTables:sourceTables,dimensionEvidence:dimensionEvidence,\\n  calculationAuthorized:false}) AS mappings\\n}\\nRETURN *\\nORDER BY productCode,domain\",parameters}); })() }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          },
+          "timeout": 60000
+        }
+      },
+      "id": "2f0927cf-a621-4f58-9079-757cdf4e6f6e",
+      "name": "Aura - Mapping Paths",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        8144,
+        1040
+      ],
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "w0t2jys33reSEGAk",
+          "name": "Unnamed credential"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const graphRows=body=>body.data.values.map(row=>Object.fromEntries(body.data.fields.map((key,i)=>[key,row[i]])));\nconst canonical=value=>Array.isArray(value)?value.map(canonical):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(key=>[key,canonical(value[key])])):value;\nconst stableKey=(prefix,value)=>{const text=JSON.stringify(canonical(value));let a=2166136261,b=3339675911;for(let i=0;i<text.length;i++){a=Math.imul(a^text.charCodeAt(i),16777619);b=Math.imul(b^text.charCodeAt(i),2246822519);}return `${prefix}::${(a>>>0).toString(16).padStart(8,'0')}${(b>>>0).toString(16).padStart(8,'0')}`;};\nconst uniqueBy=(values,key)=>[...new Map(values.map(value=>[key(value),value])).values()];\nconst decisionEvidence=(body,phase)=>({requestId:body.id,model:body.model,provider:body.provider,answers:body.answers,usage:body.usage,phase,...(body.error?{error:body.error}:{})});\nconst scored=(candidate,answer)=>({...candidate,choice:answer.choice,judgement:answer.choice,probability:answer.probabilities.included,probabilities:answer.probabilities,confidence:answer.confidence});\n\nconst context=$('Concept Path Result').first().json,allRows=graphRows($input.first().json);\nconst rows=allRows.map(row=>({...row,mappings:(row.mappings||[]).filter(m=>m.mappingFormat!=='mapping_draft_rules')}));\nconst mappingsByKey=new Map(),candidatesByKey=new Map(),tablesByKey=new Map(),statementsByKey=new Map(),edgesById=new Map();\nconst edgeId=edge=>edge.properties.lineageEdgeId||stableKey('sql-edge',[edge.from,edge.type,edge.to,edge.properties.statementKey]);\nfor(const row of rows)for(const mapping of row.mappings||[]){\n const mappingKey=stableKey('mapping',[row.productCode,row.domain,mapping.implementation,mapping.stage.key,mapping.targetTableKey]);\n const previous=mappingsByKey.get(mappingKey);\n const conceptPathKeys=[...new Set([...(previous?.conceptPathKeys||[]),row.pathKey])];\n mappingsByKey.set(mappingKey,{...mapping,mappingKey,productCode:row.productCode,productName:row.productName,domain:row.domain,conceptPathKeys});\n for(const table of mapping.sqlEvidence.tables){\n  const previousTable=tablesByKey.get(table.key);\n  tablesByKey.set(table.key,{key:table.key,labels:table.labels,properties:table.properties,\n   statementKeys:[...new Set([...(previousTable?.statementKeys||[]),...table.statements.map(statement=>statement.statementKey)])],\n   requiredIncoming:uniqueBy([...(previousTable?.requiredIncoming||[]),...table.requiredIncoming],edge=>edgeId(edge))});\n  for(const statement of table.statements)statementsByKey.set(statement.statementKey,statement);\n }\n for(const path of mapping.sqlEvidence.paths)for(const edge of path.relationships)edgesById.set(edgeId(edge),{...edge,id:edgeId(edge)});\n // Return every external-source-to-target path and every shared SQL dependency of the mapped implementation.\n for(const path of mapping.sqlEvidence.paths.filter(path=>mapping.sqlEvidence.tables.find(table=>table.key===path.tableKeys[0])?.properties.tableKind==='external_source')){\n  const relationshipIds=path.relationships.map(edgeId);\n  const mappingPathKey=stableKey('mapping-path',[mappingKey,path.tableKeys,relationshipIds]);\n  const old=candidatesByKey.get(mappingPathKey);\n  candidatesByKey.set(mappingPathKey,{mappingPathKey,mappingKey,conceptPathKeys:[...new Set([...(old?.conceptPathKeys||[]),row.pathKey])],productCode:row.productCode,productName:row.productName,domain:row.domain,\n   implementation:mapping.implementation,stageKey:mapping.stage.key,targetTableKey:mapping.targetTableKey,productScope:mapping.productScope,\n   tableKeys:path.tableKeys,relationshipIds,statementKeys:[...new Set(path.relationships.map(edge=>edge.properties.statementKey).filter(Boolean))]});\n }\n}\nconst mappingPathCandidates=[...candidatesByKey.values()],mappingCandidates=[...mappingsByKey.values()];\nconst sqlEvidence={tables:[...tablesByKey.values()].map(table=>({...table,requiredIncoming:table.requiredIncoming.map(edge=>({from:edge.from,to:edge.to,type:edge.type,relationshipId:edgeId(edge),statementKey:edge.properties.statementKey}))})),\n statements:[...statementsByKey.values()],relationships:[...edgesById.values()].map(edge=>{const {sql,inputSteps,ruleSteps,...properties}=edge.properties;return {...edge,properties};})};\n\n// Current rule evidence supplements legacy SQL; it is never a second amount to sum.\nconst parseProperty=(value,fallback)=>{if(value==null)return fallback;if(typeof value!=='string')return value;try{return JSON.parse(value);}catch{throw new Error('Invalid mapping rule JSON');}};\nconst normalizedProperties=properties=>Object.fromEntries(Object.entries(properties||{}).map(([key,value])=>[key,['calculationRules','queryRules','reviewNotes','externalPreconditions','sourceEvidence','columns'].includes(key)?parseProperty(value,[]):value]));\nconst ruleMap=new Map(),dimensionMap=new Map();\nfor(const row of allRows)for(const mapping of row.mappings||[]){\n if(mapping.mappingFormat!=='mapping_draft_rules')continue;\n const implementation={...mapping.implementation,properties:normalizedProperties(mapping.implementation.properties)};\n if(!Array.isArray(implementation.properties.calculationRules)||!implementation.properties.calculationRules.length)throw new Error('Missing mapping rules');\n const key=mapping.mappingKey;\n if(!key||implementation.properties.mappingRole!=='base_source')throw new Error('Invalid mapping rule binding');\n const old=ruleMap.get(key);\n for(const edge of mapping.dimensionEvidence)dimensionMap.set(edge.id,{...edge,properties:normalizedProperties(edge.properties),sourceNode:{...edge.sourceNode,properties:normalizedProperties(edge.sourceNode.properties)},targetNode:{...edge.targetNode,properties:normalizedProperties(edge.targetNode.properties)}});\n ruleMap.set(key,{key,productCode:row.productCode,domain:row.domain,\n  conceptPathKeys:[...new Set([...(old?.conceptPathKeys||[]),row.pathKey])],implementation,\n  measurement:{...mapping.measurement,properties:normalizedProperties(mapping.measurement.properties)},\n  sourceTables:mapping.sourceTables.map(table=>({...table,properties:normalizedProperties(table.properties)})),\n  dimensionEvidenceKeys:mapping.dimensionEvidence.map(edge=>edge.id),\n  calculationAuthorized:false});\n}\nconst ruleEvidence=[...ruleMap.values()];\nconst dimensionEvidence=[...dimensionMap.values()];\n\nconst products=uniqueBy(context.selectedConceptPaths.flatMap(path=>path.productCodes.map(productCode=>({productCode,domain:path.domain}))),selection=>`${selection.productCode}::${selection.domain}`).map(selection=>{\n const node=context.conceptGraph.nodes.find(node=>node.properties.productCode===selection.productCode);\n const paths=context.selectedConceptPaths.filter(path=>path.domain===selection.domain&&path.productCodes.includes(selection.productCode));\n const mappings=mappingCandidates.filter(mapping=>mapping.productCode===selection.productCode&&mapping.domain===selection.domain).map(mapping=>{\n  const {sqlEvidence:rawEvidence,lineage,...metadata}=mapping;\n  return {...metadata,lineage:lineage.map(path=>({...path,rules:path.rules.map(({sql,inputSteps,ruleSteps,...rule})=>rule)})),\n  sqlEvidence:{tableKeys:rawEvidence.tables.map(table=>table.key),statementKeys:[...new Set(rawEvidence.tables.flatMap(table=>table.statements.map(statement=>statement.statementKey)))],\n   paths:rawEvidence.paths.map(path=>({tableKeys:path.tableKeys,relationshipIds:path.relationships.map(edge=>edge.properties.lineageEdgeId||stableKey('sql-edge',[edge.from,edge.type,edge.to,edge.properties.statementKey]))}))},\n  mappingPathKeys:mappingPathCandidates.filter(path=>path.mappingKey===mapping.mappingKey).map(path=>path.mappingPathKey),\n  requiredBaseTables:rawEvidence.tables.filter(table=>table.properties.tableKind==='external_source').map(table=>table.properties.physicalName||table.properties.name)};});\n const rules=ruleEvidence.filter(rule=>rule.productCode===selection.productCode&&rule.domain===selection.domain);\n for(const mapping of mappings){mapping.evidenceFormat='shared_product_sql';mapping.ruleEvidenceKeys=rules.map(rule=>rule.key);}\n if(!mappings.length&&rules.length)mappings.push(...rules.map(rule=>({mappingKey:rule.key,evidenceFormat:'mapping_draft_rules',mappingStatus:'mapping_draft_rules',\n  implementation:rule.implementation,productScope:rule.measurement.properties,ruleEvidenceKeys:[rule.key],\n  calculationAuthorized:false,lineage:[],sqlEvidence:{tableKeys:[],statementKeys:[],paths:[]},mappingPathKeys:[],\n  requiredBaseTables:rule.sourceTables.map(table=>table.properties.name)})));\n const businessProperties=Object.fromEntries(['offeringType','definition','productCategory','businessChannel','customerNeed','serviceDescription','aumDefinition','incomeDefinition'].filter(field=>node.properties[field]!=null).map(field=>[field,node.properties[field]]));\n return {...selection,productName:node.properties.name,definition:node.properties[`${selection.domain}Definition`],businessProperties,\n  matchedMetricCodes:[...new Set(paths.flatMap(path=>path.metricCodes))],conceptEvidence:{paths},mappings};\n});\nconst selectedScopes=new Set(products.map(p=>`${p.productCode}::${p.domain}`));\nconst overlappingProductScopes=context.conceptGraph.relationships.filter(edge=>edge.type==='PB_SUBCATEGORY_OF').flatMap(edge=>['aum','income'].filter(domain=>selectedScopes.has(`${edge.from}::${domain}`)&&selectedScopes.has(`${edge.to}::${domain}`)).map(domain=>({domain,parentProductCode:edge.to,childProductCode:edge.from,...edge.properties})));\nconst unresolvedSelections=products.filter(p=>!p.mappings.length).map(({productCode,domain})=>({productCode,domain}));\nreturn [{json:{contractVersion:'pb_kb_full_graph_single_jev_v1',question:context.question,domains:context.domains,metricCodes:context.metricCodes,\n conceptGraph:context.conceptGraph,conceptPathScores:context.conceptPathScores,selectedConceptPaths:context.selectedConceptPaths,\n mappingPaths:mappingPathCandidates,sqlEvidence,ruleEvidence,dimensionEvidence,products,\n evidenceGuidance:{ruleEvidence:'Current MappingDraft calculationRules/queryRules and measurement constraints are shared evidence. Join by products[].mappings[].ruleEvidenceKeys. These are alternative descriptions of the same implementation, never extra amounts to add to SQL lineage.',\n  dimensions:'AO/customer/private-banking context includes month-effective rules, source metadata and unvalidated cardinality. Do not assume a unique advisor or allocate amounts to every advisor.',\n  execution:'Rules-only mappings do not contain original SQL or executable approval. Resolve externalPreconditions, all required source columns, date/version/grain and pending review notes before calculating. If rules and SQL differ, do not silently pick a version; report unresolved evidence.',\n  aggregation:'Never add parent products and their subcategories, or sum rebuild and monthly-refresh variants. Trust classifications require source-level splitting.'},\n queryPlan:{selectedConceptPathKeys:context.selectedConceptPaths.map(path=>path.pathKey),mappingPathKeys:mappingPathCandidates.map(path=>path.mappingPathKey),overlappingProductScopes},\n decision:{model:context.conceptDecision.model,concept:context.conceptDecision,method:'full_concept_graph_then_direct_mapping'},\n mappingResolution:{method:'graph_relationships',mappingCount:new Set(products.flatMap(p=>p.mappings.map(m=>m.mappingKey))).size,sqlMappingCount:mappingCandidates.length,pathCount:mappingPathCandidates.length,complete:unresolvedSelections.length===0,unresolvedSelections,ruleEvidenceCount:ruleEvidence.length,evidenceCoverageOnly:true}}}];\n  "
+      },
+      "id": "0d587c78-3652-4520-b35e-3d537b5914d7",
+      "name": "KB Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        8384,
+        1040
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "KB Input": {
+      "main": [
+        [
+          {
+            "node": "Aura - Full Concept Graph",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aura - Full Concept Graph": {
+      "main": [
+        [
+          {
+            "node": "Jev - Prepare Concept Paths",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Jev - Prepare Concept Paths": {
+      "main": [
+        [
+          {
+            "node": "Jev - Concept Path Decisions API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Jev - Concept Path Decisions API": {
+      "main": [
+        [
+          {
+            "node": "Concept Path Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Concept Path Result": {
+      "main": [
+        [
+          {
+            "node": "Aura - Mapping Paths",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aura - Mapping Paths": {
+      "main": [
+        [
+          {
+            "node": "KB Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "b095636a-1b05-4c93-b5b7-5eca09f90ef7",
+  "meta": {
+    "instanceId": "36a1864de504bd2b19d4a56d711aa4ee92ab0fa945f44556d29eff9e06aefc2a"
+  },
+  "nodeGroups": [],
+  "id": "tL7HTesvAzqwsqv6",
+  "tags": []
+}

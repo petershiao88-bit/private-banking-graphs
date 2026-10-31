@@ -1,0 +1,2 @@
+semantica[explorer]==0.7.0
+pyshacl==0.40.1

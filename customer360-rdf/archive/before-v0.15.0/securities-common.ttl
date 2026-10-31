@@ -1,0 +1,69 @@
+# 證券共通指標與商品分類 v0.14.0，2026-10-24，設計草案。
+@prefix fh: <https://example.org/ontology/holding#> .
+@prefix sec: <https://example.org/ontology/securities#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://example.org/ontology/securities/common>
+    a owl:Ontology ;
+    rdfs:label "證券共通指標與商品本體"@zh-TW ;
+    owl:imports <https://example.org/ontology/holding> ;
+    owl:versionIRI <https://example.org/ontology/securities/common/0.14.0> ;
+    owl:versionInfo "0.14.0 / design draft / 2026-10-24" .
+
+sec:SecuritiesAUM
+    a owl:Class ;
+    rdfs:subClassOf fh:AUM ;
+    rdfs:label "證券 AUM"@zh-TW ;
+    skos:definition "衡量指定快照日依證券公司管理與認列口徑計算之客戶資產規模的指標。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "證券" .
+
+sec:SecuritiesFeeIncome
+    a owl:Class ;
+    rdfs:subClassOf fh:FeeIncome ;
+    rdfs:label "證券手續費收入指標"@zh-TW ;
+    skos:definition "衡量證券公司於指定收入期間內依其認列規則形成之手續費收入的指標。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "證券" .
+
+sec:StockProduct
+    a owl:Class ;
+    rdfs:subClassOf fh:FinancialProduct ;
+    rdfs:label "股票商品"@zh-TW ;
+    skos:definition "代表公司股權的金融商品。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "證券" .
+
+sec:BondProduct
+    a owl:Class ;
+    rdfs:subClassOf fh:FinancialProduct ;
+    rdfs:label "債券商品"@zh-TW ;
+    skos:definition "發行人為籌資而發行、約定清償條件的債務型金融商品。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "證券" .
+
+sec:FundProduct
+    a owl:Class ;
+    rdfs:subClassOf fh:FinancialProduct ;
+    rdfs:label "基金商品"@zh-TW ;
+    skos:definition "透過集合投資方式，由專業管理機構依基金契約管理運用資產的金融商品。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "證券" .
+
+sec:StructuredFinancialProduct
+    a owl:Class ;
+    rdfs:subClassOf fh:FinancialProduct ;
+    rdfs:label "結構型金融商品"@zh-TW ;
+    skos:definition "依商品契約將金融工具組合，形成特定收益或風險條件的金融商品。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "證券" .
+
+sec:OverseasFinancialProduct
+    a owl:Class ;
+    rdfs:subClassOf fh:FinancialProduct ;
+    rdfs:label "海外金融商品"@zh-TW ;
+    skos:definition "證券業務中歸入海外投資範圍的金融商品。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "證券" .

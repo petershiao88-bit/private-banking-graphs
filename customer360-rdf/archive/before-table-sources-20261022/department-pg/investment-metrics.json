@@ -1,0 +1,2424 @@
+{
+  "schema_version": "1.0.0",
+  "ontology_version": "0.10.0",
+  "status": "active",
+  "scope": "metadata_only",
+  "inference": false,
+  "instance_mapping": false,
+  "access_policy_status": "deferred_by_user",
+  "field_definitions": {
+    "employeeId": {
+      "name": "行員編號",
+      "definition": "識別擔任理專或承接收入歸屬之行員的銀行編號。",
+      "data_type_hint": "string",
+      "property_uri": "https://example.org/ontology/bank#employeeId",
+      "entity_class_uri": "https://example.org/ontology/bank#BankEmployee"
+    },
+    "customerId": {
+      "name": "客戶識別",
+      "definition": "識別服務關係或手收歸屬所涉及客戶的來源識別欄位。",
+      "data_type_hint": "string",
+      "property_uri": null,
+      "entity_class_uri": "https://example.org/ontology/holding#Customer"
+    },
+    "productId": {
+      "name": "商品識別",
+      "definition": "識別手收所對應金融商品的來源識別欄位。",
+      "data_type_hint": "string",
+      "property_uri": null,
+      "entity_class_uri": "https://example.org/ontology/holding#FinancialProduct"
+    },
+    "amount": {
+      "name": "手收金額",
+      "definition": "依所屬指標認列口徑形成的金額；估值組成欄位只是輸入，尚非核定 AUM 或手收。",
+      "data_type_hint": "decimal",
+      "property_uri": "https://example.org/ontology/holding#metricAmount",
+      "entity_class_uri": null
+    },
+    "currency": {
+      "name": "金額幣別",
+      "definition": "手收金額所使用的計價幣別。",
+      "data_type_hint": "string",
+      "property_uri": null,
+      "entity_class_uri": null
+    },
+    "incomePeriod": {
+      "name": "收入期間",
+      "definition": "手收金額所衡量的業務收入期間。",
+      "data_type_hint": null,
+      "property_uri": null,
+      "entity_class_uri": null
+    },
+    "snapshotDate": {
+      "name": "快照日期",
+      "definition": "商品手收資料快照所對應的日期。",
+      "data_type_hint": null,
+      "property_uri": null,
+      "entity_class_uri": null
+    },
+    "incomePeriodStart": {
+      "name": "收入期間起日",
+      "definition": "手續費收入所屬收入期間的開始日期；不預設按日、月或年衡量。",
+      "data_type_hint": "date",
+      "property_uri": "https://example.org/ontology/holding#incomePeriodStart",
+      "entity_class_uri": null
+    },
+    "incomePeriodEnd": {
+      "name": "收入期間迄日",
+      "definition": "手續費收入所屬收入期間的結束日期；期間邊界的具體使用規則由子公司或部門描述。",
+      "data_type_hint": "date",
+      "property_uri": "https://example.org/ontology/holding#incomePeriodEnd",
+      "entity_class_uri": null
+    },
+    "feeBaseAmount": {
+      "name": "手收計算基礎金額",
+      "definition": "適用手續費收入計算情境中作為輸入的收入金額；具體組成與來源由子公司或部門描述。",
+      "data_type_hint": "decimal",
+      "property_uri": "https://example.org/ontology/holding#feeBaseAmount",
+      "entity_class_uri": null
+    },
+    "feeDeductionAmount": {
+      "name": "手收計算扣減金額",
+      "definition": "適用手續費收入計算情境中涉及的扣減金額；具體扣減項目與使用方式由子公司或部門描述。",
+      "data_type_hint": "decimal",
+      "property_uri": "https://example.org/ontology/holding#feeDeductionAmount",
+      "entity_class_uri": null
+    },
+    "aumAsOfDate": {
+      "name": "AUM 基準日",
+      "definition": "AUM 所衡量資產規模對應的日期；具體選日規則由子公司或部門描述。",
+      "data_type_hint": "date",
+      "property_uri": "https://example.org/ontology/holding#aumAsOfDate",
+      "entity_class_uri": null
+    },
+    "valuationQuantity": {
+      "name": "估值數量",
+      "definition": "適用 AUM 估值情境中作為計算輸入的數量，例如股數、單位數或面額；具體數量單位由子公司或部門描述。",
+      "data_type_hint": "decimal",
+      "property_uri": "https://example.org/ontology/holding#valuationQuantity",
+      "entity_class_uri": null
+    },
+    "valuationUnitPrice": {
+      "name": "估值單價",
+      "definition": "適用 AUM 估值情境中作為計算輸入的價格或淨值；具體報價基準由子公司或部門描述。",
+      "data_type_hint": "decimal",
+      "property_uri": "https://example.org/ontology/holding#valuationUnitPrice",
+      "entity_class_uri": null
+    }
+  },
+  "execution": {
+    "sql": null,
+    "join_rules": null,
+    "filter_rules": null,
+    "aggregation_rules": null,
+    "row_grain": null,
+    "valuation_rules": null,
+    "snapshot_selection": null,
+    "currency_conversion": null,
+    "deduplication_rules": null,
+    "aum_recognition_rules": null,
+    "fee_recognition_rules": null,
+    "attribution_rules": null,
+    "period_basis": null
+  },
+  "evidence": {
+    "bank_fund_aum": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "lines": [
+        211,
+        230
+      ],
+      "encoding": "cp950"
+    },
+    "bank_fund_fee": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        62,
+        88
+      ],
+      "encoding": "cp950"
+    },
+    "sec_bond_aum": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "lines": [
+        316,
+        361
+      ],
+      "encoding": "cp950"
+    },
+    "sec_fund_aum": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "lines": [
+        364,
+        375
+      ],
+      "encoding": "cp950"
+    },
+    "sec_stock_aum": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "lines": [
+        376,
+        416
+      ],
+      "encoding": "cp950"
+    },
+    "sec_taiwan_aum": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "lines": [
+        418,
+        431
+      ],
+      "encoding": "cp950"
+    },
+    "stock_pledge_pending": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "lines": [
+        432,
+        438
+      ],
+      "encoding": "cp950"
+    },
+    "sec_bond_fee": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        329,
+        386
+      ],
+      "encoding": "cp950"
+    },
+    "sec_fund_fee": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        387,
+        427
+      ],
+      "encoding": "cp950"
+    },
+    "sec_stock_fee": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        429,
+        496
+      ],
+      "encoding": "cp950"
+    },
+    "private_products": {
+      "file": "Ontology/私銀智能問答/ontology/independent_concepts/concept_graph.json",
+      "selector": "nodes with productCode",
+      "encoding": "utf-8"
+    },
+    "meta_bank_fund": {
+      "file": "Ontology/私銀智能問答/sources/metadata/AUM_metadata.xlsx",
+      "sheet": "DSFND.PB_FUND_MONTH",
+      "cells": {
+        "B8": "CURRENTTWDVALUE",
+        "E8": "台幣餘額",
+        "B12": "EXEDATE",
+        "E12": "執行日",
+        "B19": "IDNO",
+        "E19": "客戶ID",
+        "B26": "TRUSTPRD",
+        "E26": "產品類別"
+      }
+    },
+    "meta_sec_fund_identity": {
+      "file": "Ontology/私銀智能問答/sources/metadata/AUM_metadata.xlsx",
+      "sheet": "DSPBM.PB_FUNDPOSIT_SEC",
+      "cells": {
+        "B4": "WKB02",
+        "E4": "投資人帳號",
+        "B25": "WKB24",
+        "E25": "客戶身分證字號",
+        "B24": "WKB23",
+        "E24": "收盤價",
+        "B29": "WKB28",
+        "E29": "基金單位數",
+        "B32": "WKB31",
+        "E32": "匯率"
+      }
+    },
+    "meta_sec_fund_fee": {
+      "file": "Ontology/私銀智能問答/sources/metadata/收入_metadata.xlsx",
+      "sheet": "DSPBM.PB_FUNDTRADM_SEC_M",
+      "cells": {
+        "B4": "WKA02",
+        "E4": "交易日期",
+        "B28": "WKA28",
+        "E28": "身分證字號",
+        "B31": "WKA31",
+        "E31": "總手續費(台？)"
+      }
+    },
+    "meta_sec_stock_fee": {
+      "file": "Ontology/私銀智能問答/sources/metadata/收入_metadata.xlsx",
+      "sheet": "DSPBM.PB_STOCKTRADM_AM_SEC_M",
+      "cells": {
+        "B2": "ABFEE",
+        "E2": "上手手續費",
+        "B9": "CFEE",
+        "E9": "客戶手續費",
+        "B10": "CLRDATE",
+        "E10": "結算日期",
+        "B18": "FXRATE",
+        "E18": "匯率",
+        "B19": "IDNO",
+        "E19": "身分證字號"
+      }
+    },
+    "meta_sec_taiwan": {
+      "file": "Ontology/私銀智能問答/sources/metadata/AUM_metadata.xlsx",
+      "sheet": "DSPBM.PB_YTRMRBP_SEC",
+      "cells": {
+        "B5": "YTRMRB025",
+        "E5": "身分證號",
+        "B14": "YTRMRB110",
+        "E14": "集保庫存=目前庫存",
+        "B18": "YTRMRB150",
+        "E18": "收盤價"
+      }
+    },
+    "sql_bank_investment_aum": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "lines": [
+        211,
+        230
+      ],
+      "encoding": "cp950"
+    },
+    "metadata_offshore": {
+      "file": "Ontology/私銀智能問答/sources/metadata/收入_metadata.xlsx",
+      "sheet": "DSFND.PB_FUND_SPREAD_DAILY",
+      "rows": [
+        7,
+        8,
+        9,
+        13,
+        14,
+        18,
+        20,
+        31,
+        32
+      ]
+    },
+    "sql_offshore": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        191,
+        202
+      ],
+      "encoding": "cp950"
+    }
+  },
+  "sources": [
+    {
+      "table": "DSDEP.FN_EXCH_RT",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sec_bond_aum",
+        "sec_stock_aum"
+      ]
+    },
+    {
+      "table": "DSFND.PB_FUND_MONTH",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sql_bank_investment_aum"
+      ]
+    },
+    {
+      "table": "DSFND.PB_FUND_SPREAD_DAILY",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sql_offshore",
+        "metadata_offshore"
+      ]
+    },
+    {
+      "table": "DSPBM.PB_BONDPOS_SEC",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sec_bond_aum"
+      ]
+    },
+    {
+      "table": "DSPBM.PB_BONDPOS_SEC_M",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sec_bond_aum"
+      ]
+    },
+    {
+      "table": "DSPBM.PB_BONDTRADM_SEC",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sec_bond_fee"
+      ]
+    },
+    {
+      "table": "DSPBM.PB_BONDTRADM_SEC_M",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sec_bond_fee"
+      ]
+    },
+    {
+      "table": "DSPBM.PB_FUNDPOSIT_SEC",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sec_fund_aum"
+      ]
+    },
+    {
+      "table": "DSPBM.PB_FUNDPOSIT_SEC_M",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sec_fund_aum"
+      ]
+    },
+    {
+      "table": "DSPBM.PB_FUNDTRADM_SEC",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sec_fund_fee"
+      ]
+    },
+    {
+      "table": "DSPBM.PB_FUNDTRADM_SEC_M",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sec_fund_fee"
+      ]
+    },
+    {
+      "table": "DSPBM.PB_STOCKPOS_SEC",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sec_stock_aum"
+      ]
+    },
+    {
+      "table": "DSPBM.PB_STOCKPOS_SEC_M",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sec_stock_aum"
+      ]
+    },
+    {
+      "table": "DSPBM.PB_STOCKTRADM_AM_SEC",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sec_stock_fee"
+      ]
+    },
+    {
+      "table": "DSPBM.PB_STOCKTRADM_AM_SEC_M",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sec_stock_fee"
+      ]
+    },
+    {
+      "table": "DSPBM.PB_STOCKTRADM_PM_SEC",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sec_stock_fee"
+      ]
+    },
+    {
+      "table": "DSPBM.PB_STOCKTRADM_PM_SEC_M",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sec_stock_fee"
+      ]
+    },
+    {
+      "table": "DSPBM.PB_YTRMRBP_SEC",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sec_taiwan_aum"
+      ]
+    },
+    {
+      "table": "DSPBM.PB_YTRMRBP_SEC_M",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sec_taiwan_aum"
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "id": "bank.fund_aum",
+      "name": "銀行基金 AUM",
+      "definition": "銀行基金 AUM；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/bank#BankAUM",
+      "specific_product_class_uri": null,
+      "product_class_uris": [
+        "https://example.org/ontology/bank#FundProduct"
+      ],
+      "metric_kind": "aum",
+      "product_code": "bank_fund",
+      "fields": [
+        {
+          "field": "customerId",
+          "status": "pending_identity_review",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSFND.PB_FUND_MONTH",
+              "column": "IDNO",
+              "meaning": "客戶ID",
+              "evidence": [
+                "bank_fund_aum"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "productId",
+          "status": "pending_product_identity",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "amount",
+          "status": "pending_aum_recognition",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSFND.PB_FUND_MONTH",
+              "column": "CurrentTWDValue",
+              "meaning": "metadata 台幣餘額；是否符合 AUM 認列另待核定",
+              "evidence": [
+                "bank_fund_aum"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "currency",
+          "status": "pending_currency",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending_time_semantics",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSFND.PB_FUND_MONTH",
+              "column": "EXEDATE",
+              "meaning": "執行日；資產基準日語意待確認",
+              "evidence": [
+                "bank_fund_aum"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "aumAsOfDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "valuationQuantity",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "valuationUnitPrice",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "銀行基金 AUM",
+        "classification_observation": "SQL 的 ELSE TRUSTPRD 保留原類別；私銀有 bank_fund，但尚未驗證底表基金類別完整取值，不能直接核定 TRUSTPRD 篩選。",
+        "valuation_observation": "SQL 對 CurrentTWDValue 依客戶、執行日、PCCCODE 與 TRUSTPRD 加總；不自動再與其他 AUM 加總。",
+        "date_observation": "EXEDATE 是 metadata 執行日；未核定快照選日規則。",
+        "gaps": [
+          "基金與 ETF 在私銀分列，不能用表名 FUND 把全表都視為基金。",
+          "來源粒度、產品識別及去重待確認。"
+        ],
+        "evidence": [
+          "bank_fund_aum",
+          "private_products",
+          "meta_bank_fund"
+        ]
+      }
+    },
+    {
+      "id": "bank.fund_fee_income",
+      "name": "銀行基金手收",
+      "definition": "銀行基金手收；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/bank#BankFeeIncome",
+      "specific_product_class_uri": null,
+      "product_class_uris": [
+        "https://example.org/ontology/bank#FundProduct"
+      ],
+      "metric_kind": "fee_income",
+      "product_code": "bank_fund",
+      "fields": [
+        {
+          "field": "customerId",
+          "status": "pending_identity_review",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSFND.PB_FUND_SPREAD_DAILY",
+              "column": "IDNO",
+              "meaning": "客戶識別候選",
+              "evidence": [
+                "bank_fund_fee"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "productId",
+          "status": "pending_product_identity",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSFND.PB_FUND_SPREAD_DAILY",
+              "column": "FUNDID",
+              "meaning": "基金代碼；與單一基金商品識別的映射尚待確認",
+              "evidence": [
+                "metadata_offshore"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "amount",
+          "status": "pending_fee_recognition",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSFND.PB_FUND_SPREAD_DAILY",
+              "column": "BRHREBATEAMT",
+              "meaning": "分行手續費；幣別待確認",
+              "evidence": [
+                "bank_fund_fee"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "currency",
+          "status": "pending_currency",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending_time_semantics",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriod",
+          "status": "pending_period_basis",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSFND.PB_FUND_SPREAD_DAILY",
+              "column": "FEEDATE",
+              "meaning": "手續費發生日；收入期間尚未核定",
+              "evidence": [
+                "bank_fund_fee"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "employeeId",
+          "status": "pending_advisor_attribution",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSFND.PB_FUND_SPREAD_DAILY",
+              "column": "BAOEMPID",
+              "meaning": "所屬人員候選；不是已核定理專歸屬",
+              "evidence": [
+                "metadata_offshore"
+              ]
+            },
+            {
+              "table": "DSFND.PB_FUND_SPREAD_DAILY",
+              "column": "SAOEMPID",
+              "meaning": "服務人員候選；不是已核定理專歸屬",
+              "evidence": [
+                "metadata_offshore"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "incomePeriodStart",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriodEnd",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeBaseAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeDeductionAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "銀行基金手收",
+        "classification_observation": "SQL CASE 先以 FHID NOT IN ('PS','CB','YB','SN') 分成基金，再判 ETF／海外股票／集合；後方 TA/TB/TD/TE 可能已被先行基金條件攔截。保留順序，不自行修正為新版分類。",
+        "valuation_observation": "SQL SUM(BRHREBATEAMT)；原分支含基金／ETF／海外股票等，只有分類為基金的範圍列為候選。",
+        "date_observation": "FEEDATE 有民國日期轉換觀察；交易收入期間與資料快照分開，snapshotDate 沒有選定候選。",
+        "gaps": [
+          "原 SQL 篩選 (BAOPCCCODE 或 SAOPCCCODE LIKE 2E%) 及 FEEDATE 下限只作觀察。",
+          "分類 CASE 順序、基金完整範圍、幣別及理專歸屬待確認。"
+        ],
+        "evidence": [
+          "bank_fund_fee",
+          "private_products",
+          "metadata_offshore"
+        ]
+      }
+    },
+    {
+      "id": "securities.bond_aum",
+      "name": "證券複委託債券 AUM",
+      "definition": "證券複委託債券 AUM；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+      "subsidiary": "securities",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/securities#SecuritiesAUM",
+      "specific_product_class_uri": null,
+      "product_class_uris": [
+        "https://example.org/ontology/securities#BondProduct",
+        "https://example.org/ontology/securities#OverseasFinancialProduct"
+      ],
+      "metric_kind": "aum",
+      "product_code": "securities_bond",
+      "fields": [
+        {
+          "field": "customerId",
+          "status": "pending_identity_review",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSPBM.PB_BONDPOS_SEC_M",
+              "column": "IDNO",
+              "meaning": "客戶識別候選",
+              "evidence": [
+                "sec_bond_aum"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_BONDPOS_SEC",
+              "column": "IDNO",
+              "meaning": "客戶識別候選",
+              "evidence": [
+                "sec_bond_aum"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "productId",
+          "status": "pending_product_identity",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "amount",
+          "status": "pending_aum_recognition",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSPBM.PB_BONDPOS_SEC_M",
+              "column": "NETQTY",
+              "meaning": "估值輸入：數量",
+              "evidence": [
+                "sec_bond_aum"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_BONDPOS_SEC_M",
+              "column": "CPRICE",
+              "meaning": "估值輸入：價格",
+              "evidence": [
+                "sec_bond_aum"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_BONDPOS_SEC",
+              "column": "NETQTY",
+              "meaning": "估值輸入：數量",
+              "evidence": [
+                "sec_bond_aum"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_BONDPOS_SEC",
+              "column": "CPRICE",
+              "meaning": "估值輸入：價格",
+              "evidence": [
+                "sec_bond_aum"
+              ]
+            },
+            {
+              "table": "DSDEP.FN_EXCH_RT",
+              "column": "EXCH_RT",
+              "meaning": "估值輸入：匯率；不是可單獨選用的 AUM",
+              "evidence": [
+                "sec_bond_aum"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "currency",
+          "status": "pending_currency",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending_time_semantics",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSPBM.PB_BONDPOS_SEC_M",
+              "column": "PRCS_DT",
+              "meaning": "歷史 SQL 未加表別的 PRCS_DT 與 FX 表同名，需釐清來源",
+              "evidence": [
+                "sec_bond_aum"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_BONDPOS_SEC",
+              "column": "CLRDATE",
+              "meaning": "current SQL 日期候選；尚未核定資產基準日",
+              "evidence": [
+                "sec_bond_aum"
+              ]
+            },
+            {
+              "table": "DSDEP.FN_EXCH_RT",
+              "column": "PRCS_DT",
+              "meaning": "FX 日期輸入，歷史與部位同名需釐清",
+              "evidence": [
+                "sec_bond_aum"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "aumAsOfDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "valuationQuantity",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "valuationUnitPrice",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "證券複委託債券 AUM",
+        "classification_observation": "SQL BOND LIKE 'TSSN%' 分成結構型，ELSE 為債券（含 SQL ELSE 的空值範圍，不能直接等同 NOT LIKE）。",
+        "valuation_observation": "SQL SUM(NETQTY / 100 * CPRICE * EXCH_RT)；所有金額候選為同一估值的組成輸入。",
+        "date_observation": "歷史匯率取全體每月 MAX(PRCS_DT)，current 按 CLRDATE 與幣別連匯率；歷史/current UNION，快照、匯率連接與去重均未核定。",
+        "gaps": [
+          "折台為 SQL 意圖，幣別及匯率口徑待確認。",
+          "未核定 BOND 單一商品識別、理專與客戶跨系統識別。"
+        ],
+        "evidence": [
+          "sec_bond_aum",
+          "private_products"
+        ]
+      }
+    },
+    {
+      "id": "securities.structured_aum",
+      "name": "證券複委託結構型商品 AUM",
+      "definition": "證券複委託結構型商品 AUM；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+      "subsidiary": "securities",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/securities#SecuritiesAUM",
+      "specific_product_class_uri": null,
+      "product_class_uris": [
+        "https://example.org/ontology/securities#StructuredFinancialProduct"
+      ],
+      "metric_kind": "aum",
+      "product_code": "securities_structured",
+      "fields": [
+        {
+          "field": "customerId",
+          "status": "pending_identity_review",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSPBM.PB_BONDPOS_SEC_M",
+              "column": "IDNO",
+              "meaning": "客戶識別候選",
+              "evidence": [
+                "sec_bond_aum"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_BONDPOS_SEC",
+              "column": "IDNO",
+              "meaning": "客戶識別候選",
+              "evidence": [
+                "sec_bond_aum"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "productId",
+          "status": "pending_product_identity",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "amount",
+          "status": "pending_aum_recognition",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSPBM.PB_BONDPOS_SEC_M",
+              "column": "NETQTY",
+              "meaning": "估值輸入：數量",
+              "evidence": [
+                "sec_bond_aum"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_BONDPOS_SEC_M",
+              "column": "CPRICE",
+              "meaning": "估值輸入：價格",
+              "evidence": [
+                "sec_bond_aum"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_BONDPOS_SEC",
+              "column": "NETQTY",
+              "meaning": "估值輸入：數量",
+              "evidence": [
+                "sec_bond_aum"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_BONDPOS_SEC",
+              "column": "CPRICE",
+              "meaning": "估值輸入：價格",
+              "evidence": [
+                "sec_bond_aum"
+              ]
+            },
+            {
+              "table": "DSDEP.FN_EXCH_RT",
+              "column": "EXCH_RT",
+              "meaning": "估值輸入：匯率；不是可單獨選用的 AUM",
+              "evidence": [
+                "sec_bond_aum"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "currency",
+          "status": "pending_currency",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending_time_semantics",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSPBM.PB_BONDPOS_SEC_M",
+              "column": "PRCS_DT",
+              "meaning": "歷史 SQL 未加表別的 PRCS_DT 與 FX 表同名，需釐清來源",
+              "evidence": [
+                "sec_bond_aum"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_BONDPOS_SEC",
+              "column": "CLRDATE",
+              "meaning": "current SQL 日期候選；尚未核定資產基準日",
+              "evidence": [
+                "sec_bond_aum"
+              ]
+            },
+            {
+              "table": "DSDEP.FN_EXCH_RT",
+              "column": "PRCS_DT",
+              "meaning": "FX 日期輸入，歷史與部位同名需釐清",
+              "evidence": [
+                "sec_bond_aum"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "aumAsOfDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "valuationQuantity",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "valuationUnitPrice",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "證券複委託結構型商品 AUM",
+        "classification_observation": "SQL BOND LIKE 'TSSN%' 分成結構型，ELSE 為債券（含 SQL ELSE 的空值範圍，不能直接等同 NOT LIKE）。",
+        "valuation_observation": "SQL SUM(NETQTY / 100 * CPRICE * EXCH_RT)；所有金額候選為同一估值的組成輸入。",
+        "date_observation": "歷史匯率取全體每月 MAX(PRCS_DT)，current 按 CLRDATE 與幣別連匯率；歷史/current UNION，快照、匯率連接與去重均未核定。",
+        "gaps": [
+          "折台為 SQL 意圖，幣別及匯率口徑待確認。",
+          "未核定 BOND 單一商品識別、理專與客戶跨系統識別。"
+        ],
+        "evidence": [
+          "sec_bond_aum",
+          "private_products"
+        ]
+      }
+    },
+    {
+      "id": "securities.fund_aum",
+      "name": "證券複委託基金 AUM",
+      "definition": "證券複委託基金 AUM；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+      "subsidiary": "securities",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/securities#SecuritiesAUM",
+      "specific_product_class_uri": null,
+      "product_class_uris": [
+        "https://example.org/ontology/securities#FundProduct"
+      ],
+      "metric_kind": "aum",
+      "product_code": "securities_fund",
+      "fields": [
+        {
+          "field": "customerId",
+          "status": "pending_identity_review",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSPBM.PB_FUNDPOSIT_SEC_M",
+              "column": "WKB02",
+              "meaning": "SQL 當 cust_id；current metadata 為投資人帳號，不可直接認為客戶ID",
+              "evidence": [
+                "sec_fund_aum"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_FUNDPOSIT_SEC",
+              "column": "WKB02",
+              "meaning": "SQL 當 cust_id；current metadata 為投資人帳號，不可直接認為客戶ID",
+              "evidence": [
+                "sec_fund_aum"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_FUNDPOSIT_SEC",
+              "column": "WKB24",
+              "meaning": "current metadata 客戶身分證字號；與 WKB02 對照關係未確認",
+              "evidence": [
+                "meta_sec_fund_identity"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "productId",
+          "status": "pending_product_identity",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "amount",
+          "status": "pending_aum_recognition",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSPBM.PB_FUNDPOSIT_SEC_M",
+              "column": "WKB28",
+              "meaning": "估值輸入：基金單位數，HS 定義未獨立確認",
+              "evidence": [
+                "sec_fund_aum"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_FUNDPOSIT_SEC_M",
+              "column": "WKB23",
+              "meaning": "估值輸入：收盤價，HS 定義未獨立確認",
+              "evidence": [
+                "sec_fund_aum"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_FUNDPOSIT_SEC_M",
+              "column": "WKB31",
+              "meaning": "估值輸入：匯率，HS 定義未獨立確認",
+              "evidence": [
+                "sec_fund_aum"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_FUNDPOSIT_SEC",
+              "column": "WKB28",
+              "meaning": "估值輸入：基金單位數，HS 定義未獨立確認",
+              "evidence": [
+                "sec_fund_aum"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_FUNDPOSIT_SEC",
+              "column": "WKB23",
+              "meaning": "估值輸入：收盤價，HS 定義未獨立確認",
+              "evidence": [
+                "sec_fund_aum"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_FUNDPOSIT_SEC",
+              "column": "WKB31",
+              "meaning": "估值輸入：匯率，HS 定義未獨立確認",
+              "evidence": [
+                "sec_fund_aum"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "currency",
+          "status": "pending_currency",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending_time_semantics",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSPBM.PB_FUNDPOSIT_SEC_M",
+              "column": "YYYYMMDD",
+              "meaning": "原 SQL 日期欄位；基準日及選日待確認",
+              "evidence": [
+                "sec_fund_aum"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_FUNDPOSIT_SEC",
+              "column": "YYYYMMDD",
+              "meaning": "原 SQL 日期欄位；基準日及選日待確認",
+              "evidence": [
+                "sec_fund_aum"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "aumAsOfDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "valuationQuantity",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "valuationUnitPrice",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "證券複委託基金 AUM",
+        "classification_observation": "私銀 securities_fund 為複委託基金；不按表名擴成其他商品。",
+        "valuation_observation": "SQL SUM(WKB28 * WKB23 * WKB31)，歷史/current 聚合後 UNION；不是三個可替代金額。",
+        "date_observation": "YYYYMMDD 尚未核定為快照日期；跨歷史/current 去重待確認。",
+        "gaps": [
+          "WKB02 是投資人帳號，WKB24 是客戶身分證字號；保留兩個不同角色，不核定客戶連接。",
+          "current metadata 不自動證明歷史表語意或計價幣別。"
+        ],
+        "evidence": [
+          "sec_fund_aum",
+          "private_products",
+          "meta_sec_fund_identity"
+        ]
+      }
+    },
+    {
+      "id": "securities.foreign_stock_aum",
+      "name": "證券複委託外國股票 AUM",
+      "definition": "證券複委託外國股票 AUM；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+      "subsidiary": "securities",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/securities#SecuritiesAUM",
+      "specific_product_class_uri": null,
+      "product_class_uris": [
+        "https://example.org/ontology/securities#StockProduct",
+        "https://example.org/ontology/securities#OverseasFinancialProduct"
+      ],
+      "metric_kind": "aum",
+      "product_code": "securities_foreign_stock",
+      "fields": [
+        {
+          "field": "customerId",
+          "status": "pending_identity_review",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSPBM.PB_STOCKPOS_SEC_M",
+              "column": "IDNO",
+              "meaning": "客戶識別候選",
+              "evidence": [
+                "sec_stock_aum"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_STOCKPOS_SEC",
+              "column": "IDNO",
+              "meaning": "客戶識別候選",
+              "evidence": [
+                "sec_stock_aum"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "productId",
+          "status": "pending_product_identity",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "amount",
+          "status": "pending_aum_recognition",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSPBM.PB_STOCKPOS_SEC_M",
+              "column": "NETQTY",
+              "meaning": "估值輸入：數量",
+              "evidence": [
+                "sec_stock_aum"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_STOCKPOS_SEC_M",
+              "column": "CPRICE",
+              "meaning": "估值輸入：價格",
+              "evidence": [
+                "sec_stock_aum"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_STOCKPOS_SEC",
+              "column": "NETQTY",
+              "meaning": "估值輸入：數量",
+              "evidence": [
+                "sec_stock_aum"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_STOCKPOS_SEC",
+              "column": "CPRICE",
+              "meaning": "估值輸入：價格",
+              "evidence": [
+                "sec_stock_aum"
+              ]
+            },
+            {
+              "table": "DSDEP.FN_EXCH_RT",
+              "column": "EXCH_RT",
+              "meaning": "估值輸入：匯率",
+              "evidence": [
+                "sec_stock_aum"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "currency",
+          "status": "pending_currency",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending_time_semantics",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSPBM.PB_STOCKPOS_SEC",
+              "column": "CLRDATE",
+              "meaning": "current 部位日期候選",
+              "evidence": [
+                "sec_stock_aum"
+              ]
+            },
+            {
+              "table": "DSDEP.FN_EXCH_RT",
+              "column": "PRCS_DT",
+              "meaning": "歷史輸出使用 FX PRCS_DT；不是證實部位快照日",
+              "evidence": [
+                "sec_stock_aum"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "aumAsOfDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "valuationQuantity",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "valuationUnitPrice",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "證券複委託外國股票 AUM",
+        "classification_observation": "私銀 securities_foreign_stock 對應複委託海外股票；海外地域判定未另核定。",
+        "valuation_observation": "SQL SUM(NETQTY * CPRICE * EXCH_RT)。",
+        "date_observation": "歷史取 FX 每月全體最大日期並以部位 YYYYMM 連接；current 以 CLRDATE 連 FX 日期；UNION 與快照口徑待確認。",
+        "gaps": [
+          "FX 日期、部位日期不可自動視為同義；幣別及去重待確認。"
+        ],
+        "evidence": [
+          "sec_stock_aum",
+          "private_products"
+        ]
+      }
+    },
+    {
+      "id": "securities.taiwan_stock_aum",
+      "name": "證券台股 AUM",
+      "definition": "證券台股 AUM；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+      "subsidiary": "securities",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/securities#SecuritiesAUM",
+      "specific_product_class_uri": null,
+      "product_class_uris": [
+        "https://example.org/ontology/securities#StockProduct"
+      ],
+      "metric_kind": "aum",
+      "product_code": "securities_taiwan_stock",
+      "fields": [
+        {
+          "field": "customerId",
+          "status": "pending_identity_review",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSPBM.PB_YTRMRBP_SEC_M",
+              "column": "YTRMRB025",
+              "meaning": "身分證號候選；歷史表定義未獨立確認",
+              "evidence": [
+                "sec_taiwan_aum"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_YTRMRBP_SEC",
+              "column": "YTRMRB025",
+              "meaning": "身分證號候選；歷史表定義未獨立確認",
+              "evidence": [
+                "sec_taiwan_aum"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "productId",
+          "status": "pending_product_identity",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "amount",
+          "status": "pending_aum_recognition",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSPBM.PB_YTRMRBP_SEC_M",
+              "column": "YTRMRB110",
+              "meaning": "估值輸入：集保庫存",
+              "evidence": [
+                "sec_taiwan_aum"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_YTRMRBP_SEC_M",
+              "column": "YTRMRB150",
+              "meaning": "估值輸入：收盤價",
+              "evidence": [
+                "sec_taiwan_aum"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_YTRMRBP_SEC",
+              "column": "YTRMRB110",
+              "meaning": "估值輸入：集保庫存",
+              "evidence": [
+                "sec_taiwan_aum"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_YTRMRBP_SEC",
+              "column": "YTRMRB150",
+              "meaning": "估值輸入：收盤價",
+              "evidence": [
+                "sec_taiwan_aum"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "currency",
+          "status": "pending_currency",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending_time_semantics",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSPBM.PB_YTRMRBP_SEC_M",
+              "column": "YYYYMMDD",
+              "meaning": "SQL 日期欄位；基準日待確認",
+              "evidence": [
+                "sec_taiwan_aum"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_YTRMRBP_SEC",
+              "column": "YYYYMMDD",
+              "meaning": "SQL 日期欄位；基準日待確認",
+              "evidence": [
+                "sec_taiwan_aum"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "aumAsOfDate",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "valuationQuantity",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "valuationUnitPrice",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "證券台股 AUM",
+        "classification_observation": "私銀 securities_taiwan_stock，地域為台灣；未另造組合 OWL Class。",
+        "valuation_observation": "SQL 先投影客戶、日期、YTRMRB110 * YTRMRB150，UNION 後 SUM；可能去掉相同投影列，需確認原始粒度。",
+        "date_observation": "日期與歷史/current 銜接待確認。",
+        "gaps": [
+          "台股手收來源尚缺；不從 AUM 推導手收。",
+          "未核定合併、估值、幣別及去重。"
+        ],
+        "evidence": [
+          "sec_taiwan_aum",
+          "private_products",
+          "meta_sec_taiwan"
+        ]
+      }
+    },
+    {
+      "id": "securities.bond_fee_income",
+      "name": "證券複委託債券手收",
+      "definition": "證券複委託債券手收；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+      "subsidiary": "securities",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/securities#SecuritiesFeeIncome",
+      "specific_product_class_uri": null,
+      "product_class_uris": [
+        "https://example.org/ontology/securities#BondProduct",
+        "https://example.org/ontology/securities#OverseasFinancialProduct"
+      ],
+      "metric_kind": "fee_income",
+      "product_code": "securities_bond",
+      "fields": [
+        {
+          "field": "customerId",
+          "status": "pending_identity_review",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSPBM.PB_BONDTRADM_SEC_M",
+              "column": "IDNO",
+              "meaning": "客戶識別候選",
+              "evidence": [
+                "sec_bond_fee"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_BONDTRADM_SEC",
+              "column": "IDNO",
+              "meaning": "客戶識別候選",
+              "evidence": [
+                "sec_bond_fee"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "productId",
+          "status": "pending_product_identity",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "amount",
+          "status": "pending_fee_recognition",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSPBM.PB_BONDTRADM_SEC_M",
+              "column": "CFEE",
+              "meaning": "金額輸入：客戶手續費",
+              "evidence": [
+                "sec_bond_fee"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_BONDTRADM_SEC_M",
+              "column": "FXRATE",
+              "meaning": "金額輸入：匯率",
+              "evidence": [
+                "sec_bond_fee"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_BONDTRADM_SEC",
+              "column": "CFEE",
+              "meaning": "金額輸入：客戶手續費",
+              "evidence": [
+                "sec_bond_fee"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_BONDTRADM_SEC",
+              "column": "FXRATE",
+              "meaning": "金額輸入：匯率",
+              "evidence": [
+                "sec_bond_fee"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "currency",
+          "status": "pending_currency",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending_time_semantics",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriod",
+          "status": "pending_period_basis",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSPBM.PB_BONDTRADM_SEC_M",
+              "column": "CLRDATE",
+              "meaning": "結算日期；收入歸屬月份需另核定",
+              "evidence": [
+                "sec_bond_fee"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_BONDTRADM_SEC",
+              "column": "CLRDATE",
+              "meaning": "結算日期；收入歸屬月份需另核定",
+              "evidence": [
+                "sec_bond_fee"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "incomePeriodStart",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriodEnd",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeBaseAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeDeductionAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "證券複委託債券手收",
+        "classification_observation": "SQL BOND LIKE 'TSSN%' 為結構型，ELSE 為債券；不自行改成 NOT LIKE。",
+        "valuation_observation": "SQL SUM(CFEE * FXRATE)，不是單取其中一個金額；歷史/current 聚合後 UNION。",
+        "date_observation": "SQL 用 T_LAST_TWO_WORKDAYS 的 YM/LAST2_WD 將月底最後兩個工作天收入移至次月；YYYYMM||01 是歸屬月份標記，不是快照日。工作日曆、收入期間與 current 最大日期篩選均未核定。",
+        "gaps": [
+          "幣別、收入認列與證券端人員歸屬未核定；不套用銀行理專關係。"
+        ],
+        "evidence": [
+          "sec_bond_fee",
+          "private_products"
+        ]
+      }
+    },
+    {
+      "id": "securities.structured_fee_income",
+      "name": "證券複委託結構型商品手收",
+      "definition": "證券複委託結構型商品手收；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+      "subsidiary": "securities",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/securities#SecuritiesFeeIncome",
+      "specific_product_class_uri": null,
+      "product_class_uris": [
+        "https://example.org/ontology/securities#StructuredFinancialProduct"
+      ],
+      "metric_kind": "fee_income",
+      "product_code": "securities_structured",
+      "fields": [
+        {
+          "field": "customerId",
+          "status": "pending_identity_review",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSPBM.PB_BONDTRADM_SEC_M",
+              "column": "IDNO",
+              "meaning": "客戶識別候選",
+              "evidence": [
+                "sec_bond_fee"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_BONDTRADM_SEC",
+              "column": "IDNO",
+              "meaning": "客戶識別候選",
+              "evidence": [
+                "sec_bond_fee"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "productId",
+          "status": "pending_product_identity",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "amount",
+          "status": "pending_fee_recognition",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSPBM.PB_BONDTRADM_SEC_M",
+              "column": "CFEE",
+              "meaning": "金額輸入：客戶手續費",
+              "evidence": [
+                "sec_bond_fee"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_BONDTRADM_SEC_M",
+              "column": "FXRATE",
+              "meaning": "金額輸入：匯率",
+              "evidence": [
+                "sec_bond_fee"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_BONDTRADM_SEC",
+              "column": "CFEE",
+              "meaning": "金額輸入：客戶手續費",
+              "evidence": [
+                "sec_bond_fee"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_BONDTRADM_SEC",
+              "column": "FXRATE",
+              "meaning": "金額輸入：匯率",
+              "evidence": [
+                "sec_bond_fee"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "currency",
+          "status": "pending_currency",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending_time_semantics",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriod",
+          "status": "pending_period_basis",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSPBM.PB_BONDTRADM_SEC_M",
+              "column": "CLRDATE",
+              "meaning": "結算日期；收入歸屬月份需另核定",
+              "evidence": [
+                "sec_bond_fee"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_BONDTRADM_SEC",
+              "column": "CLRDATE",
+              "meaning": "結算日期；收入歸屬月份需另核定",
+              "evidence": [
+                "sec_bond_fee"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "incomePeriodStart",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriodEnd",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeBaseAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeDeductionAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "證券複委託結構型商品手收",
+        "classification_observation": "SQL BOND LIKE 'TSSN%' 為結構型，ELSE 為債券；不自行改成 NOT LIKE。",
+        "valuation_observation": "SQL SUM(CFEE * FXRATE)，不是單取其中一個金額；歷史/current 聚合後 UNION。",
+        "date_observation": "SQL 用 T_LAST_TWO_WORKDAYS 的 YM/LAST2_WD 將月底最後兩個工作天收入移至次月；YYYYMM||01 是歸屬月份標記，不是快照日。工作日曆、收入期間與 current 最大日期篩選均未核定。",
+        "gaps": [
+          "幣別、收入認列與證券端人員歸屬未核定；不套用銀行理專關係。"
+        ],
+        "evidence": [
+          "sec_bond_fee",
+          "private_products"
+        ]
+      }
+    },
+    {
+      "id": "securities.fund_fee_income",
+      "name": "證券複委託基金手收",
+      "definition": "證券複委託基金手收；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+      "subsidiary": "securities",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/securities#SecuritiesFeeIncome",
+      "specific_product_class_uri": null,
+      "product_class_uris": [
+        "https://example.org/ontology/securities#FundProduct"
+      ],
+      "metric_kind": "fee_income",
+      "product_code": "securities_fund",
+      "fields": [
+        {
+          "field": "customerId",
+          "status": "pending_identity_review",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSPBM.PB_FUNDTRADM_SEC_M",
+              "column": "WKA28",
+              "meaning": "身分證字號候選；current 語意尚未獨立核對",
+              "evidence": [
+                "sec_fund_fee"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_FUNDTRADM_SEC",
+              "column": "WKA28",
+              "meaning": "身分證字號候選；current 語意尚未獨立核對",
+              "evidence": [
+                "sec_fund_fee"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "productId",
+          "status": "pending_product_identity",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "amount",
+          "status": "pending_fee_recognition",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSPBM.PB_FUNDTRADM_SEC_M",
+              "column": "WKA31",
+              "meaning": "總手續費；metadata 原文含「台？」疑義，幣別未確認",
+              "evidence": [
+                "sec_fund_fee"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_FUNDTRADM_SEC",
+              "column": "WKA31",
+              "meaning": "總手續費；metadata 原文含「台？」疑義，幣別未確認",
+              "evidence": [
+                "sec_fund_fee"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "currency",
+          "status": "pending_currency",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending_time_semantics",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriod",
+          "status": "pending_period_basis",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSPBM.PB_FUNDTRADM_SEC_M",
+              "column": "WKA02",
+              "meaning": "交易日期；不是快照日",
+              "evidence": [
+                "sec_fund_fee"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_FUNDTRADM_SEC",
+              "column": "WKA02",
+              "meaning": "交易日期；不是快照日",
+              "evidence": [
+                "sec_fund_fee"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "incomePeriodStart",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriodEnd",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeBaseAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeDeductionAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "證券複委託基金手收",
+        "classification_observation": "私銀 securities_fund；僅記錄已提供來源的手收範圍。",
+        "valuation_observation": "SQL SUM(WKA31)；歷史/current 聚合後 UNION。",
+        "date_observation": "SQL 用 T_LAST_TWO_WORKDAYS 的 YM/LAST2_WD 將月底最後兩個工作天收入移至次月；YYYYMM||01 是歸屬月份標記，不是快照日。工作日曆、收入期間與 current 最大日期篩選均未核定。",
+        "gaps": [
+          "原 current 最大日期子查詢引用 PB_BONDTRADM_SEC，保留為待覆核異常，不自行修正。",
+          "WKA31 幣別不明；客戶識別不能直接與 AUM WKB02 相連。"
+        ],
+        "evidence": [
+          "sec_fund_fee",
+          "private_products",
+          "meta_sec_fund_fee"
+        ]
+      }
+    },
+    {
+      "id": "securities.foreign_stock_fee_income",
+      "name": "證券複委託外國股票淨手收",
+      "definition": "證券複委託外國股票淨手收；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+      "subsidiary": "securities",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/securities#SecuritiesFeeIncome",
+      "specific_product_class_uri": null,
+      "product_class_uris": [
+        "https://example.org/ontology/securities#StockProduct",
+        "https://example.org/ontology/securities#OverseasFinancialProduct"
+      ],
+      "metric_kind": "fee_income",
+      "product_code": "securities_foreign_stock",
+      "fields": [
+        {
+          "field": "customerId",
+          "status": "pending_identity_review",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSPBM.PB_STOCKTRADM_PM_SEC_M",
+              "column": "IDNO",
+              "meaning": "客戶識別候選",
+              "evidence": [
+                "sec_stock_fee"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_STOCKTRADM_AM_SEC_M",
+              "column": "IDNO",
+              "meaning": "客戶識別候選",
+              "evidence": [
+                "sec_stock_fee"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_STOCKTRADM_PM_SEC",
+              "column": "IDNO",
+              "meaning": "客戶識別候選",
+              "evidence": [
+                "sec_stock_fee"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "productId",
+          "status": "pending_product_identity",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "amount",
+          "status": "pending_fee_recognition",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSPBM.PB_STOCKTRADM_PM_SEC_M",
+              "column": "CFEE",
+              "meaning": "金額輸入：客戶手續費",
+              "evidence": [
+                "sec_stock_fee"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_STOCKTRADM_PM_SEC_M",
+              "column": "ABFEE",
+              "meaning": "扣除輸入：上手手續費",
+              "evidence": [
+                "sec_stock_fee"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_STOCKTRADM_PM_SEC_M",
+              "column": "FXRATE",
+              "meaning": "金額輸入：匯率",
+              "evidence": [
+                "sec_stock_fee"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_STOCKTRADM_AM_SEC_M",
+              "column": "CFEE",
+              "meaning": "金額輸入：客戶手續費",
+              "evidence": [
+                "sec_stock_fee"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_STOCKTRADM_AM_SEC_M",
+              "column": "ABFEE",
+              "meaning": "扣除輸入：上手手續費",
+              "evidence": [
+                "sec_stock_fee"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_STOCKTRADM_AM_SEC_M",
+              "column": "FXRATE",
+              "meaning": "金額輸入：匯率",
+              "evidence": [
+                "sec_stock_fee"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_STOCKTRADM_PM_SEC",
+              "column": "CFEE",
+              "meaning": "金額輸入：客戶手續費",
+              "evidence": [
+                "sec_stock_fee"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_STOCKTRADM_PM_SEC",
+              "column": "ABFEE",
+              "meaning": "扣除輸入：上手手續費",
+              "evidence": [
+                "sec_stock_fee"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_STOCKTRADM_PM_SEC",
+              "column": "FXRATE",
+              "meaning": "金額輸入：匯率",
+              "evidence": [
+                "sec_stock_fee"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "currency",
+          "status": "pending_currency",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending_time_semantics",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriod",
+          "status": "pending_period_basis",
+          "table": null,
+          "column": null,
+          "candidates": [
+            {
+              "table": "DSPBM.PB_STOCKTRADM_PM_SEC_M",
+              "column": "CLRDATE",
+              "meaning": "結算日期；不是資料快照日期",
+              "evidence": [
+                "sec_stock_fee"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_STOCKTRADM_AM_SEC_M",
+              "column": "CLRDATE",
+              "meaning": "結算日期；不是資料快照日期",
+              "evidence": [
+                "sec_stock_fee"
+              ]
+            },
+            {
+              "table": "DSPBM.PB_STOCKTRADM_PM_SEC",
+              "column": "CLRDATE",
+              "meaning": "結算日期；不是資料快照日期",
+              "evidence": [
+                "sec_stock_fee"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "incomePeriodStart",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "incomePeriodEnd",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeBaseAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        },
+        {
+          "field": "feeDeductionAmount",
+          "status": "pending",
+          "table": null,
+          "column": null,
+          "candidates": []
+        }
+      ],
+      "observations": {
+        "coverage": "證券複委託外國股票淨手收",
+        "classification_observation": "私銀 securities_foreign_stock 為複委託外國股票；保留淨手收定義。",
+        "valuation_observation": "SQL SUM((CFEE - ABFEE) * FXRATE)；PM/AM 分支 UNION；不可改成毛手收。",
+        "date_observation": "SQL 用 T_LAST_TWO_WORKDAYS 的 YM/LAST2_WD 將月底最後兩個工作天收入移至次月；YYYYMM||01 是歸屬月份標記，不是快照日。工作日曆、收入期間與 current 最大日期篩選均未核定。",
+        "gaps": [
+          "原 current AM 分支 FROM PB_STOCKTRADM_AM_SEC_M，最大日期卻查 PB_STOCKTRADM_AM_SEC；不擅自更換來源或重複計入歷史。",
+          "幣別、收入期間、PM/AM 去重及人員歸屬待確認。"
+        ],
+        "evidence": [
+          "sec_stock_fee",
+          "private_products",
+          "meta_sec_stock_fee"
+        ]
+      }
+    }
+  ],
+  "relation_definitions": [
+    {
+      "id": "bank.fund_aum.product",
+      "name": "衡量金融商品",
+      "source_concept": "bank.fund_aum",
+      "property_uri": "https://example.org/ontology/holding#measuresProduct",
+      "domain_uri": "https://example.org/ontology/holding#AUM",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "bank.fund_fee_income.product",
+      "name": "手收來源商品",
+      "source_concept": "bank.fund_fee_income",
+      "property_uri": "https://example.org/ontology/holding#feeIncomeFromProduct",
+      "domain_uri": "https://example.org/ontology/holding#FeeIncome",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "bank.fund_fee_income.advisor",
+      "name": "歸屬理專",
+      "source_concept": "bank.fund_fee_income",
+      "property_uri": "https://example.org/ontology/bank#attributedToAdvisor",
+      "domain_uri": "https://example.org/ontology/bank#BankFeeIncome",
+      "target_class_uri": "https://example.org/ontology/bank#FinancialAdvisor",
+      "fields": []
+    },
+    {
+      "id": "securities.bond_aum.product",
+      "name": "衡量金融商品",
+      "source_concept": "securities.bond_aum",
+      "property_uri": "https://example.org/ontology/holding#measuresProduct",
+      "domain_uri": "https://example.org/ontology/holding#AUM",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "securities.structured_aum.product",
+      "name": "衡量金融商品",
+      "source_concept": "securities.structured_aum",
+      "property_uri": "https://example.org/ontology/holding#measuresProduct",
+      "domain_uri": "https://example.org/ontology/holding#AUM",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "securities.fund_aum.product",
+      "name": "衡量金融商品",
+      "source_concept": "securities.fund_aum",
+      "property_uri": "https://example.org/ontology/holding#measuresProduct",
+      "domain_uri": "https://example.org/ontology/holding#AUM",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "securities.foreign_stock_aum.product",
+      "name": "衡量金融商品",
+      "source_concept": "securities.foreign_stock_aum",
+      "property_uri": "https://example.org/ontology/holding#measuresProduct",
+      "domain_uri": "https://example.org/ontology/holding#AUM",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "securities.taiwan_stock_aum.product",
+      "name": "衡量金融商品",
+      "source_concept": "securities.taiwan_stock_aum",
+      "property_uri": "https://example.org/ontology/holding#measuresProduct",
+      "domain_uri": "https://example.org/ontology/holding#AUM",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "securities.bond_fee_income.product",
+      "name": "手收來源商品",
+      "source_concept": "securities.bond_fee_income",
+      "property_uri": "https://example.org/ontology/holding#feeIncomeFromProduct",
+      "domain_uri": "https://example.org/ontology/holding#FeeIncome",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "securities.structured_fee_income.product",
+      "name": "手收來源商品",
+      "source_concept": "securities.structured_fee_income",
+      "property_uri": "https://example.org/ontology/holding#feeIncomeFromProduct",
+      "domain_uri": "https://example.org/ontology/holding#FeeIncome",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "securities.fund_fee_income.product",
+      "name": "手收來源商品",
+      "source_concept": "securities.fund_fee_income",
+      "property_uri": "https://example.org/ontology/holding#feeIncomeFromProduct",
+      "domain_uri": "https://example.org/ontology/holding#FeeIncome",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": []
+    },
+    {
+      "id": "securities.foreign_stock_fee_income.product",
+      "name": "手收來源商品",
+      "source_concept": "securities.foreign_stock_fee_income",
+      "property_uri": "https://example.org/ontology/holding#feeIncomeFromProduct",
+      "domain_uri": "https://example.org/ontology/holding#FeeIncome",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": []
+    }
+  ],
+  "pending_scope": [
+    {
+      "id": "securities.taiwan_stock_fee_income",
+      "status": "pending_source_definition",
+      "reason": "原產品收入定義空白，提供的 SQL 未見台股手收分支；不推論現實業務沒有手收。",
+      "evidence": [
+        "private_products"
+      ]
+    },
+    {
+      "id": "securities.stock_pledge",
+      "status": "pending_business_semantics",
+      "reason": "原 SQL 有股票設質 Qty × Product_Price；尚不能定義為投資 AUM、貸款餘額或可融資金額，未建立 AUM 概念。",
+      "evidence": [
+        "stock_pledge_pending"
+      ]
+    },
+    {
+      "id": "bank.etf",
+      "status": "outside_this_increment",
+      "reason": "私銀將基金、ETF 分列；本輪基金不自動含 ETF，尚未新增 ETF 的 RDF 或 PG。",
+      "evidence": [
+        "private_products",
+        "bank_fund_fee"
+      ]
+    }
+  ]
+}

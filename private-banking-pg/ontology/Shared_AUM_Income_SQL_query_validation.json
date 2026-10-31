@@ -1,0 +1,30 @@
+[
+  {
+    "query": 1,
+    "resultRows": 84,
+    "passed": true,
+    "nodes": 137,
+    "links": 194,
+    "operationNodes": 0
+  },
+  {
+    "query": 2,
+    "resultRows": 15,
+    "passed": true
+  },
+  {
+    "query": 3,
+    "resultRows": 1,
+    "passed": true
+  },
+  {
+    "query": 4,
+    "resultRows": 3,
+    "passed": true
+  },
+  {
+    "query": 5,
+    "resultRows": 24,
+    "passed": true
+  }
+]

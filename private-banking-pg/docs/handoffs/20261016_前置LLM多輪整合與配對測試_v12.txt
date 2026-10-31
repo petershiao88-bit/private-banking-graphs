@@ -1,0 +1,68 @@
+私銀智能問答：前置 LLM 多輪整合與產品／指標配對測試 v12
+更新：2026-10-16，Asia/Taipei。
+
+一、授權與目前狀態
+使用者明確要求：「先加上前置 LLM 整合多輪問題，保留產品和指標的配對，再讓 Jev 只查明確納入的路徑，調整後測試看看。」
+此新指示取代 v11 交接中的「不增前置 LLM」與「維持 18 節點」限制。其他保留來源、不發布、不執行 SQL／Oracle 的限制繼續適用。
+已調整、保存及完成本輪原生診斷；不是整體功能驗收通過。
+workflowId：pqvhkncZ9bFlfe4B。
+URL：https://chiang4901.app.n8n.cloud/workflow/pqvhkncZ9bFlfe4B
+保存／所有十輪凍結版本：36addbe6-5a7b-456c-810a-fc91febccae3。
+21 節點，active=false，未發布。每輪結構為一次整合 LLM、一次 Jev、一次主要回答；沒有修復模型或工具重試迴圈。
+
+二、改動
+新增 Integrate Dialogue、Integration Chat Model、Apply Dialogue Integration 三節點。
+資料流：Prepare Jev Request 完整圖驗證 → Integrate Dialogue → Apply Dialogue Integration → Jev API → Process Jev Decision → 原映射／回答流程。
+整合模型沿用 QA Chat Model 相同 OpenRouter 模型 openai/gpt-5.6-luna 與既有 credential；主要回答與 Jev 模型／採樣設定不變。
+整合輸出為 standaloneQuestion、逐組 requests（subject/productCode/domain/sourceTurns）、unresolved；逐組保留配對，不把產品集合×指標集合展開。
+未指定指標可為 null，對象有歧義可 productCode=null 並保留 unresolved；原始問題與 history 不被改寫覆蓋。每輪從原始問答重算，整合結果不存記憶。
+Apply 節點檢查 JSON schema、產品代碼／指標合法性與來源輪次範圍；格式錯明確失敗，沒有默默回退或額外模型修復。
+Prepare Jev Request 加入 currentRequest 的逐組配對指令；原 39 條路徑及完整圖驗證仍在。
+Process 只選 choice===included；uncertain 留在 decisions／uncertainPathsNotQueried，不送映射。候選子圖與完整概念圖仍分開。
+Answer Question 另收到整合提示，原始問答仍為需求依據；原 system prompt 與來源忠實規則保留。
+原 18 節點身份與位置、Aura 查詢、來源 SQL、既有模型、settings 保留。另一個單輪工作流程 Td4cymdWpu8sYNkv 不屬本輪，未修改。
+
+三、原生測試與事先條件
+主目錄：deliverables/graph_qa/v12_rewrite_pairs_20261016/。
+事先條件：test_plan.predeclared.json；UI 恢復另見 ui_recovery.predeclared.json。
+7 組離線資料契約檢查通過，只表示契約與錯誤處理，不是模型語意準確性。
+共 10 輪原生執行，全部 Succeeded；包含四組完整診斷 9 輪及原 UI 中斷組的一輪首題。
+各組首輪實際驗證 history=[]、previousTopic={}、pendingClarification=null；同組保持 session，後續 history 逐字核對前輪原始問答。
+
+C 原首題：#2659，session ad37585d94b94844a8edb5240b134241。
+原生回答、整合、選路、證據、記憶均保存；沒有再送 C2。檢視大型 Apply 節點 Table 後原分頁卡住，改開乾淨分頁，保留此輪並事先記錄恢復方式，非重跑到成功。
+C_recovery：#2668／#2669／#2670，session 38266113c2ee42f5ae3515aa7cb4da51。
+題序：兩基金差在哪 → 那 AUM 呢 → 那收入呢。路徑數 4→2→2，範圍正確，兩基金承接與指標切換符合目標。
+M：#2671／#2672，session d9179cf1e501421da74d6e45904d8753。
+銀行基金 AUM／證券基金收入 → 交換指標。兩輪均只有指定兩條，沒有展開成四組；映射 binding 亦維持正確配對。
+F：#2673／#2674，session 3c11ad87505c4c879dcea7dac456d541。
+基金收入怎麼算 → 銀行的。首輪整合保留通路歧義，Jev 兩條 uncertain 均未查，使用概念分支。回答端未按預定要求澄清通路，故 F1 未全過；第二輪仍補回銀行基金收入計算並只查一條。
+P：#2675／#2676，session 9635a1b9070c4f0a95e63c2650c72cc3。
+銀行基金收入怎麼算 → 證券的呢。整合與選路由銀行基金收入切換成證券基金收入，各一條，保留基金與收入，未沿用銀行路徑。
+
+四、判定與未完成項
+本批十輪檢索範圍符合預期（含 F1 不查映射）；九輪有映射者的 binding 與選中衡量邊完全對應、來源依賴覆蓋完整。
+這不是準確率估計或穩定成功證明，映射覆蓋完整也不是業務規則或金額結果核准。
+仍有：F1 未主動澄清；C2／M2 等一般業務回答洩出不必要的內部欄位／表名；P1 將利潤中心來源代碼稱為銀行私銀範圍，缺直接業務定義支持；C2 sourceTurns 未完整標出本輪指標來源；C3 整合問題較原話收斂為收入歸屬，需留意縮小問題目的。
+原計畫條件為診斷全過才做獨立確認，條件未達，因此本輪未做條件式獨立確認；沒有用重送或修改門檻掩蓋失敗。
+未做完整回歸、原生 SQL 生成回歸、Oracle、交易金額執行或單因子消融。兩項改動一起套用，不能把改善單獨歸因前置 LLM。
+與 v11 r2 同題：AUM 追問候選 8→2、回答輸入 218920→107307 bytes；保存耗時 13.431→19.208 秒，證據減少不代表更快。實際帳單費用未量測。
+
+五、證據與保存
+閱讀報告：deliverables/graph_qa/v12_rewrite_pairs_20261016/多輪問題整合與指定配對測試結果.html。
+完整逐題判定：assessment.final.json。
+原生資料：runs/C、C_recovery、M、F、P。Jev_input 為原生節點實際輸入，包含真正的 currentRequest；Process 另存全部 Jev 選項與 requestId。
+每輪 UI execution 的 session 及完整最終回答與本機原生檔逐字匹配：execution_identity.visible.json。
+每輪原生 Autosave 連結均指向凍結版本：execution_versions.visible.json。
+保存一致性：saved_validation.final.json；已在 fresh reload 後重新匯出核對，不能當成答案驗收。
+修改前／凍結候選／最後匯出：workflow.before.json、workflow.saved.candidate.json、workflow.after.json。
+native.json 來自 n8n 原生檢視複製，非原始 provider HTTP 訊息；Jev input 仍由已凍結 expression 組成 HTTP body。呼叫次數是執行樹結構，不是獨立 transport retry 計量。
+
+六、結束狀態與接續
+原 Graph Chat pinData 已完全還原為 sessionId 4753afde49b44d0899cb8b9d103b9862，原題「證券複委託基金的收入怎麼計算？請說明來源與日期規則。」。
+聊天已 Reset；fresh reload 後空白，沒有執行中測試；Sync selection with canvas 已還原 true。聊天面板為了最後流程總覽而收合，可 Open chat。
+完成畫面：同目錄 final_saved_reset.png。
+下一步若續修，先核對原始對話與整合忠實度，再修回答端澄清與業務語言，不先更換模型或疊加固定題型規則；缺少代碼業務定義者保持待確認。
+新測試前先 fresh 匯出保留後續變更、備份並解除 pinData，每組 reset／新 session，首輪保存空白證據；同組不重設。不要開大型 Apply Table，先切 JSON，操作須給足等待時間。
+本輪沒有發布、修改圖譜或來源 SQL、動另一個單輪流程、新 thread／排程、背景測試、commit 或 PR；本目錄不是 Git 儲存庫。
+前版 Resume 保留於 docs/handoffs/archive/RESUME_before_v12_rewrite_20261016.txt。

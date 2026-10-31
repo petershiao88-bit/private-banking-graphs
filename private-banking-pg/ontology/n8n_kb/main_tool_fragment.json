@@ -1,0 +1,80 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "description": "依主流程已選定的 metricCodes 查詢共用業務概念，由 Jev 選定產品，再回傳該產品的 AUM 映射、資料來源及 SQL 證據。產生 SQL 前先呼叫本工具確認產品範圍。products 為空時依 message 處理，不可猜產品；定義待確認或重複計入疑義不得視為已確認。",
+        "workflowId": {
+          "__rl": true,
+          "value": "tL7HTesvAzqwsqv6",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/tL7HTesvAzqwsqv6",
+          "cachedResultName": "私銀 AUM Income KB"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "question": "={{ $('Basic LLM Chain').first().json.output.resolved_query }}",
+            "domains": "={{ ['aum'] }}",
+            "metricCodes": "={{ $('metric router').first().json.output.selected_metric_codes }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "question",
+              "displayName": "question",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "domains",
+              "displayName": "domains",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "array",
+              "removed": false
+            },
+            {
+              "id": "metricCodes",
+              "displayName": "metricCodes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "array",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        -192,
+        736
+      ],
+      "id": "1bd086cc-6d90-481e-807f-6f7ffac9ddda",
+      "name": "Product Concept KB"
+    }
+  ],
+  "connections": {
+    "Product Concept KB": {
+      "ai_tool": [
+        [
+          {
+            "node": "SQL Reasoning Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

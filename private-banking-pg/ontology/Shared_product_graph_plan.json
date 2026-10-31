@@ -1,0 +1,1649 @@
+{
+  "ontologyId": "pb_shared",
+  "version": "external-reference-v1",
+  "nodes": [
+    {
+      "key": "pb_shared:product:deposit",
+      "labels": [
+        "ProductCategory",
+        "SharedProduct"
+      ],
+      "properties": {
+        "code": "deposit",
+        "name": "存款",
+        "key": "pb_shared:product:deposit",
+        "definition": "AUM保留台幣、外幣、結構型子分類；Income僅映射到存款總類。月更新SQL含台幣、外幣及員工台幣存款，未依產品代碼拆分；不可把總利收重複分配到各子類。",
+        "status": "aggregate_scope",
+        "mappingStatus": "inferred",
+        "aumMetricKey": "aum:metric:aum_deposit_month_end",
+        "incomeMetricKey": "income:metric:deposit_interest_income",
+        "aumLegacyProducts": [
+          "deposit_twd",
+          "deposit_foreign",
+          "deposit_structured"
+        ],
+        "incomeLegacyProducts": [
+          "deposit_interest"
+        ],
+        "aumStages": [
+          "AUM_005_007_008_009"
+        ],
+        "incomeStages": [
+          "INCOME_066"
+        ],
+        "aumFilter": "TYP='存款'",
+        "incomeFilter": "利收／銀行／存款",
+        "incomeMappingActive": true,
+        "aumValuationBasis": "balance",
+        "incomeAmountBasis": "SUM(GROSS_INCM)",
+        "ontologyId": "pb_shared",
+        "role": "shared_product",
+        "displayOrder": 1,
+        "directionStatus": "user_confirmed"
+      }
+    },
+    {
+      "key": "pb_shared:product:bank_insurance",
+      "labels": [
+        "ProductCategory",
+        "SharedProduct"
+      ],
+      "properties": {
+        "code": "bank_insurance",
+        "name": "銀行保險",
+        "key": "pb_shared:product:bank_insurance",
+        "definition": "AUM衡量原始投資金額；Income保留028、029、030三條来源。日檔及月檔重疊尚未證實，概念共用不代表可消除重複計入。",
+        "status": "overlap_unresolved",
+        "mappingStatus": "inferred",
+        "aumMetricKey": "aum:metric:aum_insurance_month_end",
+        "incomeMetricKey": "income:metric:bank_fee_income",
+        "aumLegacyProducts": [
+          "insurance"
+        ],
+        "incomeLegacyProducts": [
+          "bank_insurance"
+        ],
+        "aumStages": [
+          "AUM_012"
+        ],
+        "incomeStages": [
+          "INCOME_028",
+          "INCOME_029",
+          "INCOME_030"
+        ],
+        "aumFilter": "PROD='保險'",
+        "incomeFilter": "手收／銀行／保險",
+        "incomeMappingActive": true,
+        "aumValuationBasis": "original_invested_amount",
+        "incomeAmountBasis": "COMM_AMT 或 PS（metadata 定義為客戶貢獻度）",
+        "ontologyId": "pb_shared",
+        "role": "shared_product",
+        "displayOrder": 2,
+        "directionStatus": "user_confirmed"
+      }
+    },
+    {
+      "key": "pb_shared:product:bank_fund",
+      "labels": [
+        "ProductCategory",
+        "SharedProduct"
+      ],
+      "properties": {
+        "code": "bank_fund",
+        "name": "銀行基金",
+        "key": "pb_shared:product:bank_fund",
+        "definition": "由AUM銀行信託產品分類拆出；Income以FH_TYP基金分類。",
+        "status": "inferred",
+        "mappingStatus": "inferred",
+        "aumMetricKey": "aum:metric:aum_bank_investment_month_end",
+        "incomeMetricKey": "income:metric:bank_fee_income",
+        "aumLegacyProducts": [
+          "bank_trust_products"
+        ],
+        "incomeLegacyProducts": [
+          "bank_fund"
+        ],
+        "aumStages": [
+          "AUM_013_015_015_016_017_018"
+        ],
+        "incomeStages": [
+          "INCOME_033_034_035_036"
+        ],
+        "aumFilter": "PROD='基金'",
+        "incomeFilter": "FH_TYP='基金'",
+        "incomeMappingActive": true,
+        "aumValuationBasis": "CurrentTWDValue",
+        "incomeAmountBasis": "SUM(BRHREBATEAMT)",
+        "ontologyId": "pb_shared",
+        "role": "shared_product",
+        "displayOrder": 3,
+        "directionStatus": "user_confirmed"
+      }
+    },
+    {
+      "key": "pb_shared:product:bank_etf",
+      "labels": [
+        "ProductCategory",
+        "SharedProduct"
+      ],
+      "properties": {
+        "code": "bank_etf",
+        "name": "銀行ETF",
+        "key": "pb_shared:product:bank_etf",
+        "definition": "由AUM銀行信託產品分類拆出；Income以FH_TYP ETF分類。",
+        "status": "inferred",
+        "mappingStatus": "inferred",
+        "aumMetricKey": "aum:metric:aum_bank_investment_month_end",
+        "incomeMetricKey": "income:metric:bank_fee_income",
+        "aumLegacyProducts": [
+          "bank_trust_products"
+        ],
+        "incomeLegacyProducts": [
+          "bank_etf"
+        ],
+        "aumStages": [
+          "AUM_013_015_015_016_017_018"
+        ],
+        "incomeStages": [
+          "INCOME_033_034_035_036"
+        ],
+        "aumFilter": "PROD='ETF'",
+        "incomeFilter": "FH_TYP='ETF'",
+        "incomeMappingActive": true,
+        "aumValuationBasis": "CurrentTWDValue",
+        "incomeAmountBasis": "SUM(BRHREBATEAMT)",
+        "ontologyId": "pb_shared",
+        "role": "shared_product",
+        "displayOrder": 4,
+        "directionStatus": "user_confirmed"
+      }
+    },
+    {
+      "key": "pb_shared:product:bank_overseas_stock",
+      "labels": [
+        "ProductCategory",
+        "SharedProduct"
+      ],
+      "properties": {
+        "code": "bank_overseas_stock",
+        "name": "銀行海外股票",
+        "key": "pb_shared:product:bank_overseas_stock",
+        "definition": "保留銀行通路，與證券複委託股票分開。",
+        "status": "inferred",
+        "mappingStatus": "inferred",
+        "aumMetricKey": "aum:metric:aum_bank_investment_month_end",
+        "incomeMetricKey": "income:metric:bank_fee_income",
+        "aumLegacyProducts": [
+          "bank_trust_products"
+        ],
+        "incomeLegacyProducts": [
+          "bank_overseas_stock"
+        ],
+        "aumStages": [
+          "AUM_013_015_015_016_017_018"
+        ],
+        "incomeStages": [
+          "INCOME_033_034_035_036"
+        ],
+        "aumFilter": "PROD='海外股票'",
+        "incomeFilter": "FH_TYP='海外股票'",
+        "incomeMappingActive": true,
+        "aumValuationBasis": "CurrentTWDValue",
+        "incomeAmountBasis": "SUM(BRHREBATEAMT)",
+        "ontologyId": "pb_shared",
+        "role": "shared_product",
+        "displayOrder": 5,
+        "directionStatus": "user_confirmed"
+      }
+    },
+    {
+      "key": "pb_shared:product:bank_bond_trust",
+      "labels": [
+        "ProductCategory",
+        "SharedProduct"
+      ],
+      "properties": {
+        "code": "bank_bond_trust",
+        "name": "海外債券（信託）",
+        "key": "pb_shared:product:bank_bond_trust",
+        "definition": "信託持有市值與信託收入來源共用概念。",
+        "status": "inferred",
+        "mappingStatus": "inferred",
+        "aumMetricKey": "aum:metric:aum_bank_investment_month_end",
+        "incomeMetricKey": "income:metric:bank_fee_income",
+        "aumLegacyProducts": [
+          "bank_trust_products"
+        ],
+        "incomeLegacyProducts": [
+          "bank_bond_trust"
+        ],
+        "aumStages": [
+          "AUM_013_015_015_016_017_018"
+        ],
+        "incomeStages": [
+          "INCOME_031"
+        ],
+        "aumFilter": "PROD='海外債券(信託)'",
+        "incomeFilter": "手收／銀行／海外債券_信託",
+        "incomeMappingActive": true,
+        "aumValuationBasis": "CurrentTWDValue",
+        "incomeAmountBasis": "SUM(BRHREBATEAMT + WKR028/100)",
+        "ontologyId": "pb_shared",
+        "role": "shared_product",
+        "displayOrder": 6,
+        "directionStatus": "user_confirmed"
+      }
+    },
+    {
+      "key": "pb_shared:product:bank_bond_proprietary",
+      "labels": [
+        "ProductCategory",
+        "SharedProduct"
+      ],
+      "properties": {
+        "code": "bank_bond_proprietary",
+        "name": "海外債券（自營）",
+        "key": "pb_shared:product:bank_bond_proprietary",
+        "definition": "AUM海外債券自營與Income外國債券自營的對應為推論；Income保留ABS規則。",
+        "status": "inferred",
+        "mappingStatus": "inferred",
+        "aumMetricKey": "aum:metric:aum_bank_investment_month_end",
+        "incomeMetricKey": "income:metric:bank_fee_income",
+        "aumLegacyProducts": [
+          "bank_overseas_bond"
+        ],
+        "incomeLegacyProducts": [
+          "bank_bond_proprietary"
+        ],
+        "aumStages": [
+          "AUM_019"
+        ],
+        "incomeStages": [
+          "INCOME_032"
+        ],
+        "aumFilter": "PROD='海外債券(自營)'",
+        "incomeFilter": "手收／銀行／外國債券_自營",
+        "incomeMappingActive": true,
+        "aumValuationBasis": "face_amount × reference_price × exchange_rate",
+        "incomeAmountBasis": "SUM(ABS(INC_AMT_NT))",
+        "ontologyId": "pb_shared",
+        "role": "shared_product",
+        "displayOrder": 7,
+        "directionStatus": "user_confirmed"
+      }
+    },
+    {
+      "key": "pb_shared:product:bank_collective_account",
+      "labels": [
+        "ProductCategory",
+        "SharedProduct"
+      ],
+      "properties": {
+        "code": "bank_collective_account",
+        "name": "集合管理帳戶",
+        "key": "pb_shared:product:bank_collective_account",
+        "definition": "Income CASE先將TA/TB/TD/TE歸為基金，集合分類不可達；Income連線表示定義待確認，不表示獨立收入已計入。",
+        "status": "metadata_sql_conflict",
+        "mappingStatus": "inferred",
+        "aumMetricKey": "aum:metric:aum_bank_investment_month_end",
+        "incomeMetricKey": "income:metric:bank_fee_income",
+        "aumLegacyProducts": [
+          "bank_trust_products"
+        ],
+        "incomeLegacyProducts": [
+          "bank_collective_account"
+        ],
+        "aumStages": [
+          "AUM_013_015_015_016_017_018"
+        ],
+        "incomeStages": [
+          "INCOME_033_034_035_036"
+        ],
+        "aumFilter": "PROD='集合管理帳戶'",
+        "incomeFilter": "FHID starts TA/TB/TD/TE",
+        "incomeMappingActive": false,
+        "aumValuationBasis": "CurrentTWDValue",
+        "incomeAmountBasis": "SUM(BRHREBATEAMT)",
+        "ontologyId": "pb_shared",
+        "role": "shared_product",
+        "displayOrder": 8,
+        "directionStatus": "user_confirmed"
+      }
+    },
+    {
+      "key": "pb_shared:product:bank_structured_offshore",
+      "labels": [
+        "ProductCategory",
+        "SharedProduct"
+      ],
+      "properties": {
+        "code": "bank_structured_offshore",
+        "name": "銀行境外結構型商品",
+        "key": "pb_shared:product:bank_structured_offshore",
+        "definition": "境內結構型、DCI及結構型存款均不併入此概念。",
+        "status": "inferred",
+        "mappingStatus": "inferred",
+        "aumMetricKey": "aum:metric:aum_bank_investment_month_end",
+        "incomeMetricKey": "income:metric:bank_fee_income",
+        "aumLegacyProducts": [
+          "bank_trust_products"
+        ],
+        "incomeLegacyProducts": [
+          "bank_structured_offshore"
+        ],
+        "aumStages": [
+          "AUM_013_015_015_016_017_018"
+        ],
+        "incomeStages": [
+          "INCOME_042"
+        ],
+        "aumFilter": "PROD='境外結構型商品'",
+        "incomeFilter": "手收／銀行／結構型_境外",
+        "incomeMappingActive": true,
+        "aumValuationBasis": "CurrentTWDValue",
+        "incomeAmountBasis": "SN 的 SUM(BRHREBATEAMT)",
+        "ontologyId": "pb_shared",
+        "role": "shared_product",
+        "displayOrder": 9,
+        "directionStatus": "user_confirmed"
+      }
+    },
+    {
+      "key": "pb_shared:product:bank_planned_trust",
+      "labels": [
+        "ProductCategory",
+        "SharedProduct"
+      ],
+      "properties": {
+        "code": "bank_planned_trust",
+        "name": "規劃型信託",
+        "key": "pb_shared:product:bank_planned_trust",
+        "definition": "Income舊分類含保管；此共用概念只連046、047，保管048另立概念。",
+        "status": "inferred",
+        "mappingStatus": "inferred",
+        "aumMetricKey": "aum:metric:aum_bank_investment_month_end",
+        "incomeMetricKey": "income:metric:bank_fee_income",
+        "aumLegacyProducts": [
+          "bank_planned_trust"
+        ],
+        "incomeLegacyProducts": [
+          "bank_planned_trust"
+        ],
+        "aumStages": [
+          "AUM_020",
+          "AUM_021"
+        ],
+        "incomeStages": [
+          "INCOME_046",
+          "INCOME_047"
+        ],
+        "aumFilter": "PROD='規劃型信託'",
+        "incomeFilter": "手收／銀行／規劃型信託",
+        "incomeMappingActive": true,
+        "aumValuationBasis": "PresentAmt or MarketValueTWD",
+        "incomeAmountBasis": "借券、管理、成立費；Fee+CreateFee",
+        "ontologyId": "pb_shared",
+        "role": "shared_product",
+        "displayOrder": 10,
+        "directionStatus": "user_confirmed"
+      }
+    },
+    {
+      "key": "pb_shared:product:bank_trust_custody",
+      "labels": [
+        "ProductCategory",
+        "SharedProduct"
+      ],
+      "properties": {
+        "code": "bank_trust_custody",
+        "name": "信託保管",
+        "key": "pb_shared:product:bank_trust_custody",
+        "definition": "按DSPMS.PB_PMS_AUM的AUM與FEE拆出；Income的SUB_TYPE仍保留現行規劃型信託分類。",
+        "status": "inferred",
+        "mappingStatus": "inferred",
+        "aumMetricKey": "aum:metric:aum_bank_investment_month_end",
+        "incomeMetricKey": "income:metric:bank_fee_income",
+        "aumLegacyProducts": [
+          "bank_trust_custody"
+        ],
+        "incomeLegacyProducts": [
+          "bank_planned_trust"
+        ],
+        "aumStages": [
+          "AUM_022"
+        ],
+        "incomeStages": [
+          "INCOME_048"
+        ],
+        "aumFilter": "PROD='信託保管'",
+        "incomeFilter": "手收／銀行／規劃型信託",
+        "incomeMappingActive": true,
+        "aumValuationBasis": "source_AUM",
+        "incomeAmountBasis": "保管FEE",
+        "ontologyId": "pb_shared",
+        "role": "shared_product",
+        "displayOrder": 11,
+        "directionStatus": "user_confirmed"
+      }
+    },
+    {
+      "key": "pb_shared:product:securities_bond",
+      "labels": [
+        "ProductCategory",
+        "SharedProduct"
+      ],
+      "properties": {
+        "code": "securities_bond",
+        "name": "證券複委託債券",
+        "key": "pb_shared:product:securities_bond",
+        "definition": "證券通路：部位估值與交易手續費共用概念。",
+        "status": "inferred",
+        "mappingStatus": "inferred",
+        "aumMetricKey": "aum:metric:aum_securities_month_end",
+        "incomeMetricKey": "income:metric:securities_fee_income",
+        "aumLegacyProducts": [
+          "securities_bond"
+        ],
+        "incomeLegacyProducts": [
+          "securities_bond"
+        ],
+        "aumStages": [
+          "AUM_023_024"
+        ],
+        "incomeStages": [
+          "INCOME_051_054"
+        ],
+        "aumFilter": "PROD='複委託債券'",
+        "incomeFilter": "FLG='債券'",
+        "incomeMappingActive": true,
+        "aumValuationBasis": "NETQTY / 100 × CPRICE × EXCH_RT",
+        "incomeAmountBasis": "SUM(CFEE*FXRATE)",
+        "ontologyId": "pb_shared",
+        "role": "shared_product",
+        "displayOrder": 12,
+        "directionStatus": "user_confirmed"
+      }
+    },
+    {
+      "key": "pb_shared:product:securities_structured",
+      "labels": [
+        "ProductCategory",
+        "SharedProduct"
+      ],
+      "properties": {
+        "code": "securities_structured",
+        "name": "證券複委託結構型商品",
+        "key": "pb_shared:product:securities_structured",
+        "definition": "AUM以BOND的TSSN前綴區分，Income以FLG分類。",
+        "status": "inferred",
+        "mappingStatus": "inferred",
+        "aumMetricKey": "aum:metric:aum_securities_month_end",
+        "incomeMetricKey": "income:metric:securities_fee_income",
+        "aumLegacyProducts": [
+          "securities_structured"
+        ],
+        "incomeLegacyProducts": [
+          "securities_structured"
+        ],
+        "aumStages": [
+          "AUM_023_024"
+        ],
+        "incomeStages": [
+          "INCOME_051_054"
+        ],
+        "aumFilter": "PROD='複委託結構型商品'",
+        "incomeFilter": "FLG='結構型商品'",
+        "incomeMappingActive": true,
+        "aumValuationBasis": "NETQTY / 100 × CPRICE × EXCH_RT",
+        "incomeAmountBasis": "SUM(CFEE*FXRATE)",
+        "ontologyId": "pb_shared",
+        "role": "shared_product",
+        "displayOrder": 13,
+        "directionStatus": "user_confirmed"
+      }
+    },
+    {
+      "key": "pb_shared:product:securities_fund",
+      "labels": [
+        "ProductCategory",
+        "SharedProduct"
+      ],
+      "properties": {
+        "code": "securities_fund",
+        "name": "證券複委託基金",
+        "key": "pb_shared:product:securities_fund",
+        "definition": "與銀行基金分開，保留證券持有及交易費來源。",
+        "status": "inferred",
+        "mappingStatus": "inferred",
+        "aumMetricKey": "aum:metric:aum_securities_month_end",
+        "incomeMetricKey": "income:metric:securities_fee_income",
+        "aumLegacyProducts": [
+          "securities_fund"
+        ],
+        "incomeLegacyProducts": [
+          "securities_fund"
+        ],
+        "aumStages": [
+          "AUM_025"
+        ],
+        "incomeStages": [
+          "INCOME_052"
+        ],
+        "aumFilter": "PROD='基金' AND COMP='證券'",
+        "incomeFilter": "手收／證券／基金",
+        "incomeMappingActive": true,
+        "aumValuationBasis": "fund_units × closing_price × exchange_rate",
+        "incomeAmountBasis": "SUM(WKA31)",
+        "ontologyId": "pb_shared",
+        "role": "shared_product",
+        "displayOrder": 14,
+        "directionStatus": "user_confirmed"
+      }
+    },
+    {
+      "key": "pb_shared:product:securities_foreign_stock",
+      "labels": [
+        "ProductCategory",
+        "SharedProduct"
+      ],
+      "properties": {
+        "code": "securities_foreign_stock",
+        "name": "證券複委託外國股票",
+        "key": "pb_shared:product:securities_foreign_stock",
+        "definition": "Income為CFEE減ABFEE乘匯率，保留可能負值。",
+        "status": "inferred",
+        "mappingStatus": "inferred",
+        "aumMetricKey": "aum:metric:aum_securities_month_end",
+        "incomeMetricKey": "income:metric:securities_fee_income",
+        "aumLegacyProducts": [
+          "securities_foreign_stock"
+        ],
+        "incomeLegacyProducts": [
+          "securities_foreign_stock"
+        ],
+        "aumStages": [
+          "AUM_026"
+        ],
+        "incomeStages": [
+          "INCOME_053"
+        ],
+        "aumFilter": "PROD='外國股票' AND COMP='證券'",
+        "incomeFilter": "手收／證券／外國股票",
+        "incomeMappingActive": true,
+        "aumValuationBasis": "NETQTY × CPRICE × EXCH_RT",
+        "incomeAmountBasis": "SUM((CFEE-ABFEE)*FXRATE)",
+        "ontologyId": "pb_shared",
+        "role": "shared_product",
+        "displayOrder": 15,
+        "directionStatus": "user_confirmed"
+      }
+    }
+  ],
+  "externalReferences": [
+    {
+      "key": "aum:metric:aum_total_month_end",
+      "label": "BusinessMetric"
+    },
+    {
+      "key": "income:metric:income_total_customer_month",
+      "label": "BusinessMetric"
+    },
+    {
+      "key": "aum:metric:aum_deposit_month_end",
+      "label": "BusinessMetric"
+    },
+    {
+      "key": "aum:metric:aum_investment_month_end",
+      "label": "BusinessMetric"
+    },
+    {
+      "key": "aum:metric:aum_bank_investment_month_end",
+      "label": "BusinessMetric"
+    },
+    {
+      "key": "aum:metric:aum_securities_month_end",
+      "label": "BusinessMetric"
+    },
+    {
+      "key": "aum:metric:aum_insurance_month_end",
+      "label": "BusinessMetric"
+    },
+    {
+      "key": "income:metric:interest_income",
+      "label": "BusinessMetric"
+    },
+    {
+      "key": "income:metric:fee_income",
+      "label": "BusinessMetric"
+    },
+    {
+      "key": "income:metric:securities_fee_income",
+      "label": "BusinessMetric"
+    },
+    {
+      "key": "income:metric:bank_fee_income",
+      "label": "BusinessMetric"
+    },
+    {
+      "key": "income:metric:loan_interest_income",
+      "label": "BusinessMetric"
+    },
+    {
+      "key": "income:metric:deposit_interest_income",
+      "label": "BusinessMetric"
+    },
+    {
+      "key": "aum:stage:AUM_005_007_008_009",
+      "label": "StagingOutput"
+    },
+    {
+      "key": "income:stage:INCOME_066",
+      "label": "StagingOutput"
+    },
+    {
+      "key": "aum:stage:AUM_012",
+      "label": "StagingOutput"
+    },
+    {
+      "key": "income:stage:INCOME_028",
+      "label": "StagingOutput"
+    },
+    {
+      "key": "income:stage:INCOME_029",
+      "label": "StagingOutput"
+    },
+    {
+      "key": "income:stage:INCOME_030",
+      "label": "StagingOutput"
+    },
+    {
+      "key": "aum:stage:AUM_013_015_015_016_017_018",
+      "label": "StagingOutput"
+    },
+    {
+      "key": "income:stage:INCOME_033_034_035_036",
+      "label": "StagingOutput"
+    },
+    {
+      "key": "income:stage:INCOME_031",
+      "label": "StagingOutput"
+    },
+    {
+      "key": "aum:stage:AUM_019",
+      "label": "StagingOutput"
+    },
+    {
+      "key": "income:stage:INCOME_032",
+      "label": "StagingOutput"
+    },
+    {
+      "key": "income:stage:INCOME_042",
+      "label": "StagingOutput"
+    },
+    {
+      "key": "aum:stage:AUM_020",
+      "label": "StagingOutput"
+    },
+    {
+      "key": "aum:stage:AUM_021",
+      "label": "StagingOutput"
+    },
+    {
+      "key": "income:stage:INCOME_046",
+      "label": "StagingOutput"
+    },
+    {
+      "key": "income:stage:INCOME_047",
+      "label": "StagingOutput"
+    },
+    {
+      "key": "aum:stage:AUM_022",
+      "label": "StagingOutput"
+    },
+    {
+      "key": "income:stage:INCOME_048",
+      "label": "StagingOutput"
+    },
+    {
+      "key": "aum:stage:AUM_023_024",
+      "label": "StagingOutput"
+    },
+    {
+      "key": "income:stage:INCOME_051_054",
+      "label": "StagingOutput"
+    },
+    {
+      "key": "aum:stage:AUM_025",
+      "label": "StagingOutput"
+    },
+    {
+      "key": "income:stage:INCOME_052",
+      "label": "StagingOutput"
+    },
+    {
+      "key": "aum:stage:AUM_026",
+      "label": "StagingOutput"
+    },
+    {
+      "key": "income:stage:INCOME_053",
+      "label": "StagingOutput"
+    }
+  ],
+  "relationships": [
+    {
+      "source": "aum:metric:aum_deposit_month_end",
+      "target": "aum:metric:aum_total_month_end",
+      "type": "AUM_ROLLS_UP_TO",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "name": "歸入上層指標",
+        "status": "inferred",
+        "evidence": "既有HAS_COMPONENT分類層級；以子指標指向父指標表示"
+      }
+    },
+    {
+      "source": "aum:metric:aum_investment_month_end",
+      "target": "aum:metric:aum_total_month_end",
+      "type": "AUM_ROLLS_UP_TO",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "name": "歸入上層指標",
+        "status": "inferred",
+        "evidence": "既有HAS_COMPONENT分類層級；以子指標指向父指標表示"
+      }
+    },
+    {
+      "source": "aum:metric:aum_bank_investment_month_end",
+      "target": "aum:metric:aum_investment_month_end",
+      "type": "AUM_ROLLS_UP_TO",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "name": "歸入上層指標",
+        "status": "inferred",
+        "evidence": "既有HAS_COMPONENT分類層級；以子指標指向父指標表示"
+      }
+    },
+    {
+      "source": "aum:metric:aum_securities_month_end",
+      "target": "aum:metric:aum_investment_month_end",
+      "type": "AUM_ROLLS_UP_TO",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "name": "歸入上層指標",
+        "status": "inferred",
+        "evidence": "既有HAS_COMPONENT分類層級；以子指標指向父指標表示"
+      }
+    },
+    {
+      "source": "aum:metric:aum_insurance_month_end",
+      "target": "aum:metric:aum_bank_investment_month_end",
+      "type": "AUM_ROLLS_UP_TO",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "name": "歸入上層指標",
+        "status": "inferred",
+        "evidence": "既有HAS_COMPONENT分類層級；以子指標指向父指標表示"
+      }
+    },
+    {
+      "source": "income:metric:interest_income",
+      "target": "income:metric:income_total_customer_month",
+      "type": "INCOME_ROLLS_UP_TO",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "name": "歸入上層指標",
+        "status": "inferred",
+        "evidence": "既有HAS_COMPONENT分類層級；以子指標指向父指標表示"
+      }
+    },
+    {
+      "source": "income:metric:fee_income",
+      "target": "income:metric:income_total_customer_month",
+      "type": "INCOME_ROLLS_UP_TO",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "name": "歸入上層指標",
+        "status": "inferred",
+        "evidence": "既有HAS_COMPONENT分類層級；以子指標指向父指標表示"
+      }
+    },
+    {
+      "source": "income:metric:securities_fee_income",
+      "target": "income:metric:fee_income",
+      "type": "INCOME_ROLLS_UP_TO",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "name": "歸入上層指標",
+        "status": "inferred",
+        "evidence": "既有HAS_COMPONENT分類層級；以子指標指向父指標表示"
+      }
+    },
+    {
+      "source": "income:metric:bank_fee_income",
+      "target": "income:metric:fee_income",
+      "type": "INCOME_ROLLS_UP_TO",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "name": "歸入上層指標",
+        "status": "inferred",
+        "evidence": "既有HAS_COMPONENT分類層級；以子指標指向父指標表示"
+      }
+    },
+    {
+      "source": "income:metric:loan_interest_income",
+      "target": "income:metric:interest_income",
+      "type": "INCOME_ROLLS_UP_TO",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "name": "歸入上層指標",
+        "status": "inferred",
+        "evidence": "既有HAS_COMPONENT分類層級；以子指標指向父指標表示"
+      }
+    },
+    {
+      "source": "income:metric:deposit_interest_income",
+      "target": "income:metric:interest_income",
+      "type": "INCOME_ROLLS_UP_TO",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "name": "歸入上層指標",
+        "status": "inferred",
+        "evidence": "既有HAS_COMPONENT分類層級；以子指標指向父指標表示"
+      }
+    },
+    {
+      "source": "pb_shared:product:deposit",
+      "target": "aum:metric:aum_deposit_month_end",
+      "type": "MEASURED_BY_AUM",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "inferred",
+        "scope": "TYP='存款'",
+        "rootDefinitionStatus": "draft_metric_query",
+        "name": "資產衡量"
+      }
+    },
+    {
+      "source": "pb_shared:product:deposit",
+      "target": "income:metric:deposit_interest_income",
+      "type": "MEASURED_BY_INCOME",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "inferred",
+        "name": "收入衡量",
+        "note": "AUM保留台幣、外幣、結構型子分類；Income僅映射到存款總類。月更新SQL含台幣、外幣及員工台幣存款，未依產品代碼拆分；不可把總利收重複分配到各子類。"
+      }
+    },
+    {
+      "source": "pb_shared:product:deposit",
+      "target": "aum:stage:AUM_005_007_008_009",
+      "type": "AUM_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "TYP='存款'",
+        "note": "AUM保留台幣、外幣、結構型子分類；Income僅映射到存款總類。月更新SQL含台幣、外幣及員工台幣存款，未依產品代碼拆分；不可把總利收重複分配到各子類。"
+      }
+    },
+    {
+      "source": "pb_shared:product:deposit",
+      "target": "income:stage:INCOME_066",
+      "type": "INCOME_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "利收／銀行／存款",
+        "note": "AUM保留台幣、外幣、結構型子分類；Income僅映射到存款總類。月更新SQL含台幣、外幣及員工台幣存款，未依產品代碼拆分；不可把總利收重複分配到各子類。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_insurance",
+      "target": "aum:metric:aum_insurance_month_end",
+      "type": "MEASURED_BY_AUM",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "inferred",
+        "scope": "PROD='保險'",
+        "rootDefinitionStatus": "draft_metric_query",
+        "name": "資產衡量"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_insurance",
+      "target": "income:metric:bank_fee_income",
+      "type": "MEASURED_BY_INCOME",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "inferred",
+        "name": "收入衡量",
+        "note": "AUM衡量原始投資金額；Income保留028、029、030三條来源。日檔及月檔重疊尚未證實，概念共用不代表可消除重複計入。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_insurance",
+      "target": "aum:stage:AUM_012",
+      "type": "AUM_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "PROD='保險'",
+        "note": "AUM衡量原始投資金額；Income保留028、029、030三條来源。日檔及月檔重疊尚未證實，概念共用不代表可消除重複計入。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_insurance",
+      "target": "income:stage:INCOME_028",
+      "type": "INCOME_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "手收／銀行／保險",
+        "note": "AUM衡量原始投資金額；Income保留028、029、030三條来源。日檔及月檔重疊尚未證實，概念共用不代表可消除重複計入。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_insurance",
+      "target": "income:stage:INCOME_029",
+      "type": "INCOME_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "手收／銀行／保險",
+        "note": "AUM衡量原始投資金額；Income保留028、029、030三條来源。日檔及月檔重疊尚未證實，概念共用不代表可消除重複計入。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_insurance",
+      "target": "income:stage:INCOME_030",
+      "type": "INCOME_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "手收／銀行／保險",
+        "note": "AUM衡量原始投資金額；Income保留028、029、030三條来源。日檔及月檔重疊尚未證實，概念共用不代表可消除重複計入。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_fund",
+      "target": "aum:metric:aum_bank_investment_month_end",
+      "type": "MEASURED_BY_AUM",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "inferred",
+        "scope": "PROD='基金'",
+        "rootDefinitionStatus": "draft_metric_query",
+        "name": "資產衡量"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_fund",
+      "target": "income:metric:bank_fee_income",
+      "type": "MEASURED_BY_INCOME",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "inferred",
+        "name": "收入衡量",
+        "note": "由AUM銀行信託產品分類拆出；Income以FH_TYP基金分類。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_fund",
+      "target": "aum:stage:AUM_013_015_015_016_017_018",
+      "type": "AUM_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "PROD='基金'",
+        "note": "由AUM銀行信託產品分類拆出；Income以FH_TYP基金分類。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_fund",
+      "target": "income:stage:INCOME_033_034_035_036",
+      "type": "INCOME_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "FH_TYP='基金'",
+        "note": "由AUM銀行信託產品分類拆出；Income以FH_TYP基金分類。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_etf",
+      "target": "aum:metric:aum_bank_investment_month_end",
+      "type": "MEASURED_BY_AUM",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "inferred",
+        "scope": "PROD='ETF'",
+        "rootDefinitionStatus": "draft_metric_query",
+        "name": "資產衡量"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_etf",
+      "target": "income:metric:bank_fee_income",
+      "type": "MEASURED_BY_INCOME",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "inferred",
+        "name": "收入衡量",
+        "note": "由AUM銀行信託產品分類拆出；Income以FH_TYP ETF分類。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_etf",
+      "target": "aum:stage:AUM_013_015_015_016_017_018",
+      "type": "AUM_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "PROD='ETF'",
+        "note": "由AUM銀行信託產品分類拆出；Income以FH_TYP ETF分類。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_etf",
+      "target": "income:stage:INCOME_033_034_035_036",
+      "type": "INCOME_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "FH_TYP='ETF'",
+        "note": "由AUM銀行信託產品分類拆出；Income以FH_TYP ETF分類。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_overseas_stock",
+      "target": "aum:metric:aum_bank_investment_month_end",
+      "type": "MEASURED_BY_AUM",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "inferred",
+        "scope": "PROD='海外股票'",
+        "rootDefinitionStatus": "draft_metric_query",
+        "name": "資產衡量"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_overseas_stock",
+      "target": "income:metric:bank_fee_income",
+      "type": "MEASURED_BY_INCOME",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "inferred",
+        "name": "收入衡量",
+        "note": "保留銀行通路，與證券複委託股票分開。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_overseas_stock",
+      "target": "aum:stage:AUM_013_015_015_016_017_018",
+      "type": "AUM_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "PROD='海外股票'",
+        "note": "保留銀行通路，與證券複委託股票分開。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_overseas_stock",
+      "target": "income:stage:INCOME_033_034_035_036",
+      "type": "INCOME_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "FH_TYP='海外股票'",
+        "note": "保留銀行通路，與證券複委託股票分開。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_bond_trust",
+      "target": "aum:metric:aum_bank_investment_month_end",
+      "type": "MEASURED_BY_AUM",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "inferred",
+        "scope": "PROD='海外債券(信託)'",
+        "rootDefinitionStatus": "draft_metric_query",
+        "name": "資產衡量"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_bond_trust",
+      "target": "income:metric:bank_fee_income",
+      "type": "MEASURED_BY_INCOME",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "inferred",
+        "name": "收入衡量",
+        "note": "信託持有市值與信託收入來源共用概念。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_bond_trust",
+      "target": "aum:stage:AUM_013_015_015_016_017_018",
+      "type": "AUM_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "PROD='海外債券(信託)'",
+        "note": "信託持有市值與信託收入來源共用概念。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_bond_trust",
+      "target": "income:stage:INCOME_031",
+      "type": "INCOME_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "手收／銀行／海外債券_信託",
+        "note": "信託持有市值與信託收入來源共用概念。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_bond_proprietary",
+      "target": "aum:metric:aum_bank_investment_month_end",
+      "type": "MEASURED_BY_AUM",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "inferred",
+        "scope": "PROD='海外債券(自營)'",
+        "rootDefinitionStatus": "draft_metric_query",
+        "name": "資產衡量"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_bond_proprietary",
+      "target": "income:metric:bank_fee_income",
+      "type": "MEASURED_BY_INCOME",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "inferred",
+        "name": "收入衡量",
+        "note": "AUM海外債券自營與Income外國債券自營的對應為推論；Income保留ABS規則。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_bond_proprietary",
+      "target": "aum:stage:AUM_019",
+      "type": "AUM_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "PROD='海外債券(自營)'",
+        "note": "AUM海外債券自營與Income外國債券自營的對應為推論；Income保留ABS規則。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_bond_proprietary",
+      "target": "income:stage:INCOME_032",
+      "type": "INCOME_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "手收／銀行／外國債券_自營",
+        "note": "AUM海外債券自營與Income外國債券自營的對應為推論；Income保留ABS規則。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_collective_account",
+      "target": "aum:metric:aum_bank_investment_month_end",
+      "type": "MEASURED_BY_AUM",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "inferred",
+        "scope": "PROD='集合管理帳戶'",
+        "rootDefinitionStatus": "draft_metric_query",
+        "name": "資產衡量"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_collective_account",
+      "target": "income:metric:bank_fee_income",
+      "type": "INCOME_DEFINITION_PENDING",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "metadata_sql_conflict",
+        "name": "收入定義待確認",
+        "note": "Income CASE先將TA/TB/TD/TE歸為基金，集合分類不可達；Income連線表示定義待確認，不表示獨立收入已計入。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_collective_account",
+      "target": "aum:stage:AUM_013_015_015_016_017_018",
+      "type": "AUM_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "PROD='集合管理帳戶'",
+        "note": "Income CASE先將TA/TB/TD/TE歸為基金，集合分類不可達；Income連線表示定義待確認，不表示獨立收入已計入。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_collective_account",
+      "target": "income:stage:INCOME_033_034_035_036",
+      "type": "INCOME_DECLARED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "metadata_sql_conflict",
+        "scope": "FHID starts TA/TB/TD/TE",
+        "note": "Income CASE先將TA/TB/TD/TE歸為基金，集合分類不可達；Income連線表示定義待確認，不表示獨立收入已計入。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_structured_offshore",
+      "target": "aum:metric:aum_bank_investment_month_end",
+      "type": "MEASURED_BY_AUM",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "inferred",
+        "scope": "PROD='境外結構型商品'",
+        "rootDefinitionStatus": "draft_metric_query",
+        "name": "資產衡量"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_structured_offshore",
+      "target": "income:metric:bank_fee_income",
+      "type": "MEASURED_BY_INCOME",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "inferred",
+        "name": "收入衡量",
+        "note": "境內結構型、DCI及結構型存款均不併入此概念。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_structured_offshore",
+      "target": "aum:stage:AUM_013_015_015_016_017_018",
+      "type": "AUM_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "PROD='境外結構型商品'",
+        "note": "境內結構型、DCI及結構型存款均不併入此概念。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_structured_offshore",
+      "target": "income:stage:INCOME_042",
+      "type": "INCOME_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "手收／銀行／結構型_境外",
+        "note": "境內結構型、DCI及結構型存款均不併入此概念。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_planned_trust",
+      "target": "aum:metric:aum_bank_investment_month_end",
+      "type": "MEASURED_BY_AUM",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "inferred",
+        "scope": "PROD='規劃型信託'",
+        "rootDefinitionStatus": "draft_metric_query",
+        "name": "資產衡量"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_planned_trust",
+      "target": "income:metric:bank_fee_income",
+      "type": "MEASURED_BY_INCOME",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "inferred",
+        "name": "收入衡量",
+        "note": "Income舊分類含保管；此共用概念只連046、047，保管048另立概念。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_planned_trust",
+      "target": "aum:stage:AUM_020",
+      "type": "AUM_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "PROD='規劃型信託'",
+        "note": "Income舊分類含保管；此共用概念只連046、047，保管048另立概念。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_planned_trust",
+      "target": "aum:stage:AUM_021",
+      "type": "AUM_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "PROD='規劃型信託'",
+        "note": "Income舊分類含保管；此共用概念只連046、047，保管048另立概念。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_planned_trust",
+      "target": "income:stage:INCOME_046",
+      "type": "INCOME_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "手收／銀行／規劃型信託",
+        "note": "Income舊分類含保管；此共用概念只連046、047，保管048另立概念。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_planned_trust",
+      "target": "income:stage:INCOME_047",
+      "type": "INCOME_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "手收／銀行／規劃型信託",
+        "note": "Income舊分類含保管；此共用概念只連046、047，保管048另立概念。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_trust_custody",
+      "target": "aum:metric:aum_bank_investment_month_end",
+      "type": "MEASURED_BY_AUM",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "inferred",
+        "scope": "PROD='信託保管'",
+        "rootDefinitionStatus": "draft_metric_query",
+        "name": "資產衡量"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_trust_custody",
+      "target": "income:metric:bank_fee_income",
+      "type": "MEASURED_BY_INCOME",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "inferred",
+        "name": "收入衡量",
+        "note": "按DSPMS.PB_PMS_AUM的AUM與FEE拆出；Income的SUB_TYPE仍保留現行規劃型信託分類。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_trust_custody",
+      "target": "aum:stage:AUM_022",
+      "type": "AUM_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "PROD='信託保管'",
+        "note": "按DSPMS.PB_PMS_AUM的AUM與FEE拆出；Income的SUB_TYPE仍保留現行規劃型信託分類。"
+      }
+    },
+    {
+      "source": "pb_shared:product:bank_trust_custody",
+      "target": "income:stage:INCOME_048",
+      "type": "INCOME_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "手收／銀行／規劃型信託",
+        "note": "按DSPMS.PB_PMS_AUM的AUM與FEE拆出；Income的SUB_TYPE仍保留現行規劃型信託分類。"
+      }
+    },
+    {
+      "source": "pb_shared:product:securities_bond",
+      "target": "aum:metric:aum_securities_month_end",
+      "type": "MEASURED_BY_AUM",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "inferred",
+        "scope": "PROD='複委託債券'",
+        "rootDefinitionStatus": "draft_metric_query",
+        "name": "資產衡量"
+      }
+    },
+    {
+      "source": "pb_shared:product:securities_bond",
+      "target": "income:metric:securities_fee_income",
+      "type": "MEASURED_BY_INCOME",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "inferred",
+        "name": "收入衡量",
+        "note": "證券通路：部位估值與交易手續費共用概念。"
+      }
+    },
+    {
+      "source": "pb_shared:product:securities_bond",
+      "target": "aum:stage:AUM_023_024",
+      "type": "AUM_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "PROD='複委託債券'",
+        "note": "證券通路：部位估值與交易手續費共用概念。"
+      }
+    },
+    {
+      "source": "pb_shared:product:securities_bond",
+      "target": "income:stage:INCOME_051_054",
+      "type": "INCOME_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "FLG='債券'",
+        "note": "證券通路：部位估值與交易手續費共用概念。"
+      }
+    },
+    {
+      "source": "pb_shared:product:securities_structured",
+      "target": "aum:metric:aum_securities_month_end",
+      "type": "MEASURED_BY_AUM",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "inferred",
+        "scope": "PROD='複委託結構型商品'",
+        "rootDefinitionStatus": "draft_metric_query",
+        "name": "資產衡量"
+      }
+    },
+    {
+      "source": "pb_shared:product:securities_structured",
+      "target": "income:metric:securities_fee_income",
+      "type": "MEASURED_BY_INCOME",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "inferred",
+        "name": "收入衡量",
+        "note": "AUM以BOND的TSSN前綴區分，Income以FLG分類。"
+      }
+    },
+    {
+      "source": "pb_shared:product:securities_structured",
+      "target": "aum:stage:AUM_023_024",
+      "type": "AUM_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "PROD='複委託結構型商品'",
+        "note": "AUM以BOND的TSSN前綴區分，Income以FLG分類。"
+      }
+    },
+    {
+      "source": "pb_shared:product:securities_structured",
+      "target": "income:stage:INCOME_051_054",
+      "type": "INCOME_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "FLG='結構型商品'",
+        "note": "AUM以BOND的TSSN前綴區分，Income以FLG分類。"
+      }
+    },
+    {
+      "source": "pb_shared:product:securities_fund",
+      "target": "aum:metric:aum_securities_month_end",
+      "type": "MEASURED_BY_AUM",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "inferred",
+        "scope": "PROD='基金' AND COMP='證券'",
+        "rootDefinitionStatus": "draft_metric_query",
+        "name": "資產衡量"
+      }
+    },
+    {
+      "source": "pb_shared:product:securities_fund",
+      "target": "income:metric:securities_fee_income",
+      "type": "MEASURED_BY_INCOME",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "inferred",
+        "name": "收入衡量",
+        "note": "與銀行基金分開，保留證券持有及交易費來源。"
+      }
+    },
+    {
+      "source": "pb_shared:product:securities_fund",
+      "target": "aum:stage:AUM_025",
+      "type": "AUM_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "PROD='基金' AND COMP='證券'",
+        "note": "與銀行基金分開，保留證券持有及交易費來源。"
+      }
+    },
+    {
+      "source": "pb_shared:product:securities_fund",
+      "target": "income:stage:INCOME_052",
+      "type": "INCOME_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "手收／證券／基金",
+        "note": "與銀行基金分開，保留證券持有及交易費來源。"
+      }
+    },
+    {
+      "source": "pb_shared:product:securities_foreign_stock",
+      "target": "aum:metric:aum_securities_month_end",
+      "type": "MEASURED_BY_AUM",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "inferred",
+        "scope": "PROD='外國股票' AND COMP='證券'",
+        "rootDefinitionStatus": "draft_metric_query",
+        "name": "資產衡量"
+      }
+    },
+    {
+      "source": "pb_shared:product:securities_foreign_stock",
+      "target": "income:metric:securities_fee_income",
+      "type": "MEASURED_BY_INCOME",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "inferred",
+        "name": "收入衡量",
+        "note": "Income為CFEE減ABFEE乘匯率，保留可能負值。"
+      }
+    },
+    {
+      "source": "pb_shared:product:securities_foreign_stock",
+      "target": "aum:stage:AUM_026",
+      "type": "AUM_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "PROD='外國股票' AND COMP='證券'",
+        "note": "Income為CFEE減ABFEE乘匯率，保留可能負值。"
+      }
+    },
+    {
+      "source": "pb_shared:product:securities_foreign_stock",
+      "target": "income:stage:INCOME_053",
+      "type": "INCOME_IMPLEMENTED_BY",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "shared_product_trial",
+        "status": "observed_in_sql",
+        "scope": "手收／證券／外國股票",
+        "note": "Income為CFEE減ABFEE乘匯率，保留可能負值。"
+      }
+    }
+  ]
+}

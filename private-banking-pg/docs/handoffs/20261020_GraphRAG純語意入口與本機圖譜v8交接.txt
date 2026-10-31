@@ -1,0 +1,33 @@
+2026-10-20 GraphRAG v8 交接
+
+最新線上流程 ntHWYmjJ7Q2HVLeT，名稱「私銀圖譜問答－GraphRAG 子圖檢索 v8」。
+14 節點，單題入口、已儲存未發布。原生匯出已逐節點核對。使用者授權 Cloudflare 暫時通道讓雲端 n8n 呼叫本機。
+
+已完成：
+移除問題文字／別名直接命中與優先保留，改為 Embedding 前 24 → 入口 Rerank 前 4。
+Aura 過期後還原到獨立 pb-graphrag-neo4j 容器：1,618 節點、4,649 關係，內容指紋與快照一致。
+概念取 10/18 最新 41／69；映射與 SQL 定義取 10/14 完整備份。原 neo4j-community 容器未改。
+三種固定唯讀操作經 Cloudflare 通道提供給雲端 n8n，資料庫管理密碼留本機，OpenRouter 金鑰留雲端。
+橋接背景程序已啟動；通道仍運行。本機查詢位址只綁 loopback，沒有公開 Neo4j 原始埠。
+私密匯入網頁的臨時伺服器已停止，瀏覽器剪貼簿已清空。
+
+測試：
+38 題回歸成功執行；同標準 v7 32/38 → v8 5/38，9 題漏取、30 題多取（可重疊）。
+映射結構 37/38，角色題仍多帶 private_banking。未評估回答模型與 SQL 業務正確性。
+38 題採測前凍結集合；不含原有歧義問法第 8 題，包含使用者修正三問。
+第一輪映射並發連線拒絕已透過佇列 128、資料庫併發上限 4 改善；第二輪成功 1m59.314s。
+恢復單題後另測 ETF 經哪些指標歸總 AUM，10.154s 成功。
+
+關鍵判讀：
+純語意檢索目前每題強取前 4 名，把相關上層指標也當成問題指定入口，範圍明顯擴大。
+此結果不能直接推論一定要恢復字面命中；需先分清候選相關性、查圖起點與篩選條件。
+未擅自改門檻或路徑規則。否定篩選、角色小候選、0.05 近分縮圖仍是舊有未修問題。
+使用者原本逐節點確認已講至第 5 節點；下一個是第 6 節點「入口 Rerank」，應以此次前 4 名過度展開的實測結果為基礎討論。
+
+重要路徑：
+deliverables/single_turn_qa/rag_v1/graph_retrieval_v8/README.txt、純語意入口與本機圖譜重測.html、evaluations.json、saved-verification.json。
+deliverables/local_graph/20261020/README.txt、import-verification.json、query-verification.json、bridge-verification.json。
+local_graph/start.ps1：先開 Docker Desktop，再執行；重啟通道若網址變動，需匯入新產生的私密單題檔並儲存。
+.local_runtime/graph/：connection.json、bridge-token.txt、tunnel.json、workflow.bridge-single.json、workflow.saved.live.json，含秘密，禁止公開。
+公開工作流程均為遮蔽權杖／網址模板。v8 workflow.updated.json 及 graph-tests.json 是凍結來源，仍含 Aura，勿直接覆蓋部署。
+電腦及橋接／通道必須運作，暫時網址無固定性，未設開機排程。

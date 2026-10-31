@@ -1,0 +1,164 @@
+{
+  "draftVersion": "1.0.0",
+  "status": "draft_not_build_input",
+  "scope": "metadata_only",
+  "concept": {
+    "id": "bank.employee_deposit",
+    "name": "行員存款",
+    "definition": null,
+    "subsidiary": "銀行",
+    "department": null
+  },
+  "properties": {
+    "customerId": {
+      "name": "客戶識別",
+      "dataType": "string",
+      "mapping": {
+        "table": "DSDEP.EMP_DEP_NT_ACCT_HS",
+        "column": "CUST_ID",
+        "status": "observed_in_sql_and_metadata"
+      },
+      "notes": "來源客戶ID；未確認與集團ONE ID或身分證字號的對照。"
+    },
+    "employeeId": {
+      "name": "行員識別",
+      "dataType": "string",
+      "mapping": {
+        "table": null,
+        "column": null,
+        "joinRules": null,
+        "status": "pending"
+      },
+      "notes": "查閱的員工存款SQL及兩份metadata未找到可確認的行員識別欄位；AO_ID是AO ID，CUST_NO是客戶編號，均不直接當作行員識別。"
+    },
+    "currency": {
+      "name": "幣別",
+      "dataType": "string",
+      "mapping": {
+        "table": null,
+        "column": null,
+        "constant": null,
+        "status": "pending_conflict_review"
+      },
+      "notes": "查閱的metadata未列出幣別欄位。員工分支SQL將TYP_DTL寫為外幣，但其NT來源名稱與DETAIL分類包含台幣存款，不能據此填入TWD或其他幣別。"
+    },
+    "balance": {
+      "name": "餘額",
+      "dataType": "decimal",
+      "mapping": {
+        "table": "DSDEP.EMP_DEP_NT_ACCT_HS",
+        "column": "BAL_AMT",
+        "status": "observed_in_sql_and_metadata"
+      },
+      "notes": "metadata定義為存款餘額，型態NUMBER(18,3)。此處映射底表欄位，不將私銀SUM結果當作單筆原始餘額；彙總粒度及金額幣別仍待確認。"
+    },
+    "snapshotDate": {
+      "name": "快照日期",
+      "dataType": null,
+      "mapping": {
+        "table": null,
+        "column": null,
+        "status": "pending_time_semantics",
+        "candidates": [
+          {
+            "table": "DSDEP.EMP_DEP_NT_ACCT_HS",
+            "column": "YYYYMM",
+            "meaning": "Snapshot年月",
+            "granularity": "month",
+            "evidence": "income_metadata_employee_sheet_row_77"
+          },
+          {
+            "table": "DSDEP.EMP_DEP_NT_ACCT_HS",
+            "column": "DATA_DT",
+            "meaning": "資料日期",
+            "granularity": "day_candidate",
+            "evidence": "income_metadata_employee_sheet_row_22"
+          },
+          {
+            "table": "DSDEP.EMP_DEP_NT_ACCT_HS",
+            "column": "LST_MTN_DT",
+            "meaning": "員工存款AUM分支使用的日期欄位；metadata未填業務定義",
+            "granularity": null,
+            "evidence": "aum_sql_employee_branch"
+          }
+        ]
+      },
+      "notes": "年月、資料日期與SQL日期口徑未核定為同一概念；不自行補成月初、月底或判為最後維護日期。"
+    }
+  },
+  "relatedConcepts": [
+    {
+      "name": "銀行行員",
+      "relationship": "RELATES_TO_PERSON_CONCEPT",
+      "rdfClassUri": null,
+      "status": "pending_rdf_definition"
+    },
+    {
+      "name": "存款商品",
+      "relationship": "RELATES_TO_PRODUCT_CONCEPT",
+      "rdfClassUri": null,
+      "status": "pending_rdf_definition"
+    }
+  ],
+  "sourceTables": [
+    {
+      "name": "DSDEP.EMP_DEP_NT_ACCT_HS",
+      "role": "base_table",
+      "status": "observed_in_sql_and_income_metadata",
+      "evidence": ["aum_sql_employee_branch", "income_metadata_employee_sheet"],
+      "databaseVerified": false
+    }
+  ],
+  "legacyTransformation": {
+    "sourceTable": "DSDEP.EMP_DEP_NT_ACCT_HS",
+    "stageTable": "AUM_005_007_008_009_TMP08",
+    "mergedStageTable": "AUM_005_007_008_009",
+    "measureExpression": "SUM(BAL_AMT)",
+    "groupBy": ["CUST_ID", "LST_MTN_DT", "TRIM(PRFT_CNTR_CD)", "ACT_CD"],
+    "filterObserved": "YYYYMM >= '202506'",
+    "classificationObserved": {
+      "TYP": "存款",
+      "TYP_DTL": "外幣",
+      "DETAIL": "依ACT_CD分為台幣存款或結構型存款；其餘NULL"
+    },
+    "status": "reference_only_not_an_execution_plan",
+    "notes": "TMP03位於註解中的早期歷史建表區塊，TMP08位於非註解更新分支；SQL文字使用不代表已在資料庫成功執行。合併使用UNION且未保留員工來源標記，不直接拿合併表還原行員存款。此草稿未沿用舊時間門檻為新模型的固定規則。"
+  },
+  "evidence": [
+    {
+      "id": "aum_sql_employee_branch",
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "lines": [125, 136]
+    },
+    {
+      "id": "income_metadata_employee_sheet",
+      "file": "Ontology/私銀智能問答/sources/metadata/收入_metadata.xlsx",
+      "sheet": "DSDEP.EMP_DEP_NT_ACCT_HS"
+    },
+    {
+      "id": "income_metadata_employee_sheet_row_22",
+      "file": "Ontology/私銀智能問答/sources/metadata/收入_metadata.xlsx",
+      "sheet": "DSDEP.EMP_DEP_NT_ACCT_HS",
+      "row": 22
+    },
+    {
+      "id": "income_metadata_employee_sheet_row_77",
+      "file": "Ontology/私銀智能問答/sources/metadata/收入_metadata.xlsx",
+      "sheet": "DSDEP.EMP_DEP_NT_ACCT_HS",
+      "row": 77
+    },
+    {
+      "id": "aum_metadata_naming_difference",
+      "file": "Ontology/私銀智能問答/sources/metadata/AUM_metadata.xlsx",
+      "sheet": "DSDEP.EMP_NT_ACCT_HS",
+      "notes": "工作表名稱與SQL的EMP_DEP_NT_ACCT_HS不一致，正式對應仍待確認，不當成第二張已確認來源表。"
+    }
+  ],
+  "openQuestions": [
+    "行員存款指行員持有的存款，或適用員工方案的存款？",
+    "行員識別來自哪一張人事或員工主檔？如何與來源CUST_ID關聯，是否需要身分有效期間？",
+    "來源幣別與BAL_AMT的計價幣別為何？如何解決SQL分類矛盾？",
+    "快照日期應映射YYYYMM、DATA_DT或LST_MTN_DT？",
+    "五項業務欄位不代表底表唯一鍵；帳戶粒度、來源鍵與彙總規則仍需確認。"
+  ]
+}

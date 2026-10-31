@@ -1,0 +1,551 @@
+{
+  "nodes": [
+    {
+      "kind": "product",
+      "properties": {
+        "productCode": "deposit",
+        "name": "存款",
+        "definition": "客戶在銀行持有的存款。AUM衡量存款餘額；Income衡量存款整體利息收入，不將總利收重複分配至各子類。",
+        "status": "aggregate_scope",
+        "aumStatus": "inferred",
+        "incomeStatus": "inferred"
+      }
+    },
+    {
+      "kind": "product",
+      "properties": {
+        "productCode": "bank_insurance",
+        "name": "銀行保險",
+        "definition": "銀行通路保險業務。AUM衡量原始投資金額；Income衡量相關收入，收入是否重複計入仍待確認。",
+        "status": "overlap_unresolved",
+        "aumStatus": "inferred",
+        "incomeStatus": "overlap_unresolved"
+      }
+    },
+    {
+      "kind": "product",
+      "properties": {
+        "productCode": "bank_fund",
+        "name": "銀行基金",
+        "definition": "銀行通路的基金業務，涵蓋客戶持有資產與相關收入。",
+        "status": "inferred",
+        "aumStatus": "inferred",
+        "incomeStatus": "inferred"
+      }
+    },
+    {
+      "kind": "product",
+      "properties": {
+        "productCode": "bank_etf",
+        "name": "銀行ETF",
+        "definition": "銀行通路的指數股票型基金業務，涵蓋客戶持有資產與相關收入。",
+        "status": "inferred",
+        "aumStatus": "inferred",
+        "incomeStatus": "inferred"
+      }
+    },
+    {
+      "kind": "product",
+      "properties": {
+        "productCode": "bank_overseas_stock",
+        "name": "銀行海外股票",
+        "definition": "銀行通路的海外股票業務，涵蓋客戶持有資產與相關收入。",
+        "status": "inferred",
+        "aumStatus": "inferred",
+        "incomeStatus": "inferred"
+      }
+    },
+    {
+      "kind": "product",
+      "properties": {
+        "productCode": "bank_bond_trust",
+        "name": "海外債券（信託）",
+        "definition": "以信託方式持有的海外債券業務，涵蓋客戶持有市值與相關信託收入。",
+        "status": "inferred",
+        "aumStatus": "inferred",
+        "incomeStatus": "inferred"
+      }
+    },
+    {
+      "kind": "product",
+      "properties": {
+        "productCode": "bank_bond_proprietary",
+        "name": "海外債券（自營）",
+        "definition": "銀行自營通路的海外債券業務，涵蓋客戶持有資產與相關收入；兩側業務對應仍屬推論。",
+        "status": "inferred",
+        "aumStatus": "inferred",
+        "incomeStatus": "inferred"
+      }
+    },
+    {
+      "kind": "product",
+      "properties": {
+        "productCode": "bank_collective_account",
+        "name": "集合管理帳戶",
+        "definition": "集合管理帳戶業務。AUM衡量客戶持有資產；Income的獨立業務定義待確認，不代表已確認計入獨立收入。",
+        "status": "pending_confirmation",
+        "aumStatus": "inferred",
+        "incomeStatus": "pending_confirmation"
+      }
+    },
+    {
+      "kind": "product",
+      "properties": {
+        "productCode": "bank_structured_offshore",
+        "name": "銀行境外結構型商品",
+        "definition": "銀行通路的境外結構型商品業務，涵蓋客戶持有資產與相關收入。",
+        "status": "inferred",
+        "aumStatus": "inferred",
+        "incomeStatus": "inferred"
+      }
+    },
+    {
+      "kind": "product",
+      "properties": {
+        "productCode": "bank_planned_trust",
+        "name": "規劃型信託",
+        "definition": "規劃型信託業務，涵蓋受託管理資產及相關管理、成立與借券收入。",
+        "status": "inferred",
+        "aumStatus": "inferred",
+        "incomeStatus": "inferred"
+      }
+    },
+    {
+      "kind": "product",
+      "properties": {
+        "productCode": "bank_trust_custody",
+        "name": "信託保管",
+        "definition": "信託保管業務，涵蓋保管資產與保管費收入。",
+        "status": "inferred",
+        "aumStatus": "inferred",
+        "incomeStatus": "inferred"
+      }
+    },
+    {
+      "kind": "product",
+      "properties": {
+        "productCode": "securities_bond",
+        "name": "證券複委託債券",
+        "definition": "證券通路的複委託債券業務，涵蓋部位估值與交易手續費收入。",
+        "status": "inferred",
+        "aumStatus": "inferred",
+        "incomeStatus": "inferred"
+      }
+    },
+    {
+      "kind": "product",
+      "properties": {
+        "productCode": "securities_structured",
+        "name": "證券複委託結構型商品",
+        "definition": "證券通路的複委託結構型商品業務，涵蓋客戶持有資產與相关收入。",
+        "status": "inferred",
+        "aumStatus": "inferred",
+        "incomeStatus": "inferred"
+      }
+    },
+    {
+      "kind": "product",
+      "properties": {
+        "productCode": "securities_fund",
+        "name": "證券複委託基金",
+        "definition": "證券通路的複委託基金業務，涵蓋客戶持有資產與交易費收入。",
+        "status": "inferred",
+        "aumStatus": "inferred",
+        "incomeStatus": "inferred"
+      }
+    },
+    {
+      "kind": "product",
+      "properties": {
+        "productCode": "securities_foreign_stock",
+        "name": "證券複委託外國股票",
+        "definition": "證券通路的複委託外國股票業務，涵蓋客戶持有資產與淨手續費收入；淨收入可能為負值。",
+        "status": "inferred",
+        "aumStatus": "inferred",
+        "incomeStatus": "inferred"
+      }
+    },
+    {
+      "kind": "aum",
+      "properties": {
+        "metricCode": "aum_total_month_end",
+        "name": "月底總AUM",
+        "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+        "status": "draft"
+      }
+    },
+    {
+      "kind": "aum",
+      "properties": {
+        "metricCode": "aum_deposit_month_end",
+        "name": "月底存款AUM",
+        "definition": "月底衡量的銀行存款餘額。",
+        "status": "inferred"
+      }
+    },
+    {
+      "kind": "aum",
+      "properties": {
+        "metricCode": "aum_investment_month_end",
+        "name": "月底投資AUM",
+        "definition": "月底衡量的銀行及證券通路投資資產合計。",
+        "status": "inferred"
+      }
+    },
+    {
+      "kind": "aum",
+      "properties": {
+        "metricCode": "aum_bank_investment_month_end",
+        "name": "月底銀行投資AUM",
+        "definition": "月底衡量的銀行通路投資資產。",
+        "status": "inferred"
+      }
+    },
+    {
+      "kind": "aum",
+      "properties": {
+        "metricCode": "aum_securities_month_end",
+        "name": "月底證券AUM",
+        "definition": "月底衡量的證券通路投資資產。",
+        "status": "inferred"
+      }
+    },
+    {
+      "kind": "aum",
+      "properties": {
+        "metricCode": "aum_insurance_month_end",
+        "name": "月底保險AUM",
+        "definition": "月底衡量的銀行保險原始投資金額。",
+        "status": "inferred"
+      }
+    },
+    {
+      "kind": "income",
+      "properties": {
+        "metricCode": "income_total_customer_month",
+        "name": "每客戶每月總收入",
+        "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+        "status": "pending_confirmation"
+      }
+    },
+    {
+      "kind": "income",
+      "properties": {
+        "metricCode": "fee_income",
+        "name": "手續費類收入",
+        "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+        "status": "inferred"
+      }
+    },
+    {
+      "kind": "income",
+      "properties": {
+        "metricCode": "bank_fee_income",
+        "name": "銀行手續費類收入",
+        "definition": "銀行通路歸入手續費類的收入。",
+        "status": "inferred"
+      }
+    },
+    {
+      "kind": "income",
+      "properties": {
+        "metricCode": "securities_fee_income",
+        "name": "證券手續費類收入",
+        "definition": "證券通路歸入手續費類的收入。",
+        "status": "inferred"
+      }
+    },
+    {
+      "kind": "income",
+      "properties": {
+        "metricCode": "interest_income",
+        "name": "利息收入",
+        "definition": "存款與放款業務的利息收入。",
+        "status": "inferred"
+      }
+    },
+    {
+      "kind": "income",
+      "properties": {
+        "metricCode": "deposit_interest_income",
+        "name": "存款利收",
+        "definition": "存款業務整體的利息收入。",
+        "status": "inferred"
+      }
+    },
+    {
+      "kind": "customer",
+      "properties": {
+        "conceptCode": "customer",
+        "name": "客戶",
+        "status": "model_confirmed",
+        "definition": "AUM與收入指標共同的客戶衡量對象。此節點描述客戶概念與基本屬性，並非任何一位實際客戶。",
+        "customerId": "用於識別衡量對象的客戶識別碼。各來源的識別種類與跨來源對照尚待確認，不表示已建立統一客戶身分。",
+        "customerName": "客戶姓名或名稱；來源未提供時可缺值，委託人名稱須依來源角色解讀。",
+        "customerNumber": "選用的來源客戶編號；與客戶識別碼分開理解，不保證可跨來源對照。"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "source": "deposit",
+      "target": "aum_deposit_month_end",
+      "type": "PB_AUM_MEASURED_BY"
+    },
+    {
+      "source": "deposit",
+      "target": "deposit_interest_income",
+      "type": "PB_INCOME_MEASURED_BY"
+    },
+    {
+      "source": "bank_insurance",
+      "target": "aum_insurance_month_end",
+      "type": "PB_AUM_MEASURED_BY"
+    },
+    {
+      "source": "bank_insurance",
+      "target": "bank_fee_income",
+      "type": "PB_INCOME_MEASURED_BY"
+    },
+    {
+      "source": "bank_fund",
+      "target": "aum_bank_investment_month_end",
+      "type": "PB_AUM_MEASURED_BY"
+    },
+    {
+      "source": "bank_fund",
+      "target": "bank_fee_income",
+      "type": "PB_INCOME_MEASURED_BY"
+    },
+    {
+      "source": "bank_etf",
+      "target": "aum_bank_investment_month_end",
+      "type": "PB_AUM_MEASURED_BY"
+    },
+    {
+      "source": "bank_etf",
+      "target": "bank_fee_income",
+      "type": "PB_INCOME_MEASURED_BY"
+    },
+    {
+      "source": "bank_overseas_stock",
+      "target": "aum_bank_investment_month_end",
+      "type": "PB_AUM_MEASURED_BY"
+    },
+    {
+      "source": "bank_overseas_stock",
+      "target": "bank_fee_income",
+      "type": "PB_INCOME_MEASURED_BY"
+    },
+    {
+      "source": "bank_bond_trust",
+      "target": "aum_bank_investment_month_end",
+      "type": "PB_AUM_MEASURED_BY"
+    },
+    {
+      "source": "bank_bond_trust",
+      "target": "bank_fee_income",
+      "type": "PB_INCOME_MEASURED_BY"
+    },
+    {
+      "source": "bank_bond_proprietary",
+      "target": "aum_bank_investment_month_end",
+      "type": "PB_AUM_MEASURED_BY"
+    },
+    {
+      "source": "bank_bond_proprietary",
+      "target": "bank_fee_income",
+      "type": "PB_INCOME_MEASURED_BY"
+    },
+    {
+      "source": "bank_collective_account",
+      "target": "aum_bank_investment_month_end",
+      "type": "PB_AUM_MEASURED_BY"
+    },
+    {
+      "source": "bank_collective_account",
+      "target": "bank_fee_income",
+      "type": "PB_INCOME_PENDING"
+    },
+    {
+      "source": "bank_structured_offshore",
+      "target": "aum_bank_investment_month_end",
+      "type": "PB_AUM_MEASURED_BY"
+    },
+    {
+      "source": "bank_structured_offshore",
+      "target": "bank_fee_income",
+      "type": "PB_INCOME_MEASURED_BY"
+    },
+    {
+      "source": "bank_planned_trust",
+      "target": "aum_bank_investment_month_end",
+      "type": "PB_AUM_MEASURED_BY"
+    },
+    {
+      "source": "bank_planned_trust",
+      "target": "bank_fee_income",
+      "type": "PB_INCOME_MEASURED_BY"
+    },
+    {
+      "source": "bank_trust_custody",
+      "target": "aum_bank_investment_month_end",
+      "type": "PB_AUM_MEASURED_BY"
+    },
+    {
+      "source": "bank_trust_custody",
+      "target": "bank_fee_income",
+      "type": "PB_INCOME_MEASURED_BY"
+    },
+    {
+      "source": "securities_bond",
+      "target": "aum_securities_month_end",
+      "type": "PB_AUM_MEASURED_BY"
+    },
+    {
+      "source": "securities_bond",
+      "target": "securities_fee_income",
+      "type": "PB_INCOME_MEASURED_BY"
+    },
+    {
+      "source": "securities_structured",
+      "target": "aum_securities_month_end",
+      "type": "PB_AUM_MEASURED_BY"
+    },
+    {
+      "source": "securities_structured",
+      "target": "securities_fee_income",
+      "type": "PB_INCOME_MEASURED_BY"
+    },
+    {
+      "source": "securities_fund",
+      "target": "aum_securities_month_end",
+      "type": "PB_AUM_MEASURED_BY"
+    },
+    {
+      "source": "securities_fund",
+      "target": "securities_fee_income",
+      "type": "PB_INCOME_MEASURED_BY"
+    },
+    {
+      "source": "securities_foreign_stock",
+      "target": "aum_securities_month_end",
+      "type": "PB_AUM_MEASURED_BY"
+    },
+    {
+      "source": "securities_foreign_stock",
+      "target": "securities_fee_income",
+      "type": "PB_INCOME_MEASURED_BY"
+    },
+    {
+      "source": "aum_deposit_month_end",
+      "target": "aum_total_month_end",
+      "type": "PB_AUM_ROLLS_UP_TO"
+    },
+    {
+      "source": "aum_investment_month_end",
+      "target": "aum_total_month_end",
+      "type": "PB_AUM_ROLLS_UP_TO"
+    },
+    {
+      "source": "aum_bank_investment_month_end",
+      "target": "aum_investment_month_end",
+      "type": "PB_AUM_ROLLS_UP_TO"
+    },
+    {
+      "source": "aum_securities_month_end",
+      "target": "aum_investment_month_end",
+      "type": "PB_AUM_ROLLS_UP_TO"
+    },
+    {
+      "source": "aum_insurance_month_end",
+      "target": "aum_bank_investment_month_end",
+      "type": "PB_AUM_ROLLS_UP_TO"
+    },
+    {
+      "source": "interest_income",
+      "target": "income_total_customer_month",
+      "type": "PB_INCOME_ROLLS_UP_TO"
+    },
+    {
+      "source": "fee_income",
+      "target": "income_total_customer_month",
+      "type": "PB_INCOME_ROLLS_UP_TO"
+    },
+    {
+      "source": "bank_fee_income",
+      "target": "fee_income",
+      "type": "PB_INCOME_ROLLS_UP_TO"
+    },
+    {
+      "source": "securities_fee_income",
+      "target": "fee_income",
+      "type": "PB_INCOME_ROLLS_UP_TO"
+    },
+    {
+      "source": "deposit_interest_income",
+      "target": "interest_income",
+      "type": "PB_INCOME_ROLLS_UP_TO"
+    },
+    {
+      "source": "aum_total_month_end",
+      "target": "customer",
+      "type": "PB_MEASURES_CUSTOMER"
+    },
+    {
+      "source": "aum_deposit_month_end",
+      "target": "customer",
+      "type": "PB_MEASURES_CUSTOMER"
+    },
+    {
+      "source": "aum_investment_month_end",
+      "target": "customer",
+      "type": "PB_MEASURES_CUSTOMER"
+    },
+    {
+      "source": "aum_bank_investment_month_end",
+      "target": "customer",
+      "type": "PB_MEASURES_CUSTOMER"
+    },
+    {
+      "source": "aum_securities_month_end",
+      "target": "customer",
+      "type": "PB_MEASURES_CUSTOMER"
+    },
+    {
+      "source": "aum_insurance_month_end",
+      "target": "customer",
+      "type": "PB_MEASURES_CUSTOMER"
+    },
+    {
+      "source": "income_total_customer_month",
+      "target": "customer",
+      "type": "PB_MEASURES_CUSTOMER"
+    },
+    {
+      "source": "fee_income",
+      "target": "customer",
+      "type": "PB_MEASURES_CUSTOMER"
+    },
+    {
+      "source": "bank_fee_income",
+      "target": "customer",
+      "type": "PB_MEASURES_CUSTOMER"
+    },
+    {
+      "source": "securities_fee_income",
+      "target": "customer",
+      "type": "PB_MEASURES_CUSTOMER"
+    },
+    {
+      "source": "interest_income",
+      "target": "customer",
+      "type": "PB_MEASURES_CUSTOMER"
+    },
+    {
+      "source": "deposit_interest_income",
+      "target": "customer",
+      "type": "PB_MEASURES_CUSTOMER"
+    }
+  ]
+}

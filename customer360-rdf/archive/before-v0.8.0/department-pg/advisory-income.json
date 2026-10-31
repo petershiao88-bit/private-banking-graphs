@@ -1,0 +1,186 @@
+{
+  "schema_version": "1.0.0",
+  "ontology_version": "0.7.0",
+  "status": "active",
+  "scope": "metadata_only",
+  "inference": false,
+  "instance_mapping": false,
+  "access_policy_status": "deferred_by_user",
+  "execution": {
+    "sql": null,
+    "join_rules": null,
+    "filter_rules": null,
+    "aggregation_rules": null,
+    "row_grain": null,
+    "advisor_recognition_rules": null,
+    "fee_recognition_rules": null,
+    "attribution_rules": null,
+    "period_basis": null
+  },
+  "field_definitions": {
+    "employeeId": {
+      "name": "行員編號",
+      "definition": "識別擔任理專或承接收入歸屬之行員的銀行編號。",
+      "data_type_hint": "string",
+      "property_uri": "https://example.org/ontology/bank#employeeId",
+      "entity_class_uri": "https://example.org/ontology/bank#BankEmployee"
+    },
+    "customerId": {
+      "name": "客戶識別",
+      "definition": "識別服務關係或手收歸屬所涉及客戶的來源識別欄位。",
+      "data_type_hint": "string",
+      "property_uri": null,
+      "entity_class_uri": "https://example.org/ontology/holding#Customer"
+    },
+    "productId": {
+      "name": "商品識別",
+      "definition": "識別手收所對應金融商品的來源識別欄位。",
+      "data_type_hint": "string",
+      "property_uri": null,
+      "entity_class_uri": "https://example.org/ontology/holding#FinancialProduct"
+    },
+    "amount": {
+      "name": "手收金額",
+      "definition": "依收入期間及認列規則形成的商品手續費收入金額。",
+      "data_type_hint": "decimal",
+      "property_uri": null,
+      "entity_class_uri": null
+    },
+    "currency": {
+      "name": "金額幣別",
+      "definition": "手收金額所使用的計價幣別。",
+      "data_type_hint": "string",
+      "property_uri": null,
+      "entity_class_uri": null
+    },
+    "incomePeriod": {
+      "name": "收入期間",
+      "definition": "手收金額所衡量的業務收入期間。",
+      "data_type_hint": null,
+      "property_uri": null,
+      "entity_class_uri": null
+    },
+    "snapshotDate": {
+      "name": "快照日期",
+      "definition": "商品手收資料快照所對應的日期。",
+      "data_type_hint": null,
+      "property_uri": null,
+      "entity_class_uri": null
+    }
+  },
+  "concepts": [
+    {
+      "id": "bank.financial_advisor",
+      "name": "理專",
+      "definition": "擔任理財諮詢與金融商品服務職務的銀行行員。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/bank#FinancialAdvisor",
+      "specific_product_class_uri": null,
+      "fields": [
+        {
+          "field": "employeeId",
+          "status": "pending",
+          "table": null,
+          "column": null
+        }
+      ]
+    },
+    {
+      "id": "bank.product_fee_income",
+      "name": "商品手收",
+      "definition": "對應金融商品之銀行手續費收入的部門業務概念。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/bank#BankFeeIncome",
+      "specific_product_class_uri": null,
+      "fields": [
+        {
+          "field": "employeeId",
+          "status": "pending",
+          "table": null,
+          "column": null
+        },
+        {
+          "field": "customerId",
+          "status": "pending",
+          "table": null,
+          "column": null
+        },
+        {
+          "field": "amount",
+          "status": "pending",
+          "table": null,
+          "column": null
+        },
+        {
+          "field": "currency",
+          "status": "pending",
+          "table": null,
+          "column": null
+        },
+        {
+          "field": "incomePeriod",
+          "status": "pending",
+          "table": null,
+          "column": null
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending",
+          "table": null,
+          "column": null
+        }
+      ]
+    }
+  ],
+  "relation_definitions": [
+    {
+      "id": "bank.advisor_serves_customer",
+      "name": "理專服務客戶",
+      "source_concept": "bank.financial_advisor",
+      "property_uri": "https://example.org/ontology/holding#serves",
+      "domain_uri": "https://example.org/ontology/holding#Employee",
+      "target_class_uri": "https://example.org/ontology/holding#Customer",
+      "fields": [
+        {
+          "field": "employeeId",
+          "status": "pending",
+          "table": null,
+          "column": null
+        },
+        {
+          "field": "customerId",
+          "status": "pending",
+          "table": null,
+          "column": null
+        }
+      ]
+    },
+    {
+      "id": "bank.product_fee_income.product",
+      "name": "商品手收對應金融商品",
+      "source_concept": "bank.product_fee_income",
+      "property_uri": "https://example.org/ontology/holding#measuresProduct",
+      "domain_uri": "https://example.org/ontology/holding#Metric",
+      "target_class_uri": "https://example.org/ontology/holding#FinancialProduct",
+      "fields": [
+        {
+          "field": "productId",
+          "status": "pending",
+          "table": null,
+          "column": null
+        }
+      ]
+    },
+    {
+      "id": "bank.product_fee_income.advisor",
+      "name": "商品手收歸屬理專",
+      "source_concept": "bank.product_fee_income",
+      "property_uri": "https://example.org/ontology/bank#attributedToAdvisor",
+      "domain_uri": "https://example.org/ontology/bank#BankFeeIncome",
+      "target_class_uri": "https://example.org/ontology/bank#FinancialAdvisor",
+      "fields": []
+    }
+  ]
+}

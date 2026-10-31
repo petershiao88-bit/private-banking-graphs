@@ -1,0 +1,243 @@
+@prefix bank: <https://example.org/ontology/bank#> .
+@prefix fh: <https://example.org/ontology/holding#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+rdfs:label a owl:AnnotationProperty ;
+    rdfs:label "名稱"@zh-TW ;
+    skos:definition "類別或屬性的顯示名稱。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+skos:definition a owl:AnnotationProperty ;
+    rdfs:label "定義"@zh-TW ;
+    skos:definition "類別或屬性的業務意義。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+bank:BondProduct a owl:Class ;
+    rdfs:label "債券商品"@zh-TW ;
+    rdfs:subClassOf fh:FinancialProduct ;
+    skos:definition "發行人為籌資而發行、約定清償條件的債務型金融商品。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+bank:DepositProduct a owl:Class ;
+    rdfs:label "存款商品"@zh-TW ;
+    rdfs:subClassOf fh:FinancialProduct ;
+    skos:definition "銀行提供、供客戶依約定存放資金的金融商品。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+bank:ForeignCurrencyFinancialProduct a owl:Class ;
+    rdfs:label "外幣金融商品"@zh-TW ;
+    rdfs:subClassOf fh:FinancialProduct ;
+    skos:definition "以新臺幣以外貨幣計價的金融商品。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+bank:OverseasFinancialProduct a owl:Class ;
+    rdfs:label "海外金融商品"@zh-TW ;
+    rdfs:subClassOf fh:FinancialProduct ;
+    skos:definition "銀行業務中歸入海外投資範圍的金融商品。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+bank:StockProduct a owl:Class ;
+    rdfs:label "股票商品"@zh-TW ;
+    rdfs:subClassOf fh:FinancialProduct ;
+    skos:definition "代表公司股權的金融商品。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+bank:StructuredFinancialProduct a owl:Class ;
+    rdfs:label "結構型金融商品"@zh-TW ;
+    rdfs:subClassOf fh:FinancialProduct ;
+    skos:definition "報酬條件依約定公式連結金融指標或標的表現的金融商品。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+bank:TWDFinancialProduct a owl:Class ;
+    rdfs:label "台幣金融商品"@zh-TW ;
+    rdfs:subClassOf fh:FinancialProduct ;
+    skos:definition "以新臺幣計價的金融商品。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+bank:attributedToAdvisor a owl:ObjectProperty ;
+    rdfs:label "歸屬理專"@zh-TW ;
+    rdfs:domain bank:BankFeeIncome ;
+    rdfs:range bank:FinancialAdvisor ;
+    skos:definition "銀行手續費收入歸屬於理專的關係。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+bank:employeeId a owl:DatatypeProperty ;
+    rdfs:label "行員編號"@zh-TW ;
+    rdfs:domain bank:BankEmployee ;
+    rdfs:range xsd:string ;
+    skos:definition "銀行用來識別行員的編號。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+<https://example.org/ontology/customer360> a owl:Ontology ;
+    rdfs:label "客戶360共通語意整合本體"@zh-TW ;
+    owl:versionIRI <https://example.org/ontology/customer360/0.7.0> ;
+    owl:versionInfo "0.7.0 / design draft / 2026-10-22" .
+
+fh:addressLine a owl:DatatypeProperty ;
+    rdfs:label "街道門牌地址"@zh-TW ;
+    rdfs:domain fh:AddressContactInformation ;
+    rdfs:range xsd:string ;
+    skos:definition "地址的路街段、巷弄、門牌、樓層與室等詳細內容。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:city a owl:DatatypeProperty ;
+    rdfs:label "縣市"@zh-TW ;
+    rdfs:domain fh:AddressContactInformation ;
+    rdfs:range xsd:string ;
+    skos:definition "地址的縣市。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:countryCode a owl:DatatypeProperty ;
+    rdfs:label "國家／地區代碼"@zh-TW ;
+    rdfs:domain fh:AddressContactInformation ;
+    rdfs:range xsd:string ;
+    skos:definition "地址所屬國家或地區的代碼。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:department a owl:AnnotationProperty ;
+    rdfs:label "所屬部門"@zh-TW ;
+    skos:definition "模型定義的部門治理歸屬。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:district a owl:DatatypeProperty ;
+    rdfs:label "鄉鎮市區"@zh-TW ;
+    rdfs:domain fh:AddressContactInformation ;
+    rdfs:range xsd:string ;
+    skos:definition "地址的鄉鎮市區。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:fullAddress a owl:DatatypeProperty ;
+    rdfs:label "完整地址"@zh-TW ;
+    rdfs:domain fh:AddressContactInformation ;
+    rdfs:range xsd:string ;
+    skos:definition "完整地址文字。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:governanceLevel a owl:AnnotationProperty ;
+    rdfs:label "治理層級"@zh-TW ;
+    skos:definition "模型定義的治理層級。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:hasContactPoint a owl:ObjectProperty ;
+    rdfs:label "具有通聯資訊"@zh-TW ;
+    rdfs:domain fh:Customer ;
+    rdfs:range fh:ContactInformation ;
+    skos:definition "客戶具有通聯資訊。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:holds a owl:ObjectProperty ;
+    rdfs:label "持有金融商品"@zh-TW ;
+    rdfs:domain fh:Customer ;
+    rdfs:range fh:FinancialProduct ;
+    skos:definition "客戶持有金融商品。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:measuresProduct a owl:ObjectProperty ;
+    rdfs:label "衡量金融商品"@zh-TW ;
+    rdfs:domain fh:Metric ;
+    rdfs:range fh:FinancialProduct ;
+    skos:definition "指標衡量其所對應金融商品的業務表現。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:mobileNumber a owl:DatatypeProperty ;
+    rdfs:label "手機號碼"@zh-TW ;
+    rdfs:domain fh:MobileContactInformation ;
+    rdfs:range xsd:string ;
+    skos:definition "手機通聯資訊的號碼字串。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:postalCode a owl:DatatypeProperty ;
+    rdfs:label "郵遞區號"@zh-TW ;
+    rdfs:domain fh:AddressContactInformation ;
+    rdfs:range xsd:string ;
+    skos:definition "地址的郵遞區號字串。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:serves a owl:ObjectProperty ;
+    rdfs:label "服務客戶"@zh-TW ;
+    rdfs:domain fh:Employee ;
+    rdfs:range fh:Customer ;
+    skos:definition "職員向客戶提供業務服務的關係。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:subsidiary a owl:AnnotationProperty ;
+    rdfs:label "所屬子公司"@zh-TW ;
+    skos:definition "模型定義的子公司治理歸屬。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+bank:BankFeeIncome a owl:Class ;
+    rdfs:label "銀行手續費收入指標"@zh-TW ;
+    rdfs:subClassOf fh:FeeIncome ;
+    skos:definition "衡量銀行於指定收入期間內依銀行認列規則形成之手續費收入的指標。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+bank:FinancialAdvisor a owl:Class ;
+    rdfs:label "理專"@zh-TW ;
+    rdfs:subClassOf bank:BankEmployee ;
+    skos:definition "擔任理財諮詢與金融商品服務職務的銀行行員。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+fh:FeeIncome a owl:Class ;
+    rdfs:label "手續費收入指標"@zh-TW ;
+    rdfs:subClassOf fh:Metric ;
+    skos:definition "衡量指定收入期間內依認列規則形成之手續費收入的指標。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:MobileContactInformation a owl:Class ;
+    rdfs:label "手機通聯資訊"@zh-TW ;
+    rdfs:subClassOf fh:ContactInformation ;
+    skos:definition "以手機號碼聯絡客戶的通聯資訊。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+bank:BankEmployee a owl:Class ;
+    rdfs:label "行員"@zh-TW ;
+    rdfs:subClassOf fh:Employee ;
+    skos:definition "任職於銀行的職員。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+fh:Employee a owl:Class ;
+    rdfs:label "職員"@zh-TW ;
+    skos:definition "任職於金控或旗下子公司的人員。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:Metric a owl:Class ;
+    rdfs:label "指標"@zh-TW ;
+    skos:definition "依明確口徑衡量業務狀況的量化項目。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:ContactInformation a owl:Class ;
+    rdfs:label "通聯資訊"@zh-TW ;
+    skos:definition "與客戶相關的聯絡資訊。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:Customer a owl:Class ;
+    rdfs:label "客戶"@zh-TW ;
+    skos:definition "集團業務中所服務的客戶。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:AddressContactInformation a owl:Class ;
+    rdfs:label "地址通聯資訊"@zh-TW ;
+    rdfs:subClassOf fh:ContactInformation ;
+    skos:definition "以實體地址聯絡客戶的通聯資訊。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:FinancialProduct a owl:Class ;
+    rdfs:label "金融商品"@zh-TW ;
+    skos:definition "金融機構提供的金融商品。"@zh-TW ;
+    fh:governanceLevel "金控" .
+

@@ -1,0 +1,66 @@
+# 銀行共通人員與指標 v0.12.0，2026-10-22，設計草案。
+# example.org 為示意命名空間；不是實際服務位址。
+
+@prefix fh: <https://example.org/ontology/holding#> .
+@prefix bank: <https://example.org/ontology/bank#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/ontology/bank/common>
+    a owl:Ontology ;
+    rdfs:label "銀行共通人員與指標本體"@zh-TW ;
+    owl:imports <https://example.org/ontology/holding> ;
+    owl:versionIRI <https://example.org/ontology/bank/common/0.12.0> ;
+    owl:versionInfo "0.12.0 / design draft / 2026-10-22" .
+
+bank:BankEmployee
+    a owl:Class ;
+    rdfs:subClassOf fh:Employee ;
+    rdfs:label "行員"@zh-TW ;
+    skos:definition "任職於銀行的職員。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+bank:FinancialAdvisor
+    a owl:Class ;
+    rdfs:subClassOf bank:BankEmployee ;
+    rdfs:label "理專"@zh-TW ;
+    skos:definition "擔任理財諮詢與金融商品服務職務的銀行行員。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+bank:BankFeeIncome
+    a owl:Class ;
+    rdfs:subClassOf fh:FeeIncome ;
+    rdfs:label "銀行手續費收入指標"@zh-TW ;
+    skos:definition "衡量銀行於指定收入期間內依銀行認列規則形成之手續費收入的指標。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+bank:BankAUM
+    a owl:Class ;
+    rdfs:subClassOf fh:AUM ;
+    rdfs:label "銀行 AUM"@zh-TW ;
+    skos:definition "衡量指定快照日依銀行管理與認列口徑計算之客戶資產規模的指標。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+bank:employeeId
+    a owl:DatatypeProperty ;
+    rdfs:label "行員編號"@zh-TW ;
+    skos:definition "銀行用來識別行員的編號。"@zh-TW ;
+    rdfs:domain bank:BankEmployee ;
+    rdfs:range xsd:string ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+bank:attributedToAdvisor
+    a owl:ObjectProperty ;
+    rdfs:label "歸屬理專"@zh-TW ;
+    skos:definition "銀行手續費收入歸屬於理專的關係。"@zh-TW ;
+    rdfs:domain bank:BankFeeIncome ;
+    rdfs:range bank:FinancialAdvisor ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .

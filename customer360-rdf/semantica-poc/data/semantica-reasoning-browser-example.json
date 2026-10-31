@@ -1,0 +1,73 @@
+{
+  "request": {
+    "route": "ontology",
+    "tool": "check_subclass",
+    "class_uri": "https://example.org/ontology/securities#SecuritiesAUM",
+    "parent_uri": "https://example.org/ontology/holding#Metric"
+  },
+  "results": [
+    {
+      "id": "R1",
+      "kind": "reasoning",
+      "engine": "Semantica Reasoner",
+      "tool": "check_subclass",
+      "arguments": {
+        "class_uri": "https://example.org/ontology/securities#SecuritiesAUM",
+        "parent_uri": "https://example.org/ontology/holding#Metric"
+      },
+      "source_sha256": "54ce033c671dde9c75ad572c32660bafa05ec94c671b6516a220f6421beaa697",
+      "pg_included": false,
+      "used_hermit": false,
+      "scope": "holding_and_subsidiary_named_class_rules_only",
+      "consistency_checked": false,
+      "consistency_complete": false,
+      "limitations": [
+        "僅執行已宣告類別的 rdfs:subClassOf 自反與遞移規則；未執行完整 OWL DL 一致性、可滿足性或資料型別驗證。"
+      ],
+      "cached": true,
+      "executed_at": "2026-10-26T05:57:43.439343+00:00",
+      "duration_seconds": 0.0967,
+      "rules": [
+        "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+        "IF SubClass(?child, ?middle) AND SubClass(?middle, ?parent) THEN SubClass(?child, ?parent)"
+      ],
+      "input_fact_count": 80,
+      "derived_fact_count": 50,
+      "status": "completed",
+      "verdict": "entailed",
+      "asserted_directly": false,
+      "supporting_asserted_path": [
+        {
+          "source": "https://example.org/ontology/securities#SecuritiesAUM",
+          "relation": "rdfs:subClassOf",
+          "target": "https://example.org/ontology/holding#AUM",
+          "source_label": "證券 AUM",
+          "target_label": "AUM"
+        },
+        {
+          "source": "https://example.org/ontology/holding#AUM",
+          "relation": "rdfs:subClassOf",
+          "target": "https://example.org/ontology/holding#Metric",
+          "source_label": "AUM",
+          "target_label": "指標"
+        }
+      ],
+      "native_goal": "SubClass(class_039, class_034)",
+      "native_inference": {
+        "conclusion": "SubClass(class_039, class_034)",
+        "rule": "IF SubClass(?child, ?middle) AND SubClass(?middle, ?parent) THEN SubClass(?child, ?parent)",
+        "premises": [
+          "SubClass(class_039, class_024)",
+          "SubClass(class_024, class_034)"
+        ]
+      },
+      "class_token_map": {
+        "class_024": "https://example.org/ontology/holding#AUM",
+        "class_034": "https://example.org/ontology/holding#Metric",
+        "class_039": "https://example.org/ontology/securities#SecuritiesAUM"
+      },
+      "path_note": "佐證路徑由原始 rdfs:subClassOf 重建；native_inference 是 Semantica 原始匹配紀錄，可能包含同一結論的多組前提。",
+      "summary": "Semantica 規則推導：證券 AUM是指標的子類別。"
+    }
+  ]
+}

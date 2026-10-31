@@ -1,0 +1,1167 @@
+{
+  "name": "智能查詢",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "{{ $json.output }}",
+        "options": {
+          "queryReplacement": "={{ ['2026-08-31'] }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.7,
+      "position": [
+        -32,
+        1600
+      ],
+      "id": "742a257b-925a-4875-b9b1-925118bc12f0",
+      "name": "Execute a SQL query",
+      "credentials": {
+        "postgres": {
+          "id": "SQpTqjOZkY7T4jee",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=你是 SQL Reasoning Agent。\n\n原始使用者問題：\n{{ $('Router Input').first().json.user_query }}\n\nMetric Router 結果：\n{{ JSON.stringify($('metric router').first().json.output, null, 2) }}\n\n前一次 SQL：\n{{ $json.previous_sql || '' }}\n\n資料庫錯誤：\n{{ $json.database_error || '' }}\n\n目前是 no_executable_match 分支。\n產生 SQL 前必須先呼叫 SQL KB 工具，取得 metric_code 對應的 staging_sqls、source_tables、table_metadata。\n\n【Staging SQL 轉換規則】\n1. SQL KB 回傳的是公司 Oracle staging 建置邏輯；必須依 stage_level 與 depends_on_json 的相依順序處理。\n2. 將每個 CREATE TABLE ... AS SELECT 轉成同一段 PostgreSQL SQL 裡依序定義的 CTE，不得真的建立暫存表或永久表。\n3. CTE 名稱可沿用 output_object，但使用未加雙引號的小寫識別字。\n4. 移除 Oracle database link（例如 @anadbp01_dwdbp01），並將 Oracle 函式與語法改寫成 PostgreSQL。\n5. Oracle 的 DSDEP.<TABLE>@... 或未加 schema 的可用底表，須對應成 dsdep.<小寫 table_name>。\n6. 不得直接查詢尚未在前面定義成 CTE 的 AUM_* 物件；例如查詢 aum_005_007_008_009 前，必須先在同一個 WITH 中定義 aum_005_007_008_009 AS (...)。\n7. 優先沿用 staging_sqls 的業務計算、JOIN、日期、匯率與彙總邏輯，再依使用者問題調整篩選、分組及輸出欄位。\n8. no_executable_match 分支不得改查 public.cust_transaction_summary；必須從允許的 dsdep 底表重建所需 staging CTE。\n\n【目前 Supabase 允許的實體底表】\n- dsdep.dep_nt_acct\n- dsdep.dep_fn_acct\n- dsdep.dep_nt_acct_hs\n- dsdep.dep_fn_acct_hs\n- dsdep.emp_dep_nt_acct_hs\n\n目前只有存款底表可用。只能使用 SQL KB metadata 中存在的欄位，不得猜測 table 或 column。\n若需求不是存款 AUM，或 staging_sqls 需要上述清單以外的實體底表，請輸出以下安全且可執行的 SQL：\nSELECT 'UNSUPPORTED_METRIC_OR_MISSING_SOURCE_TABLE' AS error_message;\n\n【嚴格輸出】\n1. 最終只能輸出一個 SELECT 或 WITH ... SELECT。\n2. 不得輸出 CREATE、DROP、ALTER、INSERT、UPDATE、DELETE、TRUNCATE、GRANT 或 REVOKE。\n3. 若有 previous_sql 與 database_error，仍須依上述規則修正，不得跳過 SQL KB 或改用不存在的 staging table。\n4. 最終只輸出 SQL，不得附加說明，也不得使用 Markdown code fence。",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -416,
+        1600
+      ],
+      "id": "2c6f413c-e16f-45e8-bb0a-bd595176db8e",
+      "name": "SQL Reasoning Agent"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "8d1db353-13f3-49b8-b817-5f675fb34c03",
+              "leftValue": "",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        208,
+        1600
+      ],
+      "id": "6bc2d7e2-8339-4dbd-9ab8-4884bfaed2fc",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "38e1fe27-c5b9-4bcc-b8f7-33c75f2a65ce",
+              "name": "user_query",
+              "value": "={{ $json.chatInput }}",
+              "type": "string"
+            },
+            {
+              "id": "6c5e3257-cdf4-4f95-92f5-9fa114b875c1",
+              "name": "session_id",
+              "value": "={{ $json.sessionId }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        -1888,
+        1136
+      ],
+      "id": "e46b5572-0f2e-4763-8447-1ed1ee0bf0fb",
+      "name": "Router Input"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "metrics",
+        "include": "specifiedFields",
+        "fieldsToInclude": "metric_code,metric_name,aliases,definition,sql_asset_id,output_grain,purpose",
+        "options": {
+          "includeBinaries": false
+        }
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        -1792,
+        1296
+      ],
+      "id": "21f992fa-375a-4376-ade5-c856a2d91c20",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "={\n  \"type\": \"object\",\n  \"additionalProperties\": false,\n  \"properties\": {\n    \"match_status\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"executable_match\",\n        \"no_executable_match\"\n      ]\n    },\n    \"selected_metric_codes\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    },\n    \"selected_sql_asset_id\": {\n      \"type\": \"string\"\n    },\n    \"executable_sql\": {\n      \"type\": \"string\"\n    },\n    \"reason\": {\n      \"type\": \"string\"\n    }\n  },\n  \"required\": [\n    \"match_status\",\n    \"selected_metric_codes\",\n    \"selected_sql_asset_id\",\n    \"executable_sql\",\n    \"reason\"\n  ]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        -688,
+        1744
+      ],
+      "id": "6dae8f8d-ba9a-457a-800f-8f9d176230a0",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=請判斷使用者需求是否能由現有 SQL Asset 直接回答，並辨識它屬於哪一類 AUM。\n\n【使用者需求】\n{{ $json.output.resolved_query }}\n\n【候選 Metric Registry】\n{{ JSON.stringify($('Merge').first().json.metrics, null, 2) }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "你是 AUM 查詢流程的 Metric Router。\n\n你的工作不是回答使用者問題、產生 SQL、修改 metric，或執行計算。\n你的唯一任務是根據以下三項輸入，選擇唯一一條後續處理路徑：\n\n1. 使用者問題 user_query\n2. 解析後的查詢條件 parsed_query\n3. Metric Registry 候選資料 metric_candidates\n\n你是 AUM 查詢流程的 Metric Router。\n\n你只負責兩件事：\n\n1. 判斷候選 Metric Registry 中是否存在一個 SQL Asset，可以直接且完整回答使用者需求。\n2. 判斷使用者需求屬於哪一類 AUM，並輸出對應的 metric_code。\n\n你不能回答使用者問題、執行 SQL、產生新 SQL、修改 SQL，或自行發明 metric_code、sql_asset_id。\n\n你只能使用候選 Metric Registry 中實際存在的資料。\n\n【AUM 類別判斷】\n\n使用 selected_metric_codes 表示使用者需求所屬的 AUM 類別。\n\n- 只能輸出候選 Metric Registry 中實際存在的 metric_code。\n- 如果可以明確判斷 AUM 類別，必須輸出對應的 metric_code。\n- 如果問題涉及多個 AUM 類別，可以輸出多個 metric_code。\n- 如果無法從候選資料判斷 AUM 類別，輸出空陣列。\n- 不得自行建立新的 metric_code。\n\n【match_status 判斷】\n\nmatch_status 只能是：\n\n- executable_match\n- no_executable_match\n\n一、executable_match\n\n只有在以下條件全部成立時才能使用：\n\n- 候選資料中存在一個與使用者需求完全相符的 metric。\n- 存在一個可以唯一選定的 SQL Asset。\n- SQL Asset 的 output_grain 與使用者要求一致。\n- SQL Asset 所需的日期或其他必要條件已由使用者提供。\n- SQL Asset 可以直接完成使用者要求。\n- 不需要額外進行門檻篩選、排名、比例、比較、趨勢、交集、分群、組合或其他計算。\n\n此狀態下：\n\n- selected_metric_codes 必須恰好包含一個 metric_code。\n- selected_sql_asset_id 必須是候選資料中對應的 sql_asset_id。\n- executable_sql 必須逐字複製該 SQL Asset 的 executable_sql。\n- 不得改寫、簡化、修正或重新產生 SQL。\n\n二、no_executable_match\n\n符合以下任一情況時使用：\n\n- 找不到能直接完整回答問題的 SQL Asset。\n- 缺少執行 SQL 所需的日期或其他必要條件。\n- 使用者要求門檻篩選、排名、比例、比較、趨勢、交集、分群、組合或額外計算。\n- 使用者要求的範圍、條件或粒度超出現有 SQL Asset。\n- 無法唯一選定一個 SQL Asset。\n\n此狀態下：\n\n- 如果可以判斷 AUM 類別，selected_metric_codes 仍須輸出相關的 metric_code。\n- selected_sql_asset_id 必須輸出空字串。\n- executable_sql 必須輸出空字串。\n\n【嚴格輸出規則】\n\n- 只能輸出符合 Structured Output Parser Schema 的 JSON。\n- 不得輸出 Markdown code fence。\n- 不得在 JSON 前後加入說明文字。\n- 不得增加 Schema 未定義的欄位。\n- 所有 required 欄位都必須輸出。\n- 陣列沒有內容時輸出 []。\n- 字串沒有內容時輸出空字串 \"\"，不得輸出 null。\n- reason 使用一句簡短、明確的繁體中文說明判斷原因。\n\n【SQL Asset 粒度判斷】\n\n- 使用者詢問全行、整體、總額、合計，或只詢問某類 AUM 是多少時，選擇 output_grain = \"total_date\" 的 SQL Asset。\n\n- 使用者要求各客戶、逐客戶或完整客戶清單時，選擇 output_grain = \"customer_date\" 的 SQL Asset。\n\n- 使用者指定單一客戶、門檻、排名或其他額外條件時，即使需要客戶粒度資料，也不得判定為 executable_match，應輸出 no_executable_match。"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        -832,
+        1600
+      ],
+      "id": "874e6d45-05c9-436b-a979-bcae9c176059",
+      "name": "metric router"
+    },
+    {
+      "parameters": {
+        "model": "openai/gpt-5.6-luna",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        -832,
+        1744
+      ],
+      "id": "782ac37d-5076-468f-848f-718a25c039ea",
+      "name": "Router Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "kHmQcximG3HXh42b",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        -416,
+        1824
+      ],
+      "id": "a82dffc0-657e-499f-a324-0e012042881d",
+      "name": "SQL Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "kHmQcximG3HXh42b",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "description": "在 no_executable_match 分支中，取得 Metric Router 已選定 metric_code 對應的\nstaging SQL、來源底表與 table metadata。\n\n本工具回傳：\nmetric_code、staging_sqls、source_tables、table_metadata。\n\n產生 SQL 前必須先呼叫本工具。不得自行猜測不存在的 table 或 column。",
+        "workflowId": {
+          "__rl": true,
+          "value": "8h28VRGfErjIWDZn",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/8h28VRGfErjIWDZn",
+          "cachedResultName": "Staging SQL/Meta Data KB"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "metric_code": "={{ $('metric router').first().json.output.selected_metric_codes[0] }}"
+          },
+          "matchingColumns": [
+            "metric_code"
+          ],
+          "schema": [
+            {
+              "id": "metric_code",
+              "displayName": "metric_code",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        -224,
+        1824
+      ],
+      "id": "de852caa-9628-4c4f-9853-ee15a79b40cf",
+      "name": "SQL KB"
+    },
+    {
+      "parameters": {
+        "jsCode": "const rows = $input\n  .all()\n  .map(item => item.json)\n  .filter(row => Object.keys(row).length > 0);\n\nconst router = $('metric router').first().json.output ?? {};\n\nconst hasUnsupportedError = rows.some(\n  row => row.error_message === 'UNSUPPORTED_METRIC_OR_MISSING_SOURCE_TABLE'\n);\n\nreturn [\n  {\n    json: {\n      status: hasUnsupportedError ? 'unsupported' : 'success',\n      user_query: $('Router Input').first().json.user_query,\n      metric_codes: router.selected_metric_codes ?? [],\n      output_grain:\n        router.output_grain ??\n        router.selected_output_grain ??\n        'dynamic',\n      row_count: rows.length,\n      columns: rows.length > 0 ? Object.keys(rows[0]) : [],\n      rows\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        464,
+        1584
+      ],
+      "id": "5a20712f-8996-48c6-967e-5d50acddfc71",
+      "name": "Normalize SQL Result"
+    },
+    {
+      "parameters": {
+        "options": {
+          "responseMode": "responseNodes"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.5,
+      "position": [
+        -2208,
+        1136
+      ],
+      "id": "ed3d85a5-4497-4831-8d79-d1e0019e14eb",
+      "name": "User Query",
+      "webhookId": "024deeda-59f6-4d99-a5fe-93af32a12084"
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.4,
+      "position": [
+        -320,
+        1824
+      ],
+      "id": "665a84a8-3f11-4de8-9572-0459150dc13b",
+      "name": "Postgres Chat Memory",
+      "credentials": {
+        "postgres": {
+          "id": "SQpTqjOZkY7T4jee",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        704,
+        1760
+      ],
+      "id": "855e06a8-60d3-433e-896d-ccf5a54dc249",
+      "name": "Response Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "kHmQcximG3HXh42b",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=你是私人銀行數據查詢助手。請根據資料庫查詢結果，以繁體中文回答使用者。\n\n【使用者問題】\n{{ $json.user_query }}\n\n【查詢狀態】\n{{ $json.status }}\n\n【指標代碼】\n{{ JSON.stringify($json.metric_codes) }}\n\n【輸出粒度】\n{{ $json.output_grain }}\n\n【欄位】\n{{ JSON.stringify($json.columns) }}\n\n【資料筆數】\n{{ $json.row_count }}\n\n【查詢結果】\n{{ JSON.stringify($json.rows, null, 2) }}\n\n【回答規則】\n1. 查詢結果是唯一事實來源，不得自行重算、補值、改寫或推測資料。\n2. 根據實際欄位與輸出粒度決定回答方式，不得假設一定存在 cust_id、yyyymmdd 或存款aum。\n3. 單一總額使用一句至兩句話直接回答。\n4. 單一客戶使用簡潔段落回答。\n5. 多筆客戶、分類、排名或時間序列，先摘要重點，再以 Markdown 表格呈現。\n6. 金額加上千分位；只有在結果或指標資訊可以確認幣別時，才標示幣別。\n7. YYYYMMDD 格式應轉成容易閱讀的日期。\n8. 客戶代碼、商品代碼及其他識別欄位必須原樣保留。\n9. row_count 為 0 時，回答「查無符合條件的資料」。\n10. status 為 unsupported 時，說明目前資料來源尚不支援該項查詢，不得虛構結果。\n11. 不要提到 SQL、資料表、n8n、節點、Prompt 或內部工作流程。\n12. 只輸出最終回答，不要使用 Markdown code fence。",
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        704,
+        1584
+      ],
+      "id": "76cff09e-552d-40c3-8c92-10eea44ea4d4",
+      "name": "Response"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "BxpaO3AoA97mfD60",
+          "mode": "list",
+          "cachedResultName": "AUM Metric Router Registry PostgreSQL v0 4",
+          "cachedResultUrl": "/projects/az20wapvzAkbtoPa/datatables/BxpaO3AoA97mfD60"
+        },
+        "filters": {
+          "conditions": []
+        },
+        "returnAll": true,
+        "orderBy": true,
+        "orderByColumn": "id",
+        "orderByDirection": "ASC"
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        -1984,
+        1296
+      ],
+      "id": "fc99c5ca-76e7-490d-b284-d890918f5b2c",
+      "name": "Get row(s)"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -1584,
+        1152
+      ],
+      "id": "74efe9df-f423-402c-8d38-badee4ebda4b",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=使用者問題：\n{{ $json.user_query }}\n\n目前登錄的指標（只用於辨認問題類型，不在此回答）：\n{{ JSON.stringify($json.metrics.map(m => ({\n  metric_code: m.metric_code,\n  metric_name: m.metric_name,\n  aliases: m.aliases\n})), null, 2) }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=你是私銀 AUM 智能查詢的入口分類器，只決定下一步流程。不要回答問題、產生 SQL，或判斷 SQL Asset 是否可直接執行；後者交給 Metric Router。\n\n依序判斷：\n1. 詢問系統可查哪些指標、系統用途，或業務名詞與指標定義：route=knowledge；不要求資料查詢條件。\n2. 要求數值、名單、比較、門檻、排名等實際資料：只有在缺少完成該查詢不可少的資訊，且無法從問題可靠判定時，route=clarify。缺少的資訊可能是時間、指標、客群或範圍、比較對象、統計口徑等；不要只檢查日期，也不要為可選條件追問。一次只問最關鍵且簡短的一題，不猜測未提供的條件。missing_fields 填入缺少的欄位名稱，clarification_question 填入要問使用者的話。\n3. 必要資訊已足夠：route=data_query。即使涉及多指標或額外計算，也交給 Metric Router。\n4. 只有明顯與本系統無關的問題：route=unsupported。找不到直接可執行的 SQL Asset 不構成 unsupported。\n\n如果輸入包含「原問題／上一輪追問／使用者補充」，先判斷補充是在回答追問，還是在提出新問題。回答追問時整合已確認的條件；明顯換題時以新問題為準。resolved_query 必須是一句可獨立理解的完整查詢，保留已確認條件，不加入使用者未提供的限制。若仍缺少必要資訊，可再次 route=clarify。\n\nknowledge_type 只能是 catalog、definition、none。不適用的字串輸出空字串，不適用的陣列輸出空陣列。只輸出指定的結構化欄位。\n\n特別規則：月底 AUM 是指定日期快照，至少要能確定年份與月份，才能形成 as_of_date。「8月底存款 AUM 有多少」缺少年份，必須 route=clarify、missing_fields=[\"year\"]，追問是哪一年的 8 月底；不能因為已有「8月底」就認為日期完整。其他必要欄位也依同一原則檢查。"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        -1360,
+        1152
+      ],
+      "id": "9e914034-9cee-467b-99da-0b9586f6c862",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "options": {
+          "responseFormat": "={\n  \"route\": \"clarify\",\n  \"knowledge_type\": \"none\",\n  \"lookup_terms\": [],\n  \"missing_fields\": [\"year\"],\n  \"clarification_question\": \"請問你指哪一年的8月底？\",\n  \"resolved_query\": \"8月底存款AUM有多少\",\n  \"reason\": \"資料查詢缺少年份\"\n}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        -1360,
+        1312
+      ],
+      "id": "65129661-c31f-4c9d-93e9-5e14d698f864",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "kHmQcximG3HXh42b",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.output.route }}",
+                    "rightValue": "knowledge",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "bac5c3f8-8ebb-498b-a179-b798cfd5f539"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "8d324f3d-a248-464e-89ee-2360d14f681b",
+                    "leftValue": "={{ $json.output.route }}",
+                    "rightValue": "clarify",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "113b1d20-6230-4b90-b4f3-63d4b0a72226",
+                    "leftValue": "={{ $json.output.route }}",
+                    "rightValue": "data_query",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        -1040,
+        1136
+      ],
+      "id": "371ccdbb-7d45-4724-9972-b5b6ab9b9361",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "operation": "sendAndWait",
+        "message": "={{ $json.output.clarification_question }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chat",
+      "typeVersion": 1.3,
+      "position": [
+        -832,
+        1152
+      ],
+      "id": "675a8f91-c5ba-49a2-822f-328222349212",
+      "name": "追問",
+      "webhookId": "4db6832a-b59a-44ca-8994-f93a1d21ba94"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"route\": \"clarify\",\n  \"knowledge_type\": \"none\",\n  \"lookup_terms\": [],\n  \"missing_fields\": [\"year\"],\n  \"clarification_question\": \"請問你指哪一年的8月底？\",\n  \"resolved_query\": \"8月底存款AUM有多少\",\n  \"reason\": \"資料查詢缺少年份\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        -1216,
+        1312
+      ],
+      "id": "8e5a3611-47e5-4366-9023-c8c290b9827c",
+      "name": "Structured Output Parser1"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{ (() => { const original = $('Merge').first().json.user_query; const pending = $runIndex === 0 ? original : $('整理追問回覆').first(0, $runIndex - 1).json.user_query; const question = $('Basic LLM Chain').first(0, $runIndex).json.output.clarification_question; const answer = $json.chatInput; return { user_query: `${$runIndex === 0 ? '原問題：' : ''}${pending}\\n上一輪追問：${question}\\n使用者補充：${answer}`, original_query: original, pending_query: pending, clarification_question: question, clarification_reply: answer, clarification_count: $runIndex + 1, metrics: $('Merge').first().json.metrics, session_id: $('Merge').first().json.session_id }; })() }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        -672,
+        1152
+      ],
+      "id": "65ae2798-560e-4c30-a92f-2b3c9b677ad2",
+      "name": "整理追問回覆"
+    },
+    {
+      "parameters": {
+        "message": "={{ $json.text }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chat",
+      "typeVersion": 1.3,
+      "position": [
+        1024,
+        1584
+      ],
+      "id": "0d18dd47-fa85-4fa9-8df4-fd93770a18a7",
+      "name": "送出查詢回答",
+      "webhookId": "4db6832a-b59a-44ca-8994-f93a1d21ba94"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "BxpaO3AoA97mfD60",
+          "mode": "list",
+          "cachedResultName": "AUM Metric Router Registry PostgreSQL v0 4",
+          "cachedResultUrl": "/projects/az20wapvzAkbtoPa/datatables/BxpaO3AoA97mfD60"
+        },
+        "filters": {
+          "conditions": []
+        },
+        "returnAll": true,
+        "orderBy": true,
+        "orderByColumn": "id",
+        "orderByDirection": "ASC"
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        -816,
+        752
+      ],
+      "id": "4c8f5f6c-ce24-4176-be4d-c17ad6d5a383",
+      "name": "知識分支 Metric 清單"
+    },
+    {
+      "parameters": {
+        "jsCode": "const q = String($('Switch').first().json.chatInput || $('Router Input').first().json.user_query || '').trim();\nconst rows = $input.all().map(i => i.json);\nconst unique = [...new Map(rows.map(r => [r.metric_code, r])).values()];\nconst labels = unique.map(r => String(r.metric_name || r.metric_code));\nconst calc = /計算|公式|組成|構成|包含|歸類|屬於|分類|項目|怎麼算|如何算/.test(q);\nconst matches = unique.filter(r => { let aliases=[]; try { aliases=JSON.parse(r.aliases||'[]') } catch {} const names=[r.metric_name,...aliases].filter(Boolean).map(String); return names.some(n => q.includes(n)) || q.toLowerCase().includes(String(r.metric_code).toLowerCase()); });\nconst unsupported = /收益率|報酬率|投報率|ROI|成長率|增長率/.test(q) && matches.length===0;\nconst genericAum = /AUM/i.test(q) && !unsupported && /總|整體|全部|哪些|什麼|如何|怎麼|由/.test(q);\nconst capability = /(系統|可以|支援|提供|有哪些指標|哪些指標|範圍)/.test(q) && /(指標|AUM|計算方式|資料)/.test(q) && !/ROI|收益率|報酬率|投報率|成長率|增長率/.test(q);\nconst allowed = capability || !calc || matches.length>0 || genericAum;\nconst scope_reply = '目前只能說明現有 AUM 指標的計算與組成。可詢問：' + labels.join('、') + '。若你指的是其他指標，請先確認是否已納入 metric。';\nreturn [{json:{chatInput:q,scope_route:allowed?'answer':'reject',scope_reply}}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -560,
+        752
+      ],
+      "id": "eab088f0-0ecc-49df-ac2d-174abc28bc55",
+      "name": "Metric 範圍檢查"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "8d1db353-13f3-49b8-b817-5f675fb34c03",
+              "leftValue": "={{ $json.scope_route }}",
+              "rightValue": "answer",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -304,
+        752
+      ],
+      "id": "2a1ac405-983b-44f6-8005-925a886d1153",
+      "name": "是否可回答"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=你是私銀 AUM 問答系統的知識回答 Agent。\n\n使用者問題：{{ $json.chatInput }}\n\n每次回答前必須呼叫「AUM Knowledge Lookup」工具；若證據不足，可用 staging_sql_id 再查一次。\n\n只根據工具回傳的 staging SQL 和表格／欄位 metadata 回答。metric_codes 只能用於說明已涵蓋哪些指標，不得當作計算公式證據。不要使用 Ontology、Metric Registry 的 definition 或你自己的推測補足業務口徑。\n\n若問計算方式或組成，只說明證據支持的既有 AUM metric；提到計算步驟時註明 staging_sql_id。若工具沒有相關 SQL，明確說目前資料不足。\n\n若問欄位定義，註明 table_name.column_name。相同 column 在多張表出現且定義不同時，列出可能的表並追問使用者要哪一張，不自行挑一張當主要定義。\n\n若問能力邊界，只依工具的 metric_codes 和已存在的 staging/metadata 概述可提供的說明。不要宣稱可計算未建立的指標或即時數值。\n\n不執行 SQL、不報實際數值、不產生新指標公式。用繁體中文簡潔回答。",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -80,
+        528
+      ],
+      "id": "24d4a935-44e9-4051-8a0e-ef574d14f31e",
+      "name": "AUM 知識回答 Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        -80,
+        688
+      ],
+      "id": "187a5827-2b46-4547-92e9-ac70bad408b3",
+      "name": "知識回答 Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "kHmQcximG3HXh42b",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "description": "查找 AUM staging SQL 與欄位 metadata。回答任何系統能力、指標計算或欄位定義問題前先呼叫。輸入 query 為要查的問題；若需閱讀單一 SQL，提供 staging_sql_id。輸出只包含篩選後的 SQL 與 metadata 證據。",
+        "workflowId": {
+          "__rl": true,
+          "value": "q7xNDbavoyQ4lgBs",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/q7xNDbavoyQ4lgBs",
+          "cachedResultName": "AUM Knowledge Lookup"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "query": "={{ $fromAI('query') }}",
+            "staging_sql_id": "={{ $fromAI('staging_sql_id') }}"
+          },
+          "matchingColumns": [
+            "query",
+            "staging_sql_id"
+          ],
+          "schema": [
+            {
+              "id": "query",
+              "displayName": "query",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "staging_sql_id",
+              "displayName": "staging_sql_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        64,
+        688
+      ],
+      "id": "81d91fc4-ff97-4b6f-8fe4-37519d1fdb1e",
+      "name": "AUM Knowledge Lookup"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "return {json:{text:String($json.output || $json.text || '目前無法根據現有資料回答。')}};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        240,
+        528
+      ],
+      "id": "302b8b17-a353-4549-ad96-41cd7ee5c695",
+      "name": "整理知識回答"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "return {json:{text:$json.scope_reply}};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -80,
+        832
+      ],
+      "id": "17a6f75b-2cac-4628-a826-0ce2fc130d33",
+      "name": "超出 Metric 範圍"
+    },
+    {
+      "parameters": {
+        "message": "={{ $json.text }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chat",
+      "typeVersion": 1.3,
+      "position": [
+        432,
+        528
+      ],
+      "id": "654dde87-645b-4a75-a436-70553656cfb2",
+      "name": "送出知識回答",
+      "webhookId": "50b991c1-6f8a-4cdd-a36f-a6c3a8f9bd25"
+    },
+    {
+      "parameters": {
+        "message": "={{ $json.text }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chat",
+      "typeVersion": 1.3,
+      "position": [
+        112,
+        832
+      ],
+      "id": "b85ceb84-ce4b-4904-b064-d3a39ca64631",
+      "name": "送出範圍說明",
+      "webhookId": "94f0b722-78e0-43b2-bd6e-8779ff3d25c5"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Execute a SQL query": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SQL Reasoning Agent": {
+      "main": [
+        [
+          {
+            "node": "Execute a SQL query",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Normalize SQL Result",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "SQL Reasoning Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Router Input": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "metric router",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "metric router": {
+      "main": [
+        [
+          {
+            "node": "SQL Reasoning Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Router Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "metric router",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SQL Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "SQL Reasoning Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SQL KB": {
+      "ai_tool": [
+        [
+          {
+            "node": "SQL Reasoning Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize SQL Result": {
+      "main": [
+        [
+          {
+            "node": "Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "User Query": {
+      "main": [
+        [
+          {
+            "node": "Router Input",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get row(s)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "SQL Reasoning Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Response Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Response",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Response": {
+      "main": [
+        [
+          {
+            "node": "送出查詢回答",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s)": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "知識分支 Metric 清單",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "追問",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "metric router",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "追問": {
+      "main": [
+        [
+          {
+            "node": "整理追問回覆",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "整理追問回覆": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "知識分支 Metric 清單": {
+      "main": [
+        [
+          {
+            "node": "Metric 範圍檢查",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Metric 範圍檢查": {
+      "main": [
+        [
+          {
+            "node": "是否可回答",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "是否可回答": {
+      "main": [
+        [
+          {
+            "node": "AUM 知識回答 Agent",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "超出 Metric 範圍",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AUM 知識回答 Agent": {
+      "main": [
+        [
+          {
+            "node": "整理知識回答",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "整理知識回答": {
+      "main": [
+        [
+          {
+            "node": "送出知識回答",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "超出 Metric 範圍": {
+      "main": [
+        [
+          {
+            "node": "送出範圍說明",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "知識回答 Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AUM 知識回答 Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AUM Knowledge Lookup": {
+      "ai_tool": [
+        [
+          {
+            "node": "AUM 知識回答 Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "927e8807-702a-4934-9502-32c94e6b2597",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "36a1864de504bd2b19d4a56d711aa4ee92ab0fa945f44556d29eff9e06aefc2a"
+  },
+  "nodeGroups": [],
+  "id": "glxRvnXZ1bCtknVi",
+  "tags": []
+}

@@ -1,0 +1,57 @@
+私銀智能問答 v9：2026-10-16 原生對話測試結果與待修問題
+更新日期：2026-10-16，Asia/Taipei。
+
+今天已完成昨天未完成的 v9 業務對話測試與保存收尾；功能驗收未通過。
+先讀本檔，再讀 docs/handoffs/20261016_原生對話測試結果與待修問題_v9.txt。
+專案根目錄：C:\Users\petershiao\Desktop\Ontology\私銀智能問答
+
+目前線上
+https://chiang4901.app.n8n.cloud/workflow/pqvhkncZ9bFlfe4B
+workflowId：pqvhkncZ9bFlfe4B；18 節點，active=false，未發布。
+保存版本：6dd3c096-c7bb-4473-adbe-5f0618c32229。
+參數 SHA256：76d95b592e9a811ca71841e8365c2c1fb0b88d73eab7535cae7ad0fb85314387。
+最新完整匯出：deliverables/graph_qa/v9/workflow.saved.json。
+saved_validation.final.json=passed：只表示保存／結構深比通過，不是功能驗收通過。
+Graph Chat 原固定輸入已還原，sessionId=4753afde49b44d0899cb8b9d103b9862；聊天已 Reset。
+重載後再匯出核對：所有節點、接線、settings、身份、active=false、pinData 與 proposed 完全相同。
+沒有執行中的測試，沒有待核准項，沒有建立排程。
+
+本輪實作範圍
+今天只修改 Prepare Jev Request：已明示收入／AUM 不重問領域、多通路不可預設銀行、已解決條件不重問；只在 pending 時提供原題／本輪短答任務。
+其餘節點參數、18 節點接線、單次 Jev、完整 41 節點／39 路徑、SQL prompt／來源規則、原 SQL、Neo4j 查詢及已發布共用 KB 均不變。
+原始 SQL 使用 CP950／Big5，未修改。海外分類／property 仍依原決定延後。
+
+固定版本原生測試：18 題，6 題通過、12 題未通過
+通過：F1 通路澄清；P1 空白對話銀行基金收入計算；DEF1 AO 定義；L1 基金列舉；D2「收入」短答收斂到銀行基金收入；L2 手續費收入業務來源列舉。
+未通過：F2→F5、M1、P2→P4、M2、D1、C1→C2。
+1. F2 深入查證更正（歷史 #2619）：Jev 已辨識 clarification_reply、計算目的，且已選中銀行基金收入唯一路徑；但 qa_route=clarify 與 qa_clarification=none 矛盾。Process 因 inconsistent_clarification_decision 轉為 unsupported，清掉輸出路徑與 pending，跳過映射，最後錯追問客戶／期間。詳見 deliverables/graph_qa/v9/f2_investigation_20261016/調查結論.txt。非 SQL 的 P1 #2626 確實成功查映射，排除只有 SQL 才查映射的假設。
+2. F3→F5 連鎖失敗；另外空白對話 P1 可正確回答，但 P2「證券的呢？」仍丟掉基金範圍，擴成證券債券／結構型／基金／外國股票，P3／P4 未收斂。不是只有前題失敗才發生。
+3. M1（有前文 pending）及 M2（空白對話）都把「銀行基金 AUM＋證券基金收入」選成四組產品／指標。M1 另誤判 clarification_reply，沿用舊原題。M1 回答表面兩組，不能據此列通過；M2 回答直接展開四組。
+4. D1 正確追問 AUM／收入，但候選仍含存款、保險、債券、ETF 等無關產品，因此嚴格驗收未通過。D2 回覆收入後實際選路僅銀行基金收入，該題通過。
+5. C1 比較深度基本合適，但 topic 仍殘留 income 且部分證據不對稱。C2「那 AUM 呢？」又要求銀行／證券二選一，沒有保留兩者比較範圍。
+各題原生輸出與記憶已保存，離線 14 組契約通過；合成決策不代表原生理解通過。
+這是針對已知問題的測試／診斷，不是獨立留出準確率測量，連續題的失敗不是互相獨立事件。
+
+閱讀入口
+deliverables/graph_qa/v9/continuation_20261016/測試結果與待修問題.html
+同目錄 .txt 是完整純文字報告。
+同目錄 native_assessment.json 是 18 題逐項判定；native_runs.final.json 是固定版本 18 題閱讀證據；native_runs.json 另含修正中的探索紀錄。
+同目錄 *.Finalize_QA.visible.json 是各題可讀輸出；workflow.frozen4.json／validation.frozen4.json 是原生測試參數凍結。
+workflow.final.json／validation.final.json 是還原固定資料、Reset 並重載後的保存深比。
+v9/validation.json 是 14 組離線契約；v9/workflow.proposed.json／Prepare_Jev_Request.js 是最新本機內容。
+2026-10-15 的 v9/native_runs.final.json、saved.candidate、initial、round1 與舊交接都是歷史，不是今天結果。
+舊 v9/build_report.py 勿作今天入口；今天用 continuation_20261016/build_report.py。
+
+接續工作
+本輪測試已完成，不能宣稱 v9 功能完成。若使用者要繼續修復，先讀逐題失敗與新鮮線上匯出再改，勿只用離線契約判定模型通過。
+優先處理：每個 Jev node/path choice 對待答原題、短答與已確認 topic 的完整解讀；保留單軸替換的其餘範圍與多產品的實際配對。可評估在選項中直接呈現產品／領域配對，避免僅靠不透明 pathKey；尚未實作。
+同時檢查 unsupported 的澄清回覆是否應保留原 pending，避免選路失敗清空待答上下文；目前行為未改。
+不得新增回答後驗證／修正節點，不發布。已有業務修改授權，無須重問同一許可。
+本輪沒有原生 SQL 回歸或 Oracle 執行；客戶海外 AUM／總 AUM 比例、by-customer JOIN 新增實測尚未完成，海外 property 延後。v8 SQL 結果及界線沿用 v8 報告，勿宣稱本輪新驗證。
+
+工具
+瀏覽器用 computer-use skill／cua_repl，重用 Chrome n8n。新 session 重新綁定分頁，不沿用 REPL 變數。
+原生輸出用 Table DOM 擷取，Jev 全圖表格過大可能使 DOM snapshot 逾時；收合紀錄或在已保存後重載恢復，不重送同一題。
+waitForEvent(download) 曾逾時但檔案其實已下載；直接 UI 匯出後讀 Downloads 最新且比對身份／時間，避免重複等待。
+大量 CodeMirror 貼入後務必匯出深比。本機 file:// HTML 曾被安全機制拒絕，不繞過；可以提供檔案連結。
+此目錄沒有 Git 儲存庫，沒有 commit／PR。

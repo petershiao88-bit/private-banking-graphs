@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-27",
+  "scope": "customer360-rdf-owl",
+  "move_entries": 46,
+  "moved_files": 915,
+  "archived_files_sha256_verified": 897,
+  "model_source_hashes_unchanged": 20,
+  "tests": {
+    "rdf_pg_fabric": 125,
+    "qa_reasoner_handoff": 38
+  },
+  "graph_verification": "passed: all 4 views",
+  "live_http_200": [
+    "/",
+    "/ask",
+    "/handoff",
+    "/api/graph-qa/status"
+  ],
+  "active_reasoner": "Semantica Reasoner",
+  "note": "No model data deleted; archived files retain original bytes. PG tests have path-only edits; original copies are under before-edits."
+}

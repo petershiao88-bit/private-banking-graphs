@@ -1,0 +1,38 @@
+單輪獨立圖譜問答 v2｜2026-10-16
+
+流程：https://chiang4901.app.n8n.cloud/workflow/Td4cymdWpu8sYNkv
+保存版本：ecdd764b-1478-43be-8d61-47dbb958b34d。
+12 節點，已保存未發布、無記憶、無 pinData、不執行 SQL。
+本文件只交接獨立單輪流程；不取代多輪 graph_qa v9 的 Resume。
+
+本次已完成
+選中衡量路徑與相關概念合併成一張子圖；補直接概念選點；整理對應映射與來源覆蓋；改為通用 Answer Question prompt；程式附加實際取回的查詢路徑。
+Aura 固定查詢、模型、憑證參照及接線未更改。未部署新的 subsidiary、marketRegion、dealingMode 屬性。
+
+七題固定版本測完
+Q1 #2643：子分類列對，但多取四組存款 AUM，附錄過多，且有非預期語文文字。未完整通過。
+Q2 #2644：AO／客戶／私銀三概念三關係，無計算路徑。通過。
+Q3 #2646：基金比較被擴成八組計算，含證券債券、結構型商品。未通過。
+Q4 #2647：放款利收只取一組，主要公式正確，但自行把 NT/FN 說成非金融帳／金融帳；規則與原 SQL 來源表述仍不清。未通過。
+Q5 #2648：證券基金收入主要邏輯正確，卻多取基金 AUM 與債券收入；日期角色區分仍不清。未通過。
+Q6 #2649：指定兩組卻取四組；另把來源 YYYYMMDD 快照條件錯解為 WKA02。未通過。
+Q7 #2650：保留圖譜內十二組 AUM 分母，未把外幣當海外；但未交代原始總 AUM SQL 另含保險、信託保管、台股與股票設質等分支。部分通過，不能宣稱完整分母已驗證。
+
+每題獨立 session，原始問題及空歷史逐題核對通過；七題均 Succeeded。
+測後重新 UI 匯出與測前凍結版本深比通過，未依個別失敗調整後重跑。
+Q3／Q7 檢視大資料曾造成頁面停頓，重載後恢復原結果，沒有重送題目。
+原始 Oracle SQL 僅唯讀核對，CP950 編碼；沒有執行、修改 SQL，也未改 Aura 或多輪流程。
+
+下一步建議，尚未套用
+保留通用回答 prompt，先改善 Jev 每個路徑選項的業務語意與產品／指標配對，避免交叉展開。
+純概念比較需控制是否展開計算路徑；禁止無來源的表名縮寫翻譯；日期依來源欄位與計算階段區分。
+總 AUM 要明列圖譜業務範圍與原始主彙總分支差異，再決定分母定義及未覆蓋來源的處理。
+保留本批原始結果，修正後用七題加新增題目驗證通用性。
+
+成品
+deliverables/single_turn_qa/v2/workflow.saved.json
+deliverables/single_turn_qa/v2/使用說明.txt
+deliverables/single_turn_qa/v2/Answer_Question_prompt.txt
+deliverables/single_turn_qa/testing_20261016/測試結果與待修問題.html
+deliverables/single_turn_qa/testing_20261016/測試結果與待修問題.txt
+同資料夾的 native_runs.json、Q1–Q7 原始輸出、實際選路與輸入核對，以及 validation.after.json 可完整追溯。

@@ -1,0 +1,6 @@
+# Policy owned by the harness. Agent requests cannot replace these rules.
+IF IsA(?item, ?class) AND Subclass(?class, ?parent) THEN IsA(?item, ?parent)
+IF IsA(?item, ?class) AND ClassLabel(?class, ?label) THEN HasLabel(?item, ?label)
+IF DerivedFrom(?output, ?source) AND HasLabel(?source, ?label) THEN HasLabel(?output, ?label)
+IF Contains(?output, ?item) AND HasLabel(?item, ?label) THEN HasLabel(?output, ?label)
+IF HasLabel(?output, personal_data) THEN RequiresConsent(?output)

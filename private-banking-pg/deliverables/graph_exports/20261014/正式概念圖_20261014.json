@@ -1,0 +1,2083 @@
+{
+  "manifest": {
+    "format": "offline_property_graph_v1",
+    "packagedAt": "2026-10-14T10:35:55.778974+08:00",
+    "downloadedAt": "2026-10-14T10:33:34.669519+08:00",
+    "source": "Neo4j Aura Query → Download JSON",
+    "freshlyDownloaded": true,
+    "instanceId": "4bb479b2",
+    "database": "neo4j",
+    "scope": "PBConcept：完整業務概念與關係。",
+    "nodeCount": 41,
+    "relationshipCount": 69,
+    "labelCounts": {
+      "PBConcept": 41,
+      "PBConceptAdvisor": 1,
+      "PBConceptAUM": 6,
+      "PBConceptMetric": 13,
+      "PBConceptProduct": 25,
+      "PBConceptIncome": 7,
+      "PBConceptCustomer": 1,
+      "PBConceptOrganization": 1
+    },
+    "relationshipTypes": {
+      "PB_AUM_MEASURED_BY": 19,
+      "PB_INCOME_MEASURED_BY": 20,
+      "PB_AUM_ROLLS_UP_TO": 5,
+      "PB_INCOME_ROLLS_UP_TO": 6,
+      "PB_HAS_MEASUREMENT_SUBJECT": 13,
+      "PB_SCOPED_TO": 2,
+      "PB_SUBCATEGORY_OF": 3,
+      "PB_ASSIGNED_TO": 1
+    },
+    "contentSha256": "e4ca8662777be014e907fae39571965791e2be8babe300801bcadbc3563f795c",
+    "jsonStringPropertiesPreserved": true,
+    "credentialsIncluded": false
+  },
+  "nodes": [
+    {
+      "key": "pbconcept:advisor",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1616",
+      "labels": [
+        "PBConcept",
+        "PBConceptAdvisor"
+      ],
+      "properties": {
+        "advisorId": "用於識別 AO 的識別碼；與機構員工編號分開理解。",
+        "roleResponsibilities": [
+          "客戶關係維護",
+          "客戶服務需求的聯繫與協調"
+        ],
+        "name": "理專（AO）",
+        "conceptCode": "advisor",
+        "definition": "負責客戶服務聯繫與關係維護的人員角色；角色名稱本身不代表特定職務或專業資格。",
+        "serviceDescription": "依機構安排提供客戶服務聯繫與關係管理。",
+        "advisorName": "擔任 AO 角色的人員姓名。",
+        "employeeNumber": "機構使用的員工編號；與 AO 識別碼的實際對照由映射層處理。"
+      }
+    },
+    {
+      "key": "pbconcept:aum_bank_investment",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1184",
+      "labels": [
+        "PBConcept",
+        "PBConceptAUM",
+        "PBConceptMetric"
+      ],
+      "properties": {
+        "name": "銀行投資 AUM",
+        "definition": "某一衡量時點的客戶銀行通路投資資產合計，涵蓋保險、信託及其他已納入的投資產品與服務所對應資產。",
+        "metricCode": "aum_bank_investment"
+      }
+    },
+    {
+      "key": "pbconcept:aum_deposit",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1182",
+      "labels": [
+        "PBConcept",
+        "PBConceptAUM",
+        "PBConceptMetric"
+      ],
+      "properties": {
+        "name": "存款 AUM",
+        "definition": "某一衡量時點的客戶銀行存款資產規模，涵蓋台幣、外幣及結構型存款。",
+        "metricCode": "aum_deposit"
+      }
+    },
+    {
+      "key": "pbconcept:aum_insurance",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1186",
+      "labels": [
+        "PBConcept",
+        "PBConceptAUM",
+        "PBConceptMetric"
+      ],
+      "properties": {
+        "name": "保險 AUM",
+        "definition": "某一衡量時點的客戶銀行通路保險資產規模。",
+        "metricCode": "aum_insurance"
+      }
+    },
+    {
+      "key": "pbconcept:aum_investment",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1183",
+      "labels": [
+        "PBConcept",
+        "PBConceptAUM",
+        "PBConceptMetric"
+      ],
+      "properties": {
+        "name": "投資 AUM",
+        "definition": "某一衡量時點的客戶銀行及證券通路投資資產合計。",
+        "metricCode": "aum_investment"
+      }
+    },
+    {
+      "key": "pbconcept:aum_securities",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1185",
+      "labels": [
+        "PBConcept",
+        "PBConceptAUM",
+        "PBConceptMetric"
+      ],
+      "properties": {
+        "name": "證券 AUM",
+        "definition": "某一衡量時點的客戶證券通路投資資產合計。",
+        "metricCode": "aum_securities"
+      }
+    },
+    {
+      "key": "pbconcept:aum_total",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1181",
+      "labels": [
+        "PBConcept",
+        "PBConceptAUM",
+        "PBConceptMetric"
+      ],
+      "properties": {
+        "name": "總 AUM",
+        "definition": "某一衡量時點的客戶存款與銀行及證券通路投資資產合計，表達已納入業務範圍的資產規模。",
+        "metricCode": "aum_total"
+      }
+    },
+    {
+      "key": "pbconcept:bank_bond_proprietary",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1172",
+      "labels": [
+        "PBConcept",
+        "PBConceptProduct"
+      ],
+      "properties": {
+        "productCode": "bank_bond_proprietary",
+        "customerNeed": "海外債券投資配置",
+        "incomeDefinition": "銀行自營海外債券業務歸入手續費類的相關收入。",
+        "offeringType": "產品",
+        "name": "海外債券（自營）",
+        "definition": "客戶透過銀行自營通路交易或持有的海外債券產品。",
+        "serviceDescription": "自營通路的海外債券交易及持有相關服務。",
+        "aumDefinition": "客戶透過銀行自營通路持有的海外債券資產規模。",
+        "businessChannel": "銀行自營通路",
+        "productCategory": "債券"
+      }
+    },
+    {
+      "key": "pbconcept:bank_bond_trust",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1171",
+      "labels": [
+        "PBConcept",
+        "PBConceptProduct"
+      ],
+      "properties": {
+        "productCode": "bank_bond_trust",
+        "customerNeed": "海外債券投資配置",
+        "incomeDefinition": "海外債券信託業務的分行手續費及已納入的交易利得。",
+        "offeringType": "產品",
+        "name": "海外債券（信託）",
+        "definition": "客戶透過銀行信託通路交易或持有的海外債券產品。",
+        "serviceDescription": "信託通路的海外債券交易及持有相關服務。",
+        "aumDefinition": "客戶透過銀行信託通路持有的海外債券資產規模。",
+        "businessChannel": "銀行信託通路",
+        "productCategory": "債券"
+      }
+    },
+    {
+      "key": "pbconcept:bank_collective_account",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1173",
+      "labels": [
+        "PBConcept",
+        "PBConceptProduct"
+      ],
+      "properties": {
+        "productCode": "bank_collective_account",
+        "customerNeed": "信託資金管理、投資配置",
+        "incomeDefinition": "",
+        "offeringType": "產品",
+        "name": "集合管理帳戶",
+        "definition": "透過帳戶安排集合管理運用信託資金的投資產品。",
+        "serviceDescription": "集合管理帳戶的資金管理及投資相關服務。",
+        "aumDefinition": "客戶持有的集合管理帳戶資產規模。",
+        "businessChannel": "銀行信託通路",
+        "productCategory": "集合管理帳戶"
+      }
+    },
+    {
+      "key": "pbconcept:bank_dci",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1605",
+      "labels": [
+        "PBConcept",
+        "PBConceptProduct"
+      ],
+      "properties": {
+        "productCode": "bank_dci",
+        "customerNeed": "依貨幣與收益條件安排投資",
+        "incomeDefinition": "銀行雙元貨幣組合式商品業務的手續費及已納入的相關交易損益。",
+        "offeringType": "產品",
+        "name": "銀行雙元貨幣組合式商品（DCI）",
+        "definition": "銀行通路提供、結合投資本金與外匯選擇權的雙元貨幣組合式商品。",
+        "serviceDescription": "雙元貨幣組合式商品的承作及契約相關服務。",
+        "aumDefinition": "",
+        "businessChannel": "銀行通路",
+        "productCategory": "雙元貨幣組合式商品"
+      }
+    },
+    {
+      "key": "pbconcept:bank_etf",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1169",
+      "labels": [
+        "PBConcept",
+        "PBConceptProduct"
+      ],
+      "properties": {
+        "productCode": "bank_etf",
+        "customerNeed": "投資配置",
+        "incomeDefinition": "銀行 ETF 業務帶來的分行手續費收入。",
+        "offeringType": "產品",
+        "name": "銀行ETF",
+        "definition": "客戶透過銀行通路交易或持有的 ETF 產品。",
+        "serviceDescription": "ETF 交易及持有相關服務。",
+        "aumDefinition": "客戶透過銀行通路持有的 ETF 資產規模。",
+        "businessChannel": "銀行通路",
+        "productCategory": "ETF"
+      }
+    },
+    {
+      "key": "pbconcept:bank_fee_income",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1189",
+      "labels": [
+        "PBConcept",
+        "PBConceptIncome",
+        "PBConceptMetric"
+      ],
+      "properties": {
+        "name": "銀行手續費類收入",
+        "definition": "銀行通路產品與服務歸入手續費類的收入，涵蓋已納入的手續費、客戶貢獻度及部分交易損益。",
+        "metricCode": "bank_fee_income"
+      }
+    },
+    {
+      "key": "pbconcept:bank_fund",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1168",
+      "labels": [
+        "PBConcept",
+        "PBConceptProduct"
+      ],
+      "properties": {
+        "productCode": "bank_fund",
+        "customerNeed": "投資配置",
+        "incomeDefinition": "銀行基金業務帶來的分行手續費收入。",
+        "offeringType": "產品",
+        "name": "銀行基金",
+        "definition": "客戶透過銀行通路申購或持有的基金產品。",
+        "serviceDescription": "基金申購、贖回及持有相關服務。",
+        "aumDefinition": "客戶透過銀行通路持有的基金資產規模。",
+        "businessChannel": "銀行通路",
+        "productCategory": "基金"
+      }
+    },
+    {
+      "key": "pbconcept:bank_fx",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1607",
+      "labels": [
+        "PBConcept",
+        "PBConceptProduct"
+      ],
+      "properties": {
+        "productCode": "bank_fx",
+        "customerNeed": "貨幣兌換、外匯交易",
+        "incomeDefinition": "銀行外匯交易歸入手續費類的兌換損益及相關交易損益。",
+        "offeringType": "服務",
+        "name": "銀行外匯服務",
+        "definition": "銀行為客戶提供的外匯交易相關服務。",
+        "serviceDescription": "貨幣兌換與外匯交易相關服務。",
+        "aumDefinition": "",
+        "businessChannel": "銀行通路",
+        "productCategory": "外匯服務"
+      }
+    },
+    {
+      "key": "pbconcept:bank_gold",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1609",
+      "labels": [
+        "PBConcept",
+        "PBConceptProduct"
+      ],
+      "properties": {
+        "productCode": "bank_gold",
+        "customerNeed": "黃金投資與交易",
+        "incomeDefinition": "銀行黃金交易歸入手續費類的相關交易損益。",
+        "offeringType": "產品",
+        "name": "銀行黃金",
+        "definition": "客戶透過銀行通路承作的黃金類產品。",
+        "serviceDescription": "銀行通路的黃金交易相關服務。",
+        "aumDefinition": "",
+        "businessChannel": "銀行通路",
+        "productCategory": "黃金"
+      }
+    },
+    {
+      "key": "pbconcept:bank_insurance",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1167",
+      "labels": [
+        "PBConcept",
+        "PBConceptProduct"
+      ],
+      "properties": {
+        "productCode": "bank_insurance",
+        "customerNeed": "保障安排、保險資產配置",
+        "incomeDefinition": "銀行保險業務的手續費及已納入的客戶貢獻度收入。",
+        "offeringType": "產品",
+        "name": "銀行保險",
+        "definition": "客戶透過銀行通路辦理或持有的保險產品。",
+        "serviceDescription": "銀行通路的保險產品與保單相關服務。",
+        "aumDefinition": "客戶透過銀行通路持有的保險資產規模。",
+        "businessChannel": "銀行通路",
+        "productCategory": "保險"
+      }
+    },
+    {
+      "key": "pbconcept:bank_lc",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1608",
+      "labels": [
+        "PBConcept",
+        "PBConceptProduct"
+      ],
+      "properties": {
+        "productCode": "bank_lc",
+        "customerNeed": "貿易支付安排",
+        "incomeDefinition": "銀行開狀業務帶來的相關手續費收入。",
+        "offeringType": "服務",
+        "name": "銀行開狀服務",
+        "definition": "銀行為客戶提供的開狀相關服務。",
+        "serviceDescription": "開狀及相關契約服務。",
+        "aumDefinition": "",
+        "businessChannel": "銀行通路",
+        "productCategory": "開狀服務"
+      }
+    },
+    {
+      "key": "pbconcept:bank_overseas_stock",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1170",
+      "labels": [
+        "PBConcept",
+        "PBConceptProduct"
+      ],
+      "properties": {
+        "productCode": "bank_overseas_stock",
+        "customerNeed": "海外股票投資配置",
+        "incomeDefinition": "銀行海外股票業務帶來的分行手續費收入。",
+        "offeringType": "產品",
+        "name": "銀行海外股票",
+        "definition": "客戶透過銀行通路交易或持有的海外股票產品。",
+        "serviceDescription": "海外股票交易及持有相關服務。",
+        "aumDefinition": "客戶透過銀行通路持有的海外股票資產規模。",
+        "businessChannel": "銀行通路",
+        "productCategory": "股票"
+      }
+    },
+    {
+      "key": "pbconcept:bank_planned_trust",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1175",
+      "labels": [
+        "PBConcept",
+        "PBConceptProduct"
+      ],
+      "properties": {
+        "productCode": "bank_planned_trust",
+        "customerNeed": "財產管理、信託安排",
+        "incomeDefinition": "規劃型信託服務的借券、管理及成立費收入，涵蓋已納入的員工持股信託。",
+        "offeringType": "服務",
+        "name": "規劃型信託",
+        "definition": "依信託目的與契約安排管理或運用客戶財產的信託服務。",
+        "serviceDescription": "信託契約安排、財產管理及相關服務。",
+        "aumDefinition": "客戶交付規劃型信託安排的資產規模，涵蓋已納入的一般信託與員工持股信託。",
+        "businessChannel": "銀行信託通路",
+        "productCategory": "信託"
+      }
+    },
+    {
+      "key": "pbconcept:bank_structured_domestic",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1606",
+      "labels": [
+        "PBConcept",
+        "PBConceptProduct"
+      ],
+      "properties": {
+        "productCode": "bank_structured_domestic",
+        "customerNeed": "依商品契約安排投資配置",
+        "incomeDefinition": "銀行境內結構型商品業務帶來的相關手續費收入。",
+        "offeringType": "產品",
+        "name": "境內結構型商品",
+        "definition": "銀行通路提供的境內結構型商品，收益條件依商品契約安排。",
+        "serviceDescription": "境內結構型商品的承作及契約相關服務。",
+        "aumDefinition": "",
+        "businessChannel": "銀行通路",
+        "productCategory": "結構型商品"
+      }
+    },
+    {
+      "key": "pbconcept:bank_structured_offshore",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1174",
+      "labels": [
+        "PBConcept",
+        "PBConceptProduct"
+      ],
+      "properties": {
+        "productCode": "bank_structured_offshore",
+        "customerNeed": "依契約安排投資配置",
+        "incomeDefinition": "銀行境外結構型商品業務帶來的分行手續費收入。",
+        "offeringType": "產品",
+        "name": "銀行境外結構型商品",
+        "definition": "客戶透過銀行通路交易或持有的境外結構型商品。",
+        "serviceDescription": "境外結構型商品的交易及持有相關服務。",
+        "aumDefinition": "客戶透過銀行通路持有的境外結構型商品資產規模。",
+        "businessChannel": "銀行通路",
+        "productCategory": "結構型商品"
+      }
+    },
+    {
+      "key": "pbconcept:bank_trust_custody",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1176",
+      "labels": [
+        "PBConcept",
+        "PBConceptProduct"
+      ],
+      "properties": {
+        "productCode": "bank_trust_custody",
+        "customerNeed": "資產保管",
+        "incomeDefinition": "信託保管服務帶來的保管費收入。",
+        "offeringType": "服務",
+        "name": "信託保管",
+        "definition": "客戶將資產交付信託保管安排的服務。",
+        "serviceDescription": "依保管安排提供資產保管相關服務。",
+        "aumDefinition": "客戶交付信託保管的資產規模。",
+        "businessChannel": "銀行信託通路",
+        "productCategory": "信託保管"
+      }
+    },
+    {
+      "key": "pbconcept:customer",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1193",
+      "labels": [
+        "PBConcept",
+        "PBConceptCustomer"
+      ],
+      "properties": {
+        "businessRole": "與機構建立往來關係，使用產品或接受服務的對象。",
+        "name": "客戶",
+        "customerId": "用於識別客戶的識別碼；各來源可能採用不同的識別種類，跨來源對照尚待釐清。",
+        "conceptCode": "customer",
+        "definition": "與機構建立往來關係，使用其產品或服務的個人或組織。",
+        "customerNumber": "來源系統使用的客戶編號，屬選用資訊；與客戶識別碼分開理解。",
+        "customerName": "客戶姓名或名稱；委託人名稱須依來源角色解讀，來源未提供時可缺值。"
+      }
+    },
+    {
+      "key": "pbconcept:deposit",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1166",
+      "labels": [
+        "PBConcept",
+        "PBConceptProduct"
+      ],
+      "properties": {
+        "productCode": "deposit",
+        "customerNeed": "資金存放、資金調度",
+        "incomeDefinition": "存款業務歸入利收的收入，按存款整體衡量。",
+        "offeringType": "產品",
+        "name": "存款",
+        "definition": "客戶將資金存放於銀行的存款產品，涵蓋台幣、外幣及結構型存款。",
+        "serviceDescription": "存款帳戶與資金存放相關服務。",
+        "aumDefinition": "客戶在銀行持有的存款資產規模。",
+        "businessChannel": "銀行通路",
+        "productCategory": "存款"
+      }
+    },
+    {
+      "key": "pbconcept:deposit_foreign",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1612",
+      "labels": [
+        "PBConcept",
+        "PBConceptProduct"
+      ],
+      "properties": {
+        "productCode": "deposit_foreign",
+        "customerNeed": "外幣資金存放、資金調度",
+        "incomeDefinition": "",
+        "offeringType": "產品",
+        "name": "外幣存款",
+        "definition": "銀行提供的外幣存款產品，屬於存款的子分類。",
+        "serviceDescription": "外幣存款及資金存放相關服務。",
+        "aumDefinition": "客戶持有、納入外幣存款分類的銀行存款資產規模。",
+        "businessChannel": "銀行通路",
+        "productCategory": "存款"
+      }
+    },
+    {
+      "key": "pbconcept:deposit_interest_income",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1192",
+      "labels": [
+        "PBConcept",
+        "PBConceptIncome",
+        "PBConceptMetric"
+      ],
+      "properties": {
+        "name": "存款利收",
+        "definition": "存款業務歸入利收的收入，按存款整體衡量。",
+        "metricCode": "deposit_interest_income"
+      }
+    },
+    {
+      "key": "pbconcept:deposit_structured",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1613",
+      "labels": [
+        "PBConcept",
+        "PBConceptProduct"
+      ],
+      "properties": {
+        "productCode": "deposit_structured",
+        "customerNeed": "依契約條件安排資金存放",
+        "incomeDefinition": "",
+        "offeringType": "產品",
+        "name": "結構型存款",
+        "definition": "銀行依特定商品契約安排提供的結構型存款產品。",
+        "serviceDescription": "結構型存款的承作及契約相關服務。",
+        "aumDefinition": "客戶持有、納入結構型存款分類的銀行存款資產規模。",
+        "businessChannel": "銀行通路",
+        "productCategory": "存款"
+      }
+    },
+    {
+      "key": "pbconcept:deposit_twd",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1611",
+      "labels": [
+        "PBConcept",
+        "PBConceptProduct"
+      ],
+      "properties": {
+        "productCode": "deposit_twd",
+        "customerNeed": "台幣資金存放、資金調度",
+        "incomeDefinition": "",
+        "offeringType": "產品",
+        "name": "台幣存款",
+        "definition": "銀行提供的台幣存款產品，屬於存款的子分類。",
+        "serviceDescription": "台幣存款及資金存放相關服務。",
+        "aumDefinition": "客戶持有、納入台幣存款分類的銀行存款資產規模。",
+        "businessChannel": "銀行通路",
+        "productCategory": "存款"
+      }
+    },
+    {
+      "key": "pbconcept:fee_income",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1188",
+      "labels": [
+        "PBConcept",
+        "PBConceptIncome",
+        "PBConceptMetric"
+      ],
+      "properties": {
+        "name": "手續費類收入",
+        "definition": "業務上歸入手續費類的收入，涵蓋手續費、客戶貢獻度及部分交易損益。",
+        "metricCode": "fee_income"
+      }
+    },
+    {
+      "key": "pbconcept:income_total",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1187",
+      "labels": [
+        "PBConcept",
+        "PBConceptIncome",
+        "PBConceptMetric"
+      ],
+      "properties": {
+        "name": "總收入",
+        "definition": "某一衡量期間內，已納入業務範圍的客戶相關手續費類收入與利收合計。",
+        "metricCode": "income_total"
+      }
+    },
+    {
+      "key": "pbconcept:interest_income",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1191",
+      "labels": [
+        "PBConcept",
+        "PBConceptIncome",
+        "PBConceptMetric"
+      ],
+      "properties": {
+        "name": "利收",
+        "definition": "存款與放款業務歸入利收的收入。",
+        "metricCode": "interest_income"
+      }
+    },
+    {
+      "key": "pbconcept:loan",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1610",
+      "labels": [
+        "PBConcept",
+        "PBConceptProduct"
+      ],
+      "properties": {
+        "productCode": "loan",
+        "customerNeed": "融資、資金調度",
+        "incomeDefinition": "放款業務歸入利收的收入，按已納入的業務收益口徑衡量。",
+        "offeringType": "產品",
+        "name": "放款",
+        "definition": "銀行依授信安排提供客戶使用資金的融資產品。",
+        "serviceDescription": "授信及放款相關服務。",
+        "aumDefinition": "",
+        "businessChannel": "銀行通路",
+        "productCategory": "放款"
+      }
+    },
+    {
+      "key": "pbconcept:loan_interest_income",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1615",
+      "labels": [
+        "PBConcept",
+        "PBConceptIncome",
+        "PBConceptMetric"
+      ],
+      "properties": {
+        "name": "放款利收",
+        "definition": "放款業務歸入利收的收入，按既有業務收益口徑衡量，不直接等同客戶支付的全部利息。",
+        "metricCode": "loan_interest_income"
+      }
+    },
+    {
+      "key": "pbconcept:private_banking",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1617",
+      "labels": [
+        "PBConcept",
+        "PBConceptOrganization"
+      ],
+      "properties": {
+        "organizationType": "業務單位",
+        "businessPurpose": "提供私人銀行客戶的金融服務與關係管理。",
+        "aliases": [
+          "私銀",
+          "私人銀行處"
+        ],
+        "targetCustomer": "符合私人銀行服務及業務歸屬條件的客戶。",
+        "name": "私銀（私人銀行處）",
+        "conceptCode": "private_banking",
+        "definition": "承辦私人銀行業務的組織單位，客戶與服務人員依適用的業務歸屬規則納入其範圍。",
+        "serviceScope": "客戶關係管理，以及機構已確認納入私人銀行服務範圍的產品與服務。"
+      }
+    },
+    {
+      "key": "pbconcept:securities_bond",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1177",
+      "labels": [
+        "PBConcept",
+        "PBConceptProduct"
+      ],
+      "properties": {
+        "productCode": "securities_bond",
+        "customerNeed": "海外債券投資配置",
+        "incomeDefinition": "證券複委託債券交易帶來的客戶手續費收入。",
+        "offeringType": "產品",
+        "name": "證券複委託債券",
+        "definition": "客戶透過證券複委託通路交易或持有的債券產品。",
+        "serviceDescription": "複委託債券交易及持有相關服務。",
+        "aumDefinition": "客戶透過證券複委託持有的債券資產規模。",
+        "businessChannel": "證券複委託通路",
+        "productCategory": "債券"
+      }
+    },
+    {
+      "key": "pbconcept:securities_fee_income",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1190",
+      "labels": [
+        "PBConcept",
+        "PBConceptIncome",
+        "PBConceptMetric"
+      ],
+      "properties": {
+        "name": "證券手續費類收入",
+        "definition": "證券通路產品與服務歸入手續費類的收入。",
+        "metricCode": "securities_fee_income"
+      }
+    },
+    {
+      "key": "pbconcept:securities_foreign_stock",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1180",
+      "labels": [
+        "PBConcept",
+        "PBConceptProduct"
+      ],
+      "properties": {
+        "productCode": "securities_foreign_stock",
+        "customerNeed": "海外股票投資配置",
+        "incomeDefinition": "證券複委託外國股票交易扣除上手手續費後的淨手續費收入。",
+        "offeringType": "產品",
+        "name": "證券複委託外國股票",
+        "definition": "客戶透過證券複委託通路交易或持有的外國股票產品。",
+        "serviceDescription": "複委託外國股票交易及持有相關服務。",
+        "aumDefinition": "客戶透過證券複委託持有的外國股票資產規模。",
+        "businessChannel": "證券複委託通路",
+        "productCategory": "股票"
+      }
+    },
+    {
+      "key": "pbconcept:securities_fund",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1179",
+      "labels": [
+        "PBConcept",
+        "PBConceptProduct"
+      ],
+      "properties": {
+        "productCode": "securities_fund",
+        "customerNeed": "投資配置",
+        "incomeDefinition": "證券複委託基金交易帶來、已納入業務範圍的手續費收入。",
+        "offeringType": "產品",
+        "name": "證券複委託基金",
+        "definition": "客戶透過證券複委託通路申購或持有的基金產品。",
+        "serviceDescription": "複委託基金申購及持有相關服務。",
+        "aumDefinition": "客戶透過證券複委託持有的基金資產規模。",
+        "businessChannel": "證券複委託通路",
+        "productCategory": "基金"
+      }
+    },
+    {
+      "key": "pbconcept:securities_structured",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1178",
+      "labels": [
+        "PBConcept",
+        "PBConceptProduct"
+      ],
+      "properties": {
+        "productCode": "securities_structured",
+        "customerNeed": "依契約安排投資配置",
+        "incomeDefinition": "證券複委託結構型商品交易帶來的客戶手續費收入。",
+        "offeringType": "產品",
+        "name": "證券複委託結構型商品",
+        "definition": "客戶透過證券複委託通路交易或持有的結構型商品。",
+        "serviceDescription": "複委託結構型商品交易及持有相關服務。",
+        "aumDefinition": "客戶透過證券複委託持有的結構型商品資產規模。",
+        "businessChannel": "證券複委託通路",
+        "productCategory": "結構型商品"
+      }
+    },
+    {
+      "key": "pbconcept:securities_taiwan_stock",
+      "elementId": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1614",
+      "labels": [
+        "PBConcept",
+        "PBConceptProduct"
+      ],
+      "properties": {
+        "productCode": "securities_taiwan_stock",
+        "customerNeed": "台灣股票投資配置",
+        "incomeDefinition": "",
+        "offeringType": "產品",
+        "name": "證券台股",
+        "definition": "客戶透過證券通路交易或持有的台灣股票產品。",
+        "serviceDescription": "台股交易及持有相關服務。",
+        "aumDefinition": "客戶持有、納入證券台股分類的台灣股票資產規模。",
+        "businessChannel": "證券通路",
+        "productCategory": "股票"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375822",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375822",
+      "from": "pbconcept:deposit",
+      "to": "pbconcept:aum_deposit",
+      "type": "PB_AUM_MEASURED_BY",
+      "properties": {
+        "definition": "存款所對應的客戶資產，是存款 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375823",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375823",
+      "from": "pbconcept:bank_insurance",
+      "to": "pbconcept:aum_insurance",
+      "type": "PB_AUM_MEASURED_BY",
+      "properties": {
+        "definition": "銀行保險所對應的客戶資產，是保險 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。保險資產的衡量基礎依產品口徑，不將其直接解讀為可變現市值。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375824",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375824",
+      "from": "pbconcept:bank_fund",
+      "to": "pbconcept:aum_bank_investment",
+      "type": "PB_AUM_MEASURED_BY",
+      "properties": {
+        "definition": "銀行基金所對應的客戶資產，是銀行投資 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375825",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375825",
+      "from": "pbconcept:bank_etf",
+      "to": "pbconcept:aum_bank_investment",
+      "type": "PB_AUM_MEASURED_BY",
+      "properties": {
+        "definition": "銀行ETF所對應的客戶資產，是銀行投資 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375826",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375826",
+      "from": "pbconcept:bank_overseas_stock",
+      "to": "pbconcept:aum_bank_investment",
+      "type": "PB_AUM_MEASURED_BY",
+      "properties": {
+        "definition": "銀行海外股票所對應的客戶資產，是銀行投資 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375827",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375827",
+      "from": "pbconcept:bank_bond_trust",
+      "to": "pbconcept:aum_bank_investment",
+      "type": "PB_AUM_MEASURED_BY",
+      "properties": {
+        "definition": "海外債券（信託）所對應的客戶資產，是銀行投資 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375828",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375828",
+      "from": "pbconcept:bank_bond_proprietary",
+      "to": "pbconcept:aum_bank_investment",
+      "type": "PB_AUM_MEASURED_BY",
+      "properties": {
+        "definition": "海外債券（自營）所對應的客戶資產，是銀行投資 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。資產側與收入側的產品範圍對應仍待釐清。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375829",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375829",
+      "from": "pbconcept:bank_collective_account",
+      "to": "pbconcept:aum_bank_investment",
+      "type": "PB_AUM_MEASURED_BY",
+      "properties": {
+        "definition": "集合管理帳戶所對應的客戶資產，是銀行投資 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375830",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375830",
+      "from": "pbconcept:bank_structured_offshore",
+      "to": "pbconcept:aum_bank_investment",
+      "type": "PB_AUM_MEASURED_BY",
+      "properties": {
+        "definition": "銀行境外結構型商品所對應的客戶資產，是銀行投資 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375831",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375831",
+      "from": "pbconcept:bank_planned_trust",
+      "to": "pbconcept:aum_bank_investment",
+      "type": "PB_AUM_MEASURED_BY",
+      "properties": {
+        "definition": "規劃型信託所對應的客戶資產，是銀行投資 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375832",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375832",
+      "from": "pbconcept:bank_trust_custody",
+      "to": "pbconcept:aum_bank_investment",
+      "type": "PB_AUM_MEASURED_BY",
+      "properties": {
+        "definition": "信託保管所對應的客戶資產，是銀行投資 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375833",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375833",
+      "from": "pbconcept:securities_bond",
+      "to": "pbconcept:aum_securities",
+      "type": "PB_AUM_MEASURED_BY",
+      "properties": {
+        "definition": "證券複委託債券所對應的客戶資產，是證券 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375834",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375834",
+      "from": "pbconcept:securities_structured",
+      "to": "pbconcept:aum_securities",
+      "type": "PB_AUM_MEASURED_BY",
+      "properties": {
+        "definition": "證券複委託結構型商品所對應的客戶資產，是證券 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375835",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375835",
+      "from": "pbconcept:securities_fund",
+      "to": "pbconcept:aum_securities",
+      "type": "PB_AUM_MEASURED_BY",
+      "properties": {
+        "definition": "證券複委託基金所對應的客戶資產，是證券 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375836",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375836",
+      "from": "pbconcept:securities_foreign_stock",
+      "to": "pbconcept:aum_securities",
+      "type": "PB_AUM_MEASURED_BY",
+      "properties": {
+        "definition": "證券複委託外國股票所對應的客戶資產，是證券 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746376267",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746376267",
+      "from": "pbconcept:deposit_twd",
+      "to": "pbconcept:aum_deposit",
+      "type": "PB_AUM_MEASURED_BY",
+      "properties": {
+        "definition": "台幣存款所對應的客戶資產，是存款 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746376268",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746376268",
+      "from": "pbconcept:deposit_foreign",
+      "to": "pbconcept:aum_deposit",
+      "type": "PB_AUM_MEASURED_BY",
+      "properties": {
+        "definition": "外幣存款所對應的客戶資產，是存款 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746376269",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746376269",
+      "from": "pbconcept:deposit_structured",
+      "to": "pbconcept:aum_deposit",
+      "type": "PB_AUM_MEASURED_BY",
+      "properties": {
+        "definition": "結構型存款所對應的客戶資產，是存款 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746376270",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746376270",
+      "from": "pbconcept:securities_taiwan_stock",
+      "to": "pbconcept:aum_securities",
+      "type": "PB_AUM_MEASURED_BY",
+      "properties": {
+        "definition": "證券台股所對應的客戶資產，是證券 AUM衡量範圍的一部分。",
+        "businessConstraint": "此項目不代表上層指標的全部資產；已包含於父項的資產不可再次加入。台股與設質資產可能重疊的範圍須另行確認。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003598",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003598",
+      "from": "pbconcept:deposit",
+      "to": "pbconcept:deposit_interest_income",
+      "type": "PB_INCOME_MEASURED_BY",
+      "properties": {
+        "definition": "存款業務歸入利收的收入，按存款整體衡量，納入存款利收。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。存款整體利收尚未拆分至台幣、外幣與結構型存款，不重複分配到各子類。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003599",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003599",
+      "from": "pbconcept:bank_insurance",
+      "to": "pbconcept:bank_fee_income",
+      "type": "PB_INCOME_MEASURED_BY",
+      "properties": {
+        "definition": "銀行保險業務的手續費及已納入的客戶貢獻度收入，納入銀行手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。不同保險收入來源是否重疊仍待確認。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003600",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003600",
+      "from": "pbconcept:bank_fund",
+      "to": "pbconcept:bank_fee_income",
+      "type": "PB_INCOME_MEASURED_BY",
+      "properties": {
+        "definition": "銀行基金業務帶來的分行手續費收入，納入銀行手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003601",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003601",
+      "from": "pbconcept:bank_etf",
+      "to": "pbconcept:bank_fee_income",
+      "type": "PB_INCOME_MEASURED_BY",
+      "properties": {
+        "definition": "銀行 ETF 業務帶來的分行手續費收入，納入銀行手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003602",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003602",
+      "from": "pbconcept:bank_overseas_stock",
+      "to": "pbconcept:bank_fee_income",
+      "type": "PB_INCOME_MEASURED_BY",
+      "properties": {
+        "definition": "銀行海外股票業務帶來的分行手續費收入，納入銀行手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003603",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003603",
+      "from": "pbconcept:bank_bond_trust",
+      "to": "pbconcept:bank_fee_income",
+      "type": "PB_INCOME_MEASURED_BY",
+      "properties": {
+        "definition": "海外債券信託業務的分行手續費及已納入的交易利得，納入銀行手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003604",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003604",
+      "from": "pbconcept:bank_bond_proprietary",
+      "to": "pbconcept:bank_fee_income",
+      "type": "PB_INCOME_MEASURED_BY",
+      "properties": {
+        "definition": "銀行自營海外債券業務歸入手續費類的相關收入，納入銀行手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。收入與資產側產品範圍對應仍待釐清。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003606",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003606",
+      "from": "pbconcept:bank_structured_offshore",
+      "to": "pbconcept:bank_fee_income",
+      "type": "PB_INCOME_MEASURED_BY",
+      "properties": {
+        "definition": "銀行境外結構型商品業務帶來的分行手續費收入，納入銀行手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003607",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003607",
+      "from": "pbconcept:bank_planned_trust",
+      "to": "pbconcept:bank_fee_income",
+      "type": "PB_INCOME_MEASURED_BY",
+      "properties": {
+        "definition": "規劃型信託服務的借券、管理及成立費收入，涵蓋已納入的員工持股信託，納入銀行手續費類收入。",
+        "businessConstraint": "規劃型信託與信託保管具有不同業務意義；現有彙整收入合併分類，不能直接各自查取後相加。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003608",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003608",
+      "from": "pbconcept:bank_trust_custody",
+      "to": "pbconcept:bank_fee_income",
+      "type": "PB_INCOME_MEASURED_BY",
+      "properties": {
+        "definition": "信託保管服務帶來的保管費收入，納入銀行手續費類收入。",
+        "businessConstraint": "規劃型信託與信託保管具有不同業務意義；現有彙整收入合併分類，不能直接各自查取後相加。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003609",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003609",
+      "from": "pbconcept:securities_bond",
+      "to": "pbconcept:securities_fee_income",
+      "type": "PB_INCOME_MEASURED_BY",
+      "properties": {
+        "definition": "證券複委託債券交易帶來的客戶手續費收入，納入證券手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003610",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003610",
+      "from": "pbconcept:securities_structured",
+      "to": "pbconcept:securities_fee_income",
+      "type": "PB_INCOME_MEASURED_BY",
+      "properties": {
+        "definition": "證券複委託結構型商品交易帶來的客戶手續費收入，納入證券手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003611",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003611",
+      "from": "pbconcept:securities_fund",
+      "to": "pbconcept:securities_fee_income",
+      "type": "PB_INCOME_MEASURED_BY",
+      "properties": {
+        "definition": "證券複委託基金交易帶來、已納入業務範圍的手續費收入，納入證券手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003612",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003612",
+      "from": "pbconcept:securities_foreign_stock",
+      "to": "pbconcept:securities_fee_income",
+      "type": "PB_INCOME_MEASURED_BY",
+      "properties": {
+        "definition": "證券複委託外國股票交易扣除上手手續費後的淨手續費收入，納入證券手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。淨收入可能為負值，不將其改寫為非負收入。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258004037",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258004037",
+      "from": "pbconcept:bank_dci",
+      "to": "pbconcept:bank_fee_income",
+      "type": "PB_INCOME_MEASURED_BY",
+      "properties": {
+        "definition": "銀行雙元貨幣組合式商品業務的手續費及已納入的相關交易損益，納入銀行手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。此業務收入包含已納入的手續費及相關交易損益，不將其全部視為純手續費。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258004038",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258004038",
+      "from": "pbconcept:bank_structured_domestic",
+      "to": "pbconcept:bank_fee_income",
+      "type": "PB_INCOME_MEASURED_BY",
+      "properties": {
+        "definition": "銀行境內結構型商品業務帶來的相關手續費收入，納入銀行手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258004039",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258004039",
+      "from": "pbconcept:bank_fx",
+      "to": "pbconcept:bank_fee_income",
+      "type": "PB_INCOME_MEASURED_BY",
+      "properties": {
+        "definition": "銀行外匯交易歸入手續費類的兌換損益及相關交易損益，納入銀行手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。此分類可能含交易損益，不將其全部視為純手續費。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258004040",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258004040",
+      "from": "pbconcept:bank_lc",
+      "to": "pbconcept:bank_fee_income",
+      "type": "PB_INCOME_MEASURED_BY",
+      "properties": {
+        "definition": "銀行開狀業務帶來的相關手續費收入，納入銀行手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258004041",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258004041",
+      "from": "pbconcept:bank_gold",
+      "to": "pbconcept:bank_fee_income",
+      "type": "PB_INCOME_MEASURED_BY",
+      "properties": {
+        "definition": "銀行黃金交易歸入手續費類的相關交易損益，納入銀行手續費類收入。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。現有黃金業務收入採交易損益，不將其寫成純手續費。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258004042",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258004042",
+      "from": "pbconcept:loan",
+      "to": "pbconcept:loan_interest_income",
+      "type": "PB_INCOME_MEASURED_BY",
+      "properties": {
+        "definition": "放款業務歸入利收的收入，按已納入的業務收益口徑衡量，納入放款利收。",
+        "businessConstraint": "僅納入此產品或服務已確認的業務收入範圍。此為業務收益口徑，不直接等同客戶支付的全部利息。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259166",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259166",
+      "from": "pbconcept:aum_deposit",
+      "to": "pbconcept:aum_total",
+      "type": "PB_AUM_ROLLS_UP_TO",
+      "properties": {
+        "definition": "客戶銀行存款資產納入總 AUM 的資產業務範圍。",
+        "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167",
+      "from": "pbconcept:aum_investment",
+      "to": "pbconcept:aum_total",
+      "type": "PB_AUM_ROLLS_UP_TO",
+      "properties": {
+        "definition": "客戶銀行及證券通路投資資產納入總 AUM 的資產業務範圍。",
+        "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259170",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259170",
+      "from": "pbconcept:aum_insurance",
+      "to": "pbconcept:aum_bank_investment",
+      "type": "PB_AUM_ROLLS_UP_TO",
+      "properties": {
+        "definition": "銀行通路保險資產納入銀行投資 AUM 的業務範圍。",
+        "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948",
+      "from": "pbconcept:fee_income",
+      "to": "pbconcept:income_total",
+      "type": "PB_INCOME_ROLLS_UP_TO",
+      "properties": {
+        "definition": "已納入的手續費、客戶貢獻度及部分交易損益，構成總收入中的手續費類收入。",
+        "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886951",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886951",
+      "from": "pbconcept:interest_income",
+      "to": "pbconcept:income_total",
+      "type": "PB_INCOME_ROLLS_UP_TO",
+      "properties": {
+        "definition": "存款與放款業務的利收，納入總收入的業務範圍。",
+        "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792887375",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792887375",
+      "from": "pbconcept:loan_interest_income",
+      "to": "pbconcept:interest_income",
+      "type": "PB_INCOME_ROLLS_UP_TO",
+      "properties": {
+        "definition": "放款業務的利收納入整體利收。",
+        "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152991873351025821",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152991873351025821",
+      "from": "pbconcept:aum_total",
+      "to": "pbconcept:customer",
+      "type": "PB_HAS_MEASUREMENT_SUBJECT",
+      "properties": {
+        "definition": "總 AUM以客戶作為衡量對象，反映客戶持有的相關資產規模。",
+        "businessConstraint": "衡量對象不表示所有來源已具備一致的客戶身分對照。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152991873351025822",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152991873351025822",
+      "from": "pbconcept:aum_deposit",
+      "to": "pbconcept:customer",
+      "type": "PB_HAS_MEASUREMENT_SUBJECT",
+      "properties": {
+        "definition": "存款 AUM以客戶作為衡量對象，反映客戶持有的相關資產規模。",
+        "businessConstraint": "衡量對象不表示所有來源已具備一致的客戶身分對照。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152991873351025823",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152991873351025823",
+      "from": "pbconcept:aum_investment",
+      "to": "pbconcept:customer",
+      "type": "PB_HAS_MEASUREMENT_SUBJECT",
+      "properties": {
+        "definition": "投資 AUM以客戶作為衡量對象，反映客戶持有的相關資產規模。",
+        "businessConstraint": "衡量對象不表示所有來源已具備一致的客戶身分對照。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152991873351026255",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152991873351026255",
+      "from": "pbconcept:loan_interest_income",
+      "to": "pbconcept:customer",
+      "type": "PB_HAS_MEASUREMENT_SUBJECT",
+      "properties": {
+        "definition": "放款利收以客戶作為衡量對象，反映客戶往來帶來的相關業務收入。",
+        "businessConstraint": "衡量對象不表示所有來源已具備一致的客戶身分對照。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1153008366025442896",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1153008366025442896",
+      "from": "pbconcept:advisor",
+      "to": "pbconcept:private_banking",
+      "type": "PB_SCOPED_TO",
+      "properties": {
+        "definition": "符合業務範圍條件的 AO，納入私人銀行處的服務人員範圍。",
+        "businessConstraint": "此關係表示業務範圍，不直接證明正式任職歸屬或特定專業資格。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1153009465537070667",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1153009465537070667",
+      "from": "pbconcept:deposit_twd",
+      "to": "pbconcept:deposit",
+      "type": "PB_SUBCATEGORY_OF",
+      "properties": {
+        "definition": "台幣存款是存款的子分類。",
+        "businessConstraint": "分類關係不表示已有獨立收入拆分，也不表示可在父項總額之外再次加入。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1153009465537070668",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1153009465537070668",
+      "from": "pbconcept:deposit_foreign",
+      "to": "pbconcept:deposit",
+      "type": "PB_SUBCATEGORY_OF",
+      "properties": {
+        "definition": "外幣存款是存款的子分類。",
+        "businessConstraint": "分類關係不表示已有獨立收入拆分，也不表示可在父項總額之外再次加入。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1153009465537070669",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1153009465537070669",
+      "from": "pbconcept:deposit_structured",
+      "to": "pbconcept:deposit",
+      "type": "PB_SUBCATEGORY_OF",
+      "properties": {
+        "definition": "結構型存款是存款的子分類。",
+        "businessConstraint": "分類關係不表示已有獨立收入拆分，也不表示可在父項總額之外再次加入。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6917599396385260713",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6917599396385260713",
+      "from": "pbconcept:aum_bank_investment",
+      "to": "pbconcept:customer",
+      "type": "PB_HAS_MEASUREMENT_SUBJECT",
+      "properties": {
+        "definition": "銀行投資 AUM以客戶作為衡量對象，反映客戶持有的相關資產規模。",
+        "businessConstraint": "衡量對象不表示所有來源已具備一致的客戶身分對照。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6917614789548050000",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6917614789548050000",
+      "from": "pbconcept:customer",
+      "to": "pbconcept:advisor",
+      "type": "PB_ASSIGNED_TO",
+      "properties": {
+        "definition": "客戶與提供服務聯繫或關係管理的 AO 具有對應關係。",
+        "businessConstraint": "對應可隨時間改變；不表示永久或唯一 AO，也不直接決定收入或資產的業績分攤。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6917615889059677777",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6917615889059677777",
+      "from": "pbconcept:customer",
+      "to": "pbconcept:private_banking",
+      "type": "PB_SCOPED_TO",
+      "properties": {
+        "definition": "符合業務歸屬條件的客戶，納入私人銀行處的客戶服務範圍。",
+        "businessConstraint": "不表示所有來源客戶都屬於私銀。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+      "from": "pbconcept:aum_bank_investment",
+      "to": "pbconcept:aum_investment",
+      "type": "PB_AUM_ROLLS_UP_TO",
+      "properties": {
+        "definition": "客戶銀行通路投資資產納入投資 AUM。",
+        "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+      "from": "pbconcept:bank_fee_income",
+      "to": "pbconcept:fee_income",
+      "type": "PB_INCOME_ROLLS_UP_TO",
+      "properties": {
+        "definition": "銀行通路產品與服務的手續費類收入，納入整體手續費類收入。",
+        "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807079",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807079",
+      "from": "pbconcept:deposit_interest_income",
+      "to": "pbconcept:interest_income",
+      "type": "PB_INCOME_ROLLS_UP_TO",
+      "properties": {
+        "definition": "存款業務的利收納入整體利收。",
+        "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919851196198945961",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919851196198945961",
+      "from": "pbconcept:aum_securities",
+      "to": "pbconcept:customer",
+      "type": "PB_HAS_MEASUREMENT_SUBJECT",
+      "properties": {
+        "definition": "證券 AUM以客戶作為衡量對象，反映客戶持有的相關資產規模。",
+        "businessConstraint": "衡量對象不表示所有來源已具備一致的客戶身分對照。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922096398942864543",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922096398942864543",
+      "from": "pbconcept:aum_securities",
+      "to": "pbconcept:aum_investment",
+      "type": "PB_AUM_ROLLS_UP_TO",
+      "properties": {
+        "definition": "客戶證券通路投資資產納入投資 AUM。",
+        "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922097498454492324",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922097498454492324",
+      "from": "pbconcept:securities_fee_income",
+      "to": "pbconcept:fee_income",
+      "type": "PB_INCOME_ROLLS_UP_TO",
+      "properties": {
+        "definition": "證券通路產品與服務的手續費類收入，納入整體手續費類收入。",
+        "businessConstraint": "上層已包含此子指標，不能把上層與子指標再相加；此關係不保證所有來源母體相同。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922102996012631209",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922102996012631209",
+      "from": "pbconcept:aum_insurance",
+      "to": "pbconcept:customer",
+      "type": "PB_HAS_MEASUREMENT_SUBJECT",
+      "properties": {
+        "definition": "保險 AUM以客戶作為衡量對象，反映客戶持有的相關資產規模。",
+        "businessConstraint": "衡量對象不表示所有來源已具備一致的客戶身分對照。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6924354795826316457",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6924354795826316457",
+      "from": "pbconcept:income_total",
+      "to": "pbconcept:customer",
+      "type": "PB_HAS_MEASUREMENT_SUBJECT",
+      "properties": {
+        "definition": "總收入以客戶作為衡量對象，反映客戶往來帶來的相關業務收入。",
+        "businessConstraint": "衡量對象不表示所有來源已具備一致的客戶身分對照。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6926606595640001705",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6926606595640001705",
+      "from": "pbconcept:fee_income",
+      "to": "pbconcept:customer",
+      "type": "PB_HAS_MEASUREMENT_SUBJECT",
+      "properties": {
+        "definition": "手續費類收入以客戶作為衡量對象，反映客戶往來帶來的相關業務收入。",
+        "businessConstraint": "衡量對象不表示所有來源已具備一致的客戶身分對照。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6928858395453686953",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6928858395453686953",
+      "from": "pbconcept:bank_fee_income",
+      "to": "pbconcept:customer",
+      "type": "PB_HAS_MEASUREMENT_SUBJECT",
+      "properties": {
+        "definition": "銀行手續費類收入以客戶作為衡量對象，反映客戶往來帶來的相關業務收入。",
+        "businessConstraint": "衡量對象不表示所有來源已具備一致的客戶身分對照。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6931110195267372201",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6931110195267372201",
+      "from": "pbconcept:securities_fee_income",
+      "to": "pbconcept:customer",
+      "type": "PB_HAS_MEASUREMENT_SUBJECT",
+      "properties": {
+        "definition": "證券手續費類收入以客戶作為衡量對象，反映客戶往來帶來的相關業務收入。",
+        "businessConstraint": "衡量對象不表示所有來源已具備一致的客戶身分對照。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6933361995081057449",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6933361995081057449",
+      "from": "pbconcept:interest_income",
+      "to": "pbconcept:customer",
+      "type": "PB_HAS_MEASUREMENT_SUBJECT",
+      "properties": {
+        "definition": "利收以客戶作為衡量對象，反映客戶往來帶來的相關業務收入。",
+        "businessConstraint": "衡量對象不表示所有來源已具備一致的客戶身分對照。"
+      }
+    },
+    {
+      "key": "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6935613794894742697",
+      "elementId": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6935613794894742697",
+      "from": "pbconcept:deposit_interest_income",
+      "to": "pbconcept:customer",
+      "type": "PB_HAS_MEASUREMENT_SUBJECT",
+      "properties": {
+        "definition": "存款利收以客戶作為衡量對象，反映客戶往來帶來的相關業務收入。",
+        "businessConstraint": "衡量對象不表示所有來源已具備一致的客戶身分對照。"
+      }
+    }
+  ],
+  "businessPaths": [
+    {
+      "domain": "aum",
+      "nodeKeys": [
+        "pbconcept:bank_bond_proprietary",
+        "pbconcept:aum_bank_investment",
+        "pbconcept:aum_investment",
+        "pbconcept:aum_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375828",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ]
+    },
+    {
+      "domain": "aum",
+      "nodeKeys": [
+        "pbconcept:bank_bond_trust",
+        "pbconcept:aum_bank_investment",
+        "pbconcept:aum_investment",
+        "pbconcept:aum_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375827",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ]
+    },
+    {
+      "domain": "aum",
+      "nodeKeys": [
+        "pbconcept:bank_collective_account",
+        "pbconcept:aum_bank_investment",
+        "pbconcept:aum_investment",
+        "pbconcept:aum_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375829",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ]
+    },
+    {
+      "domain": "aum",
+      "nodeKeys": [
+        "pbconcept:bank_etf",
+        "pbconcept:aum_bank_investment",
+        "pbconcept:aum_investment",
+        "pbconcept:aum_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375825",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ]
+    },
+    {
+      "domain": "aum",
+      "nodeKeys": [
+        "pbconcept:bank_fund",
+        "pbconcept:aum_bank_investment",
+        "pbconcept:aum_investment",
+        "pbconcept:aum_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375824",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ]
+    },
+    {
+      "domain": "aum",
+      "nodeKeys": [
+        "pbconcept:bank_insurance",
+        "pbconcept:aum_insurance",
+        "pbconcept:aum_bank_investment",
+        "pbconcept:aum_investment",
+        "pbconcept:aum_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375823",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259170",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ]
+    },
+    {
+      "domain": "aum",
+      "nodeKeys": [
+        "pbconcept:bank_overseas_stock",
+        "pbconcept:aum_bank_investment",
+        "pbconcept:aum_investment",
+        "pbconcept:aum_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375826",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ]
+    },
+    {
+      "domain": "aum",
+      "nodeKeys": [
+        "pbconcept:bank_planned_trust",
+        "pbconcept:aum_bank_investment",
+        "pbconcept:aum_investment",
+        "pbconcept:aum_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375831",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ]
+    },
+    {
+      "domain": "aum",
+      "nodeKeys": [
+        "pbconcept:bank_structured_offshore",
+        "pbconcept:aum_bank_investment",
+        "pbconcept:aum_investment",
+        "pbconcept:aum_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375830",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ]
+    },
+    {
+      "domain": "aum",
+      "nodeKeys": [
+        "pbconcept:bank_trust_custody",
+        "pbconcept:aum_bank_investment",
+        "pbconcept:aum_investment",
+        "pbconcept:aum_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375832",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ]
+    },
+    {
+      "domain": "aum",
+      "nodeKeys": [
+        "pbconcept:deposit",
+        "pbconcept:aum_deposit",
+        "pbconcept:aum_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375822",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259166"
+      ]
+    },
+    {
+      "domain": "aum",
+      "nodeKeys": [
+        "pbconcept:deposit_foreign",
+        "pbconcept:aum_deposit",
+        "pbconcept:aum_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746376268",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259166"
+      ]
+    },
+    {
+      "domain": "aum",
+      "nodeKeys": [
+        "pbconcept:deposit_structured",
+        "pbconcept:aum_deposit",
+        "pbconcept:aum_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746376269",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259166"
+      ]
+    },
+    {
+      "domain": "aum",
+      "nodeKeys": [
+        "pbconcept:deposit_twd",
+        "pbconcept:aum_deposit",
+        "pbconcept:aum_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746376267",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259166"
+      ]
+    },
+    {
+      "domain": "aum",
+      "nodeKeys": [
+        "pbconcept:securities_bond",
+        "pbconcept:aum_securities",
+        "pbconcept:aum_investment",
+        "pbconcept:aum_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375833",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922096398942864543",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ]
+    },
+    {
+      "domain": "aum",
+      "nodeKeys": [
+        "pbconcept:securities_foreign_stock",
+        "pbconcept:aum_securities",
+        "pbconcept:aum_investment",
+        "pbconcept:aum_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375836",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922096398942864543",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ]
+    },
+    {
+      "domain": "aum",
+      "nodeKeys": [
+        "pbconcept:securities_fund",
+        "pbconcept:aum_securities",
+        "pbconcept:aum_investment",
+        "pbconcept:aum_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375835",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922096398942864543",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ]
+    },
+    {
+      "domain": "aum",
+      "nodeKeys": [
+        "pbconcept:securities_structured",
+        "pbconcept:aum_securities",
+        "pbconcept:aum_investment",
+        "pbconcept:aum_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375834",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922096398942864543",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ]
+    },
+    {
+      "domain": "aum",
+      "nodeKeys": [
+        "pbconcept:securities_taiwan_stock",
+        "pbconcept:aum_securities",
+        "pbconcept:aum_investment",
+        "pbconcept:aum_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746376270",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922096398942864543",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ]
+    },
+    {
+      "domain": "income",
+      "nodeKeys": [
+        "pbconcept:bank_bond_proprietary",
+        "pbconcept:bank_fee_income",
+        "pbconcept:fee_income",
+        "pbconcept:income_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003604",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ]
+    },
+    {
+      "domain": "income",
+      "nodeKeys": [
+        "pbconcept:bank_bond_trust",
+        "pbconcept:bank_fee_income",
+        "pbconcept:fee_income",
+        "pbconcept:income_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003603",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ]
+    },
+    {
+      "domain": "income",
+      "nodeKeys": [
+        "pbconcept:bank_dci",
+        "pbconcept:bank_fee_income",
+        "pbconcept:fee_income",
+        "pbconcept:income_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258004037",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ]
+    },
+    {
+      "domain": "income",
+      "nodeKeys": [
+        "pbconcept:bank_etf",
+        "pbconcept:bank_fee_income",
+        "pbconcept:fee_income",
+        "pbconcept:income_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003601",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ]
+    },
+    {
+      "domain": "income",
+      "nodeKeys": [
+        "pbconcept:bank_fund",
+        "pbconcept:bank_fee_income",
+        "pbconcept:fee_income",
+        "pbconcept:income_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003600",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ]
+    },
+    {
+      "domain": "income",
+      "nodeKeys": [
+        "pbconcept:bank_fx",
+        "pbconcept:bank_fee_income",
+        "pbconcept:fee_income",
+        "pbconcept:income_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258004039",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ]
+    },
+    {
+      "domain": "income",
+      "nodeKeys": [
+        "pbconcept:bank_gold",
+        "pbconcept:bank_fee_income",
+        "pbconcept:fee_income",
+        "pbconcept:income_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258004041",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ]
+    },
+    {
+      "domain": "income",
+      "nodeKeys": [
+        "pbconcept:bank_insurance",
+        "pbconcept:bank_fee_income",
+        "pbconcept:fee_income",
+        "pbconcept:income_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003599",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ]
+    },
+    {
+      "domain": "income",
+      "nodeKeys": [
+        "pbconcept:bank_lc",
+        "pbconcept:bank_fee_income",
+        "pbconcept:fee_income",
+        "pbconcept:income_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258004040",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ]
+    },
+    {
+      "domain": "income",
+      "nodeKeys": [
+        "pbconcept:bank_overseas_stock",
+        "pbconcept:bank_fee_income",
+        "pbconcept:fee_income",
+        "pbconcept:income_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003602",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ]
+    },
+    {
+      "domain": "income",
+      "nodeKeys": [
+        "pbconcept:bank_planned_trust",
+        "pbconcept:bank_fee_income",
+        "pbconcept:fee_income",
+        "pbconcept:income_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003607",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ]
+    },
+    {
+      "domain": "income",
+      "nodeKeys": [
+        "pbconcept:bank_structured_domestic",
+        "pbconcept:bank_fee_income",
+        "pbconcept:fee_income",
+        "pbconcept:income_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258004038",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ]
+    },
+    {
+      "domain": "income",
+      "nodeKeys": [
+        "pbconcept:bank_structured_offshore",
+        "pbconcept:bank_fee_income",
+        "pbconcept:fee_income",
+        "pbconcept:income_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003606",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ]
+    },
+    {
+      "domain": "income",
+      "nodeKeys": [
+        "pbconcept:bank_trust_custody",
+        "pbconcept:bank_fee_income",
+        "pbconcept:fee_income",
+        "pbconcept:income_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003608",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ]
+    },
+    {
+      "domain": "income",
+      "nodeKeys": [
+        "pbconcept:deposit",
+        "pbconcept:deposit_interest_income",
+        "pbconcept:interest_income",
+        "pbconcept:income_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003598",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807079",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886951"
+      ]
+    },
+    {
+      "domain": "income",
+      "nodeKeys": [
+        "pbconcept:loan",
+        "pbconcept:loan_interest_income",
+        "pbconcept:interest_income",
+        "pbconcept:income_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258004042",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792887375",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886951"
+      ]
+    },
+    {
+      "domain": "income",
+      "nodeKeys": [
+        "pbconcept:securities_bond",
+        "pbconcept:securities_fee_income",
+        "pbconcept:fee_income",
+        "pbconcept:income_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003609",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922097498454492324",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ]
+    },
+    {
+      "domain": "income",
+      "nodeKeys": [
+        "pbconcept:securities_foreign_stock",
+        "pbconcept:securities_fee_income",
+        "pbconcept:fee_income",
+        "pbconcept:income_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003612",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922097498454492324",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ]
+    },
+    {
+      "domain": "income",
+      "nodeKeys": [
+        "pbconcept:securities_fund",
+        "pbconcept:securities_fee_income",
+        "pbconcept:fee_income",
+        "pbconcept:income_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003611",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922097498454492324",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ]
+    },
+    {
+      "domain": "income",
+      "nodeKeys": [
+        "pbconcept:securities_structured",
+        "pbconcept:securities_fee_income",
+        "pbconcept:fee_income",
+        "pbconcept:income_total"
+      ],
+      "relationshipKeys": [
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003610",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922097498454492324",
+        "relationship:5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ]
+    }
+  ]
+}

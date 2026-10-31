@@ -1,0 +1,52 @@
+{
+  "name": "智能查詢 - 概念圖 KB 測試版",
+  "id": "nBrzHm3pNsVcOpeu",
+  "url": "https://chiang4901.app.n8n.cloud/workflow/nBrzHm3pNsVcOpeu",
+  "state": "saved_unpublished",
+  "originalRestored": true,
+  "originalComparison": "all node parameters and connections match main.pre_metric.json",
+  "nodes": 34,
+  "auditedNodes": 36,
+  "testCases": [
+    {
+      "name": "fund_missing_source",
+      "observed": "        - paragraph: 請查 2026 年 9 月月底，全體客戶的證券複委託基金 AUM 總額，以新臺幣呈現。\n        - paragraph: 目前無法提供2026年9月底全體客戶的證券複委託基金AUM總額新臺幣金額，因為缺少所需的資料來源或欄位，無法計算此數值。\n    - generic: Success in 23.559s\n    - generic: Success in 945ms"
+    },
+    {
+      "name": "multiple_metrics",
+      "observed": "        - paragraph: 請查2026年9月底，全體客戶的銀行基金與證券基金 AUM，分別以新臺幣呈現。\n        - paragraph: 抱歉，目前無法查詢到2026年9月底全體客戶的銀行基金AUM與證券基金AUM，因為缺少所需的資料來源，無法提供相關數值。\n    - generic: Success in 23.463s\n    - generic: Success in 880ms",
+      "metrics": [
+        "aum_bank_investment_month_end",
+        "aum_securities_month_end"
+      ],
+      "subexecution": "2427",
+      "products": [
+        "bank_fund",
+        "securities_fund"
+      ]
+    },
+    {
+      "name": "income_unsupported",
+      "observed": "        - paragraph: 請查2026年9月全體客戶的基金 Income 總額。\n        - paragraph: 系統僅登錄AUM相關指標，尚未配置Income指標路由，無法提供Income數值查詢。\n    - generic: Success in 5.658s\n      - treeitem \"Aggregate Success in 1ms Started 09:01:02.287, 7 Oct\":\n      - treeitem \"Merge Success in 2ms Started 09:01:02.289, 7 Oct\":\n      - treeitem \"Basic LLM Chain Success in 1.962s Started 09:01:02.292, 7 Oct Toggle row\" [expanded]:\n      - treeitem \"OpenRouter Chat Model Success in 1.93s Started 09:01:02.321, 7 Oct 1,809 Tokens\":\n      - treeitem \"Structured Output Parser1 Success in 0s Started 09:01:04.253, 7 Oct\":\n      - treeitem \"Switch Success in 6ms Started 09:01:04.254, 7 Oct\":\n      - treeitem \"超出 Metric 範圍 Success in 1.537s Started 09:01:04.260, 7 Oct\":\n      - treeitem \"送出範圍說明 Success in 1ms Started 09:01:06.469, 7 Oct\":"
+    },
+    {
+      "name": "clarification_then_query",
+      "observed": "        - paragraph: 8月底全體客戶的證券基金AUM有多少？以新臺幣呈現。\n        - paragraph: 請問是哪一年的8月底？\n        - paragraph: 2026年。\n        - paragraph: 抱歉，目前缺少查詢2026年8月底全體客戶證券相關基金AUM所需的資料來源，無法提供該數值。\n    - generic: Success in 50.591s\n      - treeitem \"Product Concept KB Success in 5.508s Started 09:02:09.849, 7 Oct Toggle row\":\n      - treeitem \"Postgres Chat Memory Success in 1.03s Started 09:02:15.369, 7 Oct\":\n      - treeitem \"SQL Model Success in 1.394s Started 09:02:16.422, 7 Oct 2,778 Tokens\":\n      - treeitem \"Execute a SQL query Success in 876ms Started 09:02:18.329, 7 Oct\":\n      - treeitem \"Normalize SQL Result Success in 25ms Started 09:02:19.206, 7 Oct\":\n      - treeitem \"Response Success in 1.253s Started 09:02:19.231, 7 Oct Toggle row\" [expanded]:\n      - treeitem \"Response Model Success in 1.239s Started 09:02:19.244, 7 Oct 353 Tokens\":\n      - treeitem \"送出查詢回答 Success in 1ms Started 09:02:21.239, 7 Oct\":"
+    },
+    {
+      "name": "legacy_knowledge_branch",
+      "observed": "        - paragraph: 月底存款 AUM 的定義是什麼？\n        - paragraph: 月底存款 AUM 的定義依據多個 staging SQL，主要來自以下來源資料表：\n          - paragraph: \"台幣存款及結構型存款，資料來自 DSDEP.DEP_NT_ACCT_HS 表 (staging_sql_id: STG_AUM_005_007_008_009_TMP01、STG_AUM_005_007_008_009_TMP06)，以欄位 BAL_AMT 加總得到存款AUM，並依 ACT_CD 區分存款類型（如台幣存款代碼 2311、2321 等，結構型存款代碼 2545）以及核算中心（PRFT_CNTR_CD）。\"\n          - paragraph: \"外幣存款及結構型存款，資料來自 DSDEP.DEP_FN_ACCT_HS 表 (staging_sql_id: STG_AUM_005_007_008_009_TMP02)、DSDEP.EMP_DEP_NT_ACCT_HS 表 (STG_AUM_005_007_008_009_TMP03)、以及 DSDEP.DEP_FN_ACCT (STG_AUM_005_007_008_009_TMP05)，以 AVAIL_BAL 加總得到存款AUM，依 ACC_CD 區分外幣存款與結構型存款。\"\n          - paragraph: AUM 指標以「存款AUM」為欄位表示，計算範圍限制於指定核算中心碼 『2E3000』『2E3200』『2E3300』『2E3400』。時間範圍通常以月底 (LST_MTN_DT 或 DATA_DT) 為依據。\n        - paragraph: 綜合說明，月底存款 AUM 是指在月底當天，於指定核算中心下，依不同存款種類（如台幣存款、外幣存款、結構型存款）分類後，加總的存款餘額（BAL_AMT 或 AVAIL_BAL）。\n        - paragraph: 如需進一步欄位定義或特定表的詳細資料，請告知。\n    - generic: Success in 11.664s\n      - treeitem \"Metric 範圍檢查 Success in 1.698s Started 09:03:37.109, 7 Oct\":\n      - treeitem \"是否可回答 Success in 2ms Started 09:03:38.807, 7 Oct\":\n      - treeitem \"AUM 知識回答 Agent Success in 3.536s Started 09:03:41.306, 7 Oct Toggle row\" [expanded]:\n      - treeitem \"知識回答 Model Success in 2.177s Started 09:03:38.834, 7 Oct 457 Tokens\":\n      - treeitem \"AUM Knowledge Lookup Success in 292ms Started 09:03:41.013, 7 Oct Toggle row\":\n      - treeitem \"知識回答 Model Success in 3.484s Started 09:03:41.356, 7 Oct 3,404 Tokens\":\n      - treeitem \"整理知識回答 Success in 8ms Started 09:03:44.842, 7 Oct\":\n      - treeitem \"送出知識回答 Success in 1ms Started 09:03:45.414, 7 Oct\":"
+    }
+  ],
+  "contractTests": {
+    "normalizationCases": 7,
+    "sourceReferenceCases": 7
+  },
+  "limitations": [
+    "Only AUM registry is configured in this main workflow.",
+    "Fund physical sources are not available in current PostgreSQL; no actual fund AUM amount verified.",
+    "SQL source-reference check handles explicit FROM/JOIN and simple CTE syntax; not a complete SQL parser."
+  ],
+  "report": "main-copy-review.html",
+  "export": "main.copy.deployed.json"
+}

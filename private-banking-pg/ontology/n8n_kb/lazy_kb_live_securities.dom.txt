@@ -1,0 +1,2711 @@
+- main:
+  - link "Personal":
+    - /url: /projects/az20wapvzAkbtoPa
+    - generic "Personal":
+    - generic "Personal"
+  - generic: /
+  - generic "私銀 AUM Income KB":
+    - generic: 私銀 AUM Income KB
+  - button "More actions":
+  - button "Publish":
+    - generic: Publish
+  - button "More actions":
+  - radiogroup:
+    - radio "Editor" [checked]
+    - radio "Executions"
+    - radio "Evaluations"
+  - complementary:
+    - link:
+      - /url: /home
+    - menubar:
+      - menuitem "Add new item":
+        - button "Add new item":
+    - button "Open command palette":
+    - button "Toggle sidebar":
+    - menuitem "n8n Assistant":
+      - generic: n8n Assistant
+      - generic: Preview
+    - menuitem "Overview":
+      - generic: Overview
+    - menuitem "Personal":
+      - generic: Personal
+    - menuitem "Shared with you":
+      - generic: Shared with you
+    - button "Chats" [expanded]:
+      - generic: Chats
+    - link "View all":
+      - /url: /assistant/history
+    - menuitem "New conversation":
+      - generic: New conversation
+    - menuitem "智能查詢":
+      - generic: 智能查詢
+    - menuitem "OpenAI credential setup":
+      - generic: OpenAI credential setup
+    - menuitem "智能查詢":
+      - generic: 智能查詢
+    - menuitem "Templates":
+      - generic: Templates
+    - menuitem "Help":
+      - generic: Help
+    - menuitem "Settings":
+      - generic: Settings
+  - main:
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: KB Input
+    - button "Execute workflow":
+      - generic: Execute workflow
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Aura - Concept Catalog
+    - generic: "POST: https://4bb479b2.databases.neo4j.io/db/neo4j/query/v2"
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Jev - Prepare Concepts
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Jev - Concept Decisions API
+    - generic: "POST: https://openrouter.ai/api/alpha/decisions"
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Concept Decision Result
+    - generic: "true"
+    - generic: "false"
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Concept Result Router
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Aura - Concept Paths
+    - generic: "POST: https://4bb479b2.databases.neo4j.io/db/neo4j/query/v2"
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Concept Routes
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Jev - Prepare Paths
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Jev - Path Decisions API
+    - generic: "POST: https://openrouter.ai/api/alpha/decisions"
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Route Decision Result
+    - generic: "true"
+    - generic: "false"
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Route Result Router
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Aura - Mappings
+    - generic: "POST: https://4bb479b2.databases.neo4j.io/db/neo4j/query/v2"
+    - generic: 1 item
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: KB Result
+    - button "Add 14 nodes to chat":
+    - button "Zoom to Fit":
+    - button "Zoom In":
+    - button "Zoom Out":
+    - button "Tidy Up":
+    - button "Execute workflow":
+      - generic: Execute workflow
+    - button "Open nodes panel":
+    - button "Command bar":
+    - button "Add sticky note":
+    - button "Open side panel":
+    - button "n8n AI":
+    - complementary
+    - generic: Logs
+    - button "Clear execution":
+      - text: Clear execution
+    - generic: Success in 6.242s
+    - tree:
+      - treeitem "Concept Result Router":
+        - generic: Concept Result Router
+      - treeitem "Aura - Concept Paths":
+        - generic: Aura - Concept Paths
+      - treeitem "Concept Routes":
+        - generic: Concept Routes
+      - treeitem "Jev - Prepare Paths":
+        - generic: Jev - Prepare Paths
+      - treeitem "Jev - Path Decisions API":
+        - generic: Jev - Path Decisions API
+      - treeitem "Route Decision Result":
+        - generic: Route Decision Result
+      - treeitem "Route Result Router":
+        - generic: Route Result Router
+      - treeitem "Aura - Mappings":
+        - generic: Aura - Mappings
+      - treeitem "KB Result" [active] [selected]:
+        - generic: KB Result
+    - generic: KB Result
+    - generic: Success in 21ms
+    - button "Input":
+      - generic: Input
+    - button "Output":
+      - generic: Output
+    - button "Actions":
+    - button "Collapse panel":
+    - generic: Input
+    - textbox "Search previous nodes' fields"
+    - radiogroup:
+      - radio "Schema" [checked]:
+      - radio "Table":
+      - radio "JSON":
+    - generic: 1 item
+    - generic: data
+    - generic: fields
+    - generic: fields[0]
+    - generic: pathKey
+    - generic: fields[1]
+    - generic: queryMetricKey
+    - generic: fields[2]
+    - generic: queryMetricCode
+    - generic: fields[3]
+    - generic: bindingConceptKey
+    - generic: fields[4]
+    - generic: productCode
+    - generic: fields[5]
+    - generic: productName
+    - generic: fields[6]
+    - generic: domain
+    - generic: fields[7]
+    - generic: status
+    - generic: fields[8]
+    - generic: mappings
+    - generic: values
+    - generic: Output
+    - textbox "Search (Ctrl+F)"
+    - radiogroup:
+      - radio "Schema":
+      - radio "Table" [checked]:
+      - radio "JSON":
+    - generic: 1 item
+    - table:
+      - rowgroup:
+        - row "contractVersion Collapse rows metricCodes Collapse rows domains Collapse rows status Collapse rows conceptStatus Collapse rows pathStatus Collapse rows candidateScores Collapse rows pathScores Collapse rows selectedConcepts Collapse rows selectedConceptPaths Collapse rows routeRetrieval Collapse rows queryPlan Collapse rows decision Collapse rows products Collapse rows evidenceStatus Collapse rows canGenerateSql Collapse rows queryReadiness Collapse rows evidenceIssues Collapse rows message Collapse rows":
+          - columnheader "contractVersion Collapse rows":
+            - generic: contractVersion
+            - button "Collapse rows":
+          - columnheader "metricCodes Collapse rows":
+            - generic: metricCodes
+            - button "Collapse rows":
+          - columnheader "domains Collapse rows":
+            - generic: domains
+            - button "Collapse rows":
+          - columnheader "status Collapse rows":
+            - generic: status
+            - button "Collapse rows":
+          - columnheader "conceptStatus Collapse rows":
+            - generic: conceptStatus
+            - button "Collapse rows":
+          - columnheader "pathStatus Collapse rows":
+            - generic: pathStatus
+            - button "Collapse rows":
+          - columnheader "candidateScores Collapse rows":
+            - generic: candidateScores
+            - button "Collapse rows":
+          - columnheader "pathScores Collapse rows":
+            - generic: pathScores
+            - button "Collapse rows":
+          - columnheader "selectedConcepts Collapse rows":
+            - generic: selectedConcepts
+            - button "Collapse rows":
+          - columnheader "selectedConceptPaths Collapse rows":
+            - generic: selectedConceptPaths
+            - button "Collapse rows":
+          - columnheader "routeRetrieval Collapse rows":
+            - generic: routeRetrieval
+            - button "Collapse rows":
+          - columnheader "queryPlan Collapse rows":
+            - generic: queryPlan
+            - button "Collapse rows":
+          - columnheader "decision Collapse rows":
+            - generic: decision
+            - button "Collapse rows":
+          - columnheader "products Collapse rows":
+            - generic: products
+            - button "Collapse rows":
+          - columnheader "evidenceStatus Collapse rows":
+            - generic: evidenceStatus
+            - button "Collapse rows":
+          - columnheader "canGenerateSql Collapse rows":
+            - generic: canGenerateSql
+            - button "Collapse rows":
+          - columnheader "queryReadiness Collapse rows":
+            - generic: queryReadiness
+            - button "Collapse rows":
+          - columnheader "evidenceIssues Collapse rows":
+            - generic: evidenceIssues
+            - button "Collapse rows":
+          - columnheader "message Collapse rows":
+            - generic: message
+            - button "Collapse rows":
+          - columnheader
+      - rowgroup:
+        - row:
+          - cell "pb_kb_lazy_routes_v3":
+            - generic: pb_kb_lazy_routes_v3
+          - cell "0:aum_securities_month_end":
+            - generic: "0"
+            - text: ":"
+            - generic: aum_securities_month_end
+          - cell "0:aum":
+            - generic: "0"
+            - text: ":"
+            - generic: aum
+          - cell "selected":
+            - generic: selected
+          - cell "selected":
+            - generic: selected
+          - cell "confirmed":
+            - generic: confirmed
+          - cell:
+            - generic: "0"
+            - generic: objectKey
+            - text: ":"
+            - generic: securities_bond::aum
+            - generic: conceptKey
+            - text: ":"
+            - generic: pb_shared:product:securities_bond
+            - generic: productCode
+            - text: ":"
+            - generic: securities_bond
+            - generic: productName
+            - text: ":"
+            - generic: 證券複委託債券
+            - generic: domain
+            - text: ":"
+            - generic: aum
+            - generic: definition
+            - text: ":"
+            - generic: 證券通路的複委託債券業務，涵蓋部位估值與交易手續費收入。
+            - generic: definitionStatus
+            - text: ":"
+            - generic: inferred
+            - generic: matchedMetricCodes
+            - generic: "0"
+            - text: ":"
+            - generic: aum_securities_month_end
+            - generic: probability
+            - text: ":"
+            - generic: "0"
+            - generic: probabilities
+            - generic: uncertain
+            - text: ":"
+            - generic: "0"
+            - generic: excluded
+            - text: ":"
+            - generic: "1"
+            - generic: included
+            - text: ":"
+            - generic: "0"
+            - generic: confidence
+            - text: ":"
+            - generic: "1"
+            - generic: judgement
+            - text: ":"
+            - generic: excluded
+            - generic: "1"
+            - generic: objectKey
+            - text: ":"
+            - generic: securities_foreign_stock::aum
+            - generic: conceptKey
+            - text: ":"
+            - generic: pb_shared:product:securities_foreign_stock
+            - generic: productCode
+            - text: ":"
+            - generic: securities_foreign_stock
+            - generic: productName
+            - text: ":"
+            - generic: 證券複委託外國股票
+            - generic: domain
+            - text: ":"
+            - generic: aum
+            - generic: definition
+            - text: ":"
+            - generic: 證券通路的複委託外國股票業務，涵蓋客戶持有資產與淨手續費收入；淨收入可能為負值。
+            - generic: definitionStatus
+            - text: ":"
+            - generic: inferred
+            - generic: matchedMetricCodes
+            - generic: "0"
+            - text: ":"
+            - generic: aum_securities_month_end
+            - generic: probability
+            - text: ":"
+            - generic: "0"
+            - generic: probabilities
+            - generic: included
+            - text: ":"
+            - generic: "0"
+            - generic: uncertain
+            - text: ":"
+            - generic: "0"
+            - generic: excluded
+            - text: ":"
+            - generic: "1"
+            - generic: confidence
+            - text: ":"
+            - generic: "1"
+            - generic: judgement
+            - text: ":"
+            - generic: excluded
+            - generic: "2"
+            - generic: objectKey
+            - text: ":"
+            - generic: securities_fund::aum
+            - generic: conceptKey
+            - text: ":"
+            - generic: pb_shared:product:securities_fund
+            - generic: productCode
+            - text: ":"
+            - generic: securities_fund
+            - generic: productName
+            - text: ":"
+            - generic: 證券複委託基金
+            - generic: domain
+            - text: ":"
+            - generic: aum
+            - generic: definition
+            - text: ":"
+            - generic: 證券通路的複委託基金業務，涵蓋客戶持有資產與交易費收入。
+            - generic: definitionStatus
+            - text: ":"
+            - generic: inferred
+            - generic: matchedMetricCodes
+            - generic: "0"
+            - text: ":"
+            - generic: aum_securities_month_end
+            - generic: probability
+            - text: ":"
+            - generic: "0.88"
+            - generic: probabilities
+            - generic: uncertain
+            - text: ":"
+            - generic: "0.06"
+            - generic: excluded
+            - text: ":"
+            - generic: "0.06"
+            - generic: included
+            - text: ":"
+            - generic: "0.88"
+            - generic: confidence
+            - text: ":"
+            - generic: "0.82"
+            - generic: judgement
+            - text: ":"
+            - generic: included
+            - generic: "3"
+            - generic: objectKey
+            - text: ":"
+            - generic: securities_structured::aum
+            - generic: conceptKey
+            - text: ":"
+            - generic: pb_shared:product:securities_structured
+            - generic: productCode
+            - text: ":"
+            - generic: securities_structured
+            - generic: productName
+            - text: ":"
+            - generic: 證券複委託結構型商品
+            - generic: domain
+            - text: ":"
+            - generic: aum
+            - generic: definition
+            - text: ":"
+            - generic: 證券通路的複委託結構型商品業務，涵蓋客戶持有資產與相关收入。
+            - generic: definitionStatus
+            - text: ":"
+            - generic: inferred
+            - generic: matchedMetricCodes
+            - generic: "0"
+            - text: ":"
+            - generic: aum_securities_month_end
+            - generic: probability
+            - text: ":"
+            - generic: "0"
+            - generic: probabilities
+            - generic: uncertain
+            - text: ":"
+            - generic: "0"
+            - generic: excluded
+            - text: ":"
+            - generic: "1"
+            - generic: included
+            - text: ":"
+            - generic: "0"
+            - generic: confidence
+            - text: ":"
+            - generic: "1"
+            - generic: judgement
+            - text: ":"
+            - generic: excluded
+          - cell "0 pathKey:route::aum::aum_securities_month_end::eb3477f1 domain:aum anchorConceptKeys 0:pb_shared:product:securities_fund queryMetricCode:aum_securities_month_end queryMetricKey:aum:metric:aum_securities_month_end probability:0.91 probabilities excluded:0.06 uncertain:0.03 included:0.91 confidence:0.86 judgement:included":
+            - generic: "0"
+            - generic: pathKey
+            - text: ":"
+            - generic: route::aum::aum_securities_month_end::eb3477f1
+            - generic: domain
+            - text: ":"
+            - generic: aum
+            - generic: anchorConceptKeys
+            - generic: "0"
+            - text: ":"
+            - generic: pb_shared:product:securities_fund
+            - generic: queryMetricCode
+            - text: ":"
+            - generic: aum_securities_month_end
+            - generic: queryMetricKey
+            - text: ":"
+            - generic: aum:metric:aum_securities_month_end
+            - generic: probability
+            - text: ":"
+            - generic: "0.91"
+            - generic: probabilities
+            - generic: excluded
+            - text: ":"
+            - generic: "0.06"
+            - generic: uncertain
+            - text: ":"
+            - generic: "0.03"
+            - generic: included
+            - text: ":"
+            - generic: "0.91"
+            - generic: confidence
+            - text: ":"
+            - generic: "0.86"
+            - generic: judgement
+            - text: ":"
+            - generic: included
+          - cell "0 conceptKey:pb_shared:product:securities_fund objectKey:securities_fund::aum productCode:securities_fund productName:證券複委託基金 domain:aum matchedMetricCodes 0:aum_securities_month_end":
+            - generic: "0"
+            - generic: conceptKey
+            - text: ":"
+            - generic: pb_shared:product:securities_fund
+            - generic: objectKey
+            - text: ":"
+            - generic: securities_fund::aum
+            - generic: productCode
+            - text: ":"
+            - generic: securities_fund
+            - generic: productName
+            - text: ":"
+            - generic: 證券複委託基金
+            - generic: domain
+            - text: ":"
+            - generic: aum
+            - generic: matchedMetricCodes
+            - generic: "0"
+            - text: ":"
+            - generic: aum_securities_month_end
+          - cell:
+            - generic: "0"
+            - generic: pathKey
+            - text: ":"
+            - generic: route::aum::aum_securities_month_end::eb3477f1
+            - generic: domain
+            - text: ":"
+            - generic: aum
+            - generic: anchorConceptKeys
+            - generic: "0"
+            - text: ":"
+            - generic: pb_shared:product:securities_fund
+            - generic: anchorObjectKeys
+            - generic: "0"
+            - text: ":"
+            - generic: securities_fund::aum
+            - generic: queryMetricCode
+            - text: ":"
+            - generic: aum_securities_month_end
+            - generic: queryMetricKey
+            - text: ":"
+            - generic: aum:metric:aum_securities_month_end
+            - generic: nodeKeys
+            - generic: "0"
+            - text: ":"
+            - generic: pb_shared:product:securities_fund
+            - generic: "1"
+            - text: ":"
+            - generic: aum:metric:aum_securities_month_end
+            - generic: "2"
+            - text: ":"
+            - generic: aum:metric:aum_investment_month_end
+            - generic: "3"
+            - text: ":"
+            - generic: aum:metric:aum_total_month_end
+            - generic: relationshipTypes
+            - generic: "0"
+            - text: ":"
+            - generic: MEASURED_BY_AUM
+            - generic: "1"
+            - text: ":"
+            - generic: AUM_ROLLS_UP_TO
+            - generic: "2"
+            - text: ":"
+            - generic: AUM_ROLLS_UP_TO
+            - generic: relationshipProperties
+            - generic: "0"
+            - generic: rootDefinitionStatus
+            - text: ":"
+            - generic: draft_metric_query
+            - generic: _aumIncomeTransferId
+            - text: ":"
+            - generic: 56602d08224b1b4c486cfd3dc516343f6be5991d28ef5c1e2ac72377dfed4486
+            - generic: origin
+            - text: ":"
+            - generic: shared_product_trial
+            - generic: scope
+            - text: ":"
+            - generic: PROD='基金' AND COMP='證券'
+            - generic: name
+            - text: ":"
+            - generic: 資產衡量
+            - generic: ontologyId
+            - text: ":"
+            - generic: pb_shared
+            - generic: status
+            - text: ":"
+            - generic: inferred
+            - generic: "1"
+            - generic: name
+            - text: ":"
+            - generic: 歸入上層指標
+            - generic: ontologyId
+            - text: ":"
+            - generic: pb_shared
+            - generic: evidence
+            - text: ":"
+            - generic: 既有HAS_COMPONENT分類層級；以子指標指向父指標表示
+            - generic: _aumIncomeTransferId
+            - text: ":"
+            - generic: 0d351949e1a34ee39c1b97c5a885efc851e9ba7318e67a03133e64008d5da21b
+            - generic: origin
+            - text: ":"
+            - generic: shared_product_trial
+            - generic: status
+            - text: ":"
+            - generic: inferred
+            - generic: "2"
+            - generic: name
+            - text: ":"
+            - generic: 歸入上層指標
+            - generic: ontologyId
+            - text: ":"
+            - generic: pb_shared
+            - generic: evidence
+            - text: ":"
+            - generic: 既有HAS_COMPONENT分類層級；以子指標指向父指標表示
+            - generic: _aumIncomeTransferId
+            - text: ":"
+            - generic: 76cd49b3dbeea1bed30651e8bafa310888eb7fd1d99fea6db5d3e98144094f3d
+            - generic: origin
+            - text: ":"
+            - generic: shared_product_trial
+            - generic: status
+            - text: ":"
+            - generic: inferred
+            - generic: nodes
+            - generic: "0"
+            - generic: key
+            - text: ":"
+            - generic: pb_shared:product:securities_fund
+            - generic: properties
+            - generic: aumMetricKey
+            - text: ":"
+            - generic: aum:metric:aum_securities_month_end
+            - generic: incomeStages
+            - generic: "0"
+            - text: ":"
+            - generic: INCOME_052
+            - generic: role
+            - text: ":"
+            - generic: shared_product
+            - generic: code
+            - text: ":"
+            - generic: securities_fund
+            - generic: incomeAmountBasis
+            - text: ":"
+            - generic: SUM(WKA31)
+            - generic: aumLegacyProducts
+            - generic: "0"
+            - text: ":"
+            - generic: securities_fund
+            - generic: displayOrder
+            - text: ":"
+            - generic: "14"
+            - generic: aumValuationBasis
+            - text: ":"
+            - generic: fund_units × closing_price × exchange_rate
+            - generic: mappingStatus
+            - text: ":"
+            - generic: inferred
+            - generic: incomeMetricKey
+            - text: ":"
+            - generic: income:metric:securities_fee_income
+            - generic: incomeLegacyProducts
+            - generic: "0"
+            - text: ":"
+            - generic: securities_fund
+            - generic: incomeMappingActive
+            - text: ":"
+            - generic: "true"
+            - generic: incomeFilter
+            - text: ":"
+            - generic: 手收／證券／基金
+            - generic: name
+            - text: ":"
+            - generic: 證券複委託基金
+            - generic: ontologyId
+            - text: ":"
+            - generic: pb_shared
+            - generic: directionStatus
+            - text: ":"
+            - generic: user_confirmed
+            - generic: definition
+            - text: ":"
+            - generic: 與銀行基金分開，保留證券持有及交易費來源。
+            - generic: aumFilter
+            - text: ":"
+            - generic: PROD='基金' AND COMP='證券'
+            - generic: key
+            - text: ":"
+            - generic: pb_shared:product:securities_fund
+            - generic: status
+            - text: ":"
+            - generic: inferred
+            - generic: aumStages
+            - generic: "0"
+            - text: ":"
+            - generic: AUM_025
+            - generic: labels
+            - generic: "0"
+            - text: ":"
+            - generic: ProductCategory
+            - generic: "1"
+            - text: ":"
+            - generic: SharedProduct
+            - generic: "1"
+            - generic: key
+            - text: ":"
+            - generic: aum:metric:aum_securities_month_end
+            - generic: properties
+            - generic: intendedGrain
+            - text: ":"
+            - generic: customer × month
+            - generic: code
+            - text: ":"
+            - generic: aum_securities_month_end
+            - generic: name
+            - text: ":"
+            - generic: 月底證券AUM
+            - generic: dictionaryVersion
+            - text: ":"
+            - generic: 0.2-draft
+            - generic: ontologyId
+            - text: ":"
+            - generic: aum
+            - generic: definition
+            - text: ":"
+            - generic: TYP 為投資且 COMP 為證券的 AMT。
+            - generic: key
+            - text: ":"
+            - generic: aum:metric:aum_securities_month_end
+            - generic: status
+            - text: ":"
+            - generic: inferred_from_sql
+            - generic: labels
+            - generic: "0"
+            - text: ":"
+            - generic: AUMMetric
+            - generic: "1"
+            - text: ":"
+            - generic: BusinessMetric
+            - generic: "2"
+            - generic: key
+            - text: ":"
+            - generic: aum:metric:aum_investment_month_end
+            - generic: properties
+            - generic: intendedGrain
+            - text: ":"
+            - generic: customer × month
+            - generic: code
+            - text: ":"
+            - generic: aum_investment_month_end
+            - generic: name
+            - text: ":"
+            - generic: 月底投資AUM
+            - generic: dictionaryVersion
+            - text: ":"
+            - generic: 0.2-draft
+            - generic: ontologyId
+            - text: ":"
+            - generic: aum
+            - generic: definition
+            - text: ":"
+            - generic: TYP 為投資的 AMT，包括銀行與證券來源。
+            - generic: key
+            - text: ":"
+            - generic: aum:metric:aum_investment_month_end
+            - generic: status
+            - text: ":"
+            - generic: inferred_from_sql
+            - generic: labels
+            - generic: "0"
+            - text: ":"
+            - generic: AUMMetric
+            - generic: "1"
+            - text: ":"
+            - generic: BusinessMetric
+            - generic: "3"
+            - generic: key
+            - text: ":"
+            - generic: aum:metric:aum_total_month_end
+            - generic: properties
+            - generic: dateRule
+            - text: ":"
+            - generic: 每個 TYP × COMP × PROD × TYP_SUB_DTL 取該月 MAX(YYYYMMDD)，再加總符合日期的列；不是每位客戶各自取最新日期，也不保證是曆月最後一天。
+            - generic: intendedGrain
+            - text: ":"
+            - generic: customer × month
+            - generic: code
+            - text: ":"
+            - generic: aum_total_month_end
+            - generic: name
+            - text: ":"
+            - generic: 月底總AUM
+            - generic: dictionaryVersion
+            - text: ":"
+            - generic: 0.2-draft
+            - generic: ontologyId
+            - text: ":"
+            - generic: aum
+            - generic: definition
+            - text: ":"
+            - generic: 指定月份內，各分類最新可用日期的存款與投資 AMT 合計。
+            - generic: key
+            - text: ":"
+            - generic: aum:metric:aum_total_month_end
+            - generic: status
+            - text: ":"
+            - generic: draft_metric_query
+            - generic: labels
+            - generic: "0"
+            - text: ":"
+            - generic: AUMMetric
+            - generic: "1"
+            - text: ":"
+            - generic: BusinessMetric
+            - generic: relationships
+            - generic: "0"
+            - generic: from
+            - text: ":"
+            - generic: pb_shared:product:securities_fund
+            - generic: to
+            - text: ":"
+            - generic: aum:metric:aum_securities_month_end
+            - generic: type
+            - text: ":"
+            - generic: MEASURED_BY_AUM
+            - generic: properties
+            - generic: rootDefinitionStatus
+            - text: ":"
+            - generic: draft_metric_query
+            - generic: _aumIncomeTransferId
+            - text: ":"
+            - generic: 56602d08224b1b4c486cfd3dc516343f6be5991d28ef5c1e2ac72377dfed4486
+            - generic: origin
+            - text: ":"
+            - generic: shared_product_trial
+            - generic: scope
+            - text: ":"
+            - generic: PROD='基金' AND COMP='證券'
+            - generic: name
+            - text: ":"
+            - generic: 資產衡量
+            - generic: ontologyId
+            - text: ":"
+            - generic: pb_shared
+            - generic: status
+            - text: ":"
+            - generic: inferred
+            - generic: "1"
+            - generic: from
+            - text: ":"
+            - generic: aum:metric:aum_securities_month_end
+            - generic: to
+            - text: ":"
+            - generic: aum:metric:aum_investment_month_end
+            - generic: type
+            - text: ":"
+            - generic: AUM_ROLLS_UP_TO
+            - generic: properties
+            - generic: name
+            - text: ":"
+            - generic: 歸入上層指標
+            - generic: ontologyId
+            - text: ":"
+            - generic: pb_shared
+            - generic: evidence
+            - text: ":"
+            - generic: 既有HAS_COMPONENT分類層級；以子指標指向父指標表示
+            - generic: _aumIncomeTransferId
+            - text: ":"
+            - generic: 0d351949e1a34ee39c1b97c5a885efc851e9ba7318e67a03133e64008d5da21b
+            - generic: origin
+            - text: ":"
+            - generic: shared_product_trial
+            - generic: status
+            - text: ":"
+            - generic: inferred
+            - generic: "2"
+            - generic: from
+            - text: ":"
+            - generic: aum:metric:aum_investment_month_end
+            - generic: to
+            - text: ":"
+            - generic: aum:metric:aum_total_month_end
+            - generic: type
+            - text: ":"
+            - generic: AUM_ROLLS_UP_TO
+            - generic: properties
+            - generic: name
+            - text: ":"
+            - generic: 歸入上層指標
+            - generic: ontologyId
+            - text: ":"
+            - generic: pb_shared
+            - generic: evidence
+            - text: ":"
+            - generic: 既有HAS_COMPONENT分類層級；以子指標指向父指標表示
+            - generic: _aumIncomeTransferId
+            - text: ":"
+            - generic: 76cd49b3dbeea1bed30651e8bafa310888eb7fd1d99fea6db5d3e98144094f3d
+            - generic: origin
+            - text: ":"
+            - generic: shared_product_trial
+            - generic: status
+            - text: ":"
+            - generic: inferred
+          - cell "selectedConceptKeys 0:pb_shared:product:securities_fund returnedRows:1 maxBusinessDepth:8":
+            - generic: selectedConceptKeys
+            - generic: "0"
+            - text: ":"
+            - generic: pb_shared:product:securities_fund
+            - generic: returnedRows
+            - text: ":"
+            - generic: "1"
+            - generic: maxBusinessDepth
+            - text: ":"
+            - generic: "8"
+          - cell "anchorConceptKeys 0:pb_shared:product:securities_fund selectedPathKeys 0:route::aum::aum_securities_month_end::eb3477f1":
+            - generic: anchorConceptKeys
+            - generic: "0"
+            - text: ":"
+            - generic: pb_shared:product:securities_fund
+            - generic: selectedPathKeys
+            - generic: "0"
+            - text: ":"
+            - generic: route::aum::aum_securities_month_end::eb3477f1
+          - cell:
+            - generic: model
+            - text: ":"
+            - generic: typesafe/jev-1.13-20260917
+            - generic: concept
+            - generic: requestId
+            - text: ":"
+            - generic: gen-dec-1791420989-pcBsGdpgUUw6aD2ZnaSi
+            - generic: model
+            - text: ":"
+            - generic: typesafe/jev-1.13-20260917
+            - generic: provider
+            - text: ":"
+            - generic: TypeSafe
+            - generic: scope
+            - generic: type
+            - text: ":"
+            - generic: choice
+            - generic: choice
+            - text: ":"
+            - generic: clear
+            - generic: probabilities
+            - generic: ambiguous
+            - text: ":"
+            - generic: "0.14"
+            - generic: none
+            - text: ":"
+            - generic: "0.01"
+            - generic: clear
+            - text: ":"
+            - generic: "0.85"
+            - generic: confidence
+            - text: ":"
+            - generic: "0.77"
+            - generic: answers
+            - generic: scope
+            - generic: type
+            - text: ":"
+            - generic: choice
+            - generic: choice
+            - text: ":"
+            - generic: clear
+            - generic: probabilities
+            - generic: ambiguous
+            - text: ":"
+            - generic: "0.14"
+            - generic: none
+            - text: ":"
+            - generic: "0.01"
+            - generic: clear
+            - text: ":"
+            - generic: "0.85"
+            - generic: confidence
+            - text: ":"
+            - generic: "0.77"
+            - generic: securities_bond::aum
+            - generic: type
+            - text: ":"
+            - generic: choice
+            - generic: choice
+            - text: ":"
+            - generic: excluded
+            - generic: probabilities
+            - generic: uncertain
+            - text: ":"
+            - generic: "0"
+            - generic: excluded
+            - text: ":"
+            - generic: "1"
+            - generic: included
+            - text: ":"
+            - generic: "0"
+            - generic: confidence
+            - text: ":"
+            - generic: "1"
+            - generic: securities_foreign_stock::aum
+            - generic: type
+            - text: ":"
+            - generic: choice
+            - generic: choice
+            - text: ":"
+            - generic: excluded
+            - generic: probabilities
+            - generic: included
+            - text: ":"
+            - generic: "0"
+            - generic: uncertain
+            - text: ":"
+            - generic: "0"
+            - generic: excluded
+            - text: ":"
+            - generic: "1"
+            - generic: confidence
+            - text: ":"
+            - generic: "1"
+            - generic: securities_fund::aum
+            - generic: type
+            - text: ":"
+            - generic: choice
+            - generic: choice
+            - text: ":"
+            - generic: included
+            - generic: probabilities
+            - generic: uncertain
+            - text: ":"
+            - generic: "0.06"
+            - generic: excluded
+            - text: ":"
+            - generic: "0.06"
+            - generic: included
+            - text: ":"
+            - generic: "0.88"
+            - generic: confidence
+            - text: ":"
+            - generic: "0.82"
+            - generic: securities_structured::aum
+            - generic: type
+            - text: ":"
+            - generic: choice
+            - generic: choice
+            - text: ":"
+            - generic: excluded
+            - generic: probabilities
+            - generic: uncertain
+            - text: ":"
+            - generic: "0"
+            - generic: excluded
+            - text: ":"
+            - generic: "1"
+            - generic: included
+            - text: ":"
+            - generic: "0"
+            - generic: confidence
+            - text: ":"
+            - generic: "1"
+            - generic: usage
+            - generic: input_tokens
+            - text: ":"
+            - generic: "2317"
+            - generic: output_tokens
+            - text: ":"
+            - generic: "229"
+            - generic: cost
+            - text: ":"
+            - generic: "0.000097314"
+            - generic: policy
+            - generic: method
+            - text: ":"
+            - generic: native_choice
+            - generic: phase
+            - text: ":"
+            - generic: concept_selection
+            - generic: numericThreshold
+            - text: ":"
+            - generic: "null"
+            - generic: calibrated
+            - text: ":"
+            - generic: "false"
+            - generic: probabilityMeaning
+            - text: ":"
+            - generic: Native P(included) independently per candidate; never normalized across candidates or multiplied across phases.
+            - generic: path
+            - generic: requestId
+            - text: ":"
+            - generic: gen-dec-1791420990-SqrCq9H88hTfJAVaVrnR
+            - generic: model
+            - text: ":"
+            - generic: typesafe/jev-1.13-20260917
+            - generic: provider
+            - text: ":"
+            - generic: TypeSafe
+            - generic: scope
+            - generic: type
+            - text: ":"
+            - generic: choice
+            - generic: choice
+            - text: ":"
+            - generic: clear
+            - generic: probabilities
+            - generic: clear
+            - text: ":"
+            - generic: "0.74"
+            - generic: ambiguous
+            - text: ":"
+            - generic: "0.25"
+            - generic: none
+            - text: ":"
+            - generic: "0.01"
+            - generic: confidence
+            - text: ":"
+            - generic: "0.61"
+            - generic: answers
+            - generic: scope
+            - generic: type
+            - text: ":"
+            - generic: choice
+            - generic: choice
+            - text: ":"
+            - generic: clear
+            - generic: probabilities
+            - generic: clear
+            - text: ":"
+            - generic: "0.74"
+            - generic: ambiguous
+            - text: ":"
+            - generic: "0.25"
+            - generic: none
+            - text: ":"
+            - generic: "0.01"
+            - generic: confidence
+            - text: ":"
+            - generic: "0.61"
+            - generic: path::route::aum::aum_securities_month_end::eb3477f1
+            - generic: type
+            - text: ":"
+            - generic: choice
+            - generic: choice
+            - text: ":"
+            - generic: included
+            - generic: probabilities
+            - generic: excluded
+            - text: ":"
+            - generic: "0.06"
+            - generic: uncertain
+            - text: ":"
+            - generic: "0.03"
+            - generic: included
+            - text: ":"
+            - generic: "0.91"
+            - generic: confidence
+            - text: ":"
+            - generic: "0.86"
+            - generic: usage
+            - generic: input_tokens
+            - text: ":"
+            - generic: "2034"
+            - generic: output_tokens
+            - text: ":"
+            - generic: "98"
+            - generic: cost
+            - text: ":"
+            - generic: "0.000085428"
+            - generic: policy
+            - generic: method
+            - text: ":"
+            - generic: native_choice
+            - generic: phase
+            - text: ":"
+            - generic: route_selection
+            - generic: numericThreshold
+            - text: ":"
+            - generic: "null"
+            - generic: calibrated
+            - text: ":"
+            - generic: "false"
+            - generic: probabilityMeaning
+            - text: ":"
+            - generic: Native P(included) independently per candidate; never normalized across candidates or multiplied across phases.
+            - generic: method
+            - text: ":"
+            - generic: concept_then_lazy_routes_then_mapping
+          - cell:
+            - generic: "0"
+            - generic: productCode
+            - text: ":"
+            - generic: securities_fund
+            - generic: productName
+            - text: ":"
+            - generic: 證券複委託基金
+            - generic: domain
+            - text: ":"
+            - generic: aum
+            - generic: objectKey
+            - text: ":"
+            - generic: securities_fund::aum
+            - generic: probability
+            - text: ":"
+            - generic: "0.88"
+            - generic: definition
+            - text: ":"
+            - generic: 證券通路的複委託基金業務，涵蓋客戶持有資產與交易費收入。
+            - generic: definitionStatus
+            - text: ":"
+            - generic: inferred
+            - generic: metrics
+            - generic: "0"
+            - generic: metricCode
+            - text: ":"
+            - generic: aum_securities_month_end
+            - generic: name
+            - text: ":"
+            - generic: 月底證券AUM
+            - generic: definition
+            - text: ":"
+            - generic: TYP 為投資且 COMP 為證券的 AMT。
+            - generic: status
+            - text: ":"
+            - generic: inferred_from_sql
+            - generic: "1"
+            - generic: metricCode
+            - text: ":"
+            - generic: aum_investment_month_end
+            - generic: name
+            - text: ":"
+            - generic: 月底投資AUM
+            - generic: definition
+            - text: ":"
+            - generic: TYP 為投資的 AMT，包括銀行與證券來源。
+            - generic: status
+            - text: ":"
+            - generic: inferred_from_sql
+            - generic: "2"
+            - generic: metricCode
+            - text: ":"
+            - generic: aum_total_month_end
+            - generic: name
+            - text: ":"
+            - generic: 月底總AUM
+            - generic: definition
+            - text: ":"
+            - generic: 指定月份內，各分類最新可用日期的存款與投資 AMT 合計。
+            - generic: status
+            - text: ":"
+            - generic: draft_metric_query
+            - generic: matchedMetricCodes
+            - generic: "0"
+            - text: ":"
+            - generic: aum_securities_month_end
+            - generic: mappingStatus
+            - text: ":"
+            - generic: inferred
+            - generic: conceptEvidence
+            - generic: identity
+            - generic: conceptProductCode
+            - text: ":"
+            - generic: securities_fund
+            - generic: sharedProductCode
+            - text: ":"
+            - generic: securities_fund
+            - generic: sharedProductKey
+            - text: ":"
+            - generic: pb_shared:product:securities_fund
+            - generic: sharedProduct
+            - generic: key
+            - text: ":"
+            - generic: pb_shared:product:securities_fund
+            - generic: properties
+            - generic: aumMetricKey
+            - text: ":"
+            - generic: aum:metric:aum_securities_month_end
+            - generic: incomeStages
+            - generic: "0"
+            - text: ":"
+            - generic: INCOME_052
+            - generic: code
+            - text: ":"
+            - generic: securities_fund
+            - generic: role
+            - text: ":"
+            - generic: shared_product
+            - generic: incomeAmountBasis
+            - text: ":"
+            - generic: SUM(WKA31)
+            - generic: aumLegacyProducts
+            - generic: "0"
+            - text: ":"
+            - generic: securities_fund
+            - generic: displayOrder
+            - text: ":"
+            - generic: "14"
+            - generic: aumValuationBasis
+            - text: ":"
+            - generic: fund_units × closing_price × exchange_rate
+            - generic: mappingStatus
+            - text: ":"
+            - generic: inferred
+            - generic: incomeMetricKey
+            - text: ":"
+            - generic: income:metric:securities_fee_income
+            - generic: incomeLegacyProducts
+            - generic: "0"
+            - text: ":"
+            - generic: securities_fund
+            - generic: incomeMappingActive
+            - text: ":"
+            - generic: "true"
+            - generic: incomeFilter
+            - text: ":"
+            - generic: 手收／證券／基金
+            - generic: name
+            - text: ":"
+            - generic: 證券複委託基金
+            - generic: ontologyId
+            - text: ":"
+            - generic: pb_shared
+            - generic: directionStatus
+            - text: ":"
+            - generic: user_confirmed
+            - generic: definition
+            - text: ":"
+            - generic: 與銀行基金分開，保留證券持有及交易費來源。
+            - generic: aumFilter
+            - text: ":"
+            - generic: PROD='基金' AND COMP='證券'
+            - generic: key
+            - text: ":"
+            - generic: pb_shared:product:securities_fund
+            - generic: status
+            - text: ":"
+            - generic: inferred
+            - generic: aumStages
+            - generic: "0"
+            - text: ":"
+            - generic: AUM_025
+            - generic: labels
+            - generic: "0"
+            - text: ":"
+            - generic: ProductCategory
+            - generic: "1"
+            - text: ":"
+            - generic: SharedProduct
+            - generic: domain
+            - text: ":"
+            - generic: aum
+            - generic: paths
+            - generic: "0"
+            - generic: pathKey
+            - text: ":"
+            - generic: route::aum::aum_securities_month_end::eb3477f1
+            - generic: domain
+            - text: ":"
+            - generic: aum
+            - generic: anchorConceptKeys
+            - generic: "0"
+            - text: ":"
+            - generic: pb_shared:product:securities_fund
+            - generic: anchorObjectKeys
+            - generic: "0"
+            - text: ":"
+            - generic: securities_fund::aum
+            - generic: queryMetricCode
+            - text: ":"
+            - generic: aum_securities_month_end
+            - generic: queryMetricKey
+            - text: ":"
+            - generic: aum:metric:aum_securities_month_end
+            - generic: nodeKeys
+            - generic: "0"
+            - text: ":"
+            - generic: pb_shared:product:securities_fund
+            - generic: "1"
+            - text: ":"
+            - generic: aum:metric:aum_securities_month_end
+            - generic: "2"
+            - text: ":"
+            - generic: aum:metric:aum_investment_month_end
+            - generic: "3"
+            - text: ":"
+            - generic: aum:metric:aum_total_month_end
+            - generic: relationshipTypes
+            - generic: "0"
+            - text: ":"
+            - generic: MEASURED_BY_AUM
+            - generic: "1"
+            - text: ":"
+            - generic: AUM_ROLLS_UP_TO
+            - generic: "2"
+            - text: ":"
+            - generic: AUM_ROLLS_UP_TO
+            - generic: relationshipProperties
+            - generic: "0"
+            - generic: rootDefinitionStatus
+            - text: ":"
+            - generic: draft_metric_query
+            - generic: _aumIncomeTransferId
+            - text: ":"
+            - generic: 56602d08224b1b4c486cfd3dc516343f6be5991d28ef5c1e2ac72377dfed4486
+            - generic: origin
+            - text: ":"
+            - generic: shared_product_trial
+            - generic: scope
+            - text: ":"
+            - generic: PROD='基金' AND COMP='證券'
+            - generic: name
+            - text: ":"
+            - generic: 資產衡量
+            - generic: ontologyId
+            - text: ":"
+            - generic: pb_shared
+            - generic: status
+            - text: ":"
+            - generic: inferred
+            - generic: "1"
+            - generic: name
+            - text: ":"
+            - generic: 歸入上層指標
+            - generic: ontologyId
+            - text: ":"
+            - generic: pb_shared
+            - generic: evidence
+            - text: ":"
+            - generic: 既有HAS_COMPONENT分類層級；以子指標指向父指標表示
+            - generic: _aumIncomeTransferId
+            - text: ":"
+            - generic: 0d351949e1a34ee39c1b97c5a885efc851e9ba7318e67a03133e64008d5da21b
+            - generic: origin
+            - text: ":"
+            - generic: shared_product_trial
+            - generic: status
+            - text: ":"
+            - generic: inferred
+            - generic: "2"
+            - generic: name
+            - text: ":"
+            - generic: 歸入上層指標
+            - generic: ontologyId
+            - text: ":"
+            - generic: pb_shared
+            - generic: evidence
+            - text: ":"
+            - generic: 既有HAS_COMPONENT分類層級；以子指標指向父指標表示
+            - generic: _aumIncomeTransferId
+            - text: ":"
+            - generic: 76cd49b3dbeea1bed30651e8bafa310888eb7fd1d99fea6db5d3e98144094f3d
+            - generic: origin
+            - text: ":"
+            - generic: shared_product_trial
+            - generic: status
+            - text: ":"
+            - generic: inferred
+            - generic: nodes
+            - generic: "0"
+            - generic: key
+            - text: ":"
+            - generic: pb_shared:product:securities_fund
+            - generic: properties
+            - generic: aumMetricKey
+            - text: ":"
+            - generic: aum:metric:aum_securities_month_end
+            - generic: incomeStages
+            - generic: "0"
+            - text: ":"
+            - generic: INCOME_052
+            - generic: role
+            - text: ":"
+            - generic: shared_product
+            - generic: code
+            - text: ":"
+            - generic: securities_fund
+            - generic: incomeAmountBasis
+            - text: ":"
+            - generic: SUM(WKA31)
+            - generic: aumLegacyProducts
+            - generic: "0"
+            - text: ":"
+            - generic: securities_fund
+            - generic: displayOrder
+            - text: ":"
+            - generic: "14"
+            - generic: aumValuationBasis
+            - text: ":"
+            - generic: fund_units × closing_price × exchange_rate
+            - generic: mappingStatus
+            - text: ":"
+            - generic: inferred
+            - generic: incomeMetricKey
+            - text: ":"
+            - generic: income:metric:securities_fee_income
+            - generic: incomeLegacyProducts
+            - generic: "0"
+            - text: ":"
+            - generic: securities_fund
+            - generic: incomeMappingActive
+            - text: ":"
+            - generic: "true"
+            - generic: incomeFilter
+            - text: ":"
+            - generic: 手收／證券／基金
+            - generic: name
+            - text: ":"
+            - generic: 證券複委託基金
+            - generic: ontologyId
+            - text: ":"
+            - generic: pb_shared
+            - generic: directionStatus
+            - text: ":"
+            - generic: user_confirmed
+            - generic: definition
+            - text: ":"
+            - generic: 與銀行基金分開，保留證券持有及交易費來源。
+            - generic: aumFilter
+            - text: ":"
+            - generic: PROD='基金' AND COMP='證券'
+            - generic: key
+            - text: ":"
+            - generic: pb_shared:product:securities_fund
+            - generic: status
+            - text: ":"
+            - generic: inferred
+            - generic: aumStages
+            - generic: "0"
+            - text: ":"
+            - generic: AUM_025
+            - generic: labels
+            - generic: "0"
+            - text: ":"
+            - generic: ProductCategory
+            - generic: "1"
+            - text: ":"
+            - generic: SharedProduct
+            - generic: "1"
+            - generic: key
+            - text: ":"
+            - generic: aum:metric:aum_securities_month_end
+            - generic: properties
+            - generic: intendedGrain
+            - text: ":"
+            - generic: customer × month
+            - generic: code
+            - text: ":"
+            - generic: aum_securities_month_end
+            - generic: name
+            - text: ":"
+            - generic: 月底證券AUM
+            - generic: dictionaryVersion
+            - text: ":"
+            - generic: 0.2-draft
+            - generic: ontologyId
+            - text: ":"
+            - generic: aum
+            - generic: definition
+            - text: ":"
+            - generic: TYP 為投資且 COMP 為證券的 AMT。
+            - generic: key
+            - text: ":"
+            - generic: aum:metric:aum_securities_month_end
+            - generic: status
+            - text: ":"
+            - generic: inferred_from_sql
+            - generic: labels
+            - generic: "0"
+            - text: ":"
+            - generic: AUMMetric
+            - generic: "1"
+            - text: ":"
+            - generic: BusinessMetric
+            - generic: "2"
+            - generic: key
+            - text: ":"
+            - generic: aum:metric:aum_investment_month_end
+            - generic: properties
+            - generic: intendedGrain
+            - text: ":"
+            - generic: customer × month
+            - generic: code
+            - text: ":"
+            - generic: aum_investment_month_end
+            - generic: name
+            - text: ":"
+            - generic: 月底投資AUM
+            - generic: dictionaryVersion
+            - text: ":"
+            - generic: 0.2-draft
+            - generic: ontologyId
+            - text: ":"
+            - generic: aum
+            - generic: definition
+            - text: ":"
+            - generic: TYP 為投資的 AMT，包括銀行與證券來源。
+            - generic: key
+            - text: ":"
+            - generic: aum:metric:aum_investment_month_end
+            - generic: status
+            - text: ":"
+            - generic: inferred_from_sql
+            - generic: labels
+            - generic: "0"
+            - text: ":"
+            - generic: AUMMetric
+            - generic: "1"
+            - text: ":"
+            - generic: BusinessMetric
+            - generic: "3"
+            - generic: key
+            - text: ":"
+            - generic: aum:metric:aum_total_month_end
+            - generic: properties
+            - generic: dateRule
+            - text: ":"
+            - generic: 每個 TYP × COMP × PROD × TYP_SUB_DTL 取該月 MAX(YYYYMMDD)，再加總符合日期的列；不是每位客戶各自取最新日期，也不保證是曆月最後一天。
+            - generic: intendedGrain
+            - text: ":"
+            - generic: customer × month
+            - generic: code
+            - text: ":"
+            - generic: aum_total_month_end
+            - generic: name
+            - text: ":"
+            - generic: 月底總AUM
+            - generic: dictionaryVersion
+            - text: ":"
+            - generic: 0.2-draft
+            - generic: ontologyId
+            - text: ":"
+            - generic: aum
+            - generic: definition
+            - text: ":"
+            - generic: 指定月份內，各分類最新可用日期的存款與投資 AMT 合計。
+            - generic: key
+            - text: ":"
+            - generic: aum:metric:aum_total_month_end
+            - generic: status
+            - text: ":"
+            - generic: draft_metric_query
+            - generic: labels
+            - generic: "0"
+            - text: ":"
+            - generic: AUMMetric
+            - generic: "1"
+            - text: ":"
+            - generic: BusinessMetric
+            - generic: relationships
+            - generic: "0"
+            - generic: from
+            - text: ":"
+            - generic: pb_shared:product:securities_fund
+            - generic: to
+            - text: ":"
+            - generic: aum:metric:aum_securities_month_end
+            - generic: type
+            - text: ":"
+            - generic: MEASURED_BY_AUM
+            - generic: properties
+            - generic: rootDefinitionStatus
+            - text: ":"
+            - generic: draft_metric_query
+            - generic: _aumIncomeTransferId
+            - text: ":"
+            - generic: 56602d08224b1b4c486cfd3dc516343f6be5991d28ef5c1e2ac72377dfed4486
+            - generic: origin
+            - text: ":"
+            - generic: shared_product_trial
+            - generic: scope
+            - text: ":"
+            - generic: PROD='基金' AND COMP='證券'
+            - generic: name
+            - text: ":"
+            - generic: 資產衡量
+            - generic: ontologyId
+            - text: ":"
+            - generic: pb_shared
+            - generic: status
+            - text: ":"
+            - generic: inferred
+            - generic: "1"
+            - generic: from
+            - text: ":"
+            - generic: aum:metric:aum_securities_month_end
+            - generic: to
+            - text: ":"
+            - generic: aum:metric:aum_investment_month_end
+            - generic: type
+            - text: ":"
+            - generic: AUM_ROLLS_UP_TO
+            - generic: properties
+            - generic: name
+            - text: ":"
+            - generic: 歸入上層指標
+            - generic: ontologyId
+            - text: ":"
+            - generic: pb_shared
+            - generic: evidence
+            - text: ":"
+            - generic: 既有HAS_COMPONENT分類層級；以子指標指向父指標表示
+            - generic: _aumIncomeTransferId
+            - text: ":"
+            - generic: 0d351949e1a34ee39c1b97c5a885efc851e9ba7318e67a03133e64008d5da21b
+            - generic: origin
+            - text: ":"
+            - generic: shared_product_trial
+            - generic: status
+            - text: ":"
+            - generic: inferred
+            - generic: "2"
+            - generic: from
+            - text: ":"
+            - generic: aum:metric:aum_investment_month_end
+            - generic: to
+            - text: ":"
+            - generic: aum:metric:aum_total_month_end
+            - generic: type
+            - text: ":"
+            - generic: AUM_ROLLS_UP_TO
+            - generic: properties
+            - generic: name
+            - text: ":"
+            - generic: 歸入上層指標
+            - generic: ontologyId
+            - text: ":"
+            - generic: pb_shared
+            - generic: evidence
+            - text: ":"
+            - generic: 既有HAS_COMPONENT分類層級；以子指標指向父指標表示
+            - generic: _aumIncomeTransferId
+            - text: ":"
+            - generic: 76cd49b3dbeea1bed30651e8bafa310888eb7fd1d99fea6db5d3e98144094f3d
+            - generic: origin
+            - text: ":"
+            - generic: shared_product_trial
+            - generic: status
+            - text: ":"
+            - generic: inferred
+            - generic: mappings
+            - generic: "0"
+            - generic: lineage
+            - generic: "0"
+            - generic: tablePath
+            - generic: "0"
+            - text: ":"
+            - generic: DSPBM.PB_FUNDPOSIT_SEC
+            - generic: "1"
+            - text: ":"
+            - generic: AUM_025
+            - generic: baseTable
+            - text: ":"
+            - generic: DSPBM.PB_FUNDPOSIT_SEC
+            - generic: rules
+            - generic: "0"
+            - generic: sqlTextKind
+            - text: ":"
+            - generic: original_statement_slice
+            - generic: lineStart
+            - text: ":"
+            - generic: "366"
+            - generic: selectExpressions
+            - generic: "0"
+            - text: ":"
+            - generic: wkb02 AS cust_id
+            - generic: "1"
+            - text: ":"
+            - generic: yyyymmdd
+            - generic: "2"
+            - text: ":"
+            - generic: SUM(WKB28 * WKB23 * WKB31) AS amt
+            - generic: whereConditions
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: lineageEdgeId
+            - text: ":"
+            - generic: 6c597c51ddf71012cbd524581664852fbb1a7847c85bfe900224878c26d3e7c6
+            - generic: lineEnd
+            - text: ":"
+            - generic: "375"
+            - generic: sourceRole
+            - text: ":"
+            - generic: primary_reference
+            - generic: statementKey
+            - text: ":"
+            - generic: sql_lineage:statement:1.AUM_DETAIL.sql:L366
+            - generic: sql
+            - text: ":"
+            - generic: create table AUM_025
+            - generic: \n as
+            - generic: \n select wkb02 as cust_id,yyyymmdd ,sum(WKB28 * WKB23 * WKB31) as amt
+            - generic: \n from DSPBM.PB_FUNDPOSIT_SEC_M@anadbp01_dwdbp01
+            - generic: \n group by wkb02,yyyymmdd
+            - generic: \n union
+            - generic: \n select wkb02 as cust_id,yyyymmdd ,sum(WKB28* WKB23 * WKB31) as amt
+            - generic: \n from DSPBM.PB_FUNDPOSIT_SEC@anadbp01_dwdbp01
+            - generic: \n group by wkb02,yyyymmdd
+            - generic: \n ;
+            - generic: unionBranchOrders
+            - generic: "0"
+            - text: ":"
+            - generic: "2"
+            - generic: file
+            - text: ":"
+            - generic: sources/sql/1.AUM_DETAIL.sql
+            - generic: groupExpressions
+            - generic: "0"
+            - text: ":"
+            - generic: wkb02
+            - generic: "1"
+            - text: ":"
+            - generic: yyyymmdd
+            - generic: joinInputRoles
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: joinTypes
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: unionBranchCounts
+            - generic: "0"
+            - text: ":"
+            - generic: "2"
+            - generic: joinConditions
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: unionDeduplication
+            - generic: "0"
+            - text: ":"
+            - generic: exact_projected_rows
+            - generic: operationTypes
+            - generic: "0"
+            - text: ":"
+            - generic: AGGREGATE
+            - generic: "1"
+            - text: ":"
+            - generic: SELECT
+            - generic: "2"
+            - text: ":"
+            - generic: UNION
+            - generic: "3"
+            - text: ":"
+            - generic: CREATE TABLE AS
+            - generic: havingConditions
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: aggregateExpressions
+            - generic: "0"
+            - text: ":"
+            - generic: SUM(WKB28 * WKB23 * WKB31)
+            - generic: caseExpressions
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: operation
+            - text: ":"
+            - generic: UNION
+            - generic: status
+            - text: ":"
+            - generic: active_sql
+            - generic: "1"
+            - generic: tablePath
+            - generic: "0"
+            - text: ":"
+            - generic: DSPBM.PB_FUNDPOSIT_SEC_M
+            - generic: "1"
+            - text: ":"
+            - generic: AUM_025
+            - generic: baseTable
+            - text: ":"
+            - generic: DSPBM.PB_FUNDPOSIT_SEC_M
+            - generic: rules
+            - generic: "0"
+            - generic: sqlTextKind
+            - text: ":"
+            - generic: original_statement_slice
+            - generic: lineStart
+            - text: ":"
+            - generic: "366"
+            - generic: selectExpressions
+            - generic: "0"
+            - text: ":"
+            - generic: wkb02 AS cust_id
+            - generic: "1"
+            - text: ":"
+            - generic: yyyymmdd
+            - generic: "2"
+            - text: ":"
+            - generic: SUM(WKB28 * WKB23 * WKB31) AS amt
+            - generic: whereConditions
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: lineageEdgeId
+            - text: ":"
+            - generic: a5c0ac0c518f512cb19ff1a6ea24a81d767af26bf4bcd9faf2a97e634cc93511
+            - generic: lineEnd
+            - text: ":"
+            - generic: "375"
+            - generic: sourceRole
+            - text: ":"
+            - generic: primary_reference
+            - generic: statementKey
+            - text: ":"
+            - generic: sql_lineage:statement:1.AUM_DETAIL.sql:L366
+            - generic: sql
+            - text: ":"
+            - generic: create table AUM_025
+            - generic: \n as
+            - generic: \n select wkb02 as cust_id,yyyymmdd ,sum(WKB28 * WKB23 * WKB31) as amt
+            - generic: \n from DSPBM.PB_FUNDPOSIT_SEC_M@anadbp01_dwdbp01
+            - generic: \n group by wkb02,yyyymmdd
+            - generic: \n union
+            - generic: \n select wkb02 as cust_id,yyyymmdd ,sum(WKB28* WKB23 * WKB31) as amt
+            - generic: \n from DSPBM.PB_FUNDPOSIT_SEC@anadbp01_dwdbp01
+            - generic: \n group by wkb02,yyyymmdd
+            - generic: \n ;
+            - generic: unionBranchOrders
+            - generic: "0"
+            - text: ":"
+            - generic: "1"
+            - generic: file
+            - text: ":"
+            - generic: sources/sql/1.AUM_DETAIL.sql
+            - generic: groupExpressions
+            - generic: "0"
+            - text: ":"
+            - generic: wkb02
+            - generic: "1"
+            - text: ":"
+            - generic: yyyymmdd
+            - generic: joinInputRoles
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: joinTypes
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: unionBranchCounts
+            - generic: "0"
+            - text: ":"
+            - generic: "2"
+            - generic: joinConditions
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: unionDeduplication
+            - generic: "0"
+            - text: ":"
+            - generic: exact_projected_rows
+            - generic: operationTypes
+            - generic: "0"
+            - text: ":"
+            - generic: AGGREGATE
+            - generic: "1"
+            - text: ":"
+            - generic: SELECT
+            - generic: "2"
+            - text: ":"
+            - generic: UNION
+            - generic: "3"
+            - text: ":"
+            - generic: CREATE TABLE AS
+            - generic: havingConditions
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: aggregateExpressions
+            - generic: "0"
+            - text: ":"
+            - generic: SUM(WKB28 * WKB23 * WKB31)
+            - generic: caseExpressions
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: operation
+            - text: ":"
+            - generic: UNION
+            - generic: status
+            - text: ":"
+            - generic: active_sql
+            - generic: implementation
+            - generic: from
+            - text: ":"
+            - generic: pb_shared:product:securities_fund
+            - generic: to
+            - text: ":"
+            - generic: aum:stage:AUM_025
+            - generic: type
+            - text: ":"
+            - generic: AUM_IMPLEMENTED_BY
+            - generic: properties
+            - generic: note
+            - text: ":"
+            - generic: 與銀行基金分開，保留證券持有及交易費來源。
+            - generic: ontologyId
+            - text: ":"
+            - generic: pb_shared
+            - generic: _aumIncomeTransferId
+            - text: ":"
+            - generic: 5d7f2d13493e81ad367d8672f0a912235ea44148fedeecddd05dc65f1af56a0c
+            - generic: origin
+            - text: ":"
+            - generic: shared_product_trial
+            - generic: scope
+            - text: ":"
+            - generic: PROD='基金' AND COMP='證券'
+            - generic: status
+            - text: ":"
+            - generic: observed_in_sql
+            - generic: lineageStatus
+            - text: ":"
+            - generic: traced
+            - generic: productScope
+            - text: ":"
+            - generic: PROD='基金' AND COMP='證券'
+            - generic: mappingStatus
+            - text: ":"
+            - generic: observed_in_sql
+            - generic: sqlEvidence
+            - generic: maxDepth
+            - text: ":"
+            - generic: "16"
+            - generic: statements
+            - generic: "0"
+            - generic: requiredTableKeys
+            - generic: "0"
+            - text: ":"
+            - generic: sql_lineage:table:DSPBM.PB_FUNDPOSIT_SEC
+            - generic: "1"
+            - text: ":"
+            - generic: sql_lineage:table:DSPBM.PB_FUNDPOSIT_SEC_M
+            - generic: properties
+            - generic: databaseLinks
+            - generic: "0"
+            - text: ":"
+            - generic: anadbp01_dwdbp01
+            - generic: sqlTextKind
+            - text: ":"
+            - generic: original_statement_slice
+            - generic: lineStart
+            - text: ":"
+            - generic: "366"
+            - generic: origin
+            - text: ":"
+            - generic: sql_lineage_v1
+            - generic: lineEnd
+            - text: ":"
+            - generic: "375"
+            - generic: sourceRole
+            - text: ":"
+            - generic: primary_reference
+            - generic: sql
+            - text: ":"
+            - generic: create table AUM_025
+            - generic: \n as
+            - generic: \n select wkb02 as cust_id,yyyymmdd ,sum(WKB28 * WKB23 * WKB31) as amt
+            - generic: \n from DSPBM.PB_FUNDPOSIT_SEC_M@anadbp01_dwdbp01
+            - generic: \n group by wkb02,yyyymmdd
+            - generic: \n union
+            - generic: \n select wkb02 as cust_id,yyyymmdd ,sum(WKB28* WKB23 * WKB31) as amt
+            - generic: \n from DSPBM.PB_FUNDPOSIT_SEC@anadbp01_dwdbp01
+            - generic: \n group by wkb02,yyyymmdd
+            - generic: \n ;
+            - generic: output
+            - text: ":"
+            - generic: AUM_025
+            - generic: file
+            - text: ":"
+            - generic: sources/sql/1.AUM_DETAIL.sql
+            - generic: domain
+            - text: ":"
+            - generic: aum
+            - generic: statementType
+            - text: ":"
+            - generic: CREATE
+            - generic: name
+            - text: ":"
+            - generic: AUM_025 · CREATE · L366
+            - generic: ontologyId
+            - text: ":"
+            - generic: sql_lineage
+            - generic: normalizedForParser
+            - text: ":"
+            - generic: comments blanked; Oracle DB-link suffix removed only for parsing
+            - generic: key
+            - text: ":"
+            - generic: sql_lineage:statement:1.AUM_DETAIL.sql:L366
+            - generic: status
+            - text: ":"
+            - generic: active_sql
+            - generic: statementKey
+            - text: ":"
+            - generic: sql_lineage:statement:1.AUM_DETAIL.sql:L366
+            - generic: tables
+            - generic: "0"
+            - generic: key
+            - text: ":"
+            - generic: sql_lineage:table:AUM_025
+            - generic: properties
+            - generic: definitionStatus
+            - text: ":"
+            - generic: active_in_primary_sql
+            - generic: physicalName
+            - text: ":"
+            - generic: AUM_025
+            - generic: hasPrimaryActiveDefinition
+            - text: ":"
+            - generic: "true"
+            - generic: origin
+            - text: ":"
+            - generic: sql_lineage_v1
+            - generic: tableKind
+            - text: ":"
+            - generic: staging_output
+            - generic: name
+            - text: ":"
+            - generic: AUM_025
+            - generic: ontologyId
+            - text: ":"
+            - generic: sql_lineage
+            - generic: domains
+            - generic: "0"
+            - text: ":"
+            - generic: aum
+            - generic: definitionStatuses
+            - generic: "0"
+            - text: ":"
+            - generic: active_sql
+            - generic: key
+            - text: ":"
+            - generic: sql_lineage:table:AUM_025
+            - generic: labels
+            - generic: "0"
+            - text: ":"
+            - generic: SqlTable
+            - generic: statementKeys
+            - generic: "0"
+            - text: ":"
+            - generic: sql_lineage:statement:1.AUM_DETAIL.sql:L366
+            - generic: requiredIncoming
+            - generic: "0"
+            - generic: from
+            - text: ":"
+            - generic: sql_lineage:table:DSPBM.PB_FUNDPOSIT_SEC
+            - generic: to
+            - text: ":"
+            - generic: sql_lineage:table:AUM_025
+            - generic: type
+            - text: ":"
+            - generic: UNION
+            - generic: statementKey
+            - text: ":"
+            - generic: sql_lineage:statement:1.AUM_DETAIL.sql:L366
+            - generic: lineageEdgeId
+            - text: ":"
+            - generic: 6c597c51ddf71012cbd524581664852fbb1a7847c85bfe900224878c26d3e7c6
+            - generic: "1"
+            - generic: from
+            - text: ":"
+            - generic: sql_lineage:table:DSPBM.PB_FUNDPOSIT_SEC_M
+            - generic: to
+            - text: ":"
+            - generic: sql_lineage:table:AUM_025
+            - generic: type
+            - text: ":"
+            - generic: UNION
+            - generic: statementKey
+            - text: ":"
+            - generic: sql_lineage:statement:1.AUM_DETAIL.sql:L366
+            - generic: lineageEdgeId
+            - text: ":"
+            - generic: a5c0ac0c518f512cb19ff1a6ea24a81d767af26bf4bcd9faf2a97e634cc93511
+            - generic: "1"
+            - generic: key
+            - text: ":"
+            - generic: sql_lineage:table:DSPBM.PB_FUNDPOSIT_SEC
+            - generic: properties
+            - generic: definitionStatus
+            - text: ":"
+            - generic: external_definition_not_imported
+            - generic: physicalName
+            - text: ":"
+            - generic: DSPBM.PB_FUNDPOSIT_SEC
+            - generic: hasPrimaryActiveDefinition
+            - text: ":"
+            - generic: "false"
+            - generic: origin
+            - text: ":"
+            - generic: sql_lineage_v1
+            - generic: tableKind
+            - text: ":"
+            - generic: external_source
+            - generic: name
+            - text: ":"
+            - generic: DSPBM.PB_FUNDPOSIT_SEC
+            - generic: ontologyId
+            - text: ":"
+            - generic: sql_lineage
+            - generic: domains
+            - generic: "0"
+            - text: ":"
+            - generic: aum
+            - generic: definitionStatuses
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: key
+            - text: ":"
+            - generic: sql_lineage:table:DSPBM.PB_FUNDPOSIT_SEC
+            - generic: labels
+            - generic: "0"
+            - text: ":"
+            - generic: SqlTable
+            - generic: statementKeys
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: requiredIncoming
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: "2"
+            - generic: key
+            - text: ":"
+            - generic: sql_lineage:table:DSPBM.PB_FUNDPOSIT_SEC_M
+            - generic: properties
+            - generic: definitionStatus
+            - text: ":"
+            - generic: external_definition_not_imported
+            - generic: physicalName
+            - text: ":"
+            - generic: DSPBM.PB_FUNDPOSIT_SEC_M
+            - generic: hasPrimaryActiveDefinition
+            - text: ":"
+            - generic: "false"
+            - generic: origin
+            - text: ":"
+            - generic: sql_lineage_v1
+            - generic: tableKind
+            - text: ":"
+            - generic: external_source
+            - generic: name
+            - text: ":"
+            - generic: DSPBM.PB_FUNDPOSIT_SEC_M
+            - generic: ontologyId
+            - text: ":"
+            - generic: sql_lineage
+            - generic: domains
+            - generic: "0"
+            - text: ":"
+            - generic: aum
+            - generic: definitionStatuses
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: key
+            - text: ":"
+            - generic: sql_lineage:table:DSPBM.PB_FUNDPOSIT_SEC_M
+            - generic: labels
+            - generic: "0"
+            - text: ":"
+            - generic: SqlTable
+            - generic: statementKeys
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: requiredIncoming
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: relationships
+            - generic: "0"
+            - generic: from
+            - text: ":"
+            - generic: sql_lineage:table:DSPBM.PB_FUNDPOSIT_SEC
+            - generic: to
+            - text: ":"
+            - generic: sql_lineage:table:AUM_025
+            - generic: type
+            - text: ":"
+            - generic: UNION
+            - generic: properties
+            - generic: sqlTextKind
+            - text: ":"
+            - generic: original_statement_slice
+            - generic: _aumIncomeTransferId
+            - text: ":"
+            - generic: ff1967ed165ec1e14aeeb26213078fa6b208f349f87b4438d3033c2b8baea4b3
+            - generic: lineStart
+            - text: ":"
+            - generic: "366"
+            - generic: origin
+            - text: ":"
+            - generic: sql_lineage_v1
+            - generic: selectExpressions
+            - generic: "0"
+            - text: ":"
+            - generic: wkb02 AS cust_id
+            - generic: "1"
+            - text: ":"
+            - generic: yyyymmdd
+            - generic: "2"
+            - text: ":"
+            - generic: SUM(WKB28 * WKB23 * WKB31) AS amt
+            - generic: whereConditions
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: lineEnd
+            - text: ":"
+            - generic: "375"
+            - generic: lineageEdgeId
+            - text: ":"
+            - generic: 6c597c51ddf71012cbd524581664852fbb1a7847c85bfe900224878c26d3e7c6
+            - generic: sourceRole
+            - text: ":"
+            - generic: primary_reference
+            - generic: statementKey
+            - text: ":"
+            - generic: sql_lineage:statement:1.AUM_DETAIL.sql:L366
+            - generic: unionBranchOrders
+            - generic: "0"
+            - text: ":"
+            - generic: "2"
+            - generic: file
+            - text: ":"
+            - generic: sources/sql/1.AUM_DETAIL.sql
+            - generic: groupExpressions
+            - generic: "0"
+            - text: ":"
+            - generic: wkb02
+            - generic: "1"
+            - text: ":"
+            - generic: yyyymmdd
+            - generic: joinTypes
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: joinInputRoles
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: unionBranchCounts
+            - generic: "0"
+            - text: ":"
+            - generic: "2"
+            - generic: joinConditions
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: unionDeduplication
+            - generic: "0"
+            - text: ":"
+            - generic: exact_projected_rows
+            - generic: operationTypes
+            - generic: "0"
+            - text: ":"
+            - generic: AGGREGATE
+            - generic: "1"
+            - text: ":"
+            - generic: SELECT
+            - generic: "2"
+            - text: ":"
+            - generic: UNION
+            - generic: "3"
+            - text: ":"
+            - generic: CREATE TABLE AS
+            - generic: havingConditions
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: aggregateExpressions
+            - generic: "0"
+            - text: ":"
+            - generic: SUM(WKB28 * WKB23 * WKB31)
+            - generic: domain
+            - text: ":"
+            - generic: aum
+            - generic: ontologyId
+            - text: ":"
+            - generic: sql_lineage
+            - generic: outputAliases
+            - generic: "0"
+            - text: ":"
+            - generic: cust_id
+            - generic: "1"
+            - text: ":"
+            - generic: yyyymmdd
+            - generic: "2"
+            - text: ":"
+            - generic: amt
+            - generic: caseExpressions
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: status
+            - text: ":"
+            - generic: active_sql
+            - generic: "1"
+            - generic: from
+            - text: ":"
+            - generic: sql_lineage:table:DSPBM.PB_FUNDPOSIT_SEC_M
+            - generic: to
+            - text: ":"
+            - generic: sql_lineage:table:AUM_025
+            - generic: type
+            - text: ":"
+            - generic: UNION
+            - generic: properties
+            - generic: sqlTextKind
+            - text: ":"
+            - generic: original_statement_slice
+            - generic: _aumIncomeTransferId
+            - text: ":"
+            - generic: 0fc756e91e4f9098f8533a76ed49da84d9c3a6e3672d8e1e0b209bb3b7eaf710
+            - generic: lineStart
+            - text: ":"
+            - generic: "366"
+            - generic: origin
+            - text: ":"
+            - generic: sql_lineage_v1
+            - generic: selectExpressions
+            - generic: "0"
+            - text: ":"
+            - generic: wkb02 AS cust_id
+            - generic: "1"
+            - text: ":"
+            - generic: yyyymmdd
+            - generic: "2"
+            - text: ":"
+            - generic: SUM(WKB28 * WKB23 * WKB31) AS amt
+            - generic: whereConditions
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: lineEnd
+            - text: ":"
+            - generic: "375"
+            - generic: lineageEdgeId
+            - text: ":"
+            - generic: a5c0ac0c518f512cb19ff1a6ea24a81d767af26bf4bcd9faf2a97e634cc93511
+            - generic: sourceRole
+            - text: ":"
+            - generic: primary_reference
+            - generic: statementKey
+            - text: ":"
+            - generic: sql_lineage:statement:1.AUM_DETAIL.sql:L366
+            - generic: unionBranchOrders
+            - generic: "0"
+            - text: ":"
+            - generic: "1"
+            - generic: file
+            - text: ":"
+            - generic: sources/sql/1.AUM_DETAIL.sql
+            - generic: groupExpressions
+            - generic: "0"
+            - text: ":"
+            - generic: wkb02
+            - generic: "1"
+            - text: ":"
+            - generic: yyyymmdd
+            - generic: joinTypes
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: joinInputRoles
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: unionBranchCounts
+            - generic: "0"
+            - text: ":"
+            - generic: "2"
+            - generic: joinConditions
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: unionDeduplication
+            - generic: "0"
+            - text: ":"
+            - generic: exact_projected_rows
+            - generic: operationTypes
+            - generic: "0"
+            - text: ":"
+            - generic: AGGREGATE
+            - generic: "1"
+            - text: ":"
+            - generic: SELECT
+            - generic: "2"
+            - text: ":"
+            - generic: UNION
+            - generic: "3"
+            - text: ":"
+            - generic: CREATE TABLE AS
+            - generic: havingConditions
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: aggregateExpressions
+            - generic: "0"
+            - text: ":"
+            - generic: SUM(WKB28 * WKB23 * WKB31)
+            - generic: domain
+            - text: ":"
+            - generic: aum
+            - generic: ontologyId
+            - text: ":"
+            - generic: sql_lineage
+            - generic: outputAliases
+            - generic: "0"
+            - text: ":"
+            - generic: cust_id
+            - generic: "1"
+            - text: ":"
+            - generic: yyyymmdd
+            - generic: "2"
+            - text: ":"
+            - generic: amt
+            - generic: caseExpressions
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: status
+            - text: ":"
+            - generic: active_sql
+            - generic: paths
+            - generic: "0"
+            - generic: tableKeys
+            - generic: "0"
+            - text: ":"
+            - generic: sql_lineage:table:AUM_025
+            - generic: relationshipIds
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: "1"
+            - generic: tableKeys
+            - generic: "0"
+            - text: ":"
+            - generic: sql_lineage:table:DSPBM.PB_FUNDPOSIT_SEC
+            - generic: "1"
+            - text: ":"
+            - generic: sql_lineage:table:AUM_025
+            - generic: relationshipIds
+            - generic: "0"
+            - text: ":"
+            - generic: 6c597c51ddf71012cbd524581664852fbb1a7847c85bfe900224878c26d3e7c6
+            - generic: "2"
+            - generic: tableKeys
+            - generic: "0"
+            - text: ":"
+            - generic: sql_lineage:table:DSPBM.PB_FUNDPOSIT_SEC_M
+            - generic: "1"
+            - text: ":"
+            - generic: sql_lineage:table:AUM_025
+            - generic: relationshipIds
+            - generic: "0"
+            - text: ":"
+            - generic: a5c0ac0c518f512cb19ff1a6ea24a81d767af26bf4bcd9faf2a97e634cc93511
+            - generic: stage
+            - generic: key
+            - text: ":"
+            - generic: aum:stage:AUM_025
+            - generic: properties
+            - generic: sqlDefinitionStatus
+            - text: ":"
+            - generic: active_in_primary_sql
+            - generic: sqlLineageVersion
+            - text: ":"
+            - generic: sql_lineage_v1
+            - generic: stagingSqlId
+            - text: ":"
+            - generic: STG_AUM_025
+            - generic: sourceTables
+            - generic: "0"
+            - text: ":"
+            - generic: DSPBM.PB_FUNDPOSIT_SEC_M
+            - generic: "1"
+            - text: ":"
+            - generic: DSPBM.PB_FUNDPOSIT_SEC
+            - generic: outputObject
+            - text: ":"
+            - generic: AUM_025
+            - generic: name
+            - text: ":"
+            - generic: AUM_025
+            - generic: dictionaryVersion
+            - text: ":"
+            - generic: 0.2-draft
+            - generic: ontologyId
+            - text: ":"
+            - generic: aum
+            - generic: stageLevel
+            - text: ":"
+            - generic: source_transform
+            - generic: key
+            - text: ":"
+            - generic: aum:stage:AUM_025
+            - generic: labels
+            - generic: "0"
+            - text: ":"
+            - generic: StagingOutput
+            - generic: outputTable
+            - text: ":"
+            - generic: AUM_025
+            - generic: bindingStatus
+            - text: ":"
+            - generic: explicit_scope
+            - generic: mappingType
+            - text: ":"
+            - generic: AUM_IMPLEMENTED_BY
+            - generic: bindingConceptKey
+            - text: ":"
+            - generic: pb_shared:product:securities_fund
+            - generic: targetTableKey
+            - text: ":"
+            - generic: sql_lineage:table:AUM_025
+            - generic: bridge
+            - generic: from
+            - text: ":"
+            - generic: aum:stage:AUM_025
+            - generic: to
+            - text: ":"
+            - generic: sql_lineage:table:AUM_025
+            - generic: type
+            - text: ":"
+            - generic: REPRESENTS_SQL_TABLE
+            - generic: properties
+            - generic: _aumIncomeTransferId
+            - text: ":"
+            - generic: 551028ecd3e3ec55ee21a3ba872ded67f7d6927b0825b51706620cefd98266fe
+            - generic: ontologyId
+            - text: ":"
+            - generic: sql_lineage
+            - generic: origin
+            - text: ":"
+            - generic: sql_lineage_v1
+            - generic: sqlTable
+            - text: ":"
+            - generic: AUM_025
+            - generic: evidence
+            - generic: status
+            - text: ":"
+            - generic: complete
+            - generic: issues
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: requiredBaseTables
+            - generic: "0"
+            - text: ":"
+            - generic: DSPBM.PB_FUNDPOSIT_SEC
+            - generic: "1"
+            - text: ":"
+            - generic: DSPBM.PB_FUNDPOSIT_SEC_M
+            - generic: statementKeys
+            - generic: "0"
+            - text: ":"
+            - generic: sql_lineage:statement:1.AUM_DETAIL.sql:L366
+            - generic: maxDepth
+            - text: ":"
+            - generic: "16"
+            - generic: completenessMeaning
+            - text: ":"
+            - generic: All fetched active primary statements and their dependency branches are covered; physical source availability is checked by the main workflow.
+            - generic: selectedPathKey
+            - text: ":"
+            - generic: route::aum::aum_securities_month_end::eb3477f1
+            - generic: queryMetricKey
+            - text: ":"
+            - generic: aum:metric:aum_securities_month_end
+            - generic: queryMetricCode
+            - text: ":"
+            - generic: aum_securities_month_end
+            - generic: mappingBindingMethod
+            - text: ":"
+            - generic: selected_route_anchor_and_measurement_relationship
+            - generic: evidence
+            - generic: status
+            - text: ":"
+            - generic: complete
+            - generic: issues
+            - text: ":"
+            - generic: "[empty array]"
+          - cell "complete":
+            - generic: complete
+          - cell "true":
+            - generic: "true"
+          - cell "ready_for_source_check":
+            - generic: ready_for_source_check
+          - cell "[empty array]":
+            - generic: "[empty array]"
+          - cell "已選定概念及完整業務路徑集合，接著查映射。":
+            - generic: 已選定概念及完整業務路徑集合，接著查映射。
+          - cell
+- complementary
+- status
+- alert

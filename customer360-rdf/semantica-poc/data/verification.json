@@ -1,0 +1,63 @@
+{
+  "checks": [
+    "stable node and edge IDs",
+    "all parallel edges",
+    "original PG properties and pending states",
+    "edge provenance",
+    "save/load round trip",
+    "frontend assets",
+    "Chinese search",
+    "RDF URI lookup",
+    "five AUM components",
+    "all declared RDF classes and relationships in combined view",
+    "all remaining direct PG-to-RDF class correspondences",
+    "one RDF private department with all 44 metric adoption edges",
+    "complete ontology loaded in isolated Hub session",
+    "Hub definitions, inheritance, domain and range",
+    "no property, field, mapping or reference nodes on business canvas"
+  ],
+  "ontology_hub": {
+    "classes": 43,
+    "main_canvas_unchanged": true,
+    "properties": 33,
+    "rdf_triples": 434
+  },
+  "original_sources_unchanged": true,
+  "pg_to_rdf_correspondences": 54,
+  "rdf_triples_audited": 434,
+  "runtime_versions": {
+    "fastapi": "0.162.0",
+    "networkx": "3.5",
+    "numpy": "2.3.3",
+    "pandas": "2.3.3",
+    "pydantic": "2.14.1",
+    "rdflib": "7.6.0",
+    "scipy": "1.17.0",
+    "semantica": "0.7.0",
+    "starlette": "1.10.0"
+  },
+  "semantica": "0.7.0",
+  "status": "passed",
+  "views": {
+    "business": {
+      "api": "passed",
+      "edges": 146,
+      "nodes": 104
+    },
+    "full": {
+      "api": "passed",
+      "edges": 246,
+      "nodes": 146
+    },
+    "ontology": {
+      "api": "passed",
+      "edges": 46,
+      "nodes": 43
+    },
+    "securities": {
+      "api": "passed",
+      "edges": 44,
+      "nodes": 29
+    }
+  }
+}

@@ -1,0 +1,3078 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/definition/graphDefinition/1.0.0/schema.json",
+  "nodeTables": [
+    {
+      "id": "AnnotationProperty_node_mapping",
+      "dataSourceName": "AnnotationProperty_node",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "definition",
+          "sourceColumn": "definition"
+        },
+        {
+          "propertyName": "subsidiary",
+          "sourceColumn": "subsidiary"
+        },
+        {
+          "propertyName": "metric_kind",
+          "sourceColumn": "metric_kind"
+        },
+        {
+          "propertyName": "pg_label",
+          "sourceColumn": "pg_label"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "properties_json",
+          "sourceColumn": "properties_json"
+        },
+        {
+          "propertyName": "rdf_annotations_json",
+          "sourceColumn": "rdf_annotations_json"
+        }
+      ],
+      "nodeTypeAlias": "AnnotationProperty_node"
+    },
+    {
+      "id": "BusinessConcept_node_mapping",
+      "dataSourceName": "BusinessConcept_node",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "definition",
+          "sourceColumn": "definition"
+        },
+        {
+          "propertyName": "subsidiary",
+          "sourceColumn": "subsidiary"
+        },
+        {
+          "propertyName": "metric_kind",
+          "sourceColumn": "metric_kind"
+        },
+        {
+          "propertyName": "pg_label",
+          "sourceColumn": "pg_label"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "properties_json",
+          "sourceColumn": "properties_json"
+        },
+        {
+          "propertyName": "rdf_annotations_json",
+          "sourceColumn": "rdf_annotations_json"
+        }
+      ],
+      "nodeTypeAlias": "BusinessConcept_node"
+    },
+    {
+      "id": "BusinessRelationDefinition_node_mapping",
+      "dataSourceName": "BusinessRelationDefinition_node",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "definition",
+          "sourceColumn": "definition"
+        },
+        {
+          "propertyName": "subsidiary",
+          "sourceColumn": "subsidiary"
+        },
+        {
+          "propertyName": "metric_kind",
+          "sourceColumn": "metric_kind"
+        },
+        {
+          "propertyName": "pg_label",
+          "sourceColumn": "pg_label"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "properties_json",
+          "sourceColumn": "properties_json"
+        },
+        {
+          "propertyName": "rdf_annotations_json",
+          "sourceColumn": "rdf_annotations_json"
+        }
+      ],
+      "nodeTypeAlias": "BusinessRelationDefinition_node"
+    },
+    {
+      "id": "DataFieldDefinition_node_mapping",
+      "dataSourceName": "DataFieldDefinition_node",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "definition",
+          "sourceColumn": "definition"
+        },
+        {
+          "propertyName": "subsidiary",
+          "sourceColumn": "subsidiary"
+        },
+        {
+          "propertyName": "metric_kind",
+          "sourceColumn": "metric_kind"
+        },
+        {
+          "propertyName": "pg_label",
+          "sourceColumn": "pg_label"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "properties_json",
+          "sourceColumn": "properties_json"
+        },
+        {
+          "propertyName": "rdf_annotations_json",
+          "sourceColumn": "rdf_annotations_json"
+        }
+      ],
+      "nodeTypeAlias": "DataFieldDefinition_node"
+    },
+    {
+      "id": "DataProperty_node_mapping",
+      "dataSourceName": "DataProperty_node",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "definition",
+          "sourceColumn": "definition"
+        },
+        {
+          "propertyName": "subsidiary",
+          "sourceColumn": "subsidiary"
+        },
+        {
+          "propertyName": "metric_kind",
+          "sourceColumn": "metric_kind"
+        },
+        {
+          "propertyName": "pg_label",
+          "sourceColumn": "pg_label"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "properties_json",
+          "sourceColumn": "properties_json"
+        },
+        {
+          "propertyName": "rdf_annotations_json",
+          "sourceColumn": "rdf_annotations_json"
+        }
+      ],
+      "nodeTypeAlias": "DataProperty_node"
+    },
+    {
+      "id": "Department_node_mapping",
+      "dataSourceName": "Department_node",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "definition",
+          "sourceColumn": "definition"
+        },
+        {
+          "propertyName": "subsidiary",
+          "sourceColumn": "subsidiary"
+        },
+        {
+          "propertyName": "metric_kind",
+          "sourceColumn": "metric_kind"
+        },
+        {
+          "propertyName": "pg_label",
+          "sourceColumn": "pg_label"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "properties_json",
+          "sourceColumn": "properties_json"
+        },
+        {
+          "propertyName": "rdf_annotations_json",
+          "sourceColumn": "rdf_annotations_json"
+        }
+      ],
+      "nodeTypeAlias": "Department_node"
+    },
+    {
+      "id": "MappingSlot_node_mapping",
+      "dataSourceName": "MappingSlot_node",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "definition",
+          "sourceColumn": "definition"
+        },
+        {
+          "propertyName": "subsidiary",
+          "sourceColumn": "subsidiary"
+        },
+        {
+          "propertyName": "metric_kind",
+          "sourceColumn": "metric_kind"
+        },
+        {
+          "propertyName": "pg_label",
+          "sourceColumn": "pg_label"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "properties_json",
+          "sourceColumn": "properties_json"
+        },
+        {
+          "propertyName": "rdf_annotations_json",
+          "sourceColumn": "rdf_annotations_json"
+        }
+      ],
+      "nodeTypeAlias": "MappingSlot_node"
+    },
+    {
+      "id": "MetadataModule_node_mapping",
+      "dataSourceName": "MetadataModule_node",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "definition",
+          "sourceColumn": "definition"
+        },
+        {
+          "propertyName": "subsidiary",
+          "sourceColumn": "subsidiary"
+        },
+        {
+          "propertyName": "metric_kind",
+          "sourceColumn": "metric_kind"
+        },
+        {
+          "propertyName": "pg_label",
+          "sourceColumn": "pg_label"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "properties_json",
+          "sourceColumn": "properties_json"
+        },
+        {
+          "propertyName": "rdf_annotations_json",
+          "sourceColumn": "rdf_annotations_json"
+        }
+      ],
+      "nodeTypeAlias": "MetadataModule_node"
+    },
+    {
+      "id": "Metric_node_mapping",
+      "dataSourceName": "Metric_node",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "definition",
+          "sourceColumn": "definition"
+        },
+        {
+          "propertyName": "subsidiary",
+          "sourceColumn": "subsidiary"
+        },
+        {
+          "propertyName": "metric_kind",
+          "sourceColumn": "metric_kind"
+        },
+        {
+          "propertyName": "pg_label",
+          "sourceColumn": "pg_label"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "properties_json",
+          "sourceColumn": "properties_json"
+        },
+        {
+          "propertyName": "rdf_annotations_json",
+          "sourceColumn": "rdf_annotations_json"
+        }
+      ],
+      "nodeTypeAlias": "Metric_node"
+    },
+    {
+      "id": "ObjectProperty_node_mapping",
+      "dataSourceName": "ObjectProperty_node",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "definition",
+          "sourceColumn": "definition"
+        },
+        {
+          "propertyName": "subsidiary",
+          "sourceColumn": "subsidiary"
+        },
+        {
+          "propertyName": "metric_kind",
+          "sourceColumn": "metric_kind"
+        },
+        {
+          "propertyName": "pg_label",
+          "sourceColumn": "pg_label"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "properties_json",
+          "sourceColumn": "properties_json"
+        },
+        {
+          "propertyName": "rdf_annotations_json",
+          "sourceColumn": "rdf_annotations_json"
+        }
+      ],
+      "nodeTypeAlias": "ObjectProperty_node"
+    },
+    {
+      "id": "OntologyClass_node_mapping",
+      "dataSourceName": "OntologyClass_node",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "definition",
+          "sourceColumn": "definition"
+        },
+        {
+          "propertyName": "subsidiary",
+          "sourceColumn": "subsidiary"
+        },
+        {
+          "propertyName": "metric_kind",
+          "sourceColumn": "metric_kind"
+        },
+        {
+          "propertyName": "pg_label",
+          "sourceColumn": "pg_label"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "properties_json",
+          "sourceColumn": "properties_json"
+        },
+        {
+          "propertyName": "rdf_annotations_json",
+          "sourceColumn": "rdf_annotations_json"
+        }
+      ],
+      "nodeTypeAlias": "OntologyClass_node"
+    },
+    {
+      "id": "PendingSemanticReference_node_mapping",
+      "dataSourceName": "PendingSemanticReference_node",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "definition",
+          "sourceColumn": "definition"
+        },
+        {
+          "propertyName": "subsidiary",
+          "sourceColumn": "subsidiary"
+        },
+        {
+          "propertyName": "metric_kind",
+          "sourceColumn": "metric_kind"
+        },
+        {
+          "propertyName": "pg_label",
+          "sourceColumn": "pg_label"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "properties_json",
+          "sourceColumn": "properties_json"
+        },
+        {
+          "propertyName": "rdf_annotations_json",
+          "sourceColumn": "rdf_annotations_json"
+        }
+      ],
+      "nodeTypeAlias": "PendingSemanticReference_node"
+    },
+    {
+      "id": "SourceTable_node_mapping",
+      "dataSourceName": "SourceTable_node",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "definition",
+          "sourceColumn": "definition"
+        },
+        {
+          "propertyName": "subsidiary",
+          "sourceColumn": "subsidiary"
+        },
+        {
+          "propertyName": "metric_kind",
+          "sourceColumn": "metric_kind"
+        },
+        {
+          "propertyName": "pg_label",
+          "sourceColumn": "pg_label"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "properties_json",
+          "sourceColumn": "properties_json"
+        },
+        {
+          "propertyName": "rdf_annotations_json",
+          "sourceColumn": "rdf_annotations_json"
+        }
+      ],
+      "nodeTypeAlias": "SourceTable_node"
+    }
+  ],
+  "edgeTables": [
+    {
+      "id": "CANDIDATE_SOURCE_DataFieldDefinitio_08692abc0283_mapping",
+      "dataSourceName": "CANDIDATE_SOURCE_DataFieldDefinitio_08692abc0283",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "CANDIDATE_SOURCE_DataFieldDefinitio_08692abc0283",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "FIELD_IDENTIFIES_CLASS_DataFieldDef_1bec28b1b8fe_mapping",
+      "dataSourceName": "FIELD_IDENTIFIES_CLASS_DataFieldDef_1bec28b1b8fe",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "FIELD_IDENTIFIES_CLASS_DataFieldDef_1bec28b1b8fe",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "FIELD_REFERS_TO_PROPERTY_DataFieldD_cbcc62c0abaf_mapping",
+      "dataSourceName": "FIELD_REFERS_TO_PROPERTY_DataFieldD_cbcc62c0abaf",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "FIELD_REFERS_TO_PROPERTY_DataFieldD_cbcc62c0abaf",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "HAS_BUSINESS_SCOPE_Metric_OntologyClass_edge_mapping",
+      "dataSourceName": "HAS_BUSINESS_SCOPE_Metric_OntologyClass_edge",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "HAS_BUSINESS_SCOPE_Metric_OntologyClass_edge",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "HAS_COMPONENT_METRIC_Metric_Metric_edge_mapping",
+      "dataSourceName": "HAS_COMPONENT_METRIC_Metric_Metric_edge",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "HAS_COMPONENT_METRIC_Metric_Metric_edge",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "HAS_CONCEPT_MetadataModule_BusinessConcept_edge_mapping",
+      "dataSourceName": "HAS_CONCEPT_MetadataModule_BusinessConcept_edge",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "HAS_CONCEPT_MetadataModule_BusinessConcept_edge",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "HAS_CONCEPT_MetadataModule_Department_edge_mapping",
+      "dataSourceName": "HAS_CONCEPT_MetadataModule_Department_edge",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "HAS_CONCEPT_MetadataModule_Department_edge",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "HAS_CONCEPT_MetadataModule_Metric_edge_mapping",
+      "dataSourceName": "HAS_CONCEPT_MetadataModule_Metric_edge",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "HAS_CONCEPT_MetadataModule_Metric_edge",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "HAS_DOMAIN_CLASS_ObjectProperty_Ont_325cfdb0536d_mapping",
+      "dataSourceName": "HAS_DOMAIN_CLASS_ObjectProperty_Ont_325cfdb0536d",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "HAS_DOMAIN_CLASS_ObjectProperty_Ont_325cfdb0536d",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "HAS_DOMAIN_REFERENCE_DataProperty_O_da417160c27e_mapping",
+      "dataSourceName": "HAS_DOMAIN_REFERENCE_DataProperty_O_da417160c27e",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "HAS_DOMAIN_REFERENCE_DataProperty_O_da417160c27e",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "HAS_FIELD_DEFINITION_BusinessConcep_16dd428b7d6e_mapping",
+      "dataSourceName": "HAS_FIELD_DEFINITION_BusinessConcep_16dd428b7d6e",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "HAS_FIELD_DEFINITION_BusinessConcep_16dd428b7d6e",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "HAS_FIELD_DEFINITION_Metric_DataFie_39970cf11e82_mapping",
+      "dataSourceName": "HAS_FIELD_DEFINITION_Metric_DataFie_39970cf11e82",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "HAS_FIELD_DEFINITION_Metric_DataFie_39970cf11e82",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "HAS_MAPPING_BusinessConcept_MappingSlot_edge_mapping",
+      "dataSourceName": "HAS_MAPPING_BusinessConcept_MappingSlot_edge",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "HAS_MAPPING_BusinessConcept_MappingSlot_edge",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "HAS_PARENT_CLASS_REFERENCE_Ontology_230ef5aec539_mapping",
+      "dataSourceName": "HAS_PARENT_CLASS_REFERENCE_Ontology_230ef5aec539",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "HAS_PARENT_CLASS_REFERENCE_Ontology_230ef5aec539",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "HAS_PENDING_REFERENCE_BusinessConce_4d5af922a019_mapping",
+      "dataSourceName": "HAS_PENDING_REFERENCE_BusinessConce_4d5af922a019",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "HAS_PENDING_REFERENCE_BusinessConce_4d5af922a019",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "HAS_RANGE_CLASS_ObjectProperty_Onto_847cf68ac6f8_mapping",
+      "dataSourceName": "HAS_RANGE_CLASS_ObjectProperty_Onto_847cf68ac6f8",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "HAS_RANGE_CLASS_ObjectProperty_Onto_847cf68ac6f8",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "HAS_RELATION_DEFINITION_BusinessCon_725d17b1e977_mapping",
+      "dataSourceName": "HAS_RELATION_DEFINITION_BusinessCon_725d17b1e977",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "HAS_RELATION_DEFINITION_BusinessCon_725d17b1e977",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "HAS_RELATION_DEFINITION_Department__cd2968c872f0_mapping",
+      "dataSourceName": "HAS_RELATION_DEFINITION_Department__cd2968c872f0",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "HAS_RELATION_DEFINITION_Department__cd2968c872f0",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "HAS_RELATION_DEFINITION_Metric_Busi_05b4c2facf1a_mapping",
+      "dataSourceName": "HAS_RELATION_DEFINITION_Metric_Busi_05b4c2facf1a",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "HAS_RELATION_DEFINITION_Metric_Busi_05b4c2facf1a",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "HAS_RELATION_FIELD_BusinessRelation_1c91a731c326_mapping",
+      "dataSourceName": "HAS_RELATION_FIELD_BusinessRelation_1c91a731c326",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "HAS_RELATION_FIELD_BusinessRelation_1c91a731c326",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "HAS_SOURCE_TABLE_Metric_SourceTable_edge_mapping",
+      "dataSourceName": "HAS_SOURCE_TABLE_Metric_SourceTable_edge",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "HAS_SOURCE_TABLE_Metric_SourceTable_edge",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "HAS_TARGET_CLASS_BusinessRelationDe_d38500ef29c8_mapping",
+      "dataSourceName": "HAS_TARGET_CLASS_BusinessRelationDe_d38500ef29c8",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "HAS_TARGET_CLASS_BusinessRelationDe_d38500ef29c8",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "RDF_DECLARED_attributedToAdvisor_On_974a1f2b03a9_mapping",
+      "dataSourceName": "RDF_DECLARED_attributedToAdvisor_On_974a1f2b03a9",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "RDF_DECLARED_attributedToAdvisor_On_974a1f2b03a9",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "RDF_DECLARED_feeIncomeFromProduct_O_bd5665848788_mapping",
+      "dataSourceName": "RDF_DECLARED_feeIncomeFromProduct_O_bd5665848788",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "RDF_DECLARED_feeIncomeFromProduct_O_bd5665848788",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "RDF_DECLARED_hasContactPoint_Ontolo_dab01f430757_mapping",
+      "dataSourceName": "RDF_DECLARED_hasContactPoint_Ontolo_dab01f430757",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "RDF_DECLARED_hasContactPoint_Ontolo_dab01f430757",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "RDF_DECLARED_holds_OntologyClass_On_bcd0488503c1_mapping",
+      "dataSourceName": "RDF_DECLARED_holds_OntologyClass_On_bcd0488503c1",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "RDF_DECLARED_holds_OntologyClass_On_bcd0488503c1",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "RDF_DECLARED_interestIncomeFromProd_dd7494c892aa_mapping",
+      "dataSourceName": "RDF_DECLARED_interestIncomeFromProd_dd7494c892aa",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "RDF_DECLARED_interestIncomeFromProd_dd7494c892aa",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "RDF_DECLARED_lumMeasuresProduct_Ont_6d41e8d65da6_mapping",
+      "dataSourceName": "RDF_DECLARED_lumMeasuresProduct_Ont_6d41e8d65da6",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "RDF_DECLARED_lumMeasuresProduct_Ont_6d41e8d65da6",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "RDF_DECLARED_measuresProduct_Ontolo_68bee84bc050_mapping",
+      "dataSourceName": "RDF_DECLARED_measuresProduct_Ontolo_68bee84bc050",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "RDF_DECLARED_measuresProduct_Ontolo_68bee84bc050",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "RDF_DECLARED_serves_OntologyClass_O_ffb280d5df48_mapping",
+      "dataSourceName": "RDF_DECLARED_serves_OntologyClass_O_ffb280d5df48",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "RDF_DECLARED_serves_OntologyClass_O_ffb280d5df48",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "RDF_DECLARED_usesMetric_OntologyCla_054ad381a927_mapping",
+      "dataSourceName": "RDF_DECLARED_usesMetric_OntologyCla_054ad381a927",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "RDF_DECLARED_usesMetric_OntologyCla_054ad381a927",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "RDF_DOMAIN_DataProperty_OntologyClass_edge_mapping",
+      "dataSourceName": "RDF_DOMAIN_DataProperty_OntologyClass_edge",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "RDF_DOMAIN_DataProperty_OntologyClass_edge",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "RDF_DOMAIN_ObjectProperty_OntologyClass_edge_mapping",
+      "dataSourceName": "RDF_DOMAIN_ObjectProperty_OntologyClass_edge",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "RDF_DOMAIN_ObjectProperty_OntologyClass_edge",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "RDF_RANGE_ObjectProperty_OntologyClass_edge_mapping",
+      "dataSourceName": "RDF_RANGE_ObjectProperty_OntologyClass_edge",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "RDF_RANGE_ObjectProperty_OntologyClass_edge",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "RDF_SUBCLASS_OF_OntologyClass_OntologyClass_edge_mapping",
+      "dataSourceName": "RDF_SUBCLASS_OF_OntologyClass_OntologyClass_edge",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "RDF_SUBCLASS_OF_OntologyClass_OntologyClass_edge",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "REFERS_TO_CLASS_BusinessConcept_Ont_bdeb2d2cecbf_mapping",
+      "dataSourceName": "REFERS_TO_CLASS_BusinessConcept_Ont_bdeb2d2cecbf",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "REFERS_TO_CLASS_BusinessConcept_Ont_bdeb2d2cecbf",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "REFERS_TO_CLASS_Department_OntologyClass_edge_mapping",
+      "dataSourceName": "REFERS_TO_CLASS_Department_OntologyClass_edge",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "REFERS_TO_CLASS_Department_OntologyClass_edge",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "REFERS_TO_CLASS_Metric_OntologyClass_edge_mapping",
+      "dataSourceName": "REFERS_TO_CLASS_Metric_OntologyClass_edge",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "REFERS_TO_CLASS_Metric_OntologyClass_edge",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "REFERS_TO_OBJECT_PROPERTY_BusinessR_88678226184c_mapping",
+      "dataSourceName": "REFERS_TO_OBJECT_PROPERTY_BusinessR_88678226184c",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "REFERS_TO_OBJECT_PROPERTY_BusinessR_88678226184c",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "REFERS_TO_PROPERTY_MappingSlot_DataProperty_edge_mapping",
+      "dataSourceName": "REFERS_TO_PROPERTY_MappingSlot_DataProperty_edge",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "REFERS_TO_PROPERTY_MappingSlot_DataProperty_edge",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "USES_DATE_LOOKUP_SOURCE_Metric_SourceTable_edge_mapping",
+      "dataSourceName": "USES_DATE_LOOKUP_SOURCE_Metric_SourceTable_edge",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "USES_DATE_LOOKUP_SOURCE_Metric_SourceTable_edge",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "USES_METRIC_Department_Metric_edge_mapping",
+      "dataSourceName": "USES_METRIC_Department_Metric_edge",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "USES_METRIC_Department_Metric_edge",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    },
+    {
+      "id": "USES_VALUATION_SOURCE_Metric_SourceTable_edge_mapping",
+      "dataSourceName": "USES_VALUATION_SOURCE_Metric_SourceTable_edge",
+      "propertyMappings": [
+        {
+          "propertyName": "id",
+          "sourceColumn": "id"
+        },
+        {
+          "propertyName": "kind",
+          "sourceColumn": "kind"
+        },
+        {
+          "propertyName": "source_id",
+          "sourceColumn": "source_id"
+        },
+        {
+          "propertyName": "target_id",
+          "sourceColumn": "target_id"
+        },
+        {
+          "propertyName": "source_kind",
+          "sourceColumn": "source_kind"
+        },
+        {
+          "propertyName": "target_kind",
+          "sourceColumn": "target_kind"
+        },
+        {
+          "propertyName": "display_name",
+          "sourceColumn": "display_name"
+        },
+        {
+          "propertyName": "origin",
+          "sourceColumn": "origin"
+        },
+        {
+          "propertyName": "semantic_status",
+          "sourceColumn": "semantic_status"
+        },
+        {
+          "propertyName": "predicate_uri",
+          "sourceColumn": "predicate_uri"
+        }
+      ],
+      "edgeTypeAlias": "USES_VALUATION_SOURCE_Metric_SourceTable_edge",
+      "edgeIdMapping": [
+        "id"
+      ],
+      "sourceNodeKeyColumns": [
+        "source_id"
+      ],
+      "destinationNodeKeyColumns": [
+        "target_id"
+      ]
+    }
+  ]
+}

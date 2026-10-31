@@ -1,0 +1,227 @@
+私銀智能問答：通用回答簡化方案與測試交接
+日期：2026-10-16，Asia/Taipei。
+本檔是下一個 session 的工作入口；本輪只寫交接與規劃，未修改 n8n、未呼叫新模型、未發布。
+
+一、使用者最新意圖與工作邊界
+
+使用者希望驗證：是否不必先把問題分成定義、比較、計算、追問等細類，而能讓回答模型直接讀完整對話與圖譜，用通用提示詞回答業務問題；需要時自然提出澄清。
+使用者要求本輪先寫交接，將自行開新的 session 執行；不要代建新 chat，也不要在本輪繼續修改或跑模型測試。
+下一個 session 的工作是按本計畫做最小對照與逐步調整，不再只補分類選項或疊加矛盾修補規則。
+先逐組檢視實際輸入、輸出與來源，再決定調整；兩組目標能力通過後，才進入完整回歸。
+
+沿用使用者約束：
+- 18 節點，每輪單次 Jev，不發布。
+- 不新增回答後驗證／修正節點，不增加前置 LLM 整理對話。
+- 不修改 Aura 圖譜、原始 SQL、已發布共用 KB；不執行 Oracle 或真實金額查詢。
+- 原 SQL 使用 CP950／Big5，不能順手改存 UTF-8。
+- 每組獨立測試先清記憶，同組多輪之間保留記憶。跨話題干擾另設案例。
+- 試驗期間可使用既有的回答模型；「不新增前置 LLM」不代表移除原本的 Answer Question／QA Chat Model。
+
+二、目前線上基準與備份
+
+根目錄：C:\Users\petershiao\Desktop\Ontology\私銀智能問答
+目標：https://chiang4901.app.n8n.cloud/workflow/pqvhkncZ9bFlfe4B
+名稱：智能問答－圖譜理解與對話測試
+workflowId：pqvhkncZ9bFlfe4B；18 節點；active=false；未發布。
+最後查證的保存版本：53ce6a9b-c246-41b7-8204-abec81f6e624。
+節點參數 SHA256 基準：76d95b592e9a811ca71841e8365c2c1fb0b88d73eab7535cae7ad0fb85314387。
+最新完整匯出：deliverables/graph_qa/v9/clean_session_20261016/workflow.after.json。
+同目錄 workflow.before.json 與 after 的 nodes、connections、settings、pinData 深比完全相同。
+與前次凍結版 6dd3c096-c7bb-4473-adbe-5f0618c32229 相比，僅 Finalize QA 畫布位置不同，功能參數相同。
+下一個 session 必須重新匯出線上版，先比對，保留使用者後續變更；不能直接貼舊匯入檔覆蓋。
+
+Graph Chat 原固定示範資料已還原：
+sessionId=4753afde49b44d0899cb8b9d103b9862
+chatInput=證券複委託基金的收入怎麼計算？請說明來源與日期規則。
+聊天面板已 Reset；沒有執行中的測試。
+真實聊天測試前要備份並解除 Graph Chat pinData。只按 Reset 並不會解除固定輸入，固定題目與 session 仍可能覆蓋聊天內容。測後還原原 pinData 並 Reset。
+
+deliverables/graph_qa/v10 是較早的未完成本機草稿，尚未套用、沒有原生驗收，不是本次通用回答方案。不要直接部署，也不要覆寫它來混淆紀錄。
+新工作建議放 deliverables/graph_qa/v11_direct_answer_20261016；由下一個 session 建立實作檔與線上新鮮備份。本輪只在 docs/handoffs 寫計畫。
+
+三、已確認的失敗證據
+
+F2（歷史 #2619）：
+- 對話為「基金收入怎麼算？」→系統問銀行／證券→「銀行的」。
+- Jev 已選對 bank_fund/income 唯一路徑，qa_context=clarification_reply，qa_answer_intent=calculation。
+- 但 qa_route=clarify、qa_clarification=none；Process 改成 unsupported，清掉路徑與 pending，因此沒查映射。
+- 非 SQL 的 P1 #2626 曾成功查映射，已排除「只有問 SQL 才查映射」。
+- 證據：deliverables/graph_qa/v9/f2_investigation_20261016/調查結論.txt、replay_result.json。
+
+舊 C1／C2 原本接在 L1→D1→D2→L2 後，沒有重設。不能當成乾淨兩輪測試；舊 6/18 是實際序列逐題判定，不是獨立案例準確率。
+
+清記憶重跑 C1／C2：
+- 同組 session：ebb903df6b834640ad46d9373d6eb445。
+- C1 #2640：「銀行基金與證券複委託基金差在哪？」。
+- C2 #2641：「那 AUM 呢？」。
+- 第一輪實際 history=[]、previousTopic={}、pendingClarification=null；第二輪只有本組第一輪，沒有其他測試歷史。
+- C1 Jev 正確選 independent、comparison、concept、none。兩基金及其 AUM／收入路徑被當成比較證據。
+- Process 卻把相關指標節點推成 topic.domains=[aum,income]；「回答用到的證據」被存成「使用者指定的衡量領域」。
+- C2 的 Jev 原始是 followup、definition、clarify、domain；不是 channel。
+- C2 的產品節點：兩基金 included，證券債券與結構型商品 excluded。
+- C2 的路徑：兩基金 AUM、證券債券 AUM、證券結構型商品 AUM 全為 uncertain，沒有 included 計算路徑。
+- Process 看見直接指標只有 AUM、候選跨通路，將 domain 自動改成 channel，再從 uncertain 路徑把其他產品加回候選。
+- 最後回答：「你指的是銀行基金、證券複委託債券、證券複委託結構型商品，還是證券複委託基金？」。
+- 全部 86 個實際 choice 的本機重播，與實際 Process 輸出及 memoryState 完全相符。
+- 只強制改成查映射、其餘 choice 保持原樣的本機推演仍 unsupported；它不代表改寫 Jev 提示詞後的原生結果。
+
+目前回答端另有阻斷：
+Prepare Concept Response 使用 Process 篩後的 conceptGraph。clarify 時該圖為空；answer_prompt 又要求照 clarification 原句輸出。
+因此 C2 沒有測到「回答模型看完整圖與原始多輪對話後能否直接答」，只能照上游錯誤澄清念出。
+
+完整證據目錄：deliverables/graph_qa/v9/clean_session_20261016/
+- assessment.json、重測結果.txt：隔離驗證與原生結果。
+- 2640.C1.decisionRequest.visible.txt、2641.C2.decisionRequest.visible.txt：歷史請求完整可見欄位，屬畫面階層攤平文字。
+- C1/C2.clean.decisionRequest.reconstructed.json：依保存記憶、同版程式與圖譜 fixture 重建的可讀 JSON，不是原始 HTTP log。
+- C1/C2.clean.Jev_response.visible.json：實際表格輸出，含 choice 與機率。
+- C1/C2.clean.Jev_choices.reconstructed.json：由表格解析的 86 個 choice。
+- Process／Finalize visible.json、decision_trace.json、輸入輸出證據說明.txt：程式後處理、記憶與逐層比對。
+Jev 實際 API body 是 $json.decisionRequest。sessionId 用於工作流程讀寫記憶，不在 Jev state 裡，別把 Prepare Dialogue 節錄當成完整 API body。
+
+四、目前結論與尚未證實的假設
+
+已確認：
+1. 對話內容有送到 Jev，部分選擇仍相互不一致；不是整段記憶完全沒有讀到。
+2. 分類與後處理本身造成了可重現的錯誤。
+3. 只合併 qa_route／qa_clarification，不能同時解決 C2 的比較目的、路徑範圍及 C1 記憶污染。
+4. 比較時有兩個已確認產品，不等於還要從兩產品選一個。
+5. 概念圖能回答定義、分類與歸屬；計算、日期、估值、合併去重等仍需要映射與來源證據。
+
+待驗證：
+「原始對話＋完整概念圖＋相關映射證據＋通用回答 prompt」是否比現版較穩定；目前沒有乾淨的對照試驗，不可宣稱已證明更好。
+歷史 v1 是 Agent＋圖譜查證工具，工具仍有 Jev 選路，留存說明當時尚未實測多輪；不是純通用 prompt 對照組。
+v2 已有前置 Resolve 分類，曾出現來源混用與公式誤讀；不能把這些問題歸因於「沒有細分題型」。
+歷史參考：deliverables/graph_qa/v1/使用說明.txt、agent_prompt.txt；v2/使用說明.txt、resolve_prompt.txt。
+不能宣稱「以前試過直接讀圖，已證明不行」，也不能因新方案簡單便宣稱一定正確。
+
+五、建議的最小試驗方案（未實作）
+
+目標：不再讓定義／比較／計算／追問等細分類決定是否准許回答。Jev 專注找可能相關證據，現有回答模型直接依原始對話與證據判斷怎麼回答、是否需要澄清。
+同一輪維持一次 Jev 與一次既有主要回答模型；不增加 Resolve LLM、Agent 自動多次工具呼叫或回答後修復迴圈。
+
+候選流程：
+讀記憶＋完整概念圖 → 單次 Jev 找可相關的衡量路徑 → 有候選則查映射、無候選則仍保留概念圖 → 原始對話＋完整概念圖＋取得的映射交給同一回答模型 → 存原始問答。
+有沒有查映射是資料檢索分支，不是把使用者問題先貼題型標籤。
+先使用同一 QA Chat Model 與同一採樣設定，別在改架構時一起換模型，否則無法比較。
+
+重要資料分工：
+- 給回答模型的是完整概念圖；查映射的入口仍只能是檢索候選路徑組成的子圖。
+- 現有 Aura - Mapping Paths 會依 conceptGraph 中的衡量邊找 binding。絕不可把完整概念圖直接塞進這個入口，否則可能查到所有產品的映射。
+- 明確分開 fullConceptGraph 與 retrievalConceptGraph；若為相容舊 Aura 契約沿用 conceptGraph 作檢索入口，需另有 fullConceptGraph 傳給回答端。
+- 檢索命中、候選與證據覆蓋都不等於使用者授權的回答／計算範圍。回答仍以原始問答為準，不因多撈到產品就一併回答或加總。
+- 保留產品與指標的逐路徑配對，不用產品集合×指標集合產生笛卡兒積。
+
+候選檢索政策（試驗前固定，不得看到答案後才調）：
+第一版可將 included 與 uncertain 都當成「值得查證的資料候選」，excluded 不查；uncertain 不代表已選定業務範圍。
+這項政策是試驗提案，不是已驗證解法；要記錄候選數、證據大小、耗時與來源混用情況。
+若證據過大，記為本方案限制並回到檢索範圍設計；不得截斷 SQL、只取 top-1、默默捨棄必要來源或用摘要代替未讀原文。
+
+六、現有節點預計怎麼調整
+
+Prepare Dialogue：
+保留本輪原話、同組原始問答歷史、sessionId。第一版以原始歷史作權威承接依據，不再把證據節點推成已確認 topic。
+可保留 previousTopic={}、pendingClarification=null 作讀寫相容欄位，但要明確標示是空相容資料，不能當成「沒有對話」。
+
+Prepare Jev Request：
+送原始問題、完整歷史、完整概念圖與帶可讀名稱的路徑候選。
+取消 qa_route、qa_clarification、qa_answer_intent、qa_context 等語意分流的控制力；檢索試驗不需要再由獨立題決定答案風格與比較目的。
+完整概念圖既然會交給回答模型，node:: relevance 題也可移除。第一版只留現有 39 條路徑的檢索 relevance，含產品＋指標名稱，避免只問不透明 pathKey。
+每題依同一完整對話判斷，不假設某個 question 可以讀另一題的輸出。
+
+Jev - Concept Path Decisions API：
+沿用同一 API、模型與單次呼叫；它在本流程是 typed Decisions 選擇介面。通用自由文字回答由 QA Chat Model 產生，不是要求 Jev API 改成聊天回答。
+
+Process Jev Decision：
+只作回應格式驗證、候選路徑與檢索子圖組裝、保留 fullConceptGraph、原始對話與 audit。
+移除 domain 改 channel、以 qa_context 分配題意、以答案分類覆蓋使用者範圍等語意修補。
+不得將「無計算路徑」一概視為 unsupported／使用者不清楚；純概念題仍有完整概念圖。
+不得把 uncertain 的候選直接變成一個要求使用者二選一的澄清模板。
+
+Needs Mapping?：
+改為只看有無檢索路徑／檢索子圖，不再檢查問題類型或 handling 是否為 calculation。
+這是既有節點內的條件變更，保持同樣的兩條資料支線，不新增節點。
+
+Aura - Mapping Paths：
+優先保留固定唯讀 Cypher 與來源追溯規則，只調整必要的資料欄位引用。
+保留多對多 mapping、完整 SQL、工作日／日期與來源依賴。不得改圖譜或 SQL 內容。
+
+Prepare Calculation Evidence／Prepare Concept Response：
+兩支最後都提供相同的回答輸入契約：question、history、fullConceptGraph、mappingEvidence（若有）、檢索狀態與來源限制。
+mapping 的 bindings 表示檢索命中的證據適用範圍，不得預設每個 binding 都是使用者要求的回答項目。
+無 mapping 時仍給完整概念圖，不清成空圖。實際檢索失敗要如實呈現，不包裝成使用者沒說清楚。
+
+Answer Question：
+改為通用業務回答指令：先讀整段原始對話，承接省略與比較；本輪明確變更取代相同條件；只依本輪提供的圖譜／來源說事實。
+能回答就直接回答；只有缺少會改變答案的條件才問一個必要問題。歷史答案只能理解指代，不能作新的事實證據。
+不要再先看 outputMode／handling／answerPurpose 決定是否准許回答，也不要強制照上游 clarification 原句念出。
+保留目前的業務語言、來源忠實性、父子不重複加總、規則版本與日期血緣限制。
+明確要求 SQL 時仍可按證據寫唯讀 SQL；是否有要求、查詢母體與深度從原始問題判斷，不必以 qa_sql_scope 類型標籤控制。不得執行 SQL。
+原有 SQL 的日期、WHERE 血緣、CASE 順序、UNION 完整列去重、來源 staging 與下游私銀母體等語意要求不能隨簡化丟掉；但它們是來源規則，不是題型閘門。
+
+Finalize QA／Write QA Memory：
+保存本輪原始問題與最終回答；保留最近 12 輪、32KB 上限與原先單答案長度檢查。
+不把選中的圖譜節點、映射或 AI 回答提到的 AUM／收入，存成已確認需求。
+待澄清原題與 AI 的問句在原始 history 中保留，下一輪一起給模型理解；不需要先分類 clarification_reply 才能接回原題。
+若調整 memory version，要同步 Prepare Dialogue 可讀版本並使用新 session 測試；不要讀取舊格式後又把舊 topic 當權威。
+保留 metadata 相容欄位可以，但評分不能再依舊 qa_* enum 或 topic.domains 欄位存在與否判斷模型正確性。
+
+其餘 Graph Chat、Aura - Full Concept Graph、Merge、Read／Write Memory、QA Text Memory、QA Chat Model、Response 優先不改功能，維持 18 節點與身份；必要欄位引用調整需完整列出。
+
+七、執行順序與結果判定
+
+階段 0：現況保存與離線準備。
+重新匯出、比對、備份；新目錄實作；列清修改節點、欄位與資料流。完整保存原 pinData、模型設定及節點接線。
+複用真實保存的概念／映射 fixture 驗證資料契約：完整圖保留、檢索子圖只含候選路徑、binding 配對不變、空候選仍有概念、缺失來源不補值、記憶不混入圖譜。
+只做有意義的契約檢查；合成 Jev 選擇不能替代原生模型測試。
+
+階段 1：先做 C1→C2 小對照。
+A 是現版 v9，已有空白原生 #2640／#2641 與完整證據；不要把舊受前四輪影響的 C1/C2 當乾淨基準。
+B 是新候選，從空白 session 跑相同兩問，保留實際輸入與輸出。原始首問、圖譜資料、模型及採樣設定保持一致；架構與檢索政策差異明確列出。
+先做一組診斷。若未過，逐層看是否資料未送到、檢索錯、最後模型承接錯或來源誤讀；不要連續重送直到挑出一次成功。
+若診斷通過，凍結同一候選，再預先安排兩組新的獨立 session 確認重現性。每次都完整報告，不挑最好結果，也不以這幾組估準確率。
+注意：兩種架構的第一輪回答可能不同，第二輪實際 history 因此不同，這是端到端結果；不可宣稱只改一個欄位就造成全部差異。
+C1 允許回答用 AUM／收入介紹差異；不把它們存成使用者已指定指標。C2 保留兩基金比較，僅將比較面向指定為 AUM，不要求二選一，也不新增債券／結構型商品。
+C2 不必強制查 mapping：只說定義／歸類可用概念；談公式、取日、估值則必須有相應映射證據。
+
+階段 2：澄清接短答與換通路／指標。
+依機器可讀計畫，先 F 組，再 P 組，每組 Reset；同組內不重設。
+F1 問基金收入，必要時只澄清通路；F2 銀行的，應回答銀行基金收入的規則，不再要求重述或補客戶日期。
+P 組從明確銀行基金收入開始，接證券的呢、那 AUM 呢、銀行的呢；每輪只替換明示軸，其他對象與目的承接。
+每組先診斷一遍，調整後另凍結版本。C、F、P 在同一凍結候選各通過預先安排的兩組獨立確認，才進階段 3；確認失敗則回報哪輪不穩定，不改數據。
+
+階段 3：完整回歸。
+含多產品跨指標、列舉→澄清→短答、角色定義、業務來源、清楚的新問題替換、圖外／實際金額能力限制，以及已存在的 SQL 生成案例。
+跨話題干擾獨立標記，先取得空白對話結果，才加干擾前文。
+SQL 只生成與對照來源，不連 Oracle；不能因 SQL 字面輸出成功就說可執行或金額正確。
+參考 v8 的 S1/S2/S3/H1 與獨立 reference.sql；保留 S1 預建歷史表依賴、S2 日期血緣及 UNION 去重、S3 按客戶月彙總但不擅加下游私銀名單。
+若提示詞因回歸案例修改，原留出題不再算獨立留出；需另建未參與修改的產品案例，並明確標記。
+
+階段 4：保存與交付。
+匯出候選並深比 nodes、connections、settings、模型與 pinData；確認 18 節點、每輪一個 Jev request、一次主要回答、未發布。
+還原原固定示範資料與測試設定，Reset；保存 before/after、逐輪證據、所有失敗與無效嘗試、評分、耗時與資料大小。
+若新方案有改善但未全過，交付改善範圍與剩餘問題，不宣稱驗收完成。
+更新 RESUME，說明線上停在哪版及新鮮匯出位置。不要覆蓋 v9 失敗或冒用舊 v10 草稿。
+
+八、測試紀律與記錄欄位
+
+每組先 Reset／新 session，解除會覆蓋輸入的 pinData；首輪實際驗證 question、sessionId、history=[]、previousTopic={}、pendingClarification=null。
+後續核對同一 session、歷史只有本組已完成輪次。不能只看聊天視窗空白。
+每輪保存：執行 ID／URL、workflow version／參數 hash、原始問答、送進 Jev 的 state、原生 answers、檢索子圖、mapping 狀態／binding／來源、送進 Answer Question 的完整輸入、最終回答與實際寫回記憶。
+記錄 Jev requestId、模型版本、呼叫次數、耗時、證據大小；可讀擷取／重建 JSON 必須標示，不可稱原始 HTTP log。
+評分分開：記憶隔離、需求承接、來源忠實、答案品質、技術執行。不能用節點 Success、合成契約或漂亮文字代替這些判定。
+問題／session 被固定資料蓋掉、版本中途改變、首輪非空白，列無效測試並保留；不要算成模型成敗。
+新計畫檔：docs/handoffs/20261016_通用回答簡化_測試計畫.json。所有項目 status=planned_not_run，不是已完成結果。
+
+九、工具與恢復注意事項
+
+瀏覽器用 computer-use 技能與 cua_repl，Chrome n8n。先讀技能；新 session 重新取得分頁，不能沿用舊 REPL 變數。
+沒有 Git 儲存庫；不建立 commit／PR。本輪沒有建立新 thread、排程或背景測試。
+歷史執行為唯讀來源，不按 Copy to editor 來查資料。
+n8n data-test-id 與 getByTestId 預設的 data-testid 不同，必要時用 locator('[data-test-id="..."]')。
+大圖表格／完整 DOM snapshot 可能逾時；用 scoped DOM 或表格欄位擷取，不要因此重送模型問題。
+JSON UI 可能切換未生效，需讀 aria-checked 確認。表格輸出是攤平文字，不是 raw JSON。
+Export JSON 的下載事件曾逾時但檔案其實已下載；用 UI 匯出後讀 Downloads 最新檔，核對身份與時間。
+本機 file:// 報告曾被安全政策拒絕，不架伺服器或換瀏覽器繞過；提供本機檔案連結即可。
+
+新 session 可用的起始指令：
+請先讀 docs/handoffs/RESUME.txt、docs/handoffs/20261016_通用回答簡化方案與測試交接.txt 及同名測試計畫 JSON。依最新交接先備份現況，再建立通用回答的最小候選，從清空記憶的 C1→C2 做對照，逐輪列出實際輸入與輸出。維持 18 節點、單次 Jev、不新增前置 LLM 或回答後修正、不發布；同組多輪保留記憶，每組開始驗證空白。不要直接部署舊 v10 草稿，也不要把通用 prompt 較好當成已證實結論。

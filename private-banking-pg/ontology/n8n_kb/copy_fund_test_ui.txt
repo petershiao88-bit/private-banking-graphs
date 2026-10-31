@@ -1,0 +1,665 @@
+- main:
+  - link "Personal":
+    - /url: /projects/az20wapvzAkbtoPa
+    - generic "Personal":
+    - generic "Personal"
+  - generic: /
+  - generic "智能查詢 - 概念圖 KB 測試版":
+    - generic: 智能查詢 - 概念圖 KB 測試版
+  - button "More actions":
+  - button "Publish":
+    - generic: Publish
+  - button "More actions":
+  - radiogroup:
+    - radio "Editor" [checked]
+    - radio "Executions"
+    - radio "Evaluations"
+  - complementary:
+    - menubar:
+      - menuitem "Add new item":
+        - button "Add new item":
+    - button "Open command palette":
+    - button "Toggle sidebar":
+    - menuitem "n8n Assistant":
+    - menuitem "Overview":
+    - menuitem "Personal":
+    - menuitem "Shared with you":
+    - menuitem "Templates":
+    - menuitem "Help":
+    - menuitem "Settings":
+  - main:
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 2 items total
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 2 items total
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 12 items
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Execute a SQL query
+    - generic: executeQuery
+    - generic: Chat Model*
+    - generic: Memory
+    - generic: Tool
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: SQL Reasoning Agent
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Router Input
+    - generic: manual
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Aggregate
+    - generic: Output Parser
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Structured Output Parser
+    - generic: Model*
+    - generic: Output Parser
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: metric router
+    - generic: Model
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Router Model
+    - generic: Model
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: SQL Model
+    - generic: "2"
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Normalize SQL Result
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: User Query
+    - button "Hide chat":
+      - generic: Hide chat
+    - generic: Memory
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Postgres Chat Memory
+    - generic: "2"
+    - generic: Model
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Response Model
+    - generic: Model*
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Response
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Get row(s)
+    - generic: Input 1
+    - generic: Input 2
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Merge
+    - generic: combine
+    - generic: Model*
+    - generic: Output Parser
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Basic LLM Chain
+    - generic: Model
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: OpenRouter Chat Model
+    - generic: "0"
+    - generic: "1"
+    - generic: "2"
+    - generic: Fallback
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Switch
+    - generic: "mode: Rules"
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: 追問
+    - generic: Send and Wait for Response
+    - generic: Output Parser
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Structured Output Parser1
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: 整理追問回覆
+    - generic: raw
+    - generic: 1 item
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: 送出查詢回答
+    - generic: Send Message
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: 知識分支 Metric 清單
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Metric 範圍檢查
+    - generic: "true"
+    - generic: "false"
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: 是否可回答
+    - generic: Chat Model*
+    - generic: Memory
+    - generic: Tool
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: AUM 知識回答 Agent
+    - generic: Model
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: 知識回答 Model
+    - generic: Tool
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: AUM Knowledge Lookup
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: 整理知識回答
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: 超出 Metric 範圍
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: 送出知識回答
+    - generic: Send Message
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: 送出範圍說明
+    - generic: Send Message
+    - generic: Tool
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Product Concept KB
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Available Source Metadata
+    - generic: executeQuery
+    - button "Add 34 nodes to chat":
+    - button "Zoom to Fit":
+    - button "Zoom In":
+    - button "Zoom Out":
+    - button "Tidy Up":
+    - button "Hide chat":
+      - generic: Hide chat
+    - button "Open nodes panel":
+    - button "Command bar":
+    - button "Add sticky note":
+    - button "Open side panel":
+    - button "n8n AI":
+    - complementary
+    - generic: Chat
+    - 'button "Session: ab1a9..."':
+      - generic: "Session: ab1a9..."
+    - button "Reset":
+    - main:
+      - main:
+        - paragraph: 請查 2026 年 9 月月底，全體客戶的證券複委託基金 AUM 總額，以新臺幣呈現。
+        - paragraph: 目前無法提供2026年9月底全體客戶的證券複委託基金AUM總額新臺幣金額，因為缺少所需的資料來源或欄位，無法計算此數值。
+        - textbox "Type message, or press ‘up’ for previous one"
+        - button [disabled]:
+    - generic: Logs
+    - button "Clear execution":
+      - text: Clear execution
+    - generic: Success in 23.559s
+    - generic: 8,038 Tokens
+    - tree:
+      - treeitem "Aggregate":
+        - generic: Aggregate
+      - treeitem "Merge":
+        - generic: Merge
+      - treeitem "Basic LLM Chain Toggle row" [expanded]:
+        - generic: Basic LLM Chain
+        - button "Toggle row":
+      - treeitem "OpenRouter Chat Model":
+        - generic: OpenRouter Chat Model
+      - treeitem "Structured Output Parser1":
+        - generic: Structured Output Parser1
+      - treeitem "Switch":
+        - generic: Switch
+      - treeitem "metric router Toggle row" [expanded]:
+        - generic: metric router
+        - button "Toggle row":
+      - treeitem "Router Model":
+        - generic: Router Model
+      - treeitem "Structured Output Parser":
+        - generic: Structured Output Parser
+      - treeitem "Available Source Metadata" [selected]:
+        - generic: Available Source Metadata
+      - treeitem "SQL Reasoning Agent Toggle row" [expanded]:
+        - generic: SQL Reasoning Agent
+        - button "Toggle row":
+      - treeitem "Postgres Chat Memory":
+        - generic: Postgres Chat Memory
+      - treeitem "SQL Model":
+        - generic: SQL Model
+    - generic: Available Source Metadata
+    - generic: Success in 945ms
+    - button "Input":
+      - generic: Input
+    - button "Output":
+      - generic: Output
+    - button "Actions":
+    - button "Collapse panel":
+    - generic: Input
+    - textbox "Search previous nodes' fields"
+    - radiogroup:
+      - radio "Schema" [checked]:
+      - radio "Table":
+      - radio "JSON":
+    - generic: 1 item
+    - generic: output
+    - generic: selected_metric_codes
+    - generic: selected_metric_codes[0]
+    - generic: aum_securities_month_end
+    - generic: resolved_query
+    - generic: 查詢2026年9月底全體客戶的證券複委託基金AUM總額，幣別為新臺幣
+    - generic: reason
+    - generic: 問題指定證券複委託基金，應選用月底證券AUM指標；日期、客戶範圍與幣別交由後續查詢條件處理。
+    - generic: Output
+    - textbox "Search (Ctrl+F)"
+    - radiogroup:
+      - radio "Schema":
+      - radio "Table" [checked]:
+      - radio "JSON":
+    - generic: 1 item
+    - table:
+      - rowgroup:
+        - row "available_sources Collapse rows":
+          - columnheader "available_sources Collapse rows":
+            - generic: available_sources
+            - button "Collapse rows":
+          - columnheader
+      - rowgroup:
+        - row:
+          - cell:
+            - generic: "0"
+            - generic: columns
+            - generic: "0"
+            - generic: data_type
+            - text: ":"
+            - generic: bigint
+            - generic: column_name
+            - text: ":"
+            - generic: source_row_id
+            - generic: "1"
+            - generic: data_type
+            - text: ":"
+            - generic: text
+            - generic: column_name
+            - text: ":"
+            - generic: cust_id
+            - generic: "2"
+            - generic: data_type
+            - text: ":"
+            - generic: character
+            - generic: column_name
+            - text: ":"
+            - generic: lst_mtn_dt
+            - generic: "3"
+            - generic: data_type
+            - text: ":"
+            - generic: character
+            - generic: column_name
+            - text: ":"
+            - generic: acc_cd
+            - generic: "4"
+            - generic: data_type
+            - text: ":"
+            - generic: character varying
+            - generic: column_name
+            - text: ":"
+            - generic: prft_cntr_cd
+            - generic: "5"
+            - generic: data_type
+            - text: ":"
+            - generic: numeric
+            - generic: column_name
+            - text: ":"
+            - generic: avail_bal
+            - generic: table_name
+            - text: ":"
+            - generic: dep_fn_acct
+            - generic: schema_name
+            - text: ":"
+            - generic: dsdep
+            - generic: "1"
+            - generic: columns
+            - generic: "0"
+            - generic: data_type
+            - text: ":"
+            - generic: bigint
+            - generic: column_name
+            - text: ":"
+            - generic: source_row_id
+            - generic: "1"
+            - generic: data_type
+            - text: ":"
+            - generic: text
+            - generic: column_name
+            - text: ":"
+            - generic: cust_id
+            - generic: "2"
+            - generic: data_type
+            - text: ":"
+            - generic: character
+            - generic: column_name
+            - text: ":"
+            - generic: lst_mtn_dt
+            - generic: "3"
+            - generic: data_type
+            - text: ":"
+            - generic: character
+            - generic: column_name
+            - text: ":"
+            - generic: acc_cd
+            - generic: "4"
+            - generic: data_type
+            - text: ":"
+            - generic: character varying
+            - generic: column_name
+            - text: ":"
+            - generic: prft_cntr_cd
+            - generic: "5"
+            - generic: data_type
+            - text: ":"
+            - generic: numeric
+            - generic: column_name
+            - text: ":"
+            - generic: avail_bal
+            - generic: "6"
+            - generic: data_type
+            - text: ":"
+            - generic: integer
+            - generic: column_name
+            - text: ":"
+            - generic: yyyymm
+            - generic: table_name
+            - text: ":"
+            - generic: dep_fn_acct_hs
+            - generic: schema_name
+            - text: ":"
+            - generic: dsdep
+            - generic: "2"
+            - generic: columns
+            - generic: "0"
+            - generic: data_type
+            - text: ":"
+            - generic: bigint
+            - generic: column_name
+            - text: ":"
+            - generic: source_row_id
+            - generic: "1"
+            - generic: data_type
+            - text: ":"
+            - generic: text
+            - generic: column_name
+            - text: ":"
+            - generic: cust_id
+            - generic: "2"
+            - generic: data_type
+            - text: ":"
+            - generic: character
+            - generic: column_name
+            - text: ":"
+            - generic: data_dt
+            - generic: "3"
+            - generic: data_type
+            - text: ":"
+            - generic: character
+            - generic: column_name
+            - text: ":"
+            - generic: act_cd
+            - generic: "4"
+            - generic: data_type
+            - text: ":"
+            - generic: character varying
+            - generic: column_name
+            - text: ":"
+            - generic: prft_cntr_cd
+            - generic: "5"
+            - generic: data_type
+            - text: ":"
+            - generic: numeric
+            - generic: column_name
+            - text: ":"
+            - generic: bal_amt
+            - generic: table_name
+            - text: ":"
+            - generic: dep_nt_acct
+            - generic: schema_name
+            - text: ":"
+            - generic: dsdep
+            - generic: "3"
+            - generic: columns
+            - generic: "0"
+            - generic: data_type
+            - text: ":"
+            - generic: bigint
+            - generic: column_name
+            - text: ":"
+            - generic: source_row_id
+            - generic: "1"
+            - generic: data_type
+            - text: ":"
+            - generic: text
+            - generic: column_name
+            - text: ":"
+            - generic: cust_id
+            - generic: "2"
+            - generic: data_type
+            - text: ":"
+            - generic: character
+            - generic: column_name
+            - text: ":"
+            - generic: lst_mtn_dt
+            - generic: "3"
+            - generic: data_type
+            - text: ":"
+            - generic: character
+            - generic: column_name
+            - text: ":"
+            - generic: act_cd
+            - generic: "4"
+            - generic: data_type
+            - text: ":"
+            - generic: character varying
+            - generic: column_name
+            - text: ":"
+            - generic: prft_cntr_cd
+            - generic: "5"
+            - generic: data_type
+            - text: ":"
+            - generic: numeric
+            - generic: column_name
+            - text: ":"
+            - generic: bal_amt
+            - generic: "6"
+            - generic: data_type
+            - text: ":"
+            - generic: integer
+            - generic: column_name
+            - text: ":"
+            - generic: yyyymm
+            - generic: table_name
+            - text: ":"
+            - generic: dep_nt_acct_hs
+            - generic: schema_name
+            - text: ":"
+            - generic: dsdep
+            - generic: "4"
+            - generic: columns
+            - generic: "0"
+            - generic: data_type
+            - text: ":"
+            - generic: character varying
+            - generic: column_name
+            - text: ":"
+            - generic: acct_no
+            - generic: "1"
+            - generic: data_type
+            - text: ":"
+            - generic: text
+            - generic: column_name
+            - text: ":"
+            - generic: cust_id
+            - generic: "2"
+            - generic: data_type
+            - text: ":"
+            - generic: character
+            - generic: column_name
+            - text: ":"
+            - generic: lst_mtn_dt
+            - generic: "3"
+            - generic: data_type
+            - text: ":"
+            - generic: character
+            - generic: column_name
+            - text: ":"
+            - generic: act_cd
+            - generic: "4"
+            - generic: data_type
+            - text: ":"
+            - generic: character varying
+            - generic: column_name
+            - text: ":"
+            - generic: prft_cntr_cd
+            - generic: "5"
+            - generic: data_type
+            - text: ":"
+            - generic: numeric
+            - generic: column_name
+            - text: ":"
+            - generic: bal_amt
+            - generic: "6"
+            - generic: data_type
+            - text: ":"
+            - generic: integer
+            - generic: column_name
+            - text: ":"
+            - generic: yyyymm
+            - generic: table_name
+            - text: ":"
+            - generic: emp_dep_nt_acct_hs
+            - generic: schema_name
+            - text: ":"
+            - generic: dsdep
+          - cell
+- complementary
+- status
+- alert

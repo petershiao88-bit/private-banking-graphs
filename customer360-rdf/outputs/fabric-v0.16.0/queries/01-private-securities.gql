@@ -1,0 +1,5 @@
+// 私銀優先看證券；回傳節點與邊供 Graph diagram 顯示。
+MATCH (d:Department)-[r:USES_METRIC]->(m:Metric)
+FILTER d.id = 'bank.private_banking' AND m.subsidiary = 'securities'
+RETURN d, r, m
+LIMIT 100

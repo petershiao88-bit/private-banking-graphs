@@ -1,0 +1,41 @@
+{
+  "sevenNodes": true,
+  "singleJev": true,
+  "syntheticDecisions": true,
+  "cases": {
+    "deposit_aum": {
+      "conceptCandidates": 30,
+      "selectedConceptPaths": 1,
+      "mappingPaths": 5,
+      "sqlStatements": 6
+    },
+    "deposit_income": {
+      "conceptCandidates": 30,
+      "selectedConceptPaths": 1,
+      "mappingPaths": 7,
+      "sqlStatements": 12
+    },
+    "securities_fund": {
+      "conceptCandidates": 30,
+      "selectedConceptPaths": 1,
+      "mappingPaths": 2,
+      "sqlStatements": 1
+    },
+    "securities_all": {
+      "conceptCandidates": 30,
+      "selectedConceptPaths": 4,
+      "mappingPaths": 17,
+      "sqlStatements": 7
+    },
+    "deposit_both": {
+      "conceptCandidates": 30,
+      "selectedConceptPaths": 2,
+      "mappingPaths": 12,
+      "sqlStatements": 18
+    }
+  },
+  "manyToMany": true,
+  "allDependenciesRetained": true,
+  "emptySelection": true,
+  "customerKeySqlPreserved": true
+}

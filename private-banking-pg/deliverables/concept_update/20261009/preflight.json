@@ -1,0 +1,12 @@
+{
+  "target": "4bb479b2/neo4j",
+  "state": "approved",
+  "conceptNodes": 28,
+  "conceptRelationships": 52,
+  "mapping": {
+    "nodes": 1167,
+    "relationships": 3664,
+    "sha256": "32d0d9cd8fe7d03a277389e7e20bbd0f57e1cb4a483cc07667beab81e753ec12"
+  },
+  "metricCodeRenames": 7
+}

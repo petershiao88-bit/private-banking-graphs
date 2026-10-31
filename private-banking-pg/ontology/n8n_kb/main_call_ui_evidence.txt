@@ -1,0 +1,473 @@
+- main:
+  - link "Personal":
+    - /url: /projects/az20wapvzAkbtoPa
+    - generic "Personal":
+    - generic "Personal"
+  - generic: /
+  - generic "私銀 AUM Income KB":
+    - generic: 私銀 AUM Income KB
+  - button "More actions":
+  - button "Published" [disabled]:
+    - generic: Published
+  - button "More actions":
+  - radiogroup:
+    - radio "Editor"
+    - radio "Executions" [checked]
+    - radio "Evaluations"
+  - complementary:
+    - menubar:
+      - menuitem "Add new item":
+        - button "Add new item":
+    - button "Open command palette":
+    - button "Toggle sidebar":
+    - menuitem "n8n Assistant":
+    - menuitem "Overview":
+    - menuitem "Personal":
+    - menuitem "Shared with you":
+    - menuitem "Templates":
+    - menuitem "Help":
+    - menuitem "Settings":
+  - main:
+    - heading "Executions" [level=2]
+    - generic: No active executions
+    - checkbox "Auto refresh" [checked]:
+    - generic: Auto refresh
+    - button "Filters":
+    - link "Oct 7, 08:33:59 Succeeded in 5.477s":
+      - /url: /workflow/tL7HTesvAzqwsqv6/executions/2416
+      - generic: Oct 7, 08:33:59
+      - generic: Succeeded
+      - generic: in 5.477s
+    - link "Oct 6, 14:27:17 Succeeded in 6.293s":
+      - /url: /workflow/tL7HTesvAzqwsqv6/executions/2386
+      - generic: Oct 6, 14:27:17
+      - generic: Succeeded
+      - generic: in 6.293s
+    - link "Oct 6, 14:26:10 Succeeded in 4.707s":
+      - /url: /workflow/tL7HTesvAzqwsqv6/executions/2385
+      - generic: Oct 6, 14:26:10
+      - generic: Succeeded
+      - generic: in 4.707s
+    - link "Oct 6, 14:25:25 Succeeded in 6.183s":
+      - /url: /workflow/tL7HTesvAzqwsqv6/executions/2384
+      - generic: Oct 6, 14:25:25
+      - generic: Succeeded
+      - generic: in 6.183s
+    - link "Oct 6, 14:24:35 Succeeded in 8.289s":
+      - /url: /workflow/tL7HTesvAzqwsqv6/executions/2383
+      - generic: Oct 6, 14:24:35
+      - generic: Succeeded
+      - generic: in 8.289s
+    - link "Oct 6, 13:50:03 Succeeded in 7.32s":
+      - /url: /workflow/tL7HTesvAzqwsqv6/executions/2382
+      - generic: Oct 6, 13:50:03
+      - generic: Succeeded
+      - generic: in 7.32s
+    - link "Oct 6, 13:48:59 Succeeded in 7.255s":
+      - /url: /workflow/tL7HTesvAzqwsqv6/executions/2381
+      - generic: Oct 6, 13:48:59
+      - generic: Succeeded
+      - generic: in 7.255s
+    - generic: Which executions is this workflow saving?
+    - generic: Oct 7, 08:33:59
+    - generic: Succeeded
+    - text: in 5.477s | 45KB | ID#2416 |
+    - link "KB v2 - metric 範圍與 Jev 細項選品":
+      - /url: /workflow/tL7HTesvAzqwsqv6/history/3a430d35-8371-431f-a215-34fc016d2092
+    - link "Copy to editor":
+      - /url: /workflow/tL7HTesvAzqwsqv6/debug/2416
+      - button "Copy to editor":
+        - generic: Copy to editor
+    - button "Delete this execution":
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - button "Add to chat":
+    - button "More actions":
+    - generic: KB Input
+    - generic: 供主 Agent 呼叫。question 為已確認的完整問題；domains 為 ["aum"]、["income"] 或兩者；metricCodes 直接傳入 metric router 的完整 selected_metric_codes 陣列。
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Aura - Concepts
+    - generic: "POST: https://4bb479b2.databases.neo4j.io/db/neo4j/query/v2"
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Concept Catalog
+    - generic: Model*
+    - generic: Output Parser
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Jev - Select Products
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Aura - Mappings
+    - generic: "POST: https://4bb479b2.databases.neo4j.io/db/neo4j/query/v2"
+    - generic: 1 item
+    - button "Add to chat":
+    - button "More actions":
+    - generic: KB Result
+    - generic: Model
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Jev Model
+    - generic: Output Parser
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Product Selection Format
+    - button "Zoom to Fit":
+    - button "Zoom In":
+    - button "Zoom Out":
+    - generic: Logs
+    - generic: Success in 5.477s
+    - generic: 2,621 Tokens
+    - tree:
+      - treeitem "Aura - Concepts":
+        - generic: Aura - Concepts
+      - treeitem "Concept Catalog":
+        - generic: Concept Catalog
+      - treeitem "Jev - Select Products Toggle row" [expanded]:
+        - generic: Jev - Select Products
+        - button "Toggle row":
+      - treeitem "Jev Model":
+        - generic: Jev Model
+      - treeitem "Product Selection Format":
+        - generic: Product Selection Format
+      - treeitem "Aura - Mappings":
+        - generic: Aura - Mappings
+      - treeitem "KB Result" [active] [selected]:
+        - generic: KB Result
+    - generic: KB Result
+    - generic: Success in 11ms
+    - button "Input":
+      - generic: Input
+    - button "Output":
+      - generic: Output
+    - button "Actions":
+    - button "Collapse panel":
+    - generic: Input
+    - textbox "Search previous nodes' fields"
+    - radiogroup:
+      - radio "Schema" [checked]:
+      - radio "Table":
+      - radio "JSON":
+    - generic: 1 item
+    - generic: data
+    - generic: fields
+    - generic: fields[0]
+    - generic: productCode
+    - generic: fields[1]
+    - generic: productName
+    - generic: fields[2]
+    - generic: domain
+    - generic: fields[3]
+    - generic: status
+    - generic: fields[4]
+    - generic: mappings
+    - generic: values
+    - generic: values[0]
+    - generic: 0[0]
+    - generic: securities_fund
+    - generic: Output
+    - textbox "Search (Ctrl+F)"
+    - radiogroup:
+      - radio "Schema":
+      - radio "Table" [checked]:
+      - radio "JSON":
+    - generic: 1 item
+    - table:
+      - rowgroup:
+        - row "metricCodes Collapse rows products Collapse rows message Collapse rows":
+          - columnheader "metricCodes Collapse rows":
+            - generic: metricCodes
+            - button "Collapse rows":
+          - columnheader "products Collapse rows":
+            - generic: products
+            - button "Collapse rows":
+          - columnheader "message Collapse rows":
+            - generic: message
+            - button "Collapse rows":
+          - columnheader
+      - rowgroup:
+        - row:
+          - cell "0:aum_securities_month_end":
+            - generic: "0"
+            - text: ":"
+            - generic: aum_securities_month_end
+          - cell:
+            - generic: "0"
+            - generic: productCode
+            - text: ":"
+            - generic: securities_fund
+            - generic: productName
+            - text: ":"
+            - generic: 證券複委託基金
+            - generic: domain
+            - text: ":"
+            - generic: aum
+            - generic: definition
+            - text: ":"
+            - generic: 證券通路的複委託基金業務，涵蓋客戶持有資產與交易費收入。
+            - generic: definitionStatus
+            - text: ":"
+            - generic: inferred
+            - generic: metrics
+            - generic: "0"
+            - generic: metricCode
+            - text: ":"
+            - generic: aum_securities_month_end
+            - generic: name
+            - text: ":"
+            - generic: 月底證券AUM
+            - generic: definition
+            - text: ":"
+            - generic: 月底衡量的證券通路投資資產。
+            - generic: status
+            - text: ":"
+            - generic: inferred
+            - generic: "1"
+            - generic: metricCode
+            - text: ":"
+            - generic: aum_investment_month_end
+            - generic: name
+            - text: ":"
+            - generic: 月底投資AUM
+            - generic: definition
+            - text: ":"
+            - generic: 月底衡量的銀行及證券通路投資資產合計。
+            - generic: status
+            - text: ":"
+            - generic: inferred
+            - generic: "2"
+            - generic: metricCode
+            - text: ":"
+            - generic: aum_total_month_end
+            - generic: name
+            - text: ":"
+            - generic: 月底總AUM
+            - generic: definition
+            - text: ":"
+            - generic: 指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。
+            - generic: status
+            - text: ":"
+            - generic: draft
+            - generic: matchedMetricCodes
+            - generic: "0"
+            - text: ":"
+            - generic: aum_securities_month_end
+            - generic: mappingStatus
+            - text: ":"
+            - generic: inferred
+            - generic: mappings
+            - generic: "0"
+            - generic: lineage
+            - generic: "0"
+            - generic: tablePath
+            - generic: "0"
+            - text: ":"
+            - generic: DSPBM.PB_FUNDPOSIT_SEC
+            - generic: "1"
+            - text: ":"
+            - generic: AUM_025
+            - generic: baseTable
+            - text: ":"
+            - generic: DSPBM.PB_FUNDPOSIT_SEC
+            - generic: rules
+            - generic: "0"
+            - generic: lineStart
+            - text: ":"
+            - generic: "366"
+            - generic: selectExpressions
+            - generic: "0"
+            - text: ":"
+            - generic: wkb02 AS cust_id
+            - generic: "1"
+            - text: ":"
+            - generic: yyyymmdd
+            - generic: "2"
+            - text: ":"
+            - generic: SUM(WKB28 * WKB23 * WKB31) AS amt
+            - generic: whereConditions
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: unionDeduplication
+            - generic: "0"
+            - text: ":"
+            - generic: exact_projected_rows
+            - generic: lineEnd
+            - text: ":"
+            - generic: "375"
+            - generic: operationTypes
+            - generic: "0"
+            - text: ":"
+            - generic: AGGREGATE
+            - generic: "1"
+            - text: ":"
+            - generic: SELECT
+            - generic: "2"
+            - text: ":"
+            - generic: UNION
+            - generic: "3"
+            - text: ":"
+            - generic: CREATE TABLE AS
+            - generic: sql
+            - text: ":"
+            - generic: create table AUM_025
+            - generic: \n as
+            - generic: \n select wkb02 as cust_id,yyyymmdd ,sum(WKB28 * WKB23 * WKB31) as amt
+            - generic: \n from DSPBM.PB_FUNDPOSIT_SEC_M@anadbp01_dwdbp01
+            - generic: \n group by wkb02,yyyymmdd
+            - generic: \n union
+            - generic: \n select wkb02 as cust_id,yyyymmdd ,sum(WKB28* WKB23 * WKB31) as amt
+            - generic: \n from DSPBM.PB_FUNDPOSIT_SEC@anadbp01_dwdbp01
+            - generic: \n group by wkb02,yyyymmdd
+            - generic: \n ;
+            - generic: unionBranchOrders
+            - generic: "0"
+            - text: ":"
+            - generic: "2"
+            - generic: file
+            - text: ":"
+            - generic: sources/sql/1.AUM_DETAIL.sql
+            - generic: aggregateExpressions
+            - generic: "0"
+            - text: ":"
+            - generic: SUM(WKB28 * WKB23 * WKB31)
+            - generic: groupExpressions
+            - generic: "0"
+            - text: ":"
+            - generic: wkb02
+            - generic: "1"
+            - text: ":"
+            - generic: yyyymmdd
+            - generic: caseExpressions
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: operation
+            - text: ":"
+            - generic: UNION
+            - generic: status
+            - text: ":"
+            - generic: active_sql
+            - generic: joinConditions
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: "1"
+            - generic: tablePath
+            - generic: "0"
+            - text: ":"
+            - generic: DSPBM.PB_FUNDPOSIT_SEC_M
+            - generic: "1"
+            - text: ":"
+            - generic: AUM_025
+            - generic: baseTable
+            - text: ":"
+            - generic: DSPBM.PB_FUNDPOSIT_SEC_M
+            - generic: rules
+            - generic: "0"
+            - generic: lineStart
+            - text: ":"
+            - generic: "366"
+            - generic: selectExpressions
+            - generic: "0"
+            - text: ":"
+            - generic: wkb02 AS cust_id
+            - generic: "1"
+            - text: ":"
+            - generic: yyyymmdd
+            - generic: "2"
+            - text: ":"
+            - generic: SUM(WKB28 * WKB23 * WKB31) AS amt
+            - generic: whereConditions
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: unionDeduplication
+            - generic: "0"
+            - text: ":"
+            - generic: exact_projected_rows
+            - generic: lineEnd
+            - text: ":"
+            - generic: "375"
+            - generic: operationTypes
+            - generic: "0"
+            - text: ":"
+            - generic: AGGREGATE
+            - generic: "1"
+            - text: ":"
+            - generic: SELECT
+            - generic: "2"
+            - text: ":"
+            - generic: UNION
+            - generic: "3"
+            - text: ":"
+            - generic: CREATE TABLE AS
+            - generic: sql
+            - text: ":"
+            - generic: create table AUM_025
+            - generic: \n as
+            - generic: \n select wkb02 as cust_id,yyyymmdd ,sum(WKB28 * WKB23 * WKB31) as amt
+            - generic: \n from DSPBM.PB_FUNDPOSIT_SEC_M@anadbp01_dwdbp01
+            - generic: \n group by wkb02,yyyymmdd
+            - generic: \n union
+            - generic: \n select wkb02 as cust_id,yyyymmdd ,sum(WKB28* WKB23 * WKB31) as amt
+            - generic: \n from DSPBM.PB_FUNDPOSIT_SEC@anadbp01_dwdbp01
+            - generic: \n group by wkb02,yyyymmdd
+            - generic: \n ;
+            - generic: unionBranchOrders
+            - generic: "0"
+            - text: ":"
+            - generic: "1"
+            - generic: file
+            - text: ":"
+            - generic: sources/sql/1.AUM_DETAIL.sql
+            - generic: aggregateExpressions
+            - generic: "0"
+            - text: ":"
+            - generic: SUM(WKB28 * WKB23 * WKB31)
+            - generic: groupExpressions
+            - generic: "0"
+            - text: ":"
+            - generic: wkb02
+            - generic: "1"
+            - text: ":"
+            - generic: yyyymmdd
+            - generic: caseExpressions
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: operation
+            - text: ":"
+            - generic: UNION
+            - generic: status
+            - text: ":"
+            - generic: active_sql
+            - generic: joinConditions
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: mappingStatus
+            - text: ":"
+            - generic: observed_in_sql
+            - generic: outputTable
+            - text: ":"
+            - generic: AUM_025
+            - generic: mappingType
+            - text: ":"
+            - generic: AUM_IMPLEMENTED_BY
+            - generic: lineageStatus
+            - text: ":"
+            - generic: traced
+            - generic: productScope
+            - text: ":"
+            - generic: PROD='基金' AND COMP='證券'
+            - generic: sqlTable
+            - text: ":"
+            - generic: AUM_025
+          - cell "已選證券複委託基金AUM；產品定義目前為 inferred，尚非正式確認。\\n月底總AUM：指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。":
+            - generic: 已選證券複委託基金AUM；產品定義目前為 inferred，尚非正式確認。
+            - generic: \n月底總AUM：指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。
+          - cell
+- complementary
+- status
+- alert

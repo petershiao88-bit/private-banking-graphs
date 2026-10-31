@@ -1,0 +1,348 @@
+【2026-10-19 最新單輪交接入口】
+目前接著討論的是「私銀圖譜問答－單輪 RAG 實驗版」H2Jr1mJHmdpaOWrY。
+請先讀 docs/handoffs/20261019_單輪RAG操作選擇改善與20題重測交接.txt。
+已完成操作／參數分開檢索與同 20 題重測，正確選路 3 → 5 題；仍有比例方向與客戶條件等問題。
+下文保留原單輪獨立版 Td4cymdWpu8sYNkv 在 2026-10-16 的歷史狀態；「尚未實作」「目前僅分析」等描述不代表最新 RAG 流程。原流程本次未改動。
+
+單輪獨立流程 v3 分流選路與待修事項交接
+交接日期：2026-10-16，Asia/Taipei
+專案根目錄：C:\Users\petershiao\Desktop\Ontology\私銀智能問答
+
+先讀這裡
+
+本交接只適用「私銀圖譜問答－單輪獨立版」，流程 ID 為 Td4cymdWpu8sYNkv。
+使用者最新要求是先分析，不做修正；本次只新增交接文件與更新單輪文件入口，沒有修改 n8n、Aura、模型或重新測試。
+上次已確認保存的版本是單輪 v3 第一輪：上路 LLM 整理問題，下路載入 Aura 概念圖，Merge 後交給 Jev。
+已跑原本七題加五題，但仍有漏選、分類關係遺失與一次 Jev 超限錯誤，尚未達成「減少多選又不漏必要資料」。
+v3/round2/ 只有本機未套用草案，不是線上版本，也沒有第二輪原生測試結果。不要直接拿草案覆蓋目前流程。
+使用者最新的輸出要求是「回答內容＋去重後的查詢子圖」，不要證據／狀態整理，也不要把每條曾讀入的路徑全部列出。
+
+一、單輪與多輪的辨識
+
+本交接目標
+名稱：私銀圖譜問答－單輪獨立版
+ID：Td4cymdWpu8sYNkv
+網址：https://chiang4901.app.n8n.cloud/workflow/Td4cymdWpu8sYNkv
+成品目錄：deliverables/single_turn_qa/
+交接版本：單輪 v3 第一輪，13 節點。
+保存 versionId：8d2d6c1f-44da-4141-aacc-931e091a0eaf
+凍結內容 SHA-256：a53aa2a62f8280cae30c71be7f845e1a0f1996e5c3b61d462418f498bcbe4ee0
+雜湊是 frozen.json 所記錄的節點／接線／設定凍結值，不是 workflow 檔案位元組雜湊。
+上次核對狀態：保存未發布，active=false，無記憶、無 pinData，不執行 Oracle SQL。
+本次交接依本機已保存的原生匯出與測試紀錄整理，未另行查詢線上是否有其他人後續修改。
+
+另一個流程，禁止混用
+名稱：智能問答－圖譜理解與對話測試
+ID：pqvhkncZ9bFlfe4B
+網址：https://chiang4901.app.n8n.cloud/workflow/pqvhkncZ9bFlfe4B
+成品目錄：deliverables/graph_qa/
+它是原本的多輪流程，有自己的版本與交接。單輪 v3 和多輪 v3、v9、v11、v12 等編號沒有對應關係。
+不要把本交接當成多輪 Resume，不要覆寫 docs/handoffs/RESUME.txt，也不要使用 graph_qa 下的匯出更新單輪。
+若後續恢復實作，先核對流程 ID，再保存該流程當下的原生匯出；不能只看瀏覽器標籤或相近名稱。
+
+二、使用者已確認的方向
+
+1. 每題是獨立的完整問題，不依賴上一輪，也不增加多輪記憶。
+2. 保留「問題 → 概念選路 → 查映射、底表與 SQL 邏輯 → 回答」的用途；目前提供計算方法的文字解釋，沒有真的計算金額。
+3. 問題輸入後分成兩路：上路以 LLM 忠實整理需求，下路載入 Aura 路徑，Merge 成同一筆資料再給 Jev。
+4. 以通用方式控制範圍，保留產品與指標配對；不要針對測試題寫死產品名或答案。
+5. Answer Question 使用通用 prompt，自行安排回答結構；列舉、定義、比較、計算說明不是強制的固定回答模板。
+6. 回覆只需回答內容與實際查詢子圖。內部可保留必要檢查，但不要輸出證據覆蓋、狀態報告、需求編號或 registry 等欄位。
+7. 查詢資訊應先將選中且支撐本題的關係合成去重子圖，再交給回答與呈現層使用；共同節點、共同關係只出現一次，不列出所有讀入的候選路徑。
+8. 去重不能合併不同條件、版本或計算階段，也不能把規則映射偽裝成原始 SQL 血緣。缺口若影響結論，只在正文用白話簡短說明。
+9. 測試問題不要刻意加入「證據不足」等暗示答案的文字。
+10. 目前停在分析階段。此次要求新增交接檔，不代表恢復修改或測試流程。
+
+三、目前接線與各節點資料
+
+主線：
+Single Question
+  ├─ 上路：整理使用者問題 ────────→ Merge 問題與路徑 input 0
+  └─ 下路：Aura - Full Concept Graph → Merge 問題與路徑 input 1
+Merge 問題與路徑
+  → 準備 Jev 選路資料
+  → Jev 選路判斷
+  → 整理選路子圖
+  → Aura - Mapping Paths
+  → KB Result
+  → Prepare Answer Evidence
+  → Answer Question
+  → Single Answer
+
+Answer Model 同時接「整理使用者問題」與「Answer Question」，正常完成的題目會有兩次 LLM 呼叫。
+目前只有一個 Jev 決策節點；「準備 Jev 選路資料」是程式整理資料，不是第二個 Jev 模型。
+舊版 KB Input 已移除，其單輪輸入檢查與空歷史狀態已併入準備節點。
+
+1. Single Question
+   輸入：使用者完整問題。
+   輸出：n8n 訊息物件，含 sessionId、action、chatInput。
+   設定：responseMode=responseNodes，由回覆節點定義對話內容。
+
+2. 整理使用者問題
+   輸入：chatInput 原文。
+   輸出：text 字串，內容應為 JSON：{needs:[...], ambiguities:[...]}。
+   每筆 need 欄位：id、sourceText、targetText、requestedInformation、quantityText、requiresCalculationEvidence、includeAllComponents、scopeText、relationshipText。
+   sourceText 須逐字存在於原問題中。這一層不選底表、不產生 SQL，也不回答業務問題。
+
+3. Aura - Full Concept Graph
+   輸入：固定的唯讀概念圖查詢。
+   輸出：Neo4j Query API 的 data.fields／data.values，欄位為 conceptGraph、businessPaths。
+   測試基準：41 個概念節點、69 個關係、39 條衡量路徑。
+   它載入完整候選範圍；載入過的路徑不等於本題實際採用的路徑。
+
+4. Merge 問題與路徑
+   Combine by Position，將兩路各一筆合成同一筆。
+   輸出同時有上路的 text 與下路的 data；不是 Append 成兩筆各自往下跑。
+
+5. 準備 Jev 選路資料
+   輸入：合併資料，並取 Single Question 原文。
+   處理：解析上路 JSON、檢查原文依據／型別／編號、驗證圖譜，再建立候選與決策問題。
+   輸出重點：question、requirements、inputAudit、conceptGraph、conceptPathCandidates、questionMeta、aggregateRequirements、decisionRequest、preparationAudit。
+   inputAudit 明確為 single_turn，history=[]、previousTopic={}、pendingClarification=null。
+   第一輪每個計算 need 都問全部 39 條路徑；每個純概念 need 都問全部 41 個節點，尚未縮小候選或分批。
+
+6. Jev 選路判斷
+   輸入：decisionRequest，含原文、需求、概念圖與各候選描述。
+   輸出：answers[questionKey].choice，值為 included／uncertain／excluded，另有模型與用量資料。
+   模型設定：typesafe/jev-1.13；本批實際服務版本見執行紀錄 typesafe/jev-1.13-20260917。
+
+7. 整理選路子圖
+   輸入：Jev 回應與準備節點的候選資料。
+   輸出：合併後 conceptGraph、selectedConceptPaths、calculationBindings、needCoverage、aggregateAudit、selectionAudit 等。
+   calculationBindings 保留 productCode、domain、metricCode、needIds、conceptPathKeys，避免多產品／多指標交叉組合。
+   共用節點與關係已依原圖身份合併；另外補入衡量對象、客戶、AO、私銀的必要上下文。
+   已知問題：分類父節點不一定補入，子節點保留了，PB_SUBCATEGORY_OF 關係卻因父節點缺失而消失。
+
+8. Aura - Mapping Paths
+   輸入：已選概念路徑與產品／指標配對。
+   輸出：對應映射、原始 SQL 血緣、計算規則或維度來源的 Query API 回應；沒有選中配對時可能是空結果。
+   此節點讀取圖內資料，沒有執行 Oracle，也不會因此取得實際 AUM 或收入金額。
+
+9. KB Result
+   輸入：映射查詢結果與選路上下文。
+   輸出重點：conceptGraph、selectedConceptPaths、mappingPaths、sqlEvidence、ruleEvidence、dimensionEvidence、products、mappingResolution、queryPlan。
+   原始 SQL 映射和規則型映射分別保留。只有規則時可以解釋已知計算規則，但不能聲稱取得原始 SQL。
+   products 依原配對整理；共同 SQL、規則或客戶／AO 維度依賴，不代表新增的產品金額。
+
+10. Prepare Answer Evidence
+    輸入：KB Result 與選路資訊。
+    輸出：question、requirements、needCoverage、sourceCoverage、queryPaths、evidence、audit。
+    evidence 會壓縮重複物件，透過 sharedObjects 的 $ref 與 calculationRuleRegistry 保留引用；同一 ruleId 不同內容仍保留不同版本。
+    問題一：目前把 needCoverage／sourceCoverage 等內部資料直接交給回答模型，輸出邊界不足，空結果時會被模型寫進答案。
+    問題二：queryPaths.markdown 仍逐條展開 selectedConceptPaths／mappingPaths，只去除完全相同的文字。它不是使用者要求的共用片段只顯示一次的子圖呈現。
+
+11. Answer Question
+    輸入：完整問題、逐項需求取得情況、各配對來源取得情況、完整 evidence。
+    輸出：text 回答字串。
+    通用 prompt 要求繁體中文、先回答、忠於來源、區分規則與原始 SQL、保留計算條件，不編造金額／新 SQL；正文不重複完整路徑清單。
+    目前仍可能輸出內部診斷，且有來源表名讀錯的實例，不能因選路正確就當作回答正確。
+
+12. Answer Model
+    共用語言模型連接節點，設定 openai/gpt-5.6-luna。
+    它供上路需求整理與最終回答各呼叫一次，沒有接對話記憶。
+
+13. Single Answer
+    輸入：Answer Question.text，並取 Prepare Answer Evidence.queryPaths.markdown。
+    設定的 Message 是回答文字加路徑附錄的字串。
+    原生節點輸出仍可帶 sessionId／action／chatInput 外層物件；外層物件與使用者應看見的訊息正文須分開辨識。
+
+四、十二題實測與結論
+
+以下是同一凍結版本的第一輪結果。原本七題加五題，事前登記於 v3/test_plan.json。
+每題使用獨立 session；成功執行題的原文與空歷史檢查通過。Q7 的錯誤輸入另有保存。
+先行接線測試 #2654 只問 AO 角色，不納入十二題。
+
+Q1／#2655
+問題：存款目前有哪些子分類？
+結果：未取計算路徑，三個子分類列對，比 v2 少了四組不必要的存款 AUM。
+缺點：子圖只有三個節點、零關係，缺存款父節點／分類連線；回答另有非預期語文片段。不能算完整通過。
+
+Q2／#2656
+問題：AO、客戶與私銀之間是什麼關係？
+結果：三節點三關係，沒有計算路徑，主要關係回答合理。
+
+Q3／#2657
+問題：銀行基金與證券複委託基金，在產品與通路上有什麼差別？
+結果：保留兩個比較概念，沒有展開計算；v2 原本多取八組計算配對，此次範圍收斂。
+
+Q4／#2658
+問題：放款利收怎麼計算？請說明來源底表、日期與合併方式。
+結果：只取 loan::income，配對正確。
+缺點：回答把月更新兩個來源都寫成 DSLON.LN_NT_ACCT_HS；原 SQL 第二分支為 DSLON.LN_FN_ACCT_HS。另把規則型證據說成 SQL 來源證據，表述不準。
+
+Q5／#2660
+問題：證券複委託基金收入怎麼計算？請說明收入歸月與去重規則。
+結果：上路需求合理，但沒有選中任何計算路徑，漏 securities_fund::income；最終變成冗長的資料不足回答。
+
+Q6／#2661
+問題：銀行基金的 AUM，以及證券複委託基金的收入，分別怎麼計算？
+結果：需求正確配成兩組，只取 securities_fund::income，漏 bank_fund::aum。沒有交叉多選，但漏資料。
+
+Q7／#2662
+問題：海外資產占總 AUM 的比例要怎麼計算？請說明海外的判定方式、分子與分母的來源、計算基準，以及各自的查詢路徑。
+結果：Jev 選路判斷 HTTP 400，error_type=max_tokens_exceeded，沒有產生選路或最終回答。
+上路拆成六個重疊需求，其中五個要求計算證據、另一個要求概念，形成 5×39＋41＝236 項候選判斷；分子／分母也未穩定解析回實際指標。
+這是執行失敗，不應把它算成 Jev 已作出十六個錯誤排除。
+實際 sessionId：dada0a4fc901473f896ed24ccdf972ee。
+
+Q8／#2663
+問題：請先說明證券複委託基金收入如何計算，再說明銀行基金的 AUM 如何計算。
+結果：改變問句順序仍只取 securities_fund::income，漏 bank_fund::aum。
+
+Q9／#2664
+問題：請比較台幣存款與外幣存款的定義及分類關係。
+結果：不展開計算，保留兩個概念；但子圖兩節點零關係，缺存款父層分類連線。
+
+Q10／#2665
+問題：銀行基金和證券複委託基金的 AUM 分別怎麼計算？
+結果：沒有選中路徑，漏 bank_fund::aum 與 securities_fund::aum 兩組。
+
+Q11／#2666
+問題：銀行基金的 AUM 和收入分別怎麼計算？
+結果：上路分成兩項正確需求，Jev 沒有選中任何路徑，漏 bank_fund::aum 與 bank_fund::income。
+sessionId：e7dc0fa40b6242daa1295dcdbd63a68c，正是使用者貼出 JSON 與狀態報告的那題。
+回答暴露 no_confirmed_selection、N1／N2、calculationRuleRegistry、sqlEvidence 等內部資料。
+
+Q12／#2667
+問題：證券 AUM 包含哪些產品？各產品的來源底表與計算方式是什麼？
+結果：保留五組：securities_bond、securities_structured、securities_fund、securities_foreign_stock、securities_taiwan_stock 的 aum。
+父層完整組成的圖譜推導機制有發揮作用。回答有區分台股的規則型證據與另外四組的原始 SQL 映射。
+圖內五組完整仍不等於原始 SQL 或實際業務的全部範圍已驗證。
+
+整體判讀
+十二題中十一題執行成功、一題執行錯誤。成功執行題未觀察到額外產品／指標配對，但 Q5／Q6／Q8／Q10／Q11 合計漏七組必要配對。
+配對範圍完全符合登記的是六題（Q1／Q2／Q3／Q4／Q9／Q12），這不是六題答案驗收通過：Q1／Q9 缺分類邊，Q4 有事實錯誤。
+不能宣稱加上上路 LLM 後已同時解決多選與漏選。
+
+原始統計檔的兩個注意事項
+v3/route_assessment.json 的 missingPairs=23，包含 Q7 執行中止而未取得的十六組，不應直接當作二十三組語意漏選；應分成七組漏選及一題執行失敗。
+v3/native_runs.json 與 route_assessment.json 的 Q7 sessionId 誤記為 sendMessage。正確值應按 Q7.input.table.json 的 sessionId 欄名讀取，見上文。
+本次只在交接文件更正解讀，原始紀錄未改寫。讀取表格時須按欄名對應，不要假設 action、sessionId、chatInput 欄位順序固定。
+
+五、「沒有映射資料」與 JSON 回覆的分析
+
+沒有映射至少須區分三種情況。
+第一種是問題只問分類或角色，本來就不需要計算映射，例如 Q2／Q3；不應附上像是故障的「未取得映射」段落。
+第二種是計算需求根本沒選中概念路徑，映射沒有有效配對可查，例如 Q5／Q10／Q11；這是上游漏選，不能直接說 Aura 缺資料。
+第三種才是選路正確，後續只有計算規則，或實際缺映射／原始 SQL。規則型映射有資料可說明，不能和完全沒資料混為一談。
+因此目前不能概括判斷「路徑選擇與映射查詢都是正確的」，也沒有足夠依據把這批問題歸咎於 Aura Query 過舊。
+
+使用者貼出的 Q11 有兩個獨立問題。
+1. 外層 {sessionId, action, chatInput} 是 n8n 訊息／節點輸出包裝。Single Question 已設定 responseNodes，Single Answer.Message 也是字串，不應未經查證就改 responseMode 或說是模型生成了外層 JSON。
+   已保存的 Q11 Editor 即時聊天畫面是正常段落，沒有外層物件；執行歷史／原始輸出曾看到整包物件。若要修顯示，應先辨識使用者所看的畫面與取值層。
+2. chatInput 內的冗長證據／狀態報告，是 Answer Question 把內部資料寫成正文。此題沒有選中任何路徑，內部空證據觸發模型照述狀態，但不能因此推論圖內不存在銀行基金規則。
+
+先修上游漏選，再收斂回答邊界與呈現。不能只把狀態欄位藏起來，就宣稱已修復資料取得。
+
+六、去重子圖的調整方向，尚未實作
+
+現況：conceptGraph 在選路後已合併節點與關係；但 Prepare Answer Evidence 仍把每條概念／映射路徑轉成文字附錄。完全相同的字串會去重，共用的半段路徑仍重複，所以回答很長。
+SQL／規則資料雖有共享引用壓縮，仍不等於已完成使用者要的查詢子圖輸出。
+
+下一版應從本題實際保留、支撐答案的概念與資料關係建立同一份子圖，讓模型與路徑呈現共用它，不把全部候選圖或全部路徑清單當作附錄。
+節點以穩定身份去重；關係須保留來源、目標、關係類型，以及會改變意義的規則／版本／條件身份。不能只憑顯示名稱相同就合併。
+共同中繼表、共同概念、共同關係顯示一次，以分支表達各產品來源；保留需要對照的產品／指標配對，避免去重後失去支持哪一項回答的關聯。
+規則來源與原始 SQL 血緣要保留原有語意，不虛構跨圖的關係；不同版本、日期條件、重建／月更新仍須分開。
+對外只呈現回答與精簡查詢子圖；內部 audit 可保留必要追蹤，不能直接展開成使用者段落。
+純概念題只呈現概念子圖，不固定加「資料來源路徑未取得」的尾段。
+具體採用圖形或精簡分支文字尚未定案；使用者已確認的是合併去重與縮小回覆，不能把某個呈現樣式寫成已上線功能。
+
+七、各節點後續可調整的內容，仍屬分析
+
+整理使用者問題：同一產品／指標的來源、公式、日期、去重是同一需求的不同面向，避免拆成多個重複 needs；保留不同產品／指標配對。比例題將分子／分母連回實際對象，保留尚不明確的地域定義，不能把外幣直接當海外。
+Aura - Full Concept Graph：維持下路唯讀載入；這輪沒有證據顯示必須先修改圖資料或連線。
+Merge 問題與路徑：保留 Combine by Position；目前分支設計已達成，不需加一個 LLM 來單純合併資料。
+準備 Jev 選路資料：依圖中的名稱、別名、明確指標與階層關係縮小候選；仍要涵蓋整體指標必要組成，不能單靠字面不相同就刪掉。減少每項重複的長描述，並限制每批大小。
+Jev 選路判斷：使用簡短但有業務語意的候選；分批後要保存所有判斷，不能截掉尾端候選。API 超限須作為執行錯誤處理，不能變成空資料的正常回答。
+整理選路子圖：補回必要分類父節點及關係；保留配對與選取來源。明確名稱／別名與唯一圖譜配對可作一致性檢查，但自動補回仍須檢查限制與歧義，不能無條件覆蓋 Jev 結果。
+Aura - Mapping Paths：先用選中配對核對映射結果，區分上游沒有配對、只有規則與真正缺映射；不要先把所有空結果當查詢壞掉。
+KB Result：保留計算解釋需要的 SQL／規則／來源與關聯；不要把診斷資料設計成使用者必看的內容。
+Prepare Answer Evidence：將內部稽核與回答素材分開，建立去重子圖，取代逐條路徑附錄。仍保留理解公式、日期、粒度、去重所需的完整依據。
+Answer Question：保留通用回答方式；明確限制不輸出內部狀態、欄位、空 registry 清單；根據已取得內容直接回答。逐項核對底表與規則版本，不自行翻譯表名縮寫。
+Single Answer：組成回答文字與去重子圖的呈現。外層訊息包裝的顯示問題須由畫面／取值層確認，不應只靠 prompt 修理。
+Answer Model：目前沒有更換模型的決定。
+
+八、本機第二輪草案的狀態
+
+位置：deliverables/single_turn_qa/v3/round2/
+有 workflow.proposed.json、question_prompt.txt、prepare.js、selection.js、evidence.js、建置程式與 validation.local.json。
+草案包含合併需求面向、解析指標、依名稱／別名縮候選、每二十項分批、合併全部批次、補分類父層及唯一明確配對恢復等方向。
+validation.local.json 只驗證程式可解析與合成決策下的結構條件，不代表 Jev／LLM 實際答對，也不代表線上測試通過。
+沒有 round2 的原生保存匯出、測前凍結或執行結果。
+草案早於「不需要狀態整理」與「輸出去重子圖」兩項最新決定，尚未完整反映使用者要求，需重新檢視後才能實作。
+
+另登記三題，尚未測試：
+Q13：結構型存款屬於哪一類產品？
+Q14：海外債券（信託）的收入怎麼計算？
+Q15：請分別說明銀行海外股票與證券複委託外國股票的 AUM 計算來源。
+登記於 round2/test_plan.json，不能計入十二題第一輪成績。
+
+九、圖譜與原 SQL 核對的修正資訊
+
+Aura 兩個查詢節點使用：
+https://4bb479b2.databases.neo4j.io/db/neo4j/query/v2
+本輪使用的是當時從 Aura 讀回的概念與映射；固定查詢、憑證參照與模型設定未更換，沒有把概念路徑寫死成舊清單。
+「連到同一個 Aura」不等於每項業務分類已完整，也不表示單靠路徑存在就能判定海外。
+subsidiary、marketRegion、dealingMode 等新增屬性只是先前討論，未部署，也不在本版概念欄位白名單。
+
+總 AUM 範圍的重要更正：
+當前基準圖有十九條 AUM 路徑。將存款父項與三個子分類的重疊消除後，是十六個產品範圍：
+deposit、bank_fund、bank_etf、bank_overseas_stock、bank_bond_trust、bank_bond_proprietary、bank_collective_account、bank_structured_offshore、bank_planned_trust、bank_trust_custody、bank_insurance、securities_bond、securities_structured、securities_fund、securities_foreign_stock、securities_taiwan_stock。
+舊 v2 的 Q7 只選十二組，漏掉 bank_etf、bank_trust_custody、bank_insurance、securities_taiwan_stock。它們當時已在圖內，不能再說都是圖外產品。
+舊的單輪七題交接／報告是歷史紀錄，其中 Q7 的十二組範圍說法須以這項更正解讀。十六組也只表示已載入圖內的非重疊範圍，不自動證明與全部原 SQL 分支一致。
+
+來源核對要點：
+sources/sql/8.INCOME_DETAIL.sql 為 CP950／Big5，請用正確編碼唯讀。
+證券基金收入以 WKA28 作客戶、WKA31 作金額；WKA02 與 LAST2_WD 決定歸月，來源快照 YYYYMMDD 的 MAX 條件是另一個日期角色，不可互換。
+部分來源依賴 PB_BONDTRADM_SEC 的最大快照日，這個條件存在於原 SQL；它本身不代表題目還需多選債券收入。
+UNION 是對完整投影列去重，不等同保證每個客戶／月份唯一。
+放款歷史及月更新有 LN_NT_ACCT_HS 與 LN_FN_ACCT_HS 兩個分支，分別見 SUM(GROSS_INCM) 與 SUM(INT_INCM-CB_INT_AMT)；不能把月更新第二分支也寫成 NT 表。
+沒有來源支持將 NT／FN 翻譯成非金融帳／金融帳，應保留原表名。
+sources/sql/2._AUM_SUMY.sql 可用來比對完整主彙總分支；圖內完整與原始 SQL 完整須分開驗證。
+本輪沒有修改或執行上述 SQL，也未取得可用來驗證金額的實際資料。
+
+十、檔案入口與接手方式
+
+以下路徑皆相對於本文件開頭列出的專案根目錄。
+
+目前單輪第一輪的權威保存
+deliverables/single_turn_qa/v3/workflow.frozen.json
+deliverables/single_turn_qa/v3/workflow.imported.json
+deliverables/single_turn_qa/v3/frozen.json
+deliverables/single_turn_qa/v3/validation.imported.json
+凍結及 imported 的 versionId 相同；原生貼上會重新產生節點 ID，已核對參數、憑證參照、接線、設定、相同流程 ID、未發布與空 pinData。
+workflow.proposed.json 是本機建置提案，節點 ID 可能不同；不要把它當原生保存證明。
+workflow.before.json 是變更前的單輪 v2。
+
+本版接線圖與 prompt
+deliverables/single_turn_qa/v3/workflow.round1.visible.png
+deliverables/single_turn_qa/v3/question_prompt.txt
+deliverables/single_turn_qa/v3/answer_prompt.txt
+完整 Answer Question 使用者訊息模板及 Single Answer 設定以 workflow.frozen.json 為準。
+
+第一輪測試追溯
+deliverables/single_turn_qa/v3/test_plan.json
+deliverables/single_turn_qa/v3/native_runs.json
+deliverables/single_turn_qa/v3/executions.visible.json
+deliverables/single_turn_qa/v3/route_assessment.json
+deliverables/single_turn_qa/v3/Q1–Q12 對應的 input.table.json、needs.table.json、selection.table.json、answer.table.json、answer.txt、editor.visible.txt。
+Q7 沒有成功回答，改看 Q7.error.visible.txt、Q7.input.table.json、Q7.needs.table.json。
+各題執行 ID 以本交接與 executions.visible.json 對照，不能假設連續；#2659 不屬於這十二題清單。
+v3 尚未另產生完整 HTML 驗收報告，本交接補足目前停止點；不要把 v2 HTML 報告當 v3 結果。
+
+前版單輪歷史
+deliverables/single_turn_qa/v2/workflow.saved.json
+deliverables/single_turn_qa/testing_20261016/
+docs/handoffs/20261016_單輪獨立問答七題測試交接.txt
+它們可用來比較多選改善，但不是本次十三節點版本。
+
+未套用草案
+deliverables/single_turn_qa/v3/round2/
+本目錄不代表修正已上線。
+
+接手當下的工作狀態
+目前可以繼續閱讀、說明與分析。只有使用者明確恢復修改後，才調整流程或執行新測試。
+恢復時先核對單輪 ID 及現況匯出，再修通用需求整理／候選選取／子圖與回答邊界；保存新基準後，用原十二題及新增題測試。
+選路配對、必要分類關係、映射來源、回答事實、子圖大小及顯示包裝須分開驗收；「Succeeded」只代表流程跑完。
+保留第一輪失敗紀錄。不得把本機合成檢查寫成模型驗收，不得將逐題調整後的結果混成同一凍結版本成績。
+最終需確認沒有交叉多選、沒有漏必要配對、沒有必要關係遺失、比率題不再因請求過大中止，且對外只顯示回答與去重查詢子圖。

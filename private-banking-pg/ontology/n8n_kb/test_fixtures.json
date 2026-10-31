@@ -1,0 +1,2804 @@
+{
+  "catalog": [
+    {
+      "matchedScopes": [
+        {
+          "metricCode": "aum_total_month_end",
+          "domain": "aum"
+        },
+        {
+          "metricCode": "income_total_customer_month",
+          "domain": "income"
+        }
+      ],
+      "productCode": "bank_bond_proprietary",
+      "productName": "海外債券（自營）",
+      "definition": "銀行自營通路的海外債券業務，涵蓋客戶持有資產與相關收入；兩側業務對應仍屬推論。",
+      "status": "inferred",
+      "aumStatus": "inferred",
+      "incomeStatus": "inferred",
+      "aumMetrics": [
+        {
+          "name": "月底銀行投資AUM",
+          "definition": "月底衡量的銀行通路投資資產。",
+          "metricCode": "aum_bank_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底投資AUM",
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "metricCode": "aum_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "metricCode": "aum_total_month_end",
+          "status": "draft"
+        }
+      ],
+      "incomeMetrics": [
+        {
+          "name": "銀行手續費類收入",
+          "definition": "銀行通路歸入手續費類的收入。",
+          "metricCode": "bank_fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "手續費類收入",
+          "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+          "metricCode": "fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "每客戶每月總收入",
+          "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+          "metricCode": "income_total_customer_month",
+          "status": "pending_confirmation"
+        }
+      ]
+    },
+    {
+      "matchedScopes": [
+        {
+          "metricCode": "aum_total_month_end",
+          "domain": "aum"
+        },
+        {
+          "metricCode": "income_total_customer_month",
+          "domain": "income"
+        }
+      ],
+      "productCode": "bank_bond_trust",
+      "productName": "海外債券（信託）",
+      "definition": "以信託方式持有的海外債券業務，涵蓋客戶持有市值與相關信託收入。",
+      "status": "inferred",
+      "aumStatus": "inferred",
+      "incomeStatus": "inferred",
+      "aumMetrics": [
+        {
+          "name": "月底銀行投資AUM",
+          "definition": "月底衡量的銀行通路投資資產。",
+          "metricCode": "aum_bank_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底投資AUM",
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "metricCode": "aum_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "metricCode": "aum_total_month_end",
+          "status": "draft"
+        }
+      ],
+      "incomeMetrics": [
+        {
+          "name": "銀行手續費類收入",
+          "definition": "銀行通路歸入手續費類的收入。",
+          "metricCode": "bank_fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "手續費類收入",
+          "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+          "metricCode": "fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "每客戶每月總收入",
+          "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+          "metricCode": "income_total_customer_month",
+          "status": "pending_confirmation"
+        }
+      ]
+    },
+    {
+      "matchedScopes": [
+        {
+          "metricCode": "aum_total_month_end",
+          "domain": "aum"
+        },
+        {
+          "metricCode": "income_total_customer_month",
+          "domain": "income"
+        }
+      ],
+      "productCode": "bank_collective_account",
+      "productName": "集合管理帳戶",
+      "definition": "集合管理帳戶業務。AUM衡量客戶持有資產；Income的獨立業務定義待確認，不代表已確認計入獨立收入。",
+      "status": "pending_confirmation",
+      "aumStatus": "inferred",
+      "incomeStatus": "pending_confirmation",
+      "aumMetrics": [
+        {
+          "name": "月底銀行投資AUM",
+          "definition": "月底衡量的銀行通路投資資產。",
+          "metricCode": "aum_bank_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底投資AUM",
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "metricCode": "aum_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "metricCode": "aum_total_month_end",
+          "status": "draft"
+        }
+      ],
+      "incomeMetrics": [
+        {
+          "name": "銀行手續費類收入",
+          "definition": "銀行通路歸入手續費類的收入。",
+          "metricCode": "bank_fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "手續費類收入",
+          "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+          "metricCode": "fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "每客戶每月總收入",
+          "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+          "metricCode": "income_total_customer_month",
+          "status": "pending_confirmation"
+        }
+      ]
+    },
+    {
+      "matchedScopes": [
+        {
+          "metricCode": "aum_total_month_end",
+          "domain": "aum"
+        },
+        {
+          "metricCode": "income_total_customer_month",
+          "domain": "income"
+        }
+      ],
+      "productCode": "bank_etf",
+      "productName": "銀行ETF",
+      "definition": "銀行通路的指數股票型基金業務，涵蓋客戶持有資產與相關收入。",
+      "status": "inferred",
+      "aumStatus": "inferred",
+      "incomeStatus": "inferred",
+      "aumMetrics": [
+        {
+          "name": "月底銀行投資AUM",
+          "definition": "月底衡量的銀行通路投資資產。",
+          "metricCode": "aum_bank_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底投資AUM",
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "metricCode": "aum_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "metricCode": "aum_total_month_end",
+          "status": "draft"
+        }
+      ],
+      "incomeMetrics": [
+        {
+          "name": "銀行手續費類收入",
+          "definition": "銀行通路歸入手續費類的收入。",
+          "metricCode": "bank_fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "手續費類收入",
+          "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+          "metricCode": "fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "每客戶每月總收入",
+          "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+          "metricCode": "income_total_customer_month",
+          "status": "pending_confirmation"
+        }
+      ]
+    },
+    {
+      "matchedScopes": [
+        {
+          "metricCode": "aum_total_month_end",
+          "domain": "aum"
+        },
+        {
+          "metricCode": "income_total_customer_month",
+          "domain": "income"
+        }
+      ],
+      "productCode": "bank_fund",
+      "productName": "銀行基金",
+      "definition": "銀行通路的基金業務，涵蓋客戶持有資產與相關收入。",
+      "status": "inferred",
+      "aumStatus": "inferred",
+      "incomeStatus": "inferred",
+      "aumMetrics": [
+        {
+          "name": "月底銀行投資AUM",
+          "definition": "月底衡量的銀行通路投資資產。",
+          "metricCode": "aum_bank_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底投資AUM",
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "metricCode": "aum_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "metricCode": "aum_total_month_end",
+          "status": "draft"
+        }
+      ],
+      "incomeMetrics": [
+        {
+          "name": "銀行手續費類收入",
+          "definition": "銀行通路歸入手續費類的收入。",
+          "metricCode": "bank_fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "手續費類收入",
+          "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+          "metricCode": "fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "每客戶每月總收入",
+          "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+          "metricCode": "income_total_customer_month",
+          "status": "pending_confirmation"
+        }
+      ]
+    },
+    {
+      "matchedScopes": [
+        {
+          "metricCode": "aum_total_month_end",
+          "domain": "aum"
+        },
+        {
+          "metricCode": "income_total_customer_month",
+          "domain": "income"
+        }
+      ],
+      "productCode": "bank_insurance",
+      "productName": "銀行保險",
+      "definition": "銀行通路保險業務。AUM衡量原始投資金額；Income衡量相關收入，收入是否重複計入仍待確認。",
+      "status": "overlap_unresolved",
+      "aumStatus": "inferred",
+      "incomeStatus": "overlap_unresolved",
+      "aumMetrics": [
+        {
+          "name": "月底保險AUM",
+          "definition": "月底衡量的銀行保險原始投資金額。",
+          "metricCode": "aum_insurance_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底銀行投資AUM",
+          "definition": "月底衡量的銀行通路投資資產。",
+          "metricCode": "aum_bank_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底投資AUM",
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "metricCode": "aum_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "metricCode": "aum_total_month_end",
+          "status": "draft"
+        }
+      ],
+      "incomeMetrics": [
+        {
+          "name": "銀行手續費類收入",
+          "definition": "銀行通路歸入手續費類的收入。",
+          "metricCode": "bank_fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "手續費類收入",
+          "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+          "metricCode": "fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "每客戶每月總收入",
+          "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+          "metricCode": "income_total_customer_month",
+          "status": "pending_confirmation"
+        }
+      ]
+    },
+    {
+      "matchedScopes": [
+        {
+          "metricCode": "aum_total_month_end",
+          "domain": "aum"
+        },
+        {
+          "metricCode": "income_total_customer_month",
+          "domain": "income"
+        }
+      ],
+      "productCode": "bank_overseas_stock",
+      "productName": "銀行海外股票",
+      "definition": "銀行通路的海外股票業務，涵蓋客戶持有資產與相關收入。",
+      "status": "inferred",
+      "aumStatus": "inferred",
+      "incomeStatus": "inferred",
+      "aumMetrics": [
+        {
+          "name": "月底銀行投資AUM",
+          "definition": "月底衡量的銀行通路投資資產。",
+          "metricCode": "aum_bank_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底投資AUM",
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "metricCode": "aum_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "metricCode": "aum_total_month_end",
+          "status": "draft"
+        }
+      ],
+      "incomeMetrics": [
+        {
+          "name": "銀行手續費類收入",
+          "definition": "銀行通路歸入手續費類的收入。",
+          "metricCode": "bank_fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "手續費類收入",
+          "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+          "metricCode": "fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "每客戶每月總收入",
+          "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+          "metricCode": "income_total_customer_month",
+          "status": "pending_confirmation"
+        }
+      ]
+    },
+    {
+      "matchedScopes": [
+        {
+          "metricCode": "aum_total_month_end",
+          "domain": "aum"
+        },
+        {
+          "metricCode": "income_total_customer_month",
+          "domain": "income"
+        }
+      ],
+      "productCode": "bank_planned_trust",
+      "productName": "規劃型信託",
+      "definition": "規劃型信託業務，涵蓋受託管理資產及相關管理、成立與借券收入。",
+      "status": "inferred",
+      "aumStatus": "inferred",
+      "incomeStatus": "inferred",
+      "aumMetrics": [
+        {
+          "name": "月底銀行投資AUM",
+          "definition": "月底衡量的銀行通路投資資產。",
+          "metricCode": "aum_bank_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底投資AUM",
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "metricCode": "aum_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "metricCode": "aum_total_month_end",
+          "status": "draft"
+        }
+      ],
+      "incomeMetrics": [
+        {
+          "name": "銀行手續費類收入",
+          "definition": "銀行通路歸入手續費類的收入。",
+          "metricCode": "bank_fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "手續費類收入",
+          "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+          "metricCode": "fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "每客戶每月總收入",
+          "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+          "metricCode": "income_total_customer_month",
+          "status": "pending_confirmation"
+        }
+      ]
+    },
+    {
+      "matchedScopes": [
+        {
+          "metricCode": "aum_total_month_end",
+          "domain": "aum"
+        },
+        {
+          "metricCode": "income_total_customer_month",
+          "domain": "income"
+        }
+      ],
+      "productCode": "bank_structured_offshore",
+      "productName": "銀行境外結構型商品",
+      "definition": "銀行通路的境外結構型商品業務，涵蓋客戶持有資產與相關收入。",
+      "status": "inferred",
+      "aumStatus": "inferred",
+      "incomeStatus": "inferred",
+      "aumMetrics": [
+        {
+          "name": "月底銀行投資AUM",
+          "definition": "月底衡量的銀行通路投資資產。",
+          "metricCode": "aum_bank_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底投資AUM",
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "metricCode": "aum_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "metricCode": "aum_total_month_end",
+          "status": "draft"
+        }
+      ],
+      "incomeMetrics": [
+        {
+          "name": "銀行手續費類收入",
+          "definition": "銀行通路歸入手續費類的收入。",
+          "metricCode": "bank_fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "手續費類收入",
+          "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+          "metricCode": "fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "每客戶每月總收入",
+          "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+          "metricCode": "income_total_customer_month",
+          "status": "pending_confirmation"
+        }
+      ]
+    },
+    {
+      "matchedScopes": [
+        {
+          "metricCode": "aum_total_month_end",
+          "domain": "aum"
+        },
+        {
+          "metricCode": "income_total_customer_month",
+          "domain": "income"
+        }
+      ],
+      "productCode": "bank_trust_custody",
+      "productName": "信託保管",
+      "definition": "信託保管業務，涵蓋保管資產與保管費收入。",
+      "status": "inferred",
+      "aumStatus": "inferred",
+      "incomeStatus": "inferred",
+      "aumMetrics": [
+        {
+          "name": "月底銀行投資AUM",
+          "definition": "月底衡量的銀行通路投資資產。",
+          "metricCode": "aum_bank_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底投資AUM",
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "metricCode": "aum_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "metricCode": "aum_total_month_end",
+          "status": "draft"
+        }
+      ],
+      "incomeMetrics": [
+        {
+          "name": "銀行手續費類收入",
+          "definition": "銀行通路歸入手續費類的收入。",
+          "metricCode": "bank_fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "手續費類收入",
+          "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+          "metricCode": "fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "每客戶每月總收入",
+          "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+          "metricCode": "income_total_customer_month",
+          "status": "pending_confirmation"
+        }
+      ]
+    },
+    {
+      "matchedScopes": [
+        {
+          "metricCode": "aum_total_month_end",
+          "domain": "aum"
+        },
+        {
+          "metricCode": "income_total_customer_month",
+          "domain": "income"
+        }
+      ],
+      "productCode": "deposit",
+      "productName": "存款",
+      "definition": "客戶在銀行持有的存款。AUM衡量存款餘額；Income衡量存款整體利息收入，不將總利收重複分配至各子類。",
+      "status": "aggregate_scope",
+      "aumStatus": "inferred",
+      "incomeStatus": "inferred",
+      "aumMetrics": [
+        {
+          "name": "月底存款AUM",
+          "definition": "月底衡量的銀行存款餘額。",
+          "metricCode": "aum_deposit_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "metricCode": "aum_total_month_end",
+          "status": "draft"
+        }
+      ],
+      "incomeMetrics": [
+        {
+          "name": "存款利收",
+          "definition": "存款業務整體的利息收入。",
+          "metricCode": "deposit_interest_income",
+          "status": "inferred"
+        },
+        {
+          "name": "利息收入",
+          "definition": "存款與放款業務的利息收入。",
+          "metricCode": "interest_income",
+          "status": "inferred"
+        },
+        {
+          "name": "每客戶每月總收入",
+          "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+          "metricCode": "income_total_customer_month",
+          "status": "pending_confirmation"
+        }
+      ]
+    },
+    {
+      "matchedScopes": [
+        {
+          "metricCode": "aum_total_month_end",
+          "domain": "aum"
+        },
+        {
+          "metricCode": "income_total_customer_month",
+          "domain": "income"
+        }
+      ],
+      "productCode": "securities_bond",
+      "productName": "證券複委託債券",
+      "definition": "證券通路的複委託債券業務，涵蓋部位估值與交易手續費收入。",
+      "status": "inferred",
+      "aumStatus": "inferred",
+      "incomeStatus": "inferred",
+      "aumMetrics": [
+        {
+          "name": "月底證券AUM",
+          "definition": "月底衡量的證券通路投資資產。",
+          "metricCode": "aum_securities_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底投資AUM",
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "metricCode": "aum_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "metricCode": "aum_total_month_end",
+          "status": "draft"
+        }
+      ],
+      "incomeMetrics": [
+        {
+          "name": "證券手續費類收入",
+          "definition": "證券通路歸入手續費類的收入。",
+          "metricCode": "securities_fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "手續費類收入",
+          "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+          "metricCode": "fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "每客戶每月總收入",
+          "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+          "metricCode": "income_total_customer_month",
+          "status": "pending_confirmation"
+        }
+      ]
+    },
+    {
+      "matchedScopes": [
+        {
+          "metricCode": "aum_total_month_end",
+          "domain": "aum"
+        },
+        {
+          "metricCode": "income_total_customer_month",
+          "domain": "income"
+        }
+      ],
+      "productCode": "securities_foreign_stock",
+      "productName": "證券複委託外國股票",
+      "definition": "證券通路的複委託外國股票業務，涵蓋客戶持有資產與淨手續費收入；淨收入可能為負值。",
+      "status": "inferred",
+      "aumStatus": "inferred",
+      "incomeStatus": "inferred",
+      "aumMetrics": [
+        {
+          "name": "月底證券AUM",
+          "definition": "月底衡量的證券通路投資資產。",
+          "metricCode": "aum_securities_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底投資AUM",
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "metricCode": "aum_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "metricCode": "aum_total_month_end",
+          "status": "draft"
+        }
+      ],
+      "incomeMetrics": [
+        {
+          "name": "證券手續費類收入",
+          "definition": "證券通路歸入手續費類的收入。",
+          "metricCode": "securities_fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "手續費類收入",
+          "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+          "metricCode": "fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "每客戶每月總收入",
+          "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+          "metricCode": "income_total_customer_month",
+          "status": "pending_confirmation"
+        }
+      ]
+    },
+    {
+      "matchedScopes": [
+        {
+          "metricCode": "aum_total_month_end",
+          "domain": "aum"
+        },
+        {
+          "metricCode": "income_total_customer_month",
+          "domain": "income"
+        }
+      ],
+      "productCode": "securities_fund",
+      "productName": "證券複委託基金",
+      "definition": "證券通路的複委託基金業務，涵蓋客戶持有資產與交易費收入。",
+      "status": "inferred",
+      "aumStatus": "inferred",
+      "incomeStatus": "inferred",
+      "aumMetrics": [
+        {
+          "name": "月底證券AUM",
+          "definition": "月底衡量的證券通路投資資產。",
+          "metricCode": "aum_securities_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底投資AUM",
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "metricCode": "aum_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "metricCode": "aum_total_month_end",
+          "status": "draft"
+        }
+      ],
+      "incomeMetrics": [
+        {
+          "name": "證券手續費類收入",
+          "definition": "證券通路歸入手續費類的收入。",
+          "metricCode": "securities_fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "手續費類收入",
+          "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+          "metricCode": "fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "每客戶每月總收入",
+          "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+          "metricCode": "income_total_customer_month",
+          "status": "pending_confirmation"
+        }
+      ]
+    },
+    {
+      "matchedScopes": [
+        {
+          "metricCode": "aum_total_month_end",
+          "domain": "aum"
+        },
+        {
+          "metricCode": "income_total_customer_month",
+          "domain": "income"
+        }
+      ],
+      "productCode": "securities_structured",
+      "productName": "證券複委託結構型商品",
+      "definition": "證券通路的複委託結構型商品業務，涵蓋客戶持有資產與相关收入。",
+      "status": "inferred",
+      "aumStatus": "inferred",
+      "incomeStatus": "inferred",
+      "aumMetrics": [
+        {
+          "name": "月底證券AUM",
+          "definition": "月底衡量的證券通路投資資產。",
+          "metricCode": "aum_securities_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底投資AUM",
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "metricCode": "aum_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "metricCode": "aum_total_month_end",
+          "status": "draft"
+        }
+      ],
+      "incomeMetrics": [
+        {
+          "name": "證券手續費類收入",
+          "definition": "證券通路歸入手續費類的收入。",
+          "metricCode": "securities_fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "手續費類收入",
+          "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+          "metricCode": "fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "每客戶每月總收入",
+          "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+          "metricCode": "income_total_customer_month",
+          "status": "pending_confirmation"
+        }
+      ]
+    }
+  ],
+  "outputs": {
+    "empty": [],
+    "single": [
+      {
+        "productCode": "bank_insurance",
+        "productName": "銀行保險",
+        "domain": "income",
+        "status": "overlap_unresolved",
+        "mappings": [
+          {
+            "lineage": [
+              {
+                "tablePath": [
+                  "DSINS.INSU_RPT_Q01",
+                  "INCOME_028"
+                ],
+                "baseTable": "DSINS.INSU_RPT_Q01",
+                "rules": [
+                  {
+                    "lineStart": 12,
+                    "selectExpressions": [
+                      "dept_easy_nm",
+                      "dept_easy_nm2",
+                      "applicant_id AS cust_id",
+                      "apply_dt AS yyyymmdd",
+                      "SUM(COMM_AMT) AS AMT"
+                    ],
+                    "whereConditions": [],
+                    "unionDeduplication": [],
+                    "lineEnd": 16,
+                    "operationTypes": [
+                      "AGGREGATE",
+                      "SELECT",
+                      "CREATE TABLE AS"
+                    ],
+                    "sql": "create table INCOME_028\nas \nselect dept_easy_nm,dept_easy_nm2,applicant_id as cust_id,apply_dt as yyyymmdd,sum(COMM_AMT) AMT--dept_easy_nm,dept_easy_nm2,\nfrom DSINS.INSU_RPT_Q01@anadbp01_dwdbp01\ngroup by dept_easy_nm,dept_easy_nm2,applicant_id,apply_dt;",
+                    "unionBranchOrders": [],
+                    "file": "sources/sql/8.INCOME_DETAIL.sql",
+                    "aggregateExpressions": [
+                      "SUM(COMM_AMT)"
+                    ],
+                    "groupExpressions": [
+                      "dept_easy_nm",
+                      "dept_easy_nm2",
+                      "applicant_id",
+                      "apply_dt"
+                    ],
+                    "caseExpressions": [],
+                    "operation": "TRANSFORMS_TO",
+                    "status": "active_sql",
+                    "joinConditions": []
+                  }
+                ]
+              }
+            ],
+            "mappingStatus": "observed_in_sql",
+            "outputTable": "INCOME_028",
+            "mappingType": "INCOME_IMPLEMENTED_BY",
+            "lineageStatus": "traced",
+            "productScope": "手收／銀行／保險",
+            "sqlTable": "INCOME_028"
+          },
+          {
+            "lineage": [
+              {
+                "tablePath": [
+                  "DSKPI.KPI_DET_IU_002_NEW",
+                  "INCOME_029"
+                ],
+                "baseTable": "DSKPI.KPI_DET_IU_002_NEW",
+                "rules": [
+                  {
+                    "lineStart": 20,
+                    "selectExpressions": [
+                      "cust_id",
+                      "TO_CHAR(ADD_MONTHS(TO_DATE(lst_mtn_dt, 'yyyymmdd'), 1), 'yyyymmdd') AS yyyymmdd",
+                      "SUM(ps) AS amt"
+                    ],
+                    "whereConditions": [
+                      "NOT ps IS NULL"
+                    ],
+                    "unionDeduplication": [],
+                    "lineEnd": 27,
+                    "operationTypes": [
+                      "FILTER",
+                      "AGGREGATE",
+                      "SELECT",
+                      "CREATE TABLE AS"
+                    ],
+                    "sql": "create table INCOME_029\nas \nselect  cust_id ,\n        to_char(add_months(to_date(lst_mtn_dt,'yyyymmdd'),1),'yyyymmdd')as  yyyymmdd,\n        sum(ps) amt --,* --lst_mtn_dt,category,sum(ps) --AO_ID,CUST_ID,PS\nfrom DSKPI.KPI_DET_IU_002_NEW@anadbp01_dwdbp01\nwhere ps is not null\ngroup by cust_id ,lst_mtn_dt;",
+                    "unionBranchOrders": [],
+                    "file": "sources/sql/8.INCOME_DETAIL.sql",
+                    "aggregateExpressions": [
+                      "SUM(ps)"
+                    ],
+                    "groupExpressions": [
+                      "cust_id",
+                      "lst_mtn_dt"
+                    ],
+                    "caseExpressions": [],
+                    "operation": "TRANSFORMS_TO",
+                    "status": "active_sql",
+                    "joinConditions": []
+                  }
+                ]
+              }
+            ],
+            "mappingStatus": "observed_in_sql",
+            "outputTable": "INCOME_029",
+            "mappingType": "INCOME_IMPLEMENTED_BY",
+            "lineageStatus": "traced",
+            "productScope": "手收／銀行／保險",
+            "sqlTable": "INCOME_029"
+          },
+          {
+            "lineage": [
+              {
+                "tablePath": [
+                  "DSKPI.KPI_DET_OFI_001",
+                  "INCOME_030"
+                ],
+                "baseTable": "DSKPI.KPI_DET_OFI_001",
+                "rules": [
+                  {
+                    "lineStart": 33,
+                    "selectExpressions": [
+                      "cust_id",
+                      "TO_CHAR(ADD_MONTHS(TO_DATE(lst_mtn_dt, 'yyyymmdd'), 1), 'yyyymmdd') AS yyyymmdd",
+                      "SUM(ps) AS amt"
+                    ],
+                    "whereConditions": [
+                      "open_account = 'Y'"
+                    ],
+                    "unionDeduplication": [],
+                    "lineEnd": 38,
+                    "operationTypes": [
+                      "FILTER",
+                      "AGGREGATE",
+                      "SELECT",
+                      "CREATE TABLE AS"
+                    ],
+                    "sql": "create table INCOME_030\nas \nselect cust_id ,to_char(add_months(to_date(lst_mtn_dt,'yyyymmdd'),1),'yyyymmdd') as yyyymmdd,sum(ps) amt  -- source_name,lst_mtn_dt,sum(ps) ps,count(*) 人數 --distinct lst_mtn_dt \nfrom DSKPI.KPI_DET_OFI_001@anadbp01_dwdbp01\nwhere open_account='Y'\ngroup by cust_id ,lst_mtn_dt;",
+                    "unionBranchOrders": [],
+                    "file": "sources/sql/8.INCOME_DETAIL.sql",
+                    "aggregateExpressions": [
+                      "SUM(ps)"
+                    ],
+                    "groupExpressions": [
+                      "cust_id",
+                      "lst_mtn_dt"
+                    ],
+                    "caseExpressions": [],
+                    "operation": "TRANSFORMS_TO",
+                    "status": "active_sql",
+                    "joinConditions": []
+                  }
+                ]
+              }
+            ],
+            "mappingStatus": "observed_in_sql",
+            "outputTable": "INCOME_030",
+            "mappingType": "INCOME_IMPLEMENTED_BY",
+            "lineageStatus": "traced",
+            "productScope": "手收／銀行／保險",
+            "sqlTable": "INCOME_030"
+          }
+        ]
+      }
+    ],
+    "multiple": [
+      {
+        "productCode": "bank_etf",
+        "productName": "銀行ETF",
+        "domain": "income",
+        "status": "inferred",
+        "mappings": [
+          {
+            "lineage": [
+              {
+                "tablePath": [
+                  "DSFND.PB_FUND_SPREAD_DAILY",
+                  "INCOME_033_034_035_036"
+                ],
+                "baseTable": "DSFND.PB_FUND_SPREAD_DAILY",
+                "rules": [
+                  {
+                    "lineStart": 65,
+                    "selectExpressions": [
+                      "TO_CHAR(TO_DATE(feedate + 19110000, 'yyyymmdd'), 'yyyymmdd') AS yyyymmdd",
+                      "idno AS cust_id",
+                      "CASE WHEN NOT FHID IN ('PS', 'CB', 'YB', 'SN') THEN '基金' WHEN TRIM(FHID) = 'YB' THEN 'ETF' WHEN FHID = 'PS' THEN '海外股票' WHEN FHID LIKE 'TA%' OR FHID LIKE 'TB%' OR FHID LIKE 'TD%' OR FHID LIKE 'TE%' THEN '集合管理帳戶' END AS FH_TYP",
+                      "baopcccode AS PCCODE",
+                      "SUM(BrhRebateAmt) AS AMT"
+                    ],
+                    "whereConditions": [
+                      "(baopcccode LIKE '2E%' OR saopcccode LIKE '2E%') AND feedate >= '011212'"
+                    ],
+                    "unionDeduplication": [],
+                    "lineEnd": 88,
+                    "operationTypes": [
+                      "FILTER",
+                      "AGGREGATE",
+                      "SELECT",
+                      "CASE",
+                      "CREATE TABLE AS"
+                    ],
+                    "sql": "create table INCOME_033_034_035_036\nas \nselect  to_char(to_date(feedate+19110000,'yyyymmdd') ,'yyyymmdd' ) as yyyymmdd --substr(FEEDATE,1,6)  -- FHID,IDNO as cust_id,      \n        ,idno as cust_id       \n        ,case \n              when FHID not in ('PS','CB','YB','SN') then '基金' \n              when TRIM(FHID) ='YB' then 'ETF'\n              when FHID ='PS' then '海外股票'\n              when FHID like 'TA%' or FHID  like 'TB%' or FHID  like 'TD%' or FHID  like 'TE%'  then '集合管理帳戶'\n        end as   FH_TYP \n        ,baopcccode PCCODE\n        ,sum(BrhRebateAmt) as AMT\nfrom DSFND.PB_FUND_SPREAD_DAILY@anadbp01_dwdbp01 \nwhere  (baopcccode like '2E%' or saopcccode like '2E%') and feedate>='011212'  --and feedate='011403' \ngroup by  \n      to_char(to_date(feedate+19110000,'yyyymmdd') ,'yyyymmdd' )   --substr(FEEDATE,1,6),\n      ,idno\n      ,case \n              when FHID not in ('PS','CB','YB','SN') then '基金' \n              when TRIM(FHID) ='YB' then 'ETF'\n              when FHID ='PS' then '海外股票'\n              when FHID like 'TA%' or FHID  like 'TB%' or FHID  like 'TD%' or FHID  like 'TE%'  then '集合管理帳戶'\n       end\n       ,baopcccode;",
+                    "unionBranchOrders": [],
+                    "file": "sources/sql/8.INCOME_DETAIL.sql",
+                    "aggregateExpressions": [
+                      "SUM(BrhRebateAmt)"
+                    ],
+                    "groupExpressions": [
+                      "TO_CHAR(TO_DATE(feedate + 19110000, 'yyyymmdd'), 'yyyymmdd')",
+                      "idno",
+                      "CASE WHEN NOT FHID IN ('PS', 'CB', 'YB', 'SN') THEN '基金' WHEN TRIM(FHID) = 'YB' THEN 'ETF' WHEN FHID = 'PS' THEN '海外股票' WHEN FHID LIKE 'TA%' OR FHID LIKE 'TB%' OR FHID LIKE 'TD%' OR FHID LIKE 'TE%' THEN '集合管理帳戶' END",
+                      "baopcccode"
+                    ],
+                    "caseExpressions": [
+                      "CASE WHEN NOT FHID IN ('PS', 'CB', 'YB', 'SN') THEN '基金' WHEN TRIM(FHID) = 'YB' THEN 'ETF' WHEN FHID = 'PS' THEN '海外股票' WHEN FHID LIKE 'TA%' OR FHID LIKE 'TB%' OR FHID LIKE 'TD%' OR FHID LIKE 'TE%' THEN '集合管理帳戶' END"
+                    ],
+                    "operation": "TRANSFORMS_TO",
+                    "status": "active_sql",
+                    "joinConditions": []
+                  }
+                ]
+              }
+            ],
+            "mappingStatus": "observed_in_sql",
+            "outputTable": "INCOME_033_034_035_036",
+            "mappingType": "INCOME_IMPLEMENTED_BY",
+            "lineageStatus": "traced",
+            "productScope": "FH_TYP='ETF'",
+            "sqlTable": "INCOME_033_034_035_036"
+          }
+        ]
+      },
+      {
+        "productCode": "bank_fund",
+        "productName": "銀行基金",
+        "domain": "aum",
+        "status": "inferred",
+        "mappings": [
+          {
+            "lineage": [
+              {
+                "tablePath": [
+                  "DSFND.PB_FUND_MONTH",
+                  "AUM_013_015_015_016_017_018"
+                ],
+                "baseTable": "DSFND.PB_FUND_MONTH",
+                "rules": [
+                  {
+                    "lineStart": 213,
+                    "selectExpressions": [
+                      "idno AS cust_id",
+                      "TO_CHAR(exedate, 'yyyymmdd') AS yyyymmdd",
+                      "PCCCODE",
+                      "idno",
+                      "CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END AS trustprd",
+                      "SUM(CurrentTWDValue) AS CurrentTWDValue"
+                    ],
+                    "whereConditions": [],
+                    "unionDeduplication": [],
+                    "lineEnd": 230,
+                    "operationTypes": [
+                      "AGGREGATE",
+                      "SELECT",
+                      "CASE",
+                      "CREATE TABLE AS"
+                    ],
+                    "sql": "create table AUM_013_015_015_016_017_018\nas \nselect \n    idno cust_id,to_char(exedate,'yyyymmdd') yyyymmdd,PCCCODE,idno,\n    case \n       when trustprd in ('其他-國外有價證券','其他-國外股票','股票') then '海外股票'\n       when trustprd ='集合' then '集合管理帳戶'\n       when trustprd ='海外債券' then '海外債券(信託)'\n       when trustprd ='結構型商品' then '境外結構型商品'\n    else trustprd end as trustprd,\n    sum(CurrentTWDValue) CurrentTWDValue    \nfrom DSFND.PB_FUND_MONTH@anadbp01_dwdbp01\ngroup by  idno,to_char(exedate,'yyyymmdd') ,PCCCODE,idno,case \n       when trustprd in ('其他-國外有價證券','其他-國外股票','股票') then '海外股票'\n       when trustprd ='集合' then '集合管理帳戶'\n       when trustprd ='海外債券' then '海外債券(信託)'\n       when trustprd ='結構型商品' then '境外結構型商品'\n    else trustprd end;",
+                    "unionBranchOrders": [],
+                    "file": "sources/sql/1.AUM_DETAIL.sql",
+                    "aggregateExpressions": [
+                      "SUM(CurrentTWDValue)"
+                    ],
+                    "groupExpressions": [
+                      "idno",
+                      "TO_CHAR(exedate, 'yyyymmdd')",
+                      "PCCCODE",
+                      "idno",
+                      "CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END"
+                    ],
+                    "caseExpressions": [
+                      "CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END"
+                    ],
+                    "operation": "TRANSFORMS_TO",
+                    "status": "active_sql",
+                    "joinConditions": []
+                  }
+                ]
+              }
+            ],
+            "mappingStatus": "observed_in_sql",
+            "outputTable": "AUM_013_015_015_016_017_018",
+            "mappingType": "AUM_IMPLEMENTED_BY",
+            "lineageStatus": "traced",
+            "productScope": "PROD='基金'",
+            "sqlTable": "AUM_013_015_015_016_017_018"
+          }
+        ]
+      }
+    ],
+    "pending": [
+      {
+        "productCode": "bank_collective_account",
+        "productName": "集合管理帳戶",
+        "domain": "income",
+        "status": "pending_confirmation",
+        "mappings": [
+          {
+            "lineage": [
+              {
+                "tablePath": [
+                  "DSFND.PB_FUND_SPREAD_DAILY",
+                  "INCOME_033_034_035_036"
+                ],
+                "baseTable": "DSFND.PB_FUND_SPREAD_DAILY",
+                "rules": [
+                  {
+                    "lineStart": 65,
+                    "selectExpressions": [
+                      "TO_CHAR(TO_DATE(feedate + 19110000, 'yyyymmdd'), 'yyyymmdd') AS yyyymmdd",
+                      "idno AS cust_id",
+                      "CASE WHEN NOT FHID IN ('PS', 'CB', 'YB', 'SN') THEN '基金' WHEN TRIM(FHID) = 'YB' THEN 'ETF' WHEN FHID = 'PS' THEN '海外股票' WHEN FHID LIKE 'TA%' OR FHID LIKE 'TB%' OR FHID LIKE 'TD%' OR FHID LIKE 'TE%' THEN '集合管理帳戶' END AS FH_TYP",
+                      "baopcccode AS PCCODE",
+                      "SUM(BrhRebateAmt) AS AMT"
+                    ],
+                    "whereConditions": [
+                      "(baopcccode LIKE '2E%' OR saopcccode LIKE '2E%') AND feedate >= '011212'"
+                    ],
+                    "unionDeduplication": [],
+                    "lineEnd": 88,
+                    "operationTypes": [
+                      "FILTER",
+                      "AGGREGATE",
+                      "SELECT",
+                      "CASE",
+                      "CREATE TABLE AS"
+                    ],
+                    "sql": "create table INCOME_033_034_035_036\nas \nselect  to_char(to_date(feedate+19110000,'yyyymmdd') ,'yyyymmdd' ) as yyyymmdd --substr(FEEDATE,1,6)  -- FHID,IDNO as cust_id,      \n        ,idno as cust_id       \n        ,case \n              when FHID not in ('PS','CB','YB','SN') then '基金' \n              when TRIM(FHID) ='YB' then 'ETF'\n              when FHID ='PS' then '海外股票'\n              when FHID like 'TA%' or FHID  like 'TB%' or FHID  like 'TD%' or FHID  like 'TE%'  then '集合管理帳戶'\n        end as   FH_TYP \n        ,baopcccode PCCODE\n        ,sum(BrhRebateAmt) as AMT\nfrom DSFND.PB_FUND_SPREAD_DAILY@anadbp01_dwdbp01 \nwhere  (baopcccode like '2E%' or saopcccode like '2E%') and feedate>='011212'  --and feedate='011403' \ngroup by  \n      to_char(to_date(feedate+19110000,'yyyymmdd') ,'yyyymmdd' )   --substr(FEEDATE,1,6),\n      ,idno\n      ,case \n              when FHID not in ('PS','CB','YB','SN') then '基金' \n              when TRIM(FHID) ='YB' then 'ETF'\n              when FHID ='PS' then '海外股票'\n              when FHID like 'TA%' or FHID  like 'TB%' or FHID  like 'TD%' or FHID  like 'TE%'  then '集合管理帳戶'\n       end\n       ,baopcccode;",
+                    "unionBranchOrders": [],
+                    "file": "sources/sql/8.INCOME_DETAIL.sql",
+                    "aggregateExpressions": [
+                      "SUM(BrhRebateAmt)"
+                    ],
+                    "groupExpressions": [
+                      "TO_CHAR(TO_DATE(feedate + 19110000, 'yyyymmdd'), 'yyyymmdd')",
+                      "idno",
+                      "CASE WHEN NOT FHID IN ('PS', 'CB', 'YB', 'SN') THEN '基金' WHEN TRIM(FHID) = 'YB' THEN 'ETF' WHEN FHID = 'PS' THEN '海外股票' WHEN FHID LIKE 'TA%' OR FHID LIKE 'TB%' OR FHID LIKE 'TD%' OR FHID LIKE 'TE%' THEN '集合管理帳戶' END",
+                      "baopcccode"
+                    ],
+                    "caseExpressions": [
+                      "CASE WHEN NOT FHID IN ('PS', 'CB', 'YB', 'SN') THEN '基金' WHEN TRIM(FHID) = 'YB' THEN 'ETF' WHEN FHID = 'PS' THEN '海外股票' WHEN FHID LIKE 'TA%' OR FHID LIKE 'TB%' OR FHID LIKE 'TD%' OR FHID LIKE 'TE%' THEN '集合管理帳戶' END"
+                    ],
+                    "operation": "TRANSFORMS_TO",
+                    "status": "active_sql",
+                    "joinConditions": []
+                  }
+                ]
+              }
+            ],
+            "mappingStatus": "metadata_sql_conflict",
+            "outputTable": "INCOME_033_034_035_036",
+            "mappingType": "INCOME_DECLARED_BY",
+            "lineageStatus": "traced",
+            "productScope": "FHID starts TA/TB/TD/TE",
+            "sqlTable": "INCOME_033_034_035_036"
+          }
+        ]
+      }
+    ],
+    "duplicate": [
+      {
+        "productCode": "bank_insurance",
+        "productName": "銀行保險",
+        "domain": "income",
+        "status": "overlap_unresolved",
+        "mappings": [
+          {
+            "lineage": [
+              {
+                "tablePath": [
+                  "DSINS.INSU_RPT_Q01",
+                  "INCOME_028"
+                ],
+                "baseTable": "DSINS.INSU_RPT_Q01",
+                "rules": [
+                  {
+                    "lineStart": 12,
+                    "selectExpressions": [
+                      "dept_easy_nm",
+                      "dept_easy_nm2",
+                      "applicant_id AS cust_id",
+                      "apply_dt AS yyyymmdd",
+                      "SUM(COMM_AMT) AS AMT"
+                    ],
+                    "whereConditions": [],
+                    "unionDeduplication": [],
+                    "lineEnd": 16,
+                    "operationTypes": [
+                      "AGGREGATE",
+                      "SELECT",
+                      "CREATE TABLE AS"
+                    ],
+                    "sql": "create table INCOME_028\nas \nselect dept_easy_nm,dept_easy_nm2,applicant_id as cust_id,apply_dt as yyyymmdd,sum(COMM_AMT) AMT--dept_easy_nm,dept_easy_nm2,\nfrom DSINS.INSU_RPT_Q01@anadbp01_dwdbp01\ngroup by dept_easy_nm,dept_easy_nm2,applicant_id,apply_dt;",
+                    "unionBranchOrders": [],
+                    "file": "sources/sql/8.INCOME_DETAIL.sql",
+                    "aggregateExpressions": [
+                      "SUM(COMM_AMT)"
+                    ],
+                    "groupExpressions": [
+                      "dept_easy_nm",
+                      "dept_easy_nm2",
+                      "applicant_id",
+                      "apply_dt"
+                    ],
+                    "caseExpressions": [],
+                    "operation": "TRANSFORMS_TO",
+                    "status": "active_sql",
+                    "joinConditions": []
+                  }
+                ]
+              }
+            ],
+            "mappingStatus": "observed_in_sql",
+            "outputTable": "INCOME_028",
+            "mappingType": "INCOME_IMPLEMENTED_BY",
+            "lineageStatus": "traced",
+            "productScope": "手收／銀行／保險",
+            "sqlTable": "INCOME_028"
+          },
+          {
+            "lineage": [
+              {
+                "tablePath": [
+                  "DSKPI.KPI_DET_IU_002_NEW",
+                  "INCOME_029"
+                ],
+                "baseTable": "DSKPI.KPI_DET_IU_002_NEW",
+                "rules": [
+                  {
+                    "lineStart": 20,
+                    "selectExpressions": [
+                      "cust_id",
+                      "TO_CHAR(ADD_MONTHS(TO_DATE(lst_mtn_dt, 'yyyymmdd'), 1), 'yyyymmdd') AS yyyymmdd",
+                      "SUM(ps) AS amt"
+                    ],
+                    "whereConditions": [
+                      "NOT ps IS NULL"
+                    ],
+                    "unionDeduplication": [],
+                    "lineEnd": 27,
+                    "operationTypes": [
+                      "FILTER",
+                      "AGGREGATE",
+                      "SELECT",
+                      "CREATE TABLE AS"
+                    ],
+                    "sql": "create table INCOME_029\nas \nselect  cust_id ,\n        to_char(add_months(to_date(lst_mtn_dt,'yyyymmdd'),1),'yyyymmdd')as  yyyymmdd,\n        sum(ps) amt --,* --lst_mtn_dt,category,sum(ps) --AO_ID,CUST_ID,PS\nfrom DSKPI.KPI_DET_IU_002_NEW@anadbp01_dwdbp01\nwhere ps is not null\ngroup by cust_id ,lst_mtn_dt;",
+                    "unionBranchOrders": [],
+                    "file": "sources/sql/8.INCOME_DETAIL.sql",
+                    "aggregateExpressions": [
+                      "SUM(ps)"
+                    ],
+                    "groupExpressions": [
+                      "cust_id",
+                      "lst_mtn_dt"
+                    ],
+                    "caseExpressions": [],
+                    "operation": "TRANSFORMS_TO",
+                    "status": "active_sql",
+                    "joinConditions": []
+                  }
+                ]
+              }
+            ],
+            "mappingStatus": "observed_in_sql",
+            "outputTable": "INCOME_029",
+            "mappingType": "INCOME_IMPLEMENTED_BY",
+            "lineageStatus": "traced",
+            "productScope": "手收／銀行／保險",
+            "sqlTable": "INCOME_029"
+          },
+          {
+            "lineage": [
+              {
+                "tablePath": [
+                  "DSKPI.KPI_DET_OFI_001",
+                  "INCOME_030"
+                ],
+                "baseTable": "DSKPI.KPI_DET_OFI_001",
+                "rules": [
+                  {
+                    "lineStart": 33,
+                    "selectExpressions": [
+                      "cust_id",
+                      "TO_CHAR(ADD_MONTHS(TO_DATE(lst_mtn_dt, 'yyyymmdd'), 1), 'yyyymmdd') AS yyyymmdd",
+                      "SUM(ps) AS amt"
+                    ],
+                    "whereConditions": [
+                      "open_account = 'Y'"
+                    ],
+                    "unionDeduplication": [],
+                    "lineEnd": 38,
+                    "operationTypes": [
+                      "FILTER",
+                      "AGGREGATE",
+                      "SELECT",
+                      "CREATE TABLE AS"
+                    ],
+                    "sql": "create table INCOME_030\nas \nselect cust_id ,to_char(add_months(to_date(lst_mtn_dt,'yyyymmdd'),1),'yyyymmdd') as yyyymmdd,sum(ps) amt  -- source_name,lst_mtn_dt,sum(ps) ps,count(*) 人數 --distinct lst_mtn_dt \nfrom DSKPI.KPI_DET_OFI_001@anadbp01_dwdbp01\nwhere open_account='Y'\ngroup by cust_id ,lst_mtn_dt;",
+                    "unionBranchOrders": [],
+                    "file": "sources/sql/8.INCOME_DETAIL.sql",
+                    "aggregateExpressions": [
+                      "SUM(ps)"
+                    ],
+                    "groupExpressions": [
+                      "cust_id",
+                      "lst_mtn_dt"
+                    ],
+                    "caseExpressions": [],
+                    "operation": "TRANSFORMS_TO",
+                    "status": "active_sql",
+                    "joinConditions": []
+                  }
+                ]
+              }
+            ],
+            "mappingStatus": "observed_in_sql",
+            "outputTable": "INCOME_030",
+            "mappingType": "INCOME_IMPLEMENTED_BY",
+            "lineageStatus": "traced",
+            "productScope": "手收／銀行／保險",
+            "sqlTable": "INCOME_030"
+          }
+        ]
+      }
+    ],
+    "both_domains": [
+      {
+        "productCode": "bank_insurance",
+        "productName": "銀行保險",
+        "domain": "aum",
+        "status": "overlap_unresolved",
+        "mappings": [
+          {
+            "lineage": [
+              {
+                "tablePath": [
+                  "DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT",
+                  "AUM_012_TMP01",
+                  "AUM_012"
+                ],
+                "baseTable": "DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT",
+                "rules": [
+                  {
+                    "lineStart": 187,
+                    "selectExpressions": [
+                      "orgcust_key AS cust_id",
+                      "date_key AS YYYYMMDD",
+                      "SUM(AMT_INVEST) AS AMT"
+                    ],
+                    "whereConditions": [],
+                    "unionDeduplication": [],
+                    "lineEnd": 191,
+                    "operationTypes": [
+                      "AGGREGATE",
+                      "SELECT",
+                      "CREATE TABLE AS"
+                    ],
+                    "sql": "create table AUM_012_TMP01\nas  \nselect orgcust_key as cust_id ,date_key as YYYYMMDD ,sum(AMT_INVEST) AMT\nfrom DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT@anadbp01_dwdbp01\ngroup by orgcust_key,date_key;",
+                    "unionBranchOrders": [],
+                    "file": "sources/sql/1.AUM_DETAIL.sql",
+                    "aggregateExpressions": [
+                      "SUM(AMT_INVEST)"
+                    ],
+                    "groupExpressions": [
+                      "orgcust_key",
+                      "date_key"
+                    ],
+                    "caseExpressions": [],
+                    "operation": "TRANSFORMS_TO",
+                    "status": "active_sql",
+                    "joinConditions": []
+                  },
+                  {
+                    "lineStart": 203,
+                    "selectExpressions": [
+                      "*"
+                    ],
+                    "whereConditions": [],
+                    "unionDeduplication": [
+                      "exact_projected_rows"
+                    ],
+                    "lineEnd": 207,
+                    "operationTypes": [
+                      "SELECT",
+                      "UNION",
+                      "CREATE TABLE AS"
+                    ],
+                    "sql": "create table AUM_012\nas\nselect * from AUM_012_TMP01\nunion \nselect * from AUM_012_TMP02;",
+                    "unionBranchOrders": [
+                      1
+                    ],
+                    "file": "sources/sql/1.AUM_DETAIL.sql",
+                    "aggregateExpressions": [],
+                    "groupExpressions": [],
+                    "caseExpressions": [],
+                    "operation": "UNION",
+                    "status": "active_sql",
+                    "joinConditions": []
+                  }
+                ]
+              },
+              {
+                "tablePath": [
+                  "DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT",
+                  "AUM_012_TMP02",
+                  "AUM_012"
+                ],
+                "baseTable": "DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT",
+                "rules": [
+                  {
+                    "lineStart": 194,
+                    "selectExpressions": [
+                      "MAX(date_key) AS date_key",
+                      "orgcust_key AS cust_id",
+                      "TO_CHAR(SYSDATE - 1, 'yyyymmdd') AS YYYYMMDD",
+                      "SUM(AMT_INVEST) AS AMT"
+                    ],
+                    "whereConditions": [
+                      "date_key = (SELECT MAX(date_key) AS date_key FROM DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT)"
+                    ],
+                    "unionDeduplication": [],
+                    "lineEnd": 200,
+                    "operationTypes": [
+                      "AGGREGATE",
+                      "SELECT",
+                      "FILTER",
+                      "AGGREGATE",
+                      "SELECT",
+                      "CREATE TABLE AS"
+                    ],
+                    "sql": "create table AUM_012_TMP02\nas  \nselect orgcust_key as cust_id ,to_char(sysdate-1,'yyyymmdd') as YYYYMMDD ,sum(AMT_INVEST) AMT\nfrom DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT@anadbp01_dwdbp01\nwhere date_key =\n       (select  max(date_key) date_key from DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT@anadbp01_dwdbp01 ) \ngroup by orgcust_key,to_char(sysdate,'yyyymmdd');",
+                    "unionBranchOrders": [],
+                    "file": "sources/sql/1.AUM_DETAIL.sql",
+                    "aggregateExpressions": [
+                      "MAX(date_key)",
+                      "SUM(AMT_INVEST)"
+                    ],
+                    "groupExpressions": [
+                      "orgcust_key",
+                      "TO_CHAR(SYSDATE, 'yyyymmdd')"
+                    ],
+                    "caseExpressions": [],
+                    "operation": "TRANSFORMS_TO",
+                    "status": "active_sql",
+                    "joinConditions": []
+                  },
+                  {
+                    "lineStart": 203,
+                    "selectExpressions": [
+                      "*"
+                    ],
+                    "whereConditions": [],
+                    "unionDeduplication": [
+                      "exact_projected_rows"
+                    ],
+                    "lineEnd": 207,
+                    "operationTypes": [
+                      "SELECT",
+                      "UNION",
+                      "CREATE TABLE AS"
+                    ],
+                    "sql": "create table AUM_012\nas\nselect * from AUM_012_TMP01\nunion \nselect * from AUM_012_TMP02;",
+                    "unionBranchOrders": [
+                      2
+                    ],
+                    "file": "sources/sql/1.AUM_DETAIL.sql",
+                    "aggregateExpressions": [],
+                    "groupExpressions": [],
+                    "caseExpressions": [],
+                    "operation": "UNION",
+                    "status": "active_sql",
+                    "joinConditions": []
+                  }
+                ]
+              },
+              {
+                "tablePath": [
+                  "DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT",
+                  "AUM_012_TMP02",
+                  "AUM_012"
+                ],
+                "baseTable": "DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT",
+                "rules": [
+                  {
+                    "lineStart": 194,
+                    "selectExpressions": [
+                      "orgcust_key AS cust_id",
+                      "TO_CHAR(SYSDATE - 1, 'yyyymmdd') AS YYYYMMDD",
+                      "SUM(AMT_INVEST) AS AMT"
+                    ],
+                    "whereConditions": [
+                      "date_key = (SELECT MAX(date_key) AS date_key FROM DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT)"
+                    ],
+                    "unionDeduplication": [],
+                    "lineEnd": 200,
+                    "operationTypes": [
+                      "FILTER",
+                      "AGGREGATE",
+                      "SELECT",
+                      "CREATE TABLE AS"
+                    ],
+                    "sql": "create table AUM_012_TMP02\nas  \nselect orgcust_key as cust_id ,to_char(sysdate-1,'yyyymmdd') as YYYYMMDD ,sum(AMT_INVEST) AMT\nfrom DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT@anadbp01_dwdbp01\nwhere date_key =\n       (select  max(date_key) date_key from DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT@anadbp01_dwdbp01 ) \ngroup by orgcust_key,to_char(sysdate,'yyyymmdd');",
+                    "unionBranchOrders": [],
+                    "file": "sources/sql/1.AUM_DETAIL.sql",
+                    "aggregateExpressions": [
+                      "SUM(AMT_INVEST)"
+                    ],
+                    "groupExpressions": [
+                      "orgcust_key",
+                      "TO_CHAR(SYSDATE, 'yyyymmdd')"
+                    ],
+                    "caseExpressions": [],
+                    "operation": "TRANSFORMS_TO",
+                    "status": "active_sql",
+                    "joinConditions": []
+                  },
+                  {
+                    "lineStart": 203,
+                    "selectExpressions": [
+                      "*"
+                    ],
+                    "whereConditions": [],
+                    "unionDeduplication": [
+                      "exact_projected_rows"
+                    ],
+                    "lineEnd": 207,
+                    "operationTypes": [
+                      "SELECT",
+                      "UNION",
+                      "CREATE TABLE AS"
+                    ],
+                    "sql": "create table AUM_012\nas\nselect * from AUM_012_TMP01\nunion \nselect * from AUM_012_TMP02;",
+                    "unionBranchOrders": [
+                      2
+                    ],
+                    "file": "sources/sql/1.AUM_DETAIL.sql",
+                    "aggregateExpressions": [],
+                    "groupExpressions": [],
+                    "caseExpressions": [],
+                    "operation": "UNION",
+                    "status": "active_sql",
+                    "joinConditions": []
+                  }
+                ]
+              }
+            ],
+            "mappingStatus": "observed_in_sql",
+            "outputTable": "AUM_012",
+            "mappingType": "AUM_IMPLEMENTED_BY",
+            "lineageStatus": "traced",
+            "productScope": "PROD='保險'",
+            "sqlTable": "AUM_012"
+          }
+        ]
+      },
+      {
+        "productCode": "bank_insurance",
+        "productName": "銀行保險",
+        "domain": "income",
+        "status": "overlap_unresolved",
+        "mappings": [
+          {
+            "lineage": [
+              {
+                "tablePath": [
+                  "DSINS.INSU_RPT_Q01",
+                  "INCOME_028"
+                ],
+                "baseTable": "DSINS.INSU_RPT_Q01",
+                "rules": [
+                  {
+                    "lineStart": 12,
+                    "selectExpressions": [
+                      "dept_easy_nm",
+                      "dept_easy_nm2",
+                      "applicant_id AS cust_id",
+                      "apply_dt AS yyyymmdd",
+                      "SUM(COMM_AMT) AS AMT"
+                    ],
+                    "whereConditions": [],
+                    "unionDeduplication": [],
+                    "lineEnd": 16,
+                    "operationTypes": [
+                      "AGGREGATE",
+                      "SELECT",
+                      "CREATE TABLE AS"
+                    ],
+                    "sql": "create table INCOME_028\nas \nselect dept_easy_nm,dept_easy_nm2,applicant_id as cust_id,apply_dt as yyyymmdd,sum(COMM_AMT) AMT--dept_easy_nm,dept_easy_nm2,\nfrom DSINS.INSU_RPT_Q01@anadbp01_dwdbp01\ngroup by dept_easy_nm,dept_easy_nm2,applicant_id,apply_dt;",
+                    "unionBranchOrders": [],
+                    "file": "sources/sql/8.INCOME_DETAIL.sql",
+                    "aggregateExpressions": [
+                      "SUM(COMM_AMT)"
+                    ],
+                    "groupExpressions": [
+                      "dept_easy_nm",
+                      "dept_easy_nm2",
+                      "applicant_id",
+                      "apply_dt"
+                    ],
+                    "caseExpressions": [],
+                    "operation": "TRANSFORMS_TO",
+                    "status": "active_sql",
+                    "joinConditions": []
+                  }
+                ]
+              }
+            ],
+            "mappingStatus": "observed_in_sql",
+            "outputTable": "INCOME_028",
+            "mappingType": "INCOME_IMPLEMENTED_BY",
+            "lineageStatus": "traced",
+            "productScope": "手收／銀行／保險",
+            "sqlTable": "INCOME_028"
+          },
+          {
+            "lineage": [
+              {
+                "tablePath": [
+                  "DSKPI.KPI_DET_IU_002_NEW",
+                  "INCOME_029"
+                ],
+                "baseTable": "DSKPI.KPI_DET_IU_002_NEW",
+                "rules": [
+                  {
+                    "lineStart": 20,
+                    "selectExpressions": [
+                      "cust_id",
+                      "TO_CHAR(ADD_MONTHS(TO_DATE(lst_mtn_dt, 'yyyymmdd'), 1), 'yyyymmdd') AS yyyymmdd",
+                      "SUM(ps) AS amt"
+                    ],
+                    "whereConditions": [
+                      "NOT ps IS NULL"
+                    ],
+                    "unionDeduplication": [],
+                    "lineEnd": 27,
+                    "operationTypes": [
+                      "FILTER",
+                      "AGGREGATE",
+                      "SELECT",
+                      "CREATE TABLE AS"
+                    ],
+                    "sql": "create table INCOME_029\nas \nselect  cust_id ,\n        to_char(add_months(to_date(lst_mtn_dt,'yyyymmdd'),1),'yyyymmdd')as  yyyymmdd,\n        sum(ps) amt --,* --lst_mtn_dt,category,sum(ps) --AO_ID,CUST_ID,PS\nfrom DSKPI.KPI_DET_IU_002_NEW@anadbp01_dwdbp01\nwhere ps is not null\ngroup by cust_id ,lst_mtn_dt;",
+                    "unionBranchOrders": [],
+                    "file": "sources/sql/8.INCOME_DETAIL.sql",
+                    "aggregateExpressions": [
+                      "SUM(ps)"
+                    ],
+                    "groupExpressions": [
+                      "cust_id",
+                      "lst_mtn_dt"
+                    ],
+                    "caseExpressions": [],
+                    "operation": "TRANSFORMS_TO",
+                    "status": "active_sql",
+                    "joinConditions": []
+                  }
+                ]
+              }
+            ],
+            "mappingStatus": "observed_in_sql",
+            "outputTable": "INCOME_029",
+            "mappingType": "INCOME_IMPLEMENTED_BY",
+            "lineageStatus": "traced",
+            "productScope": "手收／銀行／保險",
+            "sqlTable": "INCOME_029"
+          },
+          {
+            "lineage": [
+              {
+                "tablePath": [
+                  "DSKPI.KPI_DET_OFI_001",
+                  "INCOME_030"
+                ],
+                "baseTable": "DSKPI.KPI_DET_OFI_001",
+                "rules": [
+                  {
+                    "lineStart": 33,
+                    "selectExpressions": [
+                      "cust_id",
+                      "TO_CHAR(ADD_MONTHS(TO_DATE(lst_mtn_dt, 'yyyymmdd'), 1), 'yyyymmdd') AS yyyymmdd",
+                      "SUM(ps) AS amt"
+                    ],
+                    "whereConditions": [
+                      "open_account = 'Y'"
+                    ],
+                    "unionDeduplication": [],
+                    "lineEnd": 38,
+                    "operationTypes": [
+                      "FILTER",
+                      "AGGREGATE",
+                      "SELECT",
+                      "CREATE TABLE AS"
+                    ],
+                    "sql": "create table INCOME_030\nas \nselect cust_id ,to_char(add_months(to_date(lst_mtn_dt,'yyyymmdd'),1),'yyyymmdd') as yyyymmdd,sum(ps) amt  -- source_name,lst_mtn_dt,sum(ps) ps,count(*) 人數 --distinct lst_mtn_dt \nfrom DSKPI.KPI_DET_OFI_001@anadbp01_dwdbp01\nwhere open_account='Y'\ngroup by cust_id ,lst_mtn_dt;",
+                    "unionBranchOrders": [],
+                    "file": "sources/sql/8.INCOME_DETAIL.sql",
+                    "aggregateExpressions": [
+                      "SUM(ps)"
+                    ],
+                    "groupExpressions": [
+                      "cust_id",
+                      "lst_mtn_dt"
+                    ],
+                    "caseExpressions": [],
+                    "operation": "TRANSFORMS_TO",
+                    "status": "active_sql",
+                    "joinConditions": []
+                  }
+                ]
+              }
+            ],
+            "mappingStatus": "observed_in_sql",
+            "outputTable": "INCOME_030",
+            "mappingType": "INCOME_IMPLEMENTED_BY",
+            "lineageStatus": "traced",
+            "productScope": "手收／銀行／保險",
+            "sqlTable": "INCOME_030"
+          }
+        ]
+      }
+    ]
+  },
+  "scopeOutputs": {
+    "deposit": [
+      {
+        "matchedScopes": [
+          {
+            "metricCode": "aum_deposit_month_end",
+            "domain": "aum"
+          }
+        ],
+        "productCode": "deposit",
+        "productName": "存款",
+        "definition": "客戶在銀行持有的存款。AUM衡量存款餘額；Income衡量存款整體利息收入，不將總利收重複分配至各子類。",
+        "status": "aggregate_scope",
+        "aumStatus": "inferred",
+        "incomeStatus": "inferred",
+        "aumMetrics": [
+          {
+            "name": "月底存款AUM",
+            "definition": "月底衡量的銀行存款餘額。",
+            "metricCode": "aum_deposit_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底總AUM",
+            "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+            "metricCode": "aum_total_month_end",
+            "status": "draft"
+          }
+        ],
+        "incomeMetrics": [
+          {
+            "name": "存款利收",
+            "definition": "存款業務整體的利息收入。",
+            "metricCode": "deposit_interest_income",
+            "status": "inferred"
+          },
+          {
+            "name": "利息收入",
+            "definition": "存款與放款業務的利息收入。",
+            "metricCode": "interest_income",
+            "status": "inferred"
+          },
+          {
+            "name": "每客戶每月總收入",
+            "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+            "metricCode": "income_total_customer_month",
+            "status": "pending_confirmation"
+          }
+        ]
+      }
+    ],
+    "securities": [
+      {
+        "matchedScopes": [
+          {
+            "metricCode": "aum_securities_month_end",
+            "domain": "aum"
+          }
+        ],
+        "productCode": "securities_bond",
+        "productName": "證券複委託債券",
+        "definition": "證券通路的複委託債券業務，涵蓋部位估值與交易手續費收入。",
+        "status": "inferred",
+        "aumStatus": "inferred",
+        "incomeStatus": "inferred",
+        "aumMetrics": [
+          {
+            "name": "月底證券AUM",
+            "definition": "月底衡量的證券通路投資資產。",
+            "metricCode": "aum_securities_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底投資AUM",
+            "definition": "月底衡量的銀行及證券通路投資資產合計。",
+            "metricCode": "aum_investment_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底總AUM",
+            "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+            "metricCode": "aum_total_month_end",
+            "status": "draft"
+          }
+        ],
+        "incomeMetrics": [
+          {
+            "name": "證券手續費類收入",
+            "definition": "證券通路歸入手續費類的收入。",
+            "metricCode": "securities_fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "手續費類收入",
+            "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+            "metricCode": "fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "每客戶每月總收入",
+            "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+            "metricCode": "income_total_customer_month",
+            "status": "pending_confirmation"
+          }
+        ]
+      },
+      {
+        "matchedScopes": [
+          {
+            "metricCode": "aum_securities_month_end",
+            "domain": "aum"
+          }
+        ],
+        "productCode": "securities_foreign_stock",
+        "productName": "證券複委託外國股票",
+        "definition": "證券通路的複委託外國股票業務，涵蓋客戶持有資產與淨手續費收入；淨收入可能為負值。",
+        "status": "inferred",
+        "aumStatus": "inferred",
+        "incomeStatus": "inferred",
+        "aumMetrics": [
+          {
+            "name": "月底證券AUM",
+            "definition": "月底衡量的證券通路投資資產。",
+            "metricCode": "aum_securities_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底投資AUM",
+            "definition": "月底衡量的銀行及證券通路投資資產合計。",
+            "metricCode": "aum_investment_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底總AUM",
+            "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+            "metricCode": "aum_total_month_end",
+            "status": "draft"
+          }
+        ],
+        "incomeMetrics": [
+          {
+            "name": "證券手續費類收入",
+            "definition": "證券通路歸入手續費類的收入。",
+            "metricCode": "securities_fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "手續費類收入",
+            "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+            "metricCode": "fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "每客戶每月總收入",
+            "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+            "metricCode": "income_total_customer_month",
+            "status": "pending_confirmation"
+          }
+        ]
+      },
+      {
+        "matchedScopes": [
+          {
+            "metricCode": "aum_securities_month_end",
+            "domain": "aum"
+          }
+        ],
+        "productCode": "securities_fund",
+        "productName": "證券複委託基金",
+        "definition": "證券通路的複委託基金業務，涵蓋客戶持有資產與交易費收入。",
+        "status": "inferred",
+        "aumStatus": "inferred",
+        "incomeStatus": "inferred",
+        "aumMetrics": [
+          {
+            "name": "月底證券AUM",
+            "definition": "月底衡量的證券通路投資資產。",
+            "metricCode": "aum_securities_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底投資AUM",
+            "definition": "月底衡量的銀行及證券通路投資資產合計。",
+            "metricCode": "aum_investment_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底總AUM",
+            "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+            "metricCode": "aum_total_month_end",
+            "status": "draft"
+          }
+        ],
+        "incomeMetrics": [
+          {
+            "name": "證券手續費類收入",
+            "definition": "證券通路歸入手續費類的收入。",
+            "metricCode": "securities_fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "手續費類收入",
+            "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+            "metricCode": "fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "每客戶每月總收入",
+            "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+            "metricCode": "income_total_customer_month",
+            "status": "pending_confirmation"
+          }
+        ]
+      },
+      {
+        "matchedScopes": [
+          {
+            "metricCode": "aum_securities_month_end",
+            "domain": "aum"
+          }
+        ],
+        "productCode": "securities_structured",
+        "productName": "證券複委託結構型商品",
+        "definition": "證券通路的複委託結構型商品業務，涵蓋客戶持有資產與相关收入。",
+        "status": "inferred",
+        "aumStatus": "inferred",
+        "incomeStatus": "inferred",
+        "aumMetrics": [
+          {
+            "name": "月底證券AUM",
+            "definition": "月底衡量的證券通路投資資產。",
+            "metricCode": "aum_securities_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底投資AUM",
+            "definition": "月底衡量的銀行及證券通路投資資產合計。",
+            "metricCode": "aum_investment_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底總AUM",
+            "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+            "metricCode": "aum_total_month_end",
+            "status": "draft"
+          }
+        ],
+        "incomeMetrics": [
+          {
+            "name": "證券手續費類收入",
+            "definition": "證券通路歸入手續費類的收入。",
+            "metricCode": "securities_fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "手續費類收入",
+            "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+            "metricCode": "fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "每客戶每月總收入",
+            "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+            "metricCode": "income_total_customer_month",
+            "status": "pending_confirmation"
+          }
+        ]
+      }
+    ],
+    "insurance": [
+      {
+        "matchedScopes": [
+          {
+            "metricCode": "aum_insurance_month_end",
+            "domain": "aum"
+          }
+        ],
+        "productCode": "bank_insurance",
+        "productName": "銀行保險",
+        "definition": "銀行通路保險業務。AUM衡量原始投資金額；Income衡量相關收入，收入是否重複計入仍待確認。",
+        "status": "overlap_unresolved",
+        "aumStatus": "inferred",
+        "incomeStatus": "overlap_unresolved",
+        "aumMetrics": [
+          {
+            "name": "月底保險AUM",
+            "definition": "月底衡量的銀行保險原始投資金額。",
+            "metricCode": "aum_insurance_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底銀行投資AUM",
+            "definition": "月底衡量的銀行通路投資資產。",
+            "metricCode": "aum_bank_investment_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底投資AUM",
+            "definition": "月底衡量的銀行及證券通路投資資產合計。",
+            "metricCode": "aum_investment_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底總AUM",
+            "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+            "metricCode": "aum_total_month_end",
+            "status": "draft"
+          }
+        ],
+        "incomeMetrics": [
+          {
+            "name": "銀行手續費類收入",
+            "definition": "銀行通路歸入手續費類的收入。",
+            "metricCode": "bank_fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "手續費類收入",
+            "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+            "metricCode": "fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "每客戶每月總收入",
+            "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+            "metricCode": "income_total_customer_month",
+            "status": "pending_confirmation"
+          }
+        ]
+      }
+    ],
+    "multiple_metrics": [
+      {
+        "matchedScopes": [
+          {
+            "metricCode": "aum_insurance_month_end",
+            "domain": "aum"
+          }
+        ],
+        "productCode": "bank_insurance",
+        "productName": "銀行保險",
+        "definition": "銀行通路保險業務。AUM衡量原始投資金額；Income衡量相關收入，收入是否重複計入仍待確認。",
+        "status": "overlap_unresolved",
+        "aumStatus": "inferred",
+        "incomeStatus": "overlap_unresolved",
+        "aumMetrics": [
+          {
+            "name": "月底保險AUM",
+            "definition": "月底衡量的銀行保險原始投資金額。",
+            "metricCode": "aum_insurance_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底銀行投資AUM",
+            "definition": "月底衡量的銀行通路投資資產。",
+            "metricCode": "aum_bank_investment_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底投資AUM",
+            "definition": "月底衡量的銀行及證券通路投資資產合計。",
+            "metricCode": "aum_investment_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底總AUM",
+            "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+            "metricCode": "aum_total_month_end",
+            "status": "draft"
+          }
+        ],
+        "incomeMetrics": [
+          {
+            "name": "銀行手續費類收入",
+            "definition": "銀行通路歸入手續費類的收入。",
+            "metricCode": "bank_fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "手續費類收入",
+            "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+            "metricCode": "fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "每客戶每月總收入",
+            "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+            "metricCode": "income_total_customer_month",
+            "status": "pending_confirmation"
+          }
+        ]
+      },
+      {
+        "matchedScopes": [
+          {
+            "metricCode": "aum_deposit_month_end",
+            "domain": "aum"
+          }
+        ],
+        "productCode": "deposit",
+        "productName": "存款",
+        "definition": "客戶在銀行持有的存款。AUM衡量存款餘額；Income衡量存款整體利息收入，不將總利收重複分配至各子類。",
+        "status": "aggregate_scope",
+        "aumStatus": "inferred",
+        "incomeStatus": "inferred",
+        "aumMetrics": [
+          {
+            "name": "月底存款AUM",
+            "definition": "月底衡量的銀行存款餘額。",
+            "metricCode": "aum_deposit_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底總AUM",
+            "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+            "metricCode": "aum_total_month_end",
+            "status": "draft"
+          }
+        ],
+        "incomeMetrics": [
+          {
+            "name": "存款利收",
+            "definition": "存款業務整體的利息收入。",
+            "metricCode": "deposit_interest_income",
+            "status": "inferred"
+          },
+          {
+            "name": "利息收入",
+            "definition": "存款與放款業務的利息收入。",
+            "metricCode": "interest_income",
+            "status": "inferred"
+          },
+          {
+            "name": "每客戶每月總收入",
+            "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+            "metricCode": "income_total_customer_month",
+            "status": "pending_confirmation"
+          }
+        ]
+      }
+    ],
+    "unknown": [],
+    "wrong_domain": [],
+    "injection": [],
+    "income_bank": [
+      {
+        "matchedScopes": [
+          {
+            "metricCode": "bank_fee_income",
+            "domain": "income"
+          }
+        ],
+        "productCode": "bank_bond_proprietary",
+        "productName": "海外債券（自營）",
+        "definition": "銀行自營通路的海外債券業務，涵蓋客戶持有資產與相關收入；兩側業務對應仍屬推論。",
+        "status": "inferred",
+        "aumStatus": "inferred",
+        "incomeStatus": "inferred",
+        "aumMetrics": [
+          {
+            "name": "月底銀行投資AUM",
+            "definition": "月底衡量的銀行通路投資資產。",
+            "metricCode": "aum_bank_investment_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底投資AUM",
+            "definition": "月底衡量的銀行及證券通路投資資產合計。",
+            "metricCode": "aum_investment_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底總AUM",
+            "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+            "metricCode": "aum_total_month_end",
+            "status": "draft"
+          }
+        ],
+        "incomeMetrics": [
+          {
+            "name": "銀行手續費類收入",
+            "definition": "銀行通路歸入手續費類的收入。",
+            "metricCode": "bank_fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "手續費類收入",
+            "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+            "metricCode": "fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "每客戶每月總收入",
+            "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+            "metricCode": "income_total_customer_month",
+            "status": "pending_confirmation"
+          }
+        ]
+      },
+      {
+        "matchedScopes": [
+          {
+            "metricCode": "bank_fee_income",
+            "domain": "income"
+          }
+        ],
+        "productCode": "bank_bond_trust",
+        "productName": "海外債券（信託）",
+        "definition": "以信託方式持有的海外債券業務，涵蓋客戶持有市值與相關信託收入。",
+        "status": "inferred",
+        "aumStatus": "inferred",
+        "incomeStatus": "inferred",
+        "aumMetrics": [
+          {
+            "name": "月底銀行投資AUM",
+            "definition": "月底衡量的銀行通路投資資產。",
+            "metricCode": "aum_bank_investment_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底投資AUM",
+            "definition": "月底衡量的銀行及證券通路投資資產合計。",
+            "metricCode": "aum_investment_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底總AUM",
+            "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+            "metricCode": "aum_total_month_end",
+            "status": "draft"
+          }
+        ],
+        "incomeMetrics": [
+          {
+            "name": "銀行手續費類收入",
+            "definition": "銀行通路歸入手續費類的收入。",
+            "metricCode": "bank_fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "手續費類收入",
+            "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+            "metricCode": "fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "每客戶每月總收入",
+            "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+            "metricCode": "income_total_customer_month",
+            "status": "pending_confirmation"
+          }
+        ]
+      },
+      {
+        "matchedScopes": [
+          {
+            "metricCode": "bank_fee_income",
+            "domain": "income"
+          }
+        ],
+        "productCode": "bank_collective_account",
+        "productName": "集合管理帳戶",
+        "definition": "集合管理帳戶業務。AUM衡量客戶持有資產；Income的獨立業務定義待確認，不代表已確認計入獨立收入。",
+        "status": "pending_confirmation",
+        "aumStatus": "inferred",
+        "incomeStatus": "pending_confirmation",
+        "aumMetrics": [
+          {
+            "name": "月底銀行投資AUM",
+            "definition": "月底衡量的銀行通路投資資產。",
+            "metricCode": "aum_bank_investment_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底投資AUM",
+            "definition": "月底衡量的銀行及證券通路投資資產合計。",
+            "metricCode": "aum_investment_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底總AUM",
+            "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+            "metricCode": "aum_total_month_end",
+            "status": "draft"
+          }
+        ],
+        "incomeMetrics": [
+          {
+            "name": "銀行手續費類收入",
+            "definition": "銀行通路歸入手續費類的收入。",
+            "metricCode": "bank_fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "手續費類收入",
+            "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+            "metricCode": "fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "每客戶每月總收入",
+            "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+            "metricCode": "income_total_customer_month",
+            "status": "pending_confirmation"
+          }
+        ]
+      },
+      {
+        "matchedScopes": [
+          {
+            "metricCode": "bank_fee_income",
+            "domain": "income"
+          }
+        ],
+        "productCode": "bank_etf",
+        "productName": "銀行ETF",
+        "definition": "銀行通路的指數股票型基金業務，涵蓋客戶持有資產與相關收入。",
+        "status": "inferred",
+        "aumStatus": "inferred",
+        "incomeStatus": "inferred",
+        "aumMetrics": [
+          {
+            "name": "月底銀行投資AUM",
+            "definition": "月底衡量的銀行通路投資資產。",
+            "metricCode": "aum_bank_investment_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底投資AUM",
+            "definition": "月底衡量的銀行及證券通路投資資產合計。",
+            "metricCode": "aum_investment_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底總AUM",
+            "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+            "metricCode": "aum_total_month_end",
+            "status": "draft"
+          }
+        ],
+        "incomeMetrics": [
+          {
+            "name": "銀行手續費類收入",
+            "definition": "銀行通路歸入手續費類的收入。",
+            "metricCode": "bank_fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "手續費類收入",
+            "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+            "metricCode": "fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "每客戶每月總收入",
+            "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+            "metricCode": "income_total_customer_month",
+            "status": "pending_confirmation"
+          }
+        ]
+      },
+      {
+        "matchedScopes": [
+          {
+            "metricCode": "bank_fee_income",
+            "domain": "income"
+          }
+        ],
+        "productCode": "bank_fund",
+        "productName": "銀行基金",
+        "definition": "銀行通路的基金業務，涵蓋客戶持有資產與相關收入。",
+        "status": "inferred",
+        "aumStatus": "inferred",
+        "incomeStatus": "inferred",
+        "aumMetrics": [
+          {
+            "name": "月底銀行投資AUM",
+            "definition": "月底衡量的銀行通路投資資產。",
+            "metricCode": "aum_bank_investment_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底投資AUM",
+            "definition": "月底衡量的銀行及證券通路投資資產合計。",
+            "metricCode": "aum_investment_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底總AUM",
+            "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+            "metricCode": "aum_total_month_end",
+            "status": "draft"
+          }
+        ],
+        "incomeMetrics": [
+          {
+            "name": "銀行手續費類收入",
+            "definition": "銀行通路歸入手續費類的收入。",
+            "metricCode": "bank_fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "手續費類收入",
+            "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+            "metricCode": "fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "每客戶每月總收入",
+            "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+            "metricCode": "income_total_customer_month",
+            "status": "pending_confirmation"
+          }
+        ]
+      },
+      {
+        "matchedScopes": [
+          {
+            "metricCode": "bank_fee_income",
+            "domain": "income"
+          }
+        ],
+        "productCode": "bank_insurance",
+        "productName": "銀行保險",
+        "definition": "銀行通路保險業務。AUM衡量原始投資金額；Income衡量相關收入，收入是否重複計入仍待確認。",
+        "status": "overlap_unresolved",
+        "aumStatus": "inferred",
+        "incomeStatus": "overlap_unresolved",
+        "aumMetrics": [
+          {
+            "name": "月底保險AUM",
+            "definition": "月底衡量的銀行保險原始投資金額。",
+            "metricCode": "aum_insurance_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底銀行投資AUM",
+            "definition": "月底衡量的銀行通路投資資產。",
+            "metricCode": "aum_bank_investment_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底投資AUM",
+            "definition": "月底衡量的銀行及證券通路投資資產合計。",
+            "metricCode": "aum_investment_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底總AUM",
+            "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+            "metricCode": "aum_total_month_end",
+            "status": "draft"
+          }
+        ],
+        "incomeMetrics": [
+          {
+            "name": "銀行手續費類收入",
+            "definition": "銀行通路歸入手續費類的收入。",
+            "metricCode": "bank_fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "手續費類收入",
+            "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+            "metricCode": "fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "每客戶每月總收入",
+            "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+            "metricCode": "income_total_customer_month",
+            "status": "pending_confirmation"
+          }
+        ]
+      },
+      {
+        "matchedScopes": [
+          {
+            "metricCode": "bank_fee_income",
+            "domain": "income"
+          }
+        ],
+        "productCode": "bank_overseas_stock",
+        "productName": "銀行海外股票",
+        "definition": "銀行通路的海外股票業務，涵蓋客戶持有資產與相關收入。",
+        "status": "inferred",
+        "aumStatus": "inferred",
+        "incomeStatus": "inferred",
+        "aumMetrics": [
+          {
+            "name": "月底銀行投資AUM",
+            "definition": "月底衡量的銀行通路投資資產。",
+            "metricCode": "aum_bank_investment_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底投資AUM",
+            "definition": "月底衡量的銀行及證券通路投資資產合計。",
+            "metricCode": "aum_investment_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底總AUM",
+            "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+            "metricCode": "aum_total_month_end",
+            "status": "draft"
+          }
+        ],
+        "incomeMetrics": [
+          {
+            "name": "銀行手續費類收入",
+            "definition": "銀行通路歸入手續費類的收入。",
+            "metricCode": "bank_fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "手續費類收入",
+            "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+            "metricCode": "fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "每客戶每月總收入",
+            "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+            "metricCode": "income_total_customer_month",
+            "status": "pending_confirmation"
+          }
+        ]
+      },
+      {
+        "matchedScopes": [
+          {
+            "metricCode": "bank_fee_income",
+            "domain": "income"
+          }
+        ],
+        "productCode": "bank_planned_trust",
+        "productName": "規劃型信託",
+        "definition": "規劃型信託業務，涵蓋受託管理資產及相關管理、成立與借券收入。",
+        "status": "inferred",
+        "aumStatus": "inferred",
+        "incomeStatus": "inferred",
+        "aumMetrics": [
+          {
+            "name": "月底銀行投資AUM",
+            "definition": "月底衡量的銀行通路投資資產。",
+            "metricCode": "aum_bank_investment_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底投資AUM",
+            "definition": "月底衡量的銀行及證券通路投資資產合計。",
+            "metricCode": "aum_investment_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底總AUM",
+            "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+            "metricCode": "aum_total_month_end",
+            "status": "draft"
+          }
+        ],
+        "incomeMetrics": [
+          {
+            "name": "銀行手續費類收入",
+            "definition": "銀行通路歸入手續費類的收入。",
+            "metricCode": "bank_fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "手續費類收入",
+            "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+            "metricCode": "fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "每客戶每月總收入",
+            "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+            "metricCode": "income_total_customer_month",
+            "status": "pending_confirmation"
+          }
+        ]
+      },
+      {
+        "matchedScopes": [
+          {
+            "metricCode": "bank_fee_income",
+            "domain": "income"
+          }
+        ],
+        "productCode": "bank_structured_offshore",
+        "productName": "銀行境外結構型商品",
+        "definition": "銀行通路的境外結構型商品業務，涵蓋客戶持有資產與相關收入。",
+        "status": "inferred",
+        "aumStatus": "inferred",
+        "incomeStatus": "inferred",
+        "aumMetrics": [
+          {
+            "name": "月底銀行投資AUM",
+            "definition": "月底衡量的銀行通路投資資產。",
+            "metricCode": "aum_bank_investment_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底投資AUM",
+            "definition": "月底衡量的銀行及證券通路投資資產合計。",
+            "metricCode": "aum_investment_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底總AUM",
+            "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+            "metricCode": "aum_total_month_end",
+            "status": "draft"
+          }
+        ],
+        "incomeMetrics": [
+          {
+            "name": "銀行手續費類收入",
+            "definition": "銀行通路歸入手續費類的收入。",
+            "metricCode": "bank_fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "手續費類收入",
+            "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+            "metricCode": "fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "每客戶每月總收入",
+            "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+            "metricCode": "income_total_customer_month",
+            "status": "pending_confirmation"
+          }
+        ]
+      },
+      {
+        "matchedScopes": [
+          {
+            "metricCode": "bank_fee_income",
+            "domain": "income"
+          }
+        ],
+        "productCode": "bank_trust_custody",
+        "productName": "信託保管",
+        "definition": "信託保管業務，涵蓋保管資產與保管費收入。",
+        "status": "inferred",
+        "aumStatus": "inferred",
+        "incomeStatus": "inferred",
+        "aumMetrics": [
+          {
+            "name": "月底銀行投資AUM",
+            "definition": "月底衡量的銀行通路投資資產。",
+            "metricCode": "aum_bank_investment_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底投資AUM",
+            "definition": "月底衡量的銀行及證券通路投資資產合計。",
+            "metricCode": "aum_investment_month_end",
+            "status": "inferred"
+          },
+          {
+            "name": "月底總AUM",
+            "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+            "metricCode": "aum_total_month_end",
+            "status": "draft"
+          }
+        ],
+        "incomeMetrics": [
+          {
+            "name": "銀行手續費類收入",
+            "definition": "銀行通路歸入手續費類的收入。",
+            "metricCode": "bank_fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "手續費類收入",
+            "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+            "metricCode": "fee_income",
+            "status": "inferred"
+          },
+          {
+            "name": "每客戶每月總收入",
+            "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+            "metricCode": "income_total_customer_month",
+            "status": "pending_confirmation"
+          }
+        ]
+      }
+    ]
+  }
+}

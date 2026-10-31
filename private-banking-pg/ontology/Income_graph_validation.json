@@ -1,0 +1,94 @@
+{
+  "ontologyId": "income",
+  "nodes": 365,
+  "relationships": 1014,
+  "labels": {
+    "fields": [
+      "labels(n)[0]",
+      "count(n)"
+    ],
+    "values": [
+      [
+        "BusinessDimension",
+        7
+      ],
+      [
+        "BusinessMetric",
+        9
+      ],
+      [
+        "CalculationRule",
+        20
+      ],
+      [
+        "Ontology",
+        1
+      ],
+      [
+        "PhysicalColumn",
+        47
+      ],
+      [
+        "PhysicalTable",
+        43
+      ],
+      [
+        "ProductCategory",
+        20
+      ],
+      [
+        "SourceDocument",
+        6
+      ],
+      [
+        "SqlEvidence",
+        67
+      ],
+      [
+        "StagingOutput",
+        55
+      ],
+      [
+        "Term",
+        90
+      ]
+    ]
+  },
+  "unreachableNodes": 0,
+  "duplicateNodeKeys": 0,
+  "duplicateRelationships": 0,
+  "rerunCountsUnchanged": true,
+  "existingGraphCountsPreserved": true,
+  "insuranceLineage": {
+    "fields": [
+      "s.outputObject",
+      "col.physicalTable",
+      "col.column"
+    ],
+    "values": [
+      [
+        "INCOME_028",
+        "DSINS.INSU_RPT_Q01",
+        "COMM_AMT"
+      ],
+      [
+        "INCOME_029",
+        "DSKPI.KPI_DET_IU_002_NEW",
+        "PS"
+      ],
+      [
+        "INCOME_030",
+        "DSKPI.KPI_DET_OFI_001",
+        "PS"
+      ]
+    ]
+  },
+  "browserQueryRows": [
+    23,
+    3,
+    3,
+    12,
+    1,
+    3
+  ]
+}

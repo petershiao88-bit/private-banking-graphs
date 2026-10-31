@@ -1,0 +1,112 @@
+{
+  "status": "passed",
+  "conceptNodes": 41,
+  "conceptRelationships": 69,
+  "businessPaths": 39,
+  "candidateChecks": {
+    "etfAllThreeEndpoints": true,
+    "bankInvestmentCompositionPaths": 10,
+    "totalIncomeCompositionPaths": 20,
+    "propertyOnlyIdentity": true
+  },
+  "mappingWithSqlDependencies": true,
+  "prior12MappingReplayedSuccessfully": [
+    {
+      "case": 1,
+      "legacyMappings": 0,
+      "draftMappings": 0,
+      "sqlTables": 0,
+      "sqlStatements": 0,
+      "unrequestedRoleEvidence": 0
+    },
+    {
+      "case": 2,
+      "legacyMappings": 16,
+      "draftMappings": 45,
+      "sqlTables": 46,
+      "sqlStatements": 25,
+      "unrequestedRoleEvidence": 0
+    },
+    {
+      "case": 3,
+      "legacyMappings": 1,
+      "draftMappings": 1,
+      "sqlTables": 2,
+      "sqlStatements": 1,
+      "unrequestedRoleEvidence": 0
+    },
+    {
+      "case": 4,
+      "legacyMappings": 1,
+      "draftMappings": 1,
+      "sqlTables": 2,
+      "sqlStatements": 1,
+      "unrequestedRoleEvidence": 0
+    },
+    {
+      "case": 5,
+      "legacyMappings": 1,
+      "draftMappings": 1,
+      "sqlTables": 2,
+      "sqlStatements": 1,
+      "unrequestedRoleEvidence": 0
+    },
+    {
+      "case": 6,
+      "legacyMappings": 16,
+      "draftMappings": 45,
+      "sqlTables": 46,
+      "sqlStatements": 25,
+      "unrequestedRoleEvidence": 0
+    },
+    {
+      "case": 7,
+      "legacyMappings": 0,
+      "draftMappings": 0,
+      "sqlTables": 0,
+      "sqlStatements": 0,
+      "unrequestedRoleEvidence": 0
+    },
+    {
+      "case": 8,
+      "legacyMappings": 2,
+      "draftMappings": 2,
+      "sqlTables": 2,
+      "sqlStatements": 1,
+      "unrequestedRoleEvidence": 0
+    },
+    {
+      "case": 9,
+      "legacyMappings": 0,
+      "draftMappings": 0,
+      "sqlTables": 0,
+      "sqlStatements": 0,
+      "unrequestedRoleEvidence": 0
+    },
+    {
+      "case": 10,
+      "legacyMappings": 11,
+      "draftMappings": 11,
+      "sqlTables": 18,
+      "sqlStatements": 12,
+      "unrequestedRoleEvidence": 0
+    },
+    {
+      "case": 11,
+      "legacyMappings": 1,
+      "draftMappings": 20,
+      "sqlTables": 14,
+      "sqlStatements": 6,
+      "unrequestedRoleEvidence": 0
+    },
+    {
+      "case": 12,
+      "legacyMappings": 0,
+      "draftMappings": 0,
+      "sqlTables": 0,
+      "sqlStatements": 0,
+      "unrequestedRoleEvidence": 0
+    }
+  ],
+  "cloudRerankNotCalled": true
+}

@@ -1,0 +1,145 @@
+{
+  "engine": "HermiT",
+  "owlready2_version": "0.51",
+  "source_sha256": "54ce033c671dde9c75ad572c32660bafa05ec94c671b6516a220f6421beaa697",
+  "input_sha256": "264aa10cdd371b0c2dac32bfe8a4afa4f9a5909a072ad84900ac627a929854f8",
+  "executed_at": "2026-10-25T15:47:59.272641+00:00",
+  "scope": "holding_and_subsidiary_owl_only",
+  "pg_included": false,
+  "classes": {
+    "https://example.org/ontology/bank#BankAUM": [
+      "https://example.org/ontology/holding#AUM",
+      "https://example.org/ontology/holding#Metric"
+    ],
+    "https://example.org/ontology/bank#BankEmployee": [
+      "https://example.org/ontology/holding#Employee"
+    ],
+    "https://example.org/ontology/bank#BankFeeIncome": [
+      "https://example.org/ontology/holding#FeeIncome",
+      "https://example.org/ontology/holding#Metric"
+    ],
+    "https://example.org/ontology/bank#BankInterestIncome": [
+      "https://example.org/ontology/holding#InterestIncome",
+      "https://example.org/ontology/holding#Metric"
+    ],
+    "https://example.org/ontology/bank#BankLUM": [
+      "https://example.org/ontology/holding#LUM",
+      "https://example.org/ontology/holding#Metric"
+    ],
+    "https://example.org/ontology/bank#BondProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#CollectiveManagementProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#DepositProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#ETFProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#FinancialAdvisor": [
+      "https://example.org/ontology/bank#BankEmployee",
+      "https://example.org/ontology/holding#Employee"
+    ],
+    "https://example.org/ontology/bank#ForeignCurrencyFinancialProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#ForeignExchangeProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#FundProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#GoldProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#InsuranceProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#LetterOfCreditProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#LoanProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#OverseasFinancialProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#PlannedTrustProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#PrivateBankingDepartment": [
+      "https://example.org/ontology/holding#Department"
+    ],
+    "https://example.org/ontology/bank#StockProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#StructuredFinancialProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#TWDFinancialProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#TrustCustodyProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/holding#AUM": [
+      "https://example.org/ontology/holding#Metric"
+    ],
+    "https://example.org/ontology/holding#AddressContactInformation": [
+      "https://example.org/ontology/holding#ContactInformation"
+    ],
+    "https://example.org/ontology/holding#ContactInformation": [],
+    "https://example.org/ontology/holding#Customer": [],
+    "https://example.org/ontology/holding#Department": [],
+    "https://example.org/ontology/holding#Employee": [],
+    "https://example.org/ontology/holding#FeeIncome": [
+      "https://example.org/ontology/holding#Metric"
+    ],
+    "https://example.org/ontology/holding#FinancialProduct": [],
+    "https://example.org/ontology/holding#InterestIncome": [
+      "https://example.org/ontology/holding#Metric"
+    ],
+    "https://example.org/ontology/holding#LUM": [
+      "https://example.org/ontology/holding#Metric"
+    ],
+    "https://example.org/ontology/holding#Metric": [],
+    "https://example.org/ontology/holding#MobileContactInformation": [
+      "https://example.org/ontology/holding#ContactInformation"
+    ],
+    "https://example.org/ontology/securities#BondProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/securities#FundProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/securities#OverseasFinancialProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/securities#SecuritiesAUM": [
+      "https://example.org/ontology/holding#AUM",
+      "https://example.org/ontology/holding#Metric"
+    ],
+    "https://example.org/ontology/securities#SecuritiesFeeIncome": [
+      "https://example.org/ontology/holding#FeeIncome",
+      "https://example.org/ontology/holding#Metric"
+    ],
+    "https://example.org/ontology/securities#StockProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/securities#StructuredFinancialProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ]
+  },
+  "unsatisfiable_classes": [],
+  "unsupported_datatypes": [
+    "http://www.w3.org/2001/XMLSchema#date"
+  ],
+  "consistency_complete": false,
+  "limitations": [
+    "HermiT 不檢查 xsd:date 的 datatype 語意；一致性檢查限於支援的語意範圍。"
+  ],
+  "consistent": true,
+  "duration_seconds": 2.921
+}

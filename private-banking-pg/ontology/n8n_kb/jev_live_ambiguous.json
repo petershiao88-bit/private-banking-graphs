@@ -1,0 +1,454 @@
+{
+  "metricCodes": [
+    "aum_investment_month_end"
+  ],
+  "status": "needs_clarification",
+  "candidateScores": [
+    {
+      "objectKey": "bank_bond_proprietary::aum",
+      "productCode": "bank_bond_proprietary",
+      "productName": "海外債券（自營）",
+      "domain": "aum",
+      "definition": "銀行自營通路的海外債券業務，涵蓋客戶持有資產與相關收入；兩側業務對應仍屬推論。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_investment_month_end"
+      ],
+      "probability": 0,
+      "probabilities": {
+        "uncertain": 0,
+        "excluded": 1,
+        "included": 0
+      },
+      "confidence": 1,
+      "judgement": "excluded"
+    },
+    {
+      "objectKey": "bank_bond_trust::aum",
+      "productCode": "bank_bond_trust",
+      "productName": "海外債券（信託）",
+      "domain": "aum",
+      "definition": "以信託方式持有的海外債券業務，涵蓋客戶持有市值與相關信託收入。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_investment_month_end"
+      ],
+      "probability": 0,
+      "probabilities": {
+        "uncertain": 0,
+        "excluded": 1,
+        "included": 0
+      },
+      "confidence": 1,
+      "judgement": "excluded"
+    },
+    {
+      "objectKey": "bank_collective_account::aum",
+      "productCode": "bank_collective_account",
+      "productName": "集合管理帳戶",
+      "domain": "aum",
+      "definition": "集合管理帳戶業務。AUM衡量客戶持有資產；Income的獨立業務定義待確認，不代表已確認計入獨立收入。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_investment_month_end"
+      ],
+      "probability": 0,
+      "probabilities": {
+        "uncertain": 0,
+        "excluded": 1,
+        "included": 0
+      },
+      "confidence": 0.99,
+      "judgement": "excluded"
+    },
+    {
+      "objectKey": "bank_etf::aum",
+      "productCode": "bank_etf",
+      "productName": "銀行ETF",
+      "domain": "aum",
+      "definition": "銀行通路的指數股票型基金業務，涵蓋客戶持有資產與相關收入。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_investment_month_end"
+      ],
+      "probability": 0,
+      "probabilities": {
+        "uncertain": 0.01,
+        "excluded": 0.99,
+        "included": 0
+      },
+      "confidence": 0.98,
+      "judgement": "excluded"
+    },
+    {
+      "objectKey": "bank_fund::aum",
+      "productCode": "bank_fund",
+      "productName": "銀行基金",
+      "domain": "aum",
+      "definition": "銀行通路的基金業務，涵蓋客戶持有資產與相關收入。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_investment_month_end"
+      ],
+      "probability": 0.1,
+      "probabilities": {
+        "uncertain": 0.78,
+        "excluded": 0.12,
+        "included": 0.1
+      },
+      "confidence": 0.66,
+      "judgement": "uncertain"
+    },
+    {
+      "objectKey": "bank_insurance::aum",
+      "productCode": "bank_insurance",
+      "productName": "銀行保險",
+      "domain": "aum",
+      "definition": "銀行通路保險業務。AUM衡量原始投資金額；Income衡量相關收入，收入是否重複計入仍待確認。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_investment_month_end"
+      ],
+      "probability": 0,
+      "probabilities": {
+        "uncertain": 0,
+        "excluded": 1,
+        "included": 0
+      },
+      "confidence": 1,
+      "judgement": "excluded"
+    },
+    {
+      "objectKey": "bank_overseas_stock::aum",
+      "productCode": "bank_overseas_stock",
+      "productName": "銀行海外股票",
+      "domain": "aum",
+      "definition": "銀行通路的海外股票業務，涵蓋客戶持有資產與相關收入。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_investment_month_end"
+      ],
+      "probability": 0,
+      "probabilities": {
+        "uncertain": 0,
+        "excluded": 1,
+        "included": 0
+      },
+      "confidence": 1,
+      "judgement": "excluded"
+    },
+    {
+      "objectKey": "bank_planned_trust::aum",
+      "productCode": "bank_planned_trust",
+      "productName": "規劃型信託",
+      "domain": "aum",
+      "definition": "規劃型信託業務，涵蓋受託管理資產及相關管理、成立與借券收入。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_investment_month_end"
+      ],
+      "probability": 0,
+      "probabilities": {
+        "uncertain": 0,
+        "excluded": 1,
+        "included": 0
+      },
+      "confidence": 1,
+      "judgement": "excluded"
+    },
+    {
+      "objectKey": "bank_structured_offshore::aum",
+      "productCode": "bank_structured_offshore",
+      "productName": "銀行境外結構型商品",
+      "domain": "aum",
+      "definition": "銀行通路的境外結構型商品業務，涵蓋客戶持有資產與相關收入。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_investment_month_end"
+      ],
+      "probability": 0,
+      "probabilities": {
+        "uncertain": 0,
+        "excluded": 1,
+        "included": 0
+      },
+      "confidence": 1,
+      "judgement": "excluded"
+    },
+    {
+      "objectKey": "bank_trust_custody::aum",
+      "productCode": "bank_trust_custody",
+      "productName": "信託保管",
+      "domain": "aum",
+      "definition": "信託保管業務，涵蓋保管資產與保管費收入。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_investment_month_end"
+      ],
+      "probability": 0,
+      "probabilities": {
+        "uncertain": 0,
+        "excluded": 1,
+        "included": 0
+      },
+      "confidence": 1,
+      "judgement": "excluded"
+    },
+    {
+      "objectKey": "securities_bond::aum",
+      "productCode": "securities_bond",
+      "productName": "證券複委託債券",
+      "domain": "aum",
+      "definition": "證券通路的複委託債券業務，涵蓋部位估值與交易手續費收入。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_investment_month_end"
+      ],
+      "probability": 0,
+      "probabilities": {
+        "uncertain": 0,
+        "excluded": 1,
+        "included": 0
+      },
+      "confidence": 1,
+      "judgement": "excluded"
+    },
+    {
+      "objectKey": "securities_foreign_stock::aum",
+      "productCode": "securities_foreign_stock",
+      "productName": "證券複委託外國股票",
+      "domain": "aum",
+      "definition": "證券通路的複委託外國股票業務，涵蓋客戶持有資產與淨手續費收入；淨收入可能為負值。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_investment_month_end"
+      ],
+      "probability": 0,
+      "probabilities": {
+        "uncertain": 0,
+        "excluded": 1,
+        "included": 0
+      },
+      "confidence": 1,
+      "judgement": "excluded"
+    },
+    {
+      "objectKey": "securities_fund::aum",
+      "productCode": "securities_fund",
+      "productName": "證券複委託基金",
+      "domain": "aum",
+      "definition": "證券通路的複委託基金業務，涵蓋客戶持有資產與交易費收入。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_investment_month_end"
+      ],
+      "probability": 0.09,
+      "probabilities": {
+        "uncertain": 0.61,
+        "excluded": 0.3,
+        "included": 0.09
+      },
+      "confidence": 0.42,
+      "judgement": "uncertain"
+    },
+    {
+      "objectKey": "securities_structured::aum",
+      "productCode": "securities_structured",
+      "productName": "證券複委託結構型商品",
+      "domain": "aum",
+      "definition": "證券通路的複委託結構型商品業務，涵蓋客戶持有資產與相关收入。",
+      "definitionStatus": "inferred",
+      "matchedMetricCodes": [
+        "aum_investment_month_end"
+      ],
+      "probability": 0,
+      "probabilities": {
+        "uncertain": 0,
+        "excluded": 1,
+        "included": 0
+      },
+      "confidence": 1,
+      "judgement": "excluded"
+    }
+  ],
+  "decision": {
+    "requestId": "gen-dec-1791337322-q3tUPeOObDfjOg4j754q",
+    "model": "typesafe/jev-1.13-20260917",
+    "provider": "TypeSafe",
+    "scope": {
+      "type": "choice",
+      "choice": "ambiguous",
+      "probabilities": {
+        "clear": 0.05,
+        "none": 0,
+        "ambiguous": 0.95
+      },
+      "confidence": 0.92
+    },
+    "answers": {
+      "scope": {
+        "type": "choice",
+        "choice": "ambiguous",
+        "probabilities": {
+          "clear": 0.05,
+          "none": 0,
+          "ambiguous": 0.95
+        },
+        "confidence": 0.92
+      },
+      "bank_bond_proprietary::aum": {
+        "type": "choice",
+        "choice": "excluded",
+        "probabilities": {
+          "uncertain": 0,
+          "excluded": 1,
+          "included": 0
+        },
+        "confidence": 1
+      },
+      "bank_bond_trust::aum": {
+        "type": "choice",
+        "choice": "excluded",
+        "probabilities": {
+          "uncertain": 0,
+          "excluded": 1,
+          "included": 0
+        },
+        "confidence": 1
+      },
+      "bank_collective_account::aum": {
+        "type": "choice",
+        "choice": "excluded",
+        "probabilities": {
+          "uncertain": 0,
+          "excluded": 1,
+          "included": 0
+        },
+        "confidence": 0.99
+      },
+      "bank_etf::aum": {
+        "type": "choice",
+        "choice": "excluded",
+        "probabilities": {
+          "uncertain": 0.01,
+          "excluded": 0.99,
+          "included": 0
+        },
+        "confidence": 0.98
+      },
+      "bank_fund::aum": {
+        "type": "choice",
+        "choice": "uncertain",
+        "probabilities": {
+          "uncertain": 0.78,
+          "excluded": 0.12,
+          "included": 0.1
+        },
+        "confidence": 0.66
+      },
+      "bank_insurance::aum": {
+        "type": "choice",
+        "choice": "excluded",
+        "probabilities": {
+          "uncertain": 0,
+          "excluded": 1,
+          "included": 0
+        },
+        "confidence": 1
+      },
+      "bank_overseas_stock::aum": {
+        "type": "choice",
+        "choice": "excluded",
+        "probabilities": {
+          "uncertain": 0,
+          "excluded": 1,
+          "included": 0
+        },
+        "confidence": 1
+      },
+      "bank_planned_trust::aum": {
+        "type": "choice",
+        "choice": "excluded",
+        "probabilities": {
+          "uncertain": 0,
+          "excluded": 1,
+          "included": 0
+        },
+        "confidence": 1
+      },
+      "bank_structured_offshore::aum": {
+        "type": "choice",
+        "choice": "excluded",
+        "probabilities": {
+          "uncertain": 0,
+          "excluded": 1,
+          "included": 0
+        },
+        "confidence": 1
+      },
+      "bank_trust_custody::aum": {
+        "type": "choice",
+        "choice": "excluded",
+        "probabilities": {
+          "uncertain": 0,
+          "excluded": 1,
+          "included": 0
+        },
+        "confidence": 1
+      },
+      "securities_bond::aum": {
+        "type": "choice",
+        "choice": "excluded",
+        "probabilities": {
+          "uncertain": 0,
+          "excluded": 1,
+          "included": 0
+        },
+        "confidence": 1
+      },
+      "securities_foreign_stock::aum": {
+        "type": "choice",
+        "choice": "excluded",
+        "probabilities": {
+          "uncertain": 0,
+          "excluded": 1,
+          "included": 0
+        },
+        "confidence": 1
+      },
+      "securities_fund::aum": {
+        "type": "choice",
+        "choice": "uncertain",
+        "probabilities": {
+          "uncertain": 0.61,
+          "excluded": 0.3,
+          "included": 0.09
+        },
+        "confidence": 0.42
+      },
+      "securities_structured::aum": {
+        "type": "choice",
+        "choice": "excluded",
+        "probabilities": {
+          "uncertain": 0,
+          "excluded": 1,
+          "included": 0
+        },
+        "confidence": 1
+      }
+    },
+    "usage": {
+      "input_tokens": 9048,
+      "output_tokens": 705,
+      "cost": 0.000380016
+    },
+    "policy": {
+      "method": "native_choice_with_ambiguity_gate",
+      "numericThreshold": null,
+      "calibrated": false
+    },
+    "probabilityMeaning": "P(included) for each productCode/domain; candidate probabilities are independent and are not normalized across objects."
+  },
+  "products": [],
+  "message": "請確認要查詢的產品與通路：銀行基金（aum）、證券複委託基金（aum）。"
+}

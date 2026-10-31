@@ -1,0 +1,1726 @@
+[
+  {
+    "name": "fund_scoped",
+    "input": {
+      "question": "2026 年 9 月基金 AUM 對應哪些資料來源？",
+      "domains": [
+        "aum"
+      ],
+      "metricCodes": [
+        "aum_securities_month_end"
+      ]
+    },
+    "result": {
+      "metricCodes": [
+        "aum_securities_month_end"
+      ],
+      "products": [
+        {
+          "productCode": "securities_fund",
+          "productName": "證券複委託基金",
+          "domain": "aum",
+          "definition": "證券通路的複委託基金業務，涵蓋客戶持有資產與交易費收入。",
+          "definitionStatus": "inferred",
+          "metrics": [
+            {
+              "metricCode": "aum_securities_month_end",
+              "name": "月底證券AUM",
+              "definition": "月底衡量的證券通路投資資產。",
+              "status": "inferred"
+            },
+            {
+              "metricCode": "aum_investment_month_end",
+              "name": "月底投資AUM",
+              "definition": "月底衡量的銀行及證券通路投資資產合計。",
+              "status": "inferred"
+            },
+            {
+              "metricCode": "aum_total_month_end",
+              "name": "月底總AUM",
+              "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+              "status": "draft"
+            }
+          ],
+          "matchedMetricCodes": [
+            "aum_securities_month_end"
+          ],
+          "mappingStatus": "inferred",
+          "mappings": [
+            {
+              "lineage": [
+                {
+                  "tablePath": [
+                    "DSPBM.PB_FUNDPOSIT_SEC",
+                    "AUM_025"
+                  ],
+                  "baseTable": "DSPBM.PB_FUNDPOSIT_SEC",
+                  "rules": [
+                    {
+                      "lineStart": 366,
+                      "selectExpressions": [
+                        "wkb02 AS cust_id",
+                        "yyyymmdd",
+                        "SUM(WKB28 * WKB23 * WKB31) AS amt"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [
+                        "exact_projected_rows"
+                      ],
+                      "lineEnd": 375,
+                      "operationTypes": [
+                        "AGGREGATE",
+                        "SELECT",
+                        "UNION",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_025\n  as \n  select wkb02 as cust_id,yyyymmdd ,sum(WKB28 * WKB23 * WKB31) as amt\n  from DSPBM.PB_FUNDPOSIT_SEC_M@anadbp01_dwdbp01\n  group by wkb02,yyyymmdd\n  union \n  select wkb02 as cust_id,yyyymmdd ,sum(WKB28* WKB23 * WKB31) as amt\n  from DSPBM.PB_FUNDPOSIT_SEC@anadbp01_dwdbp01\n  group by wkb02,yyyymmdd\n  ;",
+                      "unionBranchOrders": [
+                        2
+                      ],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [
+                        "SUM(WKB28 * WKB23 * WKB31)"
+                      ],
+                      "groupExpressions": [
+                        "wkb02",
+                        "yyyymmdd"
+                      ],
+                      "caseExpressions": [],
+                      "operation": "UNION",
+                      "status": "active_sql",
+                      "joinConditions": []
+                    }
+                  ]
+                },
+                {
+                  "tablePath": [
+                    "DSPBM.PB_FUNDPOSIT_SEC_M",
+                    "AUM_025"
+                  ],
+                  "baseTable": "DSPBM.PB_FUNDPOSIT_SEC_M",
+                  "rules": [
+                    {
+                      "lineStart": 366,
+                      "selectExpressions": [
+                        "wkb02 AS cust_id",
+                        "yyyymmdd",
+                        "SUM(WKB28 * WKB23 * WKB31) AS amt"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [
+                        "exact_projected_rows"
+                      ],
+                      "lineEnd": 375,
+                      "operationTypes": [
+                        "AGGREGATE",
+                        "SELECT",
+                        "UNION",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_025\n  as \n  select wkb02 as cust_id,yyyymmdd ,sum(WKB28 * WKB23 * WKB31) as amt\n  from DSPBM.PB_FUNDPOSIT_SEC_M@anadbp01_dwdbp01\n  group by wkb02,yyyymmdd\n  union \n  select wkb02 as cust_id,yyyymmdd ,sum(WKB28* WKB23 * WKB31) as amt\n  from DSPBM.PB_FUNDPOSIT_SEC@anadbp01_dwdbp01\n  group by wkb02,yyyymmdd\n  ;",
+                      "unionBranchOrders": [
+                        1
+                      ],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [
+                        "SUM(WKB28 * WKB23 * WKB31)"
+                      ],
+                      "groupExpressions": [
+                        "wkb02",
+                        "yyyymmdd"
+                      ],
+                      "caseExpressions": [],
+                      "operation": "UNION",
+                      "status": "active_sql",
+                      "joinConditions": []
+                    }
+                  ]
+                }
+              ],
+              "mappingStatus": "observed_in_sql",
+              "outputTable": "AUM_025",
+              "mappingType": "AUM_IMPLEMENTED_BY",
+              "lineageStatus": "traced",
+              "productScope": "PROD='基金' AND COMP='證券'",
+              "sqlTable": "AUM_025"
+            }
+          ]
+        }
+      ],
+      "message": "對應證券複委託基金；產品與AUM對應目前為推定，僅代表目前候選涵蓋範圍，非完整總額映射。\n月底總AUM：指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。"
+    }
+  },
+  {
+    "name": "whole_securities",
+    "input": {
+      "question": "2026 年 9 月證券 AUM 整體涵蓋哪些產品與資料來源？",
+      "domains": [
+        "aum"
+      ],
+      "metricCodes": [
+        "aum_securities_month_end"
+      ]
+    },
+    "result": {
+      "metricCodes": [
+        "aum_securities_month_end"
+      ],
+      "products": [
+        {
+          "productCode": "securities_bond",
+          "productName": "證券複委託債券",
+          "domain": "aum",
+          "definition": "證券通路的複委託債券業務，涵蓋部位估值與交易手續費收入。",
+          "definitionStatus": "inferred",
+          "metrics": [
+            {
+              "metricCode": "aum_securities_month_end",
+              "name": "月底證券AUM",
+              "definition": "月底衡量的證券通路投資資產。",
+              "status": "inferred"
+            },
+            {
+              "metricCode": "aum_investment_month_end",
+              "name": "月底投資AUM",
+              "definition": "月底衡量的銀行及證券通路投資資產合計。",
+              "status": "inferred"
+            },
+            {
+              "metricCode": "aum_total_month_end",
+              "name": "月底總AUM",
+              "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+              "status": "draft"
+            }
+          ],
+          "matchedMetricCodes": [
+            "aum_securities_month_end"
+          ],
+          "mappingStatus": "inferred",
+          "mappings": [
+            {
+              "lineage": [
+                {
+                  "tablePath": [
+                    "DSDEP.FN_EXCH_RT",
+                    "AUM_023_024_TMP0",
+                    "AUM_023_024"
+                  ],
+                  "baseTable": "DSDEP.FN_EXCH_RT",
+                  "rules": [
+                    {
+                      "lineStart": 321,
+                      "selectExpressions": [
+                        "SUBSTR(prcs_dt, 1, 6) AS yyyyymm",
+                        "MAX(prcs_dt) AS prcs_dt",
+                        "A.*",
+                        "idno AS cust_id",
+                        "prcs_dt AS yyyymmdd",
+                        "nm",
+                        "SUM(NETQTY / 100 * CPRICE * exch_rt) AS AMT"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [],
+                      "lineEnd": 340,
+                      "operationTypes": [
+                        "AGGREGATE",
+                        "SELECT",
+                        "INNER JOIN",
+                        "SELECT",
+                        "LEFT JOIN",
+                        "AGGREGATE",
+                        "SELECT",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_023_024_TMP0\nas \nselect idno as cust_id,prcs_dt as yyyymmdd,nm,sum(NETQTY/100 *CPRICE * exch_rt) AMT\nfrom \n      (select a.*,\n              case when  bond like 'TSSN%' then '複委託結構型商品'\n              else '複委託債券' end as NM\n      from  DSPBM.PB_BONDPOS_SEC_M@anadbp01_dwdbp01 a ) a\nleft join \n     ( select A.*\n     from dsdep.fn_exch_rt@anadbp01_dwdbp01 a\n     inner join \n     ( \n         select substr(prcs_dt,1,6) yyyyymm,max(prcs_dt) prcs_dt \n         from dsdep.fn_exch_rt@anadbp01_dwdbp01 \n         group by substr(prcs_dt,1,6)\n     ) b on a.prcs_dt=b.prcs_dt\n     )b  on a.currency=b.curr_cd and a.yyyymm=substr(b.prcs_dt,1,6)\ngroup by idno,prcs_dt,nm\n;",
+                      "unionBranchOrders": [],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [
+                        "MAX(prcs_dt)",
+                        "SUM(NETQTY / 100 * CPRICE * exch_rt)"
+                      ],
+                      "groupExpressions": [
+                        "SUBSTR(prcs_dt, 1, 6)",
+                        "idno",
+                        "prcs_dt",
+                        "nm"
+                      ],
+                      "caseExpressions": [],
+                      "operation": "LEFT_JOIN",
+                      "status": "active_sql",
+                      "joinConditions": [
+                        "a.prcs_dt = b.prcs_dt",
+                        "a.currency = b.curr_cd AND a.yyyymm = SUBSTR(b.prcs_dt, 1, 6)"
+                      ]
+                    },
+                    {
+                      "lineStart": 357,
+                      "selectExpressions": [
+                        "*"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [
+                        "exact_projected_rows"
+                      ],
+                      "lineEnd": 361,
+                      "operationTypes": [
+                        "SELECT",
+                        "UNION",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_023_024\nas \nselect * from AUM_023_024_TMP0\nunion \nselect * from AUM_023_024_TMP1;",
+                      "unionBranchOrders": [
+                        1
+                      ],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [],
+                      "groupExpressions": [],
+                      "caseExpressions": [],
+                      "operation": "UNION",
+                      "status": "active_sql",
+                      "joinConditions": []
+                    }
+                  ]
+                },
+                {
+                  "tablePath": [
+                    "DSDEP.FN_EXCH_RT",
+                    "AUM_023_024_TMP0",
+                    "AUM_023_024"
+                  ],
+                  "baseTable": "DSDEP.FN_EXCH_RT",
+                  "rules": [
+                    {
+                      "lineStart": 321,
+                      "selectExpressions": [
+                        "A.*",
+                        "idno AS cust_id",
+                        "prcs_dt AS yyyymmdd",
+                        "nm",
+                        "SUM(NETQTY / 100 * CPRICE * exch_rt) AS AMT"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [],
+                      "lineEnd": 340,
+                      "operationTypes": [
+                        "INNER JOIN",
+                        "SELECT",
+                        "LEFT JOIN",
+                        "AGGREGATE",
+                        "SELECT",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_023_024_TMP0\nas \nselect idno as cust_id,prcs_dt as yyyymmdd,nm,sum(NETQTY/100 *CPRICE * exch_rt) AMT\nfrom \n      (select a.*,\n              case when  bond like 'TSSN%' then '複委託結構型商品'\n              else '複委託債券' end as NM\n      from  DSPBM.PB_BONDPOS_SEC_M@anadbp01_dwdbp01 a ) a\nleft join \n     ( select A.*\n     from dsdep.fn_exch_rt@anadbp01_dwdbp01 a\n     inner join \n     ( \n         select substr(prcs_dt,1,6) yyyyymm,max(prcs_dt) prcs_dt \n         from dsdep.fn_exch_rt@anadbp01_dwdbp01 \n         group by substr(prcs_dt,1,6)\n     ) b on a.prcs_dt=b.prcs_dt\n     )b  on a.currency=b.curr_cd and a.yyyymm=substr(b.prcs_dt,1,6)\ngroup by idno,prcs_dt,nm\n;",
+                      "unionBranchOrders": [],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [
+                        "SUM(NETQTY / 100 * CPRICE * exch_rt)"
+                      ],
+                      "groupExpressions": [
+                        "idno",
+                        "prcs_dt",
+                        "nm"
+                      ],
+                      "caseExpressions": [],
+                      "operation": "LEFT_JOIN",
+                      "status": "active_sql",
+                      "joinConditions": [
+                        "a.prcs_dt = b.prcs_dt",
+                        "a.currency = b.curr_cd AND a.yyyymm = SUBSTR(b.prcs_dt, 1, 6)"
+                      ]
+                    },
+                    {
+                      "lineStart": 357,
+                      "selectExpressions": [
+                        "*"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [
+                        "exact_projected_rows"
+                      ],
+                      "lineEnd": 361,
+                      "operationTypes": [
+                        "SELECT",
+                        "UNION",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_023_024\nas \nselect * from AUM_023_024_TMP0\nunion \nselect * from AUM_023_024_TMP1;",
+                      "unionBranchOrders": [
+                        1
+                      ],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [],
+                      "groupExpressions": [],
+                      "caseExpressions": [],
+                      "operation": "UNION",
+                      "status": "active_sql",
+                      "joinConditions": []
+                    }
+                  ]
+                },
+                {
+                  "tablePath": [
+                    "DSDEP.FN_EXCH_RT",
+                    "AUM_023_024_TMP1",
+                    "AUM_023_024"
+                  ],
+                  "baseTable": "DSDEP.FN_EXCH_RT",
+                  "rules": [
+                    {
+                      "lineStart": 342,
+                      "selectExpressions": [
+                        "a.*",
+                        "b.*",
+                        "CASE WHEN bond LIKE 'TSSN%' THEN '複委託結構型商品' ELSE '複委託債券' END AS NM",
+                        "idno AS cust_id",
+                        "clrdate AS yyyymmdd",
+                        "nm",
+                        "SUM(NETQTY / 100 * CPRICE * exch_rt) AS AMT"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [],
+                      "lineEnd": 354,
+                      "operationTypes": [
+                        "LEFT JOIN",
+                        "SELECT",
+                        "CASE",
+                        "AGGREGATE",
+                        "SELECT",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_023_024_TMP1\nas \nselect  idno as cust_id,clrdate as yyyymmdd,nm,sum(NETQTY/100 *CPRICE * exch_rt) AMT\nfrom \n(\n select a.*,b.*,\n         case when  bond like 'TSSN%' then '複委託結構型商品'\n       else '複委託債券' end as NM\nfrom  DSPBM.PB_BONDPOS_SEC@anadbp01_dwdbp01 a \nleft join  dsdep.fn_exch_rt@anadbp01_dwdbp01  b \non a.clrdate=b.prcs_dt and  a.currency=b.curr_cd\n) a \ngroup by idno,clrdate,nm;",
+                      "unionBranchOrders": [],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [
+                        "SUM(NETQTY / 100 * CPRICE * exch_rt)"
+                      ],
+                      "groupExpressions": [
+                        "idno",
+                        "clrdate",
+                        "nm"
+                      ],
+                      "caseExpressions": [
+                        "CASE WHEN bond LIKE 'TSSN%' THEN '複委託結構型商品' ELSE '複委託債券' END"
+                      ],
+                      "operation": "LEFT_JOIN",
+                      "status": "active_sql",
+                      "joinConditions": [
+                        "a.clrdate = b.prcs_dt AND a.currency = b.curr_cd"
+                      ]
+                    },
+                    {
+                      "lineStart": 357,
+                      "selectExpressions": [
+                        "*"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [
+                        "exact_projected_rows"
+                      ],
+                      "lineEnd": 361,
+                      "operationTypes": [
+                        "SELECT",
+                        "UNION",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_023_024\nas \nselect * from AUM_023_024_TMP0\nunion \nselect * from AUM_023_024_TMP1;",
+                      "unionBranchOrders": [
+                        2
+                      ],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [],
+                      "groupExpressions": [],
+                      "caseExpressions": [],
+                      "operation": "UNION",
+                      "status": "active_sql",
+                      "joinConditions": []
+                    }
+                  ]
+                },
+                {
+                  "tablePath": [
+                    "DSPBM.PB_BONDPOS_SEC",
+                    "AUM_023_024_TMP1",
+                    "AUM_023_024"
+                  ],
+                  "baseTable": "DSPBM.PB_BONDPOS_SEC",
+                  "rules": [
+                    {
+                      "lineStart": 342,
+                      "selectExpressions": [
+                        "a.*",
+                        "b.*",
+                        "CASE WHEN bond LIKE 'TSSN%' THEN '複委託結構型商品' ELSE '複委託債券' END AS NM",
+                        "idno AS cust_id",
+                        "clrdate AS yyyymmdd",
+                        "nm",
+                        "SUM(NETQTY / 100 * CPRICE * exch_rt) AS AMT"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [],
+                      "lineEnd": 354,
+                      "operationTypes": [
+                        "LEFT JOIN",
+                        "SELECT",
+                        "CASE",
+                        "AGGREGATE",
+                        "SELECT",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_023_024_TMP1\nas \nselect  idno as cust_id,clrdate as yyyymmdd,nm,sum(NETQTY/100 *CPRICE * exch_rt) AMT\nfrom \n(\n select a.*,b.*,\n         case when  bond like 'TSSN%' then '複委託結構型商品'\n       else '複委託債券' end as NM\nfrom  DSPBM.PB_BONDPOS_SEC@anadbp01_dwdbp01 a \nleft join  dsdep.fn_exch_rt@anadbp01_dwdbp01  b \non a.clrdate=b.prcs_dt and  a.currency=b.curr_cd\n) a \ngroup by idno,clrdate,nm;",
+                      "unionBranchOrders": [],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [
+                        "SUM(NETQTY / 100 * CPRICE * exch_rt)"
+                      ],
+                      "groupExpressions": [
+                        "idno",
+                        "clrdate",
+                        "nm"
+                      ],
+                      "caseExpressions": [
+                        "CASE WHEN bond LIKE 'TSSN%' THEN '複委託結構型商品' ELSE '複委託債券' END"
+                      ],
+                      "operation": "LEFT_JOIN",
+                      "status": "active_sql",
+                      "joinConditions": [
+                        "a.clrdate = b.prcs_dt AND a.currency = b.curr_cd"
+                      ]
+                    },
+                    {
+                      "lineStart": 357,
+                      "selectExpressions": [
+                        "*"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [
+                        "exact_projected_rows"
+                      ],
+                      "lineEnd": 361,
+                      "operationTypes": [
+                        "SELECT",
+                        "UNION",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_023_024\nas \nselect * from AUM_023_024_TMP0\nunion \nselect * from AUM_023_024_TMP1;",
+                      "unionBranchOrders": [
+                        2
+                      ],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [],
+                      "groupExpressions": [],
+                      "caseExpressions": [],
+                      "operation": "UNION",
+                      "status": "active_sql",
+                      "joinConditions": []
+                    }
+                  ]
+                },
+                {
+                  "tablePath": [
+                    "DSPBM.PB_BONDPOS_SEC_M",
+                    "AUM_023_024_TMP0",
+                    "AUM_023_024"
+                  ],
+                  "baseTable": "DSPBM.PB_BONDPOS_SEC_M",
+                  "rules": [
+                    {
+                      "lineStart": 321,
+                      "selectExpressions": [
+                        "a.*",
+                        "CASE WHEN bond LIKE 'TSSN%' THEN '複委託結構型商品' ELSE '複委託債券' END AS NM",
+                        "idno AS cust_id",
+                        "prcs_dt AS yyyymmdd",
+                        "nm",
+                        "SUM(NETQTY / 100 * CPRICE * exch_rt) AS AMT"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [],
+                      "lineEnd": 340,
+                      "operationTypes": [
+                        "SELECT",
+                        "CASE",
+                        "LEFT JOIN",
+                        "AGGREGATE",
+                        "SELECT",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_023_024_TMP0\nas \nselect idno as cust_id,prcs_dt as yyyymmdd,nm,sum(NETQTY/100 *CPRICE * exch_rt) AMT\nfrom \n      (select a.*,\n              case when  bond like 'TSSN%' then '複委託結構型商品'\n              else '複委託債券' end as NM\n      from  DSPBM.PB_BONDPOS_SEC_M@anadbp01_dwdbp01 a ) a\nleft join \n     ( select A.*\n     from dsdep.fn_exch_rt@anadbp01_dwdbp01 a\n     inner join \n     ( \n         select substr(prcs_dt,1,6) yyyyymm,max(prcs_dt) prcs_dt \n         from dsdep.fn_exch_rt@anadbp01_dwdbp01 \n         group by substr(prcs_dt,1,6)\n     ) b on a.prcs_dt=b.prcs_dt\n     )b  on a.currency=b.curr_cd and a.yyyymm=substr(b.prcs_dt,1,6)\ngroup by idno,prcs_dt,nm\n;",
+                      "unionBranchOrders": [],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [
+                        "SUM(NETQTY / 100 * CPRICE * exch_rt)"
+                      ],
+                      "groupExpressions": [
+                        "idno",
+                        "prcs_dt",
+                        "nm"
+                      ],
+                      "caseExpressions": [
+                        "CASE WHEN bond LIKE 'TSSN%' THEN '複委託結構型商品' ELSE '複委託債券' END"
+                      ],
+                      "operation": "LEFT_JOIN",
+                      "status": "active_sql",
+                      "joinConditions": [
+                        "a.currency = b.curr_cd AND a.yyyymm = SUBSTR(b.prcs_dt, 1, 6)"
+                      ]
+                    },
+                    {
+                      "lineStart": 357,
+                      "selectExpressions": [
+                        "*"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [
+                        "exact_projected_rows"
+                      ],
+                      "lineEnd": 361,
+                      "operationTypes": [
+                        "SELECT",
+                        "UNION",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_023_024\nas \nselect * from AUM_023_024_TMP0\nunion \nselect * from AUM_023_024_TMP1;",
+                      "unionBranchOrders": [
+                        1
+                      ],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [],
+                      "groupExpressions": [],
+                      "caseExpressions": [],
+                      "operation": "UNION",
+                      "status": "active_sql",
+                      "joinConditions": []
+                    }
+                  ]
+                }
+              ],
+              "mappingStatus": "observed_in_sql",
+              "outputTable": "AUM_023_024",
+              "mappingType": "AUM_IMPLEMENTED_BY",
+              "lineageStatus": "traced",
+              "productScope": "PROD='複委託債券'",
+              "sqlTable": "AUM_023_024"
+            }
+          ]
+        },
+        {
+          "productCode": "securities_foreign_stock",
+          "productName": "證券複委託外國股票",
+          "domain": "aum",
+          "definition": "證券通路的複委託外國股票業務，涵蓋客戶持有資產與淨手續費收入；淨收入可能為負值。",
+          "definitionStatus": "inferred",
+          "metrics": [
+            {
+              "metricCode": "aum_securities_month_end",
+              "name": "月底證券AUM",
+              "definition": "月底衡量的證券通路投資資產。",
+              "status": "inferred"
+            },
+            {
+              "metricCode": "aum_investment_month_end",
+              "name": "月底投資AUM",
+              "definition": "月底衡量的銀行及證券通路投資資產合計。",
+              "status": "inferred"
+            },
+            {
+              "metricCode": "aum_total_month_end",
+              "name": "月底總AUM",
+              "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+              "status": "draft"
+            }
+          ],
+          "matchedMetricCodes": [
+            "aum_securities_month_end"
+          ],
+          "mappingStatus": "inferred",
+          "mappings": [
+            {
+              "lineage": [
+                {
+                  "tablePath": [
+                    "DSDEP.FN_EXCH_RT",
+                    "AUM_026_TMP0",
+                    "AUM_026"
+                  ],
+                  "baseTable": "DSDEP.FN_EXCH_RT",
+                  "rules": [
+                    {
+                      "lineStart": 378,
+                      "selectExpressions": [
+                        "SUBSTR(prcs_dt, 1, 6) AS yyyyymm",
+                        "MAX(prcs_dt) AS prcs_dt",
+                        "A.*",
+                        "idno AS cust_id",
+                        "b.prcs_dt AS yyyymmdd",
+                        "SUM(NETQTY * CPRICE * exch_rt) AS amt"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [],
+                      "lineEnd": 394,
+                      "operationTypes": [
+                        "AGGREGATE",
+                        "SELECT",
+                        "INNER JOIN",
+                        "SELECT",
+                        "LEFT JOIN",
+                        "AGGREGATE",
+                        "SELECT",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_026_TMP0\nas \nselect   idno as cust_id,b.prcs_dt yyyymmdd,sum(NETQTY * CPRICE* exch_rt) as amt \nfrom  (select *\n      from  DSPBM.PB_STOCKPOS_SEC_M@anadbp01_dwdbp01 a ) a\nleft join \n     ( select A.*\n     from dsdep.fn_exch_rt@anadbp01_dwdbp01 a\n     inner join \n     ( \n         select substr(prcs_dt,1,6) yyyyymm,max(prcs_dt) prcs_dt \n         from dsdep.fn_exch_rt@anadbp01_dwdbp01 \n         group by substr(prcs_dt,1,6)\n     ) b on a.prcs_dt=b.prcs_dt\n     )b  on a.currency=b.curr_cd and a.yyyymm=substr(b.prcs_dt,1,6)\ngroup by idno,b.prcs_dt\n;",
+                      "unionBranchOrders": [],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [
+                        "MAX(prcs_dt)",
+                        "SUM(NETQTY * CPRICE * exch_rt)"
+                      ],
+                      "groupExpressions": [
+                        "SUBSTR(prcs_dt, 1, 6)",
+                        "idno",
+                        "b.prcs_dt"
+                      ],
+                      "caseExpressions": [],
+                      "operation": "LEFT_JOIN",
+                      "status": "active_sql",
+                      "joinConditions": [
+                        "a.prcs_dt = b.prcs_dt",
+                        "a.currency = b.curr_cd AND a.yyyymm = SUBSTR(b.prcs_dt, 1, 6)"
+                      ]
+                    },
+                    {
+                      "lineStart": 412,
+                      "selectExpressions": [
+                        "*"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [
+                        "exact_projected_rows"
+                      ],
+                      "lineEnd": 416,
+                      "operationTypes": [
+                        "SELECT",
+                        "UNION",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_026\nas \nselect * from AUM_026_TMP0\nunion \nselect * from AUM_026_TMP1;",
+                      "unionBranchOrders": [
+                        1
+                      ],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [],
+                      "groupExpressions": [],
+                      "caseExpressions": [],
+                      "operation": "UNION",
+                      "status": "active_sql",
+                      "joinConditions": []
+                    }
+                  ]
+                },
+                {
+                  "tablePath": [
+                    "DSDEP.FN_EXCH_RT",
+                    "AUM_026_TMP0",
+                    "AUM_026"
+                  ],
+                  "baseTable": "DSDEP.FN_EXCH_RT",
+                  "rules": [
+                    {
+                      "lineStart": 378,
+                      "selectExpressions": [
+                        "A.*",
+                        "idno AS cust_id",
+                        "b.prcs_dt AS yyyymmdd",
+                        "SUM(NETQTY * CPRICE * exch_rt) AS amt"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [],
+                      "lineEnd": 394,
+                      "operationTypes": [
+                        "INNER JOIN",
+                        "SELECT",
+                        "LEFT JOIN",
+                        "AGGREGATE",
+                        "SELECT",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_026_TMP0\nas \nselect   idno as cust_id,b.prcs_dt yyyymmdd,sum(NETQTY * CPRICE* exch_rt) as amt \nfrom  (select *\n      from  DSPBM.PB_STOCKPOS_SEC_M@anadbp01_dwdbp01 a ) a\nleft join \n     ( select A.*\n     from dsdep.fn_exch_rt@anadbp01_dwdbp01 a\n     inner join \n     ( \n         select substr(prcs_dt,1,6) yyyyymm,max(prcs_dt) prcs_dt \n         from dsdep.fn_exch_rt@anadbp01_dwdbp01 \n         group by substr(prcs_dt,1,6)\n     ) b on a.prcs_dt=b.prcs_dt\n     )b  on a.currency=b.curr_cd and a.yyyymm=substr(b.prcs_dt,1,6)\ngroup by idno,b.prcs_dt\n;",
+                      "unionBranchOrders": [],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [
+                        "SUM(NETQTY * CPRICE * exch_rt)"
+                      ],
+                      "groupExpressions": [
+                        "idno",
+                        "b.prcs_dt"
+                      ],
+                      "caseExpressions": [],
+                      "operation": "LEFT_JOIN",
+                      "status": "active_sql",
+                      "joinConditions": [
+                        "a.prcs_dt = b.prcs_dt",
+                        "a.currency = b.curr_cd AND a.yyyymm = SUBSTR(b.prcs_dt, 1, 6)"
+                      ]
+                    },
+                    {
+                      "lineStart": 412,
+                      "selectExpressions": [
+                        "*"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [
+                        "exact_projected_rows"
+                      ],
+                      "lineEnd": 416,
+                      "operationTypes": [
+                        "SELECT",
+                        "UNION",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_026\nas \nselect * from AUM_026_TMP0\nunion \nselect * from AUM_026_TMP1;",
+                      "unionBranchOrders": [
+                        1
+                      ],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [],
+                      "groupExpressions": [],
+                      "caseExpressions": [],
+                      "operation": "UNION",
+                      "status": "active_sql",
+                      "joinConditions": []
+                    }
+                  ]
+                },
+                {
+                  "tablePath": [
+                    "DSDEP.FN_EXCH_RT",
+                    "AUM_026_TMP1",
+                    "AUM_026"
+                  ],
+                  "baseTable": "DSDEP.FN_EXCH_RT",
+                  "rules": [
+                    {
+                      "lineStart": 397,
+                      "selectExpressions": [
+                        "*",
+                        "idno AS cust_id",
+                        "yyyymmdd",
+                        "SUM(NETQTY * CPRICE * exch_rt) AS amt"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [],
+                      "lineEnd": 409,
+                      "operationTypes": [
+                        "SELECT",
+                        "LEFT JOIN",
+                        "AGGREGATE",
+                        "SELECT",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_026_TMP1\nas \nselect  idno as cust_id,yyyymmdd,sum(NETQTY * CPRICE* exch_rt) as amt \n  from \n (\n  select idno, CLRDATE  YYYYMMDD,NETQTY ,CPRICE,currency --\n  from DSPBM.PB_STOCKPOS_SEC@anadbp01_dwdbp01\n  ) a\n  left join \n  (\n  select * from dsdep.fn_exch_rt@anadbp01_dwdbp01 --where prcs_dt='20240401'\n  )b  on a.currency=b.curr_cd and yyyymmdd=prcs_dt\n  group by idno,yyyymmdd;",
+                      "unionBranchOrders": [],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [
+                        "SUM(NETQTY * CPRICE * exch_rt)"
+                      ],
+                      "groupExpressions": [
+                        "idno",
+                        "yyyymmdd"
+                      ],
+                      "caseExpressions": [],
+                      "operation": "LEFT_JOIN",
+                      "status": "active_sql",
+                      "joinConditions": [
+                        "a.currency = b.curr_cd AND yyyymmdd = prcs_dt"
+                      ]
+                    },
+                    {
+                      "lineStart": 412,
+                      "selectExpressions": [
+                        "*"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [
+                        "exact_projected_rows"
+                      ],
+                      "lineEnd": 416,
+                      "operationTypes": [
+                        "SELECT",
+                        "UNION",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_026\nas \nselect * from AUM_026_TMP0\nunion \nselect * from AUM_026_TMP1;",
+                      "unionBranchOrders": [
+                        2
+                      ],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [],
+                      "groupExpressions": [],
+                      "caseExpressions": [],
+                      "operation": "UNION",
+                      "status": "active_sql",
+                      "joinConditions": []
+                    }
+                  ]
+                },
+                {
+                  "tablePath": [
+                    "DSPBM.PB_STOCKPOS_SEC",
+                    "AUM_026_TMP1",
+                    "AUM_026"
+                  ],
+                  "baseTable": "DSPBM.PB_STOCKPOS_SEC",
+                  "rules": [
+                    {
+                      "lineStart": 397,
+                      "selectExpressions": [
+                        "idno",
+                        "CLRDATE AS YYYYMMDD",
+                        "NETQTY",
+                        "CPRICE",
+                        "currency",
+                        "idno AS cust_id",
+                        "yyyymmdd",
+                        "SUM(NETQTY * CPRICE * exch_rt) AS amt"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [],
+                      "lineEnd": 409,
+                      "operationTypes": [
+                        "SELECT",
+                        "LEFT JOIN",
+                        "AGGREGATE",
+                        "SELECT",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_026_TMP1\nas \nselect  idno as cust_id,yyyymmdd,sum(NETQTY * CPRICE* exch_rt) as amt \n  from \n (\n  select idno, CLRDATE  YYYYMMDD,NETQTY ,CPRICE,currency --\n  from DSPBM.PB_STOCKPOS_SEC@anadbp01_dwdbp01\n  ) a\n  left join \n  (\n  select * from dsdep.fn_exch_rt@anadbp01_dwdbp01 --where prcs_dt='20240401'\n  )b  on a.currency=b.curr_cd and yyyymmdd=prcs_dt\n  group by idno,yyyymmdd;",
+                      "unionBranchOrders": [],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [
+                        "SUM(NETQTY * CPRICE * exch_rt)"
+                      ],
+                      "groupExpressions": [
+                        "idno",
+                        "yyyymmdd"
+                      ],
+                      "caseExpressions": [],
+                      "operation": "LEFT_JOIN",
+                      "status": "active_sql",
+                      "joinConditions": [
+                        "a.currency = b.curr_cd AND yyyymmdd = prcs_dt"
+                      ]
+                    },
+                    {
+                      "lineStart": 412,
+                      "selectExpressions": [
+                        "*"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [
+                        "exact_projected_rows"
+                      ],
+                      "lineEnd": 416,
+                      "operationTypes": [
+                        "SELECT",
+                        "UNION",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_026\nas \nselect * from AUM_026_TMP0\nunion \nselect * from AUM_026_TMP1;",
+                      "unionBranchOrders": [
+                        2
+                      ],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [],
+                      "groupExpressions": [],
+                      "caseExpressions": [],
+                      "operation": "UNION",
+                      "status": "active_sql",
+                      "joinConditions": []
+                    }
+                  ]
+                },
+                {
+                  "tablePath": [
+                    "DSPBM.PB_STOCKPOS_SEC_M",
+                    "AUM_026_TMP0",
+                    "AUM_026"
+                  ],
+                  "baseTable": "DSPBM.PB_STOCKPOS_SEC_M",
+                  "rules": [
+                    {
+                      "lineStart": 378,
+                      "selectExpressions": [
+                        "*",
+                        "idno AS cust_id",
+                        "b.prcs_dt AS yyyymmdd",
+                        "SUM(NETQTY * CPRICE * exch_rt) AS amt"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [],
+                      "lineEnd": 394,
+                      "operationTypes": [
+                        "SELECT",
+                        "LEFT JOIN",
+                        "AGGREGATE",
+                        "SELECT",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_026_TMP0\nas \nselect   idno as cust_id,b.prcs_dt yyyymmdd,sum(NETQTY * CPRICE* exch_rt) as amt \nfrom  (select *\n      from  DSPBM.PB_STOCKPOS_SEC_M@anadbp01_dwdbp01 a ) a\nleft join \n     ( select A.*\n     from dsdep.fn_exch_rt@anadbp01_dwdbp01 a\n     inner join \n     ( \n         select substr(prcs_dt,1,6) yyyyymm,max(prcs_dt) prcs_dt \n         from dsdep.fn_exch_rt@anadbp01_dwdbp01 \n         group by substr(prcs_dt,1,6)\n     ) b on a.prcs_dt=b.prcs_dt\n     )b  on a.currency=b.curr_cd and a.yyyymm=substr(b.prcs_dt,1,6)\ngroup by idno,b.prcs_dt\n;",
+                      "unionBranchOrders": [],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [
+                        "SUM(NETQTY * CPRICE * exch_rt)"
+                      ],
+                      "groupExpressions": [
+                        "idno",
+                        "b.prcs_dt"
+                      ],
+                      "caseExpressions": [],
+                      "operation": "LEFT_JOIN",
+                      "status": "active_sql",
+                      "joinConditions": [
+                        "a.currency = b.curr_cd AND a.yyyymm = SUBSTR(b.prcs_dt, 1, 6)"
+                      ]
+                    },
+                    {
+                      "lineStart": 412,
+                      "selectExpressions": [
+                        "*"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [
+                        "exact_projected_rows"
+                      ],
+                      "lineEnd": 416,
+                      "operationTypes": [
+                        "SELECT",
+                        "UNION",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_026\nas \nselect * from AUM_026_TMP0\nunion \nselect * from AUM_026_TMP1;",
+                      "unionBranchOrders": [
+                        1
+                      ],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [],
+                      "groupExpressions": [],
+                      "caseExpressions": [],
+                      "operation": "UNION",
+                      "status": "active_sql",
+                      "joinConditions": []
+                    }
+                  ]
+                }
+              ],
+              "mappingStatus": "observed_in_sql",
+              "outputTable": "AUM_026",
+              "mappingType": "AUM_IMPLEMENTED_BY",
+              "lineageStatus": "traced",
+              "productScope": "PROD='外國股票' AND COMP='證券'",
+              "sqlTable": "AUM_026"
+            }
+          ]
+        },
+        {
+          "productCode": "securities_fund",
+          "productName": "證券複委託基金",
+          "domain": "aum",
+          "definition": "證券通路的複委託基金業務，涵蓋客戶持有資產與交易費收入。",
+          "definitionStatus": "inferred",
+          "metrics": [
+            {
+              "metricCode": "aum_securities_month_end",
+              "name": "月底證券AUM",
+              "definition": "月底衡量的證券通路投資資產。",
+              "status": "inferred"
+            },
+            {
+              "metricCode": "aum_investment_month_end",
+              "name": "月底投資AUM",
+              "definition": "月底衡量的銀行及證券通路投資資產合計。",
+              "status": "inferred"
+            },
+            {
+              "metricCode": "aum_total_month_end",
+              "name": "月底總AUM",
+              "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+              "status": "draft"
+            }
+          ],
+          "matchedMetricCodes": [
+            "aum_securities_month_end"
+          ],
+          "mappingStatus": "inferred",
+          "mappings": [
+            {
+              "lineage": [
+                {
+                  "tablePath": [
+                    "DSPBM.PB_FUNDPOSIT_SEC",
+                    "AUM_025"
+                  ],
+                  "baseTable": "DSPBM.PB_FUNDPOSIT_SEC",
+                  "rules": [
+                    {
+                      "lineStart": 366,
+                      "selectExpressions": [
+                        "wkb02 AS cust_id",
+                        "yyyymmdd",
+                        "SUM(WKB28 * WKB23 * WKB31) AS amt"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [
+                        "exact_projected_rows"
+                      ],
+                      "lineEnd": 375,
+                      "operationTypes": [
+                        "AGGREGATE",
+                        "SELECT",
+                        "UNION",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_025\n  as \n  select wkb02 as cust_id,yyyymmdd ,sum(WKB28 * WKB23 * WKB31) as amt\n  from DSPBM.PB_FUNDPOSIT_SEC_M@anadbp01_dwdbp01\n  group by wkb02,yyyymmdd\n  union \n  select wkb02 as cust_id,yyyymmdd ,sum(WKB28* WKB23 * WKB31) as amt\n  from DSPBM.PB_FUNDPOSIT_SEC@anadbp01_dwdbp01\n  group by wkb02,yyyymmdd\n  ;",
+                      "unionBranchOrders": [
+                        2
+                      ],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [
+                        "SUM(WKB28 * WKB23 * WKB31)"
+                      ],
+                      "groupExpressions": [
+                        "wkb02",
+                        "yyyymmdd"
+                      ],
+                      "caseExpressions": [],
+                      "operation": "UNION",
+                      "status": "active_sql",
+                      "joinConditions": []
+                    }
+                  ]
+                },
+                {
+                  "tablePath": [
+                    "DSPBM.PB_FUNDPOSIT_SEC_M",
+                    "AUM_025"
+                  ],
+                  "baseTable": "DSPBM.PB_FUNDPOSIT_SEC_M",
+                  "rules": [
+                    {
+                      "lineStart": 366,
+                      "selectExpressions": [
+                        "wkb02 AS cust_id",
+                        "yyyymmdd",
+                        "SUM(WKB28 * WKB23 * WKB31) AS amt"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [
+                        "exact_projected_rows"
+                      ],
+                      "lineEnd": 375,
+                      "operationTypes": [
+                        "AGGREGATE",
+                        "SELECT",
+                        "UNION",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_025\n  as \n  select wkb02 as cust_id,yyyymmdd ,sum(WKB28 * WKB23 * WKB31) as amt\n  from DSPBM.PB_FUNDPOSIT_SEC_M@anadbp01_dwdbp01\n  group by wkb02,yyyymmdd\n  union \n  select wkb02 as cust_id,yyyymmdd ,sum(WKB28* WKB23 * WKB31) as amt\n  from DSPBM.PB_FUNDPOSIT_SEC@anadbp01_dwdbp01\n  group by wkb02,yyyymmdd\n  ;",
+                      "unionBranchOrders": [
+                        1
+                      ],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [
+                        "SUM(WKB28 * WKB23 * WKB31)"
+                      ],
+                      "groupExpressions": [
+                        "wkb02",
+                        "yyyymmdd"
+                      ],
+                      "caseExpressions": [],
+                      "operation": "UNION",
+                      "status": "active_sql",
+                      "joinConditions": []
+                    }
+                  ]
+                }
+              ],
+              "mappingStatus": "observed_in_sql",
+              "outputTable": "AUM_025",
+              "mappingType": "AUM_IMPLEMENTED_BY",
+              "lineageStatus": "traced",
+              "productScope": "PROD='基金' AND COMP='證券'",
+              "sqlTable": "AUM_025"
+            }
+          ]
+        },
+        {
+          "productCode": "securities_structured",
+          "productName": "證券複委託結構型商品",
+          "domain": "aum",
+          "definition": "證券通路的複委託結構型商品業務，涵蓋客戶持有資產與相关收入。",
+          "definitionStatus": "inferred",
+          "metrics": [
+            {
+              "metricCode": "aum_securities_month_end",
+              "name": "月底證券AUM",
+              "definition": "月底衡量的證券通路投資資產。",
+              "status": "inferred"
+            },
+            {
+              "metricCode": "aum_investment_month_end",
+              "name": "月底投資AUM",
+              "definition": "月底衡量的銀行及證券通路投資資產合計。",
+              "status": "inferred"
+            },
+            {
+              "metricCode": "aum_total_month_end",
+              "name": "月底總AUM",
+              "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+              "status": "draft"
+            }
+          ],
+          "matchedMetricCodes": [
+            "aum_securities_month_end"
+          ],
+          "mappingStatus": "inferred",
+          "mappings": [
+            {
+              "lineage": [
+                {
+                  "tablePath": [
+                    "DSDEP.FN_EXCH_RT",
+                    "AUM_023_024_TMP0",
+                    "AUM_023_024"
+                  ],
+                  "baseTable": "DSDEP.FN_EXCH_RT",
+                  "rules": [
+                    {
+                      "lineStart": 321,
+                      "selectExpressions": [
+                        "SUBSTR(prcs_dt, 1, 6) AS yyyyymm",
+                        "MAX(prcs_dt) AS prcs_dt",
+                        "A.*",
+                        "idno AS cust_id",
+                        "prcs_dt AS yyyymmdd",
+                        "nm",
+                        "SUM(NETQTY / 100 * CPRICE * exch_rt) AS AMT"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [],
+                      "lineEnd": 340,
+                      "operationTypes": [
+                        "AGGREGATE",
+                        "SELECT",
+                        "INNER JOIN",
+                        "SELECT",
+                        "LEFT JOIN",
+                        "AGGREGATE",
+                        "SELECT",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_023_024_TMP0\nas \nselect idno as cust_id,prcs_dt as yyyymmdd,nm,sum(NETQTY/100 *CPRICE * exch_rt) AMT\nfrom \n      (select a.*,\n              case when  bond like 'TSSN%' then '複委託結構型商品'\n              else '複委託債券' end as NM\n      from  DSPBM.PB_BONDPOS_SEC_M@anadbp01_dwdbp01 a ) a\nleft join \n     ( select A.*\n     from dsdep.fn_exch_rt@anadbp01_dwdbp01 a\n     inner join \n     ( \n         select substr(prcs_dt,1,6) yyyyymm,max(prcs_dt) prcs_dt \n         from dsdep.fn_exch_rt@anadbp01_dwdbp01 \n         group by substr(prcs_dt,1,6)\n     ) b on a.prcs_dt=b.prcs_dt\n     )b  on a.currency=b.curr_cd and a.yyyymm=substr(b.prcs_dt,1,6)\ngroup by idno,prcs_dt,nm\n;",
+                      "unionBranchOrders": [],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [
+                        "MAX(prcs_dt)",
+                        "SUM(NETQTY / 100 * CPRICE * exch_rt)"
+                      ],
+                      "groupExpressions": [
+                        "SUBSTR(prcs_dt, 1, 6)",
+                        "idno",
+                        "prcs_dt",
+                        "nm"
+                      ],
+                      "caseExpressions": [],
+                      "operation": "LEFT_JOIN",
+                      "status": "active_sql",
+                      "joinConditions": [
+                        "a.prcs_dt = b.prcs_dt",
+                        "a.currency = b.curr_cd AND a.yyyymm = SUBSTR(b.prcs_dt, 1, 6)"
+                      ]
+                    },
+                    {
+                      "lineStart": 357,
+                      "selectExpressions": [
+                        "*"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [
+                        "exact_projected_rows"
+                      ],
+                      "lineEnd": 361,
+                      "operationTypes": [
+                        "SELECT",
+                        "UNION",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_023_024\nas \nselect * from AUM_023_024_TMP0\nunion \nselect * from AUM_023_024_TMP1;",
+                      "unionBranchOrders": [
+                        1
+                      ],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [],
+                      "groupExpressions": [],
+                      "caseExpressions": [],
+                      "operation": "UNION",
+                      "status": "active_sql",
+                      "joinConditions": []
+                    }
+                  ]
+                },
+                {
+                  "tablePath": [
+                    "DSDEP.FN_EXCH_RT",
+                    "AUM_023_024_TMP0",
+                    "AUM_023_024"
+                  ],
+                  "baseTable": "DSDEP.FN_EXCH_RT",
+                  "rules": [
+                    {
+                      "lineStart": 321,
+                      "selectExpressions": [
+                        "A.*",
+                        "idno AS cust_id",
+                        "prcs_dt AS yyyymmdd",
+                        "nm",
+                        "SUM(NETQTY / 100 * CPRICE * exch_rt) AS AMT"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [],
+                      "lineEnd": 340,
+                      "operationTypes": [
+                        "INNER JOIN",
+                        "SELECT",
+                        "LEFT JOIN",
+                        "AGGREGATE",
+                        "SELECT",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_023_024_TMP0\nas \nselect idno as cust_id,prcs_dt as yyyymmdd,nm,sum(NETQTY/100 *CPRICE * exch_rt) AMT\nfrom \n      (select a.*,\n              case when  bond like 'TSSN%' then '複委託結構型商品'\n              else '複委託債券' end as NM\n      from  DSPBM.PB_BONDPOS_SEC_M@anadbp01_dwdbp01 a ) a\nleft join \n     ( select A.*\n     from dsdep.fn_exch_rt@anadbp01_dwdbp01 a\n     inner join \n     ( \n         select substr(prcs_dt,1,6) yyyyymm,max(prcs_dt) prcs_dt \n         from dsdep.fn_exch_rt@anadbp01_dwdbp01 \n         group by substr(prcs_dt,1,6)\n     ) b on a.prcs_dt=b.prcs_dt\n     )b  on a.currency=b.curr_cd and a.yyyymm=substr(b.prcs_dt,1,6)\ngroup by idno,prcs_dt,nm\n;",
+                      "unionBranchOrders": [],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [
+                        "SUM(NETQTY / 100 * CPRICE * exch_rt)"
+                      ],
+                      "groupExpressions": [
+                        "idno",
+                        "prcs_dt",
+                        "nm"
+                      ],
+                      "caseExpressions": [],
+                      "operation": "LEFT_JOIN",
+                      "status": "active_sql",
+                      "joinConditions": [
+                        "a.prcs_dt = b.prcs_dt",
+                        "a.currency = b.curr_cd AND a.yyyymm = SUBSTR(b.prcs_dt, 1, 6)"
+                      ]
+                    },
+                    {
+                      "lineStart": 357,
+                      "selectExpressions": [
+                        "*"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [
+                        "exact_projected_rows"
+                      ],
+                      "lineEnd": 361,
+                      "operationTypes": [
+                        "SELECT",
+                        "UNION",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_023_024\nas \nselect * from AUM_023_024_TMP0\nunion \nselect * from AUM_023_024_TMP1;",
+                      "unionBranchOrders": [
+                        1
+                      ],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [],
+                      "groupExpressions": [],
+                      "caseExpressions": [],
+                      "operation": "UNION",
+                      "status": "active_sql",
+                      "joinConditions": []
+                    }
+                  ]
+                },
+                {
+                  "tablePath": [
+                    "DSDEP.FN_EXCH_RT",
+                    "AUM_023_024_TMP1",
+                    "AUM_023_024"
+                  ],
+                  "baseTable": "DSDEP.FN_EXCH_RT",
+                  "rules": [
+                    {
+                      "lineStart": 342,
+                      "selectExpressions": [
+                        "a.*",
+                        "b.*",
+                        "CASE WHEN bond LIKE 'TSSN%' THEN '複委託結構型商品' ELSE '複委託債券' END AS NM",
+                        "idno AS cust_id",
+                        "clrdate AS yyyymmdd",
+                        "nm",
+                        "SUM(NETQTY / 100 * CPRICE * exch_rt) AS AMT"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [],
+                      "lineEnd": 354,
+                      "operationTypes": [
+                        "LEFT JOIN",
+                        "SELECT",
+                        "CASE",
+                        "AGGREGATE",
+                        "SELECT",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_023_024_TMP1\nas \nselect  idno as cust_id,clrdate as yyyymmdd,nm,sum(NETQTY/100 *CPRICE * exch_rt) AMT\nfrom \n(\n select a.*,b.*,\n         case when  bond like 'TSSN%' then '複委託結構型商品'\n       else '複委託債券' end as NM\nfrom  DSPBM.PB_BONDPOS_SEC@anadbp01_dwdbp01 a \nleft join  dsdep.fn_exch_rt@anadbp01_dwdbp01  b \non a.clrdate=b.prcs_dt and  a.currency=b.curr_cd\n) a \ngroup by idno,clrdate,nm;",
+                      "unionBranchOrders": [],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [
+                        "SUM(NETQTY / 100 * CPRICE * exch_rt)"
+                      ],
+                      "groupExpressions": [
+                        "idno",
+                        "clrdate",
+                        "nm"
+                      ],
+                      "caseExpressions": [
+                        "CASE WHEN bond LIKE 'TSSN%' THEN '複委託結構型商品' ELSE '複委託債券' END"
+                      ],
+                      "operation": "LEFT_JOIN",
+                      "status": "active_sql",
+                      "joinConditions": [
+                        "a.clrdate = b.prcs_dt AND a.currency = b.curr_cd"
+                      ]
+                    },
+                    {
+                      "lineStart": 357,
+                      "selectExpressions": [
+                        "*"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [
+                        "exact_projected_rows"
+                      ],
+                      "lineEnd": 361,
+                      "operationTypes": [
+                        "SELECT",
+                        "UNION",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_023_024\nas \nselect * from AUM_023_024_TMP0\nunion \nselect * from AUM_023_024_TMP1;",
+                      "unionBranchOrders": [
+                        2
+                      ],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [],
+                      "groupExpressions": [],
+                      "caseExpressions": [],
+                      "operation": "UNION",
+                      "status": "active_sql",
+                      "joinConditions": []
+                    }
+                  ]
+                },
+                {
+                  "tablePath": [
+                    "DSPBM.PB_BONDPOS_SEC",
+                    "AUM_023_024_TMP1",
+                    "AUM_023_024"
+                  ],
+                  "baseTable": "DSPBM.PB_BONDPOS_SEC",
+                  "rules": [
+                    {
+                      "lineStart": 342,
+                      "selectExpressions": [
+                        "a.*",
+                        "b.*",
+                        "CASE WHEN bond LIKE 'TSSN%' THEN '複委託結構型商品' ELSE '複委託債券' END AS NM",
+                        "idno AS cust_id",
+                        "clrdate AS yyyymmdd",
+                        "nm",
+                        "SUM(NETQTY / 100 * CPRICE * exch_rt) AS AMT"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [],
+                      "lineEnd": 354,
+                      "operationTypes": [
+                        "LEFT JOIN",
+                        "SELECT",
+                        "CASE",
+                        "AGGREGATE",
+                        "SELECT",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_023_024_TMP1\nas \nselect  idno as cust_id,clrdate as yyyymmdd,nm,sum(NETQTY/100 *CPRICE * exch_rt) AMT\nfrom \n(\n select a.*,b.*,\n         case when  bond like 'TSSN%' then '複委託結構型商品'\n       else '複委託債券' end as NM\nfrom  DSPBM.PB_BONDPOS_SEC@anadbp01_dwdbp01 a \nleft join  dsdep.fn_exch_rt@anadbp01_dwdbp01  b \non a.clrdate=b.prcs_dt and  a.currency=b.curr_cd\n) a \ngroup by idno,clrdate,nm;",
+                      "unionBranchOrders": [],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [
+                        "SUM(NETQTY / 100 * CPRICE * exch_rt)"
+                      ],
+                      "groupExpressions": [
+                        "idno",
+                        "clrdate",
+                        "nm"
+                      ],
+                      "caseExpressions": [
+                        "CASE WHEN bond LIKE 'TSSN%' THEN '複委託結構型商品' ELSE '複委託債券' END"
+                      ],
+                      "operation": "LEFT_JOIN",
+                      "status": "active_sql",
+                      "joinConditions": [
+                        "a.clrdate = b.prcs_dt AND a.currency = b.curr_cd"
+                      ]
+                    },
+                    {
+                      "lineStart": 357,
+                      "selectExpressions": [
+                        "*"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [
+                        "exact_projected_rows"
+                      ],
+                      "lineEnd": 361,
+                      "operationTypes": [
+                        "SELECT",
+                        "UNION",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_023_024\nas \nselect * from AUM_023_024_TMP0\nunion \nselect * from AUM_023_024_TMP1;",
+                      "unionBranchOrders": [
+                        2
+                      ],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [],
+                      "groupExpressions": [],
+                      "caseExpressions": [],
+                      "operation": "UNION",
+                      "status": "active_sql",
+                      "joinConditions": []
+                    }
+                  ]
+                },
+                {
+                  "tablePath": [
+                    "DSPBM.PB_BONDPOS_SEC_M",
+                    "AUM_023_024_TMP0",
+                    "AUM_023_024"
+                  ],
+                  "baseTable": "DSPBM.PB_BONDPOS_SEC_M",
+                  "rules": [
+                    {
+                      "lineStart": 321,
+                      "selectExpressions": [
+                        "a.*",
+                        "CASE WHEN bond LIKE 'TSSN%' THEN '複委託結構型商品' ELSE '複委託債券' END AS NM",
+                        "idno AS cust_id",
+                        "prcs_dt AS yyyymmdd",
+                        "nm",
+                        "SUM(NETQTY / 100 * CPRICE * exch_rt) AS AMT"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [],
+                      "lineEnd": 340,
+                      "operationTypes": [
+                        "SELECT",
+                        "CASE",
+                        "LEFT JOIN",
+                        "AGGREGATE",
+                        "SELECT",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_023_024_TMP0\nas \nselect idno as cust_id,prcs_dt as yyyymmdd,nm,sum(NETQTY/100 *CPRICE * exch_rt) AMT\nfrom \n      (select a.*,\n              case when  bond like 'TSSN%' then '複委託結構型商品'\n              else '複委託債券' end as NM\n      from  DSPBM.PB_BONDPOS_SEC_M@anadbp01_dwdbp01 a ) a\nleft join \n     ( select A.*\n     from dsdep.fn_exch_rt@anadbp01_dwdbp01 a\n     inner join \n     ( \n         select substr(prcs_dt,1,6) yyyyymm,max(prcs_dt) prcs_dt \n         from dsdep.fn_exch_rt@anadbp01_dwdbp01 \n         group by substr(prcs_dt,1,6)\n     ) b on a.prcs_dt=b.prcs_dt\n     )b  on a.currency=b.curr_cd and a.yyyymm=substr(b.prcs_dt,1,6)\ngroup by idno,prcs_dt,nm\n;",
+                      "unionBranchOrders": [],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [
+                        "SUM(NETQTY / 100 * CPRICE * exch_rt)"
+                      ],
+                      "groupExpressions": [
+                        "idno",
+                        "prcs_dt",
+                        "nm"
+                      ],
+                      "caseExpressions": [
+                        "CASE WHEN bond LIKE 'TSSN%' THEN '複委託結構型商品' ELSE '複委託債券' END"
+                      ],
+                      "operation": "LEFT_JOIN",
+                      "status": "active_sql",
+                      "joinConditions": [
+                        "a.currency = b.curr_cd AND a.yyyymm = SUBSTR(b.prcs_dt, 1, 6)"
+                      ]
+                    },
+                    {
+                      "lineStart": 357,
+                      "selectExpressions": [
+                        "*"
+                      ],
+                      "whereConditions": [],
+                      "unionDeduplication": [
+                        "exact_projected_rows"
+                      ],
+                      "lineEnd": 361,
+                      "operationTypes": [
+                        "SELECT",
+                        "UNION",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table AUM_023_024\nas \nselect * from AUM_023_024_TMP0\nunion \nselect * from AUM_023_024_TMP1;",
+                      "unionBranchOrders": [
+                        1
+                      ],
+                      "file": "sources/sql/1.AUM_DETAIL.sql",
+                      "aggregateExpressions": [],
+                      "groupExpressions": [],
+                      "caseExpressions": [],
+                      "operation": "UNION",
+                      "status": "active_sql",
+                      "joinConditions": []
+                    }
+                  ]
+                }
+              ],
+              "mappingStatus": "observed_in_sql",
+              "outputTable": "AUM_023_024",
+              "mappingType": "AUM_IMPLEMENTED_BY",
+              "lineageStatus": "traced",
+              "productScope": "PROD='複委託結構型商品'",
+              "sqlTable": "AUM_023_024"
+            }
+          ]
+        }
+      ],
+      "message": "涵蓋證券複委託債券、外國股票、基金及結構型商品；產品定義與對應關係目前為推定，僅代表目前候選範圍，非完整證券AUM總額映射。\n月底總AUM：指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。"
+    }
+  },
+  {
+    "name": "unknown_metric",
+    "input": {
+      "question": "請查這個指標的 AUM 資料來源。",
+      "domains": [
+        "aum"
+      ],
+      "metricCodes": [
+        "unknown_metric"
+      ]
+    },
+    "result": {
+      "metricCodes": [
+        "unknown_metric"
+      ],
+      "products": [],
+      "message": "指標 unknown_metric 在 AUM 領域沒有對應的產品。\n以下 metricCode 在指定領域內沒有共用產品對應：unknown_metric。"
+    }
+  },
+  {
+    "name": "pending_income",
+    "input": {
+      "question": "集合管理帳戶 Income 的來源及定義為何？",
+      "domains": [
+        "income"
+      ],
+      "metricCodes": [
+        "bank_fee_income"
+      ]
+    },
+    "result": {
+      "metricCodes": [
+        "bank_fee_income"
+      ],
+      "products": [
+        {
+          "productCode": "bank_collective_account",
+          "productName": "集合管理帳戶",
+          "domain": "income",
+          "definition": "集合管理帳戶業務。AUM衡量客戶持有資產；Income的獨立業務定義待確認，不代表已確認計入獨立收入。",
+          "definitionStatus": "pending_confirmation",
+          "metrics": [
+            {
+              "metricCode": "bank_fee_income",
+              "name": "銀行手續費類收入",
+              "definition": "銀行通路歸入手續費類的收入。",
+              "status": "inferred"
+            },
+            {
+              "metricCode": "fee_income",
+              "name": "手續費類收入",
+              "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+              "status": "inferred"
+            },
+            {
+              "metricCode": "income_total_customer_month",
+              "name": "每客戶每月總收入",
+              "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+              "status": "pending_confirmation"
+            }
+          ],
+          "matchedMetricCodes": [
+            "bank_fee_income"
+          ],
+          "mappingStatus": "pending_confirmation",
+          "mappings": [
+            {
+              "lineage": [
+                {
+                  "tablePath": [
+                    "DSFND.PB_FUND_SPREAD_DAILY",
+                    "INCOME_033_034_035_036"
+                  ],
+                  "baseTable": "DSFND.PB_FUND_SPREAD_DAILY",
+                  "rules": [
+                    {
+                      "lineStart": 65,
+                      "selectExpressions": [
+                        "TO_CHAR(TO_DATE(feedate + 19110000, 'yyyymmdd'), 'yyyymmdd') AS yyyymmdd",
+                        "idno AS cust_id",
+                        "CASE WHEN NOT FHID IN ('PS', 'CB', 'YB', 'SN') THEN '基金' WHEN TRIM(FHID) = 'YB' THEN 'ETF' WHEN FHID = 'PS' THEN '海外股票' WHEN FHID LIKE 'TA%' OR FHID LIKE 'TB%' OR FHID LIKE 'TD%' OR FHID LIKE 'TE%' THEN '集合管理帳戶' END AS FH_TYP",
+                        "baopcccode AS PCCODE",
+                        "SUM(BrhRebateAmt) AS AMT"
+                      ],
+                      "whereConditions": [
+                        "(baopcccode LIKE '2E%' OR saopcccode LIKE '2E%') AND feedate >= '011212'"
+                      ],
+                      "unionDeduplication": [],
+                      "lineEnd": 88,
+                      "operationTypes": [
+                        "FILTER",
+                        "AGGREGATE",
+                        "SELECT",
+                        "CASE",
+                        "CREATE TABLE AS"
+                      ],
+                      "sql": "create table INCOME_033_034_035_036\nas \nselect  to_char(to_date(feedate+19110000,'yyyymmdd') ,'yyyymmdd' ) as yyyymmdd --substr(FEEDATE,1,6)  -- FHID,IDNO as cust_id,      \n        ,idno as cust_id       \n        ,case \n              when FHID not in ('PS','CB','YB','SN') then '基金' \n              when TRIM(FHID) ='YB' then 'ETF'\n              when FHID ='PS' then '海外股票'\n              when FHID like 'TA%' or FHID  like 'TB%' or FHID  like 'TD%' or FHID  like 'TE%'  then '集合管理帳戶'\n        end as   FH_TYP \n        ,baopcccode PCCODE\n        ,sum(BrhRebateAmt) as AMT\nfrom DSFND.PB_FUND_SPREAD_DAILY@anadbp01_dwdbp01 \nwhere  (baopcccode like '2E%' or saopcccode like '2E%') and feedate>='011212'  --and feedate='011403' \ngroup by  \n      to_char(to_date(feedate+19110000,'yyyymmdd') ,'yyyymmdd' )   --substr(FEEDATE,1,6),\n      ,idno\n      ,case \n              when FHID not in ('PS','CB','YB','SN') then '基金' \n              when TRIM(FHID) ='YB' then 'ETF'\n              when FHID ='PS' then '海外股票'\n              when FHID like 'TA%' or FHID  like 'TB%' or FHID  like 'TD%' or FHID  like 'TE%'  then '集合管理帳戶'\n       end\n       ,baopcccode;",
+                      "unionBranchOrders": [],
+                      "file": "sources/sql/8.INCOME_DETAIL.sql",
+                      "aggregateExpressions": [
+                        "SUM(BrhRebateAmt)"
+                      ],
+                      "groupExpressions": [
+                        "TO_CHAR(TO_DATE(feedate + 19110000, 'yyyymmdd'), 'yyyymmdd')",
+                        "idno",
+                        "CASE WHEN NOT FHID IN ('PS', 'CB', 'YB', 'SN') THEN '基金' WHEN TRIM(FHID) = 'YB' THEN 'ETF' WHEN FHID = 'PS' THEN '海外股票' WHEN FHID LIKE 'TA%' OR FHID LIKE 'TB%' OR FHID LIKE 'TD%' OR FHID LIKE 'TE%' THEN '集合管理帳戶' END",
+                        "baopcccode"
+                      ],
+                      "caseExpressions": [
+                        "CASE WHEN NOT FHID IN ('PS', 'CB', 'YB', 'SN') THEN '基金' WHEN TRIM(FHID) = 'YB' THEN 'ETF' WHEN FHID = 'PS' THEN '海外股票' WHEN FHID LIKE 'TA%' OR FHID LIKE 'TB%' OR FHID LIKE 'TD%' OR FHID LIKE 'TE%' THEN '集合管理帳戶' END"
+                      ],
+                      "operation": "TRANSFORMS_TO",
+                      "status": "active_sql",
+                      "joinConditions": []
+                    }
+                  ]
+                }
+              ],
+              "mappingStatus": "metadata_sql_conflict",
+              "outputTable": "INCOME_033_034_035_036",
+              "mappingType": "INCOME_DECLARED_BY",
+              "lineageStatus": "traced",
+              "productScope": "FHID starts TA/TB/TD/TE",
+              "sqlTable": "INCOME_033_034_035_036"
+            }
+          ]
+        }
+      ],
+      "message": "集合管理帳戶的Income來源目前對應銀行手續費類收入，但獨立業務定義尚待確認，並非已正式確認的獨立收入。\n集合管理帳戶（income）：集合管理帳戶業務。AUM衡量客戶持有資產；Income的獨立業務定義待確認，不代表已確認計入獨立收入。\n每客戶每月總收入：每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。"
+    }
+  }
+]

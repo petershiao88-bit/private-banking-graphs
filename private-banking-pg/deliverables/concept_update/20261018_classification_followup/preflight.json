@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "targetNodes": 5,
+  "addedProperties": 5,
+  "nodes": 41,
+  "relationships": 69,
+  "businessPaths": 39,
+  "remainingOfferingType": 0
+}

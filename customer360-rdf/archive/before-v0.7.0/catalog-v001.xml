@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
+  <uri name="https://example.org/ontology/holding" uri="holding-core.ttl" />
+  <uri name="https://example.org/ontology/holding/0.6.0" uri="holding-core.ttl" />
+  <uri name="https://example.org/ontology/bank/deposit" uri="bank-deposit.ttl" />
+  <uri name="https://example.org/ontology/bank/deposit/0.6.0" uri="bank-deposit.ttl" />
+  <uri name="https://example.org/ontology/customer360" uri="customer360-ontology.ttl" />
+  <uri name="https://example.org/ontology/customer360/0.6.0" uri="customer360-ontology.ttl" />
+  <uri name="https://example.org/ontology/bank/common" uri="bank-common.ttl" />
+  <uri name="https://example.org/ontology/bank/common/0.6.0" uri="bank-common.ttl" />
+  <uri name="https://example.org/ontology/bank/investment-products" uri="bank-investment-products.ttl" />
+  <uri name="https://example.org/ontology/bank/investment-products/0.6.0" uri="bank-investment-products.ttl" />
+</catalog>

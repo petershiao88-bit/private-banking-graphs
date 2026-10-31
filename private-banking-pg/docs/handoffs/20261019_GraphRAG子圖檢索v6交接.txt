@@ -1,0 +1,35 @@
+2026-10-19 GraphRAG 子圖檢索 v6 交接（Asia/Taipei）
+
+最新工作對象：私銀圖譜問答－GraphRAG 子圖檢索 v6
+https://chiang4901.app.n8n.cloud/workflow/ntHWYmjJ7Q2HVLeT
+獨立副本，14節點，active=false，保存未發布，正常單題入口。
+原RAG實驗版 H2Jr1mJHmdpaOWrY 保留，selection_v5 草稿亦未修改。
+
+本輪使用者決策
+1. RAG 找商品、metric、property；保留入口 rerank 核對候選。
+2. 移除整題五種操作分類；改為檢索圖裡的實際路徑，再評分。
+3. 商品查歸屬順向往上；metric查組成反向展開所有相關分支。metric查上層歸屬也需要順向，不能只因是metric就固定反向。
+4. 不在檢索層指定分子分母、公式；未來交由回答LLM解讀。
+5. 暫不設缺口/澄清/低分停止分流，只看子圖是否符合期待。
+6. 本輪終點是圖檢視，不呼叫回答模型。不是要求LLM先閱讀整張概念圖選路。
+
+結果
+12題（原20題前8題＋4題方向與分類題）真實Qwen/Cohere/Aura，最終執行41.248秒。
+商品集合、指定方向與分支檢查12/12符合；不是20題完整回歸、泛化準確率或業務SQL驗證。
+總AUM保留19條原圖衡量路徑（含存款父商品/子分類），銀行投資AUM組成10條，向上歸屬1條完整鏈。
+第一輪多商品題失敗，保留trial1。從圖裡商品名稱與subsidiary推導短別稱候選後，同12題重測成功。
+最終單題入口以銀行投資AUM組成再驗證成功16.068秒；取得90節點/136關係完整證據圖。
+最終原生匯出已核對全部14節點參數、憑證引用與接線符合本機單題設定。
+
+先看
+deliverables/single_turn_qa/rag_v1/graph_retrieval_v6/子圖檢索檢查.html
+deliverables/single_turn_qa/rag_v1/graph_retrieval_v6/README.txt
+deliverables/single_turn_qa/rag_v1/graph_retrieval_v6/evaluations.json
+deliverables/single_turn_qa/rag_v1/graph_retrieval_v6/saved-verification.json
+
+邊界
+這是自行配置的embedding/rerank/Cypher檢索，沒有安裝官方GraphRAG Python套件或在Aura建向量索引。
+原型仍有確定的scope合成與關係類型規則，並非任意語意都已解決；省略名稱、跨欄位多義詞、集合排除、多scope組合等須另外實測。
+子圖報告是本次12題靜態結果，可離線看；不會自動更新雲端之後的新題目。
+n8n目前輸出JSON與Mermaid文字，聊天未把Mermaid渲染成圖。下一步若要即時畫新題目，需要另接展示，勿宣稱目前已自動連動。
+沒有改Aura圖、發布流程、執行Oracle/餘額查詢或驗證回答模型。

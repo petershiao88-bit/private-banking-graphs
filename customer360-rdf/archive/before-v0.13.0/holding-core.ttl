@@ -1,0 +1,273 @@
+# 客戶360共通語意 v0.12.0，2026-10-22，設計草案。
+# example.org 為示意命名空間；不是實際服務位址。
+
+@prefix fh: <https://example.org/ontology/holding#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/ontology/holding>
+    a owl:Ontology ;
+    rdfs:label "客戶360金控核心本體"@zh-TW ;
+    owl:versionIRI <https://example.org/ontology/holding/0.12.0> ;
+    owl:versionInfo "0.12.0 / design draft / 2026-10-22" .
+
+# Annotation Property：模型定義的名稱、業務意義及治理歸屬。
+
+rdfs:label
+    a owl:AnnotationProperty ;
+    rdfs:label "名稱"@zh-TW ;
+    skos:definition "類別或屬性的顯示名稱。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+skos:definition
+    a owl:AnnotationProperty ;
+    rdfs:label "定義"@zh-TW ;
+    skos:definition "類別或屬性的業務意義。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:governanceLevel
+    a owl:AnnotationProperty ;
+    rdfs:label "治理層級"@zh-TW ;
+    skos:definition "模型定義的治理層級。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:subsidiary
+    a owl:AnnotationProperty ;
+    rdfs:label "所屬子公司"@zh-TW ;
+    skos:definition "模型定義的子公司治理歸屬。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:department
+    a owl:AnnotationProperty ;
+    rdfs:label "所屬部門"@zh-TW ;
+    skos:definition "模型定義的部門治理歸屬。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+# Class：金控共通概念。
+
+fh:Customer
+    a owl:Class ;
+    rdfs:label "客戶"@zh-TW ;
+    skos:definition "集團業務中所服務的客戶。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:FinancialProduct
+    a owl:Class ;
+    rdfs:label "金融商品"@zh-TW ;
+    skos:definition "金融機構提供的金融商品。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:ContactInformation
+    a owl:Class ;
+    rdfs:label "通聯資訊"@zh-TW ;
+    skos:definition "與客戶相關的聯絡資訊。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:MobileContactInformation
+    a owl:Class ;
+    rdfs:subClassOf fh:ContactInformation ;
+    rdfs:label "手機通聯資訊"@zh-TW ;
+    skos:definition "以手機號碼聯絡客戶的通聯資訊。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:AddressContactInformation
+    a owl:Class ;
+    rdfs:subClassOf fh:ContactInformation ;
+    rdfs:label "地址通聯資訊"@zh-TW ;
+    skos:definition "以實體地址聯絡客戶的通聯資訊。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:Employee
+    a owl:Class ;
+    rdfs:label "職員"@zh-TW ;
+    skos:definition "任職於金控或旗下子公司的人員。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:Metric
+    a owl:Class ;
+    rdfs:label "指標"@zh-TW ;
+    skos:definition "依明確口徑衡量業務狀況的量化項目。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:FeeIncome
+    a owl:Class ;
+    rdfs:subClassOf fh:Metric ;
+    rdfs:label "手續費收入指標"@zh-TW ;
+    skos:definition "衡量指定收入期間內依認列規則形成之手續費收入的指標。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:AUM
+    a owl:Class ;
+    rdfs:subClassOf fh:Metric ;
+    rdfs:label "AUM"@zh-TW ;
+    skos:definition "衡量指定快照日依管理與認列口徑計算之資產規模的指標。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+# Object Property：共通業務關係。
+
+fh:hasContactPoint
+    a owl:ObjectProperty ;
+    rdfs:label "具有通聯資訊"@zh-TW ;
+    skos:definition "客戶具有通聯資訊。"@zh-TW ;
+    rdfs:domain fh:Customer ;
+    rdfs:range fh:ContactInformation ;
+    fh:governanceLevel "金控" .
+
+fh:holds
+    a owl:ObjectProperty ;
+    rdfs:label "持有金融商品"@zh-TW ;
+    skos:definition "客戶持有金融商品。"@zh-TW ;
+    rdfs:domain fh:Customer ;
+    rdfs:range fh:FinancialProduct ;
+    fh:governanceLevel "金控" .
+
+fh:serves
+    a owl:ObjectProperty ;
+    rdfs:label "服務客戶"@zh-TW ;
+    skos:definition "職員向客戶提供業務服務的關係。"@zh-TW ;
+    rdfs:domain fh:Employee ;
+    rdfs:range fh:Customer ;
+    fh:governanceLevel "金控" .
+
+fh:measuresProduct
+    a owl:ObjectProperty ;
+    rdfs:label "衡量金融商品"@zh-TW ;
+    skos:definition "AUM 衡量其所對應金融商品的資產規模。"@zh-TW ;
+    rdfs:domain fh:AUM ;
+    rdfs:range fh:FinancialProduct ;
+    fh:governanceLevel "金控" .
+
+fh:feeIncomeFromProduct
+    a owl:ObjectProperty ;
+    rdfs:label "手收來源商品"@zh-TW ;
+    skos:definition "手續費收入來自其所對應金融商品的關係。"@zh-TW ;
+    rdfs:domain fh:FeeIncome ;
+    rdfs:range fh:FinancialProduct ;
+    fh:governanceLevel "金控" .
+
+# Data Property：指標結果、時間及按情境適用的計算輸入。
+# 此處只定義元素語意，不指定公式、單位、來源、必填或基數。
+
+fh:metricAmount
+    a owl:DatatypeProperty ;
+    rdfs:label "指標金額"@zh-TW ;
+    skos:definition "AUM 或手續費收入指標的結果金額；具體計算與認列口徑由子公司或部門描述。"@zh-TW ;
+    rdfs:domain fh:Metric ;
+    rdfs:range xsd:decimal ;
+    fh:governanceLevel "金控" .
+
+fh:aumAsOfDate
+    a owl:DatatypeProperty ;
+    rdfs:label "AUM 基準日"@zh-TW ;
+    skos:definition "AUM 所衡量資產規模對應的日期；具體選日規則由子公司或部門描述。"@zh-TW ;
+    rdfs:domain fh:AUM ;
+    rdfs:range xsd:date ;
+    fh:governanceLevel "金控" .
+
+fh:valuationQuantity
+    a owl:DatatypeProperty ;
+    rdfs:label "估值數量"@zh-TW ;
+    skos:definition "適用 AUM 估值情境中作為計算輸入的數量，例如股數、單位數或面額；具體數量單位由子公司或部門描述。"@zh-TW ;
+    rdfs:domain fh:AUM ;
+    rdfs:range xsd:decimal ;
+    fh:governanceLevel "金控" .
+
+fh:valuationUnitPrice
+    a owl:DatatypeProperty ;
+    rdfs:label "估值單價"@zh-TW ;
+    skos:definition "適用 AUM 估值情境中作為計算輸入的價格或淨值；具體報價基準由子公司或部門描述。"@zh-TW ;
+    rdfs:domain fh:AUM ;
+    rdfs:range xsd:decimal ;
+    fh:governanceLevel "金控" .
+
+fh:incomePeriodStart
+    a owl:DatatypeProperty ;
+    rdfs:label "收入期間起日"@zh-TW ;
+    skos:definition "手續費收入所屬收入期間的開始日期；不預設按日、月或年衡量。"@zh-TW ;
+    rdfs:domain fh:FeeIncome ;
+    rdfs:range xsd:date ;
+    fh:governanceLevel "金控" .
+
+fh:incomePeriodEnd
+    a owl:DatatypeProperty ;
+    rdfs:label "收入期間迄日"@zh-TW ;
+    skos:definition "手續費收入所屬收入期間的結束日期；期間邊界的具體使用規則由子公司或部門描述。"@zh-TW ;
+    rdfs:domain fh:FeeIncome ;
+    rdfs:range xsd:date ;
+    fh:governanceLevel "金控" .
+
+fh:feeBaseAmount
+    a owl:DatatypeProperty ;
+    rdfs:label "手收計算基礎金額"@zh-TW ;
+    skos:definition "適用手續費收入計算情境中作為輸入的收入金額；具體組成與來源由子公司或部門描述。"@zh-TW ;
+    rdfs:domain fh:FeeIncome ;
+    rdfs:range xsd:decimal ;
+    fh:governanceLevel "金控" .
+
+fh:feeDeductionAmount
+    a owl:DatatypeProperty ;
+    rdfs:label "手收計算扣減金額"@zh-TW ;
+    skos:definition "適用手續費收入計算情境中涉及的扣減金額；具體扣減項目與使用方式由子公司或部門描述。"@zh-TW ;
+    rdfs:domain fh:FeeIncome ;
+    rdfs:range xsd:decimal ;
+    fh:governanceLevel "金控" .
+
+# Data Property：既有共通欄位，不依來源公司重複定義。
+
+fh:mobileNumber
+    a owl:DatatypeProperty ;
+    rdfs:label "手機號碼"@zh-TW ;
+    skos:definition "手機通聯資訊的號碼字串。"@zh-TW ;
+    rdfs:domain fh:MobileContactInformation ;
+    rdfs:range xsd:string ;
+    fh:governanceLevel "金控" .
+
+fh:countryCode
+    a owl:DatatypeProperty ;
+    rdfs:label "國家／地區代碼"@zh-TW ;
+    skos:definition "地址所屬國家或地區的代碼。"@zh-TW ;
+    rdfs:domain fh:AddressContactInformation ;
+    rdfs:range xsd:string ;
+    fh:governanceLevel "金控" .
+
+fh:city
+    a owl:DatatypeProperty ;
+    rdfs:label "縣市"@zh-TW ;
+    skos:definition "地址的縣市。"@zh-TW ;
+    rdfs:domain fh:AddressContactInformation ;
+    rdfs:range xsd:string ;
+    fh:governanceLevel "金控" .
+
+fh:district
+    a owl:DatatypeProperty ;
+    rdfs:label "鄉鎮市區"@zh-TW ;
+    skos:definition "地址的鄉鎮市區。"@zh-TW ;
+    rdfs:domain fh:AddressContactInformation ;
+    rdfs:range xsd:string ;
+    fh:governanceLevel "金控" .
+
+fh:addressLine
+    a owl:DatatypeProperty ;
+    rdfs:label "街道門牌地址"@zh-TW ;
+    skos:definition "地址的路街段、巷弄、門牌、樓層與室等詳細內容。"@zh-TW ;
+    rdfs:domain fh:AddressContactInformation ;
+    rdfs:range xsd:string ;
+    fh:governanceLevel "金控" .
+
+fh:postalCode
+    a owl:DatatypeProperty ;
+    rdfs:label "郵遞區號"@zh-TW ;
+    skos:definition "地址的郵遞區號字串。"@zh-TW ;
+    rdfs:domain fh:AddressContactInformation ;
+    rdfs:range xsd:string ;
+    fh:governanceLevel "金控" .
+
+fh:fullAddress
+    a owl:DatatypeProperty ;
+    rdfs:label "完整地址"@zh-TW ;
+    skos:definition "完整地址文字。"@zh-TW ;
+    rdfs:domain fh:AddressContactInformation ;
+    rdfs:range xsd:string ;
+    fh:governanceLevel "金控" .

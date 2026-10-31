@@ -1,0 +1,91 @@
+const fs=require('node:fs'),assert=require('node:assert/strict');
+const {run,native,concepts,routes,w}=require('./lazy_fixture.cjs');
+const read=n=>JSON.parse(fs.readFileSync(__dirname+'/'+n,'utf8'));
+let checks=0;const check=f=>{f();checks++;};const outputs={};
+const finish=(data,first,second)=>run('KB Result',data.mapping,{'Concept Decision Result':first.choice,'Concept Routes':second.formatted,'Route Decision Result':second.choice});
+for(const [name,products] of [['deposit_aum',['deposit']],['deposit_income',['deposit']],['securities_aum',['securities_fund']],['deposit_both',['deposit']],['securities_compare',['securities_fund','securities_bond']]]){
+ const data=read(`lazy_live_${name}.json`),first=concepts(data.catalog,data.request,products),second=routes(data.paths,first),result=finish(data,first,second);outputs[name]=result;
+ check(()=>assert.equal(result.status,'selected'));
+ check(()=>assert.equal(result.conceptStatus,'selected'));
+ check(()=>assert.equal(result.pathStatus,'confirmed'));
+ check(()=>assert.equal(result.contractVersion,'pb_kb_lazy_routes_v3'));
+ check(()=>assert.deepEqual(result.selectedConcepts,first.choice.selectedConcepts));
+ check(()=>assert.equal(result.decision.concept.requestId,'synthetic-fixture'));
+ check(()=>assert.equal(result.decision.path.requestId,'synthetic-fixture'));
+ check(()=>assert(result.products.every(p=>p.mappings.every(m=>p.conceptEvidence.paths.some(path=>path.pathKey===m.selectedPathKey && path.anchorConceptKeys.includes(m.bindingConceptKey))))));
+ check(()=>assert(!Object.hasOwn(first.prepared.decisionRequest.state,'businessPaths')));
+ check(()=>assert(!Object.keys(second.prepared.decisionRequest.questions).some(k=>first.prepared.candidates.some(c=>c.objectKey===k))));
+}
+check(()=>assert.equal(outputs.securities_aum.candidateScores.length,4));
+check(()=>assert.equal(outputs.securities_aum.pathScores.length,1));
+check(()=>assert.equal(outputs.deposit_both.selectedConceptPaths.length,2));
+check(()=>assert.equal(outputs.securities_compare.selectedConceptPaths.length,2));
+check(()=>assert.equal(outputs.deposit_income.canGenerateSql,false));
+check(()=>assert.equal(outputs.securities_aum.canGenerateSql,true));
+const income=outputs.deposit_income.products[0].mappings[0];
+for(const source of ['DSDEP.DEP_NT_ACCT_HS','DSDEP.DEP_FN_ACCT_HS','DSDEP.EMP_DEP_NT_ACCT_HS'])check(()=>assert(income.evidence.requiredBaseTables.includes(source)));
+check(()=>assert(income.sqlEvidence.statements.some(s=>s.properties.statementType==='DELETE')));
+check(()=>assert.equal(new Set(income.sqlEvidence.relationships.filter(r=>r.to.endsWith('INCOME_066_TMP_DETAIL_04')).map(r=>r.from)).size,3));
+const data=read('lazy_live_securities_aum.json'),first=concepts(data.catalog,data.request,['securities_fund']);
+const response=native(first.prepared,()=> 'uncertain');response.answers.scope.choice='ambiguous';response.answers.scope.probabilities={clear:0.05,ambiguous:0.9,none:0.05};
+const uncertain=run('Concept Decision Result',response,{'Jev - Prepare Concepts':first.prepared});
+check(()=>assert.equal(uncertain.status,'needs_clarification'));
+check(()=>assert.deepEqual(uncertain.selectedConcepts,[]));
+const stopped=run('KB Result',uncertain,{'Concept Decision Result':uncertain,'Jev - Prepare Concepts':first.prepared});
+check(()=>assert.equal(stopped.pathStatus,'not_requested'));
+check(()=>assert.equal(stopped.routeRetrieval,null));
+check(()=>assert.equal(stopped.decision.path,null));
+check(()=>assert.equal(stopped.canGenerateSql,false));
+const duplicated=structuredClone(data.paths);const fields=duplicated.data.fields;
+const row=structuredClone(duplicated.data.values[0]);const path=row[fields.indexOf('businessPath')];path.relationships[0].properties.scope='另一個業務範圍';duplicated.data.values.push(row);
+const alternatives=routes(duplicated,first);
+check(()=>assert.equal(alternatives.formatted.pathCandidates.length,2));
+check(()=>assert.notEqual(alternatives.formatted.pathCandidates[0].pathKey,alternatives.formatted.pathCandidates[1].pathKey));
+check(()=>assert.equal(alternatives.choice.selectedConceptPaths.length,2));
+const choose=native(alternatives.prepared,k=>k===`path::${alternatives.formatted.pathCandidates[0].pathKey}`?'included':'excluded');
+const picked=run('Route Decision Result',choose,{'Jev - Prepare Paths':alternatives.prepared});
+check(()=>assert.equal(picked.selectedPaths.length,1));
+const routeUncertain=native(alternatives.prepared,()=> 'uncertain');
+const unresolved=run('Route Decision Result',routeUncertain,{'Jev - Prepare Paths':alternatives.prepared});
+check(()=>assert.equal(unresolved.status,'needs_clarification'));
+check(()=>assert.deepEqual(unresolved.selectedPaths,[]));
+// One physical business path contains two selected concept anchors. Route membership
+// is derived from path nodes; there is no per-object one-route rule or cross-score gate.
+const compare=read('lazy_live_securities_compare.json'),both=concepts(compare.catalog,compare.request,['securities_fund','securities_bond']);
+const shared=structuredClone(data.paths),sharedPath=shared.data.values[0][shared.data.fields.indexOf('businessPath')];
+const anchor=both.choice.selectedConcepts.find(c=>c.productCode==='securities_bond');
+sharedPath.nodes.splice(1,0,{key:anchor.conceptKey,labels:['SharedProduct'],properties:{code:anchor.productCode,name:anchor.productName,ontologyId:'pb_shared'}});
+const firstEdge=sharedPath.relationships[0];sharedPath.relationships.splice(0,1,{from:firstEdge.from,to:anchor.conceptKey,type:'AUM_ROLLS_UP_TO',properties:{}},{...firstEdge,from:anchor.conceptKey});
+const sharedResult=routes(shared,both);
+check(()=>assert.equal(sharedResult.choice.selectedConceptPaths[0].anchorConceptKeys.length,2));
+check(()=>assert.equal(sharedResult.choice.selectedPaths.length,1));
+check(()=>assert.equal(sharedResult.choice.selections.length,2));
+for(const phase of [first.prepared,alternatives.prepared]){
+ const resultNode=phase===first.prepared?'Concept Decision Result':'Route Decision Result',priorName=phase===first.prepared?'Jev - Prepare Concepts':'Jev - Prepare Paths';
+ for(const mutate of [b=>delete b.answers[Object.keys(b.answers)[1]],b=>b.model='gpt-luna',b=>b.answers.extra={},b=>b.answers.scope.probabilities.clear=NaN,b=>b.answers.scope.confidence=2]){
+  const b=native(phase,()=> 'included');mutate(b);check(()=>assert.throws(()=>run(resultNode,b,{[priorName]:phase})));
+ }
+}
+check(()=>assert.equal(w.connections['Concept Result Router'].main[0][0].node,'Aura - Concept Paths'));
+check(()=>assert.equal(w.connections['Concept Result Router'].main[1][0].node,'KB Result'));
+check(()=>assert.equal(w.connections['Route Result Router'].main[0][0].node,'Aura - Mappings'));
+check(()=>assert.equal(w.connections['Route Result Router'].main[1][0].node,'KB Result'));
+check(()=>assert(!w.nodes.some(n=>['Selected Paths','Concept Route Ready','Jev - Evaluate Objects'].includes(n.name))));
+const http=n=>w.nodes.find(x=>x.name===n).parameters.jsonBody;
+for(const n of ['Aura - Concept Catalog','Aura - Concept Paths','Aura - Mappings'])check(()=>assert(!http(n).slice(3,-2).includes('}}')));
+const expression=s=>s.slice(3,-2).trim();
+const routesQuery=new Function('$json','$','return ('+expression(http('Aura - Concept Paths'))+')')(first.choice,()=>({first:()=>({json:data.request})}));
+check(()=>assert.deepEqual(routesQuery.parameters.selectedConcepts.map(c=>c.productCode),['securities_fund']));
+const mappingsQuery=new Function('$json','$','return ('+expression(http('Aura - Mappings'))+')')(alternatives.choice,()=>({first:()=>({json:data.request})}));
+check(()=>assert.equal(mappingsQuery.parameters.selectedPaths.length,2));
+check(()=>assert(!/p\.(aumMetricKey|incomeMetricKey)/.test(mappingsQuery.statement)));
+const main=read('main.lazy.ready.json'),norm=main.nodes.find(n=>n.name==='Normalize SQL Result').parameters.jsCode;
+const none=run('Route Decision Result',native(alternatives.prepared,()=> 'excluded'),{'Jev - Prepare Paths':alternatives.prepared});
+check(()=>assert.equal(none.status,'no_path'));
+const noPath=run('KB Result',none,{'Concept Decision Result':first.choice,'Concept Routes':alternatives.formatted,'Route Decision Result':none});
+const normalize=(input,kb)=>new Function('$input','$',norm)({all:()=>[{json:input}]},n=>({first:()=>({json:kb}),item:{json:{output:{resolved_query:'test',selected_metric_codes:[]}}}}))[0].json;
+check(()=>assert.equal(normalize({error_message:'KB_PRODUCT_OR_DEFINITION_UNRESOLVED'},noPath).status,'no_path'));
+check(()=>assert.deepEqual(normalize({error_message:'KB_EVIDENCE_INCOMPLETE'},outputs.deposit_income).rows,[]));
+for(const node of [...w.nodes,...main.nodes].filter(n=>n.type==='n8n-nodes-base.code'))check(()=>new Function('$input','$',node.parameters.jsCode));
+fs.writeFileSync(__dirname+'/lazy_contract_validation.json',JSON.stringify({checksPassed:checks,liveGraph:true,liveJev:false,syntheticDecisionFixtures:true,cases:Object.fromEntries(Object.entries(outputs).map(([k,v])=>[k,{status:v.status,concepts:v.selectedConcepts.length,paths:v.selectedConceptPaths.length,evidenceStatus:v.evidenceStatus}]))},null,2));
+console.log(JSON.stringify({checksPassed:checks}));

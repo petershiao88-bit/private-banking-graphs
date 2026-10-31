@@ -1,0 +1,1688 @@
+[
+  {
+    "status": "commented_out_sql",
+    "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L10",
+    "file": "sources/sql/1.AUM_DETAIL.sql",
+    "domain": "aum",
+    "sourceRole": "primary_reference",
+    "lineStart": 10,
+    "lineEnd": 25,
+    "output": "AUM_005_007_008_009_TMP01",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSDEP.DEP_NT_ACCT_HS"
+    ]
+  },
+  {
+    "status": "commented_out_sql",
+    "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L28",
+    "file": "sources/sql/1.AUM_DETAIL.sql",
+    "domain": "aum",
+    "sourceRole": "primary_reference",
+    "lineStart": 28,
+    "lineEnd": 42,
+    "output": "AUM_005_007_008_009_TMP02",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSDEP.DEP_FN_ACCT_HS"
+    ]
+  },
+  {
+    "status": "commented_out_sql",
+    "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L45",
+    "file": "sources/sql/1.AUM_DETAIL.sql",
+    "domain": "aum",
+    "sourceRole": "primary_reference",
+    "lineStart": 45,
+    "lineEnd": 56,
+    "output": "AUM_005_007_008_009_TMP03",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSDEP.EMP_DEP_NT_ACCT_HS"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L60",
+    "file": "sources/sql/1.AUM_DETAIL.sql",
+    "domain": "aum",
+    "sourceRole": "primary_reference",
+    "lineStart": 60,
+    "lineEnd": 74,
+    "output": "AUM_005_007_008_009_TMP04",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSDEP.DEP_NT_ACCT"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L76",
+    "file": "sources/sql/1.AUM_DETAIL.sql",
+    "domain": "aum",
+    "sourceRole": "primary_reference",
+    "lineStart": 76,
+    "lineEnd": 89,
+    "output": "AUM_005_007_008_009_TMP05",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSDEP.DEP_FN_ACCT"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L92",
+    "file": "sources/sql/1.AUM_DETAIL.sql",
+    "domain": "aum",
+    "sourceRole": "primary_reference",
+    "lineStart": 92,
+    "lineEnd": 106,
+    "output": "AUM_005_007_008_009_TMP06",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSDEP.DEP_NT_ACCT_HS"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L109",
+    "file": "sources/sql/1.AUM_DETAIL.sql",
+    "domain": "aum",
+    "sourceRole": "primary_reference",
+    "lineStart": 109,
+    "lineEnd": 123,
+    "output": "AUM_005_007_008_009_TMP07",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSDEP.DEP_FN_ACCT_HS"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L126",
+    "file": "sources/sql/1.AUM_DETAIL.sql",
+    "domain": "aum",
+    "sourceRole": "primary_reference",
+    "lineStart": 126,
+    "lineEnd": 137,
+    "output": "AUM_005_007_008_009_TMP08",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSDEP.EMP_DEP_NT_ACCT_HS"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L141",
+    "file": "sources/sql/1.AUM_DETAIL.sql",
+    "domain": "aum",
+    "sourceRole": "primary_reference",
+    "lineStart": 141,
+    "lineEnd": 182,
+    "output": "AUM_005_007_008_009",
+    "statementType": "CREATE",
+    "readTables": [
+      "AUM_005_007_008_009_TMP01",
+      "AUM_005_007_008_009_TMP02",
+      "AUM_005_007_008_009_TMP03",
+      "AUM_005_007_008_009_TMP04",
+      "AUM_005_007_008_009_TMP05",
+      "AUM_005_007_008_009_TMP06",
+      "AUM_005_007_008_009_TMP07",
+      "AUM_005_007_008_009_TMP08"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L187",
+    "file": "sources/sql/1.AUM_DETAIL.sql",
+    "domain": "aum",
+    "sourceRole": "primary_reference",
+    "lineStart": 187,
+    "lineEnd": 191,
+    "output": "AUM_012_TMP01",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L194",
+    "file": "sources/sql/1.AUM_DETAIL.sql",
+    "domain": "aum",
+    "sourceRole": "primary_reference",
+    "lineStart": 194,
+    "lineEnd": 200,
+    "output": "AUM_012_TMP02",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L203",
+    "file": "sources/sql/1.AUM_DETAIL.sql",
+    "domain": "aum",
+    "sourceRole": "primary_reference",
+    "lineStart": 203,
+    "lineEnd": 207,
+    "output": "AUM_012",
+    "statementType": "CREATE",
+    "readTables": [
+      "AUM_012_TMP01",
+      "AUM_012_TMP02"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L213",
+    "file": "sources/sql/1.AUM_DETAIL.sql",
+    "domain": "aum",
+    "sourceRole": "primary_reference",
+    "lineStart": 213,
+    "lineEnd": 230,
+    "output": "AUM_013_015_015_016_017_018",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSFND.PB_FUND_MONTH"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L234",
+    "file": "sources/sql/1.AUM_DETAIL.sql",
+    "domain": "aum",
+    "sourceRole": "primary_reference",
+    "lineStart": 234,
+    "lineEnd": 239,
+    "output": "AUM_019_TMP_01",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSWTR.BOND_POS_DAY"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L242",
+    "file": "sources/sql/1.AUM_DETAIL.sql",
+    "domain": "aum",
+    "sourceRole": "primary_reference",
+    "lineStart": 242,
+    "lineEnd": 251,
+    "output": "AUM_019",
+    "statementType": "CREATE",
+    "readTables": [
+      "AUM_019_TMP_01"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L256",
+    "file": "sources/sql/1.AUM_DETAIL.sql",
+    "domain": "aum",
+    "sourceRole": "primary_reference",
+    "lineStart": 256,
+    "lineEnd": 260,
+    "output": "AUM_020_TMP01",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSEBS.EBTS_ACT_CNTAUMBAL_PB"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L263",
+    "file": "sources/sql/1.AUM_DETAIL.sql",
+    "domain": "aum",
+    "sourceRole": "primary_reference",
+    "lineStart": 263,
+    "lineEnd": 273,
+    "output": "AUM_020",
+    "statementType": "CREATE",
+    "readTables": [
+      "AUM_020_TMP01"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L277",
+    "file": "sources/sql/1.AUM_DETAIL.sql",
+    "domain": "aum",
+    "sourceRole": "primary_reference",
+    "lineStart": 277,
+    "lineEnd": 281,
+    "output": "AUM_021_TMP01",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSTAM.TRUCONTRACT_PB"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L284",
+    "file": "sources/sql/1.AUM_DETAIL.sql",
+    "domain": "aum",
+    "sourceRole": "primary_reference",
+    "lineStart": 284,
+    "lineEnd": 294,
+    "output": "AUM_021",
+    "statementType": "CREATE",
+    "readTables": [
+      "AUM_021_TMP01"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L297",
+    "file": "sources/sql/1.AUM_DETAIL.sql",
+    "domain": "aum",
+    "sourceRole": "primary_reference",
+    "lineStart": 297,
+    "lineEnd": 301,
+    "output": "AUM_022_TMP01",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSPMS.PB_PMS_AUM"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L304",
+    "file": "sources/sql/1.AUM_DETAIL.sql",
+    "domain": "aum",
+    "sourceRole": "primary_reference",
+    "lineStart": 304,
+    "lineEnd": 314,
+    "output": "AUM_022",
+    "statementType": "CREATE",
+    "readTables": [
+      "AUM_022_TMP01"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L321",
+    "file": "sources/sql/1.AUM_DETAIL.sql",
+    "domain": "aum",
+    "sourceRole": "primary_reference",
+    "lineStart": 321,
+    "lineEnd": 340,
+    "output": "AUM_023_024_TMP0",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSDEP.FN_EXCH_RT",
+      "DSPBM.PB_BONDPOS_SEC_M"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L342",
+    "file": "sources/sql/1.AUM_DETAIL.sql",
+    "domain": "aum",
+    "sourceRole": "primary_reference",
+    "lineStart": 342,
+    "lineEnd": 354,
+    "output": "AUM_023_024_TMP1",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSDEP.FN_EXCH_RT",
+      "DSPBM.PB_BONDPOS_SEC"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L357",
+    "file": "sources/sql/1.AUM_DETAIL.sql",
+    "domain": "aum",
+    "sourceRole": "primary_reference",
+    "lineStart": 357,
+    "lineEnd": 361,
+    "output": "AUM_023_024",
+    "statementType": "CREATE",
+    "readTables": [
+      "AUM_023_024_TMP0",
+      "AUM_023_024_TMP1"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L366",
+    "file": "sources/sql/1.AUM_DETAIL.sql",
+    "domain": "aum",
+    "sourceRole": "primary_reference",
+    "lineStart": 366,
+    "lineEnd": 375,
+    "output": "AUM_025",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSPBM.PB_FUNDPOSIT_SEC",
+      "DSPBM.PB_FUNDPOSIT_SEC_M"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L378",
+    "file": "sources/sql/1.AUM_DETAIL.sql",
+    "domain": "aum",
+    "sourceRole": "primary_reference",
+    "lineStart": 378,
+    "lineEnd": 394,
+    "output": "AUM_026_TMP0",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSDEP.FN_EXCH_RT",
+      "DSPBM.PB_STOCKPOS_SEC_M"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L397",
+    "file": "sources/sql/1.AUM_DETAIL.sql",
+    "domain": "aum",
+    "sourceRole": "primary_reference",
+    "lineStart": 397,
+    "lineEnd": 409,
+    "output": "AUM_026_TMP1",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSDEP.FN_EXCH_RT",
+      "DSPBM.PB_STOCKPOS_SEC"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L412",
+    "file": "sources/sql/1.AUM_DETAIL.sql",
+    "domain": "aum",
+    "sourceRole": "primary_reference",
+    "lineStart": 412,
+    "lineEnd": 416,
+    "output": "AUM_026",
+    "statementType": "CREATE",
+    "readTables": [
+      "AUM_026_TMP0",
+      "AUM_026_TMP1"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L420",
+    "file": "sources/sql/1.AUM_DETAIL.sql",
+    "domain": "aum",
+    "sourceRole": "primary_reference",
+    "lineStart": 420,
+    "lineEnd": 431,
+    "output": "AUM_027",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSPBM.PB_YTRMRBP_SEC",
+      "DSPBM.PB_YTRMRBP_SEC_M"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L434",
+    "file": "sources/sql/1.AUM_DETAIL.sql",
+    "domain": "aum",
+    "sourceRole": "primary_reference",
+    "lineStart": 434,
+    "lineEnd": 438,
+    "output": "AUM_028",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSCSD.PBCMS_REPORTA03"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:2._AUM_SUMY.sql:L8",
+    "file": "sources/sql/2._AUM_SUMY.sql",
+    "domain": "aum",
+    "sourceRole": "primary_reference",
+    "lineStart": 8,
+    "lineEnd": 140,
+    "output": "AUM",
+    "statementType": "CREATE",
+    "readTables": [
+      "AUM_005_007_008_009",
+      "AUM_012",
+      "AUM_013_015_015_016_017_018",
+      "AUM_019",
+      "AUM_020",
+      "AUM_021",
+      "AUM_022",
+      "AUM_023_024",
+      "AUM_025",
+      "AUM_026",
+      "AUM_027",
+      "AUM_028"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L12",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 12,
+    "lineEnd": 16,
+    "output": "INCOME_028",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSINS.INSU_RPT_Q01"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L20",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 20,
+    "lineEnd": 27,
+    "output": "INCOME_029",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSKPI.KPI_DET_IU_002_NEW"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L33",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 33,
+    "lineEnd": 38,
+    "output": "INCOME_030",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSKPI.KPI_DET_OFI_001"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L42",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 42,
+    "lineEnd": 51,
+    "output": "INCOME_031",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSFND.PB_FUND_SPREAD_DAILY"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L56",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 56,
+    "lineEnd": 61,
+    "output": "INCOME_032",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSWTR.BOND_TXN"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L65",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 65,
+    "lineEnd": 88,
+    "output": "INCOME_033_034_035_036",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSFND.PB_FUND_SPREAD_DAILY"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L92",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 92,
+    "lineEnd": 115,
+    "output": "INCOME_037",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSDEP.DCI_PERFO_RPT",
+      "DSDEP.DCI_PERFO_RPT_HS"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L118",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 118,
+    "lineEnd": 129,
+    "output": "INCOME_038",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSTAS.FO108_W"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L134",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 134,
+    "lineEnd": 148,
+    "output": "INCOME_039",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSDEP.SI_PERFO_RPT",
+      "DSDEP.SI_PERFO_RPT_HS"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L152",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 152,
+    "lineEnd": 167,
+    "output": "INCOME_040",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSDEP.ELI_PERFO_RPT",
+      "DSDEP.ELI_PERFO_RPT_HS"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L172",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 172,
+    "lineEnd": 188,
+    "output": "INCOME_041",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSDEP.FCI_PERFO_RPT",
+      "DSDEP.FCI_PERFO_RPT_HS"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L194",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 194,
+    "lineEnd": 202,
+    "output": "INCOME_042",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSFND.PB_FUND_SPREAD_DAILY"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L208",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 208,
+    "lineEnd": 216,
+    "output": "INCOME_043_TMP01",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSWBS.PB_SPOT_DAILY"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L219",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 219,
+    "lineEnd": 228,
+    "output": "INCOME_043_TMP02",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSWBS.PB_SPOT_DAILY_HS"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L231",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 231,
+    "lineEnd": 235,
+    "output": "INCOME_043",
+    "statementType": "CREATE",
+    "readTables": [
+      "INCOME_043_TMP01",
+      "INCOME_043_TMP02"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L240",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 240,
+    "lineEnd": 247,
+    "output": "INCOME_044",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSTAS.FO108_W"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L251",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 251,
+    "lineEnd": 272,
+    "output": "INCOME_045",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSWBS.IMPM007",
+      "DSWBS.IMPM007_HS"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L277",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 277,
+    "lineEnd": 283,
+    "output": "INCOME_046",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSTAM.TRUCONTRACT_PB"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L287",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 287,
+    "lineEnd": 293,
+    "output": "INCOME_047",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSEBS.EBTS_ACT_CNTAUMBAL_PB"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L297",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 297,
+    "lineEnd": 301,
+    "output": "INCOME_048",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSPMS.PB_PMS_AUM"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L305",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 305,
+    "lineEnd": 311,
+    "output": "INCOME_049_TMP01",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSDEP.GD_PERFO_RPT"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L314",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 314,
+    "lineEnd": 320,
+    "output": "INCOME_049_TMP02",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSDEP.GD_PERFO_RPT_HS"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L323",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 323,
+    "lineEnd": 327,
+    "output": "INCOME_049",
+    "statementType": "CREATE",
+    "readTables": [
+      "INCOME_049_TMP01",
+      "INCOME_049_TMP02"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L333",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 333,
+    "lineEnd": 354,
+    "output": "INCOME_051_054_TMP01",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSPBM.PB_BONDTRADM_SEC_M",
+      "T_LAST_TWO_WORKDAYS"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L357",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 357,
+    "lineEnd": 379,
+    "output": "INCOME_051_054_TMP02",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSPBM.PB_BONDTRADM_SEC",
+      "T_LAST_TWO_WORKDAYS"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L382",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 382,
+    "lineEnd": 386,
+    "output": "INCOME_051_054",
+    "statementType": "CREATE",
+    "readTables": [
+      "INCOME_051_054_TMP01",
+      "INCOME_051_054_TMP02"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L390",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 390,
+    "lineEnd": 403,
+    "output": "INCOME_052_TMP01",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSPBM.PB_FUNDTRADM_SEC_M",
+      "T_LAST_TWO_WORKDAYS"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L406",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 406,
+    "lineEnd": 420,
+    "output": "INCOME_052_TMP02",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSPBM.PB_BONDTRADM_SEC",
+      "DSPBM.PB_FUNDTRADM_SEC",
+      "T_LAST_TWO_WORKDAYS"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L423",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 423,
+    "lineEnd": 427,
+    "output": "INCOME_052",
+    "statementType": "CREATE",
+    "readTables": [
+      "INCOME_052_TMP01",
+      "INCOME_052_TMP02"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L432",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 432,
+    "lineEnd": 458,
+    "output": "INCOME_053_TMP01",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSPBM.PB_STOCKTRADM_AM_SEC_M",
+      "DSPBM.PB_STOCKTRADM_PM_SEC_M",
+      "T_LAST_TWO_WORKDAYS"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L461",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 461,
+    "lineEnd": 489,
+    "output": "INCOME_053_TMP02",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSPBM.PB_STOCKTRADM_AM_SEC",
+      "DSPBM.PB_STOCKTRADM_AM_SEC_M",
+      "DSPBM.PB_STOCKTRADM_PM_SEC",
+      "T_LAST_TWO_WORKDAYS"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L492",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 492,
+    "lineEnd": 496,
+    "output": "INCOME_053",
+    "statementType": "CREATE",
+    "readTables": [
+      "INCOME_053_TMP01",
+      "INCOME_053_TMP02"
+    ]
+  },
+  {
+    "status": "commented_out_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L502",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 502,
+    "lineEnd": 521,
+    "output": "INCOME_066_TMP01",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSDEP.DEP_FN_ACCT_HS",
+      "DSDEP.DEP_NT_ACCT_HS",
+      "DSDEP.EMP_DEP_NT_ACCT_HS"
+    ]
+  },
+  {
+    "status": "commented_out_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L525",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 525,
+    "lineEnd": 544,
+    "output": "INCOME_066_TMP02",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSDEP.DEP_FN_ACCT_HS",
+      "DSDEP.DEP_NT_ACCT_HS",
+      "DSDEP.EMP_DEP_NT_ACCT_HS"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L547",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 547,
+    "lineEnd": 552,
+    "output": "INCOME_066_TMP021",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSDEP.DEP_NT_ACCT_HS"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L555",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 555,
+    "lineEnd": 560,
+    "output": "INCOME_066_TMP022",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSDEP.DEP_FN_ACCT_HS"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L563",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 563,
+    "lineEnd": 568,
+    "output": "INCOME_066_TMP023",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSDEP.EMP_DEP_NT_ACCT_HS"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L571",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 571,
+    "lineEnd": 581,
+    "output": "INCOME_066_TMP02",
+    "statementType": "CREATE",
+    "readTables": [
+      "INCOME_066_TMP021",
+      "INCOME_066_TMP022",
+      "INCOME_066_TMP023"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L585",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 585,
+    "lineEnd": 590,
+    "output": "INCOME_066_TMP03",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSDEP.DEP_FN_ACCT"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L593",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 593,
+    "lineEnd": 600,
+    "output": "INCOME_066",
+    "statementType": "CREATE",
+    "readTables": [
+      "INCOME_066_TMP01",
+      "INCOME_066_TMP02",
+      "INCOME_066_TMP03"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L604",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 604,
+    "lineEnd": 609,
+    "output": "INCOME_066_TMP_DETAIL_01",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSDEP.DEP_NT_ACCT_HS"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L612",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 612,
+    "lineEnd": 617,
+    "output": "INCOME_066_TMP_DETAIL_02",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSDEP.DEP_FN_ACCT_HS"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L620",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 620,
+    "lineEnd": 625,
+    "output": "INCOME_066_TMP_DETAIL_03",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSDEP.EMP_DEP_NT_ACCT_HS"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L628",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 628,
+    "lineEnd": 638,
+    "output": "INCOME_066_TMP_DETAIL_04",
+    "statementType": "CREATE",
+    "readTables": [
+      "INCOME_066_TMP_DETAIL_01",
+      "INCOME_066_TMP_DETAIL_02",
+      "INCOME_066_TMP_DETAIL_03"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L640",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 640,
+    "lineEnd": 640,
+    "output": "INCOME_066",
+    "statementType": "DELETE",
+    "readTables": []
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L642",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 642,
+    "lineEnd": 643,
+    "output": "INCOME_066",
+    "statementType": "INSERT",
+    "readTables": [
+      "INCOME_066_TMP_DETAIL_04"
+    ]
+  },
+  {
+    "status": "commented_out_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L649",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 649,
+    "lineEnd": 666,
+    "output": "INCOME_067_TMP01",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSLON.LN_FN_ACCT_HS",
+      "DSLON.LN_NT_ACCT_HS"
+    ]
+  },
+  {
+    "status": "commented_out_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L670",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 670,
+    "lineEnd": 687,
+    "output": "INCOME_067_TMP02",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSLON.LN_FN_ACCT_HS",
+      "DSLON.LN_NT_ACCT_HS"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L691",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 691,
+    "lineEnd": 697,
+    "output": "INCOME_067_TMP021",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSLON.LN_NT_ACCT_HS"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L700",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 700,
+    "lineEnd": 706,
+    "output": "INCOME_067_TMP022",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSLON.LN_FN_ACCT_HS"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L709",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 709,
+    "lineEnd": 717,
+    "output": "INCOME_067_TMP02",
+    "statementType": "CREATE",
+    "readTables": [
+      "INCOME_067_TMP021",
+      "INCOME_067_TMP022"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L721",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 721,
+    "lineEnd": 726,
+    "output": "INCOME_067_TMP03",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSLON.LN_FN_ACCT"
+    ]
+  },
+  {
+    "status": "commented_out_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L731",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 731,
+    "lineEnd": 736,
+    "output": "INCOME_067_TMP03",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSLON.LN_NT_ACCT"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L739",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 739,
+    "lineEnd": 745,
+    "output": "INCOME_067",
+    "statementType": "CREATE",
+    "readTables": [
+      "INCOME_067_TMP01",
+      "INCOME_067_TMP02",
+      "INCOME_067_TMP03"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L753",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 753,
+    "lineEnd": 758,
+    "output": "INCOME_067_TMP_DETAIL_01",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSLON.LN_NT_ACCT_HS"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L761",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 761,
+    "lineEnd": 766,
+    "output": "INCOME_067_TMP_DETAIL_02",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSLON.LN_FN_ACCT_HS"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L769",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 769,
+    "lineEnd": 778,
+    "output": "INCOME_067_TMP_DETAIL_03",
+    "statementType": "CREATE",
+    "readTables": [
+      "INCOME_067_TMP_DETAIL_01",
+      "INCOME_067_TMP_DETAIL_02"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L780",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 780,
+    "lineEnd": 780,
+    "output": "INCOME_067",
+    "statementType": "DELETE",
+    "readTables": []
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L783",
+    "file": "sources/sql/8.INCOME_DETAIL.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 783,
+    "lineEnd": 784,
+    "output": "INCOME_067",
+    "statementType": "INSERT",
+    "readTables": [
+      "INCOME_067_TMP_DETAIL_03"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:9.INCOME_SMY.sql:L9",
+    "file": "sources/sql/9.INCOME_SMY.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 9,
+    "lineEnd": 251,
+    "output": "INCOME_TMP01",
+    "statementType": "CREATE",
+    "readTables": [
+      "INCOME_028",
+      "INCOME_029",
+      "INCOME_030",
+      "INCOME_031",
+      "INCOME_032",
+      "INCOME_033_034_035_036",
+      "INCOME_037",
+      "INCOME_038",
+      "INCOME_039",
+      "INCOME_040",
+      "INCOME_041",
+      "INCOME_042",
+      "INCOME_043",
+      "INCOME_044",
+      "INCOME_045",
+      "INCOME_046",
+      "INCOME_047",
+      "INCOME_048",
+      "INCOME_049",
+      "INCOME_051_054",
+      "INCOME_052",
+      "INCOME_053",
+      "INCOME_066",
+      "INCOME_067"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:9.INCOME_SMY.sql:L255",
+    "file": "sources/sql/9.INCOME_SMY.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 255,
+    "lineEnd": 274,
+    "output": "INCOME_TMP02",
+    "statementType": "CREATE",
+    "readTables": [
+      "INCOME_TMP01",
+      "PB_CUST_005"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:9.INCOME_SMY.sql:L277",
+    "file": "sources/sql/9.INCOME_SMY.sql",
+    "domain": "income",
+    "sourceRole": "primary_reference",
+    "lineStart": 277,
+    "lineEnd": 304,
+    "output": "INCOME_REPORT",
+    "statementType": "CREATE",
+    "readTables": [
+      "INCOME_TMP02"
+    ]
+  },
+  {
+    "status": "auxiliary_reference_sql",
+    "key": "sql_lineage:statement:X-INCOME_MOTHLY.sql:L9",
+    "file": "sources/sql/X-INCOME_MOTHLY.sql",
+    "domain": "income",
+    "sourceRole": "auxiliary_monthly_reference",
+    "lineStart": 9,
+    "lineEnd": 14,
+    "output": "INCOME_066_TMP_DETAIL_01",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSDEP.DEP_NT_ACCT_HS"
+    ]
+  },
+  {
+    "status": "auxiliary_reference_sql",
+    "key": "sql_lineage:statement:X-INCOME_MOTHLY.sql:L17",
+    "file": "sources/sql/X-INCOME_MOTHLY.sql",
+    "domain": "income",
+    "sourceRole": "auxiliary_monthly_reference",
+    "lineStart": 17,
+    "lineEnd": 22,
+    "output": "INCOME_066_TMP_DETAIL_02",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSDEP.DEP_FN_ACCT_HS"
+    ]
+  },
+  {
+    "status": "auxiliary_reference_sql",
+    "key": "sql_lineage:statement:X-INCOME_MOTHLY.sql:L25",
+    "file": "sources/sql/X-INCOME_MOTHLY.sql",
+    "domain": "income",
+    "sourceRole": "auxiliary_monthly_reference",
+    "lineStart": 25,
+    "lineEnd": 30,
+    "output": "INCOME_066_TMP_DETAIL_03",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSDEP.EMP_DEP_NT_ACCT_HS"
+    ]
+  },
+  {
+    "status": "auxiliary_reference_sql",
+    "key": "sql_lineage:statement:X-INCOME_MOTHLY.sql:L33",
+    "file": "sources/sql/X-INCOME_MOTHLY.sql",
+    "domain": "income",
+    "sourceRole": "auxiliary_monthly_reference",
+    "lineStart": 33,
+    "lineEnd": 43,
+    "output": "INCOME_066_TMP_DETAIL_04",
+    "statementType": "CREATE",
+    "readTables": [
+      "INCOME_066_TMP_DETAIL_01",
+      "INCOME_066_TMP_DETAIL_02",
+      "INCOME_066_TMP_DETAIL_03"
+    ]
+  },
+  {
+    "status": "auxiliary_reference_sql",
+    "key": "sql_lineage:statement:X-INCOME_MOTHLY.sql:L45",
+    "file": "sources/sql/X-INCOME_MOTHLY.sql",
+    "domain": "income",
+    "sourceRole": "auxiliary_monthly_reference",
+    "lineStart": 45,
+    "lineEnd": 45,
+    "output": "INCOME_066",
+    "statementType": "DELETE",
+    "readTables": []
+  },
+  {
+    "status": "auxiliary_reference_sql",
+    "key": "sql_lineage:statement:X-INCOME_MOTHLY.sql:L47",
+    "file": "sources/sql/X-INCOME_MOTHLY.sql",
+    "domain": "income",
+    "sourceRole": "auxiliary_monthly_reference",
+    "lineStart": 47,
+    "lineEnd": 48,
+    "output": "INCOME_066",
+    "statementType": "INSERT",
+    "readTables": [
+      "INCOME_066_TMP_DETAIL_04"
+    ]
+  },
+  {
+    "status": "auxiliary_reference_sql",
+    "key": "sql_lineage:statement:X-INCOME_MOTHLY.sql:L56",
+    "file": "sources/sql/X-INCOME_MOTHLY.sql",
+    "domain": "income",
+    "sourceRole": "auxiliary_monthly_reference",
+    "lineStart": 56,
+    "lineEnd": 61,
+    "output": "INCOME_067_TMP_DETAIL_01",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSLON.LN_NT_ACCT_HS"
+    ]
+  },
+  {
+    "status": "auxiliary_reference_sql",
+    "key": "sql_lineage:statement:X-INCOME_MOTHLY.sql:L64",
+    "file": "sources/sql/X-INCOME_MOTHLY.sql",
+    "domain": "income",
+    "sourceRole": "auxiliary_monthly_reference",
+    "lineStart": 64,
+    "lineEnd": 69,
+    "output": "INCOME_067_TMP_DETAIL_02",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSLON.LN_FN_ACCT_HS"
+    ]
+  },
+  {
+    "status": "auxiliary_reference_sql",
+    "key": "sql_lineage:statement:X-INCOME_MOTHLY.sql:L72",
+    "file": "sources/sql/X-INCOME_MOTHLY.sql",
+    "domain": "income",
+    "sourceRole": "auxiliary_monthly_reference",
+    "lineStart": 72,
+    "lineEnd": 81,
+    "output": "INCOME_067_TMP_DETAIL_03",
+    "statementType": "CREATE",
+    "readTables": [
+      "INCOME_067_TMP_DETAIL_01",
+      "INCOME_067_TMP_DETAIL_02"
+    ]
+  },
+  {
+    "status": "auxiliary_reference_sql",
+    "key": "sql_lineage:statement:X-INCOME_MOTHLY.sql:L83",
+    "file": "sources/sql/X-INCOME_MOTHLY.sql",
+    "domain": "income",
+    "sourceRole": "auxiliary_monthly_reference",
+    "lineStart": 83,
+    "lineEnd": 83,
+    "output": "INCOME_067",
+    "statementType": "DELETE",
+    "readTables": []
+  },
+  {
+    "status": "auxiliary_reference_sql",
+    "key": "sql_lineage:statement:X-INCOME_MOTHLY.sql:L86",
+    "file": "sources/sql/X-INCOME_MOTHLY.sql",
+    "domain": "income",
+    "sourceRole": "auxiliary_monthly_reference",
+    "lineStart": 86,
+    "lineEnd": 87,
+    "output": "INCOME_067",
+    "statementType": "INSERT",
+    "readTables": [
+      "INCOME_067_TMP_DETAIL_03"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:10._INCOME_ROA.sql:L11",
+    "file": "sources/sql/10._INCOME_ROA.sql",
+    "domain": "shared",
+    "sourceRole": "primary_reference",
+    "lineStart": 11,
+    "lineEnd": 36,
+    "output": "ROA_TMP_01",
+    "statementType": "CREATE",
+    "readTables": [
+      "AUM_TMP02",
+      "INCOME_TMP02",
+      "PB_CUST_TMP06",
+      "台幣放款_私銀",
+      "台幣放款_私銀CURRENT",
+      "外幣放款_私銀",
+      "外幣放款_私銀CURRENT"
+    ]
+  },
+  {
+    "status": "active_sql",
+    "key": "sql_lineage:statement:10._INCOME_ROA.sql:L41",
+    "file": "sources/sql/10._INCOME_ROA.sql",
+    "domain": "shared",
+    "sourceRole": "primary_reference",
+    "lineStart": 41,
+    "lineEnd": 45,
+    "output": "ROA_TMP",
+    "statementType": "CREATE",
+    "readTables": [
+      "ROA_TMP_01"
+    ]
+  },
+  {
+    "status": "alternate_file_sql",
+    "key": "sql_lineage:statement:2._AUM_SUMY.~sql:L8",
+    "file": "sources/sql/2._AUM_SUMY.~sql",
+    "domain": "aum",
+    "sourceRole": "alternate_file_reference",
+    "lineStart": 8,
+    "lineEnd": 140,
+    "output": "AUM_TMP01",
+    "statementType": "CREATE",
+    "readTables": [
+      "AUM_005_007_008_009",
+      "AUM_012",
+      "AUM_013_015_015_016_017_018",
+      "AUM_019",
+      "AUM_020",
+      "AUM_021",
+      "AUM_022",
+      "AUM_023_024",
+      "AUM_025",
+      "AUM_026",
+      "AUM_027",
+      "AUM_028"
+    ]
+  },
+  {
+    "status": "alternate_file_sql",
+    "key": "sql_lineage:statement:2._AUM_SUMY.~sql:L145",
+    "file": "sources/sql/2._AUM_SUMY.~sql",
+    "domain": "aum",
+    "sourceRole": "alternate_file_reference",
+    "lineStart": 145,
+    "lineEnd": 157,
+    "output": "PB_CUST_2AO",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSCIF.AO_CUST_REL",
+      "DSCIF.AO_CUST_REL_HS"
+    ]
+  },
+  {
+    "status": "alternate_file_sql",
+    "key": "sql_lineage:statement:2._AUM_SUMY.~sql:L160",
+    "file": "sources/sql/2._AUM_SUMY.~sql",
+    "domain": "aum",
+    "sourceRole": "alternate_file_reference",
+    "lineStart": 160,
+    "lineEnd": 166,
+    "output": "PB_CUST_2AO_COR",
+    "statementType": "CREATE",
+    "readTables": [
+      "DSCIF.AODEP",
+      "DSCIF.AODEP_HS"
+    ]
+  },
+  {
+    "status": "alternate_file_sql",
+    "key": "sql_lineage:statement:2._AUM_SUMY.~sql:L170",
+    "file": "sources/sql/2._AUM_SUMY.~sql",
+    "domain": "aum",
+    "sourceRole": "alternate_file_reference",
+    "lineStart": 170,
+    "lineEnd": 175,
+    "output": "PB_CUST_2AO_COR_LIST",
+    "statementType": "CREATE",
+    "readTables": [
+      "PB_CUST_2AO",
+      "PB_CUST_2AO_COR"
+    ]
+  },
+  {
+    "status": "alternate_file_sql",
+    "key": "sql_lineage:statement:2._AUM_SUMY.~sql:L179",
+    "file": "sources/sql/2._AUM_SUMY.~sql",
+    "domain": "aum",
+    "sourceRole": "alternate_file_reference",
+    "lineStart": 179,
+    "lineEnd": 194,
+    "output": "AUM_BASE",
+    "statementType": "CREATE",
+    "readTables": [
+      "AUM_TMP01",
+      "PB_CUST_2AO"
+    ]
+  },
+  {
+    "status": "alternate_file_sql",
+    "key": "sql_lineage:statement:2._AUM_SUMY.~sql:L199",
+    "file": "sources/sql/2._AUM_SUMY.~sql",
+    "domain": "aum",
+    "sourceRole": "alternate_file_reference",
+    "lineStart": 199,
+    "lineEnd": 217,
+    "output": "AUM_TMP02",
+    "statementType": "CREATE",
+    "readTables": [
+      "AUM_BASE",
+      "PB_CUST_005"
+    ]
+  },
+  {
+    "status": "alternate_file_sql",
+    "key": "sql_lineage:statement:2._AUM_SUMY.~sql:L221",
+    "file": "sources/sql/2._AUM_SUMY.~sql",
+    "domain": "aum",
+    "sourceRole": "alternate_file_reference",
+    "lineStart": 221,
+    "lineEnd": 250,
+    "output": "AUM_REPORT",
+    "statementType": "CREATE",
+    "readTables": [
+      "AUM_TMP02"
+    ]
+  }
+]

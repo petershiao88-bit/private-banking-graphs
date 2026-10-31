@@ -1,0 +1,378 @@
+- main:
+  - link "Personal":
+    - /url: /projects/az20wapvzAkbtoPa
+    - generic "Personal":
+    - generic "Personal"
+  - generic: /
+  - generic "智能查詢 - 概念圖 KB 測試版":
+    - generic: 智能查詢 - 概念圖 KB 測試版
+  - button "More actions":
+  - button "Publish":
+    - generic: Publish
+  - button "More actions":
+  - radiogroup:
+    - radio "Editor" [checked]
+    - radio "Executions"
+    - radio "Evaluations"
+  - complementary:
+    - menubar:
+      - menuitem "Add new item":
+        - button "Add new item":
+    - button "Open command palette":
+    - button "Toggle sidebar":
+    - menuitem "n8n Assistant":
+    - menuitem "Overview":
+    - menuitem "Personal":
+    - menuitem "Shared with you":
+    - menuitem "Templates":
+    - menuitem "Help":
+    - menuitem "Settings":
+  - main:
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 2 items total
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 2 items total
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 12 items
+    - generic: 1 item
+    - generic: 2 items total
+    - generic: 2 items total
+    - generic: 1 item total
+    - generic: 1 item total
+    - generic: 2 items total
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Execute a SQL query
+    - generic: executeQuery
+    - generic: Chat Model*
+    - generic: Memory
+    - generic: Tool
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: SQL Reasoning Agent
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Router Input
+    - generic: manual
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Aggregate
+    - generic: Output Parser
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Structured Output Parser
+    - generic: Model*
+    - generic: Output Parser
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: metric router
+    - generic: Model
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Router Model
+    - generic: Model
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: SQL Model
+    - generic: "2"
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Normalize SQL Result
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: User Query
+    - button "Hide chat":
+      - generic: Hide chat
+    - generic: Memory
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Postgres Chat Memory
+    - generic: "2"
+    - generic: Model
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Response Model
+    - generic: Model*
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Response
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Get row(s)
+    - generic: Input 1
+    - generic: Input 2
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Merge
+    - generic: combine
+    - generic: Model*
+    - generic: Output Parser
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Basic LLM Chain
+    - generic: "2"
+    - generic: Model
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: OpenRouter Chat Model
+    - generic: "2"
+    - generic: "0"
+    - generic: "1"
+    - generic: "2"
+    - generic: Fallback
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Switch
+    - generic: "mode: Rules"
+    - generic: "2"
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: 追問
+    - generic: Send and Wait for Response
+    - generic: Output Parser
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Structured Output Parser1
+    - generic: "2"
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: 整理追問回覆
+    - generic: raw
+    - generic: 1 item
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: 送出查詢回答
+    - generic: Send Message
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: 知識分支 Metric 清單
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Metric 範圍檢查
+    - generic: "true"
+    - generic: "false"
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: 是否可回答
+    - generic: Chat Model*
+    - generic: Memory
+    - generic: Tool
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: AUM 知識回答 Agent
+    - generic: Model
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: 知識回答 Model
+    - generic: Tool
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: AUM Knowledge Lookup
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: 整理知識回答
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: 超出 Metric 範圍
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: 送出知識回答
+    - generic: Send Message
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: 送出範圍說明
+    - generic: Send Message
+    - generic: Tool
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Product Concept KB
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Available Source Metadata
+    - generic: executeQuery
+    - button "Zoom to Fit":
+    - button "Zoom In":
+    - button "Zoom Out":
+    - button "Tidy Up":
+    - button "Hide chat":
+      - generic: Hide chat
+    - button "Open nodes panel":
+    - button "Command bar":
+    - button "Add sticky note":
+    - button "Open side panel":
+    - button "n8n AI":
+    - complementary
+    - generic: Chat
+    - 'button "Session: 2a94f..."':
+      - generic: "Session: 2a94f..."
+    - button "Reset":
+    - main:
+      - main:
+        - paragraph: 8月底全體客戶的證券基金AUM有多少？以新臺幣呈現。
+        - paragraph: 請問是哪一年的8月底？
+        - paragraph: 2026年。
+        - paragraph: 抱歉，目前缺少查詢2026年8月底全體客戶證券相關基金AUM所需的資料來源，無法提供該數值。
+        - textbox "Type message, or press ‘up’ for previous one" [active]
+        - button [disabled]:
+    - generic: Logs
+    - button "Clear execution":
+      - text: Clear execution
+    - button "Actions":
+    - button "Collapse panel":
+    - generic: Success in 50.591s
+    - generic: 10,112 Tokens
+    - tree:
+      - treeitem "Product Concept KB Success in 5.508s Started 09:02:09.849, 7 Oct Toggle row":
+        - generic: Product Concept KB
+        - generic: Success
+        - text: in 5.508s
+        - generic: Started 09:02:09.849, 7 Oct
+        - button "Toggle row":
+      - treeitem "Postgres Chat Memory Success in 1.03s Started 09:02:15.369, 7 Oct":
+        - generic: Postgres Chat Memory
+        - generic: Success
+        - text: in 1.03s
+        - generic: Started 09:02:15.369, 7 Oct
+      - treeitem "SQL Model Success in 1.394s Started 09:02:16.422, 7 Oct 2,778 Tokens":
+        - generic: SQL Model
+        - generic: Success
+        - text: in 1.394s
+        - generic: Started 09:02:16.422, 7 Oct
+        - generic: 2,778 Tokens
+      - treeitem "Execute a SQL query Success in 876ms Started 09:02:18.329, 7 Oct":
+        - generic: Execute a SQL query
+        - generic: Success
+        - text: in 876ms
+        - generic: Started 09:02:18.329, 7 Oct
+      - treeitem "Normalize SQL Result Success in 25ms Started 09:02:19.206, 7 Oct":
+        - generic: Normalize SQL Result
+        - generic: Success
+        - text: in 25ms
+        - generic: Started 09:02:19.206, 7 Oct
+      - treeitem "Response Success in 1.253s Started 09:02:19.231, 7 Oct Toggle row" [expanded]:
+        - generic: Response
+        - generic: Success
+        - text: in 1.253s
+        - generic: Started 09:02:19.231, 7 Oct
+        - button "Toggle row":
+      - treeitem "Response Model Success in 1.239s Started 09:02:19.244, 7 Oct 353 Tokens":
+        - generic: Response Model
+        - generic: Success
+        - text: in 1.239s
+        - generic: Started 09:02:19.244, 7 Oct
+        - generic: 353 Tokens
+      - treeitem "送出查詢回答 Success in 1ms Started 09:02:21.239, 7 Oct":
+        - generic: 送出查詢回答
+        - generic: Success
+        - text: in 1ms
+        - generic: Started 09:02:21.239, 7 Oct
+- complementary
+- status
+- alert

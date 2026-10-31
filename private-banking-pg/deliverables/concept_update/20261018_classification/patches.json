@@ -1,0 +1,494 @@
+[
+  {
+    "id": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1172",
+    "productCode": "bank_bond_proprietary",
+    "before": {
+      "productCode": "bank_bond_proprietary",
+      "name": "海外債券（自營）",
+      "offeringType": "產品",
+      "productCategory": "債券",
+      "businessChannel": "銀行自營通路",
+      "customerNeed": "海外債券投資配置",
+      "definition": "客戶透過銀行自營通路交易或持有的海外債券產品。",
+      "serviceDescription": "自營通路的海外債券交易及持有相關服務。",
+      "aumDefinition": "客戶透過銀行自營通路持有的海外債券資產規模。",
+      "incomeDefinition": "銀行自營海外債券業務歸入手續費類的相關收入。"
+    },
+    "patch": {
+      "subsidiary": "銀行",
+      "marketRegion": "海外",
+      "dealingMode": "自營"
+    }
+  },
+  {
+    "id": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1171",
+    "productCode": "bank_bond_trust",
+    "before": {
+      "productCode": "bank_bond_trust",
+      "name": "海外債券（信託）",
+      "offeringType": "產品",
+      "productCategory": "債券",
+      "businessChannel": "銀行信託通路",
+      "customerNeed": "海外債券投資配置",
+      "definition": "客戶透過銀行信託通路交易或持有的海外債券產品。",
+      "serviceDescription": "信託通路的海外債券交易及持有相關服務。",
+      "aumDefinition": "客戶透過銀行信託通路持有的海外債券資產規模。",
+      "incomeDefinition": "海外債券信託業務的分行手續費及已納入的交易利得。"
+    },
+    "patch": {
+      "subsidiary": "銀行",
+      "marketRegion": "海外",
+      "dealingMode": "信託"
+    }
+  },
+  {
+    "id": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1173",
+    "productCode": "bank_collective_account",
+    "before": {
+      "productCode": "bank_collective_account",
+      "name": "集合管理帳戶",
+      "offeringType": "產品",
+      "productCategory": "集合管理帳戶",
+      "businessChannel": "銀行信託通路",
+      "customerNeed": "信託資金管理、投資配置",
+      "definition": "透過帳戶安排集合管理運用信託資金的投資產品。",
+      "serviceDescription": "集合管理帳戶的資金管理及投資相關服務。",
+      "aumDefinition": "客戶持有的集合管理帳戶資產規模。",
+      "incomeDefinition": ""
+    },
+    "patch": {
+      "subsidiary": "銀行"
+    }
+  },
+  {
+    "id": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1605",
+    "productCode": "bank_dci",
+    "before": {
+      "productCode": "bank_dci",
+      "name": "銀行雙元貨幣組合式商品（DCI）",
+      "offeringType": "產品",
+      "productCategory": "雙元貨幣組合式商品",
+      "businessChannel": "銀行通路",
+      "customerNeed": "依貨幣與收益條件安排投資",
+      "definition": "銀行通路提供、結合投資本金與外匯選擇權的雙元貨幣組合式商品。",
+      "serviceDescription": "雙元貨幣組合式商品的承作及契約相關服務。",
+      "aumDefinition": "",
+      "incomeDefinition": "銀行雙元貨幣組合式商品業務的手續費及已納入的相關交易損益。"
+    },
+    "patch": {
+      "subsidiary": "銀行"
+    }
+  },
+  {
+    "id": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1169",
+    "productCode": "bank_etf",
+    "before": {
+      "productCode": "bank_etf",
+      "name": "銀行ETF",
+      "offeringType": "產品",
+      "productCategory": "ETF",
+      "businessChannel": "銀行通路",
+      "customerNeed": "投資配置",
+      "definition": "客戶透過銀行通路交易或持有的 ETF 產品。",
+      "serviceDescription": "ETF 交易及持有相關服務。",
+      "aumDefinition": "客戶透過銀行通路持有的 ETF 資產規模。",
+      "incomeDefinition": "銀行 ETF 業務帶來的分行手續費收入。"
+    },
+    "patch": {
+      "subsidiary": "銀行",
+      "fundType": "ETF"
+    }
+  },
+  {
+    "id": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1168",
+    "productCode": "bank_fund",
+    "before": {
+      "productCode": "bank_fund",
+      "name": "銀行基金",
+      "offeringType": "產品",
+      "productCategory": "基金",
+      "businessChannel": "銀行通路",
+      "customerNeed": "投資配置",
+      "definition": "客戶透過銀行通路申購或持有的基金產品。",
+      "serviceDescription": "基金申購、贖回及持有相關服務。",
+      "aumDefinition": "客戶透過銀行通路持有的基金資產規模。",
+      "incomeDefinition": "銀行基金業務帶來的分行手續費收入。"
+    },
+    "patch": {
+      "subsidiary": "銀行",
+      "fundType": "基金"
+    }
+  },
+  {
+    "id": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1607",
+    "productCode": "bank_fx",
+    "before": {
+      "productCode": "bank_fx",
+      "name": "銀行外匯服務",
+      "offeringType": "服務",
+      "productCategory": "外匯服務",
+      "businessChannel": "銀行通路",
+      "customerNeed": "貨幣兌換、外匯交易",
+      "definition": "銀行為客戶提供的外匯交易相關服務。",
+      "serviceDescription": "貨幣兌換與外匯交易相關服務。",
+      "aumDefinition": "",
+      "incomeDefinition": "銀行外匯交易歸入手續費類的兌換損益及相關交易損益。"
+    },
+    "patch": {
+      "subsidiary": "銀行"
+    }
+  },
+  {
+    "id": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1609",
+    "productCode": "bank_gold",
+    "before": {
+      "productCode": "bank_gold",
+      "name": "銀行黃金",
+      "offeringType": "產品",
+      "productCategory": "黃金",
+      "businessChannel": "銀行通路",
+      "customerNeed": "黃金投資與交易",
+      "definition": "客戶透過銀行通路承作的黃金類產品。",
+      "serviceDescription": "銀行通路的黃金交易相關服務。",
+      "aumDefinition": "",
+      "incomeDefinition": "銀行黃金交易歸入手續費類的相關交易損益。"
+    },
+    "patch": {
+      "subsidiary": "銀行"
+    }
+  },
+  {
+    "id": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1167",
+    "productCode": "bank_insurance",
+    "before": {
+      "productCode": "bank_insurance",
+      "name": "銀行保險",
+      "offeringType": "產品",
+      "productCategory": "保險",
+      "businessChannel": "銀行通路",
+      "customerNeed": "保障安排、保險資產配置",
+      "definition": "客戶透過銀行通路辦理或持有的保險產品。",
+      "serviceDescription": "銀行通路的保險產品與保單相關服務。",
+      "aumDefinition": "客戶透過銀行通路持有的保險資產規模。",
+      "incomeDefinition": "銀行保險業務的手續費及已納入的客戶貢獻度收入。"
+    },
+    "patch": {
+      "subsidiary": "銀行"
+    }
+  },
+  {
+    "id": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1608",
+    "productCode": "bank_lc",
+    "before": {
+      "productCode": "bank_lc",
+      "name": "銀行開狀服務",
+      "offeringType": "服務",
+      "productCategory": "開狀服務",
+      "businessChannel": "銀行通路",
+      "customerNeed": "貿易支付安排",
+      "definition": "銀行為客戶提供的開狀相關服務。",
+      "serviceDescription": "開狀及相關契約服務。",
+      "aumDefinition": "",
+      "incomeDefinition": "銀行開狀業務帶來的相關手續費收入。"
+    },
+    "patch": {
+      "subsidiary": "銀行"
+    }
+  },
+  {
+    "id": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1170",
+    "productCode": "bank_overseas_stock",
+    "before": {
+      "productCode": "bank_overseas_stock",
+      "name": "銀行海外股票",
+      "offeringType": "產品",
+      "productCategory": "股票",
+      "businessChannel": "銀行通路",
+      "customerNeed": "海外股票投資配置",
+      "definition": "客戶透過銀行通路交易或持有的海外股票產品。",
+      "serviceDescription": "海外股票交易及持有相關服務。",
+      "aumDefinition": "客戶透過銀行通路持有的海外股票資產規模。",
+      "incomeDefinition": "銀行海外股票業務帶來的分行手續費收入。"
+    },
+    "patch": {
+      "subsidiary": "銀行",
+      "marketRegion": "海外"
+    }
+  },
+  {
+    "id": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1175",
+    "productCode": "bank_planned_trust",
+    "before": {
+      "productCode": "bank_planned_trust",
+      "name": "規劃型信託",
+      "offeringType": "服務",
+      "productCategory": "信託",
+      "businessChannel": "銀行信託通路",
+      "customerNeed": "財產管理、信託安排",
+      "definition": "依信託目的與契約安排管理或運用客戶財產的信託服務。",
+      "serviceDescription": "信託契約安排、財產管理及相關服務。",
+      "aumDefinition": "客戶交付規劃型信託安排的資產規模，涵蓋已納入的一般信託與員工持股信託。",
+      "incomeDefinition": "規劃型信託服務的借券、管理及成立費收入，涵蓋已納入的員工持股信託。"
+    },
+    "patch": {
+      "subsidiary": "銀行"
+    }
+  },
+  {
+    "id": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1606",
+    "productCode": "bank_structured_domestic",
+    "before": {
+      "productCode": "bank_structured_domestic",
+      "name": "境內結構型商品",
+      "offeringType": "產品",
+      "productCategory": "結構型商品",
+      "businessChannel": "銀行通路",
+      "customerNeed": "依商品契約安排投資配置",
+      "definition": "銀行通路提供的境內結構型商品，收益條件依商品契約安排。",
+      "serviceDescription": "境內結構型商品的承作及契約相關服務。",
+      "aumDefinition": "",
+      "incomeDefinition": "銀行境內結構型商品業務帶來的相關手續費收入。"
+    },
+    "patch": {
+      "subsidiary": "銀行"
+    }
+  },
+  {
+    "id": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1174",
+    "productCode": "bank_structured_offshore",
+    "before": {
+      "productCode": "bank_structured_offshore",
+      "name": "銀行境外結構型商品",
+      "offeringType": "產品",
+      "productCategory": "結構型商品",
+      "businessChannel": "銀行通路",
+      "customerNeed": "依契約安排投資配置",
+      "definition": "客戶透過銀行通路交易或持有的境外結構型商品。",
+      "serviceDescription": "境外結構型商品的交易及持有相關服務。",
+      "aumDefinition": "客戶透過銀行通路持有的境外結構型商品資產規模。",
+      "incomeDefinition": "銀行境外結構型商品業務帶來的分行手續費收入。"
+    },
+    "patch": {
+      "subsidiary": "銀行"
+    }
+  },
+  {
+    "id": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1176",
+    "productCode": "bank_trust_custody",
+    "before": {
+      "productCode": "bank_trust_custody",
+      "name": "信託保管",
+      "offeringType": "服務",
+      "productCategory": "信託保管",
+      "businessChannel": "銀行信託通路",
+      "customerNeed": "資產保管",
+      "definition": "客戶將資產交付信託保管安排的服務。",
+      "serviceDescription": "依保管安排提供資產保管相關服務。",
+      "aumDefinition": "客戶交付信託保管的資產規模。",
+      "incomeDefinition": "信託保管服務帶來的保管費收入。"
+    },
+    "patch": {
+      "subsidiary": "銀行"
+    }
+  },
+  {
+    "id": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1166",
+    "productCode": "deposit",
+    "before": {
+      "productCode": "deposit",
+      "name": "存款",
+      "offeringType": "產品",
+      "productCategory": "存款",
+      "businessChannel": "銀行通路",
+      "customerNeed": "資金存放、資金調度",
+      "definition": "客戶將資金存放於銀行的存款產品，涵蓋台幣、外幣及結構型存款。",
+      "serviceDescription": "存款帳戶與資金存放相關服務。",
+      "aumDefinition": "客戶在銀行持有的存款資產規模。",
+      "incomeDefinition": "存款業務歸入利收的收入，按存款整體衡量。"
+    },
+    "patch": {
+      "subsidiary": "銀行"
+    }
+  },
+  {
+    "id": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1612",
+    "productCode": "deposit_foreign",
+    "before": {
+      "productCode": "deposit_foreign",
+      "name": "外幣存款",
+      "offeringType": "產品",
+      "productCategory": "存款",
+      "businessChannel": "銀行通路",
+      "customerNeed": "外幣資金存放、資金調度",
+      "definition": "銀行提供的外幣存款產品，屬於存款的子分類。",
+      "serviceDescription": "外幣存款及資金存放相關服務。",
+      "aumDefinition": "客戶持有、納入外幣存款分類的銀行存款資產規模。",
+      "incomeDefinition": ""
+    },
+    "patch": {
+      "subsidiary": "銀行",
+      "currencyType": "外幣"
+    }
+  },
+  {
+    "id": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1613",
+    "productCode": "deposit_structured",
+    "before": {
+      "productCode": "deposit_structured",
+      "name": "結構型存款",
+      "offeringType": "產品",
+      "productCategory": "存款",
+      "businessChannel": "銀行通路",
+      "customerNeed": "依契約條件安排資金存放",
+      "definition": "銀行依特定商品契約安排提供的結構型存款產品。",
+      "serviceDescription": "結構型存款的承作及契約相關服務。",
+      "aumDefinition": "客戶持有、納入結構型存款分類的銀行存款資產規模。",
+      "incomeDefinition": ""
+    },
+    "patch": {
+      "subsidiary": "銀行",
+      "structureType": "結構型"
+    }
+  },
+  {
+    "id": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1611",
+    "productCode": "deposit_twd",
+    "before": {
+      "productCode": "deposit_twd",
+      "name": "台幣存款",
+      "offeringType": "產品",
+      "productCategory": "存款",
+      "businessChannel": "銀行通路",
+      "customerNeed": "台幣資金存放、資金調度",
+      "definition": "銀行提供的台幣存款產品，屬於存款的子分類。",
+      "serviceDescription": "台幣存款及資金存放相關服務。",
+      "aumDefinition": "客戶持有、納入台幣存款分類的銀行存款資產規模。",
+      "incomeDefinition": ""
+    },
+    "patch": {
+      "subsidiary": "銀行",
+      "currencyType": "台幣"
+    }
+  },
+  {
+    "id": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1610",
+    "productCode": "loan",
+    "before": {
+      "productCode": "loan",
+      "name": "放款",
+      "offeringType": "產品",
+      "productCategory": "放款",
+      "businessChannel": "銀行通路",
+      "customerNeed": "融資、資金調度",
+      "definition": "銀行依授信安排提供客戶使用資金的融資產品。",
+      "serviceDescription": "授信及放款相關服務。",
+      "aumDefinition": "",
+      "incomeDefinition": "放款業務歸入利收的收入，按已納入的業務收益口徑衡量。"
+    },
+    "patch": {
+      "subsidiary": "銀行"
+    }
+  },
+  {
+    "id": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1177",
+    "productCode": "securities_bond",
+    "before": {
+      "productCode": "securities_bond",
+      "name": "證券複委託債券",
+      "offeringType": "產品",
+      "productCategory": "債券",
+      "businessChannel": "證券複委託通路",
+      "customerNeed": "海外債券投資配置",
+      "definition": "客戶透過證券複委託通路交易或持有的債券產品。",
+      "serviceDescription": "複委託債券交易及持有相關服務。",
+      "aumDefinition": "客戶透過證券複委託持有的債券資產規模。",
+      "incomeDefinition": "證券複委託債券交易帶來的客戶手續費收入。"
+    },
+    "patch": {
+      "subsidiary": "證券",
+      "marketRegion": "海外",
+      "dealingMode": "複委託"
+    }
+  },
+  {
+    "id": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1180",
+    "productCode": "securities_foreign_stock",
+    "before": {
+      "productCode": "securities_foreign_stock",
+      "name": "證券複委託外國股票",
+      "offeringType": "產品",
+      "productCategory": "股票",
+      "businessChannel": "證券複委託通路",
+      "customerNeed": "海外股票投資配置",
+      "definition": "客戶透過證券複委託通路交易或持有的外國股票產品。",
+      "serviceDescription": "複委託外國股票交易及持有相關服務。",
+      "aumDefinition": "客戶透過證券複委託持有的外國股票資產規模。",
+      "incomeDefinition": "證券複委託外國股票交易扣除上手手續費後的淨手續費收入。"
+    },
+    "patch": {
+      "subsidiary": "證券",
+      "marketRegion": "海外",
+      "dealingMode": "複委託"
+    }
+  },
+  {
+    "id": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1179",
+    "productCode": "securities_fund",
+    "before": {
+      "productCode": "securities_fund",
+      "name": "證券複委託基金",
+      "offeringType": "產品",
+      "productCategory": "基金",
+      "businessChannel": "證券複委託通路",
+      "customerNeed": "投資配置",
+      "definition": "客戶透過證券複委託通路申購或持有的基金產品。",
+      "serviceDescription": "複委託基金申購及持有相關服務。",
+      "aumDefinition": "客戶透過證券複委託持有的基金資產規模。",
+      "incomeDefinition": "證券複委託基金交易帶來、已納入業務範圍的手續費收入。"
+    },
+    "patch": {
+      "subsidiary": "證券",
+      "fundType": "基金"
+    }
+  },
+  {
+    "id": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1178",
+    "productCode": "securities_structured",
+    "before": {
+      "productCode": "securities_structured",
+      "name": "證券複委託結構型商品",
+      "offeringType": "產品",
+      "productCategory": "結構型商品",
+      "businessChannel": "證券複委託通路",
+      "customerNeed": "依契約安排投資配置",
+      "definition": "客戶透過證券複委託通路交易或持有的結構型商品。",
+      "serviceDescription": "複委託結構型商品交易及持有相關服務。",
+      "aumDefinition": "客戶透過證券複委託持有的結構型商品資產規模。",
+      "incomeDefinition": "證券複委託結構型商品交易帶來的客戶手續費收入。"
+    },
+    "patch": {
+      "subsidiary": "證券",
+      "dealingMode": "複委託"
+    }
+  },
+  {
+    "id": "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1614",
+    "productCode": "securities_taiwan_stock",
+    "before": {
+      "productCode": "securities_taiwan_stock",
+      "name": "證券台股",
+      "offeringType": "產品",
+      "productCategory": "股票",
+      "businessChannel": "證券通路",
+      "customerNeed": "台灣股票投資配置",
+      "definition": "客戶透過證券通路交易或持有的台灣股票產品。",
+      "serviceDescription": "台股交易及持有相關服務。",
+      "aumDefinition": "客戶持有、納入證券台股分類的台灣股票資產規模。",
+      "incomeDefinition": ""
+    },
+    "patch": {
+      "subsidiary": "證券",
+      "marketRegion": "台灣"
+    }
+  }
+]

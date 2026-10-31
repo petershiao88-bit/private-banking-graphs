@@ -1,0 +1,202 @@
+GraphRAG v8：入口選擇、門檻分析與詞組檢索方案交接
+整理日期：2026-10-27（Asia/Taipei）
+工作區：C:\Users\petershiao\Desktop\Ontology\私銀智能問答
+
+一、目前停點與下一輪先讀
+
+本輪停在討論與交接。最後確認的方向是：將原問題擷取成單詞與重疊片語，再分別做 Embedding、合併去重及 Rerank。
+使用者要的是「銀行、基金、銀行基金、AUM、銀行基金 AUM」這種詞組展開，不是拆成子問題。
+詞組擷取、額外 LLM 入口選擇、第 11 節點修正都尚未實作，也沒有新一輪模型 API 呼叫或全流程重測。
+最後使用者要求只寫交接檔；不要把討論方案寫成已部署成果。
+本次只讀取本機檔案整理交接，未重新檢查雲端保存狀態、Docker 或通道是否仍在運行。
+
+先讀：
+1. 本檔：本次完整討論、已確認缺陷與尚未實作方案。
+2. deliverables/single_turn_qa/rag_v1/graph_retrieval_v8/README.txt
+3. deliverables/single_turn_qa/rag_v1/graph_retrieval_v8/threshold_analysis/入口門檻評估.html
+4. deliverables/single_turn_qa/rag_v1/graph_retrieval_v8/retrieval.cjs
+5. deliverables/local_graph/20261020/README.txt
+
+二、使用者已表達的方向與限制
+
+目標是確認檢索子圖的商品、指標、property、節點與關係是否正確；分子／分母及最終公式可交由回答 LLM 處理。
+不需要恢復舊問題類型分類，不預設補客戶／理專，也不強制走到總 AUM／總收入。
+使用者要求移除問題文字／別名直接命中，使用 Embedding 做候選檢索；這已在 v8 完成。
+使用者不希望先加缺口澄清分流，目前優先看實際畫出的子圖是否符合期待。
+使用者對「路徑篩選後仍硬補入口節點」明確不滿，認為邏輯不一致。這是已確認的程式缺陷，不要再描述成合理完整的選圖機制。
+使用者曾明確同意啟用 Cloudflare 暫時通道，讓雲端 n8n 呼叫本機圖譜。
+OpenRouter 金鑰留在雲端 n8n，不需要為此要求使用者提供本機金鑰。
+使用者目前認同以詞組展開做實驗，但尚未選定詞組擷取模型、權重、候選數、門檻或正式驗收標準。
+
+三、最後核對的已保存流程
+
+workflowId：ntHWYmjJ7Q2HVLeT
+名稱：私銀圖譜問答－GraphRAG 子圖檢索 v8
+URL：https://chiang4901.app.n8n.cloud/workflow/ntHWYmjJ7Q2HVLeT
+10/20 已原生匯出並逐節點核對：14 節點、單題入口、active=false、已保存未發布。
+此為最後已驗證紀錄，不代表 10/27 已重新讀取線上狀態；動工前先匯出目前雲端版本，避免覆蓋後續改動。
+另一條 RAG 流程 H2Jr1mJHmdpaOWrY 本輪未改動。
+
+14 個節點：
+1 Single Question：接收原問題。
+2 Local Graph - Full Concept Graph：取本機完整概念圖，41 節點／69 關係。
+3 準備概念檢索資料：概念與 property 各自形成文字文件。
+4 RAG Embeddings：原問題與文件向量化；qwen/qwen3-embedding-4b。
+5 檢索入口候選：向量餘弦相似度前 24 名，無字面命中保送。
+6 入口 Rerank：cohere/rerank-v3.5，對候選文字與原問題重新評分。
+7 建立查圖範圍：目前仍固定選 Rerank 前 4 名，商品／指標／property／其他概念混合取四個。
+8 Local Graph - 候選路徑查詢：依程式產生的規格從 Neo4j 找路徑。
+9 整理路徑檢索資料：把多條路徑合成候選子圖文字。
+10 路徑 Rerank：同一 Rerank 模型，評候選子圖／路徑組。
+11 選取相關子圖：每分組保留候選，近分縮圖，合併，再硬補未出現在圖裡的選中入口節點。
+12 Local Graph - Mapping Paths：依選中商品→指標衡量關係取映射與 SQL 定義。
+13 合併查詢子圖：合併概念與映射／SQL 證據。
+14 輸出子圖：輸出圖與檢索紀錄；目前沒有最終回答模型。
+
+四、確認過的程式行為與缺陷（仍未修正）
+
+程式：deliverables/single_turn_qa/rag_v1/graph_retrieval_v8/retrieval.cjs
+設定第 2 行：anchorCandidates=24、semanticAnchors=4、compactnessMargin=0.05。
+prepare 第 15 行；retrieveAnchors 第 28 行；buildSpecs 第 39 行；candidateBundles 第 70 行；selectSubgraph 第 117 行。
+
+A. 相關性過早被當成查圖角色
+前 4 名直接按商品、指標、property、concept 分類生成查圖規格，沒有獨立判斷候選是查詢對象、篩選條件、指定目標或僅相關背景。
+商品與指標混在一起時，指標可能成為路徑目標；沒有商品時，每個指標建立獨立反向組成與順向歸屬候選。
+property 目前是正向欄位值，沒有完整處理「不屬於／不包含」的運算子。
+
+B. 每分組必留一個
+第 11 節點依 groupId 分組，每組通常取最高分；若有差 0.05 以內、保留同樣商品與衡量綁定的嚴格子圖，可能改選較小候選。
+目前沒有判斷整個分組是否不相關並淘汰的步驟。因此前面誤建的分組會繼續留下候選。
+
+C. 硬補入口（第 133 行）
+for (const a of p.selectedAnchors) ... graph.nodes.push(n)
+所有選中入口中有 key 的商品、指標、concept，若不在已選路徑裡，仍會補回節點。
+只補節點，不補被淘汰的整條路徑或關係；property 候選沒有 key，不會依此規則補回。
+此行在第 11 節點，不是最後第 13、14 節點。
+後續應移除無條件補回；商品清單的合法獨立節點可由 identity 候選保留。
+
+D. 複數商品的路徑評分
+商品通常共用一個查詢範圍，分 AUM／收入生成候選；不是每商品各選一條最高分路徑。
+例如基金與 ETF 會組成「兩商品到最近可達指標」「兩商品到共同上層指標」等整組候選，Rerank 每組一個分數。
+共同終點候選有檢查覆蓋所有起點；最近一層 frontier 只依實際查到的路徑組成，未同樣保證每個指定商品都有有效路徑。
+可能出現某商品無路徑、卻在最後硬補成獨立節點，讓表面商品數看似完整。
+缺路徑不能以補裸節點冒充覆蓋成功。
+
+E. 去重已存在，不能誤報為完全沒去重
+mergePaths 在每個候選子圖內按節點 key、關係 id 去重，共用指標只保留一份。
+同一 groupId 內，節點與關係集合完全相同的候選依 signature 去重。
+不同商品到同指標的兩條關係不是重複，必須保留；不同停點候選也要保留供比較。
+最終合併再去重，但去重不能解決語意多取。
+
+五、既有測試結果與判讀邊界
+
+完整流程最後一次實測是 10/20 的固定 38 題：原 12 題＋舊 holdout 23 題＋使用者改寫 3 題。
+舊 holdout 第 8 題原問法有歧義，已排除，改採使用者修正問法。
+同一套最終子圖範圍標準：v7 歷史 32/38 → v8 5/38。
+v8 有 30 題多取、9 題漏取，可重疊；映射結構檢查 37/38，客戶／理專題仍多帶私銀組織。
+5/38 是概念節點／關係完整符合加映射結構的題數，不是模型理解能力，也不是任意問題準確率。
+未測最終回答品質、SQL 業務正確性或 Oracle 執行。
+完整 38 題第二輪執行 1m59.314s；單題 ETF→總 AUM 另成功 10.154s。
+
+主要檔案在 deliverables/single_turn_qa/rag_v1/graph_retrieval_v8/：
+live.results.json：n8n 原生測試輸出。
+test-plan.predeclared.json、frozen-inputs.json：測前凍結標準與指紋。
+evaluations.json：38 題逐題評估。
+純語意入口與本機圖譜重測.html：實測／預期圖與差異。
+saved-verification.json：10/20 已保存單題流程核對。
+workflow.saved.sanitized.json：實際保存匯出遮蔽副本。
+
+六、入口門檻離線試算（已完成，沒有修改流程）
+
+目錄：deliverables/single_turn_qa/rag_v1/graph_retrieval_v8/threshold_analysis/
+入口門檻評估.html、門檻取捨.png：可閱讀報告與曲線。
+entry-labels.proposed.json：助理暫定入口標註，尚未經使用者確認。
+required-entry-scores.json、analysis.json、threshold-sweep.csv：原分數與試算。
+analyze.py、report.py：重現腳本；verification.json：來源及計算核對。
+
+38 題全數看分數，33 題可提出最小必要入口，共 46 個。
+排除第 15、17、33 題的替代表示／入口角色歧義，及第 35、38 題的否定條件。
+這些入口標註是在看過舊結果後提出的分析標準，不是原測前最終子圖標準，也不是使用者核准的 gold。
+46 個必要入口全在 Embedding 前 24 名；不能據此保證新題召回率。
+
+策略                 入口 Precision   入口 Recall   平均候選數
+原固定前 4 名        28.0%             80.4%         4.00
+絕對門檻 >=0.20      20.7%             82.6%         5.58
+絕對門檻 >=0.42      38.5%             54.3%         1.97
+絕對門檻 >=0.50      42.1%             34.8%         1.15
+
+0.42 附近為本批絕對門檻 F1 最佳，仍刪掉 21/46 必要入口，不適合直接部署。
+在必要入口 Recall 至少 95% 的條件下，本批最佳 Precision 僅約 14%，平均留下 9.52 個候選。
+95% 是可討論的工程目標，不是公認標準或已批准驗收門檻。
+相對最高分比例與分型門檻也做探索；尚無獨立新題驗證，不能稱為有效修正。
+33 題有 15 題出現其他候選分數高於必要入口，單純下界門檻無法乾淨分開。
+例如「有哪些境外商品？」：property 市場地區＝海外 0.109639；單一銀行境外結構型商品 0.248325。
+Precision 衡量的是暫定最小入口角色，不代表其他候選在語意上完全不相關。
+改入口會改變路徑候選及其文字；不能重用舊路徑分數推算新全流程通過率。
+常用指標為 Precision、Recall、F1/F2、每題必要入口完整率，最終仍要重測子圖多取／漏取。
+
+七、最後釐清的詞組展開方案（尚未實作）
+
+使用者原文：「把銀行基金的 AUM 怎麼算拆成，銀行、基金、銀行基金、AUM、銀行基金AUM之類的」。
+使用者明確否定「拆成子問題」的理解。不要又轉回多子問題問答。
+也不只是模型內部 tokenization，或把長文件按固定字數切 chunk。
+較準確名稱為：切詞／重疊片語擷取＋查詢展開。
+
+討論中的流程：
+原句 → 擷取單詞／重疊片語 → 原句與詞組批次 Embedding → 分別向量檢索 → 按候選 ID 合併去重並保留詞組來源 → 原完整問題 Rerank → 選入口 → 查圖。
+完整片語作主要訊號、泛詞作補充是待驗證策略，尚未選定權重或合併算法。
+原句必須保留需求、商品配對、複合條件與否定語意，不能把「不屬於證券」只剩「證券」。
+詞組仍走語意檢索；沒有恢復字面命中保送或問題類型路由。
+若合併後候選集合仍與原先完全相同，且使用同樣的原句、候選文字做 Rerank，切詞本身不會自動修復入口角色混淆；需實測實際候選及後續結果。
+既有這 33 題的必要候選已全召回，因此不要把新增詞組的召回提升預先當成已證明。
+
+OpenRouter 查核結論：
+官方 Embedding API 沒有用一個參數自動擷取上述語意詞組的功能；它接受多筆文字，回傳每筆的向量。
+可以透過 OpenRouter 呼叫支援結構化輸出的文字 LLM，要求只回傳原句與詞組 JSON，再批次送 Embedding。
+也可以在 n8n 程式端做斷詞／片語組合；目前未安裝斷詞套件、未選模型，未建立新節點。
+全段可在雲端 n8n 完成，僅查圖回本機；不需要搬 OpenRouter 金鑰。
+Structured Outputs 保證／約束輸出結構的能力，不等於擷取語意已正確；需核對詞組有無誤加或漏否定。
+
+官方參考（本段討論曾查核）：
+https://openrouter.ai/docs/cookbook/evaluate-and-optimize/rag
+https://openrouter.ai/docs/api/api-reference/embeddings/submit-an-embedding-request
+https://openrouter.ai/docs/guides/features/structured-outputs
+https://docs.cohere.com/docs/reranking-best-practices
+https://scikit-learn.org/stable/auto_examples/model_selection/plot_precision_recall.html
+https://scikit-learn.org/stable/modules/classification_threshold.html
+
+八、其他提案與建議接續順序
+
+曾提出精簡候選文字、明確列類型／名稱／定義／分類，Rerank 後增加小型 LLM 選擇查詢對象、篩選條件與指定目標；這些尚未實作，也未選模型。
+不應把普通 Rerank 當作保證遵循提示的生成式模型；修改候選或 query 的表示只能先當對照實驗。
+
+如果使用者下一步要求實作，建議：
+1. 先讀最新雲端匯出並保留備份，確認 Docker／本機橋接／通道狀態。
+2. 將第 11 節點硬補、每組必留及多商品路徑覆蓋問題列成獨立修正與測試，避免一次改多項卻無法歸因。
+3. 以同一 Embedding、Rerank 模型做整句 vs 原句＋詞組的對照；記錄產生詞組、每詞組候選與合併來源。
+4. 使用相同 38 題及原凍結最終子圖標準，另區分暫定入口標註的分數；最後再用未看過的新題驗證。
+5. 覆蓋單商品、雙商品、純指標完整組成、property 複合條件、否定、角色，以及合法獨立商品節點。
+6. 完成端到端實際呼叫與子圖核對後，再報改善。不要以入口排序改善替代最終圖改善。
+不得把曾經入選的候選無條件補回，或因刪掉商品路徑而靜默把題目縮成另一個問題。
+
+九、本機圖譜與秘密處理
+
+10/20 還原：pb-graphrag-neo4j 獨立容器，1,618 節點／4,649 關係；原 neo4j-community 未改動。
+概念來自 10/18 快照 41／69，映射與 SQL 定義來自 10/14 完整備份，內容指紋相符。
+HTTP 127.0.0.1:17474；Bolt 127.0.0.1:17687；橋接 127.0.0.1:18780；資料卷 pb_graphrag_data。
+橋接只接受 full_concept_graph、candidate_paths、mapping_paths 三種固定唯讀操作與參數，拒絕任意 Cypher。
+曾修並發連線拒絕：等待佇列 128、最多 4 個同時資料庫查詢，38 個並發通道請求測試通過。
+重啟：先開 Docker Desktop，再於本工作區執行 powershell -File local_graph/start.ps1。
+暫時通道可能已過期；新網址會產生新的私密單題匯入檔，必須同步更新雲端 n8n，不能沿用已失效網址。
+本檔不記錄實際通道網址、權杖或資料庫密碼。本次未啟動或重啟服務，未設任何排程。
+
+.local_runtime/graph/connection.json、bridge-token.txt、tunnel.json、workflow.bridge-single.json、workflow.saved.live.json 含私密設定，勿貼對話、公開報告或提交。
+OpenRouter 憑證留雲端 n8n；橋接專用權杖是既有明確授權，不必無故重新索取同一授權。
+公開 workflow.saved.sanitized.json、workflow.bridge-single.json／tests.json 是遮蔽／待填模板。
+v8 workflow.updated.json／workflow.graph-tests.json 是凍結改動來源，仍含 Aura 位址，不能直接覆蓋目前本機橋接部署。
+
+十、其他工作分開保留
+
+docs/handoffs/20261026_Semantica與GPT61本體生成比較交接.md 是另一個本體生成實驗，已保留於 README；本次不修改其結果或正式 ontology。
+舊多輪前置 LLM v12、另一條單輪 RAG、GraphRAG v7 歷史資料均不被本次討論取代。
+本輪交付僅為新交接文件與導航更新；沒有更動執行流程、圖譜、凍結測試標準或既有測試結論。

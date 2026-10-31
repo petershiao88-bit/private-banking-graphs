@@ -1,0 +1,248 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/definition/stylingConfiguration/1.0.0/schema.json",
+  "modelLayout": {
+    "positions": {
+      "AnnotationProperty_node": {
+        "x": 0,
+        "y": 0
+      },
+      "BusinessConcept_node": {
+        "x": 320,
+        "y": 0
+      },
+      "BusinessRelationDefinition_node": {
+        "x": 640,
+        "y": 0
+      },
+      "DataFieldDefinition_node": {
+        "x": 960,
+        "y": 0
+      },
+      "DataProperty_node": {
+        "x": 0,
+        "y": 220
+      },
+      "Department_node": {
+        "x": 320,
+        "y": 220
+      },
+      "MappingSlot_node": {
+        "x": 640,
+        "y": 220
+      },
+      "MetadataModule_node": {
+        "x": 960,
+        "y": 220
+      },
+      "Metric_node": {
+        "x": 0,
+        "y": 440
+      },
+      "ObjectProperty_node": {
+        "x": 320,
+        "y": 440
+      },
+      "OntologyClass_node": {
+        "x": 640,
+        "y": 440
+      },
+      "PendingSemanticReference_node": {
+        "x": 960,
+        "y": 440
+      },
+      "SourceTable_node": {
+        "x": 0,
+        "y": 660
+      }
+    },
+    "styles": {},
+    "pan": {
+      "x": 0,
+      "y": 0
+    },
+    "zoomLevel": 0.8
+  },
+  "visualFormat": {
+    "AnnotationProperty_node": {
+      "defaultDisplayProperty": "display_name",
+      "color": "#64748B"
+    },
+    "BusinessConcept_node": {
+      "defaultDisplayProperty": "display_name",
+      "color": "#64748B"
+    },
+    "BusinessRelationDefinition_node": {
+      "defaultDisplayProperty": "display_name",
+      "color": "#64748B"
+    },
+    "DataFieldDefinition_node": {
+      "defaultDisplayProperty": "display_name",
+      "color": "#64748B"
+    },
+    "DataProperty_node": {
+      "defaultDisplayProperty": "display_name",
+      "color": "#64748B"
+    },
+    "Department_node": {
+      "defaultDisplayProperty": "display_name",
+      "color": "#B45309"
+    },
+    "MappingSlot_node": {
+      "defaultDisplayProperty": "display_name",
+      "color": "#64748B"
+    },
+    "MetadataModule_node": {
+      "defaultDisplayProperty": "display_name",
+      "color": "#64748B"
+    },
+    "Metric_node": {
+      "defaultDisplayProperty": "display_name",
+      "color": "#2563EB"
+    },
+    "ObjectProperty_node": {
+      "defaultDisplayProperty": "display_name",
+      "color": "#64748B"
+    },
+    "OntologyClass_node": {
+      "defaultDisplayProperty": "display_name",
+      "color": "#7C3AED"
+    },
+    "PendingSemanticReference_node": {
+      "defaultDisplayProperty": "display_name",
+      "color": "#64748B"
+    },
+    "SourceTable_node": {
+      "defaultDisplayProperty": "display_name",
+      "color": "#059669"
+    },
+    "CANDIDATE_SOURCE_DataFieldDefinitio_08692abc0283": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "FIELD_IDENTIFIES_CLASS_DataFieldDef_1bec28b1b8fe": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "FIELD_REFERS_TO_PROPERTY_DataFieldD_cbcc62c0abaf": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "HAS_BUSINESS_SCOPE_Metric_OntologyClass_edge": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "HAS_COMPONENT_METRIC_Metric_Metric_edge": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "HAS_CONCEPT_MetadataModule_BusinessConcept_edge": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "HAS_CONCEPT_MetadataModule_Department_edge": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "HAS_CONCEPT_MetadataModule_Metric_edge": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "HAS_DOMAIN_CLASS_ObjectProperty_Ont_325cfdb0536d": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "HAS_DOMAIN_REFERENCE_DataProperty_O_da417160c27e": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "HAS_FIELD_DEFINITION_BusinessConcep_16dd428b7d6e": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "HAS_FIELD_DEFINITION_Metric_DataFie_39970cf11e82": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "HAS_MAPPING_BusinessConcept_MappingSlot_edge": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "HAS_PARENT_CLASS_REFERENCE_Ontology_230ef5aec539": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "HAS_PENDING_REFERENCE_BusinessConce_4d5af922a019": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "HAS_RANGE_CLASS_ObjectProperty_Onto_847cf68ac6f8": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "HAS_RELATION_DEFINITION_BusinessCon_725d17b1e977": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "HAS_RELATION_DEFINITION_Department__cd2968c872f0": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "HAS_RELATION_DEFINITION_Metric_Busi_05b4c2facf1a": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "HAS_RELATION_FIELD_BusinessRelation_1c91a731c326": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "HAS_SOURCE_TABLE_Metric_SourceTable_edge": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "HAS_TARGET_CLASS_BusinessRelationDe_d38500ef29c8": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "RDF_DECLARED_attributedToAdvisor_On_974a1f2b03a9": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "RDF_DECLARED_feeIncomeFromProduct_O_bd5665848788": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "RDF_DECLARED_hasContactPoint_Ontolo_dab01f430757": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "RDF_DECLARED_holds_OntologyClass_On_bcd0488503c1": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "RDF_DECLARED_interestIncomeFromProd_dd7494c892aa": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "RDF_DECLARED_lumMeasuresProduct_Ont_6d41e8d65da6": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "RDF_DECLARED_measuresProduct_Ontolo_68bee84bc050": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "RDF_DECLARED_serves_OntologyClass_O_ffb280d5df48": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "RDF_DECLARED_usesMetric_OntologyCla_054ad381a927": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "RDF_DOMAIN_DataProperty_OntologyClass_edge": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "RDF_DOMAIN_ObjectProperty_OntologyClass_edge": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "RDF_RANGE_ObjectProperty_OntologyClass_edge": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "RDF_SUBCLASS_OF_OntologyClass_OntologyClass_edge": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "REFERS_TO_CLASS_BusinessConcept_Ont_bdeb2d2cecbf": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "REFERS_TO_CLASS_Department_OntologyClass_edge": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "REFERS_TO_CLASS_Metric_OntologyClass_edge": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "REFERS_TO_OBJECT_PROPERTY_BusinessR_88678226184c": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "REFERS_TO_PROPERTY_MappingSlot_DataProperty_edge": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "USES_DATE_LOOKUP_SOURCE_Metric_SourceTable_edge": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "USES_METRIC_Department_Metric_edge": {
+      "defaultDisplayProperty": "display_name"
+    },
+    "USES_VALUATION_SOURCE_Metric_SourceTable_edge": {
+      "defaultDisplayProperty": "display_name"
+    }
+  }
+}

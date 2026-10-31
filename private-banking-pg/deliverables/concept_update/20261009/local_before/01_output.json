@@ -1,0 +1,724 @@
+{
+  "products": [
+    {
+      "productCode": "bank_bond_proprietary",
+      "productName": "海外債券（自營）",
+      "definition": "銀行自營通路的海外債券業務，涵蓋客戶持有資產與相關收入；兩側業務對應仍屬推論。",
+      "status": "inferred",
+      "aumStatus": "inferred",
+      "incomeStatus": "inferred",
+      "aumMetrics": [
+        {
+          "name": "月底銀行投資AUM",
+          "definition": "月底衡量的銀行通路投資資產。",
+          "metricCode": "aum_bank_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底投資AUM",
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "metricCode": "aum_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "metricCode": "aum_total_month_end",
+          "status": "draft"
+        }
+      ],
+      "incomeMetrics": [
+        {
+          "name": "銀行手續費類收入",
+          "definition": "銀行通路歸入手續費類的收入。",
+          "metricCode": "bank_fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "手續費類收入",
+          "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+          "metricCode": "fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "每客戶每月總收入",
+          "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+          "metricCode": "income_total_customer_month",
+          "status": "pending_confirmation"
+        }
+      ]
+    },
+    {
+      "productCode": "bank_bond_trust",
+      "productName": "海外債券（信託）",
+      "definition": "以信託方式持有的海外債券業務，涵蓋客戶持有市值與相關信託收入。",
+      "status": "inferred",
+      "aumStatus": "inferred",
+      "incomeStatus": "inferred",
+      "aumMetrics": [
+        {
+          "name": "月底銀行投資AUM",
+          "definition": "月底衡量的銀行通路投資資產。",
+          "metricCode": "aum_bank_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底投資AUM",
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "metricCode": "aum_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "metricCode": "aum_total_month_end",
+          "status": "draft"
+        }
+      ],
+      "incomeMetrics": [
+        {
+          "name": "銀行手續費類收入",
+          "definition": "銀行通路歸入手續費類的收入。",
+          "metricCode": "bank_fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "手續費類收入",
+          "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+          "metricCode": "fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "每客戶每月總收入",
+          "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+          "metricCode": "income_total_customer_month",
+          "status": "pending_confirmation"
+        }
+      ]
+    },
+    {
+      "productCode": "bank_collective_account",
+      "productName": "集合管理帳戶",
+      "definition": "集合管理帳戶業務。AUM衡量客戶持有資產；Income的獨立業務定義待確認，不代表已確認計入獨立收入。",
+      "status": "pending_confirmation",
+      "aumStatus": "inferred",
+      "incomeStatus": "pending_confirmation",
+      "aumMetrics": [
+        {
+          "name": "月底銀行投資AUM",
+          "definition": "月底衡量的銀行通路投資資產。",
+          "metricCode": "aum_bank_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底投資AUM",
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "metricCode": "aum_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "metricCode": "aum_total_month_end",
+          "status": "draft"
+        }
+      ],
+      "incomeMetrics": [
+        {
+          "name": "銀行手續費類收入",
+          "definition": "銀行通路歸入手續費類的收入。",
+          "metricCode": "bank_fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "手續費類收入",
+          "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+          "metricCode": "fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "每客戶每月總收入",
+          "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+          "metricCode": "income_total_customer_month",
+          "status": "pending_confirmation"
+        }
+      ]
+    },
+    {
+      "productCode": "bank_etf",
+      "productName": "銀行ETF",
+      "definition": "銀行通路的指數股票型基金業務，涵蓋客戶持有資產與相關收入。",
+      "status": "inferred",
+      "aumStatus": "inferred",
+      "incomeStatus": "inferred",
+      "aumMetrics": [
+        {
+          "name": "月底銀行投資AUM",
+          "definition": "月底衡量的銀行通路投資資產。",
+          "metricCode": "aum_bank_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底投資AUM",
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "metricCode": "aum_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "metricCode": "aum_total_month_end",
+          "status": "draft"
+        }
+      ],
+      "incomeMetrics": [
+        {
+          "name": "銀行手續費類收入",
+          "definition": "銀行通路歸入手續費類的收入。",
+          "metricCode": "bank_fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "手續費類收入",
+          "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+          "metricCode": "fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "每客戶每月總收入",
+          "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+          "metricCode": "income_total_customer_month",
+          "status": "pending_confirmation"
+        }
+      ]
+    },
+    {
+      "productCode": "bank_fund",
+      "productName": "銀行基金",
+      "definition": "銀行通路的基金業務，涵蓋客戶持有資產與相關收入。",
+      "status": "inferred",
+      "aumStatus": "inferred",
+      "incomeStatus": "inferred",
+      "aumMetrics": [
+        {
+          "name": "月底銀行投資AUM",
+          "definition": "月底衡量的銀行通路投資資產。",
+          "metricCode": "aum_bank_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底投資AUM",
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "metricCode": "aum_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "metricCode": "aum_total_month_end",
+          "status": "draft"
+        }
+      ],
+      "incomeMetrics": [
+        {
+          "name": "銀行手續費類收入",
+          "definition": "銀行通路歸入手續費類的收入。",
+          "metricCode": "bank_fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "手續費類收入",
+          "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+          "metricCode": "fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "每客戶每月總收入",
+          "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+          "metricCode": "income_total_customer_month",
+          "status": "pending_confirmation"
+        }
+      ]
+    },
+    {
+      "productCode": "bank_insurance",
+      "productName": "銀行保險",
+      "definition": "銀行通路保險業務。AUM衡量原始投資金額；Income衡量相關收入，收入是否重複計入仍待確認。",
+      "status": "overlap_unresolved",
+      "aumStatus": "inferred",
+      "incomeStatus": "overlap_unresolved",
+      "aumMetrics": [
+        {
+          "name": "月底保險AUM",
+          "definition": "月底衡量的銀行保險原始投資金額。",
+          "metricCode": "aum_insurance_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底銀行投資AUM",
+          "definition": "月底衡量的銀行通路投資資產。",
+          "metricCode": "aum_bank_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底投資AUM",
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "metricCode": "aum_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "metricCode": "aum_total_month_end",
+          "status": "draft"
+        }
+      ],
+      "incomeMetrics": [
+        {
+          "name": "銀行手續費類收入",
+          "definition": "銀行通路歸入手續費類的收入。",
+          "metricCode": "bank_fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "手續費類收入",
+          "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+          "metricCode": "fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "每客戶每月總收入",
+          "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+          "metricCode": "income_total_customer_month",
+          "status": "pending_confirmation"
+        }
+      ]
+    },
+    {
+      "productCode": "bank_overseas_stock",
+      "productName": "銀行海外股票",
+      "definition": "銀行通路的海外股票業務，涵蓋客戶持有資產與相關收入。",
+      "status": "inferred",
+      "aumStatus": "inferred",
+      "incomeStatus": "inferred",
+      "aumMetrics": [
+        {
+          "name": "月底銀行投資AUM",
+          "definition": "月底衡量的銀行通路投資資產。",
+          "metricCode": "aum_bank_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底投資AUM",
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "metricCode": "aum_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "metricCode": "aum_total_month_end",
+          "status": "draft"
+        }
+      ],
+      "incomeMetrics": [
+        {
+          "name": "銀行手續費類收入",
+          "definition": "銀行通路歸入手續費類的收入。",
+          "metricCode": "bank_fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "手續費類收入",
+          "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+          "metricCode": "fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "每客戶每月總收入",
+          "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+          "metricCode": "income_total_customer_month",
+          "status": "pending_confirmation"
+        }
+      ]
+    },
+    {
+      "productCode": "bank_planned_trust",
+      "productName": "規劃型信託",
+      "definition": "規劃型信託業務，涵蓋受託管理資產及相關管理、成立與借券收入。",
+      "status": "inferred",
+      "aumStatus": "inferred",
+      "incomeStatus": "inferred",
+      "aumMetrics": [
+        {
+          "name": "月底銀行投資AUM",
+          "definition": "月底衡量的銀行通路投資資產。",
+          "metricCode": "aum_bank_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底投資AUM",
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "metricCode": "aum_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "metricCode": "aum_total_month_end",
+          "status": "draft"
+        }
+      ],
+      "incomeMetrics": [
+        {
+          "name": "銀行手續費類收入",
+          "definition": "銀行通路歸入手續費類的收入。",
+          "metricCode": "bank_fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "手續費類收入",
+          "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+          "metricCode": "fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "每客戶每月總收入",
+          "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+          "metricCode": "income_total_customer_month",
+          "status": "pending_confirmation"
+        }
+      ]
+    },
+    {
+      "productCode": "bank_structured_offshore",
+      "productName": "銀行境外結構型商品",
+      "definition": "銀行通路的境外結構型商品業務，涵蓋客戶持有資產與相關收入。",
+      "status": "inferred",
+      "aumStatus": "inferred",
+      "incomeStatus": "inferred",
+      "aumMetrics": [
+        {
+          "name": "月底銀行投資AUM",
+          "definition": "月底衡量的銀行通路投資資產。",
+          "metricCode": "aum_bank_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底投資AUM",
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "metricCode": "aum_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "metricCode": "aum_total_month_end",
+          "status": "draft"
+        }
+      ],
+      "incomeMetrics": [
+        {
+          "name": "銀行手續費類收入",
+          "definition": "銀行通路歸入手續費類的收入。",
+          "metricCode": "bank_fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "手續費類收入",
+          "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+          "metricCode": "fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "每客戶每月總收入",
+          "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+          "metricCode": "income_total_customer_month",
+          "status": "pending_confirmation"
+        }
+      ]
+    },
+    {
+      "productCode": "bank_trust_custody",
+      "productName": "信託保管",
+      "definition": "信託保管業務，涵蓋保管資產與保管費收入。",
+      "status": "inferred",
+      "aumStatus": "inferred",
+      "incomeStatus": "inferred",
+      "aumMetrics": [
+        {
+          "name": "月底銀行投資AUM",
+          "definition": "月底衡量的銀行通路投資資產。",
+          "metricCode": "aum_bank_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底投資AUM",
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "metricCode": "aum_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "metricCode": "aum_total_month_end",
+          "status": "draft"
+        }
+      ],
+      "incomeMetrics": [
+        {
+          "name": "銀行手續費類收入",
+          "definition": "銀行通路歸入手續費類的收入。",
+          "metricCode": "bank_fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "手續費類收入",
+          "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+          "metricCode": "fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "每客戶每月總收入",
+          "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+          "metricCode": "income_total_customer_month",
+          "status": "pending_confirmation"
+        }
+      ]
+    },
+    {
+      "productCode": "deposit",
+      "productName": "存款",
+      "definition": "客戶在銀行持有的存款。AUM衡量存款餘額；Income衡量存款整體利息收入，不將總利收重複分配至各子類。",
+      "status": "aggregate_scope",
+      "aumStatus": "inferred",
+      "incomeStatus": "inferred",
+      "aumMetrics": [
+        {
+          "name": "月底存款AUM",
+          "definition": "月底衡量的銀行存款餘額。",
+          "metricCode": "aum_deposit_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "metricCode": "aum_total_month_end",
+          "status": "draft"
+        }
+      ],
+      "incomeMetrics": [
+        {
+          "name": "存款利收",
+          "definition": "存款業務整體的利息收入。",
+          "metricCode": "deposit_interest_income",
+          "status": "inferred"
+        },
+        {
+          "name": "利息收入",
+          "definition": "存款與放款業務的利息收入。",
+          "metricCode": "interest_income",
+          "status": "inferred"
+        },
+        {
+          "name": "每客戶每月總收入",
+          "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+          "metricCode": "income_total_customer_month",
+          "status": "pending_confirmation"
+        }
+      ]
+    },
+    {
+      "productCode": "securities_bond",
+      "productName": "證券複委託債券",
+      "definition": "證券通路的複委託債券業務，涵蓋部位估值與交易手續費收入。",
+      "status": "inferred",
+      "aumStatus": "inferred",
+      "incomeStatus": "inferred",
+      "aumMetrics": [
+        {
+          "name": "月底證券AUM",
+          "definition": "月底衡量的證券通路投資資產。",
+          "metricCode": "aum_securities_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底投資AUM",
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "metricCode": "aum_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "metricCode": "aum_total_month_end",
+          "status": "draft"
+        }
+      ],
+      "incomeMetrics": [
+        {
+          "name": "證券手續費類收入",
+          "definition": "證券通路歸入手續費類的收入。",
+          "metricCode": "securities_fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "手續費類收入",
+          "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+          "metricCode": "fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "每客戶每月總收入",
+          "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+          "metricCode": "income_total_customer_month",
+          "status": "pending_confirmation"
+        }
+      ]
+    },
+    {
+      "productCode": "securities_foreign_stock",
+      "productName": "證券複委託外國股票",
+      "definition": "證券通路的複委託外國股票業務，涵蓋客戶持有資產與淨手續費收入；淨收入可能為負值。",
+      "status": "inferred",
+      "aumStatus": "inferred",
+      "incomeStatus": "inferred",
+      "aumMetrics": [
+        {
+          "name": "月底證券AUM",
+          "definition": "月底衡量的證券通路投資資產。",
+          "metricCode": "aum_securities_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底投資AUM",
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "metricCode": "aum_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "metricCode": "aum_total_month_end",
+          "status": "draft"
+        }
+      ],
+      "incomeMetrics": [
+        {
+          "name": "證券手續費類收入",
+          "definition": "證券通路歸入手續費類的收入。",
+          "metricCode": "securities_fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "手續費類收入",
+          "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+          "metricCode": "fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "每客戶每月總收入",
+          "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+          "metricCode": "income_total_customer_month",
+          "status": "pending_confirmation"
+        }
+      ]
+    },
+    {
+      "productCode": "securities_fund",
+      "productName": "證券複委託基金",
+      "definition": "證券通路的複委託基金業務，涵蓋客戶持有資產與交易費收入。",
+      "status": "inferred",
+      "aumStatus": "inferred",
+      "incomeStatus": "inferred",
+      "aumMetrics": [
+        {
+          "name": "月底證券AUM",
+          "definition": "月底衡量的證券通路投資資產。",
+          "metricCode": "aum_securities_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底投資AUM",
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "metricCode": "aum_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "metricCode": "aum_total_month_end",
+          "status": "draft"
+        }
+      ],
+      "incomeMetrics": [
+        {
+          "name": "證券手續費類收入",
+          "definition": "證券通路歸入手續費類的收入。",
+          "metricCode": "securities_fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "手續費類收入",
+          "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+          "metricCode": "fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "每客戶每月總收入",
+          "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+          "metricCode": "income_total_customer_month",
+          "status": "pending_confirmation"
+        }
+      ]
+    },
+    {
+      "productCode": "securities_structured",
+      "productName": "證券複委託結構型商品",
+      "definition": "證券通路的複委託結構型商品業務，涵蓋客戶持有資產與相关收入。",
+      "status": "inferred",
+      "aumStatus": "inferred",
+      "incomeStatus": "inferred",
+      "aumMetrics": [
+        {
+          "name": "月底證券AUM",
+          "definition": "月底衡量的證券通路投資資產。",
+          "metricCode": "aum_securities_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底投資AUM",
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "metricCode": "aum_investment_month_end",
+          "status": "inferred"
+        },
+        {
+          "name": "月底總AUM",
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "metricCode": "aum_total_month_end",
+          "status": "draft"
+        }
+      ],
+      "incomeMetrics": [
+        {
+          "name": "證券手續費類收入",
+          "definition": "證券通路歸入手續費類的收入。",
+          "metricCode": "securities_fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "手續費類收入",
+          "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+          "metricCode": "fee_income",
+          "status": "inferred"
+        },
+        {
+          "name": "每客戶每月總收入",
+          "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+          "metricCode": "income_total_customer_month",
+          "status": "pending_confirmation"
+        }
+      ]
+    }
+  ]
+}

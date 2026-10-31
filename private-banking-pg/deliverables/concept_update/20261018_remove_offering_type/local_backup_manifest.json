@@ -1,0 +1,18 @@
+[
+  "ontology/independent_concepts/business_dictionary.json",
+  "ontology/independent_concepts/concept_graph.json",
+  "ontology/independent_concepts/concept_model.py",
+  "ontology/independent_concepts/build_concepts.py",
+  "ontology/independent_concepts/import_concepts.py",
+  "ontology/independent_concepts/01_list_concepts.cypher",
+  "ontology/independent_concepts/full_concept_graph_with_customer.cypher",
+  "ontology/independent_concepts/01_request.json",
+  "ontology/independent_concepts/n8n_01_prepare.js",
+  "ontology/independent_concepts/n8n_01_project_output.js",
+  "ontology/independent_concepts/test_business_model.py",
+  "ontology/independent_concepts/test_business_templates.cjs",
+  "ontology/n8n_kb/full_graph_prepare_concepts.js",
+  "ontology/n8n_kb/lookup_full_concept_graph.cypher",
+  "ontology/n8n_kb/single_jev_result.js",
+  "ontology/n8n_kb/PB_AUM_Income_KB.single_jev.ready.json"
+]

@@ -1,0 +1,102 @@
+私銀智能問答：新 session Resume
+更新日期：2026-10-15，Asia/Taipei
+
+目前已完成
+使用者要求先修改第二個 Aura - Mapping Paths 前面的部分，再更新 Resume，準備另開 session。
+本輪已保存前段兩個節點，未發布流程；第二個 Aura 及後段參數、接線、憑證引用、webhookId 與原有固定資料均已匯出核對。
+
+目標流程
+名稱：智能問答－圖譜理解與對話測試
+網址：https://chiang4901.app.n8n.cloud/workflow/pqvhkncZ9bFlfe4B
+workflowId：pqvhkncZ9bFlfe4B
+最新保存版本：953a5e28-13e3-4888-8d76-fa9dce58000f
+狀態：26 節點、active=false，未發布。
+工作目錄：C:\Users\petershiao\Desktop\Ontology\私銀智能問答
+最新權威匯出：deliverables/graph_qa/v5/workflow.saved.json
+修改前備份：deliverables/graph_qa/v5/workflow.before.json
+保存核對：deliverables/graph_qa/v5/saved_validation.json
+
+本輪實際修改
+1. Process Jev Decision
+   - 不再沿 PB_SUBCATEGORY_OF 自動加入父產品分類。
+   - 保留選中的完整 AUM／Income 衡量路徑。
+   - 客戶／AO／私銀原有的有向上下文擴充未取消。
+   - 若父、子產品本來都已被選中，仍保留兩者之間的分類關係，讓後段可辨識範圍重疊。
+   - 概念題明確選中的父、子分類與關係仍保留。
+   - selectionAudit 新增 contextExpansionPolicy、classificationPolicy，說明保留策略。
+   - selectedPaths 的既有結構維持相容，第二個 Aura 繼續使用它。
+2. Prepare Jev Request
+   - 說明父產品分類不會自動補入；分類問題須直接選出本輪需要的父／子概念。
+   - 原生測試發現 Jev 會自行同時選父產品與子產品，因此另補明確規則：只問子分類時，排除較廣的父產品路徑；若本輪明確問父產品整體或父子比較，則可選父產品。
+   - 全部 41 個概念、69 條關係、39 條候選路徑及 83 個判斷問題仍保留，沒有產品預篩或硬編碼移除父路徑。
+
+驗證結果
+本機驗證：deliverables/graph_qa/v5/validation.json，6 項通過。
+使用真實保存的 Aura 概念圖／映射加合成 Jev 決策，不能當作原生模型測試。
+涵蓋：外幣存款不補父項、父子同選仍有重疊證據、分類直接選取、AO 上下文、基金收入選路相容、非回答分支不洩出計算選取，以及僅兩節點變更。
+
+原生實測：
+- 執行 2574（第一次）：2026-10-15 11:27:40，技術執行成功 35.491 秒，但 Jev 同選 deposit 與 deposit_foreign，範圍品質未通過；這是補強提示詞之前的診斷紀錄，不算最終通過案例。
+  https://chiang4901.app.n8n.cloud/workflow/pqvhkncZ9bFlfe4B/executions/2574
+- 執行 2577（補強後）：2026-10-15 11:30:36，成功 34.633 秒。
+  問題：外幣存款的 AUM 怎麼計算？
+  只選 deposit_foreign 的 AUM 路徑：deposit_foreign → aum_deposit → aum_total。
+  子圖 6 節點、7 關係；沒有存款產品節點 deposit；客戶、AO、私銀仍是上下文。
+  路徑 key：concept::20fb16fd7d774d7b。
+  https://chiang4901.app.n8n.cloud/workflow/pqvhkncZ9bFlfe4B/executions/2577
+- 執行 2578（同一對話追問）：2026-10-15 11:32:05，成功 10.046 秒。
+  問題：那存款的其他類別有哪些？
+  Prepare Dialogue 確認帶入前一輪外幣存款問答，previousTopic.products 為 deposit_foreign。
+  handling=concept，重新取得完整圖並選出需要的分類，回答台幣／外幣／結構型存款。
+  selectedPaths=[]，未進入第二個 Aura mapping 查詢。
+  實際概念證據仍包含 3 條 AUM 概念路徑；總計 9 節點、13 關係，不能聲稱這次只保留 4 個分類節點。
+  https://chiang4901.app.n8n.cloud/workflow/pqvhkncZ9bFlfe4B/executions/2578
+- 同一對話 sessionId：80ae40c2c852410cb2432961568a6d06。
+- 以上秒數以保存執行紀錄為準；聊天面板另顯示 37.892／12.131 秒，範圍包含額外前端耗時。
+- 未執行實際金額 SQL；完整答案品質不代表所有日期／版本／來源業務規則已核定。
+
+本輪未修改的部分與後續議題
+- 第二個 Aura - Mapping Paths 與所有後段節點未修改。
+- 是否改成用處理後概念子圖查 mapping，或繼續用 selectedPaths，尚未定案。
+- request.customerId、request.asOfDate 的抽取與傳遞尚未實作。
+- customerKey、customerBinding、日期／金額欄位及 combinationPlan 是討論過的建議格式，尚未實作。
+- Prepare Calculation Evidence 本來就會整合概念圖、產品映射、SQL 血緣、規則與維度證據，再去重分包；不預設必須新增組圖節點。
+- 真實客戶金額查詢目前仍屬 unsupported，系統只解說概念與計算邏輯；新增參數欄位並不等於已接好實際查詢。
+- 是否進一步精簡概念題內的 AUM 路徑／角色上下文，尚未決定，不要順手刪除。
+
+使用者已接受的設計前提
+- 輸入的客戶 ID、各產品來源的客戶識別欄位與轉換後 CUST_ID，先假設是同一套 ID；先不加客戶識別碼對照表。
+- 這是後續設計前提，原圖與既有 mapping 的 identityJoinStatus 註記未在本輪修改。
+- 第一輪每次都取得完整概念圖，所以分類追問不需要依賴前一輪自動補入父分類。
+- 取消的是自動擴充步驟，不是刪除 Aura 原始圖中的產品分類關係。
+- 預設以業務語言回答；只有使用者明確要技術細節時才列 SQL／欄位。
+
+第二個 Aura 現行行為
+- 接收 Process 的 selectedPaths，使用 productCode、domain 查已存在的映射；規則分支另使用第一個 metricCode。
+- 用 SharedProduct.code／MappingDraftProduct.code 連接概念與映射層，不是把整張 conceptGraph 當成 Cypher。
+- 原 SQL 映射：產品 → 計算階段 → SQL 結果表，往上回溯有效主要 SQL 血緣，最多 16 層。
+- 規則映射：base_source 實作關係、calculationRules／queryRules、依賴底表與客戶／AO／私銀維度證據。
+- 查的是中繼資料，沒有傳入個別客戶 ID 或估值日，也不執行持倉金額查詢。
+
+新 session 必須注意
+1. 先讀本 Resume、v5/更新紀錄.txt 與 v5/workflow.saved.json；修改前重新匯出線上最新版本比較。
+2. v4/workflow.proposed.json、v4/process_decision.js 含先前未上線提案，不是最新線上基準，不能直接覆蓋 v5。
+3. 先前未上線的待辦仍保留：必要澄清的更明確提示與不一致防護、跨包回答整合的來源重組。v5 未把這些修正偷偷一起部署。
+4. Graph Chat 原本固定的基金問題已在測試後完整還原。其 sessionId 為 4753afde49b44d0899cb8b9d103b9862。實測新問題前要暫時 unpin，否則可能讀到舊基金問題；測試後依備份還原。
+5. 此次新問題使用 Reset 建立獨立測試 session，沒有沿用固定資料的 session。
+6. 不發布、不修改已發布共用 KB（tL7HTesvAzqwsqv6）、Aura 原圖、來源 SQL 或其他舊原型流程。
+7. Browser 操作優先用 cua_repl 的 Chrome。不要直接取網頁私有狀態或從瀏覽器挖 API credential。
+8. 編輯器若因巨量資料面板卡住，重新載入已保存頁面；不要在未核對輸出時宣稱完成。執行紀錄 Overview 不提供節點資料，需切到 Details。
+
+交接證據檔
+- deliverables/graph_qa/v5/workflow.before.json、workflow.saved.json、workflow.proposed.json
+- deliverables/graph_qa/v5/Prepare_Jev_Request.js、Process_Jev_Decision.js
+- deliverables/graph_qa/v5/build_update.py、test_selection.cjs、verify_saved.py
+- deliverables/graph_qa/v5/validation.json、saved_validation.json、live_audit.json
+- deliverables/graph_qa/v5/execution_2577.process.visible.txt、execution_2577.visible.txt、execution_2577.png
+- deliverables/graph_qa/v5/categories_followup.process.visible.txt、categories_followup.dialogue.visible.txt、categories_followup.execution.visible.txt
+- deliverables/graph_qa/v5/foreign_deposit.initial.process.visible.txt：第一次原生範圍未通過紀錄
+- deliverables/graph_qa/v4/comparison_20261015/後續修改討論紀錄.txt：討論脈絡，最新部署狀態以本 Resume 與 v5 為準。
+
+建議新 session 開場
+請先讀 docs/handoffs/RESUME.txt，從最新 v5 保存狀態接續。我們已完成第二個 Aura 前面的父分類擴充與 Jev 選路範圍修正；接下來討論客戶／日期條件，以及第二輪 mapping 與子圖輸出格式。

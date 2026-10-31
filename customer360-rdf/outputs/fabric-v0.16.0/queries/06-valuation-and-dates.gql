@@ -1,0 +1,5 @@
+MATCH (m:Metric)-[r]->(s:SourceTable)
+FILTER m.subsidiary = 'securities' AND
+       (r.kind = 'USES_VALUATION_SOURCE' OR r.kind = 'USES_DATE_LOOKUP_SOURCE')
+RETURN m, r, s
+LIMIT 100

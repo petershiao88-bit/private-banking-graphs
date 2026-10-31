@@ -1,0 +1,307 @@
+/*
+Author : 1121329
+create date :20250610
+memo : 
+     彙總收入收入儀表盤
+*/
+
+drop table INCOME_TMP01;
+Create table INCOME_TMP01
+as 
+select      
+      '手收'  as  TYP,
+      '銀行'  as  PROD_TYPE,
+      '保險' AS   SUB_TYPE,
+      dept_easy_nm as NM,
+      cust_id,
+      yyyymmdd ,
+      AMT 
+from INCOME_028  --各區當日手收數字(保險)
+union
+select 
+      '手收'  as  TYP,
+      '銀行'  as  PROD_TYPE,
+      '保險' AS   SUB_TYPE, 
+      '' as  NM,
+      cust_id,
+      yyyymmdd ,
+      AMT 
+from INCOME_029 --各區每月手收數字(保險
+union 
+select  
+      '手收'  as  TYP,
+      '銀行'  as  PROD_TYPE,
+      '保險' AS   SUB_TYPE, 
+      '' as  NM,
+      cust_id,
+      yyyymmdd ,
+      AMT          
+from INCOME_030  --各區每月手收數字(保險
+union 
+select  
+      '手收'  as  TYP,
+      '銀行'  as  PROD_TYPE,
+      '海外債券_信託' AS   SUB_TYPE, 
+      PCCODE as  NM,
+      cust_id,
+      yyyymmdd ,
+      AMT          
+from INCOME_031  --【銀行】海外債券手收 總量
+union 
+select  
+      '手收'  as  TYP,
+      '銀行'  as  PROD_TYPE,
+      '外國債券_自營' AS   SUB_TYPE, 
+      pccode as  NM,
+      cust_id,
+      yyyymmdd ,
+      AMT          
+from INCOME_032  --【銀行】外國債券(自營平台)手收 總量
+union 
+select 
+      '手收'  as  TYP,
+      '銀行'  as  PROD_TYPE,
+      FH_TYP as SUB_TYPE,
+      PCCODE as NM,
+      cust_id,
+      yyyymmdd,
+      AMT
+from INCOME_033_034_035_036
+where FH_TYP is not null
+union 
+select 
+      '手收'  as  TYP,
+      '銀行'  as  PROD_TYPE,
+      'DCI' as SUB_TYPE,
+      PCCODE,
+      cust_id,
+      yyyymmdd,
+      AMT
+from INCOME_037  --【銀行】DCI 手收 總量
+union 
+select 
+      '手收'  as  TYP,
+      '銀行'  as  PROD_TYPE,
+      'DCI' as SUB_TYPE,
+      PCCODE,
+      cust_id,
+      yyyymmdd,
+      AMT
+from INCOME_038  --【銀行】DCI 手收 總量 --TMU損益
+union 
+select 
+      '手收'  as  TYP,
+      '銀行'  as  PROD_TYPE,
+      '結構型_境內' as SUB_TYPE,
+      PCCODE,
+      cust_id,
+      yyyymmdd,
+      AMT
+from INCOME_039   --境內結構型商品手收 
+union 
+select 
+      '手收'  as  TYP,
+      '銀行'  as  PROD_TYPE,
+      '結構型_境內' as SUB_TYPE,
+      PCCODE,
+      cust_id,
+      yyyymmdd,
+      AMT
+from INCOME_040   --境內結構型商品手收 
+union 
+select 
+      '手收'  as  TYP,
+      '銀行'  as  PROD_TYPE,
+      '結構型_境內' as SUB_TYPE,
+      PCCODE,
+      cust_id,
+      yyyymmdd,
+      AMT
+from INCOME_041
+union 
+select 
+      '手收'  as  TYP,
+      '銀行'  as  PROD_TYPE,
+      '結構型_境外' as SUB_TYPE,
+      PCCODE,
+      cust_id,
+      yyyymmdd,
+      AMT
+from INCOME_042  --【銀行】境外結構型商品手收 總量*/
+union 
+select 
+      '手收'  as  TYP,
+      '銀行'  as  PROD_TYPE,
+      'FX' as SUB_TYPE,
+      PCCODE,
+      cust_id,
+      yyyymmdd,
+      AMT
+from INCOME_043   --銀行 FX(WBS) 手收 
+union 
+select 
+      '手收'  as  TYP,
+      '銀行'  as  PROD_TYPE,
+      'FX' as SUB_TYPE, 
+      '',
+      cust_id,
+      yyyymmdd,
+      AMT
+from INCOME_044  --銀行 FX(TMU) 手收 
+union 
+select 
+      '手收'  as  TYP,
+      '銀行'  as  PROD_TYPE,
+      '開狀' as SUB_TYPE,
+      PCCODE,
+      cust_id,
+      yyyymmdd,
+      AMT
+from INCOME_045  --【銀行】開狀手收 總量
+union 
+select 
+      '手收'  as  TYP,
+      '銀行'  as  PROD_TYPE,
+      '規劃型信託' as SUB_TYPE,
+      '',
+      cust_id,
+      yyyymmdd,
+      AMT
+from INCOME_046  --規劃型信託(股票信託、金錢信託)
+union 
+select 
+      '手收'  as  TYP,
+      '銀行'  as  PROD_TYPE,
+      '規劃型信託' as SUB_TYPE,
+      '',
+      cust_id,
+      yyyymmdd,
+      AMT
+from INCOME_047  --規劃型信託(員工持股信託)
+union 
+select 
+      '手收'  as  TYP,
+      '銀行'  as  PROD_TYPE,
+      '規劃型信託' as SUB_TYPE,
+      '',
+      cust_id,
+      yyyymmdd,
+      AMT
+from INCOME_048  --私人銀行事業處業績檔(保管)
+union 
+select 
+      '手收'  as  TYP,
+      '銀行'  as  PROD_TYPE,
+      '黃金' as SUB_TYPE,
+      '',
+      cust_id,
+      yyyymmdd,
+      AMT
+from INCOME_049 --銀行 黃金 手收 
+union 
+select 
+      '手收'  as  TYP,
+      '證券'  as  PROD_TYPE,
+      FLG,
+      '',
+      cust_id,
+      yyyymmdd,
+      AMT
+from INCOME_051_054 --【證券】複委託-債券手收 總量
+union 
+select 
+      '手收'  as  TYP,
+      '證券'  as  PROD_TYPE,
+      '基金' as SUB_TYPE,
+      '',
+      cust_id,
+      yyyymmdd,
+      AMT
+from INCOME_052 --【證券】複委託-基金手收 總量
+union 
+select 
+      '手收'  as  TYP,
+      '證券'  as  PROD_TYPE,
+      '外國股票' as SUB_TYPE,
+      '',
+      cust_id,
+      yyyymmdd,
+      AMT
+from INCOME_053 --【證券】複委託-外國股票手收 總量
+union 
+select 
+      '利收'  as  TYP,
+      '銀行'  as  PROD_TYPE,
+      '存款' as SUB_TYPE,
+      '',
+      cust_id,
+      yyyymmdd,
+      AMT
+from INCOME_066 --存款利收總量
+union 
+select 
+      '利收'  as  TYP,
+      '銀行'  as  PROD_TYPE,
+      '放款' as SUB_TYPE,
+      '',
+      cust_id,
+      yyyymmdd,
+      AMT
+from INCOME_067 --放款利收總量
+;     
+
+
+drop table INCOME_TMP02;
+Create table INCOME_TMP02
+as 
+select a.*,
+       b.emp_no,
+       b.prft_cntr_cd,
+       b.sht_nm,
+       case 
+          when sht_nm like '%業務一部%' then 'TW一部'
+          when sht_nm like '%業務二部%' then 'TW二部'
+        end as SHT_EASY_NM,
+      substr(
+          sht_nm,
+          instr(sht_nm,'業')+2,
+          instr(sht_nm,'部') -instr(sht_nm,'業') -1
+          )  as SHT_SUB_NM, 
+       b.pst_nm
+--count(*)
+from INCOME_TMP01 a   --55772
+left join PB_CUST_005 b  --55772
+on a.cust_id =b.cust_id and substr(a.yyyymmdd,1,6)=b.yyyymm;
+
+drop table INCOME_REPORT;
+Create table INCOME_REPORT
+as 
+select 
+       substr(yyyymmdd,1,4) yyyy,
+       substr(yyyymmdd,1,6) yyyymm,
+       yyyymmdd,
+       typ,
+       prod_type,
+       sub_type,
+       prft_cntr_cd,
+       sht_nm,
+       sht_easy_nm,
+       '私人銀行'||sht_sub_nm as sht_sub_nm ,
+       sum(amt) AMT,
+       count(*) CNT
+from INCOME_TMP02
+where prft_cntr_cd is not null
+group by 
+       substr(yyyymmdd,1,4) ,
+       substr(yyyymmdd,1,6) ,
+       yyyymmdd,
+       typ,
+       prod_type,
+       sub_type,
+       prft_cntr_cd,
+       sht_nm,
+       sht_easy_nm,
+       sht_sub_nm;
+       
+ EXIT;      
+-- select * from INCOME_REPORT

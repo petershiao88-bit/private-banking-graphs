@@ -1,0 +1,2157 @@
+{
+  "edges": [
+    {
+      "id": "bank.private_banking|USES_METRIC|securities.bond_aum",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "USES_METRIC",
+          "id": "bank.private_banking|USES_METRIC|securities.bond_aum",
+          "kind": "USES_METRIC",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "bank.private_banking",
+          "source_kind": "Department",
+          "target_id": "securities.bond_aum",
+          "target_kind": "Metric"
+        },
+        "visual_projection": {
+          "display_source": "https://example.org/ontology/bank#PrivateBankingDepartment",
+          "display_target": "securities.bond_aum",
+          "kind": "department_display_contraction",
+          "original_source": "bank.private_banking",
+          "original_target": "securities.bond_aum",
+          "scope": "visualization_only_not_rdf_instance_assertion"
+        }
+      },
+      "source": "https://example.org/ontology/bank#PrivateBankingDepartment",
+      "target": "securities.bond_aum",
+      "type": "USES_METRIC",
+      "weight": 1.0
+    },
+    {
+      "id": "bank.private_banking|USES_METRIC|securities.bond_fee_income",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "USES_METRIC",
+          "id": "bank.private_banking|USES_METRIC|securities.bond_fee_income",
+          "kind": "USES_METRIC",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "bank.private_banking",
+          "source_kind": "Department",
+          "target_id": "securities.bond_fee_income",
+          "target_kind": "Metric"
+        },
+        "visual_projection": {
+          "display_source": "https://example.org/ontology/bank#PrivateBankingDepartment",
+          "display_target": "securities.bond_fee_income",
+          "kind": "department_display_contraction",
+          "original_source": "bank.private_banking",
+          "original_target": "securities.bond_fee_income",
+          "scope": "visualization_only_not_rdf_instance_assertion"
+        }
+      },
+      "source": "https://example.org/ontology/bank#PrivateBankingDepartment",
+      "target": "securities.bond_fee_income",
+      "type": "USES_METRIC",
+      "weight": 1.0
+    },
+    {
+      "id": "bank.private_banking|USES_METRIC|securities.foreign_stock_aum",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "USES_METRIC",
+          "id": "bank.private_banking|USES_METRIC|securities.foreign_stock_aum",
+          "kind": "USES_METRIC",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "bank.private_banking",
+          "source_kind": "Department",
+          "target_id": "securities.foreign_stock_aum",
+          "target_kind": "Metric"
+        },
+        "visual_projection": {
+          "display_source": "https://example.org/ontology/bank#PrivateBankingDepartment",
+          "display_target": "securities.foreign_stock_aum",
+          "kind": "department_display_contraction",
+          "original_source": "bank.private_banking",
+          "original_target": "securities.foreign_stock_aum",
+          "scope": "visualization_only_not_rdf_instance_assertion"
+        }
+      },
+      "source": "https://example.org/ontology/bank#PrivateBankingDepartment",
+      "target": "securities.foreign_stock_aum",
+      "type": "USES_METRIC",
+      "weight": 1.0
+    },
+    {
+      "id": "bank.private_banking|USES_METRIC|securities.foreign_stock_fee_income",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "USES_METRIC",
+          "id": "bank.private_banking|USES_METRIC|securities.foreign_stock_fee_income",
+          "kind": "USES_METRIC",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "bank.private_banking",
+          "source_kind": "Department",
+          "target_id": "securities.foreign_stock_fee_income",
+          "target_kind": "Metric"
+        },
+        "visual_projection": {
+          "display_source": "https://example.org/ontology/bank#PrivateBankingDepartment",
+          "display_target": "securities.foreign_stock_fee_income",
+          "kind": "department_display_contraction",
+          "original_source": "bank.private_banking",
+          "original_target": "securities.foreign_stock_fee_income",
+          "scope": "visualization_only_not_rdf_instance_assertion"
+        }
+      },
+      "source": "https://example.org/ontology/bank#PrivateBankingDepartment",
+      "target": "securities.foreign_stock_fee_income",
+      "type": "USES_METRIC",
+      "weight": 1.0
+    },
+    {
+      "id": "bank.private_banking|USES_METRIC|securities.fund_aum",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "USES_METRIC",
+          "id": "bank.private_banking|USES_METRIC|securities.fund_aum",
+          "kind": "USES_METRIC",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "bank.private_banking",
+          "source_kind": "Department",
+          "target_id": "securities.fund_aum",
+          "target_kind": "Metric"
+        },
+        "visual_projection": {
+          "display_source": "https://example.org/ontology/bank#PrivateBankingDepartment",
+          "display_target": "securities.fund_aum",
+          "kind": "department_display_contraction",
+          "original_source": "bank.private_banking",
+          "original_target": "securities.fund_aum",
+          "scope": "visualization_only_not_rdf_instance_assertion"
+        }
+      },
+      "source": "https://example.org/ontology/bank#PrivateBankingDepartment",
+      "target": "securities.fund_aum",
+      "type": "USES_METRIC",
+      "weight": 1.0
+    },
+    {
+      "id": "bank.private_banking|USES_METRIC|securities.fund_fee_income",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "USES_METRIC",
+          "id": "bank.private_banking|USES_METRIC|securities.fund_fee_income",
+          "kind": "USES_METRIC",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "bank.private_banking",
+          "source_kind": "Department",
+          "target_id": "securities.fund_fee_income",
+          "target_kind": "Metric"
+        },
+        "visual_projection": {
+          "display_source": "https://example.org/ontology/bank#PrivateBankingDepartment",
+          "display_target": "securities.fund_fee_income",
+          "kind": "department_display_contraction",
+          "original_source": "bank.private_banking",
+          "original_target": "securities.fund_fee_income",
+          "scope": "visualization_only_not_rdf_instance_assertion"
+        }
+      },
+      "source": "https://example.org/ontology/bank#PrivateBankingDepartment",
+      "target": "securities.fund_fee_income",
+      "type": "USES_METRIC",
+      "weight": 1.0
+    },
+    {
+      "id": "bank.private_banking|USES_METRIC|securities.structured_aum",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "USES_METRIC",
+          "id": "bank.private_banking|USES_METRIC|securities.structured_aum",
+          "kind": "USES_METRIC",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "bank.private_banking",
+          "source_kind": "Department",
+          "target_id": "securities.structured_aum",
+          "target_kind": "Metric"
+        },
+        "visual_projection": {
+          "display_source": "https://example.org/ontology/bank#PrivateBankingDepartment",
+          "display_target": "securities.structured_aum",
+          "kind": "department_display_contraction",
+          "original_source": "bank.private_banking",
+          "original_target": "securities.structured_aum",
+          "scope": "visualization_only_not_rdf_instance_assertion"
+        }
+      },
+      "source": "https://example.org/ontology/bank#PrivateBankingDepartment",
+      "target": "securities.structured_aum",
+      "type": "USES_METRIC",
+      "weight": 1.0
+    },
+    {
+      "id": "bank.private_banking|USES_METRIC|securities.structured_fee_income",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "USES_METRIC",
+          "id": "bank.private_banking|USES_METRIC|securities.structured_fee_income",
+          "kind": "USES_METRIC",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "bank.private_banking",
+          "source_kind": "Department",
+          "target_id": "securities.structured_fee_income",
+          "target_kind": "Metric"
+        },
+        "visual_projection": {
+          "display_source": "https://example.org/ontology/bank#PrivateBankingDepartment",
+          "display_target": "securities.structured_fee_income",
+          "kind": "department_display_contraction",
+          "original_source": "bank.private_banking",
+          "original_target": "securities.structured_fee_income",
+          "scope": "visualization_only_not_rdf_instance_assertion"
+        }
+      },
+      "source": "https://example.org/ontology/bank#PrivateBankingDepartment",
+      "target": "securities.structured_fee_income",
+      "type": "USES_METRIC",
+      "weight": 1.0
+    },
+    {
+      "id": "bank.private_banking|USES_METRIC|securities.taiwan_stock_aum",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "USES_METRIC",
+          "id": "bank.private_banking|USES_METRIC|securities.taiwan_stock_aum",
+          "kind": "USES_METRIC",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "bank.private_banking",
+          "source_kind": "Department",
+          "target_id": "securities.taiwan_stock_aum",
+          "target_kind": "Metric"
+        },
+        "visual_projection": {
+          "display_source": "https://example.org/ontology/bank#PrivateBankingDepartment",
+          "display_target": "securities.taiwan_stock_aum",
+          "kind": "department_display_contraction",
+          "original_source": "bank.private_banking",
+          "original_target": "securities.taiwan_stock_aum",
+          "scope": "visualization_only_not_rdf_instance_assertion"
+        }
+      },
+      "source": "https://example.org/ontology/bank#PrivateBankingDepartment",
+      "target": "securities.taiwan_stock_aum",
+      "type": "USES_METRIC",
+      "weight": 1.0
+    },
+    {
+      "id": "bank.private_banking|USES_METRIC|securities.total_aum",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "USES_METRIC",
+          "id": "bank.private_banking|USES_METRIC|securities.total_aum",
+          "kind": "USES_METRIC",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "bank.private_banking",
+          "source_kind": "Department",
+          "target_id": "securities.total_aum",
+          "target_kind": "Metric"
+        },
+        "visual_projection": {
+          "display_source": "https://example.org/ontology/bank#PrivateBankingDepartment",
+          "display_target": "securities.total_aum",
+          "kind": "department_display_contraction",
+          "original_source": "bank.private_banking",
+          "original_target": "securities.total_aum",
+          "scope": "visualization_only_not_rdf_instance_assertion"
+        }
+      },
+      "source": "https://example.org/ontology/bank#PrivateBankingDepartment",
+      "target": "securities.total_aum",
+      "type": "USES_METRIC",
+      "weight": 1.0
+    },
+    {
+      "id": "bank.private_banking|USES_METRIC|securities.total_fee_income",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "USES_METRIC",
+          "id": "bank.private_banking|USES_METRIC|securities.total_fee_income",
+          "kind": "USES_METRIC",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "bank.private_banking",
+          "source_kind": "Department",
+          "target_id": "securities.total_fee_income",
+          "target_kind": "Metric"
+        },
+        "visual_projection": {
+          "display_source": "https://example.org/ontology/bank#PrivateBankingDepartment",
+          "display_target": "securities.total_fee_income",
+          "kind": "department_display_contraction",
+          "original_source": "bank.private_banking",
+          "original_target": "securities.total_fee_income",
+          "scope": "visualization_only_not_rdf_instance_assertion"
+        }
+      },
+      "source": "https://example.org/ontology/bank#PrivateBankingDepartment",
+      "target": "securities.total_fee_income",
+      "type": "USES_METRIC",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.bond_aum|HAS_SOURCE_TABLE|source:DSPBM.PB_BONDPOS_SEC",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "HAS_SOURCE_TABLE",
+          "id": "securities.bond_aum|HAS_SOURCE_TABLE|source:DSPBM.PB_BONDPOS_SEC",
+          "kind": "HAS_SOURCE_TABLE",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.bond_aum",
+          "source_kind": "Metric",
+          "target_id": "source:DSPBM.PB_BONDPOS_SEC",
+          "target_kind": "SourceTable"
+        }
+      },
+      "source": "securities.bond_aum",
+      "target": "source:DSPBM.PB_BONDPOS_SEC",
+      "type": "HAS_SOURCE_TABLE",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.bond_aum|HAS_SOURCE_TABLE|source:DSPBM.PB_BONDPOS_SEC_M",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "HAS_SOURCE_TABLE",
+          "id": "securities.bond_aum|HAS_SOURCE_TABLE|source:DSPBM.PB_BONDPOS_SEC_M",
+          "kind": "HAS_SOURCE_TABLE",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.bond_aum",
+          "source_kind": "Metric",
+          "target_id": "source:DSPBM.PB_BONDPOS_SEC_M",
+          "target_kind": "SourceTable"
+        }
+      },
+      "source": "securities.bond_aum",
+      "target": "source:DSPBM.PB_BONDPOS_SEC_M",
+      "type": "HAS_SOURCE_TABLE",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.bond_aum|USES_VALUATION_SOURCE|source:DSDEP.FN_EXCH_RT",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "USES_VALUATION_SOURCE",
+          "id": "securities.bond_aum|USES_VALUATION_SOURCE|source:DSDEP.FN_EXCH_RT",
+          "kind": "USES_VALUATION_SOURCE",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.bond_aum",
+          "source_kind": "Metric",
+          "target_id": "source:DSDEP.FN_EXCH_RT",
+          "target_kind": "SourceTable"
+        }
+      },
+      "source": "securities.bond_aum",
+      "target": "source:DSDEP.FN_EXCH_RT",
+      "type": "USES_VALUATION_SOURCE",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.bond_fee_income|HAS_SOURCE_TABLE|source:DSPBM.PB_BONDTRADM_SEC",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "HAS_SOURCE_TABLE",
+          "id": "securities.bond_fee_income|HAS_SOURCE_TABLE|source:DSPBM.PB_BONDTRADM_SEC",
+          "kind": "HAS_SOURCE_TABLE",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.bond_fee_income",
+          "source_kind": "Metric",
+          "target_id": "source:DSPBM.PB_BONDTRADM_SEC",
+          "target_kind": "SourceTable"
+        }
+      },
+      "source": "securities.bond_fee_income",
+      "target": "source:DSPBM.PB_BONDTRADM_SEC",
+      "type": "HAS_SOURCE_TABLE",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.bond_fee_income|HAS_SOURCE_TABLE|source:DSPBM.PB_BONDTRADM_SEC_M",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "HAS_SOURCE_TABLE",
+          "id": "securities.bond_fee_income|HAS_SOURCE_TABLE|source:DSPBM.PB_BONDTRADM_SEC_M",
+          "kind": "HAS_SOURCE_TABLE",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.bond_fee_income",
+          "source_kind": "Metric",
+          "target_id": "source:DSPBM.PB_BONDTRADM_SEC_M",
+          "target_kind": "SourceTable"
+        }
+      },
+      "source": "securities.bond_fee_income",
+      "target": "source:DSPBM.PB_BONDTRADM_SEC_M",
+      "type": "HAS_SOURCE_TABLE",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.foreign_stock_aum|HAS_SOURCE_TABLE|source:DSPBM.PB_STOCKPOS_SEC",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "HAS_SOURCE_TABLE",
+          "id": "securities.foreign_stock_aum|HAS_SOURCE_TABLE|source:DSPBM.PB_STOCKPOS_SEC",
+          "kind": "HAS_SOURCE_TABLE",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.foreign_stock_aum",
+          "source_kind": "Metric",
+          "target_id": "source:DSPBM.PB_STOCKPOS_SEC",
+          "target_kind": "SourceTable"
+        }
+      },
+      "source": "securities.foreign_stock_aum",
+      "target": "source:DSPBM.PB_STOCKPOS_SEC",
+      "type": "HAS_SOURCE_TABLE",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.foreign_stock_aum|HAS_SOURCE_TABLE|source:DSPBM.PB_STOCKPOS_SEC_M",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "HAS_SOURCE_TABLE",
+          "id": "securities.foreign_stock_aum|HAS_SOURCE_TABLE|source:DSPBM.PB_STOCKPOS_SEC_M",
+          "kind": "HAS_SOURCE_TABLE",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.foreign_stock_aum",
+          "source_kind": "Metric",
+          "target_id": "source:DSPBM.PB_STOCKPOS_SEC_M",
+          "target_kind": "SourceTable"
+        }
+      },
+      "source": "securities.foreign_stock_aum",
+      "target": "source:DSPBM.PB_STOCKPOS_SEC_M",
+      "type": "HAS_SOURCE_TABLE",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.foreign_stock_aum|USES_VALUATION_SOURCE|source:DSDEP.FN_EXCH_RT",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "USES_VALUATION_SOURCE",
+          "id": "securities.foreign_stock_aum|USES_VALUATION_SOURCE|source:DSDEP.FN_EXCH_RT",
+          "kind": "USES_VALUATION_SOURCE",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.foreign_stock_aum",
+          "source_kind": "Metric",
+          "target_id": "source:DSDEP.FN_EXCH_RT",
+          "target_kind": "SourceTable"
+        }
+      },
+      "source": "securities.foreign_stock_aum",
+      "target": "source:DSDEP.FN_EXCH_RT",
+      "type": "USES_VALUATION_SOURCE",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.foreign_stock_fee_income|HAS_SOURCE_TABLE|source:DSPBM.PB_STOCKTRADM_AM_SEC_M",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "HAS_SOURCE_TABLE",
+          "id": "securities.foreign_stock_fee_income|HAS_SOURCE_TABLE|source:DSPBM.PB_STOCKTRADM_AM_SEC_M",
+          "kind": "HAS_SOURCE_TABLE",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.foreign_stock_fee_income",
+          "source_kind": "Metric",
+          "target_id": "source:DSPBM.PB_STOCKTRADM_AM_SEC_M",
+          "target_kind": "SourceTable"
+        }
+      },
+      "source": "securities.foreign_stock_fee_income",
+      "target": "source:DSPBM.PB_STOCKTRADM_AM_SEC_M",
+      "type": "HAS_SOURCE_TABLE",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.foreign_stock_fee_income|HAS_SOURCE_TABLE|source:DSPBM.PB_STOCKTRADM_PM_SEC",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "HAS_SOURCE_TABLE",
+          "id": "securities.foreign_stock_fee_income|HAS_SOURCE_TABLE|source:DSPBM.PB_STOCKTRADM_PM_SEC",
+          "kind": "HAS_SOURCE_TABLE",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.foreign_stock_fee_income",
+          "source_kind": "Metric",
+          "target_id": "source:DSPBM.PB_STOCKTRADM_PM_SEC",
+          "target_kind": "SourceTable"
+        }
+      },
+      "source": "securities.foreign_stock_fee_income",
+      "target": "source:DSPBM.PB_STOCKTRADM_PM_SEC",
+      "type": "HAS_SOURCE_TABLE",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.foreign_stock_fee_income|HAS_SOURCE_TABLE|source:DSPBM.PB_STOCKTRADM_PM_SEC_M",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "HAS_SOURCE_TABLE",
+          "id": "securities.foreign_stock_fee_income|HAS_SOURCE_TABLE|source:DSPBM.PB_STOCKTRADM_PM_SEC_M",
+          "kind": "HAS_SOURCE_TABLE",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.foreign_stock_fee_income",
+          "source_kind": "Metric",
+          "target_id": "source:DSPBM.PB_STOCKTRADM_PM_SEC_M",
+          "target_kind": "SourceTable"
+        }
+      },
+      "source": "securities.foreign_stock_fee_income",
+      "target": "source:DSPBM.PB_STOCKTRADM_PM_SEC_M",
+      "type": "HAS_SOURCE_TABLE",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.foreign_stock_fee_income|USES_DATE_LOOKUP_SOURCE|source:DSPBM.PB_STOCKTRADM_AM_SEC",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "USES_DATE_LOOKUP_SOURCE",
+          "id": "securities.foreign_stock_fee_income|USES_DATE_LOOKUP_SOURCE|source:DSPBM.PB_STOCKTRADM_AM_SEC",
+          "kind": "USES_DATE_LOOKUP_SOURCE",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.foreign_stock_fee_income",
+          "source_kind": "Metric",
+          "target_id": "source:DSPBM.PB_STOCKTRADM_AM_SEC",
+          "target_kind": "SourceTable"
+        }
+      },
+      "source": "securities.foreign_stock_fee_income",
+      "target": "source:DSPBM.PB_STOCKTRADM_AM_SEC",
+      "type": "USES_DATE_LOOKUP_SOURCE",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.fund_aum|HAS_SOURCE_TABLE|source:DSPBM.PB_FUNDPOSIT_SEC",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "HAS_SOURCE_TABLE",
+          "id": "securities.fund_aum|HAS_SOURCE_TABLE|source:DSPBM.PB_FUNDPOSIT_SEC",
+          "kind": "HAS_SOURCE_TABLE",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.fund_aum",
+          "source_kind": "Metric",
+          "target_id": "source:DSPBM.PB_FUNDPOSIT_SEC",
+          "target_kind": "SourceTable"
+        }
+      },
+      "source": "securities.fund_aum",
+      "target": "source:DSPBM.PB_FUNDPOSIT_SEC",
+      "type": "HAS_SOURCE_TABLE",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.fund_aum|HAS_SOURCE_TABLE|source:DSPBM.PB_FUNDPOSIT_SEC_M",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "HAS_SOURCE_TABLE",
+          "id": "securities.fund_aum|HAS_SOURCE_TABLE|source:DSPBM.PB_FUNDPOSIT_SEC_M",
+          "kind": "HAS_SOURCE_TABLE",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.fund_aum",
+          "source_kind": "Metric",
+          "target_id": "source:DSPBM.PB_FUNDPOSIT_SEC_M",
+          "target_kind": "SourceTable"
+        }
+      },
+      "source": "securities.fund_aum",
+      "target": "source:DSPBM.PB_FUNDPOSIT_SEC_M",
+      "type": "HAS_SOURCE_TABLE",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.fund_fee_income|HAS_SOURCE_TABLE|source:DSPBM.PB_FUNDTRADM_SEC",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "HAS_SOURCE_TABLE",
+          "id": "securities.fund_fee_income|HAS_SOURCE_TABLE|source:DSPBM.PB_FUNDTRADM_SEC",
+          "kind": "HAS_SOURCE_TABLE",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.fund_fee_income",
+          "source_kind": "Metric",
+          "target_id": "source:DSPBM.PB_FUNDTRADM_SEC",
+          "target_kind": "SourceTable"
+        }
+      },
+      "source": "securities.fund_fee_income",
+      "target": "source:DSPBM.PB_FUNDTRADM_SEC",
+      "type": "HAS_SOURCE_TABLE",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.fund_fee_income|HAS_SOURCE_TABLE|source:DSPBM.PB_FUNDTRADM_SEC_M",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "HAS_SOURCE_TABLE",
+          "id": "securities.fund_fee_income|HAS_SOURCE_TABLE|source:DSPBM.PB_FUNDTRADM_SEC_M",
+          "kind": "HAS_SOURCE_TABLE",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.fund_fee_income",
+          "source_kind": "Metric",
+          "target_id": "source:DSPBM.PB_FUNDTRADM_SEC_M",
+          "target_kind": "SourceTable"
+        }
+      },
+      "source": "securities.fund_fee_income",
+      "target": "source:DSPBM.PB_FUNDTRADM_SEC_M",
+      "type": "HAS_SOURCE_TABLE",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.fund_fee_income|USES_DATE_LOOKUP_SOURCE|source:DSPBM.PB_BONDTRADM_SEC",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "USES_DATE_LOOKUP_SOURCE",
+          "id": "securities.fund_fee_income|USES_DATE_LOOKUP_SOURCE|source:DSPBM.PB_BONDTRADM_SEC",
+          "kind": "USES_DATE_LOOKUP_SOURCE",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.fund_fee_income",
+          "source_kind": "Metric",
+          "target_id": "source:DSPBM.PB_BONDTRADM_SEC",
+          "target_kind": "SourceTable"
+        }
+      },
+      "source": "securities.fund_fee_income",
+      "target": "source:DSPBM.PB_BONDTRADM_SEC",
+      "type": "USES_DATE_LOOKUP_SOURCE",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.structured_aum|HAS_SOURCE_TABLE|source:DSPBM.PB_BONDPOS_SEC",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "HAS_SOURCE_TABLE",
+          "id": "securities.structured_aum|HAS_SOURCE_TABLE|source:DSPBM.PB_BONDPOS_SEC",
+          "kind": "HAS_SOURCE_TABLE",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.structured_aum",
+          "source_kind": "Metric",
+          "target_id": "source:DSPBM.PB_BONDPOS_SEC",
+          "target_kind": "SourceTable"
+        }
+      },
+      "source": "securities.structured_aum",
+      "target": "source:DSPBM.PB_BONDPOS_SEC",
+      "type": "HAS_SOURCE_TABLE",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.structured_aum|HAS_SOURCE_TABLE|source:DSPBM.PB_BONDPOS_SEC_M",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "HAS_SOURCE_TABLE",
+          "id": "securities.structured_aum|HAS_SOURCE_TABLE|source:DSPBM.PB_BONDPOS_SEC_M",
+          "kind": "HAS_SOURCE_TABLE",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.structured_aum",
+          "source_kind": "Metric",
+          "target_id": "source:DSPBM.PB_BONDPOS_SEC_M",
+          "target_kind": "SourceTable"
+        }
+      },
+      "source": "securities.structured_aum",
+      "target": "source:DSPBM.PB_BONDPOS_SEC_M",
+      "type": "HAS_SOURCE_TABLE",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.structured_aum|USES_VALUATION_SOURCE|source:DSDEP.FN_EXCH_RT",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "USES_VALUATION_SOURCE",
+          "id": "securities.structured_aum|USES_VALUATION_SOURCE|source:DSDEP.FN_EXCH_RT",
+          "kind": "USES_VALUATION_SOURCE",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.structured_aum",
+          "source_kind": "Metric",
+          "target_id": "source:DSDEP.FN_EXCH_RT",
+          "target_kind": "SourceTable"
+        }
+      },
+      "source": "securities.structured_aum",
+      "target": "source:DSDEP.FN_EXCH_RT",
+      "type": "USES_VALUATION_SOURCE",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.structured_fee_income|HAS_SOURCE_TABLE|source:DSPBM.PB_BONDTRADM_SEC",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "HAS_SOURCE_TABLE",
+          "id": "securities.structured_fee_income|HAS_SOURCE_TABLE|source:DSPBM.PB_BONDTRADM_SEC",
+          "kind": "HAS_SOURCE_TABLE",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.structured_fee_income",
+          "source_kind": "Metric",
+          "target_id": "source:DSPBM.PB_BONDTRADM_SEC",
+          "target_kind": "SourceTable"
+        }
+      },
+      "source": "securities.structured_fee_income",
+      "target": "source:DSPBM.PB_BONDTRADM_SEC",
+      "type": "HAS_SOURCE_TABLE",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.structured_fee_income|HAS_SOURCE_TABLE|source:DSPBM.PB_BONDTRADM_SEC_M",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "HAS_SOURCE_TABLE",
+          "id": "securities.structured_fee_income|HAS_SOURCE_TABLE|source:DSPBM.PB_BONDTRADM_SEC_M",
+          "kind": "HAS_SOURCE_TABLE",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.structured_fee_income",
+          "source_kind": "Metric",
+          "target_id": "source:DSPBM.PB_BONDTRADM_SEC_M",
+          "target_kind": "SourceTable"
+        }
+      },
+      "source": "securities.structured_fee_income",
+      "target": "source:DSPBM.PB_BONDTRADM_SEC_M",
+      "type": "HAS_SOURCE_TABLE",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.taiwan_stock_aum|HAS_SOURCE_TABLE|source:DSPBM.PB_YTRMRBP_SEC",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "HAS_SOURCE_TABLE",
+          "id": "securities.taiwan_stock_aum|HAS_SOURCE_TABLE|source:DSPBM.PB_YTRMRBP_SEC",
+          "kind": "HAS_SOURCE_TABLE",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.taiwan_stock_aum",
+          "source_kind": "Metric",
+          "target_id": "source:DSPBM.PB_YTRMRBP_SEC",
+          "target_kind": "SourceTable"
+        }
+      },
+      "source": "securities.taiwan_stock_aum",
+      "target": "source:DSPBM.PB_YTRMRBP_SEC",
+      "type": "HAS_SOURCE_TABLE",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.taiwan_stock_aum|HAS_SOURCE_TABLE|source:DSPBM.PB_YTRMRBP_SEC_M",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "HAS_SOURCE_TABLE",
+          "id": "securities.taiwan_stock_aum|HAS_SOURCE_TABLE|source:DSPBM.PB_YTRMRBP_SEC_M",
+          "kind": "HAS_SOURCE_TABLE",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.taiwan_stock_aum",
+          "source_kind": "Metric",
+          "target_id": "source:DSPBM.PB_YTRMRBP_SEC_M",
+          "target_kind": "SourceTable"
+        }
+      },
+      "source": "securities.taiwan_stock_aum",
+      "target": "source:DSPBM.PB_YTRMRBP_SEC_M",
+      "type": "HAS_SOURCE_TABLE",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.total_aum|HAS_COMPONENT_METRIC|securities.bond_aum",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "HAS_COMPONENT_METRIC",
+          "id": "securities.total_aum|HAS_COMPONENT_METRIC|securities.bond_aum",
+          "kind": "HAS_COMPONENT_METRIC",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.total_aum",
+          "source_kind": "Metric",
+          "target_id": "securities.bond_aum",
+          "target_kind": "Metric"
+        }
+      },
+      "source": "securities.total_aum",
+      "target": "securities.bond_aum",
+      "type": "HAS_COMPONENT_METRIC",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.total_aum|HAS_COMPONENT_METRIC|securities.foreign_stock_aum",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "HAS_COMPONENT_METRIC",
+          "id": "securities.total_aum|HAS_COMPONENT_METRIC|securities.foreign_stock_aum",
+          "kind": "HAS_COMPONENT_METRIC",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.total_aum",
+          "source_kind": "Metric",
+          "target_id": "securities.foreign_stock_aum",
+          "target_kind": "Metric"
+        }
+      },
+      "source": "securities.total_aum",
+      "target": "securities.foreign_stock_aum",
+      "type": "HAS_COMPONENT_METRIC",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.total_aum|HAS_COMPONENT_METRIC|securities.fund_aum",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "HAS_COMPONENT_METRIC",
+          "id": "securities.total_aum|HAS_COMPONENT_METRIC|securities.fund_aum",
+          "kind": "HAS_COMPONENT_METRIC",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.total_aum",
+          "source_kind": "Metric",
+          "target_id": "securities.fund_aum",
+          "target_kind": "Metric"
+        }
+      },
+      "source": "securities.total_aum",
+      "target": "securities.fund_aum",
+      "type": "HAS_COMPONENT_METRIC",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.total_aum|HAS_COMPONENT_METRIC|securities.structured_aum",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "HAS_COMPONENT_METRIC",
+          "id": "securities.total_aum|HAS_COMPONENT_METRIC|securities.structured_aum",
+          "kind": "HAS_COMPONENT_METRIC",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.total_aum",
+          "source_kind": "Metric",
+          "target_id": "securities.structured_aum",
+          "target_kind": "Metric"
+        }
+      },
+      "source": "securities.total_aum",
+      "target": "securities.structured_aum",
+      "type": "HAS_COMPONENT_METRIC",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.total_aum|HAS_COMPONENT_METRIC|securities.taiwan_stock_aum",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "HAS_COMPONENT_METRIC",
+          "id": "securities.total_aum|HAS_COMPONENT_METRIC|securities.taiwan_stock_aum",
+          "kind": "HAS_COMPONENT_METRIC",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.total_aum",
+          "source_kind": "Metric",
+          "target_id": "securities.taiwan_stock_aum",
+          "target_kind": "Metric"
+        }
+      },
+      "source": "securities.total_aum",
+      "target": "securities.taiwan_stock_aum",
+      "type": "HAS_COMPONENT_METRIC",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.total_fee_income|HAS_COMPONENT_METRIC|securities.bond_fee_income",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "HAS_COMPONENT_METRIC",
+          "id": "securities.total_fee_income|HAS_COMPONENT_METRIC|securities.bond_fee_income",
+          "kind": "HAS_COMPONENT_METRIC",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.total_fee_income",
+          "source_kind": "Metric",
+          "target_id": "securities.bond_fee_income",
+          "target_kind": "Metric"
+        }
+      },
+      "source": "securities.total_fee_income",
+      "target": "securities.bond_fee_income",
+      "type": "HAS_COMPONENT_METRIC",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.total_fee_income|HAS_COMPONENT_METRIC|securities.foreign_stock_fee_income",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "HAS_COMPONENT_METRIC",
+          "id": "securities.total_fee_income|HAS_COMPONENT_METRIC|securities.foreign_stock_fee_income",
+          "kind": "HAS_COMPONENT_METRIC",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.total_fee_income",
+          "source_kind": "Metric",
+          "target_id": "securities.foreign_stock_fee_income",
+          "target_kind": "Metric"
+        }
+      },
+      "source": "securities.total_fee_income",
+      "target": "securities.foreign_stock_fee_income",
+      "type": "HAS_COMPONENT_METRIC",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.total_fee_income|HAS_COMPONENT_METRIC|securities.fund_fee_income",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "HAS_COMPONENT_METRIC",
+          "id": "securities.total_fee_income|HAS_COMPONENT_METRIC|securities.fund_fee_income",
+          "kind": "HAS_COMPONENT_METRIC",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.total_fee_income",
+          "source_kind": "Metric",
+          "target_id": "securities.fund_fee_income",
+          "target_kind": "Metric"
+        }
+      },
+      "source": "securities.total_fee_income",
+      "target": "securities.fund_fee_income",
+      "type": "HAS_COMPONENT_METRIC",
+      "weight": 1.0
+    },
+    {
+      "id": "securities.total_fee_income|HAS_COMPONENT_METRIC|securities.structured_fee_income",
+      "metadata": {
+        "original_pg_properties": {},
+        "projection": {
+          "display_name": "HAS_COMPONENT_METRIC",
+          "id": "securities.total_fee_income|HAS_COMPONENT_METRIC|securities.structured_fee_income",
+          "kind": "HAS_COMPONENT_METRIC",
+          "origin": "pg",
+          "predicate_uri": "",
+          "semantic_status": "metadata_only",
+          "source_id": "securities.total_fee_income",
+          "source_kind": "Metric",
+          "target_id": "securities.structured_fee_income",
+          "target_kind": "Metric"
+        }
+      },
+      "source": "securities.total_fee_income",
+      "target": "securities.structured_fee_income",
+      "type": "HAS_COMPONENT_METRIC",
+      "weight": 1.0
+    }
+  ],
+  "graph_id": "customer360-v0.16.0:securities",
+  "nodes": [
+    {
+      "content": "私人銀行部門",
+      "id": "https://example.org/ontology/bank#PrivateBankingDepartment",
+      "properties": {
+        "definition": "銀行從事私人銀行業務的部門類型；具體指標採用範圍在部門 PG 描述，暫不細分一部、二部、分行或團隊。",
+        "name": "私人銀行部門",
+        "original_pg_properties": {
+          "scope": "metadata_only",
+          "uri": "https://example.org/ontology/bank#PrivateBankingDepartment"
+        },
+        "projection": {
+          "definition": "銀行從事私人銀行業務的部門類型；具體指標採用範圍在部門 PG 描述，暫不細分一部、二部、分行或團隊。",
+          "display_name": "私人銀行部門",
+          "id": "https://example.org/ontology/bank#PrivateBankingDepartment",
+          "kind": "OntologyClass",
+          "metric_kind": "",
+          "origin": "pg+rdf",
+          "pg_label": "OntologyClassReference",
+          "semantic_status": "metadata_only",
+          "subsidiary": ""
+        },
+        "rdf_annotations": [
+          {
+            "datatype": "",
+            "language": "",
+            "predicate": "https://example.org/ontology/holding#governanceLevel",
+            "value": "子公司"
+          },
+          {
+            "datatype": "",
+            "language": "",
+            "predicate": "https://example.org/ontology/holding#subsidiary",
+            "value": "銀行"
+          },
+          {
+            "datatype": "",
+            "language": "zh-TW",
+            "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+            "value": "私人銀行部門"
+          },
+          {
+            "datatype": "",
+            "language": "zh-TW",
+            "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+            "value": "銀行從事私人銀行業務的部門類型；具體指標採用範圍在部門 PG 描述，暫不細分一部、二部、分行或團隊。"
+          }
+        ],
+        "scope": "metadata_only",
+        "uri": "https://example.org/ontology/bank#PrivateBankingDepartment"
+      },
+      "type": "OntologyClass"
+    },
+    {
+      "content": "私銀－證券複委託債券 AUM",
+      "id": "securities.bond_aum",
+      "properties": {
+        "definition": "證券複委託債券 AUM；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+        "department_owner_json": "null",
+        "metric_kind": "aum",
+        "name": "私銀－證券複委託債券 AUM",
+        "observations_json": "{\"classification_observation\":\"SQL BOND LIKE 'TSSN%' 分成結構型，ELSE 為債券（含 SQL ELSE 的空值範圍，不能直接等同 NOT LIKE）。\",\"coverage\":\"證券複委託債券 AUM\",\"date_observation\":\"歷史匯率取全體每月 MAX(PRCS_DT)，current 按 CLRDATE 與幣別連匯率；歷史/current UNION，快照、匯率連接與去重均未核定。\",\"evidence\":[\"private_products\",\"sec_bond_aum\"],\"gaps\":[\"折台為 SQL 意圖，幣別及匯率口徑待確認。\",\"未核定 BOND 單一商品識別、理專與客戶跨系統識別。\"],\"valuation_observation\":\"SQL SUM(NETQTY / 100 * CPRICE * EXCH_RT)；所有金額候選為同一估值的組成輸入。\"}",
+        "original_pg_properties": {
+          "definition": "證券複委託債券 AUM；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+          "department_owner_json": "null",
+          "metric_kind": "aum",
+          "name": "私銀－證券複委託債券 AUM",
+          "observations_json": "{\"classification_observation\":\"SQL BOND LIKE 'TSSN%' 分成結構型，ELSE 為債券（含 SQL ELSE 的空值範圍，不能直接等同 NOT LIKE）。\",\"coverage\":\"證券複委託債券 AUM\",\"date_observation\":\"歷史匯率取全體每月 MAX(PRCS_DT)，current 按 CLRDATE 與幣別連匯率；歷史/current UNION，快照、匯率連接與去重均未核定。\",\"evidence\":[\"private_products\",\"sec_bond_aum\"],\"gaps\":[\"折台為 SQL 意圖，幣別及匯率口徑待確認。\",\"未核定 BOND 單一商品識別、理專與客戶跨系統識別。\"],\"valuation_observation\":\"SQL SUM(NETQTY / 100 * CPRICE * EXCH_RT)；所有金額候選為同一估值的組成輸入。\"}",
+          "product_class_uris_json": "[\"https://example.org/ontology/securities#BondProduct\",\"https://example.org/ontology/securities#OverseasFinancialProduct\"]",
+          "product_code": "securities_bond",
+          "scope": "metadata_only",
+          "specific_product_class_uri_json": "null",
+          "subsidiary": "securities",
+          "table_sources_json": "{\"coverage\":\"此 AUM／手收指標在既有 SQL 與 metadata 中的表級來源觀察；欄位映射、選日及執行規則未指定。\",\"status\":\"observed_in_files\",\"tables\":[{\"evidence\":[\"sec_bond_aum\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_BONDPOS_SEC\"},{\"evidence\":[\"sec_bond_aum\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_BONDPOS_SEC_M\"},{\"evidence\":[\"sec_bond_aum\",\"sec_stock_aum\"],\"role\":\"valuation_support\",\"table\":\"DSDEP.FN_EXCH_RT\"}],\"unresolved_supporting_relations\":[]}"
+        },
+        "product_class_uris_json": "[\"https://example.org/ontology/securities#BondProduct\",\"https://example.org/ontology/securities#OverseasFinancialProduct\"]",
+        "product_code": "securities_bond",
+        "projection": {
+          "definition": "證券複委託債券 AUM；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+          "display_name": "私銀－證券複委託債券 AUM",
+          "id": "securities.bond_aum",
+          "kind": "Metric",
+          "metric_kind": "aum",
+          "origin": "pg",
+          "pg_label": "BusinessConcept",
+          "semantic_status": "metadata_only",
+          "subsidiary": "securities"
+        },
+        "rdf_annotations": [],
+        "scope": "metadata_only",
+        "specific_product_class_uri_json": "null",
+        "subsidiary": "securities",
+        "table_sources_json": "{\"coverage\":\"此 AUM／手收指標在既有 SQL 與 metadata 中的表級來源觀察；欄位映射、選日及執行規則未指定。\",\"status\":\"observed_in_files\",\"tables\":[{\"evidence\":[\"sec_bond_aum\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_BONDPOS_SEC\"},{\"evidence\":[\"sec_bond_aum\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_BONDPOS_SEC_M\"},{\"evidence\":[\"sec_bond_aum\",\"sec_stock_aum\"],\"role\":\"valuation_support\",\"table\":\"DSDEP.FN_EXCH_RT\"}],\"unresolved_supporting_relations\":[]}"
+      },
+      "type": "Metric"
+    },
+    {
+      "content": "私銀－證券複委託債券手收",
+      "id": "securities.bond_fee_income",
+      "properties": {
+        "definition": "證券複委託債券手收；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+        "department_owner_json": "null",
+        "metric_kind": "fee_income",
+        "name": "私銀－證券複委託債券手收",
+        "observations_json": "{\"classification_observation\":\"SQL BOND LIKE 'TSSN%' 為結構型，ELSE 為債券；不自行改成 NOT LIKE。\",\"coverage\":\"證券複委託債券手收\",\"date_observation\":\"SQL 用 T_LAST_TWO_WORKDAYS 的 YM/LAST2_WD 將月底最後兩個工作天收入移至次月；YYYYMM||01 是歸屬月份標記，不是快照日。工作日曆、收入期間與 current 最大日期篩選均未核定。\",\"evidence\":[\"private_products\",\"sec_bond_fee\"],\"gaps\":[\"幣別、收入認列與證券端人員歸屬未核定；不套用銀行理專關係。\"],\"valuation_observation\":\"SQL SUM(CFEE * FXRATE)，不是單取其中一個金額；歷史/current 聚合後 UNION。\"}",
+        "original_pg_properties": {
+          "definition": "證券複委託債券手收；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+          "department_owner_json": "null",
+          "metric_kind": "fee_income",
+          "name": "私銀－證券複委託債券手收",
+          "observations_json": "{\"classification_observation\":\"SQL BOND LIKE 'TSSN%' 為結構型，ELSE 為債券；不自行改成 NOT LIKE。\",\"coverage\":\"證券複委託債券手收\",\"date_observation\":\"SQL 用 T_LAST_TWO_WORKDAYS 的 YM/LAST2_WD 將月底最後兩個工作天收入移至次月；YYYYMM||01 是歸屬月份標記，不是快照日。工作日曆、收入期間與 current 最大日期篩選均未核定。\",\"evidence\":[\"private_products\",\"sec_bond_fee\"],\"gaps\":[\"幣別、收入認列與證券端人員歸屬未核定；不套用銀行理專關係。\"],\"valuation_observation\":\"SQL SUM(CFEE * FXRATE)，不是單取其中一個金額；歷史/current 聚合後 UNION。\"}",
+          "product_class_uris_json": "[\"https://example.org/ontology/securities#BondProduct\",\"https://example.org/ontology/securities#OverseasFinancialProduct\"]",
+          "product_code": "securities_bond",
+          "scope": "metadata_only",
+          "specific_product_class_uri_json": "null",
+          "subsidiary": "securities",
+          "table_sources_json": "{\"coverage\":\"此 AUM／手收指標在既有 SQL 與 metadata 中的表級來源觀察；欄位映射、選日及執行規則未指定。\",\"status\":\"observed_in_files\",\"tables\":[{\"evidence\":[\"sec_bond_fee\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_BONDTRADM_SEC\"},{\"evidence\":[\"sec_bond_fee\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_BONDTRADM_SEC_M\"}],\"unresolved_supporting_relations\":[{\"evidence\":[\"sec_bond_fee\"],\"name\":\"T_LAST_TWO_WORKDAYS\",\"note\":\"SQL 引用此輔助關係，但未提供 schema 與底層定義；不當成已確認底表。\",\"role\":\"period_support\"}]}"
+        },
+        "product_class_uris_json": "[\"https://example.org/ontology/securities#BondProduct\",\"https://example.org/ontology/securities#OverseasFinancialProduct\"]",
+        "product_code": "securities_bond",
+        "projection": {
+          "definition": "證券複委託債券手收；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+          "display_name": "私銀－證券複委託債券手收",
+          "id": "securities.bond_fee_income",
+          "kind": "Metric",
+          "metric_kind": "fee_income",
+          "origin": "pg",
+          "pg_label": "BusinessConcept",
+          "semantic_status": "metadata_only",
+          "subsidiary": "securities"
+        },
+        "rdf_annotations": [],
+        "scope": "metadata_only",
+        "specific_product_class_uri_json": "null",
+        "subsidiary": "securities",
+        "table_sources_json": "{\"coverage\":\"此 AUM／手收指標在既有 SQL 與 metadata 中的表級來源觀察；欄位映射、選日及執行規則未指定。\",\"status\":\"observed_in_files\",\"tables\":[{\"evidence\":[\"sec_bond_fee\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_BONDTRADM_SEC\"},{\"evidence\":[\"sec_bond_fee\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_BONDTRADM_SEC_M\"}],\"unresolved_supporting_relations\":[{\"evidence\":[\"sec_bond_fee\"],\"name\":\"T_LAST_TWO_WORKDAYS\",\"note\":\"SQL 引用此輔助關係，但未提供 schema 與底層定義；不當成已確認底表。\",\"role\":\"period_support\"}]}"
+      },
+      "type": "Metric"
+    },
+    {
+      "content": "私銀－證券複委託外國股票 AUM",
+      "id": "securities.foreign_stock_aum",
+      "properties": {
+        "definition": "證券複委託外國股票 AUM；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+        "department_owner_json": "null",
+        "metric_kind": "aum",
+        "name": "私銀－證券複委託外國股票 AUM",
+        "observations_json": "{\"classification_observation\":\"私銀 securities_foreign_stock 對應複委託海外股票；海外地域判定未另核定。\",\"coverage\":\"證券複委託外國股票 AUM\",\"date_observation\":\"歷史取 FX 每月全體最大日期並以部位 YYYYMM 連接；current 以 CLRDATE 連 FX 日期；UNION 與快照口徑待確認。\",\"evidence\":[\"private_products\",\"sec_stock_aum\"],\"gaps\":[\"FX 日期、部位日期不可自動視為同義；幣別及去重待確認。\"],\"valuation_observation\":\"SQL SUM(NETQTY * CPRICE * EXCH_RT)。\"}",
+        "original_pg_properties": {
+          "definition": "證券複委託外國股票 AUM；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+          "department_owner_json": "null",
+          "metric_kind": "aum",
+          "name": "私銀－證券複委託外國股票 AUM",
+          "observations_json": "{\"classification_observation\":\"私銀 securities_foreign_stock 對應複委託海外股票；海外地域判定未另核定。\",\"coverage\":\"證券複委託外國股票 AUM\",\"date_observation\":\"歷史取 FX 每月全體最大日期並以部位 YYYYMM 連接；current 以 CLRDATE 連 FX 日期；UNION 與快照口徑待確認。\",\"evidence\":[\"private_products\",\"sec_stock_aum\"],\"gaps\":[\"FX 日期、部位日期不可自動視為同義；幣別及去重待確認。\"],\"valuation_observation\":\"SQL SUM(NETQTY * CPRICE * EXCH_RT)。\"}",
+          "product_class_uris_json": "[\"https://example.org/ontology/securities#OverseasFinancialProduct\",\"https://example.org/ontology/securities#StockProduct\"]",
+          "product_code": "securities_foreign_stock",
+          "scope": "metadata_only",
+          "specific_product_class_uri_json": "null",
+          "subsidiary": "securities",
+          "table_sources_json": "{\"coverage\":\"此 AUM／手收指標在既有 SQL 與 metadata 中的表級來源觀察；欄位映射、選日及執行規則未指定。\",\"status\":\"observed_in_files\",\"tables\":[{\"evidence\":[\"sec_stock_aum\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_STOCKPOS_SEC\"},{\"evidence\":[\"sec_stock_aum\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_STOCKPOS_SEC_M\"},{\"evidence\":[\"sec_bond_aum\",\"sec_stock_aum\"],\"role\":\"valuation_support\",\"table\":\"DSDEP.FN_EXCH_RT\"}],\"unresolved_supporting_relations\":[]}"
+        },
+        "product_class_uris_json": "[\"https://example.org/ontology/securities#OverseasFinancialProduct\",\"https://example.org/ontology/securities#StockProduct\"]",
+        "product_code": "securities_foreign_stock",
+        "projection": {
+          "definition": "證券複委託外國股票 AUM；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+          "display_name": "私銀－證券複委託外國股票 AUM",
+          "id": "securities.foreign_stock_aum",
+          "kind": "Metric",
+          "metric_kind": "aum",
+          "origin": "pg",
+          "pg_label": "BusinessConcept",
+          "semantic_status": "metadata_only",
+          "subsidiary": "securities"
+        },
+        "rdf_annotations": [],
+        "scope": "metadata_only",
+        "specific_product_class_uri_json": "null",
+        "subsidiary": "securities",
+        "table_sources_json": "{\"coverage\":\"此 AUM／手收指標在既有 SQL 與 metadata 中的表級來源觀察；欄位映射、選日及執行規則未指定。\",\"status\":\"observed_in_files\",\"tables\":[{\"evidence\":[\"sec_stock_aum\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_STOCKPOS_SEC\"},{\"evidence\":[\"sec_stock_aum\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_STOCKPOS_SEC_M\"},{\"evidence\":[\"sec_bond_aum\",\"sec_stock_aum\"],\"role\":\"valuation_support\",\"table\":\"DSDEP.FN_EXCH_RT\"}],\"unresolved_supporting_relations\":[]}"
+      },
+      "type": "Metric"
+    },
+    {
+      "content": "私銀－證券複委託外國股票淨手收",
+      "id": "securities.foreign_stock_fee_income",
+      "properties": {
+        "definition": "證券複委託外國股票淨手收；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+        "department_owner_json": "null",
+        "metric_kind": "fee_income",
+        "name": "私銀－證券複委託外國股票淨手收",
+        "observations_json": "{\"classification_observation\":\"私銀 securities_foreign_stock 為複委託外國股票；保留淨手收定義。\",\"coverage\":\"證券複委託外國股票淨手收\",\"date_observation\":\"SQL 用 T_LAST_TWO_WORKDAYS 的 YM/LAST2_WD 將月底最後兩個工作天收入移至次月；YYYYMM||01 是歸屬月份標記，不是快照日。工作日曆、收入期間與 current 最大日期篩選均未核定。\",\"evidence\":[\"meta_sec_stock_fee\",\"private_products\",\"sec_stock_fee\"],\"gaps\":[\"原 current AM 分支 FROM PB_STOCKTRADM_AM_SEC_M，最大日期卻查 PB_STOCKTRADM_AM_SEC；不擅自更換來源或重複計入歷史。\",\"幣別、收入期間、PM/AM 去重及人員歸屬待確認。\"],\"valuation_observation\":\"SQL SUM((CFEE - ABFEE) * FXRATE)；PM/AM 分支 UNION；不可改成毛手收。\"}",
+        "original_pg_properties": {
+          "definition": "證券複委託外國股票淨手收；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+          "department_owner_json": "null",
+          "metric_kind": "fee_income",
+          "name": "私銀－證券複委託外國股票淨手收",
+          "observations_json": "{\"classification_observation\":\"私銀 securities_foreign_stock 為複委託外國股票；保留淨手收定義。\",\"coverage\":\"證券複委託外國股票淨手收\",\"date_observation\":\"SQL 用 T_LAST_TWO_WORKDAYS 的 YM/LAST2_WD 將月底最後兩個工作天收入移至次月；YYYYMM||01 是歸屬月份標記，不是快照日。工作日曆、收入期間與 current 最大日期篩選均未核定。\",\"evidence\":[\"meta_sec_stock_fee\",\"private_products\",\"sec_stock_fee\"],\"gaps\":[\"原 current AM 分支 FROM PB_STOCKTRADM_AM_SEC_M，最大日期卻查 PB_STOCKTRADM_AM_SEC；不擅自更換來源或重複計入歷史。\",\"幣別、收入期間、PM/AM 去重及人員歸屬待確認。\"],\"valuation_observation\":\"SQL SUM((CFEE - ABFEE) * FXRATE)；PM/AM 分支 UNION；不可改成毛手收。\"}",
+          "product_class_uris_json": "[\"https://example.org/ontology/securities#OverseasFinancialProduct\",\"https://example.org/ontology/securities#StockProduct\"]",
+          "product_code": "securities_foreign_stock",
+          "scope": "metadata_only",
+          "specific_product_class_uri_json": "null",
+          "subsidiary": "securities",
+          "table_sources_json": "{\"coverage\":\"此 AUM／手收指標在既有 SQL 與 metadata 中的表級來源觀察；欄位映射、選日及執行規則未指定。AM_SEC 僅供最大日期子查詢；金額分支仍依原 SQL 讀 AM_SEC_M，未額外加入 current AM 金額。\",\"status\":\"observed_in_files\",\"tables\":[{\"evidence\":[\"sec_stock_fee\"],\"role\":\"date_lookup_only\",\"table\":\"DSPBM.PB_STOCKTRADM_AM_SEC\"},{\"evidence\":[\"sec_stock_fee\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_STOCKTRADM_AM_SEC_M\"},{\"evidence\":[\"sec_stock_fee\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_STOCKTRADM_PM_SEC\"},{\"evidence\":[\"sec_stock_fee\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_STOCKTRADM_PM_SEC_M\"}],\"unresolved_supporting_relations\":[{\"evidence\":[\"sec_stock_fee\"],\"name\":\"T_LAST_TWO_WORKDAYS\",\"note\":\"SQL 引用此輔助關係，但未提供 schema 與底層定義；不當成已確認底表。\",\"role\":\"period_support\"}]}"
+        },
+        "product_class_uris_json": "[\"https://example.org/ontology/securities#OverseasFinancialProduct\",\"https://example.org/ontology/securities#StockProduct\"]",
+        "product_code": "securities_foreign_stock",
+        "projection": {
+          "definition": "證券複委託外國股票淨手收；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+          "display_name": "私銀－證券複委託外國股票淨手收",
+          "id": "securities.foreign_stock_fee_income",
+          "kind": "Metric",
+          "metric_kind": "fee_income",
+          "origin": "pg",
+          "pg_label": "BusinessConcept",
+          "semantic_status": "metadata_only",
+          "subsidiary": "securities"
+        },
+        "rdf_annotations": [],
+        "scope": "metadata_only",
+        "specific_product_class_uri_json": "null",
+        "subsidiary": "securities",
+        "table_sources_json": "{\"coverage\":\"此 AUM／手收指標在既有 SQL 與 metadata 中的表級來源觀察；欄位映射、選日及執行規則未指定。AM_SEC 僅供最大日期子查詢；金額分支仍依原 SQL 讀 AM_SEC_M，未額外加入 current AM 金額。\",\"status\":\"observed_in_files\",\"tables\":[{\"evidence\":[\"sec_stock_fee\"],\"role\":\"date_lookup_only\",\"table\":\"DSPBM.PB_STOCKTRADM_AM_SEC\"},{\"evidence\":[\"sec_stock_fee\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_STOCKTRADM_AM_SEC_M\"},{\"evidence\":[\"sec_stock_fee\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_STOCKTRADM_PM_SEC\"},{\"evidence\":[\"sec_stock_fee\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_STOCKTRADM_PM_SEC_M\"}],\"unresolved_supporting_relations\":[{\"evidence\":[\"sec_stock_fee\"],\"name\":\"T_LAST_TWO_WORKDAYS\",\"note\":\"SQL 引用此輔助關係，但未提供 schema 與底層定義；不當成已確認底表。\",\"role\":\"period_support\"}]}"
+      },
+      "type": "Metric"
+    },
+    {
+      "content": "私銀－證券複委託基金 AUM",
+      "id": "securities.fund_aum",
+      "properties": {
+        "definition": "證券複委託基金 AUM；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+        "department_owner_json": "null",
+        "metric_kind": "aum",
+        "name": "私銀－證券複委託基金 AUM",
+        "observations_json": "{\"classification_observation\":\"私銀 securities_fund 為複委託基金；不按表名擴成其他商品。\",\"coverage\":\"證券複委託基金 AUM\",\"date_observation\":\"YYYYMMDD 尚未核定為快照日期；跨歷史/current 去重待確認。\",\"evidence\":[\"meta_sec_fund_identity\",\"private_products\",\"sec_fund_aum\"],\"gaps\":[\"WKB02 是投資人帳號，WKB24 是客戶身分證字號；保留兩個不同角色，不核定客戶連接。\",\"current metadata 不自動證明歷史表語意或計價幣別。\"],\"valuation_observation\":\"SQL SUM(WKB28 * WKB23 * WKB31)，歷史/current 聚合後 UNION；不是三個可替代金額。\"}",
+        "original_pg_properties": {
+          "definition": "證券複委託基金 AUM；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+          "department_owner_json": "null",
+          "metric_kind": "aum",
+          "name": "私銀－證券複委託基金 AUM",
+          "observations_json": "{\"classification_observation\":\"私銀 securities_fund 為複委託基金；不按表名擴成其他商品。\",\"coverage\":\"證券複委託基金 AUM\",\"date_observation\":\"YYYYMMDD 尚未核定為快照日期；跨歷史/current 去重待確認。\",\"evidence\":[\"meta_sec_fund_identity\",\"private_products\",\"sec_fund_aum\"],\"gaps\":[\"WKB02 是投資人帳號，WKB24 是客戶身分證字號；保留兩個不同角色，不核定客戶連接。\",\"current metadata 不自動證明歷史表語意或計價幣別。\"],\"valuation_observation\":\"SQL SUM(WKB28 * WKB23 * WKB31)，歷史/current 聚合後 UNION；不是三個可替代金額。\"}",
+          "product_class_uris_json": "[\"https://example.org/ontology/securities#FundProduct\"]",
+          "product_code": "securities_fund",
+          "scope": "metadata_only",
+          "specific_product_class_uri_json": "null",
+          "subsidiary": "securities",
+          "table_sources_json": "{\"coverage\":\"此 AUM／手收指標在既有 SQL 與 metadata 中的表級來源觀察；欄位映射、選日及執行規則未指定。\",\"status\":\"observed_in_files\",\"tables\":[{\"evidence\":[\"sec_fund_aum\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_FUNDPOSIT_SEC\"},{\"evidence\":[\"sec_fund_aum\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_FUNDPOSIT_SEC_M\"}],\"unresolved_supporting_relations\":[]}"
+        },
+        "product_class_uris_json": "[\"https://example.org/ontology/securities#FundProduct\"]",
+        "product_code": "securities_fund",
+        "projection": {
+          "definition": "證券複委託基金 AUM；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+          "display_name": "私銀－證券複委託基金 AUM",
+          "id": "securities.fund_aum",
+          "kind": "Metric",
+          "metric_kind": "aum",
+          "origin": "pg",
+          "pg_label": "BusinessConcept",
+          "semantic_status": "metadata_only",
+          "subsidiary": "securities"
+        },
+        "rdf_annotations": [],
+        "scope": "metadata_only",
+        "specific_product_class_uri_json": "null",
+        "subsidiary": "securities",
+        "table_sources_json": "{\"coverage\":\"此 AUM／手收指標在既有 SQL 與 metadata 中的表級來源觀察；欄位映射、選日及執行規則未指定。\",\"status\":\"observed_in_files\",\"tables\":[{\"evidence\":[\"sec_fund_aum\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_FUNDPOSIT_SEC\"},{\"evidence\":[\"sec_fund_aum\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_FUNDPOSIT_SEC_M\"}],\"unresolved_supporting_relations\":[]}"
+      },
+      "type": "Metric"
+    },
+    {
+      "content": "私銀－證券複委託基金手收",
+      "id": "securities.fund_fee_income",
+      "properties": {
+        "definition": "證券複委託基金手收；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+        "department_owner_json": "null",
+        "metric_kind": "fee_income",
+        "name": "私銀－證券複委託基金手收",
+        "observations_json": "{\"classification_observation\":\"私銀 securities_fund；僅記錄已提供來源的手收範圍。\",\"coverage\":\"證券複委託基金手收\",\"date_observation\":\"SQL 用 T_LAST_TWO_WORKDAYS 的 YM/LAST2_WD 將月底最後兩個工作天收入移至次月；YYYYMM||01 是歸屬月份標記，不是快照日。工作日曆、收入期間與 current 最大日期篩選均未核定。\",\"evidence\":[\"meta_sec_fund_fee\",\"private_products\",\"sec_fund_fee\"],\"gaps\":[\"原 current 最大日期子查詢引用 PB_BONDTRADM_SEC，保留為待覆核異常，不自行修正。\",\"WKA31 幣別不明；客戶識別不能直接與 AUM WKB02 相連。\"],\"valuation_observation\":\"SQL SUM(WKA31)；歷史/current 聚合後 UNION。\"}",
+        "original_pg_properties": {
+          "definition": "證券複委託基金手收；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+          "department_owner_json": "null",
+          "metric_kind": "fee_income",
+          "name": "私銀－證券複委託基金手收",
+          "observations_json": "{\"classification_observation\":\"私銀 securities_fund；僅記錄已提供來源的手收範圍。\",\"coverage\":\"證券複委託基金手收\",\"date_observation\":\"SQL 用 T_LAST_TWO_WORKDAYS 的 YM/LAST2_WD 將月底最後兩個工作天收入移至次月；YYYYMM||01 是歸屬月份標記，不是快照日。工作日曆、收入期間與 current 最大日期篩選均未核定。\",\"evidence\":[\"meta_sec_fund_fee\",\"private_products\",\"sec_fund_fee\"],\"gaps\":[\"原 current 最大日期子查詢引用 PB_BONDTRADM_SEC，保留為待覆核異常，不自行修正。\",\"WKA31 幣別不明；客戶識別不能直接與 AUM WKB02 相連。\"],\"valuation_observation\":\"SQL SUM(WKA31)；歷史/current 聚合後 UNION。\"}",
+          "product_class_uris_json": "[\"https://example.org/ontology/securities#FundProduct\"]",
+          "product_code": "securities_fund",
+          "scope": "metadata_only",
+          "specific_product_class_uri_json": "null",
+          "subsidiary": "securities",
+          "table_sources_json": "{\"coverage\":\"此 AUM／手收指標在既有 SQL 與 metadata 中的表級來源觀察；欄位映射、選日及執行規則未指定。債券交易表僅被基金來源的最大日期子查詢引用，保留原始異常，不作基金金額來源。\",\"status\":\"observed_in_files\",\"tables\":[{\"evidence\":[\"sec_fund_fee\"],\"role\":\"date_lookup_only\",\"table\":\"DSPBM.PB_BONDTRADM_SEC\"},{\"evidence\":[\"sec_fund_fee\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_FUNDTRADM_SEC\"},{\"evidence\":[\"sec_fund_fee\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_FUNDTRADM_SEC_M\"}],\"unresolved_supporting_relations\":[{\"evidence\":[\"sec_fund_fee\"],\"name\":\"T_LAST_TWO_WORKDAYS\",\"note\":\"SQL 引用此輔助關係，但未提供 schema 與底層定義；不當成已確認底表。\",\"role\":\"period_support\"}]}"
+        },
+        "product_class_uris_json": "[\"https://example.org/ontology/securities#FundProduct\"]",
+        "product_code": "securities_fund",
+        "projection": {
+          "definition": "證券複委託基金手收；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+          "display_name": "私銀－證券複委託基金手收",
+          "id": "securities.fund_fee_income",
+          "kind": "Metric",
+          "metric_kind": "fee_income",
+          "origin": "pg",
+          "pg_label": "BusinessConcept",
+          "semantic_status": "metadata_only",
+          "subsidiary": "securities"
+        },
+        "rdf_annotations": [],
+        "scope": "metadata_only",
+        "specific_product_class_uri_json": "null",
+        "subsidiary": "securities",
+        "table_sources_json": "{\"coverage\":\"此 AUM／手收指標在既有 SQL 與 metadata 中的表級來源觀察；欄位映射、選日及執行規則未指定。債券交易表僅被基金來源的最大日期子查詢引用，保留原始異常，不作基金金額來源。\",\"status\":\"observed_in_files\",\"tables\":[{\"evidence\":[\"sec_fund_fee\"],\"role\":\"date_lookup_only\",\"table\":\"DSPBM.PB_BONDTRADM_SEC\"},{\"evidence\":[\"sec_fund_fee\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_FUNDTRADM_SEC\"},{\"evidence\":[\"sec_fund_fee\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_FUNDTRADM_SEC_M\"}],\"unresolved_supporting_relations\":[{\"evidence\":[\"sec_fund_fee\"],\"name\":\"T_LAST_TWO_WORKDAYS\",\"note\":\"SQL 引用此輔助關係，但未提供 schema 與底層定義；不當成已確認底表。\",\"role\":\"period_support\"}]}"
+      },
+      "type": "Metric"
+    },
+    {
+      "content": "私銀－證券複委託結構型商品 AUM",
+      "id": "securities.structured_aum",
+      "properties": {
+        "definition": "證券複委託結構型商品 AUM；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+        "department_owner_json": "null",
+        "metric_kind": "aum",
+        "name": "私銀－證券複委託結構型商品 AUM",
+        "observations_json": "{\"classification_observation\":\"SQL BOND LIKE 'TSSN%' 分成結構型，ELSE 為債券（含 SQL ELSE 的空值範圍，不能直接等同 NOT LIKE）。\",\"coverage\":\"證券複委託結構型商品 AUM\",\"date_observation\":\"歷史匯率取全體每月 MAX(PRCS_DT)，current 按 CLRDATE 與幣別連匯率；歷史/current UNION，快照、匯率連接與去重均未核定。\",\"evidence\":[\"private_products\",\"sec_bond_aum\"],\"gaps\":[\"折台為 SQL 意圖，幣別及匯率口徑待確認。\",\"未核定 BOND 單一商品識別、理專與客戶跨系統識別。\"],\"valuation_observation\":\"SQL SUM(NETQTY / 100 * CPRICE * EXCH_RT)；所有金額候選為同一估值的組成輸入。\"}",
+        "original_pg_properties": {
+          "definition": "證券複委託結構型商品 AUM；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+          "department_owner_json": "null",
+          "metric_kind": "aum",
+          "name": "私銀－證券複委託結構型商品 AUM",
+          "observations_json": "{\"classification_observation\":\"SQL BOND LIKE 'TSSN%' 分成結構型，ELSE 為債券（含 SQL ELSE 的空值範圍，不能直接等同 NOT LIKE）。\",\"coverage\":\"證券複委託結構型商品 AUM\",\"date_observation\":\"歷史匯率取全體每月 MAX(PRCS_DT)，current 按 CLRDATE 與幣別連匯率；歷史/current UNION，快照、匯率連接與去重均未核定。\",\"evidence\":[\"private_products\",\"sec_bond_aum\"],\"gaps\":[\"折台為 SQL 意圖，幣別及匯率口徑待確認。\",\"未核定 BOND 單一商品識別、理專與客戶跨系統識別。\"],\"valuation_observation\":\"SQL SUM(NETQTY / 100 * CPRICE * EXCH_RT)；所有金額候選為同一估值的組成輸入。\"}",
+          "product_class_uris_json": "[\"https://example.org/ontology/securities#StructuredFinancialProduct\"]",
+          "product_code": "securities_structured",
+          "scope": "metadata_only",
+          "specific_product_class_uri_json": "null",
+          "subsidiary": "securities",
+          "table_sources_json": "{\"coverage\":\"此 AUM／手收指標在既有 SQL 與 metadata 中的表級來源觀察；欄位映射、選日及執行規則未指定。\",\"status\":\"observed_in_files\",\"tables\":[{\"evidence\":[\"sec_bond_aum\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_BONDPOS_SEC\"},{\"evidence\":[\"sec_bond_aum\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_BONDPOS_SEC_M\"},{\"evidence\":[\"sec_bond_aum\",\"sec_stock_aum\"],\"role\":\"valuation_support\",\"table\":\"DSDEP.FN_EXCH_RT\"}],\"unresolved_supporting_relations\":[]}"
+        },
+        "product_class_uris_json": "[\"https://example.org/ontology/securities#StructuredFinancialProduct\"]",
+        "product_code": "securities_structured",
+        "projection": {
+          "definition": "證券複委託結構型商品 AUM；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+          "display_name": "私銀－證券複委託結構型商品 AUM",
+          "id": "securities.structured_aum",
+          "kind": "Metric",
+          "metric_kind": "aum",
+          "origin": "pg",
+          "pg_label": "BusinessConcept",
+          "semantic_status": "metadata_only",
+          "subsidiary": "securities"
+        },
+        "rdf_annotations": [],
+        "scope": "metadata_only",
+        "specific_product_class_uri_json": "null",
+        "subsidiary": "securities",
+        "table_sources_json": "{\"coverage\":\"此 AUM／手收指標在既有 SQL 與 metadata 中的表級來源觀察；欄位映射、選日及執行規則未指定。\",\"status\":\"observed_in_files\",\"tables\":[{\"evidence\":[\"sec_bond_aum\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_BONDPOS_SEC\"},{\"evidence\":[\"sec_bond_aum\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_BONDPOS_SEC_M\"},{\"evidence\":[\"sec_bond_aum\",\"sec_stock_aum\"],\"role\":\"valuation_support\",\"table\":\"DSDEP.FN_EXCH_RT\"}],\"unresolved_supporting_relations\":[]}"
+      },
+      "type": "Metric"
+    },
+    {
+      "content": "私銀－證券複委託結構型商品手收",
+      "id": "securities.structured_fee_income",
+      "properties": {
+        "definition": "證券複委託結構型商品手收；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+        "department_owner_json": "null",
+        "metric_kind": "fee_income",
+        "name": "私銀－證券複委託結構型商品手收",
+        "observations_json": "{\"classification_observation\":\"SQL BOND LIKE 'TSSN%' 為結構型，ELSE 為債券；不自行改成 NOT LIKE。\",\"coverage\":\"證券複委託結構型商品手收\",\"date_observation\":\"SQL 用 T_LAST_TWO_WORKDAYS 的 YM/LAST2_WD 將月底最後兩個工作天收入移至次月；YYYYMM||01 是歸屬月份標記，不是快照日。工作日曆、收入期間與 current 最大日期篩選均未核定。\",\"evidence\":[\"private_products\",\"sec_bond_fee\"],\"gaps\":[\"幣別、收入認列與證券端人員歸屬未核定；不套用銀行理專關係。\"],\"valuation_observation\":\"SQL SUM(CFEE * FXRATE)，不是單取其中一個金額；歷史/current 聚合後 UNION。\"}",
+        "original_pg_properties": {
+          "definition": "證券複委託結構型商品手收；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+          "department_owner_json": "null",
+          "metric_kind": "fee_income",
+          "name": "私銀－證券複委託結構型商品手收",
+          "observations_json": "{\"classification_observation\":\"SQL BOND LIKE 'TSSN%' 為結構型，ELSE 為債券；不自行改成 NOT LIKE。\",\"coverage\":\"證券複委託結構型商品手收\",\"date_observation\":\"SQL 用 T_LAST_TWO_WORKDAYS 的 YM/LAST2_WD 將月底最後兩個工作天收入移至次月；YYYYMM||01 是歸屬月份標記，不是快照日。工作日曆、收入期間與 current 最大日期篩選均未核定。\",\"evidence\":[\"private_products\",\"sec_bond_fee\"],\"gaps\":[\"幣別、收入認列與證券端人員歸屬未核定；不套用銀行理專關係。\"],\"valuation_observation\":\"SQL SUM(CFEE * FXRATE)，不是單取其中一個金額；歷史/current 聚合後 UNION。\"}",
+          "product_class_uris_json": "[\"https://example.org/ontology/securities#StructuredFinancialProduct\"]",
+          "product_code": "securities_structured",
+          "scope": "metadata_only",
+          "specific_product_class_uri_json": "null",
+          "subsidiary": "securities",
+          "table_sources_json": "{\"coverage\":\"此 AUM／手收指標在既有 SQL 與 metadata 中的表級來源觀察；欄位映射、選日及執行規則未指定。\",\"status\":\"observed_in_files\",\"tables\":[{\"evidence\":[\"sec_bond_fee\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_BONDTRADM_SEC\"},{\"evidence\":[\"sec_bond_fee\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_BONDTRADM_SEC_M\"}],\"unresolved_supporting_relations\":[{\"evidence\":[\"sec_bond_fee\"],\"name\":\"T_LAST_TWO_WORKDAYS\",\"note\":\"SQL 引用此輔助關係，但未提供 schema 與底層定義；不當成已確認底表。\",\"role\":\"period_support\"}]}"
+        },
+        "product_class_uris_json": "[\"https://example.org/ontology/securities#StructuredFinancialProduct\"]",
+        "product_code": "securities_structured",
+        "projection": {
+          "definition": "證券複委託結構型商品手收；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+          "display_name": "私銀－證券複委託結構型商品手收",
+          "id": "securities.structured_fee_income",
+          "kind": "Metric",
+          "metric_kind": "fee_income",
+          "origin": "pg",
+          "pg_label": "BusinessConcept",
+          "semantic_status": "metadata_only",
+          "subsidiary": "securities"
+        },
+        "rdf_annotations": [],
+        "scope": "metadata_only",
+        "specific_product_class_uri_json": "null",
+        "subsidiary": "securities",
+        "table_sources_json": "{\"coverage\":\"此 AUM／手收指標在既有 SQL 與 metadata 中的表級來源觀察；欄位映射、選日及執行規則未指定。\",\"status\":\"observed_in_files\",\"tables\":[{\"evidence\":[\"sec_bond_fee\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_BONDTRADM_SEC\"},{\"evidence\":[\"sec_bond_fee\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_BONDTRADM_SEC_M\"}],\"unresolved_supporting_relations\":[{\"evidence\":[\"sec_bond_fee\"],\"name\":\"T_LAST_TWO_WORKDAYS\",\"note\":\"SQL 引用此輔助關係，但未提供 schema 與底層定義；不當成已確認底表。\",\"role\":\"period_support\"}]}"
+      },
+      "type": "Metric"
+    },
+    {
+      "content": "私銀－證券台股 AUM",
+      "id": "securities.taiwan_stock_aum",
+      "properties": {
+        "definition": "證券台股 AUM；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+        "department_owner_json": "null",
+        "metric_kind": "aum",
+        "name": "私銀－證券台股 AUM",
+        "observations_json": "{\"classification_observation\":\"私銀 securities_taiwan_stock，地域為台灣；未另造組合 OWL Class。\",\"coverage\":\"證券台股 AUM\",\"date_observation\":\"日期與歷史/current 銜接待確認。\",\"evidence\":[\"meta_sec_taiwan\",\"private_products\",\"sec_taiwan_aum\"],\"gaps\":[\"台股手收來源尚缺；不從 AUM 推導手收。\",\"未核定合併、估值、幣別及去重。\"],\"valuation_observation\":\"SQL 先投影客戶、日期、YTRMRB110 * YTRMRB150，UNION 後 SUM；可能去掉相同投影列，需確認原始粒度。\"}",
+        "original_pg_properties": {
+          "definition": "證券台股 AUM；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+          "department_owner_json": "null",
+          "metric_kind": "aum",
+          "name": "私銀－證券台股 AUM",
+          "observations_json": "{\"classification_observation\":\"私銀 securities_taiwan_stock，地域為台灣；未另造組合 OWL Class。\",\"coverage\":\"證券台股 AUM\",\"date_observation\":\"日期與歷史/current 銜接待確認。\",\"evidence\":[\"meta_sec_taiwan\",\"private_products\",\"sec_taiwan_aum\"],\"gaps\":[\"台股手收來源尚缺；不從 AUM 推導手收。\",\"未核定合併、估值、幣別及去重。\"],\"valuation_observation\":\"SQL 先投影客戶、日期、YTRMRB110 * YTRMRB150，UNION 後 SUM；可能去掉相同投影列，需確認原始粒度。\"}",
+          "product_class_uris_json": "[\"https://example.org/ontology/securities#StockProduct\"]",
+          "product_code": "securities_taiwan_stock",
+          "scope": "metadata_only",
+          "specific_product_class_uri_json": "null",
+          "subsidiary": "securities",
+          "table_sources_json": "{\"coverage\":\"此 AUM／手收指標在既有 SQL 與 metadata 中的表級來源觀察；欄位映射、選日及執行規則未指定。\",\"status\":\"observed_in_files\",\"tables\":[{\"evidence\":[\"sec_taiwan_aum\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_YTRMRBP_SEC\"},{\"evidence\":[\"sec_taiwan_aum\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_YTRMRBP_SEC_M\"}],\"unresolved_supporting_relations\":[]}"
+        },
+        "product_class_uris_json": "[\"https://example.org/ontology/securities#StockProduct\"]",
+        "product_code": "securities_taiwan_stock",
+        "projection": {
+          "definition": "證券台股 AUM；依私銀既有產品範圍記錄的指標候選，認列與來源映射尚待確認。",
+          "display_name": "私銀－證券台股 AUM",
+          "id": "securities.taiwan_stock_aum",
+          "kind": "Metric",
+          "metric_kind": "aum",
+          "origin": "pg",
+          "pg_label": "BusinessConcept",
+          "semantic_status": "metadata_only",
+          "subsidiary": "securities"
+        },
+        "rdf_annotations": [],
+        "scope": "metadata_only",
+        "specific_product_class_uri_json": "null",
+        "subsidiary": "securities",
+        "table_sources_json": "{\"coverage\":\"此 AUM／手收指標在既有 SQL 與 metadata 中的表級來源觀察；欄位映射、選日及執行規則未指定。\",\"status\":\"observed_in_files\",\"tables\":[{\"evidence\":[\"sec_taiwan_aum\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_YTRMRBP_SEC\"},{\"evidence\":[\"sec_taiwan_aum\"],\"role\":\"primary\",\"table\":\"DSPBM.PB_YTRMRBP_SEC_M\"}],\"unresolved_supporting_relations\":[]}"
+      },
+      "type": "Metric"
+    },
+    {
+      "content": "私銀－證券總 AUM",
+      "id": "securities.total_aum",
+      "properties": {
+        "calculation_status": "pending_tool_definition",
+        "component_metric_ids_json": "[\"securities.bond_aum\",\"securities.foreign_stock_aum\",\"securities.fund_aum\",\"securities.structured_aum\",\"securities.taiwan_stock_aum\"]",
+        "coverage_status": "included_products_only",
+        "definition": "私銀－證券總 AUM；僅涵蓋目前已納入私銀模型的證券商品分項，金額與期間口徑待 Tool 定義。",
+        "department_owner_json": "null",
+        "excluded_metric_ids_json": "[\"securities.stock_pledge_aum\"]",
+        "lineage_mode": "via_component_metrics",
+        "metric_kind": "aum",
+        "name": "私銀－證券總 AUM",
+        "observations_json": "{\"amount_observation\":\"沿五項分項保留估值與匯率觀察；本輪不選擇現成 AUM_REPORT 或 AUM_TMP02 作新底表，也不把股票估值接成 LUM。\",\"coverage\":\"已納入的複委託債券、結構型、基金、外國股票與台股五項 AUM；股票設質估值排除。\",\"date_observation\":\"AUM 是基準日規模；各分項歷史／current 日期與匯率日期仍待定。字典的各分類月內最新日期為 draft_metric_query，不當正式月底或同日口徑。\",\"evidence\":[\"aum_detail_components\",\"aum_monthly_query_draft\",\"aum_report_copy_only\",\"aum_summary_included\",\"aum_summary_pledge_mixed_as_taiwan\"],\"gaps\":[\"涵蓋分項是 PG metadata，不表示已核定 SUM、去重或跨分項合計公式；計算由 Tool 承接。\",\"本指標只代表目前已納入的私銀證券商品範圍，不宣稱證券公司全部業務。\",\"不新增底表、欄位映射、理專關係或資料權責；沿分項保留金額來源／估值輔助／日期查詢角色。\",\"總指標與其分項不得再一起加總；兩項總指標不新增可執行 SQL 或 Tool 綁定。\",\"已提供檔案缺 AUM_TMP02／AUM_REPORT 完整產製邏輯；12.GRANT.sql 只有遠端複製，不能視為已確認計算。\",\"排除 AUM_028 須保留來源分支血緣，不能在混合台股標籤後假設可辨別或直接扣除。\",\"基金 WKB02／WKB24 身分角色、current／歷史 UNION 及部位／匯率日期疑點繼承，未用總指標自動解決。\"],\"sql_behavior_observation\":\"原 AUM 彙整以 UNION 匯集，AUM_027 台股庫存與 AUM_028 股票設質均標證券／台股；不能只以 COMP=證券 或 PROD=台股篩選舊成品總額。\"}",
+        "original_pg_properties": {
+          "calculation_status": "pending_tool_definition",
+          "component_metric_ids_json": "[\"securities.bond_aum\",\"securities.foreign_stock_aum\",\"securities.fund_aum\",\"securities.structured_aum\",\"securities.taiwan_stock_aum\"]",
+          "coverage_status": "included_products_only",
+          "definition": "私銀－證券總 AUM；僅涵蓋目前已納入私銀模型的證券商品分項，金額與期間口徑待 Tool 定義。",
+          "department_owner_json": "null",
+          "excluded_metric_ids_json": "[\"securities.stock_pledge_aum\"]",
+          "lineage_mode": "via_component_metrics",
+          "metric_kind": "aum",
+          "name": "私銀－證券總 AUM",
+          "observations_json": "{\"amount_observation\":\"沿五項分項保留估值與匯率觀察；本輪不選擇現成 AUM_REPORT 或 AUM_TMP02 作新底表，也不把股票估值接成 LUM。\",\"coverage\":\"已納入的複委託債券、結構型、基金、外國股票與台股五項 AUM；股票設質估值排除。\",\"date_observation\":\"AUM 是基準日規模；各分項歷史／current 日期與匯率日期仍待定。字典的各分類月內最新日期為 draft_metric_query，不當正式月底或同日口徑。\",\"evidence\":[\"aum_detail_components\",\"aum_monthly_query_draft\",\"aum_report_copy_only\",\"aum_summary_included\",\"aum_summary_pledge_mixed_as_taiwan\"],\"gaps\":[\"涵蓋分項是 PG metadata，不表示已核定 SUM、去重或跨分項合計公式；計算由 Tool 承接。\",\"本指標只代表目前已納入的私銀證券商品範圍，不宣稱證券公司全部業務。\",\"不新增底表、欄位映射、理專關係或資料權責；沿分項保留金額來源／估值輔助／日期查詢角色。\",\"總指標與其分項不得再一起加總；兩項總指標不新增可執行 SQL 或 Tool 綁定。\",\"已提供檔案缺 AUM_TMP02／AUM_REPORT 完整產製邏輯；12.GRANT.sql 只有遠端複製，不能視為已確認計算。\",\"排除 AUM_028 須保留來源分支血緣，不能在混合台股標籤後假設可辨別或直接扣除。\",\"基金 WKB02／WKB24 身分角色、current／歷史 UNION 及部位／匯率日期疑點繼承，未用總指標自動解決。\"],\"sql_behavior_observation\":\"原 AUM 彙整以 UNION 匯集，AUM_027 台股庫存與 AUM_028 股票設質均標證券／台股；不能只以 COMP=證券 或 PROD=台股篩選舊成品總額。\"}",
+          "scope": "metadata_only",
+          "specific_product_class_uri_json": "null",
+          "subsidiary": "securities"
+        },
+        "projection": {
+          "definition": "私銀－證券總 AUM；僅涵蓋目前已納入私銀模型的證券商品分項，金額與期間口徑待 Tool 定義。",
+          "display_name": "私銀－證券總 AUM",
+          "id": "securities.total_aum",
+          "kind": "Metric",
+          "metric_kind": "aum",
+          "origin": "pg",
+          "pg_label": "BusinessConcept",
+          "semantic_status": "metadata_only",
+          "subsidiary": "securities"
+        },
+        "rdf_annotations": [],
+        "scope": "metadata_only",
+        "specific_product_class_uri_json": "null",
+        "subsidiary": "securities"
+      },
+      "type": "Metric"
+    },
+    {
+      "content": "私銀－證券總手收",
+      "id": "securities.total_fee_income",
+      "properties": {
+        "calculation_status": "pending_tool_definition",
+        "component_metric_ids_json": "[\"securities.bond_fee_income\",\"securities.foreign_stock_fee_income\",\"securities.fund_fee_income\",\"securities.structured_fee_income\"]",
+        "coverage_status": "included_products_only",
+        "definition": "私銀－證券總手收；僅涵蓋目前已納入私銀模型的證券商品分項，金額與期間口徑待 Tool 定義。",
+        "department_owner_json": "null",
+        "excluded_metric_ids_json": "[\"securities.taiwan_stock_fee_income\"]",
+        "lineage_mode": "via_component_metrics",
+        "metric_kind": "fee_income",
+        "name": "私銀－證券總手收",
+        "observations_json": "{\"amount_observation\":\"外國股票保留 SUM((CFEE-ABFEE)*FXRATE) 的淨手收，不改成毛手收；基金幣別與各分項金額組成仍待定。\",\"coverage\":\"已納入的複委託債券、結構型、基金與外國股票四項手收；台股手收缺來源先不納入。\",\"date_observation\":\"原 SQL 用 T_LAST_TWO_WORKDAYS 將月底最後兩個工作天移至次月，YYYYMM||01 為收入歸屬月份標記；總手收按收入期間衡量，期間與工作日曆待 Tool 定義。\",\"evidence\":[\"income_customer_scope\",\"income_detail_components\",\"income_summary_components\"],\"gaps\":[\"涵蓋分項是 PG metadata，不表示已核定 SUM、去重或跨分項合計公式；計算由 Tool 承接。\",\"本指標只代表目前已納入的私銀證券商品範圍，不宣稱證券公司全部業務。\",\"不新增底表、欄位映射、理專關係或資料權責；沿分項保留金額來源／估值輔助／日期查詢角色。\",\"總指標與其分項不得再一起加總；兩項總指標不新增可執行 SQL 或 Tool 綁定。\",\"INCOME_REPORT 篩除 PRFT_CNTR_CD 為空，且按客戶／月份連 PB_CUST_005；歸屬連接與倍增／遺漏未查驗，不套用銀行理專關係。\",\"基金 current 最大日期查債券交易表；外股 current AM 金額仍取 AM_SEC_M，最大日期卻查 AM_SEC；保留原異常，不修正或擴大來源。\",\"T_LAST_TWO_WORKDAYS 缺 schema／底層定義，仍由原分項 unresolved_supporting_relations 承接，不另建來源表。\"],\"sql_behavior_observation\":\"INCOME_051_054、052、053 以 UNION 投影到手收／證券；債券與結構型依 FLG 分列。UNION 為投影整列去重，不是交易層去重或四個金額的直接相加。\"}",
+        "original_pg_properties": {
+          "calculation_status": "pending_tool_definition",
+          "component_metric_ids_json": "[\"securities.bond_fee_income\",\"securities.foreign_stock_fee_income\",\"securities.fund_fee_income\",\"securities.structured_fee_income\"]",
+          "coverage_status": "included_products_only",
+          "definition": "私銀－證券總手收；僅涵蓋目前已納入私銀模型的證券商品分項，金額與期間口徑待 Tool 定義。",
+          "department_owner_json": "null",
+          "excluded_metric_ids_json": "[\"securities.taiwan_stock_fee_income\"]",
+          "lineage_mode": "via_component_metrics",
+          "metric_kind": "fee_income",
+          "name": "私銀－證券總手收",
+          "observations_json": "{\"amount_observation\":\"外國股票保留 SUM((CFEE-ABFEE)*FXRATE) 的淨手收，不改成毛手收；基金幣別與各分項金額組成仍待定。\",\"coverage\":\"已納入的複委託債券、結構型、基金與外國股票四項手收；台股手收缺來源先不納入。\",\"date_observation\":\"原 SQL 用 T_LAST_TWO_WORKDAYS 將月底最後兩個工作天移至次月，YYYYMM||01 為收入歸屬月份標記；總手收按收入期間衡量，期間與工作日曆待 Tool 定義。\",\"evidence\":[\"income_customer_scope\",\"income_detail_components\",\"income_summary_components\"],\"gaps\":[\"涵蓋分項是 PG metadata，不表示已核定 SUM、去重或跨分項合計公式；計算由 Tool 承接。\",\"本指標只代表目前已納入的私銀證券商品範圍，不宣稱證券公司全部業務。\",\"不新增底表、欄位映射、理專關係或資料權責；沿分項保留金額來源／估值輔助／日期查詢角色。\",\"總指標與其分項不得再一起加總；兩項總指標不新增可執行 SQL 或 Tool 綁定。\",\"INCOME_REPORT 篩除 PRFT_CNTR_CD 為空，且按客戶／月份連 PB_CUST_005；歸屬連接與倍增／遺漏未查驗，不套用銀行理專關係。\",\"基金 current 最大日期查債券交易表；外股 current AM 金額仍取 AM_SEC_M，最大日期卻查 AM_SEC；保留原異常，不修正或擴大來源。\",\"T_LAST_TWO_WORKDAYS 缺 schema／底層定義，仍由原分項 unresolved_supporting_relations 承接，不另建來源表。\"],\"sql_behavior_observation\":\"INCOME_051_054、052、053 以 UNION 投影到手收／證券；債券與結構型依 FLG 分列。UNION 為投影整列去重，不是交易層去重或四個金額的直接相加。\"}",
+          "scope": "metadata_only",
+          "specific_product_class_uri_json": "null",
+          "subsidiary": "securities"
+        },
+        "projection": {
+          "definition": "私銀－證券總手收；僅涵蓋目前已納入私銀模型的證券商品分項，金額與期間口徑待 Tool 定義。",
+          "display_name": "私銀－證券總手收",
+          "id": "securities.total_fee_income",
+          "kind": "Metric",
+          "metric_kind": "fee_income",
+          "origin": "pg",
+          "pg_label": "BusinessConcept",
+          "semantic_status": "metadata_only",
+          "subsidiary": "securities"
+        },
+        "rdf_annotations": [],
+        "scope": "metadata_only",
+        "specific_product_class_uri_json": "null",
+        "subsidiary": "securities"
+      },
+      "type": "Metric"
+    },
+    {
+      "content": "DSDEP.FN_EXCH_RT",
+      "id": "source:DSDEP.FN_EXCH_RT",
+      "properties": {
+        "database_verified_json": "false",
+        "definition": "",
+        "evidence_json": "[\"sec_bond_aum\",\"sec_stock_aum\"]",
+        "name": "DSDEP.FN_EXCH_RT",
+        "original_pg_properties": {
+          "database_verified_json": "false",
+          "evidence_json": "[\"sec_bond_aum\",\"sec_stock_aum\"]",
+          "scope": "metadata_only",
+          "status": "observed_in_files",
+          "table": "DSDEP.FN_EXCH_RT"
+        },
+        "projection": {
+          "definition": "",
+          "display_name": "DSDEP.FN_EXCH_RT",
+          "id": "source:DSDEP.FN_EXCH_RT",
+          "kind": "SourceTable",
+          "metric_kind": "",
+          "origin": "pg",
+          "pg_label": "SourceTable",
+          "semantic_status": "metadata_only",
+          "subsidiary": ""
+        },
+        "rdf_annotations": [],
+        "scope": "metadata_only",
+        "status": "observed_in_files",
+        "table": "DSDEP.FN_EXCH_RT"
+      },
+      "type": "SourceTable"
+    },
+    {
+      "content": "DSPBM.PB_BONDPOS_SEC",
+      "id": "source:DSPBM.PB_BONDPOS_SEC",
+      "properties": {
+        "database_verified_json": "false",
+        "definition": "",
+        "evidence_json": "[\"sec_bond_aum\"]",
+        "name": "DSPBM.PB_BONDPOS_SEC",
+        "original_pg_properties": {
+          "database_verified_json": "false",
+          "evidence_json": "[\"sec_bond_aum\"]",
+          "scope": "metadata_only",
+          "status": "observed_in_files",
+          "table": "DSPBM.PB_BONDPOS_SEC"
+        },
+        "projection": {
+          "definition": "",
+          "display_name": "DSPBM.PB_BONDPOS_SEC",
+          "id": "source:DSPBM.PB_BONDPOS_SEC",
+          "kind": "SourceTable",
+          "metric_kind": "",
+          "origin": "pg",
+          "pg_label": "SourceTable",
+          "semantic_status": "metadata_only",
+          "subsidiary": ""
+        },
+        "rdf_annotations": [],
+        "scope": "metadata_only",
+        "status": "observed_in_files",
+        "table": "DSPBM.PB_BONDPOS_SEC"
+      },
+      "type": "SourceTable"
+    },
+    {
+      "content": "DSPBM.PB_BONDPOS_SEC_M",
+      "id": "source:DSPBM.PB_BONDPOS_SEC_M",
+      "properties": {
+        "database_verified_json": "false",
+        "definition": "",
+        "evidence_json": "[\"sec_bond_aum\"]",
+        "name": "DSPBM.PB_BONDPOS_SEC_M",
+        "original_pg_properties": {
+          "database_verified_json": "false",
+          "evidence_json": "[\"sec_bond_aum\"]",
+          "scope": "metadata_only",
+          "status": "observed_in_files",
+          "table": "DSPBM.PB_BONDPOS_SEC_M"
+        },
+        "projection": {
+          "definition": "",
+          "display_name": "DSPBM.PB_BONDPOS_SEC_M",
+          "id": "source:DSPBM.PB_BONDPOS_SEC_M",
+          "kind": "SourceTable",
+          "metric_kind": "",
+          "origin": "pg",
+          "pg_label": "SourceTable",
+          "semantic_status": "metadata_only",
+          "subsidiary": ""
+        },
+        "rdf_annotations": [],
+        "scope": "metadata_only",
+        "status": "observed_in_files",
+        "table": "DSPBM.PB_BONDPOS_SEC_M"
+      },
+      "type": "SourceTable"
+    },
+    {
+      "content": "DSPBM.PB_BONDTRADM_SEC",
+      "id": "source:DSPBM.PB_BONDTRADM_SEC",
+      "properties": {
+        "database_verified_json": "false",
+        "definition": "",
+        "evidence_json": "[\"sec_bond_fee\"]",
+        "name": "DSPBM.PB_BONDTRADM_SEC",
+        "original_pg_properties": {
+          "database_verified_json": "false",
+          "evidence_json": "[\"sec_bond_fee\"]",
+          "scope": "metadata_only",
+          "status": "observed_in_files",
+          "table": "DSPBM.PB_BONDTRADM_SEC"
+        },
+        "projection": {
+          "definition": "",
+          "display_name": "DSPBM.PB_BONDTRADM_SEC",
+          "id": "source:DSPBM.PB_BONDTRADM_SEC",
+          "kind": "SourceTable",
+          "metric_kind": "",
+          "origin": "pg",
+          "pg_label": "SourceTable",
+          "semantic_status": "metadata_only",
+          "subsidiary": ""
+        },
+        "rdf_annotations": [],
+        "scope": "metadata_only",
+        "status": "observed_in_files",
+        "table": "DSPBM.PB_BONDTRADM_SEC"
+      },
+      "type": "SourceTable"
+    },
+    {
+      "content": "DSPBM.PB_BONDTRADM_SEC_M",
+      "id": "source:DSPBM.PB_BONDTRADM_SEC_M",
+      "properties": {
+        "database_verified_json": "false",
+        "definition": "",
+        "evidence_json": "[\"sec_bond_fee\"]",
+        "name": "DSPBM.PB_BONDTRADM_SEC_M",
+        "original_pg_properties": {
+          "database_verified_json": "false",
+          "evidence_json": "[\"sec_bond_fee\"]",
+          "scope": "metadata_only",
+          "status": "observed_in_files",
+          "table": "DSPBM.PB_BONDTRADM_SEC_M"
+        },
+        "projection": {
+          "definition": "",
+          "display_name": "DSPBM.PB_BONDTRADM_SEC_M",
+          "id": "source:DSPBM.PB_BONDTRADM_SEC_M",
+          "kind": "SourceTable",
+          "metric_kind": "",
+          "origin": "pg",
+          "pg_label": "SourceTable",
+          "semantic_status": "metadata_only",
+          "subsidiary": ""
+        },
+        "rdf_annotations": [],
+        "scope": "metadata_only",
+        "status": "observed_in_files",
+        "table": "DSPBM.PB_BONDTRADM_SEC_M"
+      },
+      "type": "SourceTable"
+    },
+    {
+      "content": "DSPBM.PB_FUNDPOSIT_SEC",
+      "id": "source:DSPBM.PB_FUNDPOSIT_SEC",
+      "properties": {
+        "database_verified_json": "false",
+        "definition": "",
+        "evidence_json": "[\"sec_fund_aum\"]",
+        "name": "DSPBM.PB_FUNDPOSIT_SEC",
+        "original_pg_properties": {
+          "database_verified_json": "false",
+          "evidence_json": "[\"sec_fund_aum\"]",
+          "scope": "metadata_only",
+          "status": "observed_in_files",
+          "table": "DSPBM.PB_FUNDPOSIT_SEC"
+        },
+        "projection": {
+          "definition": "",
+          "display_name": "DSPBM.PB_FUNDPOSIT_SEC",
+          "id": "source:DSPBM.PB_FUNDPOSIT_SEC",
+          "kind": "SourceTable",
+          "metric_kind": "",
+          "origin": "pg",
+          "pg_label": "SourceTable",
+          "semantic_status": "metadata_only",
+          "subsidiary": ""
+        },
+        "rdf_annotations": [],
+        "scope": "metadata_only",
+        "status": "observed_in_files",
+        "table": "DSPBM.PB_FUNDPOSIT_SEC"
+      },
+      "type": "SourceTable"
+    },
+    {
+      "content": "DSPBM.PB_FUNDPOSIT_SEC_M",
+      "id": "source:DSPBM.PB_FUNDPOSIT_SEC_M",
+      "properties": {
+        "database_verified_json": "false",
+        "definition": "",
+        "evidence_json": "[\"sec_fund_aum\"]",
+        "name": "DSPBM.PB_FUNDPOSIT_SEC_M",
+        "original_pg_properties": {
+          "database_verified_json": "false",
+          "evidence_json": "[\"sec_fund_aum\"]",
+          "scope": "metadata_only",
+          "status": "observed_in_files",
+          "table": "DSPBM.PB_FUNDPOSIT_SEC_M"
+        },
+        "projection": {
+          "definition": "",
+          "display_name": "DSPBM.PB_FUNDPOSIT_SEC_M",
+          "id": "source:DSPBM.PB_FUNDPOSIT_SEC_M",
+          "kind": "SourceTable",
+          "metric_kind": "",
+          "origin": "pg",
+          "pg_label": "SourceTable",
+          "semantic_status": "metadata_only",
+          "subsidiary": ""
+        },
+        "rdf_annotations": [],
+        "scope": "metadata_only",
+        "status": "observed_in_files",
+        "table": "DSPBM.PB_FUNDPOSIT_SEC_M"
+      },
+      "type": "SourceTable"
+    },
+    {
+      "content": "DSPBM.PB_FUNDTRADM_SEC",
+      "id": "source:DSPBM.PB_FUNDTRADM_SEC",
+      "properties": {
+        "database_verified_json": "false",
+        "definition": "",
+        "evidence_json": "[\"sec_fund_fee\"]",
+        "name": "DSPBM.PB_FUNDTRADM_SEC",
+        "original_pg_properties": {
+          "database_verified_json": "false",
+          "evidence_json": "[\"sec_fund_fee\"]",
+          "scope": "metadata_only",
+          "status": "observed_in_files",
+          "table": "DSPBM.PB_FUNDTRADM_SEC"
+        },
+        "projection": {
+          "definition": "",
+          "display_name": "DSPBM.PB_FUNDTRADM_SEC",
+          "id": "source:DSPBM.PB_FUNDTRADM_SEC",
+          "kind": "SourceTable",
+          "metric_kind": "",
+          "origin": "pg",
+          "pg_label": "SourceTable",
+          "semantic_status": "metadata_only",
+          "subsidiary": ""
+        },
+        "rdf_annotations": [],
+        "scope": "metadata_only",
+        "status": "observed_in_files",
+        "table": "DSPBM.PB_FUNDTRADM_SEC"
+      },
+      "type": "SourceTable"
+    },
+    {
+      "content": "DSPBM.PB_FUNDTRADM_SEC_M",
+      "id": "source:DSPBM.PB_FUNDTRADM_SEC_M",
+      "properties": {
+        "database_verified_json": "false",
+        "definition": "",
+        "evidence_json": "[\"sec_fund_fee\"]",
+        "name": "DSPBM.PB_FUNDTRADM_SEC_M",
+        "original_pg_properties": {
+          "database_verified_json": "false",
+          "evidence_json": "[\"sec_fund_fee\"]",
+          "scope": "metadata_only",
+          "status": "observed_in_files",
+          "table": "DSPBM.PB_FUNDTRADM_SEC_M"
+        },
+        "projection": {
+          "definition": "",
+          "display_name": "DSPBM.PB_FUNDTRADM_SEC_M",
+          "id": "source:DSPBM.PB_FUNDTRADM_SEC_M",
+          "kind": "SourceTable",
+          "metric_kind": "",
+          "origin": "pg",
+          "pg_label": "SourceTable",
+          "semantic_status": "metadata_only",
+          "subsidiary": ""
+        },
+        "rdf_annotations": [],
+        "scope": "metadata_only",
+        "status": "observed_in_files",
+        "table": "DSPBM.PB_FUNDTRADM_SEC_M"
+      },
+      "type": "SourceTable"
+    },
+    {
+      "content": "DSPBM.PB_STOCKPOS_SEC",
+      "id": "source:DSPBM.PB_STOCKPOS_SEC",
+      "properties": {
+        "database_verified_json": "false",
+        "definition": "",
+        "evidence_json": "[\"sec_stock_aum\"]",
+        "name": "DSPBM.PB_STOCKPOS_SEC",
+        "original_pg_properties": {
+          "database_verified_json": "false",
+          "evidence_json": "[\"sec_stock_aum\"]",
+          "scope": "metadata_only",
+          "status": "observed_in_files",
+          "table": "DSPBM.PB_STOCKPOS_SEC"
+        },
+        "projection": {
+          "definition": "",
+          "display_name": "DSPBM.PB_STOCKPOS_SEC",
+          "id": "source:DSPBM.PB_STOCKPOS_SEC",
+          "kind": "SourceTable",
+          "metric_kind": "",
+          "origin": "pg",
+          "pg_label": "SourceTable",
+          "semantic_status": "metadata_only",
+          "subsidiary": ""
+        },
+        "rdf_annotations": [],
+        "scope": "metadata_only",
+        "status": "observed_in_files",
+        "table": "DSPBM.PB_STOCKPOS_SEC"
+      },
+      "type": "SourceTable"
+    },
+    {
+      "content": "DSPBM.PB_STOCKPOS_SEC_M",
+      "id": "source:DSPBM.PB_STOCKPOS_SEC_M",
+      "properties": {
+        "database_verified_json": "false",
+        "definition": "",
+        "evidence_json": "[\"sec_stock_aum\"]",
+        "name": "DSPBM.PB_STOCKPOS_SEC_M",
+        "original_pg_properties": {
+          "database_verified_json": "false",
+          "evidence_json": "[\"sec_stock_aum\"]",
+          "scope": "metadata_only",
+          "status": "observed_in_files",
+          "table": "DSPBM.PB_STOCKPOS_SEC_M"
+        },
+        "projection": {
+          "definition": "",
+          "display_name": "DSPBM.PB_STOCKPOS_SEC_M",
+          "id": "source:DSPBM.PB_STOCKPOS_SEC_M",
+          "kind": "SourceTable",
+          "metric_kind": "",
+          "origin": "pg",
+          "pg_label": "SourceTable",
+          "semantic_status": "metadata_only",
+          "subsidiary": ""
+        },
+        "rdf_annotations": [],
+        "scope": "metadata_only",
+        "status": "observed_in_files",
+        "table": "DSPBM.PB_STOCKPOS_SEC_M"
+      },
+      "type": "SourceTable"
+    },
+    {
+      "content": "DSPBM.PB_STOCKTRADM_AM_SEC",
+      "id": "source:DSPBM.PB_STOCKTRADM_AM_SEC",
+      "properties": {
+        "database_verified_json": "false",
+        "definition": "",
+        "evidence_json": "[\"sec_stock_fee\"]",
+        "name": "DSPBM.PB_STOCKTRADM_AM_SEC",
+        "original_pg_properties": {
+          "database_verified_json": "false",
+          "evidence_json": "[\"sec_stock_fee\"]",
+          "scope": "metadata_only",
+          "status": "observed_in_files",
+          "table": "DSPBM.PB_STOCKTRADM_AM_SEC"
+        },
+        "projection": {
+          "definition": "",
+          "display_name": "DSPBM.PB_STOCKTRADM_AM_SEC",
+          "id": "source:DSPBM.PB_STOCKTRADM_AM_SEC",
+          "kind": "SourceTable",
+          "metric_kind": "",
+          "origin": "pg",
+          "pg_label": "SourceTable",
+          "semantic_status": "metadata_only",
+          "subsidiary": ""
+        },
+        "rdf_annotations": [],
+        "scope": "metadata_only",
+        "status": "observed_in_files",
+        "table": "DSPBM.PB_STOCKTRADM_AM_SEC"
+      },
+      "type": "SourceTable"
+    },
+    {
+      "content": "DSPBM.PB_STOCKTRADM_AM_SEC_M",
+      "id": "source:DSPBM.PB_STOCKTRADM_AM_SEC_M",
+      "properties": {
+        "database_verified_json": "false",
+        "definition": "",
+        "evidence_json": "[\"sec_stock_fee\"]",
+        "name": "DSPBM.PB_STOCKTRADM_AM_SEC_M",
+        "original_pg_properties": {
+          "database_verified_json": "false",
+          "evidence_json": "[\"sec_stock_fee\"]",
+          "scope": "metadata_only",
+          "status": "observed_in_files",
+          "table": "DSPBM.PB_STOCKTRADM_AM_SEC_M"
+        },
+        "projection": {
+          "definition": "",
+          "display_name": "DSPBM.PB_STOCKTRADM_AM_SEC_M",
+          "id": "source:DSPBM.PB_STOCKTRADM_AM_SEC_M",
+          "kind": "SourceTable",
+          "metric_kind": "",
+          "origin": "pg",
+          "pg_label": "SourceTable",
+          "semantic_status": "metadata_only",
+          "subsidiary": ""
+        },
+        "rdf_annotations": [],
+        "scope": "metadata_only",
+        "status": "observed_in_files",
+        "table": "DSPBM.PB_STOCKTRADM_AM_SEC_M"
+      },
+      "type": "SourceTable"
+    },
+    {
+      "content": "DSPBM.PB_STOCKTRADM_PM_SEC",
+      "id": "source:DSPBM.PB_STOCKTRADM_PM_SEC",
+      "properties": {
+        "database_verified_json": "false",
+        "definition": "",
+        "evidence_json": "[\"sec_stock_fee\"]",
+        "name": "DSPBM.PB_STOCKTRADM_PM_SEC",
+        "original_pg_properties": {
+          "database_verified_json": "false",
+          "evidence_json": "[\"sec_stock_fee\"]",
+          "scope": "metadata_only",
+          "status": "observed_in_files",
+          "table": "DSPBM.PB_STOCKTRADM_PM_SEC"
+        },
+        "projection": {
+          "definition": "",
+          "display_name": "DSPBM.PB_STOCKTRADM_PM_SEC",
+          "id": "source:DSPBM.PB_STOCKTRADM_PM_SEC",
+          "kind": "SourceTable",
+          "metric_kind": "",
+          "origin": "pg",
+          "pg_label": "SourceTable",
+          "semantic_status": "metadata_only",
+          "subsidiary": ""
+        },
+        "rdf_annotations": [],
+        "scope": "metadata_only",
+        "status": "observed_in_files",
+        "table": "DSPBM.PB_STOCKTRADM_PM_SEC"
+      },
+      "type": "SourceTable"
+    },
+    {
+      "content": "DSPBM.PB_STOCKTRADM_PM_SEC_M",
+      "id": "source:DSPBM.PB_STOCKTRADM_PM_SEC_M",
+      "properties": {
+        "database_verified_json": "false",
+        "definition": "",
+        "evidence_json": "[\"sec_stock_fee\"]",
+        "name": "DSPBM.PB_STOCKTRADM_PM_SEC_M",
+        "original_pg_properties": {
+          "database_verified_json": "false",
+          "evidence_json": "[\"sec_stock_fee\"]",
+          "scope": "metadata_only",
+          "status": "observed_in_files",
+          "table": "DSPBM.PB_STOCKTRADM_PM_SEC_M"
+        },
+        "projection": {
+          "definition": "",
+          "display_name": "DSPBM.PB_STOCKTRADM_PM_SEC_M",
+          "id": "source:DSPBM.PB_STOCKTRADM_PM_SEC_M",
+          "kind": "SourceTable",
+          "metric_kind": "",
+          "origin": "pg",
+          "pg_label": "SourceTable",
+          "semantic_status": "metadata_only",
+          "subsidiary": ""
+        },
+        "rdf_annotations": [],
+        "scope": "metadata_only",
+        "status": "observed_in_files",
+        "table": "DSPBM.PB_STOCKTRADM_PM_SEC_M"
+      },
+      "type": "SourceTable"
+    },
+    {
+      "content": "DSPBM.PB_YTRMRBP_SEC",
+      "id": "source:DSPBM.PB_YTRMRBP_SEC",
+      "properties": {
+        "database_verified_json": "false",
+        "definition": "",
+        "evidence_json": "[\"sec_taiwan_aum\"]",
+        "name": "DSPBM.PB_YTRMRBP_SEC",
+        "original_pg_properties": {
+          "database_verified_json": "false",
+          "evidence_json": "[\"sec_taiwan_aum\"]",
+          "scope": "metadata_only",
+          "status": "observed_in_files",
+          "table": "DSPBM.PB_YTRMRBP_SEC"
+        },
+        "projection": {
+          "definition": "",
+          "display_name": "DSPBM.PB_YTRMRBP_SEC",
+          "id": "source:DSPBM.PB_YTRMRBP_SEC",
+          "kind": "SourceTable",
+          "metric_kind": "",
+          "origin": "pg",
+          "pg_label": "SourceTable",
+          "semantic_status": "metadata_only",
+          "subsidiary": ""
+        },
+        "rdf_annotations": [],
+        "scope": "metadata_only",
+        "status": "observed_in_files",
+        "table": "DSPBM.PB_YTRMRBP_SEC"
+      },
+      "type": "SourceTable"
+    },
+    {
+      "content": "DSPBM.PB_YTRMRBP_SEC_M",
+      "id": "source:DSPBM.PB_YTRMRBP_SEC_M",
+      "properties": {
+        "database_verified_json": "false",
+        "definition": "",
+        "evidence_json": "[\"sec_taiwan_aum\"]",
+        "name": "DSPBM.PB_YTRMRBP_SEC_M",
+        "original_pg_properties": {
+          "database_verified_json": "false",
+          "evidence_json": "[\"sec_taiwan_aum\"]",
+          "scope": "metadata_only",
+          "status": "observed_in_files",
+          "table": "DSPBM.PB_YTRMRBP_SEC_M"
+        },
+        "projection": {
+          "definition": "",
+          "display_name": "DSPBM.PB_YTRMRBP_SEC_M",
+          "id": "source:DSPBM.PB_YTRMRBP_SEC_M",
+          "kind": "SourceTable",
+          "metric_kind": "",
+          "origin": "pg",
+          "pg_label": "SourceTable",
+          "semantic_status": "metadata_only",
+          "subsidiary": ""
+        },
+        "rdf_annotations": [],
+        "scope": "metadata_only",
+        "status": "observed_in_files",
+        "table": "DSPBM.PB_YTRMRBP_SEC_M"
+      },
+      "type": "SourceTable"
+    }
+  ]
+}

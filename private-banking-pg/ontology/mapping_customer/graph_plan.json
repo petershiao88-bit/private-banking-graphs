@@ -1,0 +1,308 @@
+{
+  "ontologyId": "pb_shared",
+  "rootKey": "pb_shared:customer:customer",
+  "version": "mapping_customer_v1",
+  "nodes": [
+    {
+      "key": "pb_shared:customer:customer",
+      "labels": [
+        "BusinessDimension",
+        "MappingCustomer"
+      ],
+      "properties": {
+        "key": "pb_shared:customer:customer",
+        "ontologyId": "pb_shared",
+        "code": "customer",
+        "name": "客戶",
+        "definition": "AUM與Income映射圖共用的客戶衡量對象；保存基本屬性定義與來源參考，不代表實際客戶資料或已完成的身分合併。",
+        "status": "model_confirmed",
+        "identityMappingStatus": "pending_confirmation",
+        "customerId": "用於識別衡量對象的客戶識別碼。各來源的識別種類與跨來源對照尚待確認，不表示已建立統一客戶身分。",
+        "customerName": "客戶姓名或名稱；來源未提供時可缺值，委託人名稱須依來源角色解讀。",
+        "customerNumber": "選用的來源客戶編號；與客戶識別碼分開理解，不保證可跨來源對照。",
+        "sourceAvailability": "來源欄位存在於metadata，不保證現有彙整輸出保留名稱與編號；不得直接以同名識別碼串接來源。",
+        "sourceMetadata": [
+          "sources/metadata/AUM_metadata.xlsx",
+          "sources/metadata/收入_metadata.xlsx"
+        ],
+        "customerIdSources": [
+          "sources/metadata/AUM_metadata.xlsx::DSDEP.EMP_NT_ACCT_HS::CUST_ID | 客戶ID | source_customer_identifier",
+          "sources/metadata/AUM_metadata.xlsx::DSKPI.AFAUM_AFCUST_MON_ASSET_RE::ORGCUST_KEY | 客戶ID | source_customer_identifier",
+          "sources/metadata/AUM_metadata.xlsx::DSFND.PB_FUND_MONTH::IDNO | 客戶ID | source_customer_identifier",
+          "sources/metadata/AUM_metadata.xlsx::DSWTR.BOND_POS_DAY::CIF_ID | 客戶ID(InvoiceNO) | source_customer_identifier",
+          "sources/metadata/AUM_metadata.xlsx::DSEBS.EBTS_ACT_CntAUMBal_PB::IDNO | 委託人身分證字號 | legal_identifier",
+          "sources/metadata/AUM_metadata.xlsx::DSTAM.TRUCONTRACT_PB::ID | 身分證字號/統編 | legal_identifier",
+          "sources/metadata/AUM_metadata.xlsx::DSPMS.PB_PMS_AUM::CUST_ID | 客戶ID | source_customer_identifier",
+          "sources/metadata/AUM_metadata.xlsx::DSPBM.PB_BONDPOS_SEC::IDNO | 身分證字號 | legal_identifier",
+          "sources/metadata/AUM_metadata.xlsx::DSPBM.PB_FUNDPOSIT_SEC::WKB02 | 投資人帳號 | investor_account",
+          "sources/metadata/AUM_metadata.xlsx::DSPBM.PB_STOCKPOS_SEC::IDNO | 身分證字號 | legal_identifier",
+          "sources/metadata/AUM_metadata.xlsx::DSPBM.PB_YTRMRBP_SEC::YTRMRB025 | 身分證號 | legal_identifier",
+          "sources/metadata/收入_metadata.xlsx::DSKPI.KPI_DET_IU_002_NEW::CUST_ID | 客戶ID | source_customer_identifier",
+          "sources/metadata/收入_metadata.xlsx::DSKPI.KPI_DET_OFI_001::CUST_ID | 客戶ID | source_customer_identifier",
+          "sources/metadata/收入_metadata.xlsx::DSFND.PB_FUND_SPREAD_DAILY::IDNO | 客戶ID | source_customer_identifier",
+          "sources/metadata/收入_metadata.xlsx::DSWTR.BOND_TXN::IDNO | 客戶ID | source_customer_identifier",
+          "sources/metadata/收入_metadata.xlsx::DSDEP.DCI_PERFO_RPT::CUSTOMER_ID | 客戶ID | source_customer_identifier",
+          "sources/metadata/收入_metadata.xlsx::DSTAS.FO108_W::ENTITYNUMBER | 客戶ID | source_customer_identifier",
+          "sources/metadata/收入_metadata.xlsx::DSDEP.SI_PERFO_RPT::CUSTOMER_ID | 客戶ID | source_customer_identifier",
+          "sources/metadata/收入_metadata.xlsx::DSDEP.ELI_PERFO_RPT::CUSTOMER_ID | 客戶ID | source_customer_identifier",
+          "sources/metadata/收入_metadata.xlsx::DSDEP.FCI_PERFO_RPT::CUSTOMER_ID | 客戶ID | source_customer_identifier",
+          "sources/metadata/收入_metadata.xlsx::DSWBS.PB_SPOT_Daily::CUST_ID | 客戶ID | source_customer_identifier",
+          "sources/metadata/收入_metadata.xlsx::DSWBS.IMPM007::CUST_ID | 客戶ID | source_customer_identifier",
+          "sources/metadata/收入_metadata.xlsx::DSTAM.TRUCONTRACT_PB::ID | 身分證字號/統編 | legal_identifier",
+          "sources/metadata/收入_metadata.xlsx::DSEBS.EBTS_ACT_CntAUMBal_PB::IDNO | 委託人身分證字號 | legal_identifier",
+          "sources/metadata/收入_metadata.xlsx::DSPMS.PB_PMS_AUM::CUST_ID | 客戶ID | source_customer_identifier",
+          "sources/metadata/收入_metadata.xlsx::DSDEP.GD_PERFO_RPT::CUSTOMER_ID | 客戶ID | source_customer_identifier",
+          "sources/metadata/收入_metadata.xlsx::DSPBM.PB_BONDTRADM_SEC_M::IDNO | 身分證字號 | legal_identifier",
+          "sources/metadata/收入_metadata.xlsx::DSPBM.PB_FUNDTRADM_SEC_M::WKA28 | 身分證字號 | legal_identifier",
+          "sources/metadata/收入_metadata.xlsx::DSPBM.PB_STOCKTRADM_AM_SEC_M::IDNO | 身分證字號 | legal_identifier",
+          "sources/metadata/收入_metadata.xlsx::DSDEP.DEP_NT_ACCT_HS::CUST_ID | 客戶ID | source_customer_identifier",
+          "sources/metadata/收入_metadata.xlsx::DSDEP.EMP_DEP_NT_ACCT_HS::CUST_ID | 客戶ID | source_customer_identifier",
+          "sources/metadata/收入_metadata.xlsx::DSLON.LN_NT_ACCT_HS::CUST_ID | 客戶ID | source_customer_identifier",
+          "sources/metadata/收入_metadata.xlsx::DSLON.LN_FN_ACCT_HS::CUST_ID | 身份證或統一編號 | legal_identifier"
+        ],
+        "customerNameSources": [
+          "sources/metadata/AUM_metadata.xlsx::DSEBS.EBTS_ACT_CntAUMBal_PB::CNAME | 委託人姓名 | source_customer_name",
+          "sources/metadata/AUM_metadata.xlsx::DSPMS.PB_PMS_AUM::CUST_NAME | 客戶名稱 | source_customer_name",
+          "sources/metadata/收入_metadata.xlsx::DSWBS.PB_SPOT_Daily::CUST_NAME | 客戶名稱 | source_customer_name",
+          "sources/metadata/收入_metadata.xlsx::DSWBS.IMPM007::CUST_NAME | 客戶姓名 | source_customer_name",
+          "sources/metadata/收入_metadata.xlsx::DSEBS.EBTS_ACT_CntAUMBal_PB::CNAME | 委託人姓名 | source_customer_name",
+          "sources/metadata/收入_metadata.xlsx::DSPMS.PB_PMS_AUM::CUST_NAME | 客戶名稱 | source_customer_name"
+        ],
+        "customerNumberSources": [
+          "sources/metadata/AUM_metadata.xlsx::DSDEP.EMP_NT_ACCT_HS::CUST_NO | 客戶編號 | source_customer_number",
+          "sources/metadata/收入_metadata.xlsx::DSDEP.DEP_NT_ACCT_HS::CUST_NO | 客戶編號 | source_customer_number",
+          "sources/metadata/收入_metadata.xlsx::DSDEP.EMP_DEP_NT_ACCT_HS::CUST_NO | 客戶編號 | source_customer_number",
+          "sources/metadata/收入_metadata.xlsx::DSLON.LN_NT_ACCT_HS::CUST_NO | 客戶流水編號 | source_customer_number"
+        ]
+      }
+    }
+  ],
+  "externalReferences": [
+    {
+      "key": "aum:metric:aum_total_month_end",
+      "label": "BusinessMetric"
+    },
+    {
+      "key": "aum:metric:aum_deposit_month_end",
+      "label": "BusinessMetric"
+    },
+    {
+      "key": "aum:metric:aum_investment_month_end",
+      "label": "BusinessMetric"
+    },
+    {
+      "key": "aum:metric:aum_bank_investment_month_end",
+      "label": "BusinessMetric"
+    },
+    {
+      "key": "aum:metric:aum_securities_month_end",
+      "label": "BusinessMetric"
+    },
+    {
+      "key": "aum:metric:aum_insurance_month_end",
+      "label": "BusinessMetric"
+    },
+    {
+      "key": "income:metric:income_total_customer_month",
+      "label": "BusinessMetric"
+    },
+    {
+      "key": "income:metric:fee_income",
+      "label": "BusinessMetric"
+    },
+    {
+      "key": "income:metric:bank_fee_income",
+      "label": "BusinessMetric"
+    },
+    {
+      "key": "income:metric:securities_fee_income",
+      "label": "BusinessMetric"
+    },
+    {
+      "key": "income:metric:interest_income",
+      "label": "BusinessMetric"
+    },
+    {
+      "key": "income:metric:deposit_interest_income",
+      "label": "BusinessMetric"
+    },
+    {
+      "key": "aum:dimension:customer",
+      "label": "BusinessDimension"
+    },
+    {
+      "key": "income:dimension:customer",
+      "label": "BusinessDimension"
+    }
+  ],
+  "relationships": [
+    {
+      "source": "aum:metric:aum_total_month_end",
+      "target": "pb_shared:customer:customer",
+      "type": "MEASURES_CUSTOMER",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "mapping_customer_v1",
+        "status": "model_confirmed",
+        "scope": "customer",
+        "note": "指標直接指向客戶維度；不代表上層指標繼承或跨來源身分一致。"
+      }
+    },
+    {
+      "source": "aum:metric:aum_deposit_month_end",
+      "target": "pb_shared:customer:customer",
+      "type": "MEASURES_CUSTOMER",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "mapping_customer_v1",
+        "status": "model_confirmed",
+        "scope": "customer",
+        "note": "指標直接指向客戶維度；不代表上層指標繼承或跨來源身分一致。"
+      }
+    },
+    {
+      "source": "aum:metric:aum_investment_month_end",
+      "target": "pb_shared:customer:customer",
+      "type": "MEASURES_CUSTOMER",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "mapping_customer_v1",
+        "status": "model_confirmed",
+        "scope": "customer",
+        "note": "指標直接指向客戶維度；不代表上層指標繼承或跨來源身分一致。"
+      }
+    },
+    {
+      "source": "aum:metric:aum_bank_investment_month_end",
+      "target": "pb_shared:customer:customer",
+      "type": "MEASURES_CUSTOMER",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "mapping_customer_v1",
+        "status": "model_confirmed",
+        "scope": "customer",
+        "note": "指標直接指向客戶維度；不代表上層指標繼承或跨來源身分一致。"
+      }
+    },
+    {
+      "source": "aum:metric:aum_securities_month_end",
+      "target": "pb_shared:customer:customer",
+      "type": "MEASURES_CUSTOMER",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "mapping_customer_v1",
+        "status": "model_confirmed",
+        "scope": "customer",
+        "note": "指標直接指向客戶維度；不代表上層指標繼承或跨來源身分一致。"
+      }
+    },
+    {
+      "source": "aum:metric:aum_insurance_month_end",
+      "target": "pb_shared:customer:customer",
+      "type": "MEASURES_CUSTOMER",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "mapping_customer_v1",
+        "status": "model_confirmed",
+        "scope": "customer",
+        "note": "指標直接指向客戶維度；不代表上層指標繼承或跨來源身分一致。"
+      }
+    },
+    {
+      "source": "income:metric:income_total_customer_month",
+      "target": "pb_shared:customer:customer",
+      "type": "MEASURES_CUSTOMER",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "mapping_customer_v1",
+        "status": "model_confirmed",
+        "scope": "customer",
+        "note": "指標直接指向客戶維度；不代表上層指標繼承或跨來源身分一致。"
+      }
+    },
+    {
+      "source": "income:metric:fee_income",
+      "target": "pb_shared:customer:customer",
+      "type": "MEASURES_CUSTOMER",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "mapping_customer_v1",
+        "status": "model_confirmed",
+        "scope": "customer",
+        "note": "指標直接指向客戶維度；不代表上層指標繼承或跨來源身分一致。"
+      }
+    },
+    {
+      "source": "income:metric:bank_fee_income",
+      "target": "pb_shared:customer:customer",
+      "type": "MEASURES_CUSTOMER",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "mapping_customer_v1",
+        "status": "model_confirmed",
+        "scope": "customer",
+        "note": "指標直接指向客戶維度；不代表上層指標繼承或跨來源身分一致。"
+      }
+    },
+    {
+      "source": "income:metric:securities_fee_income",
+      "target": "pb_shared:customer:customer",
+      "type": "MEASURES_CUSTOMER",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "mapping_customer_v1",
+        "status": "model_confirmed",
+        "scope": "customer",
+        "note": "指標直接指向客戶維度；不代表上層指標繼承或跨來源身分一致。"
+      }
+    },
+    {
+      "source": "income:metric:interest_income",
+      "target": "pb_shared:customer:customer",
+      "type": "MEASURES_CUSTOMER",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "mapping_customer_v1",
+        "status": "model_confirmed",
+        "scope": "customer",
+        "note": "指標直接指向客戶維度；不代表上層指標繼承或跨來源身分一致。"
+      }
+    },
+    {
+      "source": "income:metric:deposit_interest_income",
+      "target": "pb_shared:customer:customer",
+      "type": "MEASURES_CUSTOMER",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "mapping_customer_v1",
+        "status": "model_confirmed",
+        "scope": "customer",
+        "note": "指標直接指向客戶維度；不代表上層指標繼承或跨來源身分一致。"
+      }
+    },
+    {
+      "source": "pb_shared:customer:customer",
+      "target": "aum:dimension:customer",
+      "type": "HAS_DOMAIN_DIMENSION",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "mapping_customer_v1",
+        "status": "metadata_reference",
+        "domain": "aum",
+        "note": "保留既有領域客戶維度；僅對照維度定義，不建立實際客戶身分合併。"
+      }
+    },
+    {
+      "source": "pb_shared:customer:customer",
+      "target": "income:dimension:customer",
+      "type": "HAS_DOMAIN_DIMENSION",
+      "properties": {
+        "ontologyId": "pb_shared",
+        "origin": "mapping_customer_v1",
+        "status": "metadata_reference",
+        "domain": "income",
+        "note": "保留既有領域客戶維度；僅對照維度定義，不建立實際客戶身分合併。"
+      }
+    }
+  ]
+}

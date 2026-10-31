@@ -1,0 +1,381 @@
+{
+  "verifiedAt": "2026-10-09T08:56:11.392221+00:00",
+  "host": "4bb479b2.databases.neo4j.io",
+  "conceptDatabase": "neo4j",
+  "mappingDatabase": "neo4j",
+  "isolation": "disjoint_nodes_same_database",
+  "arbitraryCypherIsNotBlocked": true,
+  "before": {
+    "nodes": 1166,
+    "relationships": 3650,
+    "sha256": "9aa66443e902ad9a547a28353a0ede517ddee7377d5fb364591b698e4d2ddd1a"
+  },
+  "after": {
+    "nodes": 1166,
+    "relationships": 3650,
+    "sha256": "9aa66443e902ad9a547a28353a0ede517ddee7377d5fb364591b698e4d2ddd1a"
+  },
+  "conceptGraph": {
+    "nodes": 28,
+    "relationships": 52,
+    "nodeIds": [
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1166",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1167",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1168",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1169",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1170",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1171",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1172",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1173",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1174",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1175",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1176",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1177",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1178",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1179",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1180",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1181",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1182",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1183",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1184",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1185",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1186",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1187",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1188",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1189",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1190",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1191",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1192",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1193"
+    ],
+    "contentSha256": "b2fd0fd0904743b5fc95422a8daebf96f8df596ce191b6ddc21f3b75d47ef9e2"
+  },
+  "reusedOriginalNodeCount": 0,
+  "crossGraphRelationshipCount": 0,
+  "originalGraphPreserved": true,
+  "existingConceptGraphPreserved": true,
+  "conceptNodesBefore": 27,
+  "conceptRelationshipsBefore": 40,
+  "idempotentRerun": true,
+  "firstQueryRows": 15,
+  "firstQueryWhitelistPassed": true,
+  "technicalTextLeaks": 0,
+  "allProductDomainPairs": [
+    {
+      "productCode": "bank_bond_proprietary",
+      "domain": "aum",
+      "stageCount": 1,
+      "baseTables": [
+        "DSWTR.BOND_POS_DAY"
+      ],
+      "status": "inferred"
+    },
+    {
+      "productCode": "bank_bond_proprietary",
+      "domain": "income",
+      "stageCount": 1,
+      "baseTables": [
+        "DSWTR.BOND_TXN"
+      ],
+      "status": "inferred"
+    },
+    {
+      "productCode": "bank_bond_trust",
+      "domain": "aum",
+      "stageCount": 1,
+      "baseTables": [
+        "DSFND.PB_FUND_MONTH"
+      ],
+      "status": "inferred"
+    },
+    {
+      "productCode": "bank_bond_trust",
+      "domain": "income",
+      "stageCount": 1,
+      "baseTables": [
+        "DSFND.PB_FUND_SPREAD_DAILY"
+      ],
+      "status": "inferred"
+    },
+    {
+      "productCode": "bank_collective_account",
+      "domain": "aum",
+      "stageCount": 1,
+      "baseTables": [
+        "DSFND.PB_FUND_MONTH"
+      ],
+      "status": "metadata_sql_conflict"
+    },
+    {
+      "productCode": "bank_collective_account",
+      "domain": "income",
+      "stageCount": 1,
+      "baseTables": [
+        "DSFND.PB_FUND_SPREAD_DAILY"
+      ],
+      "status": "pending_confirmation"
+    },
+    {
+      "productCode": "bank_etf",
+      "domain": "aum",
+      "stageCount": 1,
+      "baseTables": [
+        "DSFND.PB_FUND_MONTH"
+      ],
+      "status": "inferred"
+    },
+    {
+      "productCode": "bank_etf",
+      "domain": "income",
+      "stageCount": 1,
+      "baseTables": [
+        "DSFND.PB_FUND_SPREAD_DAILY"
+      ],
+      "status": "inferred"
+    },
+    {
+      "productCode": "bank_fund",
+      "domain": "aum",
+      "stageCount": 1,
+      "baseTables": [
+        "DSFND.PB_FUND_MONTH"
+      ],
+      "status": "inferred"
+    },
+    {
+      "productCode": "bank_fund",
+      "domain": "income",
+      "stageCount": 1,
+      "baseTables": [
+        "DSFND.PB_FUND_SPREAD_DAILY"
+      ],
+      "status": "inferred"
+    },
+    {
+      "productCode": "bank_insurance",
+      "domain": "aum",
+      "stageCount": 1,
+      "baseTables": [
+        "DSKPI.AFAUM_AFCUST_MON_ASSET_REPORT"
+      ],
+      "status": "overlap_unresolved"
+    },
+    {
+      "productCode": "bank_insurance",
+      "domain": "income",
+      "stageCount": 3,
+      "baseTables": [
+        "DSINS.INSU_RPT_Q01",
+        "DSKPI.KPI_DET_IU_002_NEW",
+        "DSKPI.KPI_DET_OFI_001"
+      ],
+      "status": "overlap_unresolved"
+    },
+    {
+      "productCode": "bank_overseas_stock",
+      "domain": "aum",
+      "stageCount": 1,
+      "baseTables": [
+        "DSFND.PB_FUND_MONTH"
+      ],
+      "status": "inferred"
+    },
+    {
+      "productCode": "bank_overseas_stock",
+      "domain": "income",
+      "stageCount": 1,
+      "baseTables": [
+        "DSFND.PB_FUND_SPREAD_DAILY"
+      ],
+      "status": "inferred"
+    },
+    {
+      "productCode": "bank_planned_trust",
+      "domain": "aum",
+      "stageCount": 2,
+      "baseTables": [
+        "DSEBS.EBTS_ACT_CNTAUMBAL_PB",
+        "DSTAM.TRUCONTRACT_PB"
+      ],
+      "status": "inferred"
+    },
+    {
+      "productCode": "bank_planned_trust",
+      "domain": "income",
+      "stageCount": 2,
+      "baseTables": [
+        "DSEBS.EBTS_ACT_CNTAUMBAL_PB",
+        "DSTAM.TRUCONTRACT_PB"
+      ],
+      "status": "inferred"
+    },
+    {
+      "productCode": "bank_structured_offshore",
+      "domain": "aum",
+      "stageCount": 1,
+      "baseTables": [
+        "DSFND.PB_FUND_MONTH"
+      ],
+      "status": "inferred"
+    },
+    {
+      "productCode": "bank_structured_offshore",
+      "domain": "income",
+      "stageCount": 1,
+      "baseTables": [
+        "DSFND.PB_FUND_SPREAD_DAILY"
+      ],
+      "status": "inferred"
+    },
+    {
+      "productCode": "bank_trust_custody",
+      "domain": "aum",
+      "stageCount": 1,
+      "baseTables": [
+        "DSPMS.PB_PMS_AUM"
+      ],
+      "status": "inferred"
+    },
+    {
+      "productCode": "bank_trust_custody",
+      "domain": "income",
+      "stageCount": 1,
+      "baseTables": [
+        "DSPMS.PB_PMS_AUM"
+      ],
+      "status": "inferred"
+    },
+    {
+      "productCode": "deposit",
+      "domain": "aum",
+      "stageCount": 1,
+      "baseTables": [
+        "DSDEP.DEP_FN_ACCT",
+        "DSDEP.DEP_FN_ACCT_HS",
+        "DSDEP.DEP_NT_ACCT",
+        "DSDEP.DEP_NT_ACCT_HS",
+        "DSDEP.EMP_DEP_NT_ACCT_HS"
+      ],
+      "status": "aggregate_scope"
+    },
+    {
+      "productCode": "deposit",
+      "domain": "income",
+      "stageCount": 1,
+      "baseTables": [
+        "DSDEP.DEP_FN_ACCT",
+        "DSDEP.DEP_FN_ACCT_HS",
+        "DSDEP.DEP_NT_ACCT_HS",
+        "DSDEP.EMP_DEP_NT_ACCT_HS"
+      ],
+      "status": "aggregate_scope"
+    },
+    {
+      "productCode": "securities_bond",
+      "domain": "aum",
+      "stageCount": 1,
+      "baseTables": [
+        "DSDEP.FN_EXCH_RT",
+        "DSPBM.PB_BONDPOS_SEC",
+        "DSPBM.PB_BONDPOS_SEC_M"
+      ],
+      "status": "inferred"
+    },
+    {
+      "productCode": "securities_bond",
+      "domain": "income",
+      "stageCount": 1,
+      "baseTables": [
+        "DSPBM.PB_BONDTRADM_SEC",
+        "DSPBM.PB_BONDTRADM_SEC_M",
+        "T_LAST_TWO_WORKDAYS"
+      ],
+      "status": "inferred"
+    },
+    {
+      "productCode": "securities_foreign_stock",
+      "domain": "aum",
+      "stageCount": 1,
+      "baseTables": [
+        "DSDEP.FN_EXCH_RT",
+        "DSPBM.PB_STOCKPOS_SEC",
+        "DSPBM.PB_STOCKPOS_SEC_M"
+      ],
+      "status": "inferred"
+    },
+    {
+      "productCode": "securities_foreign_stock",
+      "domain": "income",
+      "stageCount": 1,
+      "baseTables": [
+        "DSPBM.PB_STOCKTRADM_AM_SEC",
+        "DSPBM.PB_STOCKTRADM_AM_SEC_M",
+        "DSPBM.PB_STOCKTRADM_PM_SEC",
+        "DSPBM.PB_STOCKTRADM_PM_SEC_M",
+        "T_LAST_TWO_WORKDAYS"
+      ],
+      "status": "inferred"
+    },
+    {
+      "productCode": "securities_fund",
+      "domain": "aum",
+      "stageCount": 1,
+      "baseTables": [
+        "DSPBM.PB_FUNDPOSIT_SEC",
+        "DSPBM.PB_FUNDPOSIT_SEC_M"
+      ],
+      "status": "inferred"
+    },
+    {
+      "productCode": "securities_fund",
+      "domain": "income",
+      "stageCount": 1,
+      "baseTables": [
+        "DSPBM.PB_BONDTRADM_SEC",
+        "DSPBM.PB_FUNDTRADM_SEC",
+        "DSPBM.PB_FUNDTRADM_SEC_M",
+        "T_LAST_TWO_WORKDAYS"
+      ],
+      "status": "inferred"
+    },
+    {
+      "productCode": "securities_structured",
+      "domain": "aum",
+      "stageCount": 1,
+      "baseTables": [
+        "DSDEP.FN_EXCH_RT",
+        "DSPBM.PB_BONDPOS_SEC",
+        "DSPBM.PB_BONDPOS_SEC_M"
+      ],
+      "status": "inferred"
+    },
+    {
+      "productCode": "securities_structured",
+      "domain": "income",
+      "stageCount": 1,
+      "baseTables": [
+        "DSPBM.PB_BONDTRADM_SEC",
+        "DSPBM.PB_BONDTRADM_SEC_M",
+        "T_LAST_TWO_WORKDAYS"
+      ],
+      "status": "inferred"
+    }
+  ],
+  "invalidParameterChecksPassed": 3,
+  "directCustomerMetricChecks": [
+    "aum_total_month_end",
+    "aum_deposit_month_end",
+    "aum_investment_month_end",
+    "aum_bank_investment_month_end",
+    "aum_securities_month_end",
+    "aum_insurance_month_end",
+    "income_total_customer_month",
+    "fee_income",
+    "bank_fee_income",
+    "securities_fee_income",
+    "interest_income",
+    "deposit_interest_income"
+  ],
+  "fullGraphBusinessPathCount": 30,
+  "customerIsNotCalculationRoot": true
+}

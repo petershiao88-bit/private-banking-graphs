@@ -1,0 +1,927 @@
+{
+  "schema_version": "1.0.0",
+  "ontology_version": "0.15.0",
+  "status": "active",
+  "scope": "metadata_only",
+  "inference": false,
+  "instance_mapping": false,
+  "field_definitions": {
+    "customerId": {
+      "name": "客戶識別",
+      "definition": "存款人的來源客戶識別。",
+      "data_type_hint": "string"
+    },
+    "currency": {
+      "name": "幣別",
+      "definition": "存款餘額的計價幣別。",
+      "data_type_hint": "string"
+    },
+    "balance": {
+      "name": "餘額",
+      "definition": "指定資料基準時點的存款餘額。",
+      "data_type_hint": "decimal"
+    },
+    "snapshotDate": {
+      "name": "快照日期",
+      "definition": "存款餘額的資料基準時點。",
+      "data_type_hint": null
+    },
+    "employeeId": {
+      "name": "行員識別",
+      "definition": "存款人本人的行員識別。",
+      "data_type_hint": "string"
+    }
+  },
+  "execution": {
+    "sql": null,
+    "join_rules": null,
+    "filter_rules": null,
+    "union_rules": null,
+    "aggregation_rules": null,
+    "row_grain": null,
+    "partition_windows": null
+  },
+  "evidence": {
+    "sql_nt_current": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "lines": [
+        59,
+        74
+      ]
+    },
+    "sql_fn_current": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "lines": [
+        75,
+        89
+      ]
+    },
+    "sql_nt_history": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "lines": [
+        91,
+        106
+      ]
+    },
+    "sql_fn_history": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "lines": [
+        108,
+        123
+      ]
+    },
+    "sql_employee": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "lines": [
+        125,
+        136
+      ]
+    },
+    "sql_union": {
+      "file": "Ontology/私銀智能問答/sources/sql/1.AUM_DETAIL.sql",
+      "lines": [
+        140,
+        182
+      ]
+    },
+    "income_nt": {
+      "file": "Ontology/私銀智能問答/sources/metadata/收入_metadata.xlsx",
+      "sheet": "DSDEP.DEP_NT_ACCT_HS",
+      "rows": [
+        12,
+        20,
+        22,
+        39,
+        78
+      ]
+    },
+    "income_employee": {
+      "file": "Ontology/私銀智能問答/sources/metadata/收入_metadata.xlsx",
+      "sheet": "DSDEP.EMP_DEP_NT_ACCT_HS",
+      "rows": [
+        12,
+        20,
+        22,
+        39,
+        77
+      ]
+    },
+    "aum_employee_naming": {
+      "file": "Ontology/私銀智能問答/sources/metadata/AUM_metadata.xlsx",
+      "sheet": "DSDEP.EMP_NT_ACCT_HS",
+      "rows": [
+        12,
+        20,
+        22,
+        39,
+        77
+      ]
+    },
+    "sql_advisor": {
+      "file": "Ontology/私銀智能問答/sources/sql/2._AUM_SUMY.~sql",
+      "lines": [
+        198,
+        217
+      ]
+    },
+    "sql_advisor_identity": {
+      "file": "Ontology/私銀智能問答/sources/sql/0_PB_CUST_DEATAIL.sql",
+      "lines": [
+        102,
+        110
+      ]
+    }
+  },
+  "sources": [
+    {
+      "table": "DSDEP.DEP_NT_ACCT",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sql_nt_current"
+      ]
+    },
+    {
+      "table": "DSDEP.DEP_NT_ACCT_HS",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sql_nt_history",
+        "income_nt"
+      ]
+    },
+    {
+      "table": "DSDEP.DEP_FN_ACCT",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sql_fn_current"
+      ]
+    },
+    {
+      "table": "DSDEP.DEP_FN_ACCT_HS",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sql_fn_history"
+      ]
+    },
+    {
+      "table": "DSDEP.EMP_DEP_NT_ACCT_HS",
+      "status": "observed_in_files",
+      "database_verified": false,
+      "evidence": [
+        "sql_employee",
+        "income_employee"
+      ]
+    }
+  ],
+  "observations": {
+    "historical_filter": {
+      "column": "YYYYMM",
+      "operator": ">=",
+      "value": "202506",
+      "status": "evidence_only_not_operational_default",
+      "evidence": [
+        "sql_nt_history",
+        "sql_fn_history",
+        "sql_employee"
+      ]
+    },
+    "currency": {
+      "status": "pending_conflict_review",
+      "note": "SQL 的 FN 分支 TYP_DTL 固定為台幣；employee 分支固定為外幣卻含台幣 DETAIL。即使 TWD 商品也不能推定來源幣別或計價幣別。",
+      "evidence": [
+        "sql_nt_current",
+        "sql_fn_current",
+        "sql_nt_history",
+        "sql_fn_history",
+        "sql_employee"
+      ]
+    },
+    "union": {
+      "status": "evidence_only_not_execution_plan",
+      "note": "舊 SQL 合併歷史與現況分支；未核定分區時間窗、去重、來源覆蓋或 structured 候選的合併方式。",
+      "evidence": [
+        "sql_union"
+      ]
+    },
+    "employee_source": {
+      "status": "coverage_pending",
+      "note": "僅觀察到 EMP_DEP_NT_ACCT_HS，未確認涵蓋所有行員本人存款，亦不將行員存款限縮為優惠方案。AUM metadata 的 EMP_NT_ACCT_HS 命名不同，不另建底表或自動視為別名。",
+      "evidence": [
+        "sql_employee",
+        "income_employee",
+        "aum_employee_naming"
+      ]
+    },
+    "advisor_distinction": {
+      "status": "excluded_mapping",
+      "rejected_source": "AUM_TMP02.EMP_NO",
+      "note": "該 EMP_NO 來自 PB_CUST_005 的客戶管理 AO；不證明存款人本人為行員，不作 employeeId 候選或 JOIN。",
+      "evidence": [
+        "sql_advisor",
+        "sql_advisor_identity"
+      ]
+    },
+    "grain_and_identity": {
+      "status": "pending",
+      "note": "未核定資料列粒度、跨來源客戶識別對照或聚合規則；欄位清單不是唯一鍵，未建立帳戶模型。",
+      "evidence": [
+        "sql_nt_current",
+        "sql_fn_current",
+        "sql_employee"
+      ]
+    }
+  },
+  "concepts": [
+    {
+      "id": "bank.twd_deposit",
+      "name": "台幣存款",
+      "definition": "以新臺幣計價的存款。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uris": [
+        "https://example.org/ontology/bank#DepositProduct",
+        "https://example.org/ontology/bank#TWDFinancialProduct"
+      ],
+      "source_candidates": [
+        "DSDEP.DEP_NT_ACCT",
+        "DSDEP.DEP_NT_ACCT_HS"
+      ],
+      "classification_evidence": [
+        {
+          "table": "DSDEP.DEP_NT_ACCT",
+          "column": "ACT_CD",
+          "codes": [
+            "2311",
+            "2321",
+            "2322",
+            "2331",
+            "2332",
+            "2333",
+            "2335",
+            "2336"
+          ],
+          "status": "evidence_only",
+          "evidence": [
+            "sql_nt_current"
+          ]
+        },
+        {
+          "table": "DSDEP.DEP_NT_ACCT_HS",
+          "column": "ACT_CD",
+          "codes": [
+            "2311",
+            "2321",
+            "2322",
+            "2331",
+            "2332",
+            "2333",
+            "2335",
+            "2336"
+          ],
+          "status": "evidence_only",
+          "evidence": [
+            "sql_nt_history"
+          ]
+        }
+      ],
+      "pending_semantic_reference": null,
+      "fields": [
+        {
+          "field": "customerId",
+          "status": "observed_raw_candidate",
+          "table": null,
+          "column": null,
+          "constant": null,
+          "candidates": [
+            {
+              "table": "DSDEP.DEP_NT_ACCT",
+              "column": "CUST_ID",
+              "meaning": "來源客戶識別",
+              "evidence": [
+                "sql_nt_current"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_NT_ACCT_HS",
+              "column": "CUST_ID",
+              "meaning": "來源客戶識別",
+              "evidence": [
+                "sql_nt_history",
+                "income_nt"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "currency",
+          "status": "pending_currency",
+          "table": null,
+          "column": null,
+          "constant": null,
+          "candidates": []
+        },
+        {
+          "field": "balance",
+          "status": "observed_raw_candidate",
+          "table": null,
+          "column": null,
+          "constant": null,
+          "candidates": [
+            {
+              "table": "DSDEP.DEP_NT_ACCT",
+              "column": "BAL_AMT",
+              "meaning": "原始餘額，非 SUM 結果",
+              "evidence": [
+                "sql_nt_current"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_NT_ACCT_HS",
+              "column": "BAL_AMT",
+              "meaning": "原始餘額，非 SUM 結果",
+              "evidence": [
+                "sql_nt_history",
+                "income_nt"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending_time_semantics",
+          "table": null,
+          "column": null,
+          "constant": null,
+          "candidates": [
+            {
+              "table": "DSDEP.DEP_NT_ACCT",
+              "column": "DATA_DT",
+              "meaning": "current SQL 使用；快照口徑待確認",
+              "evidence": [
+                "sql_nt_current"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_NT_ACCT_HS",
+              "column": "LST_MTN_DT",
+              "meaning": "history SQL 使用；metadata row 39 未定義",
+              "evidence": [
+                "sql_nt_history",
+                "income_nt"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_NT_ACCT_HS",
+              "column": "DATA_DT",
+              "meaning": "資料日期；metadata row 22",
+              "evidence": [
+                "income_nt"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_NT_ACCT_HS",
+              "column": "YYYYMM",
+              "meaning": "Snapshot年月；metadata row 78，不補為某日",
+              "evidence": [
+                "income_nt"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bank.foreign_currency_deposit",
+      "name": "外幣存款",
+      "definition": "以新臺幣以外貨幣計價的存款。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uris": [
+        "https://example.org/ontology/bank#DepositProduct",
+        "https://example.org/ontology/bank#ForeignCurrencyFinancialProduct"
+      ],
+      "source_candidates": [
+        "DSDEP.DEP_FN_ACCT",
+        "DSDEP.DEP_FN_ACCT_HS"
+      ],
+      "classification_evidence": [
+        {
+          "table": "DSDEP.DEP_FN_ACCT",
+          "column": "ACC_CD",
+          "codes": [
+            "2317",
+            "2327"
+          ],
+          "status": "evidence_only",
+          "evidence": [
+            "sql_fn_current"
+          ]
+        },
+        {
+          "table": "DSDEP.DEP_FN_ACCT_HS",
+          "column": "ACC_CD",
+          "codes": [
+            "2317",
+            "2327"
+          ],
+          "status": "evidence_only",
+          "evidence": [
+            "sql_fn_history"
+          ]
+        }
+      ],
+      "pending_semantic_reference": null,
+      "fields": [
+        {
+          "field": "customerId",
+          "status": "observed_raw_candidate",
+          "table": null,
+          "column": null,
+          "constant": null,
+          "candidates": [
+            {
+              "table": "DSDEP.DEP_FN_ACCT",
+              "column": "CUST_ID",
+              "meaning": "來源客戶識別",
+              "evidence": [
+                "sql_fn_current"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_FN_ACCT_HS",
+              "column": "CUST_ID",
+              "meaning": "來源客戶識別",
+              "evidence": [
+                "sql_fn_history"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "currency",
+          "status": "pending_currency",
+          "table": null,
+          "column": null,
+          "constant": null,
+          "candidates": []
+        },
+        {
+          "field": "balance",
+          "status": "observed_raw_candidate",
+          "table": null,
+          "column": null,
+          "constant": null,
+          "candidates": [
+            {
+              "table": "DSDEP.DEP_FN_ACCT",
+              "column": "AVAIL_BAL",
+              "meaning": "原始餘額，非 SUM 結果",
+              "evidence": [
+                "sql_fn_current"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_FN_ACCT_HS",
+              "column": "AVAIL_BAL",
+              "meaning": "原始餘額，非 SUM 結果",
+              "evidence": [
+                "sql_fn_history"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending_time_semantics",
+          "table": null,
+          "column": null,
+          "constant": null,
+          "candidates": [
+            {
+              "table": "DSDEP.DEP_FN_ACCT",
+              "column": "LST_MTN_DT",
+              "meaning": "current SQL 使用；業務日期定義待確認",
+              "evidence": [
+                "sql_fn_current"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_FN_ACCT_HS",
+              "column": "LST_MTN_DT",
+              "meaning": "history SQL 使用；業務日期定義待確認",
+              "evidence": [
+                "sql_fn_history"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bank.structured_deposit",
+      "name": "結構型存款",
+      "definition": "報酬條件依約定公式連結金融指標或標的表現的存款。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uris": [
+        "https://example.org/ontology/bank#DepositProduct",
+        "https://example.org/ontology/bank#StructuredFinancialProduct"
+      ],
+      "source_candidates": [
+        "DSDEP.DEP_NT_ACCT",
+        "DSDEP.DEP_NT_ACCT_HS",
+        "DSDEP.DEP_FN_ACCT",
+        "DSDEP.DEP_FN_ACCT_HS",
+        "DSDEP.EMP_DEP_NT_ACCT_HS"
+      ],
+      "classification_evidence": [
+        {
+          "table": "DSDEP.DEP_NT_ACCT",
+          "column": "ACT_CD",
+          "codes": [
+            "2545"
+          ],
+          "status": "evidence_only",
+          "evidence": [
+            "sql_nt_current"
+          ]
+        },
+        {
+          "table": "DSDEP.DEP_NT_ACCT_HS",
+          "column": "ACT_CD",
+          "codes": [
+            "2545"
+          ],
+          "status": "evidence_only",
+          "evidence": [
+            "sql_nt_history"
+          ]
+        },
+        {
+          "table": "DSDEP.DEP_FN_ACCT",
+          "column": "ACC_CD",
+          "codes": [
+            "2545"
+          ],
+          "status": "evidence_only",
+          "evidence": [
+            "sql_fn_current"
+          ]
+        },
+        {
+          "table": "DSDEP.DEP_FN_ACCT_HS",
+          "column": "ACC_CD",
+          "codes": [
+            "2545"
+          ],
+          "status": "evidence_only",
+          "evidence": [
+            "sql_fn_history"
+          ]
+        },
+        {
+          "table": "DSDEP.EMP_DEP_NT_ACCT_HS",
+          "column": "ACT_CD",
+          "codes": [
+            "2545"
+          ],
+          "status": "evidence_only",
+          "evidence": [
+            "sql_employee"
+          ]
+        }
+      ],
+      "pending_semantic_reference": null,
+      "fields": [
+        {
+          "field": "customerId",
+          "status": "observed_raw_candidate",
+          "table": null,
+          "column": null,
+          "constant": null,
+          "candidates": [
+            {
+              "table": "DSDEP.DEP_NT_ACCT",
+              "column": "CUST_ID",
+              "meaning": "來源客戶識別",
+              "evidence": [
+                "sql_nt_current"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_NT_ACCT_HS",
+              "column": "CUST_ID",
+              "meaning": "來源客戶識別",
+              "evidence": [
+                "sql_nt_history",
+                "income_nt"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_FN_ACCT",
+              "column": "CUST_ID",
+              "meaning": "來源客戶識別",
+              "evidence": [
+                "sql_fn_current"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_FN_ACCT_HS",
+              "column": "CUST_ID",
+              "meaning": "來源客戶識別",
+              "evidence": [
+                "sql_fn_history"
+              ]
+            },
+            {
+              "table": "DSDEP.EMP_DEP_NT_ACCT_HS",
+              "column": "CUST_ID",
+              "meaning": "來源客戶識別",
+              "evidence": [
+                "sql_employee",
+                "income_employee"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "currency",
+          "status": "pending_currency",
+          "table": null,
+          "column": null,
+          "constant": null,
+          "candidates": []
+        },
+        {
+          "field": "balance",
+          "status": "observed_raw_candidate",
+          "table": null,
+          "column": null,
+          "constant": null,
+          "candidates": [
+            {
+              "table": "DSDEP.DEP_NT_ACCT",
+              "column": "BAL_AMT",
+              "meaning": "原始餘額，非 SUM 結果",
+              "evidence": [
+                "sql_nt_current"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_NT_ACCT_HS",
+              "column": "BAL_AMT",
+              "meaning": "原始餘額，非 SUM 結果",
+              "evidence": [
+                "sql_nt_history",
+                "income_nt"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_FN_ACCT",
+              "column": "AVAIL_BAL",
+              "meaning": "原始餘額，非 SUM 結果",
+              "evidence": [
+                "sql_fn_current"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_FN_ACCT_HS",
+              "column": "AVAIL_BAL",
+              "meaning": "原始餘額，非 SUM 結果",
+              "evidence": [
+                "sql_fn_history"
+              ]
+            },
+            {
+              "table": "DSDEP.EMP_DEP_NT_ACCT_HS",
+              "column": "BAL_AMT",
+              "meaning": "原始餘額，非 SUM 結果",
+              "evidence": [
+                "sql_employee",
+                "income_employee"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending_time_semantics",
+          "table": null,
+          "column": null,
+          "constant": null,
+          "candidates": [
+            {
+              "table": "DSDEP.DEP_NT_ACCT",
+              "column": "DATA_DT",
+              "meaning": "current SQL 使用；快照口徑待確認",
+              "evidence": [
+                "sql_nt_current"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_NT_ACCT_HS",
+              "column": "LST_MTN_DT",
+              "meaning": "history SQL 使用；metadata row 39 未定義",
+              "evidence": [
+                "sql_nt_history",
+                "income_nt"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_NT_ACCT_HS",
+              "column": "DATA_DT",
+              "meaning": "資料日期；metadata row 22",
+              "evidence": [
+                "income_nt"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_NT_ACCT_HS",
+              "column": "YYYYMM",
+              "meaning": "Snapshot年月；metadata row 78，不補為某日",
+              "evidence": [
+                "income_nt"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_FN_ACCT",
+              "column": "LST_MTN_DT",
+              "meaning": "current SQL 使用；業務日期定義待確認",
+              "evidence": [
+                "sql_fn_current"
+              ]
+            },
+            {
+              "table": "DSDEP.DEP_FN_ACCT_HS",
+              "column": "LST_MTN_DT",
+              "meaning": "history SQL 使用；業務日期定義待確認",
+              "evidence": [
+                "sql_fn_history"
+              ]
+            },
+            {
+              "table": "DSDEP.EMP_DEP_NT_ACCT_HS",
+              "column": "LST_MTN_DT",
+              "meaning": "employee SQL 使用；metadata row 39 未定義",
+              "evidence": [
+                "sql_employee",
+                "income_employee"
+              ]
+            },
+            {
+              "table": "DSDEP.EMP_DEP_NT_ACCT_HS",
+              "column": "DATA_DT",
+              "meaning": "資料日期；metadata row 22",
+              "evidence": [
+                "income_employee"
+              ]
+            },
+            {
+              "table": "DSDEP.EMP_DEP_NT_ACCT_HS",
+              "column": "YYYYMM",
+              "meaning": "Snapshot年月；metadata row 77，不補為某日",
+              "evidence": [
+                "income_employee"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bank.employee_deposit",
+      "name": "行員存款",
+      "definition": "存款人本人為銀行行員的存款。",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uris": [
+        "https://example.org/ontology/bank#DepositProduct"
+      ],
+      "source_candidates": [
+        "DSDEP.EMP_DEP_NT_ACCT_HS"
+      ],
+      "classification_evidence": [
+        {
+          "table": "DSDEP.EMP_DEP_NT_ACCT_HS",
+          "column": "ACT_CD",
+          "codes": [
+            "2311",
+            "2321",
+            "2322",
+            "2331",
+            "2332",
+            "2333",
+            "2335",
+            "2336",
+            "2545"
+          ],
+          "status": "evidence_only",
+          "evidence": [
+            "sql_employee"
+          ]
+        }
+      ],
+      "pending_semantic_reference": {
+        "id": "bank.employee_deposit.depositor_employee_reference",
+        "name": "存款人本人為行員",
+        "status": "pending_depositor_identity_mapping",
+        "class_uri": "https://example.org/ontology/bank#BankEmployee",
+        "relation_uri": null,
+        "source_table": null,
+        "source_column": null,
+        "join_rules": null
+      },
+      "fields": [
+        {
+          "field": "customerId",
+          "status": "observed_raw_candidate",
+          "table": null,
+          "column": null,
+          "constant": null,
+          "candidates": [
+            {
+              "table": "DSDEP.EMP_DEP_NT_ACCT_HS",
+              "column": "CUST_ID",
+              "meaning": "來源客戶識別",
+              "evidence": [
+                "sql_employee",
+                "income_employee"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "currency",
+          "status": "pending_currency",
+          "table": null,
+          "column": null,
+          "constant": null,
+          "candidates": []
+        },
+        {
+          "field": "balance",
+          "status": "observed_raw_candidate",
+          "table": null,
+          "column": null,
+          "constant": null,
+          "candidates": [
+            {
+              "table": "DSDEP.EMP_DEP_NT_ACCT_HS",
+              "column": "BAL_AMT",
+              "meaning": "原始餘額，非 SUM 結果",
+              "evidence": [
+                "sql_employee",
+                "income_employee"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "snapshotDate",
+          "status": "pending_time_semantics",
+          "table": null,
+          "column": null,
+          "constant": null,
+          "candidates": [
+            {
+              "table": "DSDEP.EMP_DEP_NT_ACCT_HS",
+              "column": "LST_MTN_DT",
+              "meaning": "employee SQL 使用；metadata row 39 未定義",
+              "evidence": [
+                "sql_employee",
+                "income_employee"
+              ]
+            },
+            {
+              "table": "DSDEP.EMP_DEP_NT_ACCT_HS",
+              "column": "DATA_DT",
+              "meaning": "資料日期；metadata row 22",
+              "evidence": [
+                "income_employee"
+              ]
+            },
+            {
+              "table": "DSDEP.EMP_DEP_NT_ACCT_HS",
+              "column": "YYYYMM",
+              "meaning": "Snapshot年月；metadata row 77，不補為某日",
+              "evidence": [
+                "income_employee"
+              ]
+            }
+          ]
+        },
+        {
+          "field": "employeeId",
+          "status": "pending_employee_identity",
+          "table": null,
+          "column": null,
+          "constant": null,
+          "candidates": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+CALL { MATCH (n) WHERE NOT n:PBConcept WITH n ORDER BY elementId(n) RETURN collect([elementId(n),apoc.coll.sort(labels(n)),[k IN apoc.coll.sort(keys(n)) | [k,n[k]]]]) AS mappingNodes }
+CALL { MATCH (a)-[r]->(b) WHERE NOT a:PBConcept OR NOT b:PBConcept WITH a,r,b ORDER BY elementId(r) RETURN collect([elementId(r),elementId(a),type(r),elementId(b),[k IN apoc.coll.sort(keys(r)) | [k,r[k]]]]) AS mappingRelationships }
+CALL { MATCH (n:PBConcept) RETURN collect({id:elementId(n),labels:labels(n),properties:properties(n)}) AS nodes }
+CALL { MATCH (a:PBConcept)-[r]->(b:PBConcept) RETURN collect({id:elementId(r),source:elementId(a),type:type(r),target:elementId(b),properties:properties(r)}) AS relationships }
+CALL { MATCH (a:PBConcept)-[r]-(b) WHERE NOT b:PBConcept RETURN count(r) AS crossEdges }
+RETURN {nodes:nodes,relationships:relationships} AS snapshot,apoc.util.sha256([apoc.convert.toJson([mappingNodes,mappingRelationships])]) AS mappingSha256,size(mappingNodes) AS mappingNodes,size(mappingRelationships) AS mappingRelationships,crossEdges

@@ -1,0 +1,6 @@
+{
+  "statement": "MATCH (source:SqlTable) -[r:TRANSFORMS_TO|UNION|UNION_ALL|LEFT_JOIN|INNER_JOIN|INSERT_FROM]-> (target:SqlTable {name:$tableName}) WHERE r.status='active_sql' AND r.sourceRole='primary_reference' RETURN source.name AS sourceTable,target.name AS targetTable, type(r) AS operation,r.unionBranchOrders AS branchOrders, r.whereConditions AS whereConditions,r.joinConditions AS joinConditions, r.groupExpressions AS groupExpressions,r.aggregateExpressions AS aggregateExpressions, r.file AS sourceFile,r.lineStart AS lineStart,r.lineEnd AS lineEnd,r.sql AS sql ORDER BY r.file,r.lineStart,r.unionBranchOrders LIMIT 50",
+  "parameters": {
+    "tableName": "INCOME_TMP01"
+  }
+}

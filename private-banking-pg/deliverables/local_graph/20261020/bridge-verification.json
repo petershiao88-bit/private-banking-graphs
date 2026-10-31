@@ -1,0 +1,14 @@
+{
+  "unauthenticatedDenied": 401,
+  "arbitraryCypherDenied": 400,
+  "authorizedFixedReadSucceeded": 200,
+  "conceptNodes": 41,
+  "publicExposureEnabled": false,
+  "concurrentTunnelSmoke": {
+    "requests": 38,
+    "http200": 38,
+    "operation": "full_concept_graph",
+    "maxConcurrentDatabaseQueries": 4,
+    "listenBacklog": 128
+  }
+}

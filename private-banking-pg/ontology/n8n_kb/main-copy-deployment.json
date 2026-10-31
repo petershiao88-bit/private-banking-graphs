@@ -1,0 +1,12 @@
+{
+  "id": "nBrzHm3pNsVcOpeu",
+  "name": "智能查詢 - 概念圖 KB 測試版",
+  "url": "https://chiang4901.app.n8n.cloud/workflow/nBrzHm3pNsVcOpeu",
+  "state": "saved_unpublished",
+  "nodes": 34,
+  "export": "main.paths.saved.json",
+  "validationReport": "path_deployment_validation.json",
+  "contractChecksPassed": 142,
+  "endToEndState": "success",
+  "originalMainModified": false
+}

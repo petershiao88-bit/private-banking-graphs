@@ -1,0 +1,54 @@
+{
+  "nineNodes": true,
+  "liveGraphFixtures": true,
+  "syntheticDecisions": true,
+  "liveJev": false,
+  "cases": {
+    "deposit_aum": {
+      "conceptCandidates": 30,
+      "selectedConceptPaths": 1,
+      "mappingCandidates": 5,
+      "selectedMappingPaths": 5,
+      "conceptStateChars": 40185,
+      "mappingStateChars": 15039
+    },
+    "deposit_income": {
+      "conceptCandidates": 30,
+      "selectedConceptPaths": 1,
+      "mappingCandidates": 7,
+      "selectedMappingPaths": 7,
+      "conceptStateChars": 40188,
+      "mappingStateChars": 17034
+    },
+    "securities_fund": {
+      "conceptCandidates": 30,
+      "selectedConceptPaths": 1,
+      "mappingCandidates": 2,
+      "selectedMappingPaths": 2,
+      "conceptStateChars": 40185,
+      "mappingStateChars": 5290
+    },
+    "securities_all": {
+      "conceptCandidates": 30,
+      "selectedConceptPaths": 4,
+      "mappingCandidates": 17,
+      "selectedMappingPaths": 17,
+      "conceptStateChars": 40185,
+      "mappingStateChars": 24140
+    },
+    "deposit_both": {
+      "conceptCandidates": 30,
+      "selectedConceptPaths": 2,
+      "mappingCandidates": 12,
+      "selectedMappingPaths": 12,
+      "conceptStateChars": 40194,
+      "mappingStateChars": 30820
+    }
+  },
+  "rawProbabilitiesPreserved": true,
+  "multiSelection": true,
+  "manyToMany": true,
+  "sqlDependenciesRetained": true,
+  "noMappingInConceptState": true,
+  "noPreselection": true
+}

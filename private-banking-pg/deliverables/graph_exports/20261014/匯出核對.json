@@ -1,0 +1,48 @@
+{
+  "status": "passed",
+  "packagedAt": "2026-10-14T10:35:55.778974+08:00",
+  "downloadedAt": "2026-10-14T10:33:34.669519+08:00",
+  "freshlyDownloaded": true,
+  "rawNodes": 1618,
+  "rawRelationships": 4649,
+  "crossLayerRelationships": 0,
+  "danglingRelationships": 0,
+  "duplicateNodeKeys": 0,
+  "duplicateRelationshipKeys": 0,
+  "allPropertiesPreserved": true,
+  "formalBusinessPathCount": 39,
+  "baseNodesMatch20261013Export": true,
+  "baseRelationshipsMatch20261013Export": true,
+  "files": [
+    {
+      "file": "正式概念圖_20261014.json",
+      "nodeCount": 41,
+      "relationshipCount": 69,
+      "sha256": "115107f2c579c97940071df855233bf515452f535121e4a49116d969e7a42c98",
+      "bytes": 90274
+    },
+    {
+      "file": "底表映射圖_20261014.json",
+      "nodeCount": 104,
+      "relationshipCount": 218,
+      "sha256": "51241979d364f1234f5562a7d771cce88550bac8b06e362e7596198916ae60d6",
+      "bytes": 2020061
+    },
+    {
+      "file": "映射概念檢視_20261014.json",
+      "nodeCount": 41,
+      "relationshipCount": 67,
+      "sha256": "dd6faa04521964e655e19a0306e9368a3ae284f2eb5d1ea4c45107e4ed2471ce",
+      "bytes": 1116816
+    },
+    {
+      "file": "完整映射與SQL血緣_20261014.json",
+      "nodeCount": 1577,
+      "relationshipCount": 4580,
+      "sha256": "57c37b21fc446de0c0c0be78e841aac65d6e4ffe21416c67d16ef926c747a175",
+      "bytes": 11460209
+    }
+  ],
+  "externalGraphModified": false,
+  "dictionariesSource": "本機正式字典的輔助對照副本，非本次資料庫匯出"
+}

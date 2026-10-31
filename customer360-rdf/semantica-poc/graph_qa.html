@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>客戶360 · 圖譜問答</title>
+<style>
+:root{color-scheme:dark;font-family:"Segoe UI","Microsoft JhengHei",sans-serif;background:#0a1320;color:#e8eef6}*{box-sizing:border-box}body{margin:0}header{border-bottom:1px solid #263448;background:#101c2b}nav,main{max-width:1160px;margin:auto;padding:22px 28px}nav{display:flex;justify-content:space-between;gap:16px;align-items:center}nav strong{font-size:18px}a{color:#8be0d0;text-decoration:none}a:hover{text-decoration:underline}.eyebrow{color:#70c9b9;letter-spacing:.12em;font-size:12px}h1{font-size:32px;margin:10px 0}p{line-height:1.8;color:#aebdce;margin:10px 0}.status{font-size:12px;border:1px solid #345069;background:#172639;border-radius:24px;padding:7px 12px;white-space:nowrap}.panel{background:#111f30;border:1px solid #283c51;border-radius:16px;padding:24px;margin:22px 0}.examples{display:flex;gap:9px;flex-wrap:wrap;margin:18px 0}.examples button{background:#172d3c;border:1px solid #33566a;color:#c9e6e6;border-radius:22px;padding:9px 13px;font-size:13px;cursor:pointer}label{display:block;font-weight:600;margin-bottom:10px}textarea{width:100%;min-height:100px;resize:vertical;background:#0b1725;border:1px solid #476277;border-radius:10px;padding:14px;color:#eef5fb;font:16px/1.6 inherit}textarea:focus{outline:2px solid #6bccba;outline-offset:2px}.actions{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-top:15px}.note{font-size:12px;color:#9aafc1;line-height:1.7}.submit{border:0;border-radius:9px;background:#79d6bd;color:#09211d;font-weight:700;font-size:15px;padding:12px 22px;cursor:pointer}button:disabled{opacity:.5;cursor:wait}#message{color:#f5c98a;min-height:24px;font-size:14px;margin-top:12px}.result-head{display:flex;justify-content:space-between;align-items:center;gap:14px}h2{font-size:19px;margin:0 0 12px}#answer{white-space:pre-wrap;overflow-wrap:anywhere;font-size:16px;line-height:1.9}#result[hidden]{display:none}.evidence{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}.source{border:1px solid #2e4358;border-radius:10px;padding:15px;background:#0d1928;overflow-wrap:anywhere}.source summary{cursor:pointer;font-size:14px;font-weight:600;line-height:1.7}.badge{color:#7bd8c1;margin-right:7px;font-family:monospace}.detail{font-size:13px;line-height:1.8;color:#b3c3d4;white-space:pre-wrap;margin-top:12px}.id{font:11px/1.7 monospace;color:#849bb3;overflow-wrap:anywhere}#trace{margin:20px 0 0}.footer{font-size:12px;color:#8ca2b7;padding:0 4px 30px;line-height:1.8}@media(max-width:720px){nav,main{padding:18px}h1{font-size:26px}.panel{padding:18px}.evidence{grid-template-columns:1fr}.actions,nav{align-items:flex-start;flex-direction:column}.submit{width:100%}.status{white-space:normal}}
+</style>
+</head>
+<body>
+<header><nav><strong>客戶360 <span style="color:#728ca4">／</span> 圖譜問答</strong><a href="/">← 返回 Semantica Explorer</a></nav></header>
+<main>
+<div class="eyebrow">RDF + PROPERTY GRAPH</div><h1>從定義，追到資料來源。</h1>
+<p>詢問類別繼承、業務名詞與指標來源，查看 Semantica 規則推導及圖譜依據。</p>
+<p class="note">本體查詢採用 Semantica 類別繼承規則；完整 OWL 一致性與資料型別限制尚未驗證。</p>
+<section class="panel"><span class="status" id="status">正在讀取模型設定…</span>
+<div class="examples" aria-label="範例問題">
+<button type="button">證券 AUM 是否屬於金控定義的指標（Metric）？</button>
+<button type="button">銀行 AUM 是否為證券 AUM 的子類別？</button>
+<button type="button">目前推理能驗證完整 OWL 一致性嗎？</button>
+<button type="button">證券總 AUM 的定義是什麼？它來自哪些資料表？</button>
+<button type="button">私銀有哪些指標？</button>
+<button type="button">銀行 ETF AUM 有哪些尚未確認的事項？</button>
+</div>
+<form id="question-form"><label for="question">你想了解什麼？</label><textarea id="question" required minlength="2" maxlength="1200" placeholder="例如：證券總 AUM 包含哪些分項？"></textarea>
+<div class="actions"><span class="note">送出後，問題與檢索到的圖譜內容會交由 OpenRouter 模型處理，依 API 用量計費。</span><button class="submit" id="submit" type="submit">查詢圖譜並回答 →</button></div>
+<div id="message" role="status" aria-live="polite"></div></form></section>
+<section class="panel" id="result" hidden><div class="result-head"><h2>回答</h2><span class="note" id="result-meta"></span></div>
+<div id="tool-result" hidden style="border-left:3px solid #79d6bd;background:#122d32;padding:14px 16px;margin:8px 0 18px;border-radius:6px"><strong id="tool-summary"></strong><div class="note" id="tool-meta"></div></div>
+<div id="answer"></div>
+<details style="margin-top:18px" id="tool-trace" hidden><summary>查看 LLM 工具請求與後端結果</summary><pre class="detail" id="tool-json" style="overflow-wrap:anywhere;white-space:pre-wrap"></pre></details>
+<details id="trace"><summary id="trace-summary">查看圖譜證據</summary><p class="note">[R] 為推論工具結果，[N] 為節點，[E] 為有方向的關係。引用編號可在下方核對。</p><div class="evidence" id="evidence"></div></details></section>
+<div class="footer">此頁為本機 PoC 的問答擴充。回答依據目前圖譜的 metadata；未核定口徑與待確認事項會保留。每次問題獨立檢索，不執行 SQL、不改寫 RDF／PG。</div>
+</main>
+<script>
+const $=id=>document.getElementById(id);let busy=false;
+document.querySelectorAll('.examples button').forEach(button=>button.addEventListener('click',()=>{$('question').value=button.textContent;$('question').focus()}));
+fetch('/api/graph-qa/status').then(r=>r.json()).then(s=>{$('status').textContent=s.configured?`${s.model} · ${s.view} · ${s.reasoner} · ${s.reasoner_classes} 類別${s.reasoner_cache_ready?'已就緒':''}`:'尚未設定 OpenRouter，請填寫本機 .env'}).catch(()=>{$('status').textContent='無法讀取模型設定'});
+function showSource(source){
+const box=document.createElement('details');box.className='source';const summary=document.createElement('summary');const badge=document.createElement('span');badge.className='badge';badge.textContent=`[${source.id}]`;
+const title=source.kind==='node'?source.label:source.kind==='reasoning'?source.summary:`${source.source_label} → ${source.relation} → ${source.target_label}`;
+summary.append(badge,document.createTextNode(title));box.append(summary);const details=document.createElement('div');details.className='detail';
+if(source.kind==='node'){details.textContent=[`類型：${source.type} · 來源：${source.origin}`,source.definition||source.comment||'未提供定義',source.coverage||'',...(source.gaps||[]).map(gap=>'待確認：'+gap),JSON.stringify(source.details,null,2)].filter(Boolean).join('\n');}
+else if(source.kind==='reasoning'){details.textContent=JSON.stringify(source,null,2);}
+else{details.textContent=`${source.source}\n→ ${source.relation}\n→ ${source.target}`;}
+box.append(details);if(source.kind==='node'){const id=document.createElement('div');id.className='id';id.textContent=source.entity_id;box.append(id);}return box;}
+function showTools(data){
+const result=(data.tool_calls||[])[0];$('tool-result').hidden=!result;$('tool-trace').hidden=!data.plan;
+if(data.plan)$('tool-json').textContent=JSON.stringify({request:data.plan,results:data.tool_calls||[]},null,2);
+if(result){const execution=result.status==='completed'?(result.cached?'使用相同本體與規則的快取':'本次執行規則推導'):result.status==='unsupported'?'此工具／公理尚未支援':'推導未完成';$('tool-summary').textContent=result.summary;$('tool-meta').textContent=`${result.engine} · 僅金控與子公司類別 · ${execution}${result.executed_at?' · 推導時間 '+new Date(result.executed_at).toLocaleString():''} · PG 未納入推理`+(result.limitations?.length?'。限制：'+result.limitations.join('；'):'');}}
+$('question-form').addEventListener('submit',async event=>{event.preventDefault();if(busy)return;const question=$('question').value.trim();if(question.length<2){$('message').textContent='請輸入至少兩個字的問題。';return;}busy=true;$('submit').disabled=true;$('message').textContent='正在找出相關節點、追查來源並整理回答…';$('result').hidden=true;
+try{const response=await fetch('/api/graph-qa/ask',{method:'POST',headers:{'Content-Type':'application/json','X-Graph-QA':'1'},body:JSON.stringify({question})});const data=await response.json();if(!response.ok)throw new Error(typeof data.detail==='string'?data.detail:'問題無法處理，請縮短內容後重試。');$('answer').textContent=data.answer;const route={ontology:'類別規則推導',pg:'PG 查詢',clarify:'釐清問題'}[data.route]||'';$('result-meta').textContent=data.used_llm?`${route} · ${data.model}`:'未呼叫模型';showTools(data);$('trace-summary').textContent=`查看 ${data.sources.length} 筆證據 · 畫布 ${data.graph.nodes} 節點／${data.graph.edges} 關係`;$('evidence').replaceChildren(...data.sources.map(showSource));$('result').hidden=false;$('message').textContent=data.truncated?'這次使用部分相關證據；可縮小問題範圍以取得更完整的來源。':data.citations_valid?'': '模型未完整標示有效引用，請展開證據核對。';}
+catch(error){$('message').textContent=error.message||'連線中斷，請稍後重試。';}finally{busy=false;$('submit').disabled=false;}});
+</script></body></html>

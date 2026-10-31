@@ -1,0 +1,10 @@
+{
+  "version": "0.3.0",
+  "sources": ["holding-core.ttl"],
+  "ontology_uri": "https://example.org/ontology/customer360",
+  "label": "客戶360共通語意整合本體",
+  "outputs": {
+    "turtle": "customer360-ontology.ttl",
+    "xml": "customer360-ontology.owl"
+  }
+}

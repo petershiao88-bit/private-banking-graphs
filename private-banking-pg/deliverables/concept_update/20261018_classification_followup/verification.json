@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "updatedProducts": 5,
+  "addedClassificationValues": 5,
+  "classificationValuesTotal": 47,
+  "remainingOfferingType": 0,
+  "nodes": 41,
+  "relationships": 69,
+  "businessPaths": 39,
+  "existingIdsPreserved": true,
+  "otherPropertiesUnchanged": true,
+  "relationshipsUnchanged": true,
+  "mappingUnchanged": true,
+  "crossEdges": 0,
+  "idempotentRerunChangedValues": 0,
+  "canonicalSourcesSynchronized": true
+}

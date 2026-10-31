@@ -1,0 +1,26 @@
+{
+  "contractVersion": "pb_kb_lazy_routes_v4",
+  "state": "saved_unpublished",
+  "kb": {
+    "id": "tL7HTesvAzqwsqv6",
+    "nodes": 12,
+    "savedExport": "PB_AUM_Income_KB.simplified.saved.json",
+    "pinDataEmpty": true,
+    "liveExecution": "success",
+    "durationSeconds": 6.632,
+    "nativeRequestIds": [
+      "gen-dec-1791422184-vGlZ9XuFopmR1yPJwyR0",
+      "gen-dec-1791422185-yesZmzpeml9cjonFhitZ"
+    ],
+    "proof": "simplified_kb_live_securities.dom.txt"
+  },
+  "main": {
+    "id": "nBrzHm3pNsVcOpeu",
+    "nodes": 32,
+    "savedExport": "main.simplified.saved.json",
+    "endToEndTestThisChange": false,
+    "originalMainModified": false
+  },
+  "validation": "lazy_contract_validation.json",
+  "screenshot": "simplified-kb-draft.png"
+}

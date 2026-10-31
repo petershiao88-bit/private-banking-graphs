@@ -1,0 +1,341 @@
+{
+  "name": "私銀 AUM Income KB",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "question"
+            },
+            {
+              "name": "domains",
+              "type": "array"
+            },
+            {
+              "name": "metricCodes",
+              "type": "array"
+            }
+          ]
+        }
+      },
+      "id": "6bf10902-5a10-4769-bb96-77b62e873036",
+      "name": "KB Input",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        180
+      ],
+      "notes": "供主 Agent 呼叫。question 為已確認的完整問題；domains 為 [\"aum\"]、[\"income\"] 或兩者；metricCodes 直接傳入 metric router 的完整 selected_metric_codes 陣列。"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://4bb479b2.databases.neo4j.io/db/neo4j/query/v2",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ (() => { const parameters={}; return {statement:\"CALL {\\n MATCH (n:PBConcept)\\n RETURN collect({key:coalesce(n.productCode,n.metricCode),labels:labels(n),properties:n{.productCode,.metricCode,.name,.definition,.status,.aumStatus,.incomeStatus} }) AS conceptNodes\\n}\\nCALL {\\n MATCH (a:PBConcept)-[r]->(b:PBConcept)\\n RETURN collect({id:elementId(r),from:coalesce(a.productCode,a.metricCode),to:coalesce(b.productCode,b.metricCode),type:type(r),properties:r{.name,.scope,.status,.note} }) AS conceptRelationships\\n}\\nCALL {\\n MATCH path=(leaf:PBConcept)-[:PB_AUM_MEASURED_BY|PB_INCOME_MEASURED_BY|PB_INCOME_PENDING|PB_AUM_ROLLS_UP_TO|PB_INCOME_ROLLS_UP_TO*1..]->(root:PBConcept)\\n WHERE NOT EXISTS { MATCH (:PBConcept)-[:PB_AUM_MEASURED_BY|PB_INCOME_MEASURED_BY|PB_INCOME_PENDING|PB_AUM_ROLLS_UP_TO|PB_INCOME_ROLLS_UP_TO]->(leaf) }\\n  AND NOT EXISTS { MATCH (root)-[:PB_AUM_MEASURED_BY|PB_INCOME_MEASURED_BY|PB_INCOME_PENDING|PB_AUM_ROLLS_UP_TO|PB_INCOME_ROLLS_UP_TO]->(:PBConcept) }\\n  AND all(n IN nodes(path) WHERE n:PBConcept)\\n  AND (all(r IN relationships(path) WHERE type(r) IN ['PB_AUM_MEASURED_BY','PB_AUM_ROLLS_UP_TO'])\\n   OR all(r IN relationships(path) WHERE type(r) IN ['PB_INCOME_MEASURED_BY','PB_INCOME_PENDING','PB_INCOME_ROLLS_UP_TO']))\\n RETURN collect(DISTINCT {domain:CASE WHEN root:PBConceptAUM THEN 'aum' ELSE 'income' END,\\n  nodeKeys:[n IN nodes(path)|coalesce(n.productCode,n.metricCode)],relationshipIds:[r IN relationships(path)|elementId(r)]}) AS businessPaths\\n}\\nRETURN {nodes:conceptNodes,relationships:conceptRelationships} AS conceptGraph,businessPaths\",parameters}; })() }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          },
+          "timeout": 60000
+        }
+      },
+      "id": "3ffefb2c-9b1d-5c8a-8d70-5f1aa3922860",
+      "name": "Aura - Full Concept Graph",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        240,
+        180
+      ],
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "w0t2jys33reSEGAk",
+          "name": "Unnamed credential"
+        }
+      }
+    },
+    {
+      "id": "00810297-92fe-531e-afa8-e1ad75f51e6a",
+      "name": "Jev - Prepare Concept Paths",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "parameters": {
+        "jsCode": "const graphRows=body=>body.data.values.map(row=>Object.fromEntries(body.data.fields.map((key,i)=>[key,row[i]])));\nconst canonical=value=>Array.isArray(value)?value.map(canonical):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(key=>[key,canonical(value[key])])):value;\nconst stableKey=(prefix,value)=>{const text=JSON.stringify(canonical(value));let a=2166136261,b=3339675911;for(let i=0;i<text.length;i++){a=Math.imul(a^text.charCodeAt(i),16777619);b=Math.imul(b^text.charCodeAt(i),2246822519);}return `${prefix}::${(a>>>0).toString(16).padStart(8,'0')}${(b>>>0).toString(16).padStart(8,'0')}`;};\nconst uniqueBy=(values,key)=>[...new Map(values.map(value=>[key(value),value])).values()];\nconst decisionEvidence=(body,phase)=>({requestId:body.id,model:body.model,provider:body.provider,answers:body.answers,usage:body.usage,phase,...(body.error?{error:body.error}:{})});\nconst scored=(candidate,answer)=>({...candidate,choice:answer.choice,judgement:answer.choice,probability:answer.probabilities.included,probabilities:answer.probabilities,confidence:answer.confidence});\n\nconst response=$input.first().json,input=$('KB Input').first().json;\nconst {conceptGraph,businessPaths}=graphRows(response)[0];\nconst conceptPathCandidates=uniqueBy(businessPaths.map(path=>{\n const nodes=path.nodeKeys.map(key=>conceptGraph.nodes.find(node=>node.key===key));\n const relationships=path.relationshipIds.map(id=>conceptGraph.relationships.find(edge=>edge.id===id));\n const productNodes=nodes.filter(node=>node.properties.productCode);\n const metricNodes=nodes.filter(node=>node.properties.metricCode);\n return {pathKey:stableKey('concept',[path.nodeKeys,path.relationshipIds]),domain:path.domain,nodeKeys:path.nodeKeys,relationshipIds:path.relationshipIds,\n  productCodes:productNodes.map(node=>node.properties.productCode),anchorConceptKeys:productNodes.map(node=>node.key),\n  metricCodes:metricNodes.map(node=>node.properties.metricCode),nodes,relationships};\n}),path=>path.pathKey);\nconst decisionRules='依 conceptGraph 的業務定義、方向、產品與通路、AUM／Income 領域，判斷路徑是否為回答 question 所需的業務路徑之一。路徑已延伸到最上層，上層節點提供上下文，問題不必要求根指標才可納入。依 question 指定的顆粒度判斷，不能因共享上層指標而納入所有兄弟產品。可同時納入多條，共享節點不代表互斥。draft/inferred 狀態本身不代表路徑不符合。只判斷業務概念，不猜實體表或 SQL。';\nconst questions=Object.fromEntries(conceptPathCandidates.map(path=>[path.pathKey,{type:'choice',\n instructions:`依 state.decisionRules 評估 businessPaths 中 pathKey=${path.pathKey} 的完整路徑。`,\n criteria:{included:'符合問題，是所需業務範圍的一部分。',uncertain:'可能符合，但業務範圍、通路或領域不足以確定。',excluded:'不符合問題，或不在問題要求的範圍。'}}]));\nreturn [{json:{question:input.question,domains:input.domains||[],metricCodes:input.metricCodes||[],conceptGraph,conceptPathCandidates,\n decisionRequest:{model:'typesafe/jev-1.13',state:{question:input.question,decisionRules,contextHints:{domains:input.domains||[],metricCodes:input.metricCodes||[]},conceptGraph,\n  businessPaths:conceptPathCandidates.map(({nodes,relationships,...path})=>path)},questions}}}];\n"
+      },
+      "position": [
+        480,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://openrouter.ai/api/alpha/decisions",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "openRouterApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.decisionRequest }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          },
+          "timeout": 60000
+        }
+      },
+      "name": "Jev - Concept Path Decisions API",
+      "id": "bd1da397-5b36-5e3e-a2ea-8a9fe5d08ae3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        720,
+        180
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 1500,
+      "credentials": {
+        "openRouterApi": {
+          "id": "kHmQcximG3HXh42b",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "id": "1764a010-5d8a-53fa-ac96-0ce7555abc02",
+      "name": "Concept Path Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "parameters": {
+        "jsCode": "const graphRows=body=>body.data.values.map(row=>Object.fromEntries(body.data.fields.map((key,i)=>[key,row[i]])));\nconst canonical=value=>Array.isArray(value)?value.map(canonical):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(key=>[key,canonical(value[key])])):value;\nconst stableKey=(prefix,value)=>{const text=JSON.stringify(canonical(value));let a=2166136261,b=3339675911;for(let i=0;i<text.length;i++){a=Math.imul(a^text.charCodeAt(i),16777619);b=Math.imul(b^text.charCodeAt(i),2246822519);}return `${prefix}::${(a>>>0).toString(16).padStart(8,'0')}${(b>>>0).toString(16).padStart(8,'0')}`;};\nconst uniqueBy=(values,key)=>[...new Map(values.map(value=>[key(value),value])).values()];\nconst decisionEvidence=(body,phase)=>({requestId:body.id,model:body.model,provider:body.provider,answers:body.answers,usage:body.usage,phase,...(body.error?{error:body.error}:{})});\nconst scored=(candidate,answer)=>({...candidate,choice:answer.choice,judgement:answer.choice,probability:answer.probabilities.included,probabilities:answer.probabilities,confidence:answer.confidence});\n\nconst body=$input.first().json,context=$('Jev - Prepare Concept Paths').first().json;\nconst conceptPathScores=context.conceptPathCandidates.map(path=>scored({pathKey:path.pathKey,domain:path.domain,productCodes:path.productCodes,metricCodes:path.metricCodes},body.answers[path.pathKey]));\nconst selectedConceptPaths=context.conceptPathCandidates.filter(path=>body.answers[path.pathKey].choice==='included');\nconst {decisionRequest,...rest}=context;\nreturn [{json:{...rest,conceptPathScores,selectedConceptPaths,selectedPaths:selectedConceptPaths.map(({pathKey,domain,productCodes,metricCodes})=>({pathKey,domain,productCodes,metricCodes})),\n conceptDecision:decisionEvidence(body,'concept_path_selection')}}];\n"
+      },
+      "position": [
+        960,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://4bb479b2.databases.neo4j.io/db/neo4j/query/v2",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ (() => { const parameters={selectedPaths:$json.selectedPaths}; return {statement:\"UNWIND $selectedPaths AS selection\\nUNWIND selection.productCodes AS productCode\\nMATCH (p:SharedProduct {ontologyId:'pb_shared',code:productCode})\\nWITH DISTINCT p,selection,null AS measure\\nCALL (p,selection,measure) {\\n OPTIONAL MATCH (p)-[mapping:AUM_IMPLEMENTED_BY|INCOME_IMPLEMENTED_BY|INCOME_DECLARED_BY]->(stage:StagingOutput)\\n WHERE stage.ontologyId=selection.domain\\n  AND ((selection.domain='aum' AND type(mapping)='AUM_IMPLEMENTED_BY') OR\\n       (selection.domain='income' AND type(mapping) IN ['INCOME_IMPLEMENTED_BY','INCOME_DECLARED_BY']))\\n\\n WITH p,selection,measure,mapping,stage,\\n 'candidate_bridge' AS bindingStatus\\n OPTIONAL MATCH (stage)-[bridge:REPRESENTS_SQL_TABLE]->(target:SqlTable)\\n OPTIONAL MATCH path=(upstream:SqlTable)-[:TRANSFORMS_TO|UNION|UNION_ALL|LEFT_JOIN|INNER_JOIN|INSERT_FROM*0..16]->(target)\\n WHERE all(r IN relationships(path) WHERE r.status='active_sql' AND r.sourceRole='primary_reference')\\n WITH p,selection,mapping,stage,bridge,target,bindingStatus,collect(DISTINCT path) AS paths\\n WITH *,reduce(acc=[],path IN paths | acc+nodes(path)) AS tableNodes\\n CALL (tableNodes) {\\n  UNWIND tableNodes AS t\\n  WITH DISTINCT t\\n  OPTIONAL MATCH (s:SqlStatement)-[:TARGETS_TABLE]->(t)\\n  WHERE s.status='active_sql' AND s.sourceRole='primary_reference'\\n  OPTIONAL MATCH (s)-[:READS_TABLE]->(source:SqlTable)\\n  WITH t,s,collect(DISTINCT source.key) AS requiredTableKeys\\n  WITH t,collect(DISTINCT CASE WHEN s IS NULL THEN null ELSE\\n   {statementKey:s.key,properties:properties(s),requiredTableKeys:requiredTableKeys} END) AS statements\\n  OPTIONAL MATCH (incoming:SqlTable)-[r:TRANSFORMS_TO|UNION|UNION_ALL|LEFT_JOIN|INNER_JOIN|INSERT_FROM]->(t)\\n  WHERE r.status='active_sql' AND r.sourceRole='primary_reference'\\n  WITH t,statements,collect(DISTINCT CASE WHEN r IS NULL THEN null ELSE\\n   {from:incoming.key,to:t.key,type:type(r),properties:properties(r)} END) AS requiredIncoming\\n  RETURN collect({key:t.key,labels:labels(t),properties:properties(t),statements:statements,requiredIncoming:requiredIncoming}) AS tables\\n }\\n WITH p,selection,mapping,stage,bridge,target,bindingStatus,paths,tables,\\n [path IN paths WHERE head(nodes(path)).tableKind='external_source' | {\\n  baseTable:head(nodes(path)).name,tablePath:[n IN nodes(path)|n.name],\\n  rules:[r IN relationships(path)|{operation:type(r),statementKey:r.statementKey,lineageEdgeId:r.lineageEdgeId,\\n   operationTypes:r.operationTypes,whereConditions:r.whereConditions,joinConditions:r.joinConditions,\\n   groupExpressions:r.groupExpressions,aggregateExpressions:r.aggregateExpressions,selectExpressions:r.selectExpressions,\\n   caseExpressions:r.caseExpressions,unionBranchOrders:r.unionBranchOrders,unionBranchCounts:r.unionBranchCounts,\\n   unionDeduplication:r.unionDeduplication,joinTypes:r.joinTypes,joinInputRoles:r.joinInputRoles,\\n   havingConditions:r.havingConditions,inputSteps:r.inputSteps,ruleSteps:r.ruleSteps,\\n   file:r.file,lineStart:r.lineStart,lineEnd:r.lineEnd,status:r.status,sourceRole:r.sourceRole,sqlTextKind:r.sqlTextKind,sql:r.sql}]\\n }] AS lineage\\n RETURN collect(DISTINCT CASE WHEN stage IS NULL THEN null ELSE {\\n  mappingType:type(mapping),mappingStatus:mapping.status,productScope:mapping.scope,\\n  bindingConceptKey:p.key,bindingStatus:bindingStatus,\\n  implementation:{from:p.key,to:stage.key,type:type(mapping),properties:properties(mapping)},\\n  stage:{key:stage.key,labels:labels(stage),properties:properties(stage)},\\n  bridge:CASE WHEN bridge IS NULL THEN null ELSE {from:stage.key,to:target.key,type:type(bridge),properties:properties(bridge)} END,\\n  outputTable:stage.outputObject,sqlTable:target.name,targetTableKey:target.key,\\n  lineageStatus:CASE WHEN size(lineage)=0 THEN 'missing_evidence' ELSE 'traced' END,lineage:lineage,\\n  sqlEvidence:{maxDepth:16,tables:tables,\\n   paths:[path IN paths|{tableKeys:[n IN nodes(path)|n.key],relationships:[r IN relationships(path)|\\n    {from:startNode(r).key,to:endNode(r).key,type:type(r),properties:properties(r)}]}]}\\n } END) AS mappings\\n}\\nRETURN selection.pathKey AS pathKey,p.key AS bindingConceptKey,p.code AS productCode,p.name AS productName,selection.domain AS domain,\\n CASE WHEN selection.domain='income' AND p.incomeMappingActive=false THEN 'pending_confirmation' ELSE p.status END AS status,mappings\\nORDER BY productCode,domain\\n\",parameters}; })() }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          },
+          "timeout": 60000
+        }
+      },
+      "id": "b6c263fd-ce4b-5193-a8bb-ad0d8b465475",
+      "name": "Aura - Mapping Paths",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1200,
+        180
+      ],
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "w0t2jys33reSEGAk",
+          "name": "Unnamed credential"
+        }
+      }
+    },
+    {
+      "id": "8e99faf2-9490-5fde-bf2a-a689d0b28d46",
+      "name": "Jev - Prepare Mapping Paths",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "parameters": {
+        "jsCode": "const graphRows=body=>body.data.values.map(row=>Object.fromEntries(body.data.fields.map((key,i)=>[key,row[i]])));\nconst canonical=value=>Array.isArray(value)?value.map(canonical):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(key=>[key,canonical(value[key])])):value;\nconst stableKey=(prefix,value)=>{const text=JSON.stringify(canonical(value));let a=2166136261,b=3339675911;for(let i=0;i<text.length;i++){a=Math.imul(a^text.charCodeAt(i),16777619);b=Math.imul(b^text.charCodeAt(i),2246822519);}return `${prefix}::${(a>>>0).toString(16).padStart(8,'0')}${(b>>>0).toString(16).padStart(8,'0')}`;};\nconst uniqueBy=(values,key)=>[...new Map(values.map(value=>[key(value),value])).values()];\nconst decisionEvidence=(body,phase)=>({requestId:body.id,model:body.model,provider:body.provider,answers:body.answers,usage:body.usage,phase,...(body.error?{error:body.error}:{})});\nconst scored=(candidate,answer)=>({...candidate,choice:answer.choice,judgement:answer.choice,probability:answer.probabilities.included,probabilities:answer.probabilities,confidence:answer.confidence});\n\nconst context=$('Concept Path Result').first().json,rows=graphRows($input.first().json);\nconst mappingsByKey=new Map(),candidatesByKey=new Map(),tablesByKey=new Map(),statementsByKey=new Map(),edgesById=new Map();\nconst edgeId=edge=>edge.properties.lineageEdgeId||stableKey('sql-edge',[edge.from,edge.type,edge.to,edge.properties.statementKey]);\nfor(const row of rows)for(const mapping of row.mappings||[]){\n const mappingKey=stableKey('mapping',[row.productCode,row.domain,mapping.implementation,mapping.stage.key,mapping.targetTableKey]);\n const previous=mappingsByKey.get(mappingKey);\n const conceptPathKeys=[...new Set([...(previous?.conceptPathKeys||[]),row.pathKey])];\n mappingsByKey.set(mappingKey,{...mapping,mappingKey,productCode:row.productCode,productName:row.productName,domain:row.domain,conceptPathKeys});\n for(const table of mapping.sqlEvidence.tables){\n  const previousTable=tablesByKey.get(table.key);\n  tablesByKey.set(table.key,{key:table.key,labels:table.labels,properties:table.properties,\n   statementKeys:[...new Set([...(previousTable?.statementKeys||[]),...table.statements.map(statement=>statement.statementKey)])],\n   requiredIncoming:uniqueBy([...(previousTable?.requiredIncoming||[]),...table.requiredIncoming],edge=>edgeId(edge))});\n  for(const statement of table.statements)statementsByKey.set(statement.statementKey,statement);\n }\n for(const path of mapping.sqlEvidence.paths)for(const edge of path.relationships)edgesById.set(edgeId(edge),{...edge,id:edgeId(edge)});\n // Each external-source-to-target path is a candidate; shared SQL dependencies remain attached to its implementation.\n for(const path of mapping.sqlEvidence.paths.filter(path=>mapping.sqlEvidence.tables.find(table=>table.key===path.tableKeys[0])?.properties.tableKind==='external_source')){\n  const relationshipIds=path.relationships.map(edgeId);\n  const mappingPathKey=stableKey('mapping-path',[mappingKey,path.tableKeys,relationshipIds]);\n  const old=candidatesByKey.get(mappingPathKey);\n  candidatesByKey.set(mappingPathKey,{mappingPathKey,mappingKey,conceptPathKeys:[...new Set([...(old?.conceptPathKeys||[]),row.pathKey])],productCode:row.productCode,productName:row.productName,domain:row.domain,\n   implementation:mapping.implementation,stageKey:mapping.stage.key,targetTableKey:mapping.targetTableKey,productScope:mapping.productScope,\n   tableKeys:path.tableKeys,relationshipIds,statementKeys:[...new Set(path.relationships.map(edge=>edge.properties.statementKey).filter(Boolean))]});\n }\n}\nconst mappingPathCandidates=[...candidatesByKey.values()],mappingCandidates=[...mappingsByKey.values()];\nconst sqlEvidence={tables:[...tablesByKey.values()].map(table=>({...table,requiredIncoming:table.requiredIncoming.map(edge=>({from:edge.from,to:edge.to,type:edge.type,relationshipId:edgeId(edge),statementKey:edge.properties.statementKey}))})),\n statements:[...statementsByKey.values()],relationships:[...edgesById.values()].map(edge=>{const {sql,inputSteps,ruleSteps,...properties}=edge.properties;return {...edge,properties};})};\nconst decisionRules='根據已選概念路徑及 question，查閱 technicalGraph 的表、關係、原始 SQL、範圍、日期、估值、JOIN／彙總／UNION 依據，判斷實體路徑是否需要。保留第一輪的業務範圍；多個來源可以共同實作同一概念。SQL 同一 UNION 或 JOIN 所需的來源都可納入；歷史初始化與月更新可能是不同適用階段，依原始 SQL 及問題判斷。僅有表名相似不構成對應理由。';\nconst questions=Object.fromEntries(mappingPathCandidates.map(path=>[path.mappingPathKey,{type:'choice',\n instructions:`依 state.decisionRules 評估 mappingPaths 中 mappingPathKey=${path.mappingPathKey} 的完整實體路徑。`,\n criteria:{included:'能實作已選概念或是所需依賴，且符合問題口徑。',uncertain:'可能對應，但映射或 SQL 不足以確定適用性。',excluded:'不對應已選概念，或資料範圍／計算口徑不符。'}}]));\n// Local references reduce repeated lineage hashes and parser-derived expressions.\n// Every candidate, dependency edge and original SQL statement remains in the request.\nconst tableRefs=new Map(sqlEvidence.tables.map((table,i)=>[table.key,`T${i+1}`]));\nconst statementRefs=new Map(sqlEvidence.statements.map((statement,i)=>[statement.statementKey,`S${i+1}`]));\nconst edgeRefs=new Map(sqlEvidence.relationships.map((edge,i)=>[edge.id,`E${i+1}`]));\nconst mappingRefs=new Map(mappingCandidates.map((mapping,i)=>[mapping.mappingKey,`M${i+1}`]));\nconst ref=(refs,key)=>refs.get(key)||key;\nconst technicalGraph={\n tables:sqlEvidence.tables.map(table=>({id:ref(tableRefs,table.key),name:table.properties.physicalName||table.properties.name,\n  kind:table.properties.tableKind,definitionStatus:table.properties.definitionStatus,statements:table.statementKeys.map(key=>ref(statementRefs,key)),\n  requiredIncoming:table.requiredIncoming.map(edge=>ref(edgeRefs,edge.relationshipId))})),\n statements:sqlEvidence.statements.map(statement=>({id:ref(statementRefs,statement.statementKey),file:statement.properties.file,lineStart:statement.properties.lineStart,\n  lineEnd:statement.properties.lineEnd,status:statement.properties.status,sourceRole:statement.properties.sourceRole,type:statement.properties.statementType,\n  requiredTables:statement.requiredTableKeys.map(key=>ref(tableRefs,key)),sql:statement.properties.sql})),\n relationships:sqlEvidence.relationships.map(edge=>({id:ref(edgeRefs,edge.id),from:ref(tableRefs,edge.from),to:ref(tableRefs,edge.to),type:edge.type,\n  statement:ref(statementRefs,edge.properties.statementKey),unionBranchOrders:edge.properties.unionBranchOrders,unionBranchCounts:edge.properties.unionBranchCounts,\n  joinInputRoles:edge.properties.joinInputRoles,status:edge.properties.status}))};\nconst conceptNodeKeys=new Set(context.selectedConceptPaths.flatMap(path=>path.nodeKeys));\nconst conceptRelationshipIds=new Set(context.selectedConceptPaths.flatMap(path=>path.relationshipIds));\nconst businessGraph={nodes:context.conceptGraph.nodes.filter(node=>conceptNodeKeys.has(node.key)),relationships:context.conceptGraph.relationships.filter(edge=>conceptRelationshipIds.has(edge.id))};\nconst mappingPaths=mappingPathCandidates.map(path=>({mappingPathKey:path.mappingPathKey,implementation:ref(mappingRefs,path.mappingKey),conceptPathKeys:path.conceptPathKeys,\n tables:path.tableKeys.map(key=>ref(tableRefs,key)),relationships:path.relationshipIds.map(key=>ref(edgeRefs,key)),statements:path.statementKeys.map(key=>ref(statementRefs,key))}));\nconst implementations=mappingCandidates.map(mapping=>({id:ref(mappingRefs,mapping.mappingKey),productCode:mapping.productCode,productName:mapping.productName,domain:mapping.domain,\n conceptPathKeys:mapping.conceptPathKeys,mappingType:mapping.mappingType,productScope:mapping.productScope,status:mapping.mappingStatus,\n note:mapping.implementation.properties.note,stage:mapping.stage.properties.name,target:ref(tableRefs,mapping.targetTableKey)}));\nreturn [{json:{...context,mappingCandidates,mappingPathCandidates,sqlEvidence,\n decisionRequest:{model:'typesafe/jev-1.13',state:{question:context.question,decisionRules,businessGraph,\n  selectedConceptPaths:context.selectedConceptPaths.map(({nodes,relationships,...path})=>path),mappingPaths,implementations,technicalGraph},questions}}}];\n"
+      },
+      "position": [
+        1440,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://openrouter.ai/api/alpha/decisions",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "openRouterApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.decisionRequest }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json",
+              "neverError": true
+            }
+          },
+          "timeout": 60000
+        }
+      },
+      "name": "Jev - Mapping Path Decisions API",
+      "id": "16f55cb9-78d0-5cce-a109-a342de790c7b",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1680,
+        180
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 1500,
+      "credentials": {
+        "openRouterApi": {
+          "id": "kHmQcximG3HXh42b",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "id": "6facefaa-a0cd-50a8-8e23-417e10ac232a",
+      "name": "KB Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "parameters": {
+        "jsCode": "const graphRows=body=>body.data.values.map(row=>Object.fromEntries(body.data.fields.map((key,i)=>[key,row[i]])));\nconst canonical=value=>Array.isArray(value)?value.map(canonical):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(key=>[key,canonical(value[key])])):value;\nconst stableKey=(prefix,value)=>{const text=JSON.stringify(canonical(value));let a=2166136261,b=3339675911;for(let i=0;i<text.length;i++){a=Math.imul(a^text.charCodeAt(i),16777619);b=Math.imul(b^text.charCodeAt(i),2246822519);}return `${prefix}::${(a>>>0).toString(16).padStart(8,'0')}${(b>>>0).toString(16).padStart(8,'0')}`;};\nconst uniqueBy=(values,key)=>[...new Map(values.map(value=>[key(value),value])).values()];\nconst decisionEvidence=(body,phase)=>({requestId:body.id,model:body.model,provider:body.provider,answers:body.answers,usage:body.usage,phase,...(body.error?{error:body.error}:{})});\nconst scored=(candidate,answer)=>({...candidate,choice:answer.choice,judgement:answer.choice,probability:answer.probabilities.included,probabilities:answer.probabilities,confidence:answer.confidence});\n\nconst body=$input.first().json,context=$('Jev - Prepare Mapping Paths').first().json;\nconst mappingPathScores=context.mappingPathCandidates.map(path=>scored({mappingPathKey:path.mappingPathKey,mappingKey:path.mappingKey,conceptPathKeys:path.conceptPathKeys,productCode:path.productCode,domain:path.domain},body.answers[path.mappingPathKey]));\nconst selectedMappingPaths=context.mappingPathCandidates.filter(path=>body.answers[path.mappingPathKey].choice==='included');\nconst mappingKeys=new Set(selectedMappingPaths.map(path=>path.mappingKey));\nconst selectedMappings=context.mappingCandidates.filter(mapping=>mappingKeys.has(mapping.mappingKey));\nconst tables=uniqueBy(selectedMappings.flatMap(mapping=>mapping.sqlEvidence.tables),table=>table.key);\nconst statements=uniqueBy(tables.flatMap(table=>table.statements),statement=>statement.statementKey);\nconst tableKeys=new Set(tables.map(table=>table.key)),statementKeys=new Set(statements.map(statement=>statement.statementKey));\nconst sqlEvidence={tables:context.sqlEvidence.tables.filter(table=>tableKeys.has(table.key)),statements:context.sqlEvidence.statements.filter(statement=>statementKeys.has(statement.statementKey)),\n relationships:context.sqlEvidence.relationships.filter(edge=>tableKeys.has(edge.from)&&tableKeys.has(edge.to))};\nconst products=uniqueBy(context.selectedConceptPaths.flatMap(path=>path.productCodes.map(productCode=>({productCode,domain:path.domain}))),selection=>`${selection.productCode}::${selection.domain}`).map(selection=>{\n const node=context.conceptGraph.nodes.find(node=>node.properties.productCode===selection.productCode);\n const paths=context.selectedConceptPaths.filter(path=>path.domain===selection.domain&&path.productCodes.includes(selection.productCode));\n const mappings=selectedMappings.filter(mapping=>mapping.productCode===selection.productCode&&mapping.domain===selection.domain).map(mapping=>{\n  const {sqlEvidence:rawEvidence,lineage,...metadata}=mapping;\n  return {...metadata,lineage:lineage.map(path=>({...path,rules:path.rules.map(({sql,inputSteps,ruleSteps,...rule})=>rule)})),\n  sqlEvidence:{tableKeys:rawEvidence.tables.map(table=>table.key),statementKeys:[...new Set(rawEvidence.tables.flatMap(table=>table.statements.map(statement=>statement.statementKey)))],\n   paths:rawEvidence.paths.map(path=>({tableKeys:path.tableKeys,relationshipIds:path.relationships.map(edge=>edge.properties.lineageEdgeId||stableKey('sql-edge',[edge.from,edge.type,edge.to,edge.properties.statementKey]))}))},\n  selectedMappingPathKeys:selectedMappingPaths.filter(path=>path.mappingKey===mapping.mappingKey).map(path=>path.mappingPathKey),\n  requiredBaseTables:rawEvidence.tables.filter(table=>table.properties.tableKind==='external_source').map(table=>table.properties.physicalName||table.properties.name)};});\n return {...selection,productName:node.properties.name,definition:node.properties.definition,definitionStatus:node.properties[`${selection.domain}Status`],\n  matchedMetricCodes:[...new Set(paths.flatMap(path=>path.metricCodes))],conceptEvidence:{paths},mappings};\n});\nreturn [{json:{contractVersion:'pb_kb_full_graph_mapping_paths_v1',question:context.question,domains:context.domains,metricCodes:context.metricCodes,\n conceptGraph:context.conceptGraph,conceptPathScores:context.conceptPathScores,selectedConceptPaths:context.selectedConceptPaths,\n mappingPathScores,selectedMappingPaths,sqlEvidence,products,\n queryPlan:{selectedConceptPathKeys:context.selectedConceptPaths.map(path=>path.pathKey),selectedMappingPathKeys:selectedMappingPaths.map(path=>path.mappingPathKey)},\n decision:{model:body.model,concept:context.conceptDecision,mapping:decisionEvidence(body,'mapping_path_selection'),method:'full_concept_graph_then_mapping_paths'}}}];\n"
+      },
+      "position": [
+        1920,
+        180
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "KB Input": {
+      "main": [
+        [
+          {
+            "node": "Aura - Full Concept Graph",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aura - Full Concept Graph": {
+      "main": [
+        [
+          {
+            "node": "Jev - Prepare Concept Paths",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Jev - Prepare Concept Paths": {
+      "main": [
+        [
+          {
+            "node": "Jev - Concept Path Decisions API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Jev - Concept Path Decisions API": {
+      "main": [
+        [
+          {
+            "node": "Concept Path Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Concept Path Result": {
+      "main": [
+        [
+          {
+            "node": "Aura - Mapping Paths",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aura - Mapping Paths": {
+      "main": [
+        [
+          {
+            "node": "Jev - Prepare Mapping Paths",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Jev - Prepare Mapping Paths": {
+      "main": [
+        [
+          {
+            "node": "Jev - Mapping Path Decisions API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Jev - Mapping Path Decisions API": {
+      "main": [
+        [
+          {
+            "node": "KB Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "nodeGroups": [],
+  "id": "tL7HTesvAzqwsqv6",
+  "tags": []
+}

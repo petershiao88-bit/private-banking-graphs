@@ -1,0 +1,65 @@
+{
+  "kb": {
+    "nodes": 11,
+    "parametersAndConnectionsMatch": true,
+    "credentialReferencesMatch": true,
+    "pinDataEmpty": true,
+    "savedExport": "PB_AUM_Income_KB.paths.saved.json"
+  },
+  "main": {
+    "nodes": 34,
+    "parametersAndConnectionsMatch": true,
+    "credentialReferencesMatch": true,
+    "pinDataEmpty": true,
+    "savedExport": "main.paths.saved.json"
+  },
+  "contractVersion": "pb_kb_path_evidence_v2",
+  "date": "2026-10-08",
+  "contractChecksPassed": 142,
+  "liveAura": {
+    "cases": [
+      "deposit_aum",
+      "deposit_income",
+      "securities_aum"
+    ],
+    "reversedPathsRejected": true,
+    "registryMetrics": 12
+  },
+  "liveJev": {
+    "model": "typesafe/jev-1.13-20260917",
+    "standaloneIncome": {
+      "successSeconds": 7.506,
+      "objectProbability": 1,
+      "pathProbability": 0.68,
+      "requestId": "gen-dec-1791415442-kI3tfm9fjq9es2PsUo0j",
+      "evidence": "path_jev_live_income.dom.txt"
+    }
+  },
+  "mainExecutions": {
+    "income": {
+      "successSeconds": 14.867,
+      "pathProbability": 0.61,
+      "result": "evidence_incomplete",
+      "skipped": [
+        "Available Source Metadata",
+        "SQL Reasoning Agent",
+        "Execute a SQL query"
+      ],
+      "evidence": "path_main_live_income.dom.txt"
+    },
+    "securitiesFund": {
+      "successSeconds": 17.782,
+      "objectProbability": 0.79,
+      "pathProbability": 0.88,
+      "otherThreePathsExcluded": true,
+      "result": "missing_required_source_tables",
+      "evidence": "path_main_live_securities.dom.txt"
+    }
+  },
+  "publication": {
+    "state": "saved_unpublished",
+    "blockedByAutomaticApprovalReview": true,
+    "action": "publish KB v4 to live n8n workflow",
+    "reason": "Implementation and validation authorized; explicit live publication authorization required."
+  }
+}

@@ -1,0 +1,54 @@
+私銀智能問答：新 session Resume
+更新日期：2026-10-15，Asia/Taipei；17:30 截止停止新增測試後整理。
+
+先讀本檔，再讀 docs/handoffs/20261015_業務問答更新與追問驗證交接_v9.txt。
+專案根目錄：C:\Users\petershiao\Desktop\Ontology\私銀智能問答
+最新指示：五點半前能做幾組先做，未完成明天做，先寫交接檔；已停止新增測試，未建立明天排程。
+v9 部分完成，不能宣稱全測通過。沒有執行中的測試或待使用者核准項。
+
+目前線上
+https://chiang4901.app.n8n.cloud/workflow/pqvhkncZ9bFlfe4B
+workflowId：pqvhkncZ9bFlfe4B；18 節點，active=false，未發布。
+最新匯出線上候選：deliverables/graph_qa/v9/workflow.saved.candidate.json
+versionId：759f8027-653b-4577-af1b-d048addc9439。
+本機提案：v9/workflow.proposed.json；本輪開始備份：v9/workflow.before.json（等同 v8 已保存內容）。
+重要：saved_validation.candidate.json=failed，不能當最終保存驗收。
+1. 本機 Prepare Jev Request 的 domain criteria 已補明示收入／AUM 不得再問領域、通路不明選 channel，尚未保存線上。
+2. Graph Chat pinData 仍空白，原固定輸入未還原；原值在 workflow.before.json 與 original_chat_pin.json。原 sessionId=4753afde49b44d0899cb8b9d103b9862。
+其餘節點參數、接線、身份、settings、inactive 符合 proposed。最新 Process 澄清種類修正已保存，未原生重測。
+停止時曾開著 Prepare Jev Request 面板；剪貼簿可能過時，不可直接貼。尚無 v9 最終 workflow.saved.json／saved_validation.final.json。
+
+使用者同意的業務更新
+1. 回答目的／深度：列舉、定義、比較、計算。
+2. 業務收入來源與資料／計算來源分開。
+3. 海外等 property／業務分類先保留，等使用者補。
+4、5. 必要澄清、短答承接與產品／通路／指標單軸替換。
+保留 18 節點接線與單次 Jev、完整 41 節點／39 路徑，不加回答後驗證修正。
+七節點變更見 v9/changed_nodes.json。SQL prompt、SQL scope／來源規則、完整 evidence、圖譜查詢、原 SQL、已發布共用 KB 不變。
+
+已驗證
+離線 13 組契約通過，0 失敗，見 v9/validation.json；合成 Jev 決策不代表原生模型理解。
+原生可讀紀錄 v9/native_runs.final.json，4 題符合各自目標、1 題失敗：
+L1「基金有哪些？」：listing，兩個通路產品，無多餘指標。
+D1 接 L1「銀行的怎麼算？」：正確問 AUM／收入，但候選範圍仍過廣，後續收斂未證實。
+L2「手續費收入來自哪些業務？」：按通路列業務、清 pending。
+C1「銀行基金與證券複委託基金差在哪？」：comparison 回答合適；topic 帶 income，後續污染風險未驗證。
+F1「基金收入怎麼算？」：失敗，卻問 AUM／收入，應問通路。通用種類修正已保存，但未原生重測。
+F2「銀行的」在錯誤 F1 後執行結束仍澄清，未完成正式擷取，不算通過。
+四題通過紀錄產生於最新修正之前，不能說最後版已完整回歸。
+沒有本輪原生 SQL 回歸／Oracle 執行。v8 SQL 驗證仍見 archive/RESUME_v8_20261015.txt。
+
+明天接續
+1. 重新匯出新鮮線上版本先比較，不用舊 proposed 直接覆蓋使用者新修改。
+2. 完成本機 domain criteria 保存與 Process 種類修正檢查，補新修正契約案例，再凍結版本／參數。已有業務修改授權，不用重問同一許可。
+3. 新 session 測 F1 通路澄清→F2「銀行的」→F3「證券的呢？」→F4「那 AUM 呢？」→F5「銀行的呢？」；確認 pending 清除、原題承接與單軸替換。
+4. M1「銀行基金的 AUM 跟證券複委託基金的收入各怎麼算？」檢查精確兩組配對；補 definition 原生題，必要時回歸前四題；留意候選過廣與記憶污染。
+5. 結束後還原 Graph Chat 原固定輸入、Reset，匯出深比，才生成最終 saved／validation／報告，更新 Resume，保持未發布。
+6. SQL 客戶海外 AUM／總 AUM 比例、by-customer JOIN 尚未新增實測，海外 property 延後。
+
+檔案與工具
+v9/更新紀錄.txt、完整交接為閱讀入口；native_runs.final.json 與 *.visible.json 是原生紀錄。
+native_runs.json 是空陣列；round1 與 initial_runs 是探索歷史，不作最後驗收。native_test_plan.json 參數 hash 已過時；clarification.png 是 F1 錯誤畫面。
+build_report.py 尚未生成正式報告，使用前避免把有紀錄誤當通過。
+新 session 先讀 computer-use SKILL.md 後接既有 Chrome n8n 分頁；舊 REPL 變數不可攜。大量程式碼 UI 貼入後匯出深比，避免 fill 追加／剪貼簿不同步。輸出 Table DOM 比虛擬 JSON Copy 可靠。
+不繞過曾拒絕的 file:// HTML；原 SQL CP950／Big5 明確編碼且不修改。此目錄沒有 Git 儲存庫，沒有 commit／PR。

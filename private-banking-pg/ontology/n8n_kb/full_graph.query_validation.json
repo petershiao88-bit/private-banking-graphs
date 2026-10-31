@@ -1,0 +1,35 @@
+{
+  "readOnly": true,
+  "liveAura": true,
+  "liveJev": false,
+  "syntheticDecisions": true,
+  "nodes": 27,
+  "relationships": 40,
+  "cases": {
+    "deposit_aum": {
+      "conceptCandidates": 30,
+      "selectedConceptPaths": 1,
+      "mappingRows": 1
+    },
+    "deposit_income": {
+      "conceptCandidates": 30,
+      "selectedConceptPaths": 1,
+      "mappingRows": 1
+    },
+    "securities_fund": {
+      "conceptCandidates": 30,
+      "selectedConceptPaths": 1,
+      "mappingRows": 1
+    },
+    "securities_all": {
+      "conceptCandidates": 30,
+      "selectedConceptPaths": 4,
+      "mappingRows": 4
+    },
+    "deposit_both": {
+      "conceptCandidates": 30,
+      "selectedConceptPaths": 2,
+      "mappingRows": 2
+    }
+  }
+}

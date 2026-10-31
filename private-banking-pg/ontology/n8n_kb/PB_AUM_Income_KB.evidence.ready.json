@@ -1,0 +1,446 @@
+{
+  "name": "私銀 AUM Income KB",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "question"
+            },
+            {
+              "name": "domains",
+              "type": "array"
+            },
+            {
+              "name": "metricCodes",
+              "type": "array"
+            }
+          ]
+        }
+      },
+      "id": "449ab3bb-869a-4f5f-a703-2ebb18084161",
+      "name": "KB Input",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        180
+      ],
+      "notes": "供主 Agent 呼叫。question 為已確認的完整問題；domains 為 [\"aum\"]、[\"income\"] 或兩者；metricCodes 直接傳入 metric router 的完整 selected_metric_codes 陣列。"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://4bb479b2.databases.neo4j.io/db/neo4j/query/v2",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ (() => { const input=$('KB Input').first().json; const parameters={metricCodes:input.metricCodes,domains:input.domains}; return {statement:\"MATCH (c:PBConcept:PBConceptProduct)\\nCALL (c) {\\n MATCH (c)-[:PB_AUM_MEASURED_BY]->(:PBConcept:PBConceptMetric)\\n  -[:PB_AUM_ROLLS_UP_TO*0..8]->(m:PBConcept:PBConceptMetric)\\n WHERE 'aum' IN $domains AND m.metricCode IN $metricCodes\\n RETURN collect(DISTINCT {domain:'aum',metricCode:m.metricCode}) AS aumScopes\\n}\\nCALL (c) {\\n MATCH (c)-[:PB_INCOME_MEASURED_BY|PB_INCOME_PENDING]->(:PBConcept:PBConceptMetric)\\n  -[:PB_INCOME_ROLLS_UP_TO*0..8]->(m:PBConcept:PBConceptMetric)\\n WHERE 'income' IN $domains AND m.metricCode IN $metricCodes\\n RETURN collect(DISTINCT {domain:'income',metricCode:m.metricCode}) AS incomeScopes\\n}\\nWITH c,aumScopes+incomeScopes AS matchedScopes\\nWHERE size(matchedScopes)>0\\nOPTIONAL MATCH (p:SharedProduct {ontologyId:'pb_shared',code:c.productCode})\\nRETURN p.key AS conceptKey,c.productCode AS productCode,c.name AS productName,\\n c.definition AS definition,c.status AS status,c.aumStatus AS aumStatus,c.incomeStatus AS incomeStatus,\\n matchedScopes\\nORDER BY productCode\",parameters}; })() }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          },
+          "timeout": 60000
+        }
+      },
+      "id": "d094d220-09a1-5271-8dfa-1a4dceb7edb2",
+      "name": "Aura - Concept Catalog",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        220,
+        180
+      ],
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "w0t2jys33reSEGAk",
+          "name": "Unnamed credential"
+        }
+      },
+      "notes": "只回傳候選概念識別、定義與允許的指標範圍，不載入業務路徑、staging 或 SQL。"
+    },
+    {
+      "id": "80897372-83bd-52c9-9620-f70942a08c8d",
+      "name": "Jev - Prepare Concepts",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "parameters": {
+        "jsCode": "const body=$input.first().json,raw=$('KB Input').first().json;\nconst list=v=>(Array.isArray(v)?v:[v]).map(x=>typeof x==='string'?x.trim():x);\nconst question=raw.question,domains=list(raw.domains),metricCodes=list(raw.metricCodes);\nconst products=body.data.values.map(row=>Object.fromEntries(body.data.fields.map((k,i)=>[k,row[i]])));\nconst candidates=products.flatMap(p=>[...new Set(p.matchedScopes.map(s=>s.domain))].map(domain=>({\n objectKey:`${p.productCode}::${domain}`,conceptKey:p.conceptKey,productCode:p.productCode,productName:p.productName,domain,\n definition:p.definition,definitionStatus:p[`${domain}Status`],matchedMetricCodes:[...new Set(p.matchedScopes.filter(s=>s.domain===domain).map(s=>s.metricCode))]})));\nconst questions={};\nfor(const c of candidates)questions[c.objectKey]={type:'choice',instructions:`本題只判斷 question 是否要求概念「${c.productName}」（${c.productCode}）的 ${c.domain.toUpperCase()}。定義：${c.definition}。不判斷路徑或實現方式。只問基金時不要因共用投資／證券指標而纳入股票、債券、ETF 或結構型商品。`,criteria:{\n included:`明確要求「${c.productName}」且產品種類、通路與領域相符；或明確要求其所屬完整類別的所有產品。`,\n uncertain:'產品可能符合，但缺通路或領域等資訊，無法區分概念。',excluded:'未要求此概念，或產品種類、通路、領域不符；同屬 metric 不構成納入理由。'}};\nreturn [{json:{question,domains,metricCodes,products,candidates,unmatchedMetricCodes:metricCodes.filter(code=>!products.some(p=>p.matchedScopes.some(s=>s.metricCode===code))),\n decisionRequest:{model:'typesafe/jev-1.13',state:{question,domains,metricCodes,candidates},questions}}}];\n"
+      },
+      "position": [
+        440,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://openrouter.ai/api/alpha/decisions",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "openRouterApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.decisionRequest }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          },
+          "timeout": 60000
+        }
+      },
+      "name": "Jev - Concept Decisions API",
+      "id": "d61df923-4b0c-58ff-966a-1a932a903f91",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        660,
+        180
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 1500,
+      "credentials": {
+        "openRouterApi": {
+          "id": "kHmQcximG3HXh42b",
+          "name": "OpenRouter account"
+        }
+      },
+      "notes": "原生 typesafe/jev-1.13 Decisions API；此輪的候選機率獨立保留。"
+    },
+    {
+      "id": "a2acabf0-c982-5de0-8f2b-b61583a2f767",
+      "name": "Concept Decision Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "parameters": {
+        "jsCode": "function decisionEvidence(body,phase){\n return {requestId:body.id,model:body.model,provider:body.provider,answers:body.answers,usage:body.usage,phase};\n}\n\nconst body=$input.first().json,context=$('Jev - Prepare Concepts').first().json;\nconst candidateScores=context.candidates.map(c=>{\n const a=body.answers[c.objectKey];\n return {...c,probability:a.probabilities.included,probabilities:a.probabilities,confidence:a.confidence,judgement:a.choice};\n});\nconst selectedConcepts=candidateScores.filter(c=>c.judgement==='included')\n .map(({conceptKey,objectKey,productCode,productName,domain,matchedMetricCodes})=>({conceptKey,objectKey,productCode,productName,domain,matchedMetricCodes}));\nconst {decisionRequest,...rest}=context;\nreturn [{json:{...rest,selectedConcepts,candidateScores,conceptDecision:decisionEvidence(body,'concept_selection')}}];\n\n"
+      },
+      "position": [
+        880,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://4bb479b2.databases.neo4j.io/db/neo4j/query/v2",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ (() => { const parameters={selectedConcepts:$json.selectedConcepts,metricCodes:$json.metricCodes}; return {statement:\"UNWIND $selectedConcepts AS selection\\nMATCH (p:SharedProduct {key:selection.conceptKey,ontologyId:'pb_shared'})\\nWHERE p.code=selection.productCode\\nMATCH path=(p)-[:MEASURED_BY_AUM|MEASURED_BY_INCOME|INCOME_DEFINITION_PENDING|AUM_ROLLS_UP_TO|INCOME_ROLLS_UP_TO*1..8]->(root:BusinessMetric)\\nWHERE root.key=CASE WHEN selection.domain='aum' THEN 'aum:metric:aum_total_month_end' ELSE 'income:metric:income_total_customer_month' END\\n AND all(r IN relationships(path) WHERE type(r) IN CASE WHEN selection.domain='aum' THEN ['MEASURED_BY_AUM','AUM_ROLLS_UP_TO'] ELSE ['MEASURED_BY_INCOME','INCOME_DEFINITION_PENDING','INCOME_ROLLS_UP_TO'] END)\\n AND all(n IN nodes(path) WHERE n:SharedProduct OR (n:BusinessMetric AND n.ontologyId=selection.domain))\\n AND any(n IN nodes(path) WHERE n:BusinessMetric AND n.code IN $metricCodes)\\nWITH DISTINCT selection,p,path\\nRETURN selection.conceptKey AS requestedConceptKey,selection.domain AS domain,\\n {identity:{conceptProductCode:p.code,sharedProductCode:p.code,sharedProductKey:p.key},\\n  sharedProduct:{key:p.key,labels:labels(p),properties:properties(p)} } AS conceptEvidence,\\n {nodes:[n IN nodes(path)|{key:n.key,labels:labels(n),properties:properties(n)}],\\n  relationships:[r IN relationships(path)|{type:type(r),from:startNode(r).key,to:endNode(r).key,properties:properties(r)}]} AS businessPath\\nORDER BY requestedConceptKey,domain\",parameters}; })() }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          },
+          "timeout": 60000
+        }
+      },
+      "id": "6f3feaf5-56b7-58eb-a795-57a7f17f695b",
+      "name": "Aura - Concept Paths",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1100,
+        180
+      ],
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "w0t2jys33reSEGAk",
+          "name": "Unnamed credential"
+        }
+      },
+      "notes": "以第一輪選定 conceptKey 與領域查完整路徑，支援一個概念多條路徑。"
+    },
+    {
+      "id": "9eea5123-3573-5bbc-9a47-733aec7c5280",
+      "name": "Concept Routes",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "parameters": {
+        "jsCode": "const body=$input.first().json,context=$('Concept Decision Result').first().json;\nconst rows=body.data.values.map(row=>Object.fromEntries(body.data.fields.map((k,i)=>[k,row[i]])));\nconst canonical=v=>Array.isArray(v)?v.map(canonical):v&&typeof v==='object'?Object.fromEntries(Object.keys(v).sort().map(k=>[k,canonical(v[k])])):v;\nconst hash=s=>{let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619);}return (h>>>0).toString(16).padStart(8,'0');};\nconst paths=new Map();\nfor(const row of rows){\n const nodes=row.businessPath?.nodes || [],relationships=row.businessPath?.relationships || [];\n const nodeKeys=nodes.map(n=>n.key);\n const anchors=context.selectedConcepts.filter(c=>c.domain===row.domain&&nodeKeys.includes(c.conceptKey));\n for(const target of nodes.filter(n=>n.labels?.includes('BusinessMetric')&&context.metricCodes.includes(n.properties?.code))){\n  const signature=JSON.stringify(canonical({domain:row.domain,queryMetricKey:target.key,nodes,relationships}));\n  const pathKey=`route::${row.domain}::${target.properties.code}::${hash(signature)}`;\n  const previous=paths.get(pathKey);\n  const anchorConceptKeys=[...new Set([...(previous?.anchorConceptKeys || []),...anchors.map(c=>c.conceptKey)])].sort();\n  const anchorObjectKeys=[...new Set([...(previous?.anchorObjectKeys || []),...anchors.map(c=>c.objectKey)])].sort();\n  paths.set(pathKey,{pathKey,domain:row.domain,anchorConceptKeys,anchorObjectKeys,queryMetricCode:target.properties.code,queryMetricKey:target.key,\n   nodeKeys,relationshipTypes:relationships.map(r=>r.type),relationshipProperties:relationships.map(r=>r.properties || {}),nodes,relationships});\n }\n}\nconst products=context.products.filter(p=>context.selectedConcepts.some(c=>c.productCode===p.productCode)).map(p=>{\n const evidence=rows.find(r=>r.requestedConceptKey===p.conceptKey)?.conceptEvidence;\n const metrics=domain=>[...new Map(rows.filter(r=>r.domain===domain&&r.requestedConceptKey===p.conceptKey).flatMap(r=>r.businessPath.nodes).filter(n=>n.labels?.includes('BusinessMetric')).map(n=>[n.key,{metricCode:n.properties.code,name:n.properties.name,definition:n.properties.definition,status:n.properties.status}])).values()];\n return {...p,conceptEvidence:evidence || null,aumMetrics:metrics('aum'),incomeMetrics:metrics('income')};\n});\nreturn [{json:{...context,products,pathCandidates:[...paths.values()].sort((a,b)=>a.pathKey.localeCompare(b.pathKey)),\n routeRetrieval:{selectedConceptKeys:[...new Set(context.selectedConcepts.map(c=>c.conceptKey))],returnedRows:rows.length,maxBusinessDepth:8}}}];\n"
+      },
+      "position": [
+        1320,
+        180
+      ]
+    },
+    {
+      "id": "6a18906f-edd0-5c8d-9927-b1c43dac9db5",
+      "name": "Jev - Prepare Paths",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "parameters": {
+        "jsCode": "const context=$input.first().json;\nconst pick=(p,keys)=>Object.fromEntries(keys.filter(k=>p?.[k]!==undefined).map(k=>[k,p[k]]));\nconst businessPaths=context.pathCandidates.map(p=>({...pick(p,['pathKey','domain','anchorConceptKeys','queryMetricCode','queryMetricKey']),\n nodes:p.nodes.map(n=>({key:n.key,labels:n.labels,properties:pick(n.properties,['code','name','definition','dateRule','intendedGrain','status','aumFilter','incomeFilter','aumValuationBasis','incomeAmountBasis','directionStatus'])})),\n relationships:p.relationships.map(r=>({...pick(r,['from','to','type']),properties:pick(r.properties,['name','scope','status','rootDefinitionStatus','note'])}))}));\nconst questions={};\nfor(const p of businessPaths)questions[`path::${p.pathKey}`]={type:'choice',instructions:`唯一對象是 businessPaths 中 pathKey=${p.pathKey} 的有方向完整路徑；目標是 ${p.queryMetricCode}。沿 nodes／relationships 依序判斷衡量定義、scope、dateRule、粒度與方向是否符合 question。中間概念只是路徑成員，不需要逐一重新選 object。依業務意圖決定是否納入此路徑；同一概念的其他支線不能代替本路徑。draft/inferred 本身不是選路歧義，SQL 證據稍後另處理。`,criteria:{\n included:'此完整路徑符合問題，是回答所需路徑之一；允許多條路徑共享節點或共同構成方案。',\n uncertain:'可能符合，但業務口徑、方向或競爭支線尚無法確定。',excluded:'此完整路徑的業務定義或方向不符合問題，或不是所需方案的一部分。'}};\nreturn [{json:{...context,decisionRequest:{model:'typesafe/jev-1.13',state:{question:context.question,domains:context.domains,metricCodes:context.metricCodes,selectedConcepts:context.selectedConcepts,businessPaths},questions}}}];\n"
+      },
+      "position": [
+        1540,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://openrouter.ai/api/alpha/decisions",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "openRouterApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.decisionRequest }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          },
+          "timeout": 60000
+        }
+      },
+      "name": "Jev - Path Decisions API",
+      "id": "7a927b97-b2be-5168-a471-c71913e0ba44",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1760,
+        180
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 1500,
+      "credentials": {
+        "openRouterApi": {
+          "id": "kHmQcximG3HXh42b",
+          "name": "OpenRouter account"
+        }
+      },
+      "notes": "原生 typesafe/jev-1.13 Decisions API；此輪的候選機率獨立保留。"
+    },
+    {
+      "id": "11ab9b92-08c8-5b2c-9a64-7c5b389cf14a",
+      "name": "Route Decision Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "parameters": {
+        "jsCode": "function decisionEvidence(body,phase){\n return {requestId:body.id,model:body.model,provider:body.provider,answers:body.answers,usage:body.usage,phase};\n}\n\nconst body=$input.first().json,context=$('Jev - Prepare Paths').first().json;\nconst pathScores=context.pathCandidates.map(p=>{\n const a=body.answers[`path::${p.pathKey}`];\n return {pathKey:p.pathKey,domain:p.domain,anchorConceptKeys:p.anchorConceptKeys,queryMetricCode:p.queryMetricCode,queryMetricKey:p.queryMetricKey,\n  probability:a.probabilities.included,probabilities:a.probabilities,confidence:a.confidence,judgement:a.choice};\n});\nconst selectedConceptPaths=context.pathCandidates.filter(p=>body.answers[`path::${p.pathKey}`].choice==='included');\nconst selectedPaths=selectedConceptPaths.map(p=>({pathKey:p.pathKey,domain:p.domain,anchorConceptKeys:p.anchorConceptKeys,\n queryMetricKey:p.queryMetricKey,queryMetricCode:p.queryMetricCode,nodeKeys:p.nodeKeys,relationshipTypes:p.relationshipTypes,relationshipProperties:p.relationshipProperties}));\nreturn [{json:{selectedConcepts:context.selectedConcepts,candidateScores:context.candidateScores,pathScores,selectedConceptPaths,selectedPaths,\n selections:context.selectedConcepts.filter(c=>selectedConceptPaths.some(p=>p.domain===c.domain&&p.anchorConceptKeys.includes(c.conceptKey)))\n  .map(c=>({conceptKey:c.conceptKey,objectKey:c.objectKey,productCode:c.productCode,domain:c.domain})),\n conceptDecision:context.conceptDecision,pathDecision:decisionEvidence(body,'route_selection')}}];\n\n"
+      },
+      "position": [
+        1980,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://4bb479b2.databases.neo4j.io/db/neo4j/query/v2",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ (() => { const parameters={selectedPaths:$json.selectedPaths}; return {statement:\"UNWIND $selectedPaths AS selection\\nWITH DISTINCT selection\\nMATCH businessPath=(start:SharedProduct)-[:MEASURED_BY_AUM|MEASURED_BY_INCOME|INCOME_DEFINITION_PENDING|AUM_ROLLS_UP_TO|INCOME_ROLLS_UP_TO*1..8]->(:BusinessMetric)\\nWHERE [n IN nodes(businessPath)|n.key]=selection.nodeKeys\\n AND [r IN relationships(businessPath)|type(r)]=selection.relationshipTypes\\n AND [r IN relationships(businessPath)|properties(r)]=selection.relationshipProperties\\n AND any(n IN nodes(businessPath) WHERE n.key=selection.queryMetricKey AND n.code=selection.queryMetricCode)\\n AND all(n IN nodes(businessPath) WHERE n:SharedProduct OR (n:BusinessMetric AND n.ontologyId=selection.domain))\\nUNWIND [n IN nodes(businessPath) WHERE n:SharedProduct AND n.key IN selection.anchorConceptKeys] AS p\\nWITH DISTINCT p,selection,[r IN relationships(businessPath) WHERE startNode(r).key=p.key AND type(r) IN ['MEASURED_BY_AUM','MEASURED_BY_INCOME','INCOME_DEFINITION_PENDING']] AS measures\\nWITH p,selection,head(measures) AS measure\\nCALL (p,selection,measure) {\\n OPTIONAL MATCH (p)-[mapping:AUM_IMPLEMENTED_BY|INCOME_IMPLEMENTED_BY|INCOME_DECLARED_BY]->(stage:StagingOutput)\\n WHERE stage.ontologyId=selection.domain\\n  AND ((selection.domain='aum' AND type(mapping)='AUM_IMPLEMENTED_BY') OR\\n       (selection.domain='income' AND type(mapping) IN ['INCOME_IMPLEMENTED_BY','INCOME_DECLARED_BY']))\\n  AND (mapping.metricKey IS NULL OR mapping.metricKey=endNode(measure).key)\\n  AND (measure.scope IS NULL OR mapping.scope IS NULL OR measure.scope=mapping.scope)\\n WITH p,selection,measure,mapping,stage,\\n CASE WHEN size([(p)-[r:MEASURED_BY_AUM|MEASURED_BY_INCOME|INCOME_DEFINITION_PENDING]->(m:BusinessMetric)\\n WHERE m.ontologyId=selection.domain AND (mapping.metricKey IS NULL OR mapping.metricKey=m.key)\\n AND (mapping.scope IS NULL OR r.scope IS NULL OR mapping.scope=r.scope)|r])=1\\n THEN CASE WHEN mapping.metricKey=endNode(measure).key THEN 'explicit_metric'\\n WHEN measure.scope IS NOT NULL AND mapping.scope=measure.scope THEN 'explicit_scope'\\n ELSE 'unambiguous_legacy_measurement' END\\n ELSE 'ambiguous_anchor_bridge' END AS bindingStatus\\n OPTIONAL MATCH (stage)-[bridge:REPRESENTS_SQL_TABLE]->(target:SqlTable)\\n OPTIONAL MATCH path=(upstream:SqlTable)-[:TRANSFORMS_TO|UNION|UNION_ALL|LEFT_JOIN|INNER_JOIN|INSERT_FROM*0..16]->(target)\\n WHERE all(r IN relationships(path) WHERE r.status='active_sql' AND r.sourceRole='primary_reference')\\n WITH p,selection,mapping,stage,bridge,target,bindingStatus,collect(DISTINCT path) AS paths\\n WITH *,reduce(acc=[],path IN paths | acc+nodes(path)) AS tableNodes\\n CALL (tableNodes) {\\n  UNWIND tableNodes AS t\\n  WITH DISTINCT t\\n  OPTIONAL MATCH (s:SqlStatement)-[:TARGETS_TABLE]->(t)\\n  WHERE s.status='active_sql' AND s.sourceRole='primary_reference'\\n  OPTIONAL MATCH (s)-[:READS_TABLE]->(source:SqlTable)\\n  WITH t,s,collect(DISTINCT source.key) AS requiredTableKeys\\n  WITH t,collect(DISTINCT CASE WHEN s IS NULL THEN null ELSE\\n   {statementKey:s.key,properties:properties(s),requiredTableKeys:requiredTableKeys} END) AS statements\\n  OPTIONAL MATCH (incoming:SqlTable)-[r:TRANSFORMS_TO|UNION|UNION_ALL|LEFT_JOIN|INNER_JOIN|INSERT_FROM]->(t)\\n  WHERE r.status='active_sql' AND r.sourceRole='primary_reference'\\n  WITH t,statements,collect(DISTINCT CASE WHEN r IS NULL THEN null ELSE\\n   {from:incoming.key,to:t.key,type:type(r),properties:properties(r)} END) AS requiredIncoming\\n  RETURN collect({key:t.key,labels:labels(t),properties:properties(t),statements:statements,requiredIncoming:requiredIncoming}) AS tables\\n }\\n WITH p,selection,mapping,stage,bridge,target,bindingStatus,paths,tables,\\n [path IN paths WHERE head(nodes(path)).tableKind='external_source' | {\\n  baseTable:head(nodes(path)).name,tablePath:[n IN nodes(path)|n.name],\\n  rules:[r IN relationships(path)|{operation:type(r),statementKey:r.statementKey,lineageEdgeId:r.lineageEdgeId,\\n   operationTypes:r.operationTypes,whereConditions:r.whereConditions,joinConditions:r.joinConditions,\\n   groupExpressions:r.groupExpressions,aggregateExpressions:r.aggregateExpressions,selectExpressions:r.selectExpressions,\\n   caseExpressions:r.caseExpressions,unionBranchOrders:r.unionBranchOrders,unionBranchCounts:r.unionBranchCounts,\\n   unionDeduplication:r.unionDeduplication,joinTypes:r.joinTypes,joinInputRoles:r.joinInputRoles,\\n   havingConditions:r.havingConditions,inputSteps:r.inputSteps,ruleSteps:r.ruleSteps,\\n   file:r.file,lineStart:r.lineStart,lineEnd:r.lineEnd,status:r.status,sourceRole:r.sourceRole,sqlTextKind:r.sqlTextKind,sql:r.sql}]\\n }] AS lineage\\n RETURN collect(DISTINCT CASE WHEN stage IS NULL THEN null ELSE {\\n  mappingType:type(mapping),mappingStatus:mapping.status,productScope:mapping.scope,\\n  bindingConceptKey:p.key,bindingStatus:bindingStatus,\\n  implementation:{from:p.key,to:stage.key,type:type(mapping),properties:properties(mapping)},\\n  stage:{key:stage.key,labels:labels(stage),properties:properties(stage)},\\n  bridge:CASE WHEN bridge IS NULL THEN null ELSE {from:stage.key,to:target.key,type:type(bridge),properties:properties(bridge)} END,\\n  outputTable:stage.outputObject,sqlTable:target.name,targetTableKey:target.key,\\n  lineageStatus:CASE WHEN size(lineage)=0 THEN 'missing_evidence' ELSE 'traced' END,lineage:lineage,\\n  sqlEvidence:{maxDepth:16,tables:tables,\\n   paths:[path IN paths|{tableKeys:[n IN nodes(path)|n.key],relationships:[r IN relationships(path)|\\n    {from:startNode(r).key,to:endNode(r).key,type:type(r),properties:properties(r)}]}]}\\n } END) AS mappings\\n}\\nRETURN selection.pathKey AS pathKey,selection.queryMetricKey AS queryMetricKey,\\n selection.queryMetricCode AS queryMetricCode,p.key AS bindingConceptKey,p.code AS productCode,p.name AS productName,selection.domain AS domain,\\n CASE WHEN selection.domain='income' AND p.incomeMappingActive=false THEN 'pending_confirmation' ELSE p.status END AS status,mappings\\nORDER BY productCode,domain\",parameters}; })() }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          },
+          "timeout": 60000
+        }
+      },
+      "id": "3ce669a9-09bf-51f8-ad62-96092026febb",
+      "name": "Aura - Mappings",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2200,
+        180
+      ],
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "w0t2jys33reSEGAk",
+          "name": "Unnamed credential"
+        }
+      },
+      "notes": "第二輪已選完整路徑才查技術實現；以路徑上的概念錨點與衡量關係綁定，支援多對多。"
+    },
+    {
+      "id": "04870c15-c0c5-5740-97f4-9e263cd9497d",
+      "name": "KB Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "parameters": {
+        "jsCode": "const body=$input.first().json;\nconst conceptChoice=$('Concept Decision Result').first().json;\nconst choice=$('Route Decision Result').first().json,context=$('Concept Routes').first().json;\nconst rows=body.data.values.map(row=>Object.fromEntries(body.data.fields.map((k,i)=>[k,row[i]])));\nconst edgeKey=r=>r.properties?.lineageEdgeId || [r.from,r.type,r.to,r.properties?.statementKey].join('|');\nfunction formatMapping(mapping){\n const graph=mapping.sqlEvidence,tables=graph.tables;\n const statements=new Map(tables.flatMap(t=>t.statements).map(s=>[s.statementKey,s]));\n const edges=new Map(graph.paths.flatMap(p=>p.relationships).map(r=>[edgeKey(r),r]));\n const sqlEvidence={maxDepth:graph.maxDepth,statements:[...statements.values()],\n  tables:tables.map(({statements,requiredIncoming,...t})=>({...t,statementKeys:statements.map(s=>s.statementKey),\n   requiredIncoming:requiredIncoming.map(r=>({from:r.from,to:r.to,type:r.type,statementKey:r.properties.statementKey,lineageEdgeId:r.properties.lineageEdgeId}))})),\n  relationships:[...edges.values()].map(r=>{const {sql,ruleSteps,inputSteps,...properties}=r.properties;return {from:r.from,to:r.to,type:r.type,properties};}),\n  paths:graph.paths.map(p=>({tableKeys:p.tableKeys,relationshipIds:p.relationships.map(edgeKey)}))};\n return {...mapping,lineage:mapping.lineage.map(p=>({...p,rules:p.rules.map(({ruleSteps,inputSteps,...r})=>r)})),sqlEvidence,\n  requiredBaseTables:tables.filter(t=>t.properties.tableKind==='external_source').map(t=>t.properties.physicalName || t.properties.name).sort()};\n}\nconst products=choice.selections.map(selection=>{\n const concept=context.products.find(p=>p.productCode===selection.productCode);\n const paths=choice.selectedConceptPaths.filter(p=>p.anchorConceptKeys.includes(selection.conceptKey)&&p.domain===selection.domain);\n const mappings=paths.flatMap(path=>rows.filter(r=>r.pathKey===path.pathKey&&r.queryMetricKey===path.queryMetricKey&&r.bindingConceptKey===selection.conceptKey&&r.domain===selection.domain)\n  .flatMap(row=>row.mappings.map(m=>({...formatMapping(m),selectedPathKey:path.pathKey,queryMetricKey:path.queryMetricKey,queryMetricCode:path.queryMetricCode}))));\n const score=conceptChoice.candidateScores.find(c=>c.objectKey===selection.objectKey);\n return {productCode:selection.productCode,productName:concept.productName,domain:selection.domain,objectKey:selection.objectKey,\n  probability:score.probability,probabilities:score.probabilities,judgement:score.judgement,\n  definition:concept.definition,definitionStatus:concept[`${selection.domain}Status`],metrics:concept[`${selection.domain}Metrics`],\n  matchedMetricCodes:[...new Set(paths.map(p=>p.queryMetricCode))],conceptEvidence:{...concept.conceptEvidence,domain:selection.domain,paths},mappings};\n});\nreturn [{json:{contractVersion:'pb_kb_lazy_routes_v4',metricCodes:context.metricCodes,domains:context.domains,\n candidateScores:conceptChoice.candidateScores,pathScores:choice.pathScores,selectedConcepts:conceptChoice.selectedConcepts,\n selectedConceptPaths:choice.selectedConceptPaths,routeRetrieval:context.routeRetrieval,\n queryPlan:{anchorConceptKeys:[...new Set(conceptChoice.selectedConcepts.map(c=>c.conceptKey))],selectedPathKeys:choice.selectedConceptPaths.map(p=>p.pathKey)},\n decision:{model:choice.pathDecision.model,concept:conceptChoice.conceptDecision,path:choice.pathDecision,method:'concept_then_lazy_routes_then_mapping'},products}}];\n\n"
+      },
+      "position": [
+        2420,
+        180
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "KB Input": {
+      "main": [
+        [
+          {
+            "node": "Aura - Concept Catalog",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aura - Concept Catalog": {
+      "main": [
+        [
+          {
+            "node": "Jev - Prepare Concepts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Jev - Prepare Concepts": {
+      "main": [
+        [
+          {
+            "node": "Jev - Concept Decisions API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Jev - Concept Decisions API": {
+      "main": [
+        [
+          {
+            "node": "Concept Decision Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Concept Decision Result": {
+      "main": [
+        [
+          {
+            "node": "Aura - Concept Paths",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aura - Concept Paths": {
+      "main": [
+        [
+          {
+            "node": "Concept Routes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Concept Routes": {
+      "main": [
+        [
+          {
+            "node": "Jev - Prepare Paths",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Jev - Prepare Paths": {
+      "main": [
+        [
+          {
+            "node": "Jev - Path Decisions API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Jev - Path Decisions API": {
+      "main": [
+        [
+          {
+            "node": "Route Decision Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route Decision Result": {
+      "main": [
+        [
+          {
+            "node": "Aura - Mappings",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aura - Mappings": {
+      "main": [
+        [
+          {
+            "node": "KB Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "nodeGroups": [],
+  "id": "tL7HTesvAzqwsqv6",
+  "tags": []
+}

@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "nodes": 41,
+  "relationships": 69,
+  "targetProducts": 25,
+  "addedProperties": 42,
+  "fields": {
+    "subsidiary": 25,
+    "fundType": 3,
+    "marketRegion": 6,
+    "dealingMode": 5,
+    "currencyType": 2,
+    "structureType": 1
+  },
+  "businessPaths": 39,
+  "mapping": {
+    "mappingSha256": "acfefe8fff1d09083766999c11f8503d4472059b6d918871f7049b5f42151856",
+    "mappingNodes": 1577,
+    "mappingRelationships": 4580,
+    "crossEdges": 0
+  }
+}

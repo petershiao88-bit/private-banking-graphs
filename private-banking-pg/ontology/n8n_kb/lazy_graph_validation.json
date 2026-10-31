@@ -1,0 +1,46 @@
+{
+  "readOnly": true,
+  "liveGraph": true,
+  "liveJev": false,
+  "syntheticDecisions": true,
+  "catalogContainsNoPaths": true,
+  "unselectedConceptsNotExpanded": true,
+  "emptySelectionHasNoPaths": true,
+  "cases": {
+    "deposit_aum": {
+      "catalogRows": 1,
+      "selectedConcepts": 1,
+      "pathRows": 1,
+      "mappingRows": 1,
+      "reversedPathsRejected": true
+    },
+    "deposit_income": {
+      "catalogRows": 1,
+      "selectedConcepts": 1,
+      "pathRows": 1,
+      "mappingRows": 1,
+      "reversedPathsRejected": true
+    },
+    "securities_aum": {
+      "catalogRows": 4,
+      "selectedConcepts": 1,
+      "pathRows": 1,
+      "mappingRows": 1,
+      "reversedPathsRejected": true
+    },
+    "deposit_both": {
+      "catalogRows": 1,
+      "selectedConcepts": 2,
+      "pathRows": 2,
+      "mappingRows": 2,
+      "reversedPathsRejected": true
+    },
+    "securities_compare": {
+      "catalogRows": 4,
+      "selectedConcepts": 2,
+      "pathRows": 2,
+      "mappingRows": 2,
+      "reversedPathsRejected": true
+    }
+  }
+}

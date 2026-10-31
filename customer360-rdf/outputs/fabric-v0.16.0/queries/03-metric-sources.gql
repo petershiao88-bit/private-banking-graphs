@@ -1,0 +1,5 @@
+// 金額來源；估值與日期來源另以不同邊保留。
+MATCH (m:Metric)-[r:HAS_SOURCE_TABLE]->(s:SourceTable)
+FILTER m.subsidiary = 'securities'
+RETURN m, r, s
+LIMIT 200

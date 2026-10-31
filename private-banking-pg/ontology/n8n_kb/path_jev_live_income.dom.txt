@@ -1,0 +1,981 @@
+- main:
+  - link "Personal":
+    - /url: /projects/az20wapvzAkbtoPa
+    - generic "Personal":
+    - generic "Personal"
+  - generic: /
+  - generic "私銀 AUM Income KB":
+    - generic: 私銀 AUM Income KB
+  - button "More actions":
+  - button "Publish":
+    - generic: Publish
+  - button "More actions":
+  - radiogroup:
+    - radio "Editor" [checked]
+    - radio "Executions"
+    - radio "Evaluations"
+  - complementary:
+    - link:
+      - /url: /home
+    - menubar:
+      - menuitem "Add new item":
+        - button "Add new item":
+    - button "Open command palette":
+    - button "Toggle sidebar":
+    - menuitem "n8n Assistant":
+      - generic: n8n Assistant
+      - generic: Preview
+    - menuitem "Overview":
+      - generic: Overview
+    - menuitem "Personal":
+      - generic: Personal
+    - menuitem "Shared with you":
+      - generic: Shared with you
+    - button "Chats" [expanded]:
+      - generic: Chats
+    - link "View all":
+      - /url: /assistant/history
+    - menuitem "New conversation":
+      - generic: New conversation
+    - menuitem "智能查詢":
+      - generic: 智能查詢
+    - menuitem "OpenAI credential setup":
+      - generic: OpenAI credential setup
+    - menuitem "智能查詢":
+      - generic: 智能查詢
+    - menuitem "Templates":
+      - generic: Templates
+    - menuitem "Help":
+      - generic: Help
+    - menuitem "Settings":
+      - generic: Settings
+  - main:
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: KB Input
+    - generic: 供主 Agent 呼叫。question 為已確認的完整問題；domains 為 ["aum"]、["income"] 或兩者；metricCodes 直接傳入 metric router 的完整 selected_metric_codes 陣列。
+    - button "Execute workflow":
+      - generic: Execute workflow
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Aura - Concepts
+    - generic: "POST: https://4bb479b2.databases.neo4j.io/db/neo4j/query/v2"
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Concept Catalog
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Jev - Prepare Objects
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Jev - Decisions API
+    - generic: 直接呼叫 typesafe/jev-1.13 Decisions API，沿用既有 OpenRouter credential；不經 jev-router 或聊天模型。
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Jev - Evaluate Objects
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Aura - Mappings
+    - generic: "POST: https://4bb479b2.databases.neo4j.io/db/neo4j/query/v2"
+    - generic: 1 item
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: KB Result
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Concept Paths
+    - generic: "true"
+    - generic: "false"
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Concept Route Ready
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Selected Paths
+    - button "Add 11 nodes to chat":
+    - button "Zoom to Fit":
+    - button "Zoom In":
+    - button "Zoom Out":
+    - button "Tidy Up":
+    - button "Execute workflow":
+      - generic: Execute workflow
+    - button "Open nodes panel":
+    - button "Command bar":
+    - button "Add sticky note":
+    - button "Open side panel":
+    - button "n8n AI":
+    - complementary
+    - generic: Logs
+    - button "Clear execution":
+      - text: Clear execution
+    - generic: Success in 7.506s
+    - tree:
+      - treeitem "KB Input":
+        - generic: KB Input
+      - treeitem "Aura - Concepts":
+        - generic: Aura - Concepts
+      - treeitem "Concept Catalog":
+        - generic: Concept Catalog
+      - treeitem "Concept Paths":
+        - generic: Concept Paths
+      - treeitem "Jev - Prepare Objects":
+        - generic: Jev - Prepare Objects
+      - treeitem "Jev - Decisions API":
+        - generic: Jev - Decisions API
+      - treeitem "Jev - Evaluate Objects":
+        - generic: Jev - Evaluate Objects
+      - treeitem "Concept Route Ready":
+        - generic: Concept Route Ready
+      - treeitem "Selected Paths" [active] [selected]:
+        - generic: Selected Paths
+      - treeitem "Aura - Mappings":
+        - generic: Aura - Mappings
+      - treeitem "KB Result":
+        - generic: KB Result
+    - generic: Selected Paths
+    - generic: Success in 9ms
+    - button "Input":
+      - generic: Input
+    - button "Output":
+      - generic: Output
+    - button "Actions":
+    - button "Collapse panel":
+    - generic: Input
+    - textbox "Search previous nodes' fields"
+    - radiogroup:
+      - radio "Schema" [checked]:
+      - radio "Table":
+      - radio "JSON":
+    - generic: 1 item
+    - generic: status
+    - generic: selected
+    - generic: selections
+    - generic: selections[0]
+    - generic: productCode
+    - generic: deposit
+    - generic: domain
+    - generic: income
+    - generic: candidateScores
+    - generic: candidateScores[0]
+    - generic: objectKey
+    - generic: deposit::income
+    - generic: productCode
+    - generic: deposit
+    - generic: productName
+    - generic: 存款
+    - generic: domain
+    - generic: income
+    - generic: definition
+    - generic: 客戶在銀行持有的存款。AUM衡量存款餘額；Income衡量存款整體利息收入，不將總利收重複分配至各子類。
+    - generic: Output
+    - textbox "Search (Ctrl+F)"
+    - radiogroup:
+      - radio "Schema":
+      - radio "Table" [checked]:
+      - radio "JSON":
+    - generic: 1 item
+    - table:
+      - rowgroup:
+        - row "status Collapse rows selections Collapse rows candidateScores Collapse rows pathScores Collapse rows selectedConceptPaths Collapse rows pathStatus Collapse rows message Collapse rows decision Collapse rows selectedPaths Collapse rows":
+          - columnheader "status Collapse rows":
+            - generic: status
+            - button "Collapse rows":
+          - columnheader "selections Collapse rows":
+            - generic: selections
+            - button "Collapse rows":
+          - columnheader "candidateScores Collapse rows":
+            - generic: candidateScores
+            - button "Collapse rows":
+          - columnheader "pathScores Collapse rows":
+            - generic: pathScores
+            - button "Collapse rows":
+          - columnheader "selectedConceptPaths Collapse rows":
+            - generic: selectedConceptPaths
+            - button "Collapse rows":
+          - columnheader "pathStatus Collapse rows":
+            - generic: pathStatus
+            - button "Collapse rows":
+          - columnheader "message Collapse rows":
+            - generic: message
+            - button "Collapse rows":
+          - columnheader "decision Collapse rows":
+            - generic: decision
+            - button "Collapse rows":
+          - columnheader "selectedPaths Collapse rows":
+            - generic: selectedPaths
+            - button "Collapse rows":
+          - columnheader
+      - rowgroup:
+        - row:
+          - cell "selected":
+            - generic: selected
+          - cell "0 productCode:deposit domain:income":
+            - generic: "0"
+            - generic: productCode
+            - text: ":"
+            - generic: deposit
+            - generic: domain
+            - text: ":"
+            - generic: income
+          - cell "0 objectKey:deposit::income productCode:deposit productName:存款 domain:income definition:客戶在銀行持有的存款。AUM衡量存款餘額；Income衡量存款整體利息收入，不將總利收重複分配至各子類。 definitionStatus:inferred matchedMetricCodes 0:deposit_interest_income businessMetrics 0 metricCode:deposit_interest_income name:存款利收 definition:存款業務整體的利息收入。 status:inferred 1 metricCode:interest_income name:利息收入 definition:存款與放款業務的利息收入。 status:inferred 2 metricCode:income_total_customer_month name:每客戶每月總收入 definition:每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。 status:pending_confirmation probability:1 probabilities uncertain:0 excluded:0 included:1 confidence:1 judgement:included":
+            - generic: "0"
+            - generic: objectKey
+            - text: ":"
+            - generic: deposit::income
+            - generic: productCode
+            - text: ":"
+            - generic: deposit
+            - generic: productName
+            - text: ":"
+            - generic: 存款
+            - generic: domain
+            - text: ":"
+            - generic: income
+            - generic: definition
+            - text: ":"
+            - generic: 客戶在銀行持有的存款。AUM衡量存款餘額；Income衡量存款整體利息收入，不將總利收重複分配至各子類。
+            - generic: definitionStatus
+            - text: ":"
+            - generic: inferred
+            - generic: matchedMetricCodes
+            - generic: "0"
+            - text: ":"
+            - generic: deposit_interest_income
+            - generic: businessMetrics
+            - generic: "0"
+            - generic: metricCode
+            - text: ":"
+            - generic: deposit_interest_income
+            - generic: name
+            - text: ":"
+            - generic: 存款利收
+            - generic: definition
+            - text: ":"
+            - generic: 存款業務整體的利息收入。
+            - generic: status
+            - text: ":"
+            - generic: inferred
+            - generic: "1"
+            - generic: metricCode
+            - text: ":"
+            - generic: interest_income
+            - generic: name
+            - text: ":"
+            - generic: 利息收入
+            - generic: definition
+            - text: ":"
+            - generic: 存款與放款業務的利息收入。
+            - generic: status
+            - text: ":"
+            - generic: inferred
+            - generic: "2"
+            - generic: metricCode
+            - text: ":"
+            - generic: income_total_customer_month
+            - generic: name
+            - text: ":"
+            - generic: 每客戶每月總收入
+            - generic: definition
+            - text: ":"
+            - generic: 每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。
+            - generic: status
+            - text: ":"
+            - generic: pending_confirmation
+            - generic: probability
+            - text: ":"
+            - generic: "1"
+            - generic: probabilities
+            - generic: uncertain
+            - text: ":"
+            - generic: "0"
+            - generic: excluded
+            - text: ":"
+            - generic: "0"
+            - generic: included
+            - text: ":"
+            - generic: "1"
+            - generic: confidence
+            - text: ":"
+            - generic: "1"
+            - generic: judgement
+            - text: ":"
+            - generic: included
+          - cell "0 pathKey:deposit::income::deposit_interest_income::799c38fe objectKey:deposit::income queryMetricCode:deposit_interest_income queryMetricKey:income:metric:deposit_interest_income probability:0.68 probabilities uncertain:0.11 excluded:0.21 included:0.68 confidence:0.52 judgement:included":
+            - generic: "0"
+            - generic: pathKey
+            - text: ":"
+            - generic: deposit::income::deposit_interest_income::799c38fe
+            - generic: objectKey
+            - text: ":"
+            - generic: deposit::income
+            - generic: queryMetricCode
+            - text: ":"
+            - generic: deposit_interest_income
+            - generic: queryMetricKey
+            - text: ":"
+            - generic: income:metric:deposit_interest_income
+            - generic: probability
+            - text: ":"
+            - generic: "0.68"
+            - generic: probabilities
+            - generic: uncertain
+            - text: ":"
+            - generic: "0.11"
+            - generic: excluded
+            - text: ":"
+            - generic: "0.21"
+            - generic: included
+            - text: ":"
+            - generic: "0.68"
+            - generic: confidence
+            - text: ":"
+            - generic: "0.52"
+            - generic: judgement
+            - text: ":"
+            - generic: included
+          - cell:
+            - generic: "0"
+            - generic: pathKey
+            - text: ":"
+            - generic: deposit::income::deposit_interest_income::799c38fe
+            - generic: objectKey
+            - text: ":"
+            - generic: deposit::income
+            - generic: productCode
+            - text: ":"
+            - generic: deposit
+            - generic: productName
+            - text: ":"
+            - generic: 存款
+            - generic: domain
+            - text: ":"
+            - generic: income
+            - generic: queryMetricCode
+            - text: ":"
+            - generic: deposit_interest_income
+            - generic: queryMetricKey
+            - text: ":"
+            - generic: income:metric:deposit_interest_income
+            - generic: rootKey
+            - text: ":"
+            - generic: income:metric:income_total_customer_month
+            - generic: nodeKeys
+            - generic: "0"
+            - text: ":"
+            - generic: pb_shared:product:deposit
+            - generic: "1"
+            - text: ":"
+            - generic: income:metric:deposit_interest_income
+            - generic: "2"
+            - text: ":"
+            - generic: income:metric:interest_income
+            - generic: "3"
+            - text: ":"
+            - generic: income:metric:income_total_customer_month
+            - generic: relationshipTypes
+            - generic: "0"
+            - text: ":"
+            - generic: MEASURED_BY_INCOME
+            - generic: "1"
+            - text: ":"
+            - generic: INCOME_ROLLS_UP_TO
+            - generic: "2"
+            - text: ":"
+            - generic: INCOME_ROLLS_UP_TO
+            - generic: relationshipProperties
+            - generic: "0"
+            - generic: name
+            - text: ":"
+            - generic: 收入衡量
+            - generic: note
+            - text: ":"
+            - generic: AUM保留台幣、外幣、結構型子分類；Income僅映射到存款總類。月更新SQL含台幣、外幣及員工台幣存款，未依產品代碼拆分；不可把總利收重複分配到各子類。
+            - generic: ontologyId
+            - text: ":"
+            - generic: pb_shared
+            - generic: _aumIncomeTransferId
+            - text: ":"
+            - generic: a11c733239e8696b0f96e637a7d111c121ba0c0cc34a51cda55570bb1536bd15
+            - generic: origin
+            - text: ":"
+            - generic: shared_product_trial
+            - generic: status
+            - text: ":"
+            - generic: inferred
+            - generic: "1"
+            - generic: name
+            - text: ":"
+            - generic: 歸入上層指標
+            - generic: ontologyId
+            - text: ":"
+            - generic: pb_shared
+            - generic: evidence
+            - text: ":"
+            - generic: 既有HAS_COMPONENT分類層級；以子指標指向父指標表示
+            - generic: _aumIncomeTransferId
+            - text: ":"
+            - generic: 0debc4f07554da1bbfe8a6bb4b6634908bf13b1f10f0ff00d8c9e9e3fb801281
+            - generic: origin
+            - text: ":"
+            - generic: shared_product_trial
+            - generic: status
+            - text: ":"
+            - generic: inferred
+            - generic: "2"
+            - generic: name
+            - text: ":"
+            - generic: 歸入上層指標
+            - generic: ontologyId
+            - text: ":"
+            - generic: pb_shared
+            - generic: evidence
+            - text: ":"
+            - generic: 既有HAS_COMPONENT分類層級；以子指標指向父指標表示
+            - generic: _aumIncomeTransferId
+            - text: ":"
+            - generic: c62a73815bcc4de4079dbb87b5cdf25cd10f85aa3e45bfe0a5fff7f65f503c9a
+            - generic: origin
+            - text: ":"
+            - generic: shared_product_trial
+            - generic: status
+            - text: ":"
+            - generic: inferred
+            - generic: nodes
+            - generic: "0"
+            - generic: key
+            - text: ":"
+            - generic: pb_shared:product:deposit
+            - generic: properties
+            - generic: aumMetricKey
+            - text: ":"
+            - generic: aum:metric:aum_deposit_month_end
+            - generic: incomeStages
+            - generic: "0"
+            - text: ":"
+            - generic: INCOME_066
+            - generic: role
+            - text: ":"
+            - generic: shared_product
+            - generic: code
+            - text: ":"
+            - generic: deposit
+            - generic: incomeAmountBasis
+            - text: ":"
+            - generic: SUM(GROSS_INCM)
+            - generic: aumLegacyProducts
+            - generic: "0"
+            - text: ":"
+            - generic: deposit_twd
+            - generic: "1"
+            - text: ":"
+            - generic: deposit_foreign
+            - generic: "2"
+            - text: ":"
+            - generic: deposit_structured
+            - generic: displayOrder
+            - text: ":"
+            - generic: "1"
+            - generic: aumValuationBasis
+            - text: ":"
+            - generic: balance
+            - generic: mappingStatus
+            - text: ":"
+            - generic: inferred
+            - generic: incomeMetricKey
+            - text: ":"
+            - generic: income:metric:deposit_interest_income
+            - generic: incomeLegacyProducts
+            - generic: "0"
+            - text: ":"
+            - generic: deposit_interest
+            - generic: incomeMappingActive
+            - text: ":"
+            - generic: "true"
+            - generic: incomeFilter
+            - text: ":"
+            - generic: 利收／銀行／存款
+            - generic: name
+            - text: ":"
+            - generic: 存款
+            - generic: ontologyId
+            - text: ":"
+            - generic: pb_shared
+            - generic: directionStatus
+            - text: ":"
+            - generic: user_confirmed
+            - generic: definition
+            - text: ":"
+            - generic: AUM保留台幣、外幣、結構型子分類；Income僅映射到存款總類。月更新SQL含台幣、外幣及員工台幣存款，未依產品代碼拆分；不可把總利收重複分配到各子類。
+            - generic: aumFilter
+            - text: ":"
+            - generic: TYP='存款'
+            - generic: key
+            - text: ":"
+            - generic: pb_shared:product:deposit
+            - generic: status
+            - text: ":"
+            - generic: aggregate_scope
+            - generic: aumStages
+            - generic: "0"
+            - text: ":"
+            - generic: AUM_005_007_008_009
+            - generic: labels
+            - generic: "0"
+            - text: ":"
+            - generic: ProductCategory
+            - generic: "1"
+            - text: ":"
+            - generic: SharedProduct
+            - generic: "1"
+            - generic: key
+            - text: ":"
+            - generic: income:metric:deposit_interest_income
+            - generic: properties
+            - generic: filter
+            - text: ":"
+            - generic: TYP='利收' AND SUB_TYPE='存款'
+            - generic: code
+            - text: ":"
+            - generic: deposit_interest_income
+            - generic: name
+            - text: ":"
+            - generic: 存款利收
+            - generic: ontologyId
+            - text: ":"
+            - generic: income
+            - generic: definition
+            - text: ":"
+            - generic: INCOME_066 以 GROSS_INCM 彙總存款利收；現況來源僅使用外幣存款表。
+            - generic: key
+            - text: ":"
+            - generic: income:metric:deposit_interest_income
+            - generic: status
+            - text: ":"
+            - generic: observed_in_sql
+            - generic: labels
+            - generic: "0"
+            - text: ":"
+            - generic: BusinessMetric
+            - generic: "1"
+            - text: ":"
+            - generic: IncomeMetric
+            - generic: "2"
+            - generic: key
+            - text: ":"
+            - generic: income:metric:interest_income
+            - generic: properties
+            - generic: filter
+            - text: ":"
+            - generic: TYP='利收'
+            - generic: code
+            - text: ":"
+            - generic: interest_income
+            - generic: name
+            - text: ":"
+            - generic: 利息收入
+            - generic: ontologyId
+            - text: ":"
+            - generic: income
+            - generic: definition
+            - text: ":"
+            - generic: TYP='利收' 的存款與放款 AMT。
+            - generic: key
+            - text: ":"
+            - generic: income:metric:interest_income
+            - generic: status
+            - text: ":"
+            - generic: inferred
+            - generic: labels
+            - generic: "0"
+            - text: ":"
+            - generic: BusinessMetric
+            - generic: "1"
+            - text: ":"
+            - generic: IncomeMetric
+            - generic: "3"
+            - generic: key
+            - text: ":"
+            - generic: income:metric:income_total_customer_month
+            - generic: properties
+            - generic: code
+            - text: ":"
+            - generic: income_total_customer_month
+            - generic: name
+            - text: ":"
+            - generic: 每客戶每月總收入
+            - generic: ontologyId
+            - text: ":"
+            - generic: income
+            - generic: formula
+            - text: ":"
+            - generic: SUM(AMT) GROUP BY CUST_ID, SUBSTR(YYYYMMDD,1,6)
+            - generic: definition
+            - text: ":"
+            - generic: 10._INCOME_ROA.sql 的收入子查詢按 CUST_ID 與 SUBSTR(YYYYMMDD,1,6) 加總 INCOME_TMP02.AMT；涵蓋 SQL 歸類的手收及利收。
+            - generic: grain
+            - text: ":"
+            - generic: CUST_ID × YYYYMM
+            - generic: key
+            - text: ":"
+            - generic: income:metric:income_total_customer_month
+            - generic: status
+            - text: ":"
+            - generic: observed_in_sql
+            - generic: labels
+            - generic: "0"
+            - text: ":"
+            - generic: BusinessMetric
+            - generic: "1"
+            - text: ":"
+            - generic: IncomeMetric
+            - generic: relationships
+            - generic: "0"
+            - generic: from
+            - text: ":"
+            - generic: pb_shared:product:deposit
+            - generic: to
+            - text: ":"
+            - generic: income:metric:deposit_interest_income
+            - generic: type
+            - text: ":"
+            - generic: MEASURED_BY_INCOME
+            - generic: properties
+            - generic: name
+            - text: ":"
+            - generic: 收入衡量
+            - generic: note
+            - text: ":"
+            - generic: AUM保留台幣、外幣、結構型子分類；Income僅映射到存款總類。月更新SQL含台幣、外幣及員工台幣存款，未依產品代碼拆分；不可把總利收重複分配到各子類。
+            - generic: ontologyId
+            - text: ":"
+            - generic: pb_shared
+            - generic: _aumIncomeTransferId
+            - text: ":"
+            - generic: a11c733239e8696b0f96e637a7d111c121ba0c0cc34a51cda55570bb1536bd15
+            - generic: origin
+            - text: ":"
+            - generic: shared_product_trial
+            - generic: status
+            - text: ":"
+            - generic: inferred
+            - generic: "1"
+            - generic: from
+            - text: ":"
+            - generic: income:metric:deposit_interest_income
+            - generic: to
+            - text: ":"
+            - generic: income:metric:interest_income
+            - generic: type
+            - text: ":"
+            - generic: INCOME_ROLLS_UP_TO
+            - generic: properties
+            - generic: name
+            - text: ":"
+            - generic: 歸入上層指標
+            - generic: ontologyId
+            - text: ":"
+            - generic: pb_shared
+            - generic: evidence
+            - text: ":"
+            - generic: 既有HAS_COMPONENT分類層級；以子指標指向父指標表示
+            - generic: _aumIncomeTransferId
+            - text: ":"
+            - generic: 0debc4f07554da1bbfe8a6bb4b6634908bf13b1f10f0ff00d8c9e9e3fb801281
+            - generic: origin
+            - text: ":"
+            - generic: shared_product_trial
+            - generic: status
+            - text: ":"
+            - generic: inferred
+            - generic: "2"
+            - generic: from
+            - text: ":"
+            - generic: income:metric:interest_income
+            - generic: to
+            - text: ":"
+            - generic: income:metric:income_total_customer_month
+            - generic: type
+            - text: ":"
+            - generic: INCOME_ROLLS_UP_TO
+            - generic: properties
+            - generic: name
+            - text: ":"
+            - generic: 歸入上層指標
+            - generic: ontologyId
+            - text: ":"
+            - generic: pb_shared
+            - generic: evidence
+            - text: ":"
+            - generic: 既有HAS_COMPONENT分類層級；以子指標指向父指標表示
+            - generic: _aumIncomeTransferId
+            - text: ":"
+            - generic: c62a73815bcc4de4079dbb87b5cdf25cd10f85aa3e45bfe0a5fff7f65f503c9a
+            - generic: origin
+            - text: ":"
+            - generic: shared_product_trial
+            - generic: status
+            - text: ":"
+            - generic: inferred
+          - cell "confirmed":
+            - generic: confirmed
+          - cell "已依 Jev 評估 object 及完整業務路徑，才可進入映射。":
+            - generic: 已依 Jev 評估 object 及完整業務路徑，才可進入映射。
+          - cell "requestId:gen-dec-1791415442-kI3tfm9fjq9es2PsUo0j model:typesafe/jev-1.13-20260917 provider:TypeSafe scope type:choice choice:clear probabilities none:0 clear:0.95 ambiguous:0.05 confidence:0.92 answers scope type:choice choice:clear probabilities none:0 clear:0.95 ambiguous:0.05 confidence:0.92 deposit::income type:choice choice:included probabilities uncertain:0 excluded:0 included:1 confidence:1 path::deposit::income::deposit_interest_income::799c38fe type:choice choice:included probabilities uncertain:0.11 excluded:0.21 included:0.68 confidence:0.52 usage input_tokens:2741 output_tokens:136 cost:0.000115122 policy method:native_object_and_complete_path_choice_with_gate numericThreshold:null calibrated:false probabilityMeaning:Native P(included) independently for each object and each full business path; never normalized across candidates or multiplied together.":
+            - generic: requestId
+            - text: ":"
+            - generic: gen-dec-1791415442-kI3tfm9fjq9es2PsUo0j
+            - generic: model
+            - text: ":"
+            - generic: typesafe/jev-1.13-20260917
+            - generic: provider
+            - text: ":"
+            - generic: TypeSafe
+            - generic: scope
+            - generic: type
+            - text: ":"
+            - generic: choice
+            - generic: choice
+            - text: ":"
+            - generic: clear
+            - generic: probabilities
+            - generic: none
+            - text: ":"
+            - generic: "0"
+            - generic: clear
+            - text: ":"
+            - generic: "0.95"
+            - generic: ambiguous
+            - text: ":"
+            - generic: "0.05"
+            - generic: confidence
+            - text: ":"
+            - generic: "0.92"
+            - generic: answers
+            - generic: scope
+            - generic: type
+            - text: ":"
+            - generic: choice
+            - generic: choice
+            - text: ":"
+            - generic: clear
+            - generic: probabilities
+            - generic: none
+            - text: ":"
+            - generic: "0"
+            - generic: clear
+            - text: ":"
+            - generic: "0.95"
+            - generic: ambiguous
+            - text: ":"
+            - generic: "0.05"
+            - generic: confidence
+            - text: ":"
+            - generic: "0.92"
+            - generic: deposit::income
+            - generic: type
+            - text: ":"
+            - generic: choice
+            - generic: choice
+            - text: ":"
+            - generic: included
+            - generic: probabilities
+            - generic: uncertain
+            - text: ":"
+            - generic: "0"
+            - generic: excluded
+            - text: ":"
+            - generic: "0"
+            - generic: included
+            - text: ":"
+            - generic: "1"
+            - generic: confidence
+            - text: ":"
+            - generic: "1"
+            - generic: path::deposit::income::deposit_interest_income::799c38fe
+            - generic: type
+            - text: ":"
+            - generic: choice
+            - generic: choice
+            - text: ":"
+            - generic: included
+            - generic: probabilities
+            - generic: uncertain
+            - text: ":"
+            - generic: "0.11"
+            - generic: excluded
+            - text: ":"
+            - generic: "0.21"
+            - generic: included
+            - text: ":"
+            - generic: "0.68"
+            - generic: confidence
+            - text: ":"
+            - generic: "0.52"
+            - generic: usage
+            - generic: input_tokens
+            - text: ":"
+            - generic: "2741"
+            - generic: output_tokens
+            - text: ":"
+            - generic: "136"
+            - generic: cost
+            - text: ":"
+            - generic: "0.000115122"
+            - generic: policy
+            - generic: method
+            - text: ":"
+            - generic: native_object_and_complete_path_choice_with_gate
+            - generic: numericThreshold
+            - text: ":"
+            - generic: "null"
+            - generic: calibrated
+            - text: ":"
+            - generic: "false"
+            - generic: probabilityMeaning
+            - text: ":"
+            - generic: Native P(included) independently for each object and each full business path; never normalized across candidates or multiplied together.
+          - cell:
+            - generic: "0"
+            - generic: pathKey
+            - text: ":"
+            - generic: deposit::income::deposit_interest_income::799c38fe
+            - generic: productCode
+            - text: ":"
+            - generic: deposit
+            - generic: domain
+            - text: ":"
+            - generic: income
+            - generic: queryMetricKey
+            - text: ":"
+            - generic: income:metric:deposit_interest_income
+            - generic: queryMetricCode
+            - text: ":"
+            - generic: deposit_interest_income
+            - generic: nodeKeys
+            - generic: "0"
+            - text: ":"
+            - generic: pb_shared:product:deposit
+            - generic: "1"
+            - text: ":"
+            - generic: income:metric:deposit_interest_income
+            - generic: "2"
+            - text: ":"
+            - generic: income:metric:interest_income
+            - generic: "3"
+            - text: ":"
+            - generic: income:metric:income_total_customer_month
+            - generic: relationshipTypes
+            - generic: "0"
+            - text: ":"
+            - generic: MEASURED_BY_INCOME
+            - generic: "1"
+            - text: ":"
+            - generic: INCOME_ROLLS_UP_TO
+            - generic: "2"
+            - text: ":"
+            - generic: INCOME_ROLLS_UP_TO
+            - generic: relationshipProperties
+            - generic: "0"
+            - generic: name
+            - text: ":"
+            - generic: 收入衡量
+            - generic: note
+            - text: ":"
+            - generic: AUM保留台幣、外幣、結構型子分類；Income僅映射到存款總類。月更新SQL含台幣、外幣及員工台幣存款，未依產品代碼拆分；不可把總利收重複分配到各子類。
+            - generic: ontologyId
+            - text: ":"
+            - generic: pb_shared
+            - generic: _aumIncomeTransferId
+            - text: ":"
+            - generic: a11c733239e8696b0f96e637a7d111c121ba0c0cc34a51cda55570bb1536bd15
+            - generic: origin
+            - text: ":"
+            - generic: shared_product_trial
+            - generic: status
+            - text: ":"
+            - generic: inferred
+            - generic: "1"
+            - generic: name
+            - text: ":"
+            - generic: 歸入上層指標
+            - generic: ontologyId
+            - text: ":"
+            - generic: pb_shared
+            - generic: evidence
+            - text: ":"
+            - generic: 既有HAS_COMPONENT分類層級；以子指標指向父指標表示
+            - generic: _aumIncomeTransferId
+            - text: ":"
+            - generic: 0debc4f07554da1bbfe8a6bb4b6634908bf13b1f10f0ff00d8c9e9e3fb801281
+            - generic: origin
+            - text: ":"
+            - generic: shared_product_trial
+            - generic: status
+            - text: ":"
+            - generic: inferred
+            - generic: "2"
+            - generic: name
+            - text: ":"
+            - generic: 歸入上層指標
+            - generic: ontologyId
+            - text: ":"
+            - generic: pb_shared
+            - generic: evidence
+            - text: ":"
+            - generic: 既有HAS_COMPONENT分類層級；以子指標指向父指標表示
+            - generic: _aumIncomeTransferId
+            - text: ":"
+            - generic: c62a73815bcc4de4079dbb87b5cdf25cd10f85aa3e45bfe0a5fff7f65f503c9a
+            - generic: origin
+            - text: ":"
+            - generic: shared_product_trial
+            - generic: status
+            - text: ":"
+            - generic: inferred
+          - cell
+- complementary
+- status
+- alert

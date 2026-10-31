@@ -1,0 +1,284 @@
+{
+  "date": "2026-10-07",
+  "timezone": "Asia/Taipei",
+  "kb": {
+    "id": "tL7HTesvAzqwsqv6",
+    "url": "https://chiang4901.app.n8n.cloud/workflow/tL7HTesvAzqwsqv6",
+    "state": "published",
+    "version": "KB v3 — Native Jev object probabilities",
+    "model": "typesafe/jev-1.13",
+    "resolvedModel": "typesafe/jev-1.13-20260917",
+    "endpoint": "https://openrouter.ai/api/alpha/decisions",
+    "nodes": 8,
+    "pinDataEmpty": true
+  },
+  "main": {
+    "id": "nBrzHm3pNsVcOpeu",
+    "url": "https://chiang4901.app.n8n.cloud/workflow/nBrzHm3pNsVcOpeu",
+    "state": "saved_unpublished",
+    "nodes": 35,
+    "endToEndState": "success",
+    "durationSeconds": 18.393,
+    "businessResult": "missing_required_source_tables",
+    "probabilityRetention": "all candidates retained through final chat",
+    "originalMainModified": false
+  },
+  "contractChecksPassed": 56,
+  "liveEvidenceChecksPassed": 19,
+  "liveEvidenceChecks": [
+    "single_unique",
+    "single_native_values",
+    "single_model",
+    "multiple_unique",
+    "multiple_native_values",
+    "multiple_model",
+    "ambiguous_unique",
+    "ambiguous_native_values",
+    "ambiguous_model",
+    "no_match_unique",
+    "no_match_native_values",
+    "no_match_model",
+    "single_chat_all_rows",
+    "multiple_exact_products",
+    "ambiguous_no_selection",
+    "no_match_no_selection",
+    "Jev - Prepare Objects_source_matches",
+    "Jev - Evaluate Objects_source_matches",
+    "KB Result_source_matches"
+  ],
+  "liveTests": {
+    "single": {
+      "evidence": "jev_main_live_single.json",
+      "candidateCount": 4,
+      "status": null,
+      "probabilities": [
+        {
+          "objectKey": "securities_bond::aum",
+          "probability": 0,
+          "judgement": "excluded"
+        },
+        {
+          "objectKey": "securities_foreign_stock::aum",
+          "probability": 0,
+          "judgement": "excluded"
+        },
+        {
+          "objectKey": "securities_fund::aum",
+          "probability": 0.74,
+          "judgement": "included"
+        },
+        {
+          "objectKey": "securities_structured::aum",
+          "probability": 0,
+          "judgement": "excluded"
+        }
+      ]
+    },
+    "multiple": {
+      "evidence": "jev_live_multiple.json",
+      "candidateCount": 14,
+      "status": "selected",
+      "probabilities": [
+        {
+          "objectKey": "bank_bond_proprietary::aum",
+          "probability": 0,
+          "judgement": "excluded"
+        },
+        {
+          "objectKey": "bank_bond_trust::aum",
+          "probability": 0,
+          "judgement": "excluded"
+        },
+        {
+          "objectKey": "bank_collective_account::aum",
+          "probability": 0,
+          "judgement": "excluded"
+        },
+        {
+          "objectKey": "bank_etf::aum",
+          "probability": 0.01,
+          "judgement": "excluded"
+        },
+        {
+          "objectKey": "bank_fund::aum",
+          "probability": 1,
+          "judgement": "included"
+        },
+        {
+          "objectKey": "bank_insurance::aum",
+          "probability": 0,
+          "judgement": "excluded"
+        },
+        {
+          "objectKey": "bank_overseas_stock::aum",
+          "probability": 0,
+          "judgement": "excluded"
+        },
+        {
+          "objectKey": "bank_planned_trust::aum",
+          "probability": 0,
+          "judgement": "excluded"
+        },
+        {
+          "objectKey": "bank_structured_offshore::aum",
+          "probability": 0,
+          "judgement": "excluded"
+        },
+        {
+          "objectKey": "bank_trust_custody::aum",
+          "probability": 0,
+          "judgement": "excluded"
+        },
+        {
+          "objectKey": "securities_bond::aum",
+          "probability": 0,
+          "judgement": "excluded"
+        },
+        {
+          "objectKey": "securities_foreign_stock::aum",
+          "probability": 0,
+          "judgement": "excluded"
+        },
+        {
+          "objectKey": "securities_fund::aum",
+          "probability": 0.83,
+          "judgement": "included"
+        },
+        {
+          "objectKey": "securities_structured::aum",
+          "probability": 0,
+          "judgement": "excluded"
+        }
+      ],
+      "selectedProducts": [
+        "bank_fund",
+        "securities_fund"
+      ]
+    },
+    "ambiguous": {
+      "evidence": "jev_live_ambiguous.json",
+      "candidateCount": 14,
+      "status": "needs_clarification",
+      "probabilities": [
+        {
+          "objectKey": "bank_bond_proprietary::aum",
+          "probability": 0,
+          "judgement": "excluded"
+        },
+        {
+          "objectKey": "bank_bond_trust::aum",
+          "probability": 0,
+          "judgement": "excluded"
+        },
+        {
+          "objectKey": "bank_collective_account::aum",
+          "probability": 0,
+          "judgement": "excluded"
+        },
+        {
+          "objectKey": "bank_etf::aum",
+          "probability": 0,
+          "judgement": "excluded"
+        },
+        {
+          "objectKey": "bank_fund::aum",
+          "probability": 0.1,
+          "judgement": "uncertain"
+        },
+        {
+          "objectKey": "bank_insurance::aum",
+          "probability": 0,
+          "judgement": "excluded"
+        },
+        {
+          "objectKey": "bank_overseas_stock::aum",
+          "probability": 0,
+          "judgement": "excluded"
+        },
+        {
+          "objectKey": "bank_planned_trust::aum",
+          "probability": 0,
+          "judgement": "excluded"
+        },
+        {
+          "objectKey": "bank_structured_offshore::aum",
+          "probability": 0,
+          "judgement": "excluded"
+        },
+        {
+          "objectKey": "bank_trust_custody::aum",
+          "probability": 0,
+          "judgement": "excluded"
+        },
+        {
+          "objectKey": "securities_bond::aum",
+          "probability": 0,
+          "judgement": "excluded"
+        },
+        {
+          "objectKey": "securities_foreign_stock::aum",
+          "probability": 0,
+          "judgement": "excluded"
+        },
+        {
+          "objectKey": "securities_fund::aum",
+          "probability": 0.09,
+          "judgement": "uncertain"
+        },
+        {
+          "objectKey": "securities_structured::aum",
+          "probability": 0,
+          "judgement": "excluded"
+        }
+      ],
+      "selectedProducts": []
+    },
+    "no_match": {
+      "evidence": "jev_live_no_match.json",
+      "candidateCount": 4,
+      "status": "no_match",
+      "probabilities": [
+        {
+          "objectKey": "securities_bond::aum",
+          "probability": 0.03,
+          "judgement": "excluded"
+        },
+        {
+          "objectKey": "securities_foreign_stock::aum",
+          "probability": 0.03,
+          "judgement": "excluded"
+        },
+        {
+          "objectKey": "securities_fund::aum",
+          "probability": 0.04,
+          "judgement": "excluded"
+        },
+        {
+          "objectKey": "securities_structured::aum",
+          "probability": 0.04,
+          "judgement": "excluded"
+        }
+      ],
+      "selectedProducts": []
+    }
+  },
+  "policy": {
+    "method": "native_choice_with_ambiguity_gate",
+    "numericThreshold": null,
+    "calibrated": false,
+    "probabilityMeaning": "Native probability of included for each productCode/domain. Independent across objects. Not normalized across candidate objects. confidence is separately retained."
+  },
+  "sources": [
+    "https://openrouter.ai/docs/guides/community/jev-tutorial",
+    "https://openrouter.ai/docs/guides/routing/routers/jev-router",
+    "https://raw.githubusercontent.com/n8n-io/n8n/master/packages/@n8n/nodes-langchain/credentials/OpenRouterApi.credentials.ts"
+  ],
+  "limitations": [
+    "Numeric thresholds have not been calibrated on representative labeled business questions.",
+    "The main workflow registry currently supports AUM only.",
+    "Fund source tables remain unavailable in current PostgreSQL; no monetary AUM result verified."
+  ],
+  "rebuild": "python -X utf8 ontology/n8n_kb/build_workflow.py",
+  "test": "node ontology/n8n_kb/test_jev_contract.cjs PB_AUM_Income_KB.deployed.json main.jev.deployed.json",
+  "screenshot": "jev-kb-published.png"
+}

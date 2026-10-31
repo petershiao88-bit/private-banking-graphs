@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
+  <uri name="https://example.org/ontology/holding" uri="holding-core.ttl" />
+  <uri name="https://example.org/ontology/holding/0.2.0" uri="holding-core.ttl" />
+  <uri name="https://example.org/ontology/bank" uri="bank-contact.ttl" />
+  <uri name="https://example.org/ontology/bank/0.2.0" uri="bank-contact.ttl" />
+  <uri name="https://example.org/ontology/bank/business-contact" uri="bank-business-contact.ttl" />
+  <uri name="https://example.org/ontology/securities" uri="securities-contact.ttl" />
+  <uri name="https://example.org/ontology/securities/0.2.0" uri="securities-contact.ttl" />
+  <uri name="https://example.org/ontology/life" uri="life-contact.ttl" />
+  <uri name="https://example.org/ontology/life/0.2.0" uri="life-contact.ttl" />
+</catalog>

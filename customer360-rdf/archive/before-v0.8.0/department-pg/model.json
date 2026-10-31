@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "ontology_version": "0.7.0",
+  "scope": "metadata_only",
+  "inference": false,
+  "instance_mapping": false,
+  "concepts": [
+    {
+      "id": "bank.loan_verification_mobile",
+      "name": "貸款照會手機",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/holding#MobileContactInformation",
+      "mappings": [
+        {
+          "id": "bank.loan_verification_mobile.mobileNumber",
+          "property_uri": "https://example.org/ontology/holding#mobileNumber",
+          "domain_uri": "https://example.org/ontology/holding#MobileContactInformation",
+          "range_uri": "http://www.w3.org/2001/XMLSchema#string",
+          "source": {
+            "status": "pending",
+            "table": null,
+            "field": null,
+            "sql": null,
+            "join_rules": null,
+            "filter_rules": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "bank.customer_visit_address",
+      "name": "客戶訪問地址",
+      "subsidiary": "bank",
+      "department_owner": null,
+      "class_uri": "https://example.org/ontology/holding#AddressContactInformation",
+      "mappings": [
+        {
+          "id": "bank.customer_visit_address.countryCode",
+          "property_uri": "https://example.org/ontology/holding#countryCode",
+          "domain_uri": "https://example.org/ontology/holding#AddressContactInformation",
+          "range_uri": "http://www.w3.org/2001/XMLSchema#string",
+          "source": {"status": "pending", "table": null, "field": null, "sql": null, "join_rules": null, "filter_rules": null}
+        },
+        {
+          "id": "bank.customer_visit_address.city",
+          "property_uri": "https://example.org/ontology/holding#city",
+          "domain_uri": "https://example.org/ontology/holding#AddressContactInformation",
+          "range_uri": "http://www.w3.org/2001/XMLSchema#string",
+          "source": {"status": "pending", "table": null, "field": null, "sql": null, "join_rules": null, "filter_rules": null}
+        },
+        {
+          "id": "bank.customer_visit_address.district",
+          "property_uri": "https://example.org/ontology/holding#district",
+          "domain_uri": "https://example.org/ontology/holding#AddressContactInformation",
+          "range_uri": "http://www.w3.org/2001/XMLSchema#string",
+          "source": {"status": "pending", "table": null, "field": null, "sql": null, "join_rules": null, "filter_rules": null}
+        },
+        {
+          "id": "bank.customer_visit_address.addressLine",
+          "property_uri": "https://example.org/ontology/holding#addressLine",
+          "domain_uri": "https://example.org/ontology/holding#AddressContactInformation",
+          "range_uri": "http://www.w3.org/2001/XMLSchema#string",
+          "source": {"status": "pending", "table": null, "field": null, "sql": null, "join_rules": null, "filter_rules": null}
+        },
+        {
+          "id": "bank.customer_visit_address.postalCode",
+          "property_uri": "https://example.org/ontology/holding#postalCode",
+          "domain_uri": "https://example.org/ontology/holding#AddressContactInformation",
+          "range_uri": "http://www.w3.org/2001/XMLSchema#string",
+          "source": {"status": "pending", "table": null, "field": null, "sql": null, "join_rules": null, "filter_rules": null}
+        },
+        {
+          "id": "bank.customer_visit_address.fullAddress",
+          "property_uri": "https://example.org/ontology/holding#fullAddress",
+          "domain_uri": "https://example.org/ontology/holding#AddressContactInformation",
+          "range_uri": "http://www.w3.org/2001/XMLSchema#string",
+          "source": {"status": "pending", "table": null, "field": null, "sql": null, "join_rules": null, "filter_rules": null}
+        }
+      ]
+    }
+  ]
+}

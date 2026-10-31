@@ -1,0 +1,49 @@
+{
+  "display_contractions": {
+    "bank.private_banking": "https://example.org/ontology/bank#PrivateBankingDepartment"
+  },
+  "notice": "HAS_COMPONENT_METRIC is coverage, not SUM. RDF declarations are not instance facts. Pending states are preserved. No LLM or business SQL is executed.",
+  "parallel_endpoint_pairs": 0,
+  "rdf_triples": 434,
+  "scope": "rdf_classes_and_pg_business_nodes_with_direct_class_correspondence",
+  "source_sha256": {
+    "bank-common.ttl": "fbb5f898e599c23dd645e54c5c4919826ce062262223f7798ce37fca8522fa67",
+    "bank-deposit.ttl": "c6197d8ef6543879aff9e6c5fedf44fa8838fb51b95f6548f3365f7671329232",
+    "bank-investment-products.ttl": "870c5c7fdeaf178ba1d7ae6ecc2c3dbd6db90efb103fd84a4a21024b1a880ea0",
+    "build-config.json": "510620ec0f8e626a5c6255efe3397fb134b12282d6ed9560b447484418c4ce3d",
+    "catalog-v001.xml": "7b9c1713d5c7d8010e56ad99c6fa4b545248e32342e2f469f26b39cae98f0eec",
+    "customer360-ontology.owl": "baaa3963216bc922f30ceeb63f758b4bbc79757ce22d70bafadc2f02bbe05de4",
+    "customer360-ontology.ttl": "54ce033c671dde9c75ad572c32660bafa05ec94c671b6516a220f6421beaa697",
+    "department-pg/advisory-income.json": "21e13f7af58271ab035dac7dec8b9232061d6ef8a49e01d1b28ca183ca67313a",
+    "department-pg/bank-business-metrics.json": "e17edba7fa1b6c91255a91096e27ad45ea09e318c5e4921e6eb909278e24145b",
+    "department-pg/departments.json": "a699bb6247409cb28f719c290d292cb5175ad8938ea9952ad4a79c4d61feb628",
+    "department-pg/deposits.json": "5dbd98228ad06ae54a47f344ea3bc5803481fba07762c6657a4bb39e7b2e3028",
+    "department-pg/investment-metrics.json": "6714083a55383d9517cec8cf20e676bd533e75a369da2b8eab31070dabbd5e43",
+    "department-pg/model.cypher": "7243da540ba00a5d43b619d7565c7af27221bd95e0e436c0d938ed5ffc47aa4b",
+    "department-pg/model.json": "90e7b6437e8f08de4d084e07c680aeadaed2f702718c8419a5bb79835d46f30d",
+    "department-pg/model.schema.json": "237b38c37b9e3b6595c898672b51cc4c71bee3d13ef15d0ace5acbc507c0e91e",
+    "department-pg/product-aum.json": "b4d786a4c5174b0cbb5fe355b4cde1792e0b24d0a16e50aeb05b6ff9681d1b4f",
+    "department-pg/product-fees.json": "4702af304216a10cd626f9de4e548b0a0ce5a3e54b25910554a5ef47b467e93d",
+    "department-pg/securities-summary-metrics.json": "de660d3e8183d4341636b1a9c3900db4a7f8522369b49d2965f6c6a36b6e7c71",
+    "holding-core.ttl": "23ae7bb1be7313333bd45773dc8e7f188e0db14857fdc2ceb81d5a254802f922",
+    "securities-common.ttl": "0ba6727c667a60d6dae94e1de7853c137eb9463a7d0b4fd72919c558452f67e8"
+  },
+  "views": {
+    "business": {
+      "edges": 146,
+      "nodes": 104
+    },
+    "full": {
+      "edges": 246,
+      "nodes": 146
+    },
+    "ontology": {
+      "edges": 46,
+      "nodes": 43
+    },
+    "securities": {
+      "edges": 44,
+      "nodes": 29
+    }
+  }
+}

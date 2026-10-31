@@ -1,0 +1,91 @@
+@echo OFF
+if not exist "log\" mkdir log
+
+SET DATE2=%DATE:~0,4%%DATE:~5,2%%DATE:~8,2%
+SET YYYY=%DATE:~0,4%
+SET MM=%DATE:~5,2%
+
+:: current
+SET c_YYYY=%DATE:~0,4%
+SET c_MM=%DATE:~5,2%
+
+echo NOW
+echo c_YYYY¡G%c_YYYY%
+echo c_MM¡G%c_MM%
+
+::08¸ò09¦]¶i¦ì°ÝÃD¡A»Ý¥t¥~³B²z
+if %MM%==01 (set /a YYYY=%YYYY%-1) else (set YYYY=%YYYY%)
+if %MM%==08 set MM=8
+if %MM%==09 set MM=9
+if %MM%==01 (set MM=12) else (set /a MM=%MM%-1)
+if %MM% lss 10 (set MM=0%MM%) else (set MM=%MM%)
+
+echo.
+echo LAST MONTH
+echo YYYY¡G%YYYY%
+echo MM¡G%MM%
+echo USERNAME: %USERNAME%
+:: echo PASSWD : %PASSWD%
+echo DATE2 :  %DATE2%
+
+SET sql_file_0="F:\Working_ABBB\1121329\¨p»È\autocmd\0_PB_CUST_DEATAIL.sql"
+SET sql_file_1="F:\Working_ABBB\1121329\¨p»È\autocmd\1.AUM_DETAIL.sql"
+SET sql_file_2="F:\Working_ABBB\1121329\¨p»È\autocmd\2._AUM_SUMY.sql"
+SET sql_file_3="F:\Working_ABBB\1121329\¨p»È\autocmd\3.LUM_by_day.sql"
+SET sql_file_4="F:\Working_ABBB\1121329\¨p»È\autocmd\4.LUM_BY_HS.sql"
+SET sql_file_5="F:\Working_ABBB\1121329\¨p»È\autocmd\5.LUM_MERGE.sql"
+SET sql_file_6="F:\Working_ABBB\1121329\¨p»È\autocmd\6_PB_CUST_SMY.sql"
+SET sql_file_7="F:\Working_ABBB\1121329\¨p»È\autocmd\7.PB_CUST_LUM.sql"
+SET sql_file_8="F:\Working_ABBB\1121329\¨p»È\autocmd\8.INCOME_DETAIL.sql"
+SET sql_file_9="F:\Working_ABBB\1121329\¨p»È\autocmd\9.INCOME_SMY.sql"
+SET sql_file_10="F:\Working_ABBB\1121329\¨p»È\autocmd\10._INCOME_ROA.sql"
+SET sql_file_11="F:\Working_ABBB\1121329\¨p»È\autocmd\11.TARGET.sql"
+SET sql_file_12="F:\Working_ABBB\1121329\¨p»È\autocmd\12.GRANT.sql"
+
+SET LOGFILE_0="F:\Working_ABBB\1121329\¨p»È\autocmd\log\%DATE2%_0.log"
+SET LOGFILE_1="F:\Working_ABBB\1121329\¨p»È\autocmd\log\%DATE2%_1.log"
+SET LOGFILE_2="F:\Working_ABBB\1121329\¨p»È\autocmd\log\%DATE2%_2.log"
+SET LOGFILE_3="F:\Working_ABBB\1121329\¨p»È\autocmd\log\%DATE2%_3.log"
+SET LOGFILE_4="F:\Working_ABBB\1121329\¨p»È\autocmd\log\%DATE2%_4.log"
+SET LOGFILE_5="F:\Working_ABBB\1121329\¨p»È\autocmd\log\%DATE2%_5.log"
+SET LOGFILE_6="F:\Working_ABBB\1121329\¨p»È\autocmd\log\%DATE2%_6.log"
+SET LOGFILE_7="F:\Working_ABBB\1121329\¨p»È\autocmd\log\%DATE2%_7.log"
+SET LOGFILE_8="F:\Working_ABBB\1121329\¨p»È\autocmd\log\%DATE2%_8.log"
+SET LOGFILE_9="F:\Working_ABBB\1121329\¨p»È\autocmd\log\%DATE2%_9.log"
+SET LOGFILE_10="F:\Working_ABBB\1121329\¨p»È\autocmd\log\%DATE2%_10.log"
+SET LOGFILE_11="F:\Working_ABBB\1121329\¨p»È\autocmd\log\%DATE2%_11.log"
+SET LOGFILE_12="F:\Working_ABBB\1121329\¨p»È\autocmd\log\%DATE2%_11.log"
+
+echo.
+echo Session start to run program 'PB_CUST'
+echo Data_date = %YYYY%%MM%  
+
+echo.
+echo -------------------------------------------  
+set STARTTIME=%DATE2% %TIME%
+echo START   : %STARTTIME% 
+
+SQLPLUS %USERNAME%/%PASSWD%@ANADBP01 @%sql_file_0% > %LOGFILE_0% 
+SQLPLUS %USERNAME%/%PASSWD%@ANADBP01 @%sql_file_1% > %LOGFILE_1% 
+SQLPLUS %USERNAME%/%PASSWD%@ANADBP01 @%sql_file_2% > %LOGFILE_2% 
+SQLPLUS %USERNAME%/%PASSWD%@ANADBP01 @%sql_file_3% > %LOGFILE_3% 
+SQLPLUS %USERNAME%/%PASSWD%@ANADBP01 @%sql_file_4% > %LOGFILE_4% 
+SQLPLUS %USERNAME%/%PASSWD%@ANADBP01 @%sql_file_5% > %LOGFILE_5% 
+SQLPLUS %USERNAME%/%PASSWD%@ANADBP01 @%sql_file_6% > %LOGFILE_6% 
+SQLPLUS %USERNAME%/%PASSWD%@ANADBP01 @%sql_file_7% > %LOGFILE_7% 
+SQLPLUS %USERNAME%/%PASSWD%@ANADBP01 @%sql_file_8% > %LOGFILE_8% 
+SQLPLUS %USERNAME%/%PASSWD%@ANADBP01 @%sql_file_9% > %LOGFILE_9% 
+SQLPLUS %USERNAME%/%PASSWD%@ANADBP01 @%sql_file_10% > %LOGFILE_10% 
+SQLPLUS %USERNAME%/%PASSWD%@ANADBP01 @%sql_file_11% > %LOGFILE_11% 
+SQLPLUS %USERNAME%/%PASSWD%@DWDBP01 @%sql_file_12% > %LOGFILE_12% 
+EXIT;
+
+
+echo.
+set ENDTIME=%DATE2% %TIME% 
+echo Finish  : %ENDTIME% 
+echo ------------------------------------------- 
+echo.
+echo Session end
+::pause;
+EXIT;

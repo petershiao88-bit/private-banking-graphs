@@ -1,0 +1,1419 @@
+{
+  "conceptGraph": {
+    "relationships": [
+      {
+        "from": "aum_deposit",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259166",
+        "to": "aum_total",
+        "type": "PB_AUM_ROLLS_UP_TO",
+        "properties": {
+          "definition": "此 AUM 子指標歸屬於上層指標，具體彙總口徑由映射與計算規則決定。"
+        }
+      },
+      {
+        "from": "aum_investment",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167",
+        "to": "aum_total",
+        "type": "PB_AUM_ROLLS_UP_TO",
+        "properties": {
+          "definition": "此 AUM 子指標歸屬於上層指標，具體彙總口徑由映射與計算規則決定。"
+        }
+      },
+      {
+        "from": "deposit",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375822",
+        "to": "aum_deposit",
+        "type": "PB_AUM_MEASURED_BY",
+        "properties": {
+          "definition": "產品的資產規模由此 AUM 指標衡量。"
+        }
+      },
+      {
+        "from": "aum_bank_investment",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "to": "aum_investment",
+        "type": "PB_AUM_ROLLS_UP_TO",
+        "properties": {
+          "definition": "此 AUM 子指標歸屬於上層指標，具體彙總口徑由映射與計算規則決定。"
+        }
+      },
+      {
+        "from": "aum_securities",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922096398942864543",
+        "to": "aum_investment",
+        "type": "PB_AUM_ROLLS_UP_TO",
+        "properties": {
+          "definition": "此 AUM 子指標歸屬於上層指標，具體彙總口徑由映射與計算規則決定。"
+        }
+      },
+      {
+        "from": "bank_fund",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375824",
+        "to": "aum_bank_investment",
+        "type": "PB_AUM_MEASURED_BY",
+        "properties": {
+          "definition": "產品的資產規模由此 AUM 指標衡量。"
+        }
+      },
+      {
+        "from": "bank_etf",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375825",
+        "to": "aum_bank_investment",
+        "type": "PB_AUM_MEASURED_BY",
+        "properties": {
+          "definition": "產品的資產規模由此 AUM 指標衡量。"
+        }
+      },
+      {
+        "from": "bank_overseas_stock",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375826",
+        "to": "aum_bank_investment",
+        "type": "PB_AUM_MEASURED_BY",
+        "properties": {
+          "definition": "產品的資產規模由此 AUM 指標衡量。"
+        }
+      },
+      {
+        "from": "bank_bond_trust",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375827",
+        "to": "aum_bank_investment",
+        "type": "PB_AUM_MEASURED_BY",
+        "properties": {
+          "definition": "產品的資產規模由此 AUM 指標衡量。"
+        }
+      },
+      {
+        "from": "bank_bond_proprietary",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375828",
+        "to": "aum_bank_investment",
+        "type": "PB_AUM_MEASURED_BY",
+        "properties": {
+          "definition": "產品的資產規模由此 AUM 指標衡量。"
+        }
+      },
+      {
+        "from": "bank_collective_account",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375829",
+        "to": "aum_bank_investment",
+        "type": "PB_AUM_MEASURED_BY",
+        "properties": {
+          "definition": "產品的資產規模由此 AUM 指標衡量。"
+        }
+      },
+      {
+        "from": "bank_structured_offshore",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375830",
+        "to": "aum_bank_investment",
+        "type": "PB_AUM_MEASURED_BY",
+        "properties": {
+          "definition": "產品的資產規模由此 AUM 指標衡量。"
+        }
+      },
+      {
+        "from": "bank_planned_trust",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375831",
+        "to": "aum_bank_investment",
+        "type": "PB_AUM_MEASURED_BY",
+        "properties": {
+          "definition": "產品的資產規模由此 AUM 指標衡量。"
+        }
+      },
+      {
+        "from": "bank_trust_custody",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375832",
+        "to": "aum_bank_investment",
+        "type": "PB_AUM_MEASURED_BY",
+        "properties": {
+          "definition": "產品的資產規模由此 AUM 指標衡量。"
+        }
+      },
+      {
+        "from": "aum_insurance",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259170",
+        "to": "aum_bank_investment",
+        "type": "PB_AUM_ROLLS_UP_TO",
+        "properties": {
+          "definition": "此 AUM 子指標歸屬於上層指標，具體彙總口徑由映射與計算規則決定。"
+        }
+      },
+      {
+        "from": "securities_bond",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375833",
+        "to": "aum_securities",
+        "type": "PB_AUM_MEASURED_BY",
+        "properties": {
+          "definition": "產品的資產規模由此 AUM 指標衡量。"
+        }
+      },
+      {
+        "from": "securities_structured",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375834",
+        "to": "aum_securities",
+        "type": "PB_AUM_MEASURED_BY",
+        "properties": {
+          "definition": "產品的資產規模由此 AUM 指標衡量。"
+        }
+      },
+      {
+        "from": "securities_fund",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375835",
+        "to": "aum_securities",
+        "type": "PB_AUM_MEASURED_BY",
+        "properties": {
+          "definition": "產品的資產規模由此 AUM 指標衡量。"
+        }
+      },
+      {
+        "from": "securities_foreign_stock",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375836",
+        "to": "aum_securities",
+        "type": "PB_AUM_MEASURED_BY",
+        "properties": {
+          "definition": "產品的資產規模由此 AUM 指標衡量。"
+        }
+      },
+      {
+        "from": "bank_insurance",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375823",
+        "to": "aum_insurance",
+        "type": "PB_AUM_MEASURED_BY",
+        "properties": {
+          "definition": "產品的資產規模由此 AUM 指標衡量。"
+        }
+      },
+      {
+        "from": "fee_income",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948",
+        "to": "income_total",
+        "type": "PB_INCOME_ROLLS_UP_TO",
+        "properties": {
+          "definition": "此收入子指標歸屬於上層指標，具體彙總口徑由映射與計算規則決定。"
+        }
+      },
+      {
+        "from": "interest_income",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886951",
+        "to": "income_total",
+        "type": "PB_INCOME_ROLLS_UP_TO",
+        "properties": {
+          "definition": "此收入子指標歸屬於上層指標，具體彙總口徑由映射與計算規則決定。"
+        }
+      },
+      {
+        "from": "bank_fee_income",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "to": "fee_income",
+        "type": "PB_INCOME_ROLLS_UP_TO",
+        "properties": {
+          "definition": "此收入子指標歸屬於上層指標，具體彙總口徑由映射與計算規則決定。"
+        }
+      },
+      {
+        "from": "securities_fee_income",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922097498454492324",
+        "to": "fee_income",
+        "type": "PB_INCOME_ROLLS_UP_TO",
+        "properties": {
+          "definition": "此收入子指標歸屬於上層指標，具體彙總口徑由映射與計算規則決定。"
+        }
+      },
+      {
+        "from": "bank_insurance",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003599",
+        "to": "bank_fee_income",
+        "type": "PB_INCOME_MEASURED_BY",
+        "properties": {
+          "definition": "產品相關收入由此收入指標衡量。"
+        }
+      },
+      {
+        "from": "bank_fund",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003600",
+        "to": "bank_fee_income",
+        "type": "PB_INCOME_MEASURED_BY",
+        "properties": {
+          "definition": "產品相關收入由此收入指標衡量。"
+        }
+      },
+      {
+        "from": "bank_etf",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003601",
+        "to": "bank_fee_income",
+        "type": "PB_INCOME_MEASURED_BY",
+        "properties": {
+          "definition": "產品相關收入由此收入指標衡量。"
+        }
+      },
+      {
+        "from": "bank_overseas_stock",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003602",
+        "to": "bank_fee_income",
+        "type": "PB_INCOME_MEASURED_BY",
+        "properties": {
+          "definition": "產品相關收入由此收入指標衡量。"
+        }
+      },
+      {
+        "from": "bank_bond_trust",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003603",
+        "to": "bank_fee_income",
+        "type": "PB_INCOME_MEASURED_BY",
+        "properties": {
+          "definition": "產品相關收入由此收入指標衡量。"
+        }
+      },
+      {
+        "from": "bank_bond_proprietary",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003604",
+        "to": "bank_fee_income",
+        "type": "PB_INCOME_MEASURED_BY",
+        "properties": {
+          "definition": "產品相關收入由此收入指標衡量。"
+        }
+      },
+      {
+        "from": "bank_structured_offshore",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003606",
+        "to": "bank_fee_income",
+        "type": "PB_INCOME_MEASURED_BY",
+        "properties": {
+          "definition": "產品相關收入由此收入指標衡量。"
+        }
+      },
+      {
+        "from": "bank_planned_trust",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003607",
+        "to": "bank_fee_income",
+        "type": "PB_INCOME_MEASURED_BY",
+        "properties": {
+          "definition": "產品相關收入由此收入指標衡量。"
+        }
+      },
+      {
+        "from": "bank_trust_custody",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003608",
+        "to": "bank_fee_income",
+        "type": "PB_INCOME_MEASURED_BY",
+        "properties": {
+          "definition": "產品相關收入由此收入指標衡量。"
+        }
+      },
+      {
+        "from": "securities_bond",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003609",
+        "to": "securities_fee_income",
+        "type": "PB_INCOME_MEASURED_BY",
+        "properties": {
+          "definition": "產品相關收入由此收入指標衡量。"
+        }
+      },
+      {
+        "from": "securities_structured",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003610",
+        "to": "securities_fee_income",
+        "type": "PB_INCOME_MEASURED_BY",
+        "properties": {
+          "definition": "產品相關收入由此收入指標衡量。"
+        }
+      },
+      {
+        "from": "securities_fund",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003611",
+        "to": "securities_fee_income",
+        "type": "PB_INCOME_MEASURED_BY",
+        "properties": {
+          "definition": "產品相關收入由此收入指標衡量。"
+        }
+      },
+      {
+        "from": "securities_foreign_stock",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003612",
+        "to": "securities_fee_income",
+        "type": "PB_INCOME_MEASURED_BY",
+        "properties": {
+          "definition": "產品相關收入由此收入指標衡量。"
+        }
+      },
+      {
+        "from": "deposit_interest_income",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807079",
+        "to": "interest_income",
+        "type": "PB_INCOME_ROLLS_UP_TO",
+        "properties": {
+          "definition": "此收入子指標歸屬於上層指標，具體彙總口徑由映射與計算規則決定。"
+        }
+      },
+      {
+        "from": "deposit",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003598",
+        "to": "deposit_interest_income",
+        "type": "PB_INCOME_MEASURED_BY",
+        "properties": {
+          "definition": "產品相關收入由此收入指標衡量。"
+        }
+      },
+      {
+        "from": "aum_total",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152991873351025821",
+        "to": "customer",
+        "type": "PB_HAS_MEASUREMENT_SUBJECT",
+        "properties": {
+          "definition": "此指標以客戶作為衡量對象。"
+        }
+      },
+      {
+        "from": "aum_deposit",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152991873351025822",
+        "to": "customer",
+        "type": "PB_HAS_MEASUREMENT_SUBJECT",
+        "properties": {
+          "definition": "此指標以客戶作為衡量對象。"
+        }
+      },
+      {
+        "from": "aum_investment",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152991873351025823",
+        "to": "customer",
+        "type": "PB_HAS_MEASUREMENT_SUBJECT",
+        "properties": {
+          "definition": "此指標以客戶作為衡量對象。"
+        }
+      },
+      {
+        "from": "aum_bank_investment",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6917599396385260713",
+        "to": "customer",
+        "type": "PB_HAS_MEASUREMENT_SUBJECT",
+        "properties": {
+          "definition": "此指標以客戶作為衡量對象。"
+        }
+      },
+      {
+        "from": "aum_securities",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919851196198945961",
+        "to": "customer",
+        "type": "PB_HAS_MEASUREMENT_SUBJECT",
+        "properties": {
+          "definition": "此指標以客戶作為衡量對象。"
+        }
+      },
+      {
+        "from": "aum_insurance",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922102996012631209",
+        "to": "customer",
+        "type": "PB_HAS_MEASUREMENT_SUBJECT",
+        "properties": {
+          "definition": "此指標以客戶作為衡量對象。"
+        }
+      },
+      {
+        "from": "income_total",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6924354795826316457",
+        "to": "customer",
+        "type": "PB_HAS_MEASUREMENT_SUBJECT",
+        "properties": {
+          "definition": "此指標以客戶作為衡量對象。"
+        }
+      },
+      {
+        "from": "fee_income",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6926606595640001705",
+        "to": "customer",
+        "type": "PB_HAS_MEASUREMENT_SUBJECT",
+        "properties": {
+          "definition": "此指標以客戶作為衡量對象。"
+        }
+      },
+      {
+        "from": "bank_fee_income",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6928858395453686953",
+        "to": "customer",
+        "type": "PB_HAS_MEASUREMENT_SUBJECT",
+        "properties": {
+          "definition": "此指標以客戶作為衡量對象。"
+        }
+      },
+      {
+        "from": "securities_fee_income",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6931110195267372201",
+        "to": "customer",
+        "type": "PB_HAS_MEASUREMENT_SUBJECT",
+        "properties": {
+          "definition": "此指標以客戶作為衡量對象。"
+        }
+      },
+      {
+        "from": "interest_income",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6933361995081057449",
+        "to": "customer",
+        "type": "PB_HAS_MEASUREMENT_SUBJECT",
+        "properties": {
+          "definition": "此指標以客戶作為衡量對象。"
+        }
+      },
+      {
+        "from": "deposit_interest_income",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6935613794894742697",
+        "to": "customer",
+        "type": "PB_HAS_MEASUREMENT_SUBJECT",
+        "properties": {
+          "definition": "此指標以客戶作為衡量對象。"
+        }
+      }
+    ],
+    "nodes": [
+      {
+        "key": "deposit",
+        "properties": {
+          "productCode": "deposit",
+          "incomeDefinition": "現有來源計入的存款利收，按存款整體衡量，尚未拆分至各存款子類。",
+          "customerId": null,
+          "name": "存款",
+          "conceptCode": null,
+          "definition": null,
+          "customerNumber": null,
+          "aumDefinition": "客戶在銀行持有的台幣、外幣及結構型存款資產，以存款餘額衡量。",
+          "customerName": null,
+          "metricCode": null
+        },
+        "labels": [
+          "PBConceptProduct",
+          "PBConcept"
+        ]
+      },
+      {
+        "key": "bank_insurance",
+        "properties": {
+          "productCode": "bank_insurance",
+          "incomeDefinition": "銀行通路保險業務的手續費及來源列入的客戶貢獻度金額，涵蓋日檔、月批與續期來源；來源間是否重複仍待釐清。",
+          "customerId": null,
+          "name": "銀行保險",
+          "conceptCode": null,
+          "definition": null,
+          "customerNumber": null,
+          "aumDefinition": "客戶透過銀行通路持有的保險資產，以原始投資金額衡量。",
+          "customerName": null,
+          "metricCode": null
+        },
+        "labels": [
+          "PBConceptProduct",
+          "PBConcept"
+        ]
+      },
+      {
+        "key": "bank_fund",
+        "properties": {
+          "productCode": "bank_fund",
+          "incomeDefinition": "依現有來源分類計入的銀行基金分行手續費收入。",
+          "customerId": null,
+          "name": "銀行基金",
+          "conceptCode": null,
+          "definition": null,
+          "customerNumber": null,
+          "aumDefinition": "客戶透過銀行通路持有的基金資產，以來源提供的台幣資產價值衡量。",
+          "customerName": null,
+          "metricCode": null
+        },
+        "labels": [
+          "PBConceptProduct",
+          "PBConcept"
+        ]
+      },
+      {
+        "key": "bank_etf",
+        "properties": {
+          "productCode": "bank_etf",
+          "incomeDefinition": "銀行通路 ETF 業務的分行手續費收入。",
+          "customerId": null,
+          "name": "銀行ETF",
+          "conceptCode": null,
+          "definition": null,
+          "customerNumber": null,
+          "aumDefinition": "客戶透過銀行通路持有的 ETF 資產，以來源提供的台幣資產價值衡量。",
+          "customerName": null,
+          "metricCode": null
+        },
+        "labels": [
+          "PBConceptProduct",
+          "PBConcept"
+        ]
+      },
+      {
+        "key": "bank_overseas_stock",
+        "properties": {
+          "productCode": "bank_overseas_stock",
+          "incomeDefinition": "銀行通路海外股票業務的分行手續費收入。",
+          "customerId": null,
+          "name": "銀行海外股票",
+          "conceptCode": null,
+          "definition": null,
+          "customerNumber": null,
+          "aumDefinition": "客戶透過銀行通路持有的海外股票資產，以來源提供的台幣資產價值衡量。",
+          "customerName": null,
+          "metricCode": null
+        },
+        "labels": [
+          "PBConceptProduct",
+          "PBConcept"
+        ]
+      },
+      {
+        "key": "bank_bond_trust",
+        "properties": {
+          "productCode": "bank_bond_trust",
+          "incomeDefinition": "銀行信託通路海外債券業務的分行手續費，以及按現行口徑計入的交易利得。",
+          "customerId": null,
+          "name": "海外債券（信託）",
+          "conceptCode": null,
+          "definition": null,
+          "customerNumber": null,
+          "aumDefinition": "客戶透過銀行信託通路持有的海外債券資產，以來源提供的台幣資產價值衡量。",
+          "customerName": null,
+          "metricCode": null
+        },
+        "labels": [
+          "PBConceptProduct",
+          "PBConcept"
+        ]
+      },
+      {
+        "key": "bank_bond_proprietary",
+        "properties": {
+          "productCode": "bank_bond_proprietary",
+          "incomeDefinition": "銀行自營通路海外債券業務的來源收入，目前按來源收入金額的絕對值計入；與 AUM 側產品範圍的對應仍待釐清。",
+          "customerId": null,
+          "name": "海外債券（自營）",
+          "conceptCode": null,
+          "definition": null,
+          "customerNumber": null,
+          "aumDefinition": "客戶透過銀行自營通路持有的海外債券部位，以面額、參考價格及匯率換算後的價值衡量。",
+          "customerName": null,
+          "metricCode": null
+        },
+        "labels": [
+          "PBConceptProduct",
+          "PBConcept"
+        ]
+      },
+      {
+        "key": "bank_collective_account",
+        "properties": {
+          "productCode": "bank_collective_account",
+          "incomeDefinition": "",
+          "customerId": null,
+          "name": "集合管理帳戶",
+          "conceptCode": null,
+          "definition": null,
+          "customerNumber": null,
+          "aumDefinition": "客戶持有的集合管理帳戶資產，以來源提供的台幣資產價值衡量。",
+          "customerName": null,
+          "metricCode": null
+        },
+        "labels": [
+          "PBConceptProduct",
+          "PBConcept"
+        ]
+      },
+      {
+        "key": "bank_structured_offshore",
+        "properties": {
+          "productCode": "bank_structured_offshore",
+          "incomeDefinition": "銀行通路境外結構型商品業務的分行手續費收入。",
+          "customerId": null,
+          "name": "銀行境外結構型商品",
+          "conceptCode": null,
+          "definition": null,
+          "customerNumber": null,
+          "aumDefinition": "客戶透過銀行通路持有的境外結構型商品資產，以來源提供的台幣資產價值衡量。",
+          "customerName": null,
+          "metricCode": null
+        },
+        "labels": [
+          "PBConceptProduct",
+          "PBConcept"
+        ]
+      },
+      {
+        "key": "bank_planned_trust",
+        "properties": {
+          "productCode": "bank_planned_trust",
+          "incomeDefinition": "規劃型信託業務的借券、管理及成立費收入，包含員工持股信託來源。",
+          "customerId": null,
+          "name": "規劃型信託",
+          "conceptCode": null,
+          "definition": null,
+          "customerNumber": null,
+          "aumDefinition": "客戶的規劃型信託資產，涵蓋一般信託及員工持股信託來源，以來源提供的投資現值或台幣市值衡量。",
+          "customerName": null,
+          "metricCode": null
+        },
+        "labels": [
+          "PBConceptProduct",
+          "PBConcept"
+        ]
+      },
+      {
+        "key": "bank_trust_custody",
+        "properties": {
+          "productCode": "bank_trust_custody",
+          "incomeDefinition": "信託保管業務的保管費收入。",
+          "customerId": null,
+          "name": "信託保管",
+          "conceptCode": null,
+          "definition": null,
+          "customerNumber": null,
+          "aumDefinition": "客戶交付信託保管的資產，以來源提供的資產現值合計衡量。",
+          "customerName": null,
+          "metricCode": null
+        },
+        "labels": [
+          "PBConceptProduct",
+          "PBConcept"
+        ]
+      },
+      {
+        "key": "securities_bond",
+        "properties": {
+          "productCode": "securities_bond",
+          "incomeDefinition": "證券複委託債券交易的客戶手續費收入，依來源匯率換算。",
+          "customerId": null,
+          "name": "證券複委託債券",
+          "conceptCode": null,
+          "definition": null,
+          "customerNumber": null,
+          "aumDefinition": "客戶透過證券複委託持有的債券部位，以持有數量、價格及匯率換算後的價值衡量。",
+          "customerName": null,
+          "metricCode": null
+        },
+        "labels": [
+          "PBConceptProduct",
+          "PBConcept"
+        ]
+      },
+      {
+        "key": "securities_structured",
+        "properties": {
+          "productCode": "securities_structured",
+          "incomeDefinition": "證券複委託結構型商品交易的客戶手續費收入，依來源匯率換算。",
+          "customerId": null,
+          "name": "證券複委託結構型商品",
+          "conceptCode": null,
+          "definition": null,
+          "customerNumber": null,
+          "aumDefinition": "客戶透過證券複委託持有的結構型商品部位，以持有數量、價格及匯率換算後的價值衡量。",
+          "customerName": null,
+          "metricCode": null
+        },
+        "labels": [
+          "PBConceptProduct",
+          "PBConcept"
+        ]
+      },
+      {
+        "key": "securities_fund",
+        "properties": {
+          "productCode": "securities_fund",
+          "incomeDefinition": "證券複委託基金交易的來源總手續費收入。",
+          "customerId": null,
+          "name": "證券複委託基金",
+          "conceptCode": null,
+          "definition": null,
+          "customerNumber": null,
+          "aumDefinition": "客戶透過證券複委託持有的基金資產，以持有單位數、收盤價及匯率換算後的價值衡量。",
+          "customerName": null,
+          "metricCode": null
+        },
+        "labels": [
+          "PBConceptProduct",
+          "PBConcept"
+        ]
+      },
+      {
+        "key": "securities_foreign_stock",
+        "properties": {
+          "productCode": "securities_foreign_stock",
+          "incomeDefinition": "證券複委託外國股票交易的客戶手續費扣除上手手續費後的淨收入，依來源匯率換算，保留可能的負值。",
+          "customerId": null,
+          "name": "證券複委託外國股票",
+          "conceptCode": null,
+          "definition": null,
+          "customerNumber": null,
+          "aumDefinition": "客戶透過證券複委託持有的外國股票部位，以持有數量、價格及匯率換算後的價值衡量。",
+          "customerName": null,
+          "metricCode": null
+        },
+        "labels": [
+          "PBConceptProduct",
+          "PBConcept"
+        ]
+      },
+      {
+        "key": "aum_total",
+        "properties": {
+          "productCode": null,
+          "incomeDefinition": null,
+          "customerId": null,
+          "name": "總 AUM",
+          "conceptCode": null,
+          "definition": "某一衡量時點的銀行存款與銀行及證券通路投資資產合計，依各產品的計價口徑衡量。",
+          "customerNumber": null,
+          "aumDefinition": null,
+          "customerName": null,
+          "metricCode": "aum_total"
+        },
+        "labels": [
+          "PBConceptMetric",
+          "PBConcept",
+          "PBConceptAUM"
+        ]
+      },
+      {
+        "key": "aum_deposit",
+        "properties": {
+          "productCode": null,
+          "incomeDefinition": null,
+          "customerId": null,
+          "name": "存款 AUM",
+          "conceptCode": null,
+          "definition": "某一衡量時點的銀行存款餘額，涵蓋台幣、外幣及結構型存款。",
+          "customerNumber": null,
+          "aumDefinition": null,
+          "customerName": null,
+          "metricCode": "aum_deposit"
+        },
+        "labels": [
+          "PBConceptMetric",
+          "PBConcept",
+          "PBConceptAUM"
+        ]
+      },
+      {
+        "key": "aum_investment",
+        "properties": {
+          "productCode": null,
+          "incomeDefinition": null,
+          "customerId": null,
+          "name": "投資 AUM",
+          "conceptCode": null,
+          "definition": "某一衡量時點的銀行及證券通路投資資產合計，依各產品的計價口徑衡量。",
+          "customerNumber": null,
+          "aumDefinition": null,
+          "customerName": null,
+          "metricCode": "aum_investment"
+        },
+        "labels": [
+          "PBConceptMetric",
+          "PBConcept",
+          "PBConceptAUM"
+        ]
+      },
+      {
+        "key": "aum_bank_investment",
+        "properties": {
+          "productCode": null,
+          "incomeDefinition": null,
+          "customerId": null,
+          "name": "銀行投資 AUM",
+          "conceptCode": null,
+          "definition": "某一衡量時點的銀行通路投資資產合計，涵蓋保險、信託及其他已納入的投資產品。",
+          "customerNumber": null,
+          "aumDefinition": null,
+          "customerName": null,
+          "metricCode": "aum_bank_investment"
+        },
+        "labels": [
+          "PBConceptMetric",
+          "PBConcept",
+          "PBConceptAUM"
+        ]
+      },
+      {
+        "key": "aum_securities",
+        "properties": {
+          "productCode": null,
+          "incomeDefinition": null,
+          "customerId": null,
+          "name": "證券 AUM",
+          "conceptCode": null,
+          "definition": "某一衡量時點的證券通路投資資產合計，依各產品的部位估值口徑衡量。",
+          "customerNumber": null,
+          "aumDefinition": null,
+          "customerName": null,
+          "metricCode": "aum_securities"
+        },
+        "labels": [
+          "PBConceptMetric",
+          "PBConcept",
+          "PBConceptAUM"
+        ]
+      },
+      {
+        "key": "aum_insurance",
+        "properties": {
+          "productCode": null,
+          "incomeDefinition": null,
+          "customerId": null,
+          "name": "保險 AUM",
+          "conceptCode": null,
+          "definition": "某一衡量時點的銀行通路保險資產，以原始投資金額衡量。",
+          "customerNumber": null,
+          "aumDefinition": null,
+          "customerName": null,
+          "metricCode": "aum_insurance"
+        },
+        "labels": [
+          "PBConceptMetric",
+          "PBConcept",
+          "PBConceptAUM"
+        ]
+      },
+      {
+        "key": "income_total",
+        "properties": {
+          "productCode": null,
+          "incomeDefinition": null,
+          "customerId": null,
+          "name": "總收入",
+          "conceptCode": null,
+          "definition": "某一衡量期間內，客戶相關的手續費類收入與利收合計，依各來源的收入口徑衡量。",
+          "customerNumber": null,
+          "aumDefinition": null,
+          "customerName": null,
+          "metricCode": "income_total"
+        },
+        "labels": [
+          "PBConceptMetric",
+          "PBConcept",
+          "PBConceptIncome"
+        ]
+      },
+      {
+        "key": "fee_income",
+        "properties": {
+          "productCode": null,
+          "incomeDefinition": null,
+          "customerId": null,
+          "name": "手續費類收入",
+          "conceptCode": null,
+          "definition": "現有口徑歸入手續費類的收入，涵蓋手續費、客戶貢獻度及部分交易損益。",
+          "customerNumber": null,
+          "aumDefinition": null,
+          "customerName": null,
+          "metricCode": "fee_income"
+        },
+        "labels": [
+          "PBConceptMetric",
+          "PBConcept",
+          "PBConceptIncome"
+        ]
+      },
+      {
+        "key": "bank_fee_income",
+        "properties": {
+          "productCode": null,
+          "incomeDefinition": null,
+          "customerId": null,
+          "name": "銀行手續費類收入",
+          "conceptCode": null,
+          "definition": "銀行通路歸入手續費類的收入，依各產品來源的收入口徑衡量。",
+          "customerNumber": null,
+          "aumDefinition": null,
+          "customerName": null,
+          "metricCode": "bank_fee_income"
+        },
+        "labels": [
+          "PBConceptMetric",
+          "PBConcept",
+          "PBConceptIncome"
+        ]
+      },
+      {
+        "key": "securities_fee_income",
+        "properties": {
+          "productCode": null,
+          "incomeDefinition": null,
+          "customerId": null,
+          "name": "證券手續費類收入",
+          "conceptCode": null,
+          "definition": "證券通路歸入手續費類的收入，依各產品來源的收入口徑衡量。",
+          "customerNumber": null,
+          "aumDefinition": null,
+          "customerName": null,
+          "metricCode": "securities_fee_income"
+        },
+        "labels": [
+          "PBConceptMetric",
+          "PBConcept",
+          "PBConceptIncome"
+        ]
+      },
+      {
+        "key": "interest_income",
+        "properties": {
+          "productCode": null,
+          "incomeDefinition": null,
+          "customerId": null,
+          "name": "利收",
+          "conceptCode": null,
+          "definition": "存款與放款業務歸入利收的收入，依各來源的取值口徑衡量。",
+          "customerNumber": null,
+          "aumDefinition": null,
+          "customerName": null,
+          "metricCode": "interest_income"
+        },
+        "labels": [
+          "PBConceptMetric",
+          "PBConcept",
+          "PBConceptIncome"
+        ]
+      },
+      {
+        "key": "deposit_interest_income",
+        "properties": {
+          "productCode": null,
+          "incomeDefinition": null,
+          "customerId": null,
+          "name": "存款利收",
+          "conceptCode": null,
+          "definition": "存款業務歸入利收的收入，按存款整體衡量，尚未拆分至各存款子類。",
+          "customerNumber": null,
+          "aumDefinition": null,
+          "customerName": null,
+          "metricCode": "deposit_interest_income"
+        },
+        "labels": [
+          "PBConceptMetric",
+          "PBConcept",
+          "PBConceptIncome"
+        ]
+      },
+      {
+        "key": "customer",
+        "properties": {
+          "productCode": null,
+          "incomeDefinition": null,
+          "customerId": "用於識別客戶的識別碼；各來源可能採用不同的識別種類，跨來源對照尚待釐清。",
+          "name": "客戶",
+          "conceptCode": "customer",
+          "definition": "與機構建立往來關係，使用其產品或服務的個人或組織。",
+          "customerNumber": "來源系統使用的客戶編號，屬選用資訊；與客戶識別碼分開理解。",
+          "aumDefinition": null,
+          "customerName": "客戶姓名或名稱；委託人名稱須依來源角色解讀，來源未提供時可缺值。",
+          "metricCode": null
+        },
+        "labels": [
+          "PBConcept",
+          "PBConceptCustomer"
+        ]
+      }
+    ]
+  },
+  "businessPaths": [
+    {
+      "nodeKeys": [
+        "deposit",
+        "aum_deposit",
+        "aum_total"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375822",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259166"
+      ],
+      "domain": "aum"
+    },
+    {
+      "nodeKeys": [
+        "deposit",
+        "deposit_interest_income",
+        "interest_income",
+        "income_total"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003598",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807079",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886951"
+      ],
+      "domain": "income"
+    },
+    {
+      "nodeKeys": [
+        "bank_insurance",
+        "aum_insurance",
+        "aum_bank_investment",
+        "aum_investment",
+        "aum_total"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375823",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259170",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ],
+      "domain": "aum"
+    },
+    {
+      "nodeKeys": [
+        "bank_insurance",
+        "bank_fee_income",
+        "fee_income",
+        "income_total"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003599",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ],
+      "domain": "income"
+    },
+    {
+      "nodeKeys": [
+        "bank_fund",
+        "aum_bank_investment",
+        "aum_investment",
+        "aum_total"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375824",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ],
+      "domain": "aum"
+    },
+    {
+      "nodeKeys": [
+        "bank_fund",
+        "bank_fee_income",
+        "fee_income",
+        "income_total"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003600",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ],
+      "domain": "income"
+    },
+    {
+      "nodeKeys": [
+        "bank_etf",
+        "aum_bank_investment",
+        "aum_investment",
+        "aum_total"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375825",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ],
+      "domain": "aum"
+    },
+    {
+      "nodeKeys": [
+        "bank_etf",
+        "bank_fee_income",
+        "fee_income",
+        "income_total"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003601",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ],
+      "domain": "income"
+    },
+    {
+      "nodeKeys": [
+        "bank_overseas_stock",
+        "aum_bank_investment",
+        "aum_investment",
+        "aum_total"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375826",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ],
+      "domain": "aum"
+    },
+    {
+      "nodeKeys": [
+        "bank_overseas_stock",
+        "bank_fee_income",
+        "fee_income",
+        "income_total"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003602",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ],
+      "domain": "income"
+    },
+    {
+      "nodeKeys": [
+        "bank_bond_trust",
+        "aum_bank_investment",
+        "aum_investment",
+        "aum_total"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375827",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ],
+      "domain": "aum"
+    },
+    {
+      "nodeKeys": [
+        "bank_bond_trust",
+        "bank_fee_income",
+        "fee_income",
+        "income_total"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003603",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ],
+      "domain": "income"
+    },
+    {
+      "nodeKeys": [
+        "bank_bond_proprietary",
+        "aum_bank_investment",
+        "aum_investment",
+        "aum_total"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375828",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ],
+      "domain": "aum"
+    },
+    {
+      "nodeKeys": [
+        "bank_bond_proprietary",
+        "bank_fee_income",
+        "fee_income",
+        "income_total"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003604",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ],
+      "domain": "income"
+    },
+    {
+      "nodeKeys": [
+        "bank_collective_account",
+        "aum_bank_investment",
+        "aum_investment",
+        "aum_total"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375829",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ],
+      "domain": "aum"
+    },
+    {
+      "nodeKeys": [
+        "bank_structured_offshore",
+        "aum_bank_investment",
+        "aum_investment",
+        "aum_total"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375830",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ],
+      "domain": "aum"
+    },
+    {
+      "nodeKeys": [
+        "bank_structured_offshore",
+        "bank_fee_income",
+        "fee_income",
+        "income_total"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003606",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ],
+      "domain": "income"
+    },
+    {
+      "nodeKeys": [
+        "bank_planned_trust",
+        "aum_bank_investment",
+        "aum_investment",
+        "aum_total"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375831",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ],
+      "domain": "aum"
+    },
+    {
+      "nodeKeys": [
+        "bank_planned_trust",
+        "bank_fee_income",
+        "fee_income",
+        "income_total"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003607",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ],
+      "domain": "income"
+    },
+    {
+      "nodeKeys": [
+        "bank_trust_custody",
+        "aum_bank_investment",
+        "aum_investment",
+        "aum_total"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375832",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ],
+      "domain": "aum"
+    },
+    {
+      "nodeKeys": [
+        "bank_trust_custody",
+        "bank_fee_income",
+        "fee_income",
+        "income_total"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003608",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ],
+      "domain": "income"
+    },
+    {
+      "nodeKeys": [
+        "securities_bond",
+        "aum_securities",
+        "aum_investment",
+        "aum_total"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375833",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922096398942864543",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ],
+      "domain": "aum"
+    },
+    {
+      "nodeKeys": [
+        "securities_bond",
+        "securities_fee_income",
+        "fee_income",
+        "income_total"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003609",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922097498454492324",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ],
+      "domain": "income"
+    },
+    {
+      "nodeKeys": [
+        "securities_structured",
+        "aum_securities",
+        "aum_investment",
+        "aum_total"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375834",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922096398942864543",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ],
+      "domain": "aum"
+    },
+    {
+      "nodeKeys": [
+        "securities_structured",
+        "securities_fee_income",
+        "fee_income",
+        "income_total"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003610",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922097498454492324",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ],
+      "domain": "income"
+    },
+    {
+      "nodeKeys": [
+        "securities_fund",
+        "aum_securities",
+        "aum_investment",
+        "aum_total"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375835",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922096398942864543",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ],
+      "domain": "aum"
+    },
+    {
+      "nodeKeys": [
+        "securities_fund",
+        "securities_fee_income",
+        "fee_income",
+        "income_total"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003611",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922097498454492324",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ],
+      "domain": "income"
+    },
+    {
+      "nodeKeys": [
+        "securities_foreign_stock",
+        "aum_securities",
+        "aum_investment",
+        "aum_total"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375836",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922096398942864543",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ],
+      "domain": "aum"
+    },
+    {
+      "nodeKeys": [
+        "securities_foreign_stock",
+        "securities_fee_income",
+        "fee_income",
+        "income_total"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003612",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922097498454492324",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ],
+      "domain": "income"
+    }
+  ]
+}

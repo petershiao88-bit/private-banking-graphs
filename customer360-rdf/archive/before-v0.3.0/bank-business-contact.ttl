@@ -1,0 +1,32 @@
+# 銀行業務通聯延伸，2026-10-21，設計草案。
+# example.org 為示意命名空間；不是實際服務位址。
+
+@prefix fh: <https://example.org/ontology/holding#> .
+@prefix bank: <https://example.org/ontology/bank#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://example.org/ontology/bank/business-contact>
+    a owl:Ontology ;
+    rdfs:label "銀行業務通聯延伸本體"@zh-TW ;
+    owl:imports <https://example.org/ontology/bank> ;
+    rdfs:comment "業務用途的通聯子類別，沿用銀行共用通聯欄位；不同業務可指向銀行維護的同一筆權威通聯紀錄。本模組不建立實例、業務使用關係或確認事件；實際權責部門尚待確認。"@zh-TW .
+
+# Class：業務用途分類，不表示業務事件已完成。
+
+bank:LoanVerificationMobileContactInformation
+    a owl:Class ;
+    rdfs:subClassOf bank:MobileContactInformation ;
+    rdfs:label "貸款照會手機通聯資訊"@zh-TW ;
+    skos:definition "用於貸款照會的手機通聯紀錄；此分類不表示照會已完成或結果已通過，亦不指定哪一次貸款申請使用該紀錄。"@zh-TW ;
+    fh:governanceLevel "部門" ;
+    fh:subsidiary "銀行" .
+
+bank:CustomerVisitAddressContactInformation
+    a owl:Class ;
+    rdfs:subClassOf bank:AddressContactInformation ;
+    rdfs:label "客戶訪問地址通聯資訊"@zh-TW ;
+    skos:definition "供業務人員前往訪問客戶使用的地址通聯紀錄；不預設為客戶居住地址，亦不表示訪問已完成或指定哪一次訪問使用該紀錄。"@zh-TW ;
+    fh:governanceLevel "部門" ;
+    fh:subsidiary "銀行" .

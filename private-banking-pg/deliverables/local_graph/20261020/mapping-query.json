@@ -1,0 +1,370 @@
+{
+  "data": {
+    "fields": [
+      "legacyMappings",
+      "sqlTables",
+      "sqlStatements",
+      "sqlRelationships",
+      "draftMappings",
+      "draftNodes",
+      "dimensionEvidence"
+    ],
+    "values": [
+      [
+        [
+          {
+            "product": {
+              "key": "pb_shared:product:bank_etf",
+              "properties": {
+                "aumMetricKey": "aum:metric:aum_bank_investment_month_end",
+                "incomeStages": [
+                  "INCOME_033_034_035_036"
+                ],
+                "code": "bank_etf",
+                "role": "shared_product",
+                "incomeAmountBasis": "SUM(BRHREBATEAMT)",
+                "aumLegacyProducts": [
+                  "bank_trust_products"
+                ],
+                "displayOrder": 4,
+                "aumValuationBasis": "CurrentTWDValue",
+                "mappingStatus": "inferred",
+                "incomeMetricKey": "income:metric:bank_fee_income",
+                "incomeLegacyProducts": [
+                  "bank_etf"
+                ],
+                "incomeMappingActive": true,
+                "incomeFilter": "FH_TYP='ETF'",
+                "name": "銀行ETF",
+                "ontologyId": "pb_shared",
+                "directionStatus": "user_confirmed",
+                "definition": "由AUM銀行信託產品分類拆出；Income以FH_TYP ETF分類。",
+                "aumFilter": "PROD='ETF'",
+                "key": "pb_shared:product:bank_etf",
+                "status": "inferred",
+                "aumStages": [
+                  "AUM_013_015_015_016_017_018"
+                ]
+              },
+              "labels": [
+                "ProductCategory",
+                "SharedProduct"
+              ]
+            },
+            "productCode": "bank_etf",
+            "stage": {
+              "key": "aum:stage:AUM_013_015_015_016_017_018",
+              "properties": {
+                "sqlDefinitionStatus": "active_in_primary_sql",
+                "stagingSqlId": "STG_AUM_013_015_015_016_017_018",
+                "sqlLineageVersion": "sql_lineage_v1",
+                "outputObject": "AUM_013_015_015_016_017_018",
+                "sourceTables": [
+                  "DSFND.PB_FUND_MONTH"
+                ],
+                "name": "AUM_013_015_015_016_017_018",
+                "dictionaryVersion": "0.2-draft",
+                "ontologyId": "aum",
+                "stageLevel": "source_transform",
+                "key": "aum:stage:AUM_013_015_015_016_017_018"
+              },
+              "labels": [
+                "StagingOutput"
+              ]
+            },
+            "bindingStatus": "candidate_bridge",
+            "domain": "aum",
+            "implementation": {
+              "from": "pb_shared:product:bank_etf",
+              "to": "aum:stage:AUM_013_015_015_016_017_018",
+              "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:2824",
+              "type": "AUM_IMPLEMENTED_BY",
+              "properties": {
+                "note": "由AUM銀行信託產品分類拆出；Income以FH_TYP ETF分類。",
+                "ontologyId": "pb_shared",
+                "_aumIncomeTransferId": "d358faaa1ca79f239f5c7993255fd896cfd640bed3d67bc42e7b5bdfd97a2b0d",
+                "scope": "PROD='ETF'",
+                "origin": "shared_product_trial",
+                "status": "observed_in_sql"
+              }
+            },
+            "targetTableKey": "sql_lineage:table:AUM_013_015_015_016_017_018",
+            "bridge": {
+              "from": "aum:stage:AUM_013_015_015_016_017_018",
+              "to": "sql_lineage:table:AUM_013_015_015_016_017_018",
+              "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:84",
+              "type": "REPRESENTS_SQL_TABLE",
+              "properties": {
+                "_aumIncomeTransferId": "e70678e522f828caef37adcd186a5d9d1454d4b5ae56c640d7402f0f51cf0338",
+                "ontologyId": "sql_lineage",
+                "origin": "sql_lineage_v1"
+              }
+            },
+            "metricCode": "aum_bank_investment",
+            "status": "inferred"
+          }
+        ],
+        [
+          {
+            "key": "sql_lineage:table:AUM_013_015_015_016_017_018",
+            "properties": {
+              "definitionStatus": "active_in_primary_sql",
+              "physicalName": "AUM_013_015_015_016_017_018",
+              "hasPrimaryActiveDefinition": true,
+              "tableKind": "staging_output",
+              "origin": "sql_lineage_v1",
+              "name": "AUM_013_015_015_016_017_018",
+              "ontologyId": "sql_lineage",
+              "domains": [
+                "aum"
+              ],
+              "definitionStatuses": [
+                "active_sql"
+              ],
+              "key": "sql_lineage:table:AUM_013_015_015_016_017_018"
+            },
+            "labels": [
+              "SqlTable"
+            ]
+          },
+          {
+            "key": "sql_lineage:table:DSFND.PB_FUND_MONTH",
+            "properties": {
+              "definitionStatus": "external_definition_not_imported",
+              "physicalName": "DSFND.PB_FUND_MONTH",
+              "hasPrimaryActiveDefinition": false,
+              "tableKind": "external_source",
+              "origin": "sql_lineage_v1",
+              "name": "DSFND.PB_FUND_MONTH",
+              "ontologyId": "sql_lineage",
+              "domains": [
+                "aum"
+              ],
+              "definitionStatuses": [],
+              "key": "sql_lineage:table:DSFND.PB_FUND_MONTH"
+            },
+            "labels": [
+              "SqlTable"
+            ]
+          }
+        ],
+        [
+          {
+            "targetTableKeys": [
+              "sql_lineage:table:AUM_013_015_015_016_017_018"
+            ],
+            "requiredTableKeys": [
+              "sql_lineage:table:DSFND.PB_FUND_MONTH"
+            ],
+            "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L213",
+            "properties": {
+              "databaseLinks": [
+                "anadbp01_dwdbp01"
+              ],
+              "sqlTextKind": "original_statement_slice",
+              "lineStart": 213,
+              "origin": "sql_lineage_v1",
+              "lineEnd": 230,
+              "sourceRole": "primary_reference",
+              "sql": "create table AUM_013_015_015_016_017_018\nas \nselect \n    idno cust_id,to_char(exedate,'yyyymmdd') yyyymmdd,PCCCODE,idno,\n    case \n       when trustprd in ('其他-國外有價證券','其他-國外股票','股票') then '海外股票'\n       when trustprd ='集合' then '集合管理帳戶'\n       when trustprd ='海外債券' then '海外債券(信託)'\n       when trustprd ='結構型商品' then '境外結構型商品'\n    else trustprd end as trustprd,\n    sum(CurrentTWDValue) CurrentTWDValue    \nfrom DSFND.PB_FUND_MONTH@anadbp01_dwdbp01\ngroup by  idno,to_char(exedate,'yyyymmdd') ,PCCCODE,idno,case \n       when trustprd in ('其他-國外有價證券','其他-國外股票','股票') then '海外股票'\n       when trustprd ='集合' then '集合管理帳戶'\n       when trustprd ='海外債券' then '海外債券(信託)'\n       when trustprd ='結構型商品' then '境外結構型商品'\n    else trustprd end;",
+              "output": "AUM_013_015_015_016_017_018",
+              "file": "sources/sql/1.AUM_DETAIL.sql",
+              "statementType": "CREATE",
+              "domain": "aum",
+              "name": "AUM_013_015_015_016_017_018 · CREATE · L213",
+              "ontologyId": "sql_lineage",
+              "normalizedForParser": "comments blanked; Oracle DB-link suffix removed only for parsing",
+              "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L213",
+              "status": "active_sql"
+            },
+            "labels": [
+              "SqlStatement"
+            ]
+          }
+        ],
+        [
+          {
+            "from": "sql_lineage:table:DSFND.PB_FUND_MONTH",
+            "to": "sql_lineage:table:AUM_013_015_015_016_017_018",
+            "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:3859",
+            "type": "TRANSFORMS_TO",
+            "properties": {
+              "inputSteps": "[{\"type\": \"FLOWS_TO\", \"inputOrder\": 1, \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"b53e105b10856d89c3acf2455b9ce6d788299eedfde850a222389e97af6cd4ac\"}, {\"type\": \"FLOWS_TO\", \"inputOrder\": 1, \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"93eb08bef473fbc6ab1810427207bcb9172a064e5a6fdd68123dfa1620aaae48\"}, {\"type\": \"FLOWS_TO\", \"inputOrder\": 1, \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"746c0d49d4326d52797aa7b493da1710bdc72a2a2613c9597e79cc0e2c195bfd\"}, {\"type\": \"WRITES_TO\", \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\", \"lineageEdgeId\": \"6e91276eb0c8a3f49a5c2a6042fa0e82289adfcdbddbabb866bcc7cf123ce14c\"}]",
+              "_aumIncomeTransferId": "ee2a5e0e5879774ac1dcb666fad478ce9a500761b713d8fe4ec54e77d8413176",
+              "sqlTextKind": "original_statement_slice",
+              "lineStart": 213,
+              "origin": "sql_lineage_v1",
+              "selectExpressions": [
+                "idno AS cust_id",
+                "TO_CHAR(exedate, 'yyyymmdd') AS yyyymmdd",
+                "PCCCODE",
+                "idno",
+                "CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END AS trustprd",
+                "SUM(CurrentTWDValue) AS CurrentTWDValue"
+              ],
+              "whereConditions": [],
+              "lineEnd": 230,
+              "lineageEdgeId": "421cf59e5b34b05163b414b3413283c0b884f43d2379baa397a82b95ecf79661",
+              "sourceRole": "primary_reference",
+              "sql": "create table AUM_013_015_015_016_017_018\nas \nselect \n    idno cust_id,to_char(exedate,'yyyymmdd') yyyymmdd,PCCCODE,idno,\n    case \n       when trustprd in ('其他-國外有價證券','其他-國外股票','股票') then '海外股票'\n       when trustprd ='集合' then '集合管理帳戶'\n       when trustprd ='海外債券' then '海外債券(信託)'\n       when trustprd ='結構型商品' then '境外結構型商品'\n    else trustprd end as trustprd,\n    sum(CurrentTWDValue) CurrentTWDValue    \nfrom DSFND.PB_FUND_MONTH@anadbp01_dwdbp01\ngroup by  idno,to_char(exedate,'yyyymmdd') ,PCCCODE,idno,case \n       when trustprd in ('其他-國外有價證券','其他-國外股票','股票') then '海外股票'\n       when trustprd ='集合' then '集合管理帳戶'\n       when trustprd ='海外債券' then '海外債券(信託)'\n       when trustprd ='結構型商品' then '境外結構型商品'\n    else trustprd end;",
+              "statementKey": "sql_lineage:statement:1.AUM_DETAIL.sql:L213",
+              "unionBranchOrders": [],
+              "file": "sources/sql/1.AUM_DETAIL.sql",
+              "groupExpressions": [
+                "idno",
+                "TO_CHAR(exedate, 'yyyymmdd')",
+                "PCCCODE",
+                "idno",
+                "CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END"
+              ],
+              "joinInputRoles": [],
+              "joinTypes": [],
+              "unionBranchCounts": [],
+              "joinConditions": [],
+              "unionDeduplication": [],
+              "ruleSteps": "[{\"name\": \"GROUP BY\", \"description\": \"GROUP BY／彙總\", \"operationType\": \"AGGREGATE\", \"domain\": \"aum\", \"statementKey\": \"sql_lineage:statement:1.AUM_DETAIL.sql:L213\", \"outputTable\": \"AUM_013_015_015_016_017_018\", \"file\": \"sources/sql/1.AUM_DETAIL.sql\", \"lineStart\": 213, \"lineEnd\": 230, \"status\": \"active_sql\", \"sourceRole\": \"primary_reference\", \"sql\": \"SELECT idno AS cust_id, TO_CHAR(exedate, 'yyyymmdd') AS yyyymmdd, PCCCODE, idno, CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END AS trustprd, SUM(CurrentTWDValue) AS CurrentTWDValue FROM DSFND.PB_FUND_MONTH GROUP BY idno, TO_CHAR(exedate, 'yyyymmdd'), PCCCODE, idno, CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END\", \"sqlTextKind\": \"parser_reconstructed_fragment\", \"groupExpressions\": [\"idno\", \"TO_CHAR(exedate, 'yyyymmdd')\", \"PCCCODE\", \"idno\", \"CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END\"], \"aggregateExpressions\": [\"SUM(CurrentTWDValue)\"], \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\"}, {\"name\": \"SELECT\", \"description\": \"SELECT 欄位映射\", \"operationType\": \"SELECT\", \"domain\": \"aum\", \"statementKey\": \"sql_lineage:statement:1.AUM_DETAIL.sql:L213\", \"outputTable\": \"AUM_013_015_015_016_017_018\", \"file\": \"sources/sql/1.AUM_DETAIL.sql\", \"lineStart\": 213, \"lineEnd\": 230, \"status\": \"active_sql\", \"sourceRole\": \"primary_reference\", \"sql\": \"SELECT idno AS cust_id, TO_CHAR(exedate, 'yyyymmdd') AS yyyymmdd, PCCCODE, idno, CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END AS trustprd, SUM(CurrentTWDValue) AS CurrentTWDValue FROM DSFND.PB_FUND_MONTH GROUP BY idno, TO_CHAR(exedate, 'yyyymmdd'), PCCCODE, idno, CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END\", \"sqlTextKind\": \"parser_reconstructed_fragment\", \"selectExpressions\": [\"idno AS cust_id\", \"TO_CHAR(exedate, 'yyyymmdd') AS yyyymmdd\", \"PCCCODE\", \"idno\", \"CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END AS trustprd\", \"SUM(CurrentTWDValue) AS CurrentTWDValue\"], \"outputAliases\": [\"cust_id\", \"yyyymmdd\", \"PCCCODE\", \"idno\", \"trustprd\", \"CurrentTWDValue\"], \"rawColumnReferences\": [\"CurrentTWDValue\", \"PCCCODE\", \"exedate\", \"idno\", \"trustprd\"], \"columnResolution\": \"expressions_preserved; star/ambiguous columns not expanded without schema\", \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\"}, {\"name\": \"CASE\", \"description\": \"CASE 分類\", \"operationType\": \"CASE\", \"domain\": \"aum\", \"statementKey\": \"sql_lineage:statement:1.AUM_DETAIL.sql:L213\", \"outputTable\": \"AUM_013_015_015_016_017_018\", \"file\": \"sources/sql/1.AUM_DETAIL.sql\", \"lineStart\": 213, \"lineEnd\": 230, \"status\": \"active_sql\", \"sourceRole\": \"primary_reference\", \"sql\": \"CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END\", \"sqlTextKind\": \"parser_reconstructed_fragment\", \"expressionSql\": \"CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END\", \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\"}, {\"name\": \"CREATE 表\", \"description\": \"CREATE TABLE AS\", \"operationType\": \"CREATE TABLE AS\", \"domain\": \"aum\", \"statementKey\": \"sql_lineage:statement:1.AUM_DETAIL.sql:L213\", \"outputTable\": \"AUM_013_015_015_016_017_018\", \"file\": \"sources/sql/1.AUM_DETAIL.sql\", \"lineStart\": 213, \"lineEnd\": 230, \"status\": \"active_sql\", \"sourceRole\": \"primary_reference\", \"sql\": \"CREATE TABLE AUM_013_015_015_016_017_018 AS SELECT idno AS cust_id, TO_CHAR(exedate, 'yyyymmdd') AS yyyymmdd, PCCCODE, idno, CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END AS trustprd, SUM(CurrentTWDValue) AS CurrentTWDValue FROM DSFND.PB_FUND_MONTH GROUP BY idno, TO_CHAR(exedate, 'yyyymmdd'), PCCCODE, idno, CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END\", \"sqlTextKind\": \"parser_reconstructed_fragment\", \"writeMode\": \"create_as_select\", \"ontologyId\": \"sql_lineage\", \"origin\": \"sql_lineage_v1\"}]",
+              "operationTypes": [
+                "AGGREGATE",
+                "SELECT",
+                "CASE",
+                "CREATE TABLE AS"
+              ],
+              "havingConditions": [],
+              "aggregateExpressions": [
+                "SUM(CurrentTWDValue)"
+              ],
+              "domain": "aum",
+              "ontologyId": "sql_lineage",
+              "outputAliases": [
+                "cust_id",
+                "yyyymmdd",
+                "PCCCODE",
+                "idno",
+                "trustprd",
+                "CurrentTWDValue"
+              ],
+              "caseExpressions": [
+                "CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END"
+              ],
+              "status": "active_sql"
+            }
+          }
+        ],
+        [
+          {
+            "productCode": "bank_etf",
+            "domain": "aum",
+            "implementation": {
+              "from": "draft:pb:20261012:product:bank_etf",
+              "to": "draft:pb:20261012:table:DSFND.PB_FUND_MONTH",
+              "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:2898",
+              "type": "AUM_IMPLEMENTED_BY",
+              "properties": {
+                "calculationRulesVersion": "1.0",
+                "identityJoinStatus": "只保留有效 SQL 的來源欄位與 JOIN；不以同名 CUST_ID 推定跨來源等價。",
+                "sourceTable": "DSFND.PB_FUND_MONTH",
+                "projectionModel": "base_tables_v1",
+                "calculationRuleReading": "依 ruleId 合併共享計算；各規則內的條件只適用於其來源或 inputRule 結果。重建／月更新及主版／另版分別使用；queryRules 的產品、日期與資料粒度限制需一併套用。",
+                "calculationRules": "[{\"ruleId\":\"aum:1.AUM_DETAIL.sql:L213:AUM_013_015_015_016_017_018:rebuild\",\"purpose\":\"重建口徑：依 idno、TO_CHAR(exedate, 'yyyymmdd')、PCCCODE、idno、CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END 彙總；計算或對應所列輸出欄位\",\"executionContext\":\"rebuild\",\"resultName\":\"AUM_013_015_015_016_017_018\",\"sourceTable\":\"DSFND.PB_FUND_MONTH\",\"groupBy\":[\"idno\",\"TO_CHAR(exedate, 'yyyymmdd')\",\"PCCCODE\",\"idno\",\"CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END\"],\"valueExpressions\":[\"SUM(CurrentTWDValue)\"],\"outputColumns\":[\"CUST_ID\",\"YYYYMMDD\",\"PCCCODE\",\"IDNO\",\"TRUSTPRD\",\"CURRENTTWDVALUE\"],\"fieldCalculations\":[{\"sourceExpression\":\"idno AS cust_id\",\"targetColumn\":\"CUST_ID\"},{\"sourceExpression\":\"TO_CHAR(exedate, 'yyyymmdd') AS yyyymmdd\",\"targetColumn\":\"YYYYMMDD\"},{\"sourceExpression\":\"CASE WHEN trustprd IN ('其他-國外有價證券', '其他-國外股票', '股票') THEN '海外股票' WHEN trustprd = '集合' THEN '集合管理帳戶' WHEN trustprd = '海外債券' THEN '海外債券(信託)' WHEN trustprd = '結構型商品' THEN '境外結構型商品' ELSE trustprd END AS trustprd\",\"targetColumn\":\"TRUSTPRD\"},{\"sourceExpression\":\"SUM(CurrentTWDValue) AS CurrentTWDValue\",\"targetColumn\":\"CURRENTTWDVALUE\"}],\"sourceFile\":\"sources/sql/1.AUM_DETAIL.sql\",\"lineStart\":212,\"lineEnd\":230,\"sourceRole\":\"primary_reference\",\"versionGroup\":\"primary\",\"status\":\"active_sql\"}]",
+                "draftEdgeKey": "draft:pb:20261012:edge:base:6a40f7da239557e769d81604",
+                "queryRules": "[{\"mappingRole\":\"source_stage\",\"valueColumn\":\"CURRENTTWDVALUE\",\"filterConditions\":{\"TRUSTPRD\":\"ETF\"},\"timeBehavior\":\"snapshot\",\"dateRuleStatus\":\"product_source_sql_plus_draft_month_end_rule\",\"sourceEvidence\":[{\"sourceFile\":\"sources/sql/1.AUM_DETAIL.sql\",\"lineStart\":212,\"lineEnd\":230}],\"status\":\"observed_in_sql\",\"scopeNote\":\"直接查詢來源階段與查詢主 AUM／另一版私銀 AUM 報表，母體可能不同。\",\"dataLevel\":\"AUM_013_015_015_016_017_018\"}]",
+                "dependencySourceTables": [
+                  "DSFND.PB_FUND_MONTH"
+                ],
+                "mappingRole": "base_source",
+                "externalPreconditions": "[]",
+                "definition": "產品對此來源底表的計算依賴；計算規則明列適用範圍、處理目的、篩選、連接、合併與彙總口徑。",
+                "status": "derived_from_reviewed_sql"
+              }
+            },
+            "productKey": "draft:pb:20261012:product:bank_etf",
+            "sourceTableKeys": [
+              "draft:pb:20261012:table:DSFND.PB_FUND_MONTH"
+            ],
+            "metricCode": "aum_bank_investment",
+            "measurement": {
+              "from": "draft:pb:20261012:product:bank_etf",
+              "to": "draft:pb:20261012:metric:aum_bank_investment_month_end",
+              "id": "5:0b04c939-4af9-4a93-8154-9c90912e1dce:3090",
+              "type": "MEASURED_BY_AUM",
+              "properties": {
+                "filterConditions": "PROD='ETF'",
+                "calculationRulesVersion": "1.0",
+                "calculationRules": "[{\"ruleId\":\"aum:2._AUM_SUMY.sql:L8:AUM:rebuild\",\"purpose\":\"重建口徑：統一主版各產品的 AUM 分類、日期與金額；合併各來源並依完整輸出列去重\",\"executionContext\":\"rebuild\",\"resultName\":\"AUM\",\"mergeMethod\":\"UNION\",\"duplicateHandling\":\"exact_projected_rows\",\"branches\":[{\"sourceTable\":\"AUM_005_007_008_009\",\"filterConditions\":[\"NOT DETAIL IS NULL\"],\"outputColumns\":[\"TYP\",\"COMP\",\"PROD\",\"TYP_SUB_DTL\",\"CUST_ID\",\"YYYYMMDD\",\"AMT\"],\"fieldCalculations\":[{\"sourceExpression\":\"'銀行' AS COMP\",\"targetColumn\":\"COMP\"},{\"sourceExpression\":\"DETAIL AS PROD\",\"targetColumn\":\"PROD\"},{\"sourceExpression\":\"LST_MTN_DT AS YYYYMMDD\",\"targetColumn\":\"YYYYMMDD\"},{\"sourceExpression\":\"存款AUM AS AMT\",\"targetColumn\":\"AMT\"}],\"purpose\":\"限定符合所列條件的資料範圍；計算或對應所列輸出欄位\"},{\"sourceTable\":\"AUM_012\",\"outputColumns\":[\"TYP\",\"COMP\",\"PROD\",\"TYP_SUB_DTL\",\"CUST_ID\",\"YYYYMMDD\",\"AMT\"],\"fieldCalculations\":[{\"sourceExpression\":\"'投資' AS TYP\",\"targetColumn\":\"TYP\"},{\"sourceExpression\":\"'銀行' AS COMP\",\"targetColumn\":\"COMP\"},{\"sourceExpression\":\"'保險' AS PROD\",\"targetColumn\":\"PROD\"},{\"sourceExpression\":\"NULL AS TYP_SUB_DTL\",\"targetColumn\":\"TYP_SUB_DTL\"}],\"purpose\":\"計算或對應所列輸出欄位\"},{\"sourceTable\":\"AUM_012\",\"outputColumns\":[\"TYP\",\"COMP\",\"PROD\",\"TYP_SUB_DTL\",\"CUST_ID\",\"YYYYMMDD\",\"AMT\"],\"fieldCalculations\":[{\"sourceExpression\":\"'投資' AS TYP\",\"targetColumn\":\"TYP\"},{\"sourceExpression\":\"'銀行' AS COMP\",\"targetColumn\":\"COMP\"},{\"sourceExpression\":\"'保險' AS PROD\",\"targetColumn\":\"PROD\"},{\"sourceExpression\":\"NULL AS TYP_SUB_DTL\",\"targetColumn\":\"TYP_SUB_DTL\"}],\"purpose\":\"計算或對應所列輸出欄位\"},{\"sourceTable\":\"AUM_013_015_015_016_017_018\",\"outputColumns\":[\"TYP\",\"COMP\",\"PROD\",\"TYP_SUB_DTL\",\"CUST_ID\",\"YYYYMMDD\",\"AMT\"],\"fieldCalculations\":[{\"sourceExpression\":\"'投資' AS TYP\",\"targetColumn\":\"TYP\"},{\"sourceExpression\":\"'銀行' AS COMP\",\"targetColumn\":\"COMP\"},{\"sourceExpression\":\"trustprd AS PROD\",\"targetColumn\":\"PROD\"},{\"sourceExpression\":\"NULL AS TYP_SUB_DTL\",\"targetColumn\":\"TYP_SUB_DTL\"},{\"sourceExpression\":\"CurrentTWDValue AS AMT\",\"targetColumn\":\"AMT\"}],\"purpose\":\"計算或對應所列輸出欄位\"},{\"sourceTable\":\"AUM_019\",\"outputColumns\":[\"TYP\",\"COMP\",\"PROD\",\"TYP_SUB_DTL\",\"CUST_ID\",\"YYYYMMDD\",\"AMT\"],\"fieldCalculations\":[{\"sourceExpression\":\"'投資' AS TYP\",\"targetColumn\":\"TYP\"},{\"sourceExpression\":\"'銀行' AS COMP\",\"targetColumn\":\"COMP\"},{\"sourceExpression\":\"'海外債券(自營)' AS PROD\",\"targetColumn\":\"PROD\"},{\"sourceExpression\":\"NULL AS TYP_SUB_DTL\",\"targetColumn\":\"TYP_SUB_DTL\"}],\"purpose\":\"計算或對應所列輸出欄位\"},{\"sourceTable\":\"AUM_020\",\"outputColumns\":[\"TYP\",\"COMP\",\"PROD\",\"TYP_SUB_DTL\",\"CUST_ID\",\"YYYYMMDD\",\"AMT\"],\"fieldCalculations\":[{\"sourceExpression\":\"'投資' AS TYP\",\"targetColumn\":\"TYP\"},{\"sourceExpression\":\"'銀行' AS COMP\",\"targetColumn\":\"COMP\"},{\"sourceExpression\":\"'規劃型信託' AS PROD\",\"targetColumn\":\"PROD\"},{\"sourceExpression\":\"NULL AS TYP_SUB_DTL\",\"targetColumn\":\"TYP_SUB_DTL\"}],\"purpose\":\"計算或對應所列輸出欄位\"},{\"sourceTable\":\"AUM_021\",\"outputColumns\":[\"TYP\",\"COMP\",\"PROD\",\"TYP_SUB_DTL\",\"CUST_ID\",\"YYYYMMDD\",\"AMT\"],\"fieldCalculations\":[{\"sourceExpression\":\"'投資' AS TYP\",\"targetColumn\":\"TYP\"},{\"sourceExpression\":\"'銀行' AS COMP\",\"targetColumn\":\"COMP\"},{\"sourceExpression\":\"'規劃型信託' AS PROD\",\"targetColumn\":\"PROD\"},{\"sourceExpression\":\"NULL AS TYP_SUB_DTL\",\"targetColumn\":\"TYP_SUB_DTL\"}],\"purpose\":\"計算或對應所列輸出欄位\"},{\"sourceTable\":\"AUM_022\",\"outputColumns\":[\"TYP\",\"COMP\",\"PROD\",\"TYP_SUB_DTL\",\"CUST_ID\",\"YYYYMMDD\",\"AMT\"],\"fieldCalculations\":[{\"sourceExpression\":\"'投資' AS TYP\",\"targetColumn\":\"TYP\"},{\"sourceExpression\":\"'銀行' AS COMP\",\"targetColumn\":\"COMP\"},{\"sourceExpression\":\"'信託保管' AS PROD\",\"targetColumn\":\"PROD\"},{\"sourceExpression\":\"NULL AS TYP_SUB_DTL\",\"targetColumn\":\"TYP_SUB_DTL\"}],\"purpose\":\"計算或對應所列輸出欄位\"},{\"sourceTable\":\"AUM_023_024\",\"outputColumns\":[\"TYP\",\"COMP\",\"PROD\",\"TYP_SUB_DTL\",\"CUST_ID\",\"YYYYMMDD\",\"AMT\"],\"fieldCalculations\":[{\"sourceExpression\":\"'投資' AS TYP\",\"targetColumn\":\"TYP\"},{\"sourceExpression\":\"'證券' AS COMP\",\"targetColumn\":\"COMP\"},{\"sourceExpression\":\"nm AS PROD\",\"targetColumn\":\"PROD\"},{\"sourceExpression\":\"NULL AS TYP_SUB_DTL\",\"targetColumn\":\"TYP_SUB_DTL\"}],\"purpose\":\"計算或對應所列輸出欄位\"},{\"sourceTable\":\"AUM_025\",\"outputColumns\":[\"TYP\",\"COMP\",\"PROD\",\"TYP_SUB_DTL\",\"CUST_ID\",\"YYYYMMDD\",\"AMT\"],\"fieldCalculations\":[{\"sourceExpression\":\"'投資' AS TYP\",\"targetColumn\":\"TYP\"},{\"sourceExpression\":\"'證券' AS COMP\",\"targetColumn\":\"COMP\"},{\"sourceExpression\":\"'基金' AS PROD\",\"targetColumn\":\"PROD\"},{\"sourceExpression\":\"NULL AS TYP_SUB_DTL\",\"targetColumn\":\"TYP_SUB_DTL\"}],\"purpose\":\"計算或對應所列輸出欄位\"},{\"sourceTable\":\"AUM_026\",\"outputColumns\":[\"TYP\",\"COMP\",\"PROD\",\"TYP_SUB_DTL\",\"CUST_ID\",\"YYYYMMDD\",\"AMT\"],\"fieldCalculations\":[{\"sourceExpression\":\"'投資' AS TYP\",\"targetColumn\":\"TYP\"},{\"sourceExpression\":\"'證券' AS COMP\",\"targetColumn\":\"COMP\"},{\"sourceExpression\":\"'外國股票' AS PROD\",\"targetColumn\":\"PROD\"},{\"sourceExpression\":\"NULL AS TYP_SUB_DTL\",\"targetColumn\":\"TYP_SUB_DTL\"}],\"purpose\":\"計算或對應所列輸出欄位\"},{\"sourceTable\":\"AUM_027\",\"outputColumns\":[\"TYP\",\"COMP\",\"PROD\",\"TYP_SUB_DTL\",\"CUST_ID\",\"YYYYMMDD\",\"AMT\"],\"fieldCalculations\":[{\"sourceExpression\":\"'投資' AS TYP\",\"targetColumn\":\"TYP\"},{\"sourceExpression\":\"'證券' AS COMP\",\"targetColumn\":\"COMP\"},{\"sourceExpression\":\"'台股' AS PROD\",\"targetColumn\":\"PROD\"},{\"sourceExpression\":\"NULL AS TYP_SUB_DTL\",\"targetColumn\":\"TYP_SUB_DTL\"}],\"purpose\":\"計算或對應所列輸出欄位\"},{\"sourceTable\":\"AUM_028\",\"outputColumns\":[\"TYP\",\"COMP\",\"PROD\",\"TYP_SUB_DTL\",\"CUST_ID\",\"YYYYMMDD\",\"AMT\"],\"fieldCalculations\":[{\"sourceExpression\":\"'投資' AS TYP\",\"targetColumn\":\"TYP\"},{\"sourceExpression\":\"'證券' AS COMP\",\"targetColumn\":\"COMP\"},{\"sourceExpression\":\"'台股' AS PROD\",\"targetColumn\":\"PROD\"},{\"sourceExpression\":\"NULL AS TYP_SUB_DTL\",\"targetColumn\":\"TYP_SUB_DTL\"}],\"purpose\":\"計算或對應所列輸出欄位\"}],\"sourceFile\":\"sources/sql/2._AUM_SUMY.sql\",\"lineStart\":7,\"lineEnd\":140,\"sourceRole\":\"primary_reference\",\"versionGroup\":\"primary\",\"status\":\"active_sql\"},{\"ruleId\":\"aum:2._AUM_SUMY.~sql:L145:PB_CUST_2AO:rebuild\",\"purpose\":\"重建口徑：依客戶與月份建立 SQL 所稱的雙 AO 排除名單；合併各來源並依完整輸出列去重\",\"executionContext\":\"rebuild\",\"resultName\":\"PB_CUST_2AO\",\"mergeMethod\":\"UNION\",\"duplicateHandling\":\"exact_projected_rows\",\"branches\":[{\"sourceTable\":\"DSCIF.AO_CUST_REL_HS\",\"filterConditions\":[\"yyyymm >= '202312'\"],\"groupBy\":[\"yyyymm\",\"cust_id\"],\"valueExpressions\":[],\"havingConditions\":[\"HAVING COUNT(*) > 1\"],\"outputColumns\":[\"YYYYMM\",\"CUST_ID\"],\"purpose\":\"限定符合所列條件的資料範圍；依 yyyymm、cust_id 彙總；篩選符合條件的彙總結果\"},{\"sourceTable\":\"DSCIF.AO_CUST_REL\",\"groupBy\":[\"cust_Id\"],\"valueExpressions\":[],\"havingConditions\":[\"HAVING COUNT(*) > 1\"],\"outputColumns\":[\"YYYYMM\",\"CUST_ID\"],\"fieldCalculations\":[{\"sourceExpression\":\"TO_NUMBER(TO_CHAR(SYSDATE, 'yyyymm')) AS yyyymm\",\"targetColumn\":\"YYYYMM\"}],\"purpose\":\"依 cust_Id 彙總；篩選符合條件的彙總結果；計算或對應所列輸出欄位\"}],\"sourceFile\":\"sources/sql/2._AUM_SUMY.~sql\",\"lineStart\":144,\"lineEnd\":157,\"sourceRole\":\"alternate_file_reference\",\"versionGroup\":\"alternate_summary\",\"status\":\"active_sql\"},{\"ruleId\":\"aum:2._AUM_SUMY.~sql:L179:AUM_BASE:rebuild\",\"purpose\":\"重建口徑：依另版有效 SQL 排除雙 AO 名單中的存款客戶，另保留投資資料；合併各來源並依完整輸出列去重\",\"executionContext\":\"rebuild\",\"resultName\":\"AUM_BASE\",\"mergeMethod\":\"UNION\",\"duplicateHandling\":\"exact_projected_rows\",\"branches\":[{\"inputRule\":{\"joinType\":\"LEFT_JOIN\",\"leftInput\":{\"sourceTable\":\"AUM_TMP01\",\"filterConditions\":[\"typ = '存款'\"],\"purpose\":\"限定符合所列條件的資料範圍\"},\"rightInput\":{\"sourceTable\":\"PB_CUST_2AO\",\"purpose\":\"提供所需來源欄位\"},\"joinConditions\":[\"SUBSTR(a.yyyymmdd, 1, 6) = b.yyyymm\",\"a.cust_id = b.cust_id\"],\"preservesUnmatchedLeftRows\":true,\"leftAlias\":\"a\",\"rightAlias\":\"b\",\"purpose\":\"保留左側資料並補充右側資訊\"},\"filterConditions\":[\"b.cust_id IS NULL\"],\"outputColumns\":[\"a.*\"],\"fieldCalculations\":[{\"sourceExpression\":\"a.*\"}],\"purpose\":\"使用前一層計算結果；限定符合所列條件的資料範圍；計算或對應所列輸出欄位\"},{\"sourceTable\":\"AUM_TMP01\",\"filterConditions\":[\"typ = '投資'\"],\"purpose\":\"限定符合所列條件的資料範圍\"}],\"sourceFile\":\"sources/sql/2._AUM_SUMY.~sql\",\"lineStart\":178,\"lineEnd\":194,\"sourceRole\":\"alternate_file_reference\",\"versionGroup\":\"alternate_summary\",\"status\":\"active_sql\"},{\"ruleId\":\"aum:2._AUM_SUMY.~sql:L199:AUM_TMP02:rebuild\",\"purpose\":\"重建口徑：依客戶與月份連接私銀歸屬，只納入符合連接條件的資產資料；補充符合連接條件的資料；計算或對應所列輸出欄位\",\"executionContext\":\"rebuild\",\"resultName\":\"AUM_TMP02\",\"joinType\":\"INNER_JOIN\",\"leftInput\":{\"sourceTable\":\"AUM_BASE\",\"filterConditions\":[\"yyyymmdd >= '20231201'\"],\"purpose\":\"限定符合所列條件的資料範圍\"},\"rightInput\":{\"sourceTable\":\"PB_CUST_005\",\"purpose\":\"提供所需來源欄位\"},\"joinConditions\":[\"a.cust_id = b.cust_id\",\"SUBSTR(a.yyyymmdd, 1, 6) = b.yyyymm\"],\"preservesUnmatchedLeftRows\":false,\"leftAlias\":\"a\",\"rightAlias\":\"b\",\"outputColumns\":[\"a.*\",\"EMP_NO\",\"PRFT_CNTR_CD\",\"SHT_NM\",\"SHT_EASY_NM\",\"SHT_SUB_NM\",\"PST_NM\"],\"fieldCalculations\":[{\"sourceExpression\":\"a.*\"},{\"sourceExpression\":\"b.emp_no\",\"targetColumn\":\"EMP_NO\"},{\"sourceExpression\":\"b.prft_cntr_cd\",\"targetColumn\":\"PRFT_CNTR_CD\"},{\"sourceExpression\":\"b.sht_nm\",\"targetColumn\":\"SHT_NM\"},{\"sourceExpression\":\"CASE WHEN sht_nm LIKE '%業務一部%' THEN 'TW一部' WHEN sht_nm LIKE '%業務二部%' THEN 'TW二部' END AS SHT_EASY_NM\",\"targetColumn\":\"SHT_EASY_NM\"},{\"sourceExpression\":\"SUBSTR(sht_nm, INSTR(sht_nm, '業') + 2, INSTR(sht_nm, '部') - INSTR(sht_nm, '業') - 1) AS SHT_SUB_NM\",\"targetColumn\":\"SHT_SUB_NM\"},{\"sourceExpression\":\"b.pst_nm\",\"targetColumn\":\"PST_NM\"}],\"sourceFile\":\"sources/sql/2._AUM_SUMY.~sql\",\"lineStart\":198,\"lineEnd\":217,\"sourceRole\":\"alternate_file_reference\",\"versionGroup\":\"alternate_summary\",\"status\":\"active_sql\"},{\"ruleId\":\"aum:2._AUM_SUMY.~sql:L8:AUM_TMP01:rebuild\",\"purpose\":\"重建口徑：統一另版各產品的 AUM 分類、日期與金額；合併各來源並依完整輸出列去重\",\"executionContext\":\"rebuild\",\"resultName\":\"AUM_TMP01\",\"mergeMethod\":\"UNION\",\"duplicateHandling\":\"exact_projected_rows\",\"branches\":[{\"sourceTable\":\"AUM_005_007_008_009\",\"filterConditions\":[\"NOT DETAIL IS NULL\"],\"outputColumns\":[\"TYP\",\"COMP\",\"PROD\",\"TYP_SUB_DTL\",\"CUST_ID\",\"YYYYMMDD\",\"AMT\"],\"fieldCalculations\":[{\"sourceExpression\":\"'銀行' AS COMP\",\"targetColumn\":\"COMP\"},{\"sourceExpression\":\"DETAIL AS PROD\",\"targetColumn\":\"PROD\"},{\"sourceExpression\":\"LST_MTN_DT AS YYYYMMDD\",\"targetColumn\":\"YYYYMMDD\"},{\"sourceExpression\":\"存款AUM AS AMT\",\"targetColumn\":\"AMT\"}],\"purpose\":\"限定符合所列條件的資料範圍；計算或對應所列輸出欄位\"},{\"sourceTable\":\"AUM_012\",\"outputColumns\":[\"TYP\",\"COMP\",\"PROD\",\"TYP_SUB_DTL\",\"CUST_ID\",\"YYYYMMDD\",\"AMT\"],\"fieldCalculations\":[{\"sourceExpression\":\"'投資' AS TYP\",\"targetColumn\":\"TYP\"},{\"sourceExpression\":\"'銀行' AS COMP\",\"targetColumn\":\"COMP\"},{\"sourceExpression\":\"'保險' AS PROD\",\"targetColumn\":\"PROD\"},{\"sourceExpression\":\"NULL AS TYP_SUB_DTL\",\"targetColumn\":\"TYP_SUB_DTL\"}],\"purpose\":\"計算或對應所列輸出欄位\"},{\"sourceTable\":\"AUM_012\",\"outputColumns\":[\"TYP\",\"COMP\",\"PROD\",\"TYP_SUB_DTL\",\"CUST_ID\",\"YYYYMMDD\",\"AMT\"],\"fieldCalculations\":[{\"sourceExpression\":\"'投資' AS TYP\",\"targetColumn\":\"TYP\"},{\"sourceExpression\":\"'銀行' AS COMP\",\"targetColumn\":\"COMP\"},{\"sourceExpression\":\"'保險' AS PROD\",\"targetColumn\":\"PROD\"},{\"sourceExpression\":\"NULL AS TYP_SUB_DTL\",\"targetColumn\":\"TYP_SUB_DTL\"}],\"purpose\":\"計算或對應所列輸出欄位\"},{\"sourceTable\":\"AUM_013_015_015_016_017_018\",\"outputColumns\":[\"TYP\",\"COMP\",\"PROD\",\"TYP_SUB_DTL\",\"CUST_ID\",\"YYYYMMDD\",\"AMT\"],\"fieldCalculations\":[{\"sourceExpression\":\"'投資' AS TYP\",\"targetColumn\":\"TYP\"},{\"sourceExpression\":\"'銀行' AS COMP\",\"targetColumn\":\"COMP\"},{\"sourceExpression\":\"trustprd AS PROD\",\"targetColumn\":\"PROD\"},{\"sourceExpression\":\"NULL AS TYP_SUB_DTL\",\"targetColumn\":\"TYP_SUB_DTL\"},{\"sourceExpression\":\"CurrentTWDValue AS AMT\",\"targetColumn\":\"AMT\"}],\"purpose\":\"計算或對應所列輸出欄位\"},{\"sourceTable\":\"AUM_019\",\"outputColumns\":[\"TYP\",\"COMP\",\"PROD\",\"TYP_SUB_DTL\",\"CUST_ID\",\"YYYYMMDD\",\"AMT\"],\"fieldCalculations\":[{\"sourceExpression\":\"'投資' AS TYP\",\"targetColumn\":\"TYP\"},{\"sourceExpression\":\"'銀行' AS COMP\",\"targetColumn\":\"COMP\"},{\"sourceExpression\":\"'海外債券(自營)' AS PROD\",\"targetColumn\":\"PROD\"},{\"sourceExpression\":\"NULL AS TYP_SUB_DTL\",\"targetColumn\":\"TYP_SUB_DTL\"}],\"purpose\":\"計算或對應所列輸出欄位\"},{\"sourceTable\":\"AUM_020\",\"outputColumns\":[\"TYP\",\"COMP\",\"PROD\",\"TYP_SUB_DTL\",\"CUST_ID\",\"YYYYMMDD\",\"AMT\"],\"fieldCalculations\":[{\"sourceExpression\":\"'投資' AS TYP\",\"targetColumn\":\"TYP\"},{\"sourceExpression\":\"'銀行' AS COMP\",\"targetColumn\":\"COMP\"},{\"sourceExpression\":\"'規劃型信託' AS PROD\",\"targetColumn\":\"PROD\"},{\"sourceExpression\":\"NULL AS TYP_SUB_DTL\",\"targetColumn\":\"TYP_SUB_DTL\"}],\"purpose\":\"計算或對應所列輸出欄位\"},{\"sourceTable\":\"AUM_021\",\"outputColumns\":[\"TYP\",\"COMP\",\"PROD\",\"TYP_SUB_DTL\",\"CUST_ID\",\"YYYYMMDD\",\"AMT\"],\"fieldCalculations\":[{\"sourceExpression\":\"'投資' AS TYP\",\"targetColumn\":\"TYP\"},{\"sourceExpression\":\"'銀行' AS COMP\",\"targetColumn\":\"COMP\"},{\"sourceExpression\":\"'規劃型信託' AS PROD\",\"targetColumn\":\"PROD\"},{\"sourceExpression\":\"NULL AS TYP_SUB_DTL\",\"targetColumn\":\"TYP_SUB_DTL\"}],\"purpose\":\"計算或對應所列輸出欄位\"},{\"sourceTable\":\"AUM_022\",\"outputColumns\":[\"TYP\",\"COMP\",\"PROD\",\"TYP_SUB_DTL\",\"CUST_ID\",\"YYYYMMDD\",\"AMT\"],\"fieldCalculations\":[{\"sourceExpression\":\"'投資' AS TYP\",\"targetColumn\":\"TYP\"},{\"sourceExpression\":\"'銀行' AS COMP\",\"targetColumn\":\"COMP\"},{\"sourceExpression\":\"'信託保管' AS PROD\",\"targetColumn\":\"PROD\"},{\"sourceExpression\":\"NULL AS TYP_SUB_DTL\",\"targetColumn\":\"TYP_SUB_DTL\"}],\"purpose\":\"計算或對應所列輸出欄位\"},{\"sourceTable\":\"AUM_023_024\",\"outputColumns\":[\"TYP\",\"COMP\",\"PROD\",\"TYP_SUB_DTL\",\"CUST_ID\",\"YYYYMMDD\",\"AMT\"],\"fieldCalculations\":[{\"sourceExpression\":\"'投資' AS TYP\",\"targetColumn\":\"TYP\"},{\"sourceExpression\":\"'證券' AS COMP\",\"targetColumn\":\"COMP\"},{\"sourceExpression\":\"nm AS PROD\",\"targetColumn\":\"PROD\"},{\"sourceExpression\":\"NULL AS TYP_SUB_DTL\",\"targetColumn\":\"TYP_SUB_DTL\"}],\"purpose\":\"計算或對應所列輸出欄位\"},{\"sourceTable\":\"AUM_025\",\"outputColumns\":[\"TYP\",\"COMP\",\"PROD\",\"TYP_SUB_DTL\",\"CUST_ID\",\"YYYYMMDD\",\"AMT\"],\"fieldCalculations\":[{\"sourceExpression\":\"'投資' AS TYP\",\"targetColumn\":\"TYP\"},{\"sourceExpression\":\"'證券' AS COMP\",\"targetColumn\":\"COMP\"},{\"sourceExpression\":\"'基金' AS PROD\",\"targetColumn\":\"PROD\"},{\"sourceExpression\":\"NULL AS TYP_SUB_DTL\",\"targetColumn\":\"TYP_SUB_DTL\"}],\"purpose\":\"計算或對應所列輸出欄位\"},{\"sourceTable\":\"AUM_026\",\"outputColumns\":[\"TYP\",\"COMP\",\"PROD\",\"TYP_SUB_DTL\",\"CUST_ID\",\"YYYYMMDD\",\"AMT\"],\"fieldCalculations\":[{\"sourceExpression\":\"'投資' AS TYP\",\"targetColumn\":\"TYP\"},{\"sourceExpression\":\"'證券' AS COMP\",\"targetColumn\":\"COMP\"},{\"sourceExpression\":\"'外國股票' AS PROD\",\"targetColumn\":\"PROD\"},{\"sourceExpression\":\"NULL AS TYP_SUB_DTL\",\"targetColumn\":\"TYP_SUB_DTL\"}],\"purpose\":\"計算或對應所列輸出欄位\"},{\"sourceTable\":\"AUM_027\",\"outputColumns\":[\"TYP\",\"COMP\",\"PROD\",\"TYP_SUB_DTL\",\"CUST_ID\",\"YYYYMMDD\",\"AMT\"],\"fieldCalculations\":[{\"sourceExpression\":\"'投資' AS TYP\",\"targetColumn\":\"TYP\"},{\"sourceExpression\":\"'證券' AS COMP\",\"targetColumn\":\"COMP\"},{\"sourceExpression\":\"'台股' AS PROD\",\"targetColumn\":\"PROD\"},{\"sourceExpression\":\"NULL AS TYP_SUB_DTL\",\"targetColumn\":\"TYP_SUB_DTL\"}],\"purpose\":\"計算或對應所列輸出欄位\"},{\"sourceTable\":\"AUM_028\",\"outputColumns\":[\"TYP\",\"COMP\",\"PROD\",\"TYP_SUB_DTL\",\"CUST_ID\",\"YYYYMMDD\",\"AMT\"],\"fieldCalculations\":[{\"sourceExpression\":\"'投資' AS TYP\",\"targetColumn\":\"TYP\"},{\"sourceExpression\":\"'證券' AS COMP\",\"targetColumn\":\"COMP\"},{\"sourceExpression\":\"'台股' AS PROD\",\"targetColumn\":\"PROD\"},{\"sourceExpression\":\"NULL AS TYP_SUB_DTL\",\"targetColumn\":\"TYP_SUB_DTL\"}],\"purpose\":\"計算或對應所列輸出欄位\"}],\"sourceFile\":\"sources/sql/2._AUM_SUMY.~sql\",\"lineStart\":7,\"lineEnd\":140,\"sourceRole\":\"alternate_file_reference\",\"versionGroup\":\"alternate_summary\",\"status\":\"active_sql\"},{\"ruleId\":\"income:0_PB_CUST_DEATAIL.sql:L102:PB_CUST_005:rebuild\",\"purpose\":\"重建口徑：建立客戶與月份的私銀歸屬，供收入與資產查詢限定母體及補充組織資訊；補充符合連接條件的資料；計算或對應所列輸出欄位\",\"executionContext\":\"rebuild\",\"resultName\":\"PB_CUST_005\",\"joinType\":\"INNER_JOIN\",\"leftInput\":{\"sourceTable\":\"CURRNT_AO\",\"purpose\":\"提供所需來源欄位\"},\"rightInput\":{\"sourceTable\":\"PB_CUST_005_TMP\",\"filterConditions\":[\"(pst_nm LIKE '%CA%' OR (TRIM(PST_CD) IN ('VP026', 'VP030')))\",\"NOT prft_cntr_cd IN ('2E4300', '2E5000')\"],\"purpose\":\"限定符合所列條件的資料範圍\"},\"joinConditions\":[\"A.AO_ID = B.IDNO\",\"a.yyyymm = b.yyyymm\"],\"preservesUnmatchedLeftRows\":false,\"leftAlias\":\"A\",\"rightAlias\":\"B\",\"outputColumns\":[\"YYYYMM\",\"CUST_ID\",\"AO_ID\",\"EMP_NO\",\"PRFT_CNTR_CD\",\"SHT_NM\",\"SHT_SUB_NM\",\"PST_NM\",\"PST_CD\"],\"fieldCalculations\":[{\"sourceExpression\":\"a.yyyymm\",\"targetColumn\":\"YYYYMM\"}],\"sourceFile\":\"sources/sql/0_PB_CUST_DEATAIL.sql\",\"lineStart\":101,\"lineEnd\":110,\"sourceRole\":\"primary_reference\",\"status\":\"active_sql\"},{\"ruleId\":\"income:0_PB_CUST_DEATAIL.sql:L40:PB_CUST_005_TMP1:rebuild\",\"purpose\":\"重建口徑：從現況 AO、員工、職務及利潤中心資訊辨識私銀範圍；保留左側資料並補充右側資訊；計算或對應所列輸出欄位\",\"executionContext\":\"rebuild\",\"resultName\":\"PB_CUST_005_TMP1\",\"joinType\":\"LEFT_JOIN\",\"leftInput\":{\"joinType\":\"LEFT_JOIN\",\"leftInput\":{\"joinType\":\"INNER_JOIN\",\"leftInput\":{\"sourceTable\":\"DSORG.AO_INFO\",\"filterConditions\":[\"AO_TYP <> 'AO1P'\",\"NOT prft_cntr_cd IN ('2E4300', '2E5000')\"],\"outputColumns\":[\"a.*\",\"YYYYMM\"],\"fieldCalculations\":[{\"sourceExpression\":\"a.*\"},{\"sourceExpression\":\"SUBSTR(lst_mtn_dt, 1, 6) AS yyyymm\",\"targetColumn\":\"YYYYMM\"}],\"purpose\":\"限定符合所列條件的資料範圍；計算或對應所列輸出欄位\"},\"rightInput\":{\"sourceTable\":\"DSORG.PRFT_CNTR_CD\",\"filterConditions\":[\"BU = '私人銀行處'\"],\"purpose\":\"限定符合所列條件的資料範圍\"},\"joinConditions\":[\"A.PRFT_CNTR_CD = B.PRFT_CNTR_CD\"],\"preservesUnmatchedLeftRows\":false,\"leftAlias\":\"A\",\"rightAlias\":\"B\",\"purpose\":\"補充符合連接條件的資料\"},\"rightInput\":{\"sourceTable\":\"DSORG.HR_EMP\",\"filterConditions\":[\"JOB_STATUS = '1'\"],\"outputColumns\":[\"a.*\",\"YYYYMM\"],\"fieldCalculations\":[{\"sourceExpression\":\"a.*\"},{\"sourceExpression\":\"SUBSTR(lst_mtn_dt, 1, 6) AS YYYYMM\",\"targetColumn\":\"YYYYMM\"}],\"purpose\":\"限定符合所列條件的資料範圍；計算或對應所列輸出欄位\"},\"joinConditions\":[\"A.EMP_NO = TRIM(C.EMP_ID)\",\"a.yyyymm = c.yyyymm\"],\"preservesUnmatchedLeftRows\":true,\"leftAlias\":\"A\",\"rightAlias\":\"C\",\"purpose\":\"保留左側資料並補充右側資訊\"},\"rightInput\":{\"sourceTable\":\"DSORG.HR_JOB_TYP_CD\",\"filterConditions\":[\"pst_nm LIKE '%CA%' OR TRIM(pst_cd) IN ('VP026', 'VP030')\"],\"purpose\":\"限定符合所列條件的資料範圍\"},\"joinConditions\":[\"C.COMP_SERIAL_NO = E.COMP_SERIAL_NO\",\"C.PST_CD = E.PST_CD\"],\"preservesUnmatchedLeftRows\":true,\"leftAlias\":\"A\",\"rightAlias\":\"E\",\"outputColumns\":[\"EMP_NO\",\"IDNO\",\"SHT_NM\",\"SHT_SUB_NM\",\"E.*\",\"YYYYMM\",\"PRFT_CNTR_CD\"],\"fieldCalculations\":[{\"sourceExpression\":\"SUBSTR(sht_nm, INSTR(sht_nm, '業') + 2, INSTR(sht_nm, '部') - INSTR(sht_nm, '業') - 1) AS SHT_SUB_NM\",\"targetColumn\":\"SHT_SUB_NM\"},{\"sourceExpression\":\"E.*\"},{\"sourceExpression\":\"C.YYYYMM\",\"targetColumn\":\"YYYYMM\"},{\"sourceExpression\":\"A.PRFT_CNTR_CD\",\"targetColumn\":\"PRFT_CNTR_CD\"}],\"sourceFile\":\"sources/sql/0_PB_CUST_DEATAIL.sql\",\"lineStart\":39,\"lineEnd\":71,\"sourceRole\":\"primary_reference\",\"status\":\"active_sql\"},{\"ruleId\":\"income:0_PB_CUST_DEATAIL.sql:L74:PB_CUST_005_TMP:rebuild\",\"purpose\":\"重建口徑：合併歷史與現況的私銀人員及組織對應；合併各來源並依完整輸出列去重\",\"executionContext\":\"rebuild\",\"resultName\":\"PB_CUST_005_TMP\",\"mergeMethod\":\"UNION\",\"duplicateHandling\":\"exact_projected_rows\",\"branches\":[{\"sourceTable\":\"PB_CUST_005_TMP0\",\"purpose\":\"提供所需來源欄位\"},{\"sourceTable\":\"PB_CUST_005_TMP1\",\"purpose\":\"提供所需來源欄位\"}],\"sourceFile\":\"sources/sql/0_PB_CUST_DEATAIL.sql\",\"lineStart\":73,\"lineEnd\":78,\"sourceRole\":\"primary_reference\",\"status\":\"active_sql\"},{\"ruleId\":\"income:0_PB_CUST_DEATAIL.sql:L81:CURRNT_AO_TMP1:rebuild\",\"purpose\":\"重建口徑：整理現況客戶、AO 與月份的對應；依選取的完整資料列去重；計算或對應所列輸出欄位\",\"executionContext\":\"rebuild\",\"resultName\":\"CURRNT_AO_TMP1\",\"sourceTable\":\"DSCIF.AO_CUST_REL\",\"outputColumns\":[\"YYYYMM\",\"CUST_ID\",\"AO_ID\"],\"fieldCalculations\":[{\"sourceExpression\":\"SUBSTR(lst_mtn_dt, 1, 6) AS YYYYMM\",\"targetColumn\":\"YYYYMM\"}],\"deduplication\":\"exact_output_rows\",\"sourceFile\":\"sources/sql/0_PB_CUST_DEATAIL.sql\",\"lineStart\":80,\"lineEnd\":84,\"sourceRole\":\"primary_reference\",\"status\":\"active_sql\"},{\"ruleId\":\"income:0_PB_CUST_DEATAIL.sql:L87:CURRNT_AO_TMP2:rebuild\",\"purpose\":\"重建口徑：整理歷史客戶、AO 與月份的對應；限定符合所列條件的資料範圍；依選取的完整資料列去重；計算或對應所列輸出欄位\",\"executionContext\":\"rebuild\",\"resultName\":\"CURRNT_AO_TMP2\",\"sourceTable\":\"DSCIF.AO_CUST_REL_HS\",\"filterConditions\":[\"YYYYMM >= '202312'\"],\"outputColumns\":[\"YYYYMM\",\"CUST_ID\",\"AO_ID\"],\"fieldCalculations\":[{\"sourceExpression\":\"TRIM(YYYYMM) AS YYYYMM\",\"targetColumn\":\"YYYYMM\"}],\"deduplication\":\"exact_output_rows\",\"sourceFile\":\"sources/sql/0_PB_CUST_DEATAIL.sql\",\"lineStart\":86,\"lineEnd\":91,\"sourceRole\":\"primary_reference\",\"status\":\"active_sql\"},{\"ruleId\":\"income:0_PB_CUST_DEATAIL.sql:L8:PB_CUST_005_TMP0:rebuild\",\"purpose\":\"重建口徑：從歷史 AO、員工、職務及利潤中心資訊辨識私銀範圍；保留左側資料並補充右側資訊；計算或對應所列輸出欄位\",\"executionContext\":\"rebuild\",\"resultName\":\"PB_CUST_005_TMP0\",\"joinType\":\"LEFT_JOIN\",\"leftInput\":{\"joinType\":\"LEFT_JOIN\",\"leftInput\":{\"joinType\":\"INNER_JOIN\",\"leftInput\":{\"sourceTable\":\"DSORG.AO_INFO_HS\",\"filterConditions\":[\"AO_TYP <> 'AO1P'\",\"NOT prft_cntr_cd IN ('2E4300', '2E5000')\"],\"purpose\":\"限定符合所列條件的資料範圍\"},\"rightInput\":{\"sourceTable\":\"DSORG.PRFT_CNTR_CD\",\"filterConditions\":[\"BU = '私人銀行處'\"],\"purpose\":\"限定符合所列條件的資料範圍\"},\"joinConditions\":[\"A.PRFT_CNTR_CD = B.PRFT_CNTR_CD\"],\"preservesUnmatchedLeftRows\":false,\"leftAlias\":\"A\",\"rightAlias\":\"B\",\"purpose\":\"補充符合連接條件的資料\"},\"rightInput\":{\"sourceTable\":\"DSORG.HR_EMP_HS\",\"filterConditions\":[\"JOB_STATUS = '1'\"],\"purpose\":\"限定符合所列條件的資料範圍\"},\"joinConditions\":[\"A.EMP_NO = TRIM(C.EMP_ID)\",\"a.yyyymm = c.yyyymm\"],\"preservesUnmatchedLeftRows\":true,\"leftAlias\":\"A\",\"rightAlias\":\"C\",\"purpose\":\"保留左側資料並補充右側資訊\"},\"rightInput\":{\"sourceTable\":\"DSORG.HR_JOB_TYP_CD\",\"filterConditions\":[\"pst_nm LIKE '%CA%' OR TRIM(pst_cd) IN ('VP026', 'VP030')\"],\"purpose\":\"限定符合所列條件的資料範圍\"},\"joinConditions\":[\"C.COMP_SERIAL_NO = E.COMP_SERIAL_NO\",\"C.PST_CD = E.PST_CD\"],\"preservesUnmatchedLeftRows\":true,\"leftAlias\":\"A\",\"rightAlias\":\"E\",\"outputColumns\":[\"EMP_NO\",\"IDNO\",\"SHT_NM\",\"SHT_SUB_NM\",\"E.*\",\"YYYYMM\",\"PRFT_CNTR_CD\"],\"fieldCalculations\":[{\"sourceExpression\":\"SUBSTR(sht_nm, INSTR(sht_nm, '業') + 2, INSTR(sht_nm, '部') - INSTR(sht_nm, '業') - 1) AS SHT_SUB_NM\",\"targetColumn\":\"SHT_SUB_NM\"},{\"sourceExpression\":\"E.*\"},{\"sourceExpression\":\"C.YYYYMM\",\"targetColumn\":\"YYYYMM\"},{\"sourceExpression\":\"A.PRFT_CNTR_CD\",\"targetColumn\":\"PRFT_CNTR_CD\"}],\"sourceFile\":\"sources/sql/0_PB_CUST_DEATAIL.sql\",\"lineStart\":7,\"lineEnd\":37,\"sourceRole\":\"primary_reference\",\"status\":\"active_sql\"},{\"ruleId\":\"income:0_PB_CUST_DEATAIL.sql:L94:CURRNT_AO:rebuild\",\"purpose\":\"重建口徑：合併歷史與現況客戶的 AO 對應；合併各來源並依完整輸出列去重\",\"executionContext\":\"rebuild\",\"resultName\":\"CURRNT_AO\",\"mergeMethod\":\"UNION\",\"duplicateHandling\":\"exact_projected_rows\",\"branches\":[{\"sourceTable\":\"CURRNT_AO_TMP1\",\"purpose\":\"提供所需來源欄位\"},{\"sourceTable\":\"CURRNT_AO_TMP2\",\"purpose\":\"提供所需來源欄位\"}],\"sourceFile\":\"sources/sql/0_PB_CUST_DEATAIL.sql\",\"lineStart\":93,\"lineEnd\":98,\"sourceRole\":\"primary_reference\",\"status\":\"active_sql\"}]",
+                "calculationRuleReading": "依 ruleId 合併共享計算；各規則內的條件只適用於其來源或 inputRule 結果。重建／月更新及主版／另版分別使用；queryRules 的產品、日期與資料粒度限制需一併套用。",
+                "draftEdgeKey": "draft:pb:20261012:edge:4d9fa07e22bb8bddbdf21290",
+                "definition": "產品對應 AUM 分類；計價、日期與來源依 IMPLEMENTED_BY 關係。",
+                "queryRules": "[{\"mappingRole\":\"customer_snapshot\",\"valueColumn\":\"AMT\",\"filterConditions\":[\"PROD='ETF'\"],\"dateRule\":\"指定月份內按 TYP × COMP × PROD × TYP_SUB_DTL 取 MAX(YYYYMMDD)，再 SUM(AMT)；此查詢規則尚待確認，不是每客戶取最新日。\",\"dateRuleStatus\":\"draft_metric_query\",\"timeBehavior\":\"snapshot\",\"additiveAcrossTime\":false,\"status\":\"observed_sql_mapping\",\"sourceEvidence\":[{\"sourceFile\":\"sources/sql/2._AUM_SUMY.sql\",\"lineStart\":7,\"lineEnd\":140}],\"dataLevel\":\"AUM\"},{\"mappingRole\":\"alternate_customer_snapshot\",\"valueColumn\":\"AMT\",\"filterConditions\":[\"PROD='ETF'\"],\"sourceRole\":\"alternate_file_reference\",\"dateRule\":\"指定月份內按 TYP × COMP × PROD × TYP_SUB_DTL 取 MAX(YYYYMMDD)，再 SUM(AMT)；此查詢規則尚待確認，不是每客戶取最新日。\",\"dateRuleStatus\":\"draft_metric_query\",\"status\":\"observed_sql_mapping\",\"scopeNote\":\"另一份彙整檔經排除名單與 PB_CUST_005 INNER JOIN；不能當成主 AUM 的相同母體。\",\"sourceEvidence\":[{\"sourceFile\":\"sources/sql/2._AUM_SUMY.~sql\",\"lineStart\":177,\"lineEnd\":217}],\"dataLevel\":\"AUM_TMP02\"}]",
+                "status": "observed_sql_mapping"
+              }
+            },
+            "calculationAuthorized": false
+          }
+        ],
+        [
+          {
+            "key": "draft:pb:20261012:product:bank_etf",
+            "properties": {
+              "coverage": "aum_and_fee",
+              "code": "bank_etf",
+              "reviewNotes": [],
+              "name": "銀行ETF",
+              "definition": "由AUM銀行信託產品分類拆出；Income以FH_TYP ETF分類。",
+              "classification": "手收／銀行／ETF",
+              "mappingConfidence": "inferred",
+              "key": "draft:pb:20261012:product:bank_etf",
+              "status": "observed_sql_mapping"
+            },
+            "labels": [
+              "MappingDraftProduct"
+            ]
+          },
+          {
+            "key": "draft:pb:20261012:metric:aum_bank_investment_month_end",
+            "properties": {
+              "dateRule": "指定月份內按 TYP × COMP × PROD × TYP_SUB_DTL 取 MAX(YYYYMMDD)，再 SUM(AMT)；此查詢規則尚待確認，不是每客戶取最新日。",
+              "timeBehavior": "snapshot",
+              "name": "銀行投資AUM",
+              "dateRuleStatus": "draft_metric_query",
+              "definition": "TYP 為投資且 COMP 為銀行的 AMT。",
+              "additiveAcrossTime": false,
+              "key": "draft:pb:20261012:metric:aum_bank_investment_month_end",
+              "status": "inferred_from_sql"
+            },
+            "labels": [
+              "MappingDraftMetric"
+            ]
+          },
+          {
+            "key": "draft:pb:20261012:table:DSFND.PB_FUND_MONTH",
+            "properties": {
+              "definitionStatus": "external_precondition",
+              "reviewNotes": [],
+              "columnCoverage": "SQL 明確投影與可解析的來源欄位；不是底表完整 schema",
+              "columns": "[{\"columnName\":\"CURRENTTWDVALUE\",\"dataType\":null,\"description\":null},{\"columnName\":\"EXEDATE\",\"dataType\":null,\"description\":null},{\"columnName\":\"IDNO\",\"dataType\":null,\"description\":null},{\"columnName\":\"PCCCODE\",\"dataType\":null,\"description\":null},{\"columnName\":\"TRUSTPRD\",\"dataType\":null,\"description\":null}]",
+              "groupingEvidence": "[]",
+              "name": "DSFND.PB_FUND_MONTH",
+              "domains": [
+                "aum"
+              ],
+              "outputColumns": [],
+              "tableRole": "source",
+              "dataScope": "unspecified",
+              "key": "draft:pb:20261012:table:DSFND.PB_FUND_MONTH"
+            },
+            "labels": [
+              "MappingDraftTable"
+            ]
+          }
+        ],
+        []
+      ]
+    ]
+  },
+  "queryType": "r",
+  "resultAvailableAfter": 1151,
+  "resultConsumedAfter": 1174,
+  "bookmarks": [
+    "FB:kcwQCwTJOUr5SpOBVJyQkS4dzskBfpA="
+  ]
+}

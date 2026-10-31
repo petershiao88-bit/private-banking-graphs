@@ -1,0 +1,736 @@
+{
+  "nodes": [
+    [
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1166",
+      [
+        "PBConceptProduct",
+        "PBConcept"
+      ],
+      {
+        "name": "存款",
+        "productCode": "deposit",
+        "incomeDefinition": "現有來源計入的存款利收，按存款整體衡量，尚未拆分至各存款子類。",
+        "aumDefinition": "客戶在銀行持有的台幣、外幣及結構型存款資產，以存款餘額衡量。"
+      }
+    ],
+    [
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1167",
+      [
+        "PBConceptProduct",
+        "PBConcept"
+      ],
+      {
+        "name": "銀行保險",
+        "productCode": "bank_insurance",
+        "incomeDefinition": "銀行通路保險業務的手續費及來源列入的客戶貢獻度金額，涵蓋日檔、月批與續期來源；來源間是否重複仍待釐清。",
+        "aumDefinition": "客戶透過銀行通路持有的保險資產，以原始投資金額衡量。"
+      }
+    ],
+    [
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1168",
+      [
+        "PBConceptProduct",
+        "PBConcept"
+      ],
+      {
+        "name": "銀行基金",
+        "productCode": "bank_fund",
+        "incomeDefinition": "依現有來源分類計入的銀行基金分行手續費收入。",
+        "aumDefinition": "客戶透過銀行通路持有的基金資產，以來源提供的台幣資產價值衡量。"
+      }
+    ],
+    [
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1169",
+      [
+        "PBConceptProduct",
+        "PBConcept"
+      ],
+      {
+        "name": "銀行ETF",
+        "productCode": "bank_etf",
+        "incomeDefinition": "銀行通路 ETF 業務的分行手續費收入。",
+        "aumDefinition": "客戶透過銀行通路持有的 ETF 資產，以來源提供的台幣資產價值衡量。"
+      }
+    ],
+    [
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1170",
+      [
+        "PBConceptProduct",
+        "PBConcept"
+      ],
+      {
+        "name": "銀行海外股票",
+        "productCode": "bank_overseas_stock",
+        "incomeDefinition": "銀行通路海外股票業務的分行手續費收入。",
+        "aumDefinition": "客戶透過銀行通路持有的海外股票資產，以來源提供的台幣資產價值衡量。"
+      }
+    ],
+    [
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1171",
+      [
+        "PBConceptProduct",
+        "PBConcept"
+      ],
+      {
+        "name": "海外債券（信託）",
+        "productCode": "bank_bond_trust",
+        "incomeDefinition": "銀行信託通路海外債券業務的分行手續費，以及按現行口徑計入的交易利得。",
+        "aumDefinition": "客戶透過銀行信託通路持有的海外債券資產，以來源提供的台幣資產價值衡量。"
+      }
+    ],
+    [
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1172",
+      [
+        "PBConceptProduct",
+        "PBConcept"
+      ],
+      {
+        "name": "海外債券（自營）",
+        "productCode": "bank_bond_proprietary",
+        "incomeDefinition": "銀行自營通路海外債券業務的來源收入，目前按來源收入金額的絕對值計入；與 AUM 側產品範圍的對應仍待釐清。",
+        "aumDefinition": "客戶透過銀行自營通路持有的海外債券部位，以面額、參考價格及匯率換算後的價值衡量。"
+      }
+    ],
+    [
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1173",
+      [
+        "PBConceptProduct",
+        "PBConcept"
+      ],
+      {
+        "name": "集合管理帳戶",
+        "productCode": "bank_collective_account",
+        "incomeDefinition": "",
+        "aumDefinition": "客戶持有的集合管理帳戶資產，以來源提供的台幣資產價值衡量。"
+      }
+    ],
+    [
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1174",
+      [
+        "PBConceptProduct",
+        "PBConcept"
+      ],
+      {
+        "name": "銀行境外結構型商品",
+        "productCode": "bank_structured_offshore",
+        "incomeDefinition": "銀行通路境外結構型商品業務的分行手續費收入。",
+        "aumDefinition": "客戶透過銀行通路持有的境外結構型商品資產，以來源提供的台幣資產價值衡量。"
+      }
+    ],
+    [
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1175",
+      [
+        "PBConceptProduct",
+        "PBConcept"
+      ],
+      {
+        "name": "規劃型信託",
+        "productCode": "bank_planned_trust",
+        "incomeDefinition": "規劃型信託業務的借券、管理及成立費收入，包含員工持股信託來源。",
+        "aumDefinition": "客戶的規劃型信託資產，涵蓋一般信託及員工持股信託來源，以來源提供的投資現值或台幣市值衡量。"
+      }
+    ],
+    [
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1176",
+      [
+        "PBConceptProduct",
+        "PBConcept"
+      ],
+      {
+        "name": "信託保管",
+        "productCode": "bank_trust_custody",
+        "incomeDefinition": "信託保管業務的保管費收入。",
+        "aumDefinition": "客戶交付信託保管的資產，以來源提供的資產現值合計衡量。"
+      }
+    ],
+    [
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1177",
+      [
+        "PBConceptProduct",
+        "PBConcept"
+      ],
+      {
+        "name": "證券複委託債券",
+        "productCode": "securities_bond",
+        "incomeDefinition": "證券複委託債券交易的客戶手續費收入，依來源匯率換算。",
+        "aumDefinition": "客戶透過證券複委託持有的債券部位，以持有數量、價格及匯率換算後的價值衡量。"
+      }
+    ],
+    [
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1178",
+      [
+        "PBConceptProduct",
+        "PBConcept"
+      ],
+      {
+        "name": "證券複委託結構型商品",
+        "productCode": "securities_structured",
+        "incomeDefinition": "證券複委託結構型商品交易的客戶手續費收入，依來源匯率換算。",
+        "aumDefinition": "客戶透過證券複委託持有的結構型商品部位，以持有數量、價格及匯率換算後的價值衡量。"
+      }
+    ],
+    [
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1179",
+      [
+        "PBConceptProduct",
+        "PBConcept"
+      ],
+      {
+        "name": "證券複委託基金",
+        "productCode": "securities_fund",
+        "incomeDefinition": "證券複委託基金交易的來源總手續費收入。",
+        "aumDefinition": "客戶透過證券複委託持有的基金資產，以持有單位數、收盤價及匯率換算後的價值衡量。"
+      }
+    ],
+    [
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1180",
+      [
+        "PBConceptProduct",
+        "PBConcept"
+      ],
+      {
+        "name": "證券複委託外國股票",
+        "productCode": "securities_foreign_stock",
+        "incomeDefinition": "證券複委託外國股票交易的客戶手續費扣除上手手續費後的淨收入，依來源匯率換算，保留可能的負值。",
+        "aumDefinition": "客戶透過證券複委託持有的外國股票部位，以持有數量、價格及匯率換算後的價值衡量。"
+      }
+    ],
+    [
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1181",
+      [
+        "PBConceptMetric",
+        "PBConcept",
+        "PBConceptAUM"
+      ],
+      {
+        "name": "總 AUM",
+        "definition": "某一衡量時點的銀行存款與銀行及證券通路投資資產合計，依各產品的計價口徑衡量。",
+        "metricCode": "aum_total"
+      }
+    ],
+    [
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1182",
+      [
+        "PBConceptMetric",
+        "PBConcept",
+        "PBConceptAUM"
+      ],
+      {
+        "name": "存款 AUM",
+        "definition": "某一衡量時點的銀行存款餘額，涵蓋台幣、外幣及結構型存款。",
+        "metricCode": "aum_deposit"
+      }
+    ],
+    [
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1183",
+      [
+        "PBConceptMetric",
+        "PBConcept",
+        "PBConceptAUM"
+      ],
+      {
+        "name": "投資 AUM",
+        "definition": "某一衡量時點的銀行及證券通路投資資產合計，依各產品的計價口徑衡量。",
+        "metricCode": "aum_investment"
+      }
+    ],
+    [
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1184",
+      [
+        "PBConceptMetric",
+        "PBConcept",
+        "PBConceptAUM"
+      ],
+      {
+        "name": "銀行投資 AUM",
+        "definition": "某一衡量時點的銀行通路投資資產合計，涵蓋保險、信託及其他已納入的投資產品。",
+        "metricCode": "aum_bank_investment"
+      }
+    ],
+    [
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1185",
+      [
+        "PBConceptMetric",
+        "PBConcept",
+        "PBConceptAUM"
+      ],
+      {
+        "name": "證券 AUM",
+        "definition": "某一衡量時點的證券通路投資資產合計，依各產品的部位估值口徑衡量。",
+        "metricCode": "aum_securities"
+      }
+    ],
+    [
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1186",
+      [
+        "PBConceptMetric",
+        "PBConcept",
+        "PBConceptAUM"
+      ],
+      {
+        "name": "保險 AUM",
+        "definition": "某一衡量時點的銀行通路保險資產，以原始投資金額衡量。",
+        "metricCode": "aum_insurance"
+      }
+    ],
+    [
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1187",
+      [
+        "PBConceptMetric",
+        "PBConcept",
+        "PBConceptIncome"
+      ],
+      {
+        "name": "總收入",
+        "definition": "某一衡量期間內，客戶相關的手續費類收入與利收合計，依各來源的收入口徑衡量。",
+        "metricCode": "income_total"
+      }
+    ],
+    [
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1188",
+      [
+        "PBConceptMetric",
+        "PBConcept",
+        "PBConceptIncome"
+      ],
+      {
+        "name": "手續費類收入",
+        "definition": "現有口徑歸入手續費類的收入，涵蓋手續費、客戶貢獻度及部分交易損益。",
+        "metricCode": "fee_income"
+      }
+    ],
+    [
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1189",
+      [
+        "PBConceptMetric",
+        "PBConcept",
+        "PBConceptIncome"
+      ],
+      {
+        "name": "銀行手續費類收入",
+        "definition": "銀行通路歸入手續費類的收入，依各產品來源的收入口徑衡量。",
+        "metricCode": "bank_fee_income"
+      }
+    ],
+    [
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1190",
+      [
+        "PBConceptMetric",
+        "PBConcept",
+        "PBConceptIncome"
+      ],
+      {
+        "name": "證券手續費類收入",
+        "definition": "證券通路歸入手續費類的收入，依各產品來源的收入口徑衡量。",
+        "metricCode": "securities_fee_income"
+      }
+    ],
+    [
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1191",
+      [
+        "PBConceptMetric",
+        "PBConcept",
+        "PBConceptIncome"
+      ],
+      {
+        "name": "利收",
+        "definition": "存款與放款業務歸入利收的收入，依各來源的取值口徑衡量。",
+        "metricCode": "interest_income"
+      }
+    ],
+    [
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1192",
+      [
+        "PBConceptMetric",
+        "PBConcept",
+        "PBConceptIncome"
+      ],
+      {
+        "name": "存款利收",
+        "definition": "存款業務歸入利收的收入，按存款整體衡量，尚未拆分至各存款子類。",
+        "metricCode": "deposit_interest_income"
+      }
+    ],
+    [
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1193",
+      [
+        "PBConcept",
+        "PBConceptCustomer"
+      ],
+      {
+        "name": "客戶",
+        "customerId": "用於識別客戶的識別碼；各來源可能採用不同的識別種類，跨來源對照尚待釐清。",
+        "conceptCode": "customer",
+        "definition": "與機構建立往來關係，使用其產品或服務的個人或組織。",
+        "customerNumber": "來源系統使用的客戶編號，屬選用資訊；與客戶識別碼分開理解。",
+        "customerName": "客戶姓名或名稱；委託人名稱須依來源角色解讀，來源未提供時可缺值。"
+      }
+    ]
+  ],
+  "relationships": [
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375822",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1166",
+      "PB_AUM_MEASURED_BY",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1182",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375823",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1167",
+      "PB_AUM_MEASURED_BY",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1186",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375824",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1168",
+      "PB_AUM_MEASURED_BY",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1184",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375825",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1169",
+      "PB_AUM_MEASURED_BY",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1184",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375826",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1170",
+      "PB_AUM_MEASURED_BY",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1184",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375827",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1171",
+      "PB_AUM_MEASURED_BY",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1184",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375828",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1172",
+      "PB_AUM_MEASURED_BY",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1184",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375829",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1173",
+      "PB_AUM_MEASURED_BY",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1184",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375830",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1174",
+      "PB_AUM_MEASURED_BY",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1184",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375831",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1175",
+      "PB_AUM_MEASURED_BY",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1184",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375832",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1176",
+      "PB_AUM_MEASURED_BY",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1184",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375833",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1177",
+      "PB_AUM_MEASURED_BY",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1185",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375834",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1178",
+      "PB_AUM_MEASURED_BY",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1185",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375835",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1179",
+      "PB_AUM_MEASURED_BY",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1185",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375836",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1180",
+      "PB_AUM_MEASURED_BY",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1185",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003598",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1166",
+      "PB_INCOME_MEASURED_BY",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1192",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003599",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1167",
+      "PB_INCOME_MEASURED_BY",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1189",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003600",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1168",
+      "PB_INCOME_MEASURED_BY",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1189",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003601",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1169",
+      "PB_INCOME_MEASURED_BY",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1189",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003602",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1170",
+      "PB_INCOME_MEASURED_BY",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1189",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003603",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1171",
+      "PB_INCOME_MEASURED_BY",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1189",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003604",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1172",
+      "PB_INCOME_MEASURED_BY",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1189",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003606",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1174",
+      "PB_INCOME_MEASURED_BY",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1189",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003607",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1175",
+      "PB_INCOME_MEASURED_BY",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1189",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003608",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1176",
+      "PB_INCOME_MEASURED_BY",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1189",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003609",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1177",
+      "PB_INCOME_MEASURED_BY",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1190",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003610",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1178",
+      "PB_INCOME_MEASURED_BY",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1190",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003611",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1179",
+      "PB_INCOME_MEASURED_BY",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1190",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003612",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1180",
+      "PB_INCOME_MEASURED_BY",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1190",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152984176769631381",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1173",
+      "PB_INCOME_PENDING",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1189",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259166",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1182",
+      "PB_AUM_ROLLS_UP_TO",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1181",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1183",
+      "PB_AUM_ROLLS_UP_TO",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1181",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259170",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1186",
+      "PB_AUM_ROLLS_UP_TO",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1184",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1188",
+      "PB_INCOME_ROLLS_UP_TO",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1187",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886951",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1191",
+      "PB_INCOME_ROLLS_UP_TO",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1187",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6917594998338749609",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1181",
+      "PB_MEASURES_CUSTOMER",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1193",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1184",
+      "PB_AUM_ROLLS_UP_TO",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1183",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1189",
+      "PB_INCOME_ROLLS_UP_TO",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1188",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807079",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1192",
+      "PB_INCOME_ROLLS_UP_TO",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1191",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919846798152434857",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1182",
+      "PB_MEASURES_CUSTOMER",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1193",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922096398942864543",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1185",
+      "PB_AUM_ROLLS_UP_TO",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1183",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922097498454492324",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1190",
+      "PB_INCOME_ROLLS_UP_TO",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1188",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922098597966120105",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1183",
+      "PB_MEASURES_CUSTOMER",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1193",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6924350397779805353",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1184",
+      "PB_MEASURES_CUSTOMER",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1193",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6926602197593490601",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1185",
+      "PB_MEASURES_CUSTOMER",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1193",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6928853997407175849",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1186",
+      "PB_MEASURES_CUSTOMER",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1193",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6931105797220861097",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1187",
+      "PB_MEASURES_CUSTOMER",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1193",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6933357597034546345",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1188",
+      "PB_MEASURES_CUSTOMER",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1193",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6935609396848231593",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1189",
+      "PB_MEASURES_CUSTOMER",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1193",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6937861196661916841",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1190",
+      "PB_MEASURES_CUSTOMER",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1193",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6940112996475602089",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1191",
+      "PB_MEASURES_CUSTOMER",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1193",
+      {}
+    ],
+    [
+      "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6942364796289287337",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1192",
+      "PB_MEASURES_CUSTOMER",
+      "4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1193",
+      {}
+    ]
+  ]
+}

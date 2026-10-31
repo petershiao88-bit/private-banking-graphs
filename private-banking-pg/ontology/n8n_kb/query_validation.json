@@ -1,0 +1,41 @@
+{
+  "verifiedAt": "2026-10-06T06:23:01.445952+00:00",
+  "endpoint": "https://4bb479b2.databases.neo4j.io/db/neo4j/query/v2",
+  "catalogProducts": 15,
+  "scopeCases": {
+    "deposit": 1,
+    "securities": 4,
+    "insurance": 1,
+    "multiple_metrics": 2,
+    "unknown": 0,
+    "wrong_domain": 0,
+    "injection": 0,
+    "income_bank": 10
+  },
+  "cases": {
+    "empty": {
+      "selected": 0,
+      "returned": 0
+    },
+    "single": {
+      "selected": 1,
+      "returned": 1
+    },
+    "multiple": {
+      "selected": 2,
+      "returned": 2
+    },
+    "pending": {
+      "selected": 1,
+      "returned": 1
+    },
+    "duplicate": {
+      "selected": 2,
+      "returned": 1
+    },
+    "both_domains": {
+      "selected": 2,
+      "returned": 2
+    }
+  }
+}

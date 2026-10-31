@@ -1,0 +1,50 @@
+# 銀行存款商品 v0.6.0，2026-10-22，設計草案。
+# example.org 為示意命名空間；不是實際服務位址。
+
+@prefix fh: <https://example.org/ontology/holding#> .
+@prefix bank: <https://example.org/ontology/bank#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://example.org/ontology/bank/deposit>
+    a owl:Ontology ;
+    rdfs:label "銀行存款商品本體"@zh-TW ;
+    owl:imports <https://example.org/ontology/holding> ;
+    owl:versionIRI <https://example.org/ontology/bank/deposit/0.6.0> ;
+    owl:versionInfo "0.6.0 / design draft / 2026-10-22" .
+
+# 僅定義共通分類；台幣／外幣／結構型存款的組合留在部門 PG。
+
+bank:DepositProduct
+    a owl:Class ;
+    rdfs:subClassOf fh:FinancialProduct ;
+    rdfs:label "存款商品"@zh-TW ;
+    skos:definition "銀行提供、供客戶依約定存放資金的金融商品。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+bank:TWDFinancialProduct
+    a owl:Class ;
+    rdfs:subClassOf fh:FinancialProduct ;
+    rdfs:label "台幣金融商品"@zh-TW ;
+    skos:definition "以新臺幣計價的金融商品。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+bank:ForeignCurrencyFinancialProduct
+    a owl:Class ;
+    rdfs:subClassOf fh:FinancialProduct ;
+    rdfs:label "外幣金融商品"@zh-TW ;
+    skos:definition "以新臺幣以外貨幣計價的金融商品。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+bank:StructuredFinancialProduct
+    a owl:Class ;
+    rdfs:subClassOf fh:FinancialProduct ;
+    rdfs:label "結構型金融商品"@zh-TW ;
+    skos:definition "報酬條件依約定公式連結金融指標或標的表現的金融商品。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+

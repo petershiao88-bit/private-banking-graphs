@@ -1,0 +1,127 @@
+{
+  "revision": "pg-income-extension-20261024",
+  "ontology_version": "0.15.0",
+  "status": "implemented_locally_not_deployed",
+  "rdf_changed": false,
+  "new_concepts": [
+    "bank.deposit_interest_income",
+    "bank.overseas_bond_trust_fee_income",
+    "bank.overseas_bond_proprietary_fee_income"
+  ],
+  "expanded_concepts": [
+    "bank.dci_fee_income",
+    "bank.insurance_fee_income"
+  ],
+  "tool_execution": "deferred; no SQL execution or indicator-to-Tool binding added",
+  "backup": "archive/before-pg-income-extension-20261024",
+  "source_evidence": {
+    "deposit_income_history": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        546,
+        581
+      ],
+      "encoding": "cp950",
+      "sha256": "b257b8e2dff0088cab5e505228fcc7a05200a5c572c6f607c642d21b9fb2277e"
+    },
+    "deposit_income_current": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        583,
+        600
+      ],
+      "encoding": "cp950",
+      "sha256": "b257b8e2dff0088cab5e505228fcc7a05200a5c572c6f607c642d21b9fb2277e"
+    },
+    "deposit_income_monthly": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        602,
+        644
+      ],
+      "encoding": "cp950",
+      "sha256": "b257b8e2dff0088cab5e505228fcc7a05200a5c572c6f607c642d21b9fb2277e"
+    },
+    "deposit_income_monthly_job": {
+      "file": "Ontology/私銀智能問答/sources/sql/X-INCOME_MOTHLY.sql",
+      "lines": [
+        7,
+        49
+      ],
+      "encoding": "cp950",
+      "sha256": "54b211d039ba916600b62df676f309391d346898ed56fd113d11350bc69d4979"
+    },
+    "deposit_income_summary": {
+      "file": "Ontology/私銀智能問答/sources/sql/9.INCOME_SMY.sql",
+      "lines": [
+        231,
+        240
+      ],
+      "encoding": "cp950",
+      "sha256": "6361b14ced76443a5f10f64838219d177a1d1cc76e553be565f7c1233b870588"
+    },
+    "bond_trust_income": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        39,
+        51
+      ],
+      "encoding": "cp950",
+      "sha256": "b257b8e2dff0088cab5e505228fcc7a05200a5c572c6f607c642d21b9fb2277e"
+    },
+    "bond_proprietary_income": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        54,
+        61
+      ],
+      "encoding": "cp950",
+      "sha256": "b257b8e2dff0088cab5e505228fcc7a05200a5c572c6f607c642d21b9fb2277e"
+    },
+    "bond_income_summary": {
+      "file": "Ontology/私銀智能問答/sources/sql/9.INCOME_SMY.sql",
+      "lines": [
+        40,
+        59
+      ],
+      "encoding": "cp950",
+      "sha256": "6361b14ced76443a5f10f64838219d177a1d1cc76e553be565f7c1233b870588"
+    },
+    "sql_dci_tmu": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        116,
+        128
+      ],
+      "encoding": "cp950",
+      "sha256": "b257b8e2dff0088cab5e505228fcc7a05200a5c572c6f607c642d21b9fb2277e"
+    },
+    "sql_dci_summary": {
+      "file": "Ontology/私銀智能問答/sources/sql/9.INCOME_SMY.sql",
+      "lines": [
+        71,
+        90
+      ],
+      "encoding": "cp950",
+      "sha256": "6361b14ced76443a5f10f64838219d177a1d1cc76e553be565f7c1233b870588"
+    },
+    "insurance_contribution_sql": {
+      "file": "Ontology/私銀智能問答/sources/sql/8.INCOME_DETAIL.sql",
+      "lines": [
+        17,
+        38
+      ],
+      "encoding": "cp950",
+      "sha256": "b257b8e2dff0088cab5e505228fcc7a05200a5c572c6f607c642d21b9fb2277e"
+    },
+    "insurance_income_summary": {
+      "file": "Ontology/私銀智能問答/sources/sql/9.INCOME_SMY.sql",
+      "lines": [
+        11,
+        39
+      ],
+      "encoding": "cp950",
+      "sha256": "6361b14ced76443a5f10f64838219d177a1d1cc76e553be565f7c1233b870588"
+    }
+  }
+}

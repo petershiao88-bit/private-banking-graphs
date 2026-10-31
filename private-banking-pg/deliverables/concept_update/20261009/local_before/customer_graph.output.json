@@ -1,0 +1,1626 @@
+{
+  "conceptGraph": {
+    "relationships": [
+      {
+        "from": "aum_deposit_month_end",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259166",
+        "to": "aum_total_month_end",
+        "type": "PB_AUM_ROLLS_UP_TO",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "aum_investment_month_end",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167",
+        "to": "aum_total_month_end",
+        "type": "PB_AUM_ROLLS_UP_TO",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "deposit",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375822",
+        "to": "aum_deposit_month_end",
+        "type": "PB_AUM_MEASURED_BY",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "aum_bank_investment_month_end",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "to": "aum_investment_month_end",
+        "type": "PB_AUM_ROLLS_UP_TO",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "aum_securities_month_end",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922096398942864543",
+        "to": "aum_investment_month_end",
+        "type": "PB_AUM_ROLLS_UP_TO",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "bank_fund",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375824",
+        "to": "aum_bank_investment_month_end",
+        "type": "PB_AUM_MEASURED_BY",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "bank_etf",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375825",
+        "to": "aum_bank_investment_month_end",
+        "type": "PB_AUM_MEASURED_BY",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "bank_overseas_stock",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375826",
+        "to": "aum_bank_investment_month_end",
+        "type": "PB_AUM_MEASURED_BY",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "bank_bond_trust",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375827",
+        "to": "aum_bank_investment_month_end",
+        "type": "PB_AUM_MEASURED_BY",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "bank_bond_proprietary",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375828",
+        "to": "aum_bank_investment_month_end",
+        "type": "PB_AUM_MEASURED_BY",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "bank_collective_account",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375829",
+        "to": "aum_bank_investment_month_end",
+        "type": "PB_AUM_MEASURED_BY",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "bank_structured_offshore",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375830",
+        "to": "aum_bank_investment_month_end",
+        "type": "PB_AUM_MEASURED_BY",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "bank_planned_trust",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375831",
+        "to": "aum_bank_investment_month_end",
+        "type": "PB_AUM_MEASURED_BY",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "bank_trust_custody",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375832",
+        "to": "aum_bank_investment_month_end",
+        "type": "PB_AUM_MEASURED_BY",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "aum_insurance_month_end",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259170",
+        "to": "aum_bank_investment_month_end",
+        "type": "PB_AUM_ROLLS_UP_TO",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "securities_bond",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375833",
+        "to": "aum_securities_month_end",
+        "type": "PB_AUM_MEASURED_BY",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "securities_structured",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375834",
+        "to": "aum_securities_month_end",
+        "type": "PB_AUM_MEASURED_BY",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "securities_fund",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375835",
+        "to": "aum_securities_month_end",
+        "type": "PB_AUM_MEASURED_BY",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "securities_foreign_stock",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375836",
+        "to": "aum_securities_month_end",
+        "type": "PB_AUM_MEASURED_BY",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "bank_insurance",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375823",
+        "to": "aum_insurance_month_end",
+        "type": "PB_AUM_MEASURED_BY",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "fee_income",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948",
+        "to": "income_total_customer_month",
+        "type": "PB_INCOME_ROLLS_UP_TO",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "interest_income",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886951",
+        "to": "income_total_customer_month",
+        "type": "PB_INCOME_ROLLS_UP_TO",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "bank_fee_income",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "to": "fee_income",
+        "type": "PB_INCOME_ROLLS_UP_TO",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "securities_fee_income",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922097498454492324",
+        "to": "fee_income",
+        "type": "PB_INCOME_ROLLS_UP_TO",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "bank_insurance",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003599",
+        "to": "bank_fee_income",
+        "type": "PB_INCOME_MEASURED_BY",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "bank_fund",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003600",
+        "to": "bank_fee_income",
+        "type": "PB_INCOME_MEASURED_BY",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "bank_etf",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003601",
+        "to": "bank_fee_income",
+        "type": "PB_INCOME_MEASURED_BY",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "bank_overseas_stock",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003602",
+        "to": "bank_fee_income",
+        "type": "PB_INCOME_MEASURED_BY",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "bank_bond_trust",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003603",
+        "to": "bank_fee_income",
+        "type": "PB_INCOME_MEASURED_BY",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "bank_bond_proprietary",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003604",
+        "to": "bank_fee_income",
+        "type": "PB_INCOME_MEASURED_BY",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "bank_structured_offshore",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003606",
+        "to": "bank_fee_income",
+        "type": "PB_INCOME_MEASURED_BY",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "bank_planned_trust",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003607",
+        "to": "bank_fee_income",
+        "type": "PB_INCOME_MEASURED_BY",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "bank_trust_custody",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003608",
+        "to": "bank_fee_income",
+        "type": "PB_INCOME_MEASURED_BY",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "bank_collective_account",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152984176769631381",
+        "to": "bank_fee_income",
+        "type": "PB_INCOME_PENDING",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "securities_bond",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003609",
+        "to": "securities_fee_income",
+        "type": "PB_INCOME_MEASURED_BY",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "securities_structured",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003610",
+        "to": "securities_fee_income",
+        "type": "PB_INCOME_MEASURED_BY",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "securities_fund",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003611",
+        "to": "securities_fee_income",
+        "type": "PB_INCOME_MEASURED_BY",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "securities_foreign_stock",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003612",
+        "to": "securities_fee_income",
+        "type": "PB_INCOME_MEASURED_BY",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "deposit_interest_income",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807079",
+        "to": "interest_income",
+        "type": "PB_INCOME_ROLLS_UP_TO",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "deposit",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003598",
+        "to": "deposit_interest_income",
+        "type": "PB_INCOME_MEASURED_BY",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "aum_total_month_end",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6917594998338749609",
+        "to": "customer",
+        "type": "PB_MEASURES_CUSTOMER",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "aum_deposit_month_end",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919846798152434857",
+        "to": "customer",
+        "type": "PB_MEASURES_CUSTOMER",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "aum_investment_month_end",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922098597966120105",
+        "to": "customer",
+        "type": "PB_MEASURES_CUSTOMER",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "aum_bank_investment_month_end",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6924350397779805353",
+        "to": "customer",
+        "type": "PB_MEASURES_CUSTOMER",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "aum_securities_month_end",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6926602197593490601",
+        "to": "customer",
+        "type": "PB_MEASURES_CUSTOMER",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "aum_insurance_month_end",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6928853997407175849",
+        "to": "customer",
+        "type": "PB_MEASURES_CUSTOMER",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "income_total_customer_month",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6931105797220861097",
+        "to": "customer",
+        "type": "PB_MEASURES_CUSTOMER",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "fee_income",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6933357597034546345",
+        "to": "customer",
+        "type": "PB_MEASURES_CUSTOMER",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "bank_fee_income",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6935609396848231593",
+        "to": "customer",
+        "type": "PB_MEASURES_CUSTOMER",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "securities_fee_income",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6937861196661916841",
+        "to": "customer",
+        "type": "PB_MEASURES_CUSTOMER",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "interest_income",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6940112996475602089",
+        "to": "customer",
+        "type": "PB_MEASURES_CUSTOMER",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      },
+      {
+        "from": "deposit_interest_income",
+        "id": "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6942364796289287337",
+        "to": "customer",
+        "type": "PB_MEASURES_CUSTOMER",
+        "properties": {
+          "name": null,
+          "note": null,
+          "scope": null,
+          "status": null
+        }
+      }
+    ],
+    "nodes": [
+      {
+        "key": "deposit",
+        "properties": {
+          "productCode": "deposit",
+          "incomeStatus": "inferred",
+          "customerId": null,
+          "name": "存款",
+          "conceptCode": null,
+          "aumStatus": "inferred",
+          "definition": "客戶在銀行持有的存款。AUM衡量存款餘額；Income衡量存款整體利息收入，不將總利收重複分配至各子類。",
+          "customerNumber": null,
+          "customerName": null,
+          "metricCode": null,
+          "status": "aggregate_scope"
+        },
+        "labels": [
+          "PBConceptProduct",
+          "PBConcept"
+        ]
+      },
+      {
+        "key": "bank_insurance",
+        "properties": {
+          "productCode": "bank_insurance",
+          "incomeStatus": "overlap_unresolved",
+          "customerId": null,
+          "name": "銀行保險",
+          "conceptCode": null,
+          "aumStatus": "inferred",
+          "definition": "銀行通路保險業務。AUM衡量原始投資金額；Income衡量相關收入，收入是否重複計入仍待確認。",
+          "customerNumber": null,
+          "customerName": null,
+          "metricCode": null,
+          "status": "overlap_unresolved"
+        },
+        "labels": [
+          "PBConceptProduct",
+          "PBConcept"
+        ]
+      },
+      {
+        "key": "bank_fund",
+        "properties": {
+          "productCode": "bank_fund",
+          "incomeStatus": "inferred",
+          "customerId": null,
+          "name": "銀行基金",
+          "conceptCode": null,
+          "aumStatus": "inferred",
+          "definition": "銀行通路的基金業務，涵蓋客戶持有資產與相關收入。",
+          "customerNumber": null,
+          "customerName": null,
+          "metricCode": null,
+          "status": "inferred"
+        },
+        "labels": [
+          "PBConceptProduct",
+          "PBConcept"
+        ]
+      },
+      {
+        "key": "bank_etf",
+        "properties": {
+          "productCode": "bank_etf",
+          "incomeStatus": "inferred",
+          "customerId": null,
+          "name": "銀行ETF",
+          "conceptCode": null,
+          "aumStatus": "inferred",
+          "definition": "銀行通路的指數股票型基金業務，涵蓋客戶持有資產與相關收入。",
+          "customerNumber": null,
+          "customerName": null,
+          "metricCode": null,
+          "status": "inferred"
+        },
+        "labels": [
+          "PBConceptProduct",
+          "PBConcept"
+        ]
+      },
+      {
+        "key": "bank_overseas_stock",
+        "properties": {
+          "productCode": "bank_overseas_stock",
+          "incomeStatus": "inferred",
+          "customerId": null,
+          "name": "銀行海外股票",
+          "conceptCode": null,
+          "aumStatus": "inferred",
+          "definition": "銀行通路的海外股票業務，涵蓋客戶持有資產與相關收入。",
+          "customerNumber": null,
+          "customerName": null,
+          "metricCode": null,
+          "status": "inferred"
+        },
+        "labels": [
+          "PBConceptProduct",
+          "PBConcept"
+        ]
+      },
+      {
+        "key": "bank_bond_trust",
+        "properties": {
+          "productCode": "bank_bond_trust",
+          "incomeStatus": "inferred",
+          "customerId": null,
+          "name": "海外債券（信託）",
+          "conceptCode": null,
+          "aumStatus": "inferred",
+          "definition": "以信託方式持有的海外債券業務，涵蓋客戶持有市值與相關信託收入。",
+          "customerNumber": null,
+          "customerName": null,
+          "metricCode": null,
+          "status": "inferred"
+        },
+        "labels": [
+          "PBConceptProduct",
+          "PBConcept"
+        ]
+      },
+      {
+        "key": "bank_bond_proprietary",
+        "properties": {
+          "productCode": "bank_bond_proprietary",
+          "incomeStatus": "inferred",
+          "customerId": null,
+          "name": "海外債券（自營）",
+          "conceptCode": null,
+          "aumStatus": "inferred",
+          "definition": "銀行自營通路的海外債券業務，涵蓋客戶持有資產與相關收入；兩側業務對應仍屬推論。",
+          "customerNumber": null,
+          "customerName": null,
+          "metricCode": null,
+          "status": "inferred"
+        },
+        "labels": [
+          "PBConceptProduct",
+          "PBConcept"
+        ]
+      },
+      {
+        "key": "bank_collective_account",
+        "properties": {
+          "productCode": "bank_collective_account",
+          "incomeStatus": "pending_confirmation",
+          "customerId": null,
+          "name": "集合管理帳戶",
+          "conceptCode": null,
+          "aumStatus": "inferred",
+          "definition": "集合管理帳戶業務。AUM衡量客戶持有資產；Income的獨立業務定義待確認，不代表已確認計入獨立收入。",
+          "customerNumber": null,
+          "customerName": null,
+          "metricCode": null,
+          "status": "pending_confirmation"
+        },
+        "labels": [
+          "PBConceptProduct",
+          "PBConcept"
+        ]
+      },
+      {
+        "key": "bank_structured_offshore",
+        "properties": {
+          "productCode": "bank_structured_offshore",
+          "incomeStatus": "inferred",
+          "customerId": null,
+          "name": "銀行境外結構型商品",
+          "conceptCode": null,
+          "aumStatus": "inferred",
+          "definition": "銀行通路的境外結構型商品業務，涵蓋客戶持有資產與相關收入。",
+          "customerNumber": null,
+          "customerName": null,
+          "metricCode": null,
+          "status": "inferred"
+        },
+        "labels": [
+          "PBConceptProduct",
+          "PBConcept"
+        ]
+      },
+      {
+        "key": "bank_planned_trust",
+        "properties": {
+          "productCode": "bank_planned_trust",
+          "incomeStatus": "inferred",
+          "customerId": null,
+          "name": "規劃型信託",
+          "conceptCode": null,
+          "aumStatus": "inferred",
+          "definition": "規劃型信託業務，涵蓋受託管理資產及相關管理、成立與借券收入。",
+          "customerNumber": null,
+          "customerName": null,
+          "metricCode": null,
+          "status": "inferred"
+        },
+        "labels": [
+          "PBConceptProduct",
+          "PBConcept"
+        ]
+      },
+      {
+        "key": "bank_trust_custody",
+        "properties": {
+          "productCode": "bank_trust_custody",
+          "incomeStatus": "inferred",
+          "customerId": null,
+          "name": "信託保管",
+          "conceptCode": null,
+          "aumStatus": "inferred",
+          "definition": "信託保管業務，涵蓋保管資產與保管費收入。",
+          "customerNumber": null,
+          "customerName": null,
+          "metricCode": null,
+          "status": "inferred"
+        },
+        "labels": [
+          "PBConceptProduct",
+          "PBConcept"
+        ]
+      },
+      {
+        "key": "securities_bond",
+        "properties": {
+          "productCode": "securities_bond",
+          "incomeStatus": "inferred",
+          "customerId": null,
+          "name": "證券複委託債券",
+          "conceptCode": null,
+          "aumStatus": "inferred",
+          "definition": "證券通路的複委託債券業務，涵蓋部位估值與交易手續費收入。",
+          "customerNumber": null,
+          "customerName": null,
+          "metricCode": null,
+          "status": "inferred"
+        },
+        "labels": [
+          "PBConceptProduct",
+          "PBConcept"
+        ]
+      },
+      {
+        "key": "securities_structured",
+        "properties": {
+          "productCode": "securities_structured",
+          "incomeStatus": "inferred",
+          "customerId": null,
+          "name": "證券複委託結構型商品",
+          "conceptCode": null,
+          "aumStatus": "inferred",
+          "definition": "證券通路的複委託結構型商品業務，涵蓋客戶持有資產與相关收入。",
+          "customerNumber": null,
+          "customerName": null,
+          "metricCode": null,
+          "status": "inferred"
+        },
+        "labels": [
+          "PBConceptProduct",
+          "PBConcept"
+        ]
+      },
+      {
+        "key": "securities_fund",
+        "properties": {
+          "productCode": "securities_fund",
+          "incomeStatus": "inferred",
+          "customerId": null,
+          "name": "證券複委託基金",
+          "conceptCode": null,
+          "aumStatus": "inferred",
+          "definition": "證券通路的複委託基金業務，涵蓋客戶持有資產與交易費收入。",
+          "customerNumber": null,
+          "customerName": null,
+          "metricCode": null,
+          "status": "inferred"
+        },
+        "labels": [
+          "PBConceptProduct",
+          "PBConcept"
+        ]
+      },
+      {
+        "key": "securities_foreign_stock",
+        "properties": {
+          "productCode": "securities_foreign_stock",
+          "incomeStatus": "inferred",
+          "customerId": null,
+          "name": "證券複委託外國股票",
+          "conceptCode": null,
+          "aumStatus": "inferred",
+          "definition": "證券通路的複委託外國股票業務，涵蓋客戶持有資產與淨手續費收入；淨收入可能為負值。",
+          "customerNumber": null,
+          "customerName": null,
+          "metricCode": null,
+          "status": "inferred"
+        },
+        "labels": [
+          "PBConceptProduct",
+          "PBConcept"
+        ]
+      },
+      {
+        "key": "aum_total_month_end",
+        "properties": {
+          "productCode": null,
+          "incomeStatus": null,
+          "customerId": null,
+          "name": "月底總AUM",
+          "conceptCode": null,
+          "aumStatus": null,
+          "definition": "指定月份各分類最新可用日期的存款與投資資產合計。此月底衡量定義仍為草案。",
+          "customerNumber": null,
+          "customerName": null,
+          "metricCode": "aum_total_month_end",
+          "status": "draft"
+        },
+        "labels": [
+          "PBConceptMetric",
+          "PBConcept",
+          "PBConceptAUM"
+        ]
+      },
+      {
+        "key": "aum_deposit_month_end",
+        "properties": {
+          "productCode": null,
+          "incomeStatus": null,
+          "customerId": null,
+          "name": "月底存款AUM",
+          "conceptCode": null,
+          "aumStatus": null,
+          "definition": "月底衡量的銀行存款餘額。",
+          "customerNumber": null,
+          "customerName": null,
+          "metricCode": "aum_deposit_month_end",
+          "status": "inferred"
+        },
+        "labels": [
+          "PBConceptMetric",
+          "PBConcept",
+          "PBConceptAUM"
+        ]
+      },
+      {
+        "key": "aum_investment_month_end",
+        "properties": {
+          "productCode": null,
+          "incomeStatus": null,
+          "customerId": null,
+          "name": "月底投資AUM",
+          "conceptCode": null,
+          "aumStatus": null,
+          "definition": "月底衡量的銀行及證券通路投資資產合計。",
+          "customerNumber": null,
+          "customerName": null,
+          "metricCode": "aum_investment_month_end",
+          "status": "inferred"
+        },
+        "labels": [
+          "PBConceptMetric",
+          "PBConcept",
+          "PBConceptAUM"
+        ]
+      },
+      {
+        "key": "aum_bank_investment_month_end",
+        "properties": {
+          "productCode": null,
+          "incomeStatus": null,
+          "customerId": null,
+          "name": "月底銀行投資AUM",
+          "conceptCode": null,
+          "aumStatus": null,
+          "definition": "月底衡量的銀行通路投資資產。",
+          "customerNumber": null,
+          "customerName": null,
+          "metricCode": "aum_bank_investment_month_end",
+          "status": "inferred"
+        },
+        "labels": [
+          "PBConceptMetric",
+          "PBConcept",
+          "PBConceptAUM"
+        ]
+      },
+      {
+        "key": "aum_securities_month_end",
+        "properties": {
+          "productCode": null,
+          "incomeStatus": null,
+          "customerId": null,
+          "name": "月底證券AUM",
+          "conceptCode": null,
+          "aumStatus": null,
+          "definition": "月底衡量的證券通路投資資產。",
+          "customerNumber": null,
+          "customerName": null,
+          "metricCode": "aum_securities_month_end",
+          "status": "inferred"
+        },
+        "labels": [
+          "PBConceptMetric",
+          "PBConcept",
+          "PBConceptAUM"
+        ]
+      },
+      {
+        "key": "aum_insurance_month_end",
+        "properties": {
+          "productCode": null,
+          "incomeStatus": null,
+          "customerId": null,
+          "name": "月底保險AUM",
+          "conceptCode": null,
+          "aumStatus": null,
+          "definition": "月底衡量的銀行保險原始投資金額。",
+          "customerNumber": null,
+          "customerName": null,
+          "metricCode": "aum_insurance_month_end",
+          "status": "inferred"
+        },
+        "labels": [
+          "PBConceptMetric",
+          "PBConcept",
+          "PBConceptAUM"
+        ]
+      },
+      {
+        "key": "income_total_customer_month",
+        "properties": {
+          "productCode": null,
+          "incomeStatus": null,
+          "customerId": null,
+          "name": "每客戶每月總收入",
+          "conceptCode": null,
+          "aumStatus": null,
+          "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+          "customerNumber": null,
+          "customerName": null,
+          "metricCode": "income_total_customer_month",
+          "status": "pending_confirmation"
+        },
+        "labels": [
+          "PBConceptMetric",
+          "PBConcept",
+          "PBConceptIncome"
+        ]
+      },
+      {
+        "key": "fee_income",
+        "properties": {
+          "productCode": null,
+          "incomeStatus": null,
+          "customerId": null,
+          "name": "手續費類收入",
+          "conceptCode": null,
+          "aumStatus": null,
+          "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+          "customerNumber": null,
+          "customerName": null,
+          "metricCode": "fee_income",
+          "status": "inferred"
+        },
+        "labels": [
+          "PBConceptMetric",
+          "PBConcept",
+          "PBConceptIncome"
+        ]
+      },
+      {
+        "key": "bank_fee_income",
+        "properties": {
+          "productCode": null,
+          "incomeStatus": null,
+          "customerId": null,
+          "name": "銀行手續費類收入",
+          "conceptCode": null,
+          "aumStatus": null,
+          "definition": "銀行通路歸入手續費類的收入。",
+          "customerNumber": null,
+          "customerName": null,
+          "metricCode": "bank_fee_income",
+          "status": "inferred"
+        },
+        "labels": [
+          "PBConceptMetric",
+          "PBConcept",
+          "PBConceptIncome"
+        ]
+      },
+      {
+        "key": "securities_fee_income",
+        "properties": {
+          "productCode": null,
+          "incomeStatus": null,
+          "customerId": null,
+          "name": "證券手續費類收入",
+          "conceptCode": null,
+          "aumStatus": null,
+          "definition": "證券通路歸入手續費類的收入。",
+          "customerNumber": null,
+          "customerName": null,
+          "metricCode": "securities_fee_income",
+          "status": "inferred"
+        },
+        "labels": [
+          "PBConceptMetric",
+          "PBConcept",
+          "PBConceptIncome"
+        ]
+      },
+      {
+        "key": "interest_income",
+        "properties": {
+          "productCode": null,
+          "incomeStatus": null,
+          "customerId": null,
+          "name": "利息收入",
+          "conceptCode": null,
+          "aumStatus": null,
+          "definition": "存款與放款業務的利息收入。",
+          "customerNumber": null,
+          "customerName": null,
+          "metricCode": "interest_income",
+          "status": "inferred"
+        },
+        "labels": [
+          "PBConceptMetric",
+          "PBConcept",
+          "PBConceptIncome"
+        ]
+      },
+      {
+        "key": "deposit_interest_income",
+        "properties": {
+          "productCode": null,
+          "incomeStatus": null,
+          "customerId": null,
+          "name": "存款利收",
+          "conceptCode": null,
+          "aumStatus": null,
+          "definition": "存款業務整體的利息收入。",
+          "customerNumber": null,
+          "customerName": null,
+          "metricCode": "deposit_interest_income",
+          "status": "inferred"
+        },
+        "labels": [
+          "PBConceptMetric",
+          "PBConcept",
+          "PBConceptIncome"
+        ]
+      },
+      {
+        "key": "customer",
+        "properties": {
+          "productCode": null,
+          "incomeStatus": null,
+          "customerId": "用於識別衡量對象的客戶識別碼。各來源的識別種類與跨來源對照尚待確認，不表示已建立統一客戶身分。",
+          "name": "客戶",
+          "conceptCode": "customer",
+          "aumStatus": null,
+          "definition": "AUM與收入指標共同的客戶衡量對象。此節點描述客戶概念與基本屬性，並非任何一位實際客戶。",
+          "customerNumber": "選用的來源客戶編號；與客戶識別碼分開理解，不保證可跨來源對照。",
+          "customerName": "客戶姓名或名稱；來源未提供時可缺值，委託人名稱須依來源角色解讀。",
+          "metricCode": null,
+          "status": "model_confirmed"
+        },
+        "labels": [
+          "PBConcept",
+          "PBConceptCustomer"
+        ]
+      }
+    ]
+  },
+  "businessPaths": [
+    {
+      "nodeKeys": [
+        "deposit",
+        "aum_deposit_month_end",
+        "aum_total_month_end"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375822",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259166"
+      ],
+      "domain": "aum"
+    },
+    {
+      "nodeKeys": [
+        "deposit",
+        "deposit_interest_income",
+        "interest_income",
+        "income_total_customer_month"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003598",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807079",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886951"
+      ],
+      "domain": "income"
+    },
+    {
+      "nodeKeys": [
+        "bank_insurance",
+        "aum_insurance_month_end",
+        "aum_bank_investment_month_end",
+        "aum_investment_month_end",
+        "aum_total_month_end"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375823",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259170",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ],
+      "domain": "aum"
+    },
+    {
+      "nodeKeys": [
+        "bank_insurance",
+        "bank_fee_income",
+        "fee_income",
+        "income_total_customer_month"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003599",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ],
+      "domain": "income"
+    },
+    {
+      "nodeKeys": [
+        "bank_fund",
+        "aum_bank_investment_month_end",
+        "aum_investment_month_end",
+        "aum_total_month_end"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375824",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ],
+      "domain": "aum"
+    },
+    {
+      "nodeKeys": [
+        "bank_fund",
+        "bank_fee_income",
+        "fee_income",
+        "income_total_customer_month"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003600",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ],
+      "domain": "income"
+    },
+    {
+      "nodeKeys": [
+        "bank_etf",
+        "aum_bank_investment_month_end",
+        "aum_investment_month_end",
+        "aum_total_month_end"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375825",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ],
+      "domain": "aum"
+    },
+    {
+      "nodeKeys": [
+        "bank_etf",
+        "bank_fee_income",
+        "fee_income",
+        "income_total_customer_month"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003601",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ],
+      "domain": "income"
+    },
+    {
+      "nodeKeys": [
+        "bank_overseas_stock",
+        "aum_bank_investment_month_end",
+        "aum_investment_month_end",
+        "aum_total_month_end"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375826",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ],
+      "domain": "aum"
+    },
+    {
+      "nodeKeys": [
+        "bank_overseas_stock",
+        "bank_fee_income",
+        "fee_income",
+        "income_total_customer_month"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003602",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ],
+      "domain": "income"
+    },
+    {
+      "nodeKeys": [
+        "bank_bond_trust",
+        "aum_bank_investment_month_end",
+        "aum_investment_month_end",
+        "aum_total_month_end"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375827",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ],
+      "domain": "aum"
+    },
+    {
+      "nodeKeys": [
+        "bank_bond_trust",
+        "bank_fee_income",
+        "fee_income",
+        "income_total_customer_month"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003603",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ],
+      "domain": "income"
+    },
+    {
+      "nodeKeys": [
+        "bank_bond_proprietary",
+        "aum_bank_investment_month_end",
+        "aum_investment_month_end",
+        "aum_total_month_end"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375828",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ],
+      "domain": "aum"
+    },
+    {
+      "nodeKeys": [
+        "bank_bond_proprietary",
+        "bank_fee_income",
+        "fee_income",
+        "income_total_customer_month"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003604",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ],
+      "domain": "income"
+    },
+    {
+      "nodeKeys": [
+        "bank_collective_account",
+        "aum_bank_investment_month_end",
+        "aum_investment_month_end",
+        "aum_total_month_end"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375829",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ],
+      "domain": "aum"
+    },
+    {
+      "nodeKeys": [
+        "bank_collective_account",
+        "bank_fee_income",
+        "fee_income",
+        "income_total_customer_month"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152984176769631381",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ],
+      "domain": "income"
+    },
+    {
+      "nodeKeys": [
+        "bank_structured_offshore",
+        "aum_bank_investment_month_end",
+        "aum_investment_month_end",
+        "aum_total_month_end"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375830",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ],
+      "domain": "aum"
+    },
+    {
+      "nodeKeys": [
+        "bank_structured_offshore",
+        "bank_fee_income",
+        "fee_income",
+        "income_total_customer_month"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003606",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ],
+      "domain": "income"
+    },
+    {
+      "nodeKeys": [
+        "bank_planned_trust",
+        "aum_bank_investment_month_end",
+        "aum_investment_month_end",
+        "aum_total_month_end"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375831",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ],
+      "domain": "aum"
+    },
+    {
+      "nodeKeys": [
+        "bank_planned_trust",
+        "bank_fee_income",
+        "fee_income",
+        "income_total_customer_month"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003607",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ],
+      "domain": "income"
+    },
+    {
+      "nodeKeys": [
+        "bank_trust_custody",
+        "aum_bank_investment_month_end",
+        "aum_investment_month_end",
+        "aum_total_month_end"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375832",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919844599129179295",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ],
+      "domain": "aum"
+    },
+    {
+      "nodeKeys": [
+        "bank_trust_custody",
+        "bank_fee_income",
+        "fee_income",
+        "income_total_customer_month"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003608",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6919845698640807076",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ],
+      "domain": "income"
+    },
+    {
+      "nodeKeys": [
+        "securities_bond",
+        "aum_securities_month_end",
+        "aum_investment_month_end",
+        "aum_total_month_end"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375833",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922096398942864543",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ],
+      "domain": "aum"
+    },
+    {
+      "nodeKeys": [
+        "securities_bond",
+        "securities_fee_income",
+        "fee_income",
+        "income_total_customer_month"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003609",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922097498454492324",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ],
+      "domain": "income"
+    },
+    {
+      "nodeKeys": [
+        "securities_structured",
+        "aum_securities_month_end",
+        "aum_investment_month_end",
+        "aum_total_month_end"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375834",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922096398942864543",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ],
+      "domain": "aum"
+    },
+    {
+      "nodeKeys": [
+        "securities_structured",
+        "securities_fee_income",
+        "fee_income",
+        "income_total_customer_month"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003610",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922097498454492324",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ],
+      "domain": "income"
+    },
+    {
+      "nodeKeys": [
+        "securities_fund",
+        "aum_securities_month_end",
+        "aum_investment_month_end",
+        "aum_total_month_end"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375835",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922096398942864543",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ],
+      "domain": "aum"
+    },
+    {
+      "nodeKeys": [
+        "securities_fund",
+        "securities_fee_income",
+        "fee_income",
+        "income_total_customer_month"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003611",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922097498454492324",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ],
+      "domain": "income"
+    },
+    {
+      "nodeKeys": [
+        "securities_foreign_stock",
+        "aum_securities_month_end",
+        "aum_investment_month_end",
+        "aum_total_month_end"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152981977746375836",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922096398942864543",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152985276281259167"
+      ],
+      "domain": "aum"
+    },
+    {
+      "nodeKeys": [
+        "securities_foreign_stock",
+        "securities_fee_income",
+        "fee_income",
+        "income_total_customer_month"
+      ],
+      "relationshipIds": [
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152983077258003612",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:6922097498454492324",
+        "5:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1152986375792886948"
+      ],
+      "domain": "income"
+    }
+  ]
+}

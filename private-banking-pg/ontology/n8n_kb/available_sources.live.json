@@ -1,0 +1,168 @@
+[
+  {
+    "available_sources": [
+      {
+        "columns": [
+          {
+            "data_type": "bigint",
+            "column_name": "source_row_id"
+          },
+          {
+            "data_type": "text",
+            "column_name": "cust_id"
+          },
+          {
+            "data_type": "character",
+            "column_name": "lst_mtn_dt"
+          },
+          {
+            "data_type": "character",
+            "column_name": "acc_cd"
+          },
+          {
+            "data_type": "character varying",
+            "column_name": "prft_cntr_cd"
+          },
+          {
+            "data_type": "numeric",
+            "column_name": "avail_bal"
+          }
+        ],
+        "table_name": "dep_fn_acct",
+        "schema_name": "dsdep"
+      },
+      {
+        "columns": [
+          {
+            "data_type": "bigint",
+            "column_name": "source_row_id"
+          },
+          {
+            "data_type": "text",
+            "column_name": "cust_id"
+          },
+          {
+            "data_type": "character",
+            "column_name": "lst_mtn_dt"
+          },
+          {
+            "data_type": "character",
+            "column_name": "acc_cd"
+          },
+          {
+            "data_type": "character varying",
+            "column_name": "prft_cntr_cd"
+          },
+          {
+            "data_type": "numeric",
+            "column_name": "avail_bal"
+          },
+          {
+            "data_type": "integer",
+            "column_name": "yyyymm"
+          }
+        ],
+        "table_name": "dep_fn_acct_hs",
+        "schema_name": "dsdep"
+      },
+      {
+        "columns": [
+          {
+            "data_type": "bigint",
+            "column_name": "source_row_id"
+          },
+          {
+            "data_type": "text",
+            "column_name": "cust_id"
+          },
+          {
+            "data_type": "character",
+            "column_name": "data_dt"
+          },
+          {
+            "data_type": "character",
+            "column_name": "act_cd"
+          },
+          {
+            "data_type": "character varying",
+            "column_name": "prft_cntr_cd"
+          },
+          {
+            "data_type": "numeric",
+            "column_name": "bal_amt"
+          }
+        ],
+        "table_name": "dep_nt_acct",
+        "schema_name": "dsdep"
+      },
+      {
+        "columns": [
+          {
+            "data_type": "bigint",
+            "column_name": "source_row_id"
+          },
+          {
+            "data_type": "text",
+            "column_name": "cust_id"
+          },
+          {
+            "data_type": "character",
+            "column_name": "lst_mtn_dt"
+          },
+          {
+            "data_type": "character",
+            "column_name": "act_cd"
+          },
+          {
+            "data_type": "character varying",
+            "column_name": "prft_cntr_cd"
+          },
+          {
+            "data_type": "numeric",
+            "column_name": "bal_amt"
+          },
+          {
+            "data_type": "integer",
+            "column_name": "yyyymm"
+          }
+        ],
+        "table_name": "dep_nt_acct_hs",
+        "schema_name": "dsdep"
+      },
+      {
+        "columns": [
+          {
+            "data_type": "character varying",
+            "column_name": "acct_no"
+          },
+          {
+            "data_type": "text",
+            "column_name": "cust_id"
+          },
+          {
+            "data_type": "character",
+            "column_name": "lst_mtn_dt"
+          },
+          {
+            "data_type": "character",
+            "column_name": "act_cd"
+          },
+          {
+            "data_type": "character varying",
+            "column_name": "prft_cntr_cd"
+          },
+          {
+            "data_type": "numeric",
+            "column_name": "bal_amt"
+          },
+          {
+            "data_type": "integer",
+            "column_name": "yyyymm"
+          }
+        ],
+        "table_name": "emp_dep_nt_acct_hs",
+        "schema_name": "dsdep"
+      }
+    ]
+  }
+]

@@ -1,0 +1,1745 @@
+{
+  "readOnly": true,
+  "graphModified": false,
+  "labels": [
+    {
+      "label": "AUMMetric",
+      "count": 6
+    },
+    {
+      "label": "BusinessDimension",
+      "count": 13
+    },
+    {
+      "label": "BusinessMetric",
+      "count": 15
+    },
+    {
+      "label": "CalculationRule",
+      "count": 25
+    },
+    {
+      "label": "IncomeMetric",
+      "count": 9
+    },
+    {
+      "label": "MeasureLineage",
+      "count": 34
+    },
+    {
+      "label": "ObjectTypeReference",
+      "count": 16
+    },
+    {
+      "label": "Ontology",
+      "count": 2
+    },
+    {
+      "label": "PBConcept",
+      "count": 27
+    },
+    {
+      "label": "PBConceptAUM",
+      "count": 6
+    },
+    {
+      "label": "PBConceptIncome",
+      "count": 6
+    },
+    {
+      "label": "PBConceptMetric",
+      "count": 12
+    },
+    {
+      "label": "PBConceptProduct",
+      "count": 15
+    },
+    {
+      "label": "PhysicalColumn",
+      "count": 93
+    },
+    {
+      "label": "PhysicalTable",
+      "count": 64
+    },
+    {
+      "label": "ProductCategory",
+      "count": 48
+    },
+    {
+      "label": "PropertyReference",
+      "count": 24
+    },
+    {
+      "label": "Rule",
+      "count": 46
+    },
+    {
+      "label": "SharedProduct",
+      "count": 15
+    },
+    {
+      "label": "SourceDocument",
+      "count": 10
+    },
+    {
+      "label": "SourceProperty",
+      "count": 160
+    },
+    {
+      "label": "SqlEvidence",
+      "count": 98
+    },
+    {
+      "label": "SqlLineageRoot",
+      "count": 1
+    },
+    {
+      "label": "SqlSourceFile",
+      "count": 7
+    },
+    {
+      "label": "SqlStatement",
+      "count": 113
+    },
+    {
+      "label": "SqlTable",
+      "count": 159
+    },
+    {
+      "label": "StagingOutput",
+      "count": 86
+    },
+    {
+      "label": "Term",
+      "count": 152
+    }
+  ],
+  "customerMetadataNodes": [
+    {
+      "key": "aum:dimension:customer",
+      "labels": [
+        "BusinessDimension"
+      ],
+      "name": "客戶",
+      "columnName": null,
+      "physicalName": null,
+      "definition": null,
+      "incoming": [
+        {
+          "name": "月底總AUM",
+          "type": "HAS_DIMENSION",
+          "from": "aum:metric:aum_total_month_end"
+        }
+      ]
+    },
+    {
+      "key": "income:column:DSDEP.DEP_FN_ACCT.CUST_ID",
+      "labels": [
+        "PhysicalColumn"
+      ],
+      "name": "CUST_ID",
+      "columnName": null,
+      "physicalName": null,
+      "definition": null,
+      "incoming": [
+        {
+          "name": "DSDEP.DEP_FN_ACCT",
+          "type": "HAS_COLUMN",
+          "from": "income:table:DSDEP.DEP_FN_ACCT"
+        },
+        {
+          "name": "INCOME_REPORT.AMT",
+          "type": "USES_SOURCE_COLUMN",
+          "from": "income:term:income_report__amt"
+        },
+        {
+          "name": "INCOME_TMP01.AMT",
+          "type": "USES_SOURCE_COLUMN",
+          "from": "income:term:income_tmp01__amt"
+        },
+        {
+          "name": "INCOME_TMP01.AMT[branch=23]",
+          "type": "USES_SOURCE_COLUMN",
+          "from": "income:term:income_tmp01__amt__branch_023"
+        },
+        {
+          "name": "INCOME_TMP02.AMT",
+          "type": "USES_SOURCE_COLUMN",
+          "from": "income:term:income_tmp02__amt"
+        }
+      ]
+    },
+    {
+      "key": "income:column:DSDEP.DEP_FN_ACCT_HS.CUST_ID",
+      "labels": [
+        "PhysicalColumn"
+      ],
+      "name": "CUST_ID",
+      "columnName": null,
+      "physicalName": null,
+      "definition": null,
+      "incoming": [
+        {
+          "name": "DSDEP.DEP_FN_ACCT_HS",
+          "type": "HAS_COLUMN",
+          "from": "income:table:DSDEP.DEP_FN_ACCT_HS"
+        },
+        {
+          "name": "INCOME_REPORT.AMT",
+          "type": "USES_SOURCE_COLUMN",
+          "from": "income:term:income_report__amt"
+        },
+        {
+          "name": "INCOME_TMP01.AMT",
+          "type": "USES_SOURCE_COLUMN",
+          "from": "income:term:income_tmp01__amt"
+        },
+        {
+          "name": "INCOME_TMP01.AMT[branch=23]",
+          "type": "USES_SOURCE_COLUMN",
+          "from": "income:term:income_tmp01__amt__branch_023"
+        },
+        {
+          "name": "INCOME_TMP02.AMT",
+          "type": "USES_SOURCE_COLUMN",
+          "from": "income:term:income_tmp02__amt"
+        }
+      ]
+    },
+    {
+      "key": "income:column:DSDEP.DEP_NT_ACCT_HS.CUST_ID",
+      "labels": [
+        "PhysicalColumn"
+      ],
+      "name": "CUST_ID",
+      "columnName": null,
+      "physicalName": null,
+      "definition": null,
+      "incoming": [
+        {
+          "name": "DSDEP.DEP_NT_ACCT_HS",
+          "type": "HAS_COLUMN",
+          "from": "income:table:DSDEP.DEP_NT_ACCT_HS"
+        },
+        {
+          "name": "INCOME_REPORT.AMT",
+          "type": "USES_SOURCE_COLUMN",
+          "from": "income:term:income_report__amt"
+        },
+        {
+          "name": "INCOME_TMP01.AMT",
+          "type": "USES_SOURCE_COLUMN",
+          "from": "income:term:income_tmp01__amt"
+        },
+        {
+          "name": "INCOME_TMP01.AMT[branch=23]",
+          "type": "USES_SOURCE_COLUMN",
+          "from": "income:term:income_tmp01__amt__branch_023"
+        },
+        {
+          "name": "INCOME_TMP02.AMT",
+          "type": "USES_SOURCE_COLUMN",
+          "from": "income:term:income_tmp02__amt"
+        }
+      ]
+    },
+    {
+      "key": "income:column:DSDEP.EMP_DEP_NT_ACCT_HS.CUST_ID",
+      "labels": [
+        "PhysicalColumn"
+      ],
+      "name": "CUST_ID",
+      "columnName": null,
+      "physicalName": null,
+      "definition": null,
+      "incoming": [
+        {
+          "name": "DSDEP.EMP_DEP_NT_ACCT_HS",
+          "type": "HAS_COLUMN",
+          "from": "income:table:DSDEP.EMP_DEP_NT_ACCT_HS"
+        },
+        {
+          "name": "INCOME_REPORT.AMT",
+          "type": "USES_SOURCE_COLUMN",
+          "from": "income:term:income_report__amt"
+        },
+        {
+          "name": "INCOME_TMP01.AMT",
+          "type": "USES_SOURCE_COLUMN",
+          "from": "income:term:income_tmp01__amt"
+        },
+        {
+          "name": "INCOME_TMP01.AMT[branch=23]",
+          "type": "USES_SOURCE_COLUMN",
+          "from": "income:term:income_tmp01__amt__branch_023"
+        },
+        {
+          "name": "INCOME_TMP02.AMT",
+          "type": "USES_SOURCE_COLUMN",
+          "from": "income:term:income_tmp02__amt"
+        }
+      ]
+    },
+    {
+      "key": "income:column:DSLON.LN_FN_ACCT.CUST_ID",
+      "labels": [
+        "PhysicalColumn"
+      ],
+      "name": "CUST_ID",
+      "columnName": null,
+      "physicalName": null,
+      "definition": null,
+      "incoming": [
+        {
+          "name": "DSLON.LN_FN_ACCT",
+          "type": "HAS_COLUMN",
+          "from": "income:table:DSLON.LN_FN_ACCT"
+        },
+        {
+          "name": "INCOME_REPORT.AMT",
+          "type": "USES_SOURCE_COLUMN",
+          "from": "income:term:income_report__amt"
+        },
+        {
+          "name": "INCOME_TMP01.AMT",
+          "type": "USES_SOURCE_COLUMN",
+          "from": "income:term:income_tmp01__amt"
+        },
+        {
+          "name": "INCOME_TMP01.AMT[branch=24]",
+          "type": "USES_SOURCE_COLUMN",
+          "from": "income:term:income_tmp01__amt__branch_024"
+        },
+        {
+          "name": "INCOME_TMP02.AMT",
+          "type": "USES_SOURCE_COLUMN",
+          "from": "income:term:income_tmp02__amt"
+        }
+      ]
+    },
+    {
+      "key": "income:column:DSLON.LN_FN_ACCT_HS.CUST_ID",
+      "labels": [
+        "PhysicalColumn"
+      ],
+      "name": "CUST_ID",
+      "columnName": null,
+      "physicalName": null,
+      "definition": null,
+      "incoming": [
+        {
+          "name": "DSLON.LN_FN_ACCT_HS",
+          "type": "HAS_COLUMN",
+          "from": "income:table:DSLON.LN_FN_ACCT_HS"
+        },
+        {
+          "name": "INCOME_REPORT.AMT",
+          "type": "USES_SOURCE_COLUMN",
+          "from": "income:term:income_report__amt"
+        },
+        {
+          "name": "INCOME_TMP01.AMT",
+          "type": "USES_SOURCE_COLUMN",
+          "from": "income:term:income_tmp01__amt"
+        },
+        {
+          "name": "INCOME_TMP01.AMT[branch=24]",
+          "type": "USES_SOURCE_COLUMN",
+          "from": "income:term:income_tmp01__amt__branch_024"
+        },
+        {
+          "name": "INCOME_TMP02.AMT",
+          "type": "USES_SOURCE_COLUMN",
+          "from": "income:term:income_tmp02__amt"
+        }
+      ]
+    },
+    {
+      "key": "income:column:DSLON.LN_NT_ACCT_HS.CUST_ID",
+      "labels": [
+        "PhysicalColumn"
+      ],
+      "name": "CUST_ID",
+      "columnName": null,
+      "physicalName": null,
+      "definition": null,
+      "incoming": [
+        {
+          "name": "DSLON.LN_NT_ACCT_HS",
+          "type": "HAS_COLUMN",
+          "from": "income:table:DSLON.LN_NT_ACCT_HS"
+        },
+        {
+          "name": "INCOME_REPORT.AMT",
+          "type": "USES_SOURCE_COLUMN",
+          "from": "income:term:income_report__amt"
+        },
+        {
+          "name": "INCOME_TMP01.AMT",
+          "type": "USES_SOURCE_COLUMN",
+          "from": "income:term:income_tmp01__amt"
+        },
+        {
+          "name": "INCOME_TMP01.AMT[branch=24]",
+          "type": "USES_SOURCE_COLUMN",
+          "from": "income:term:income_tmp01__amt__branch_024"
+        },
+        {
+          "name": "INCOME_TMP02.AMT",
+          "type": "USES_SOURCE_COLUMN",
+          "from": "income:term:income_tmp02__amt"
+        }
+      ]
+    },
+    {
+      "key": "income:dimension:customer",
+      "labels": [
+        "BusinessDimension"
+      ],
+      "name": "客戶",
+      "columnName": null,
+      "physicalName": null,
+      "definition": "各來源ID由SQL映射為CUST_ID；沒有額外的身分合併規則。",
+      "incoming": [
+        {
+          "name": "每客戶每月總收入",
+          "type": "HAS_DIMENSION",
+          "from": "income:metric:income_total_customer_month"
+        }
+      ]
+    },
+    {
+      "key": "income:dimension:organization",
+      "labels": [
+        "BusinessDimension"
+      ],
+      "name": "組織歸屬",
+      "columnName": null,
+      "physicalName": null,
+      "definition": "依PB_CUST_005的客戶月份取得，與來源NM/PCCODE不同。",
+      "incoming": [
+        {
+          "name": "每客戶每月總收入",
+          "type": "HAS_DIMENSION",
+          "from": "income:metric:income_total_customer_month"
+        }
+      ]
+    },
+    {
+      "key": null,
+      "labels": [
+        "PBConceptProduct",
+        "PBConcept"
+      ],
+      "name": "存款",
+      "columnName": null,
+      "physicalName": null,
+      "definition": "客戶在銀行持有的存款。AUM衡量存款餘額；Income衡量存款整體利息收入，不將總利收重複分配至各子類。",
+      "incoming": [
+        {
+          "name": null,
+          "type": null,
+          "from": null
+        }
+      ]
+    },
+    {
+      "key": null,
+      "labels": [
+        "PBConceptProduct",
+        "PBConcept"
+      ],
+      "name": "銀行基金",
+      "columnName": null,
+      "physicalName": null,
+      "definition": "銀行通路的基金業務，涵蓋客戶持有資產與相關收入。",
+      "incoming": [
+        {
+          "name": null,
+          "type": null,
+          "from": null
+        }
+      ]
+    },
+    {
+      "key": null,
+      "labels": [
+        "PBConceptProduct",
+        "PBConcept"
+      ],
+      "name": "銀行ETF",
+      "columnName": null,
+      "physicalName": null,
+      "definition": "銀行通路的指數股票型基金業務，涵蓋客戶持有資產與相關收入。",
+      "incoming": [
+        {
+          "name": null,
+          "type": null,
+          "from": null
+        }
+      ]
+    },
+    {
+      "key": null,
+      "labels": [
+        "PBConceptProduct",
+        "PBConcept"
+      ],
+      "name": "銀行海外股票",
+      "columnName": null,
+      "physicalName": null,
+      "definition": "銀行通路的海外股票業務，涵蓋客戶持有資產與相關收入。",
+      "incoming": [
+        {
+          "name": null,
+          "type": null,
+          "from": null
+        }
+      ]
+    },
+    {
+      "key": null,
+      "labels": [
+        "PBConceptProduct",
+        "PBConcept"
+      ],
+      "name": "海外債券（信託）",
+      "columnName": null,
+      "physicalName": null,
+      "definition": "以信託方式持有的海外債券業務，涵蓋客戶持有市值與相關信託收入。",
+      "incoming": [
+        {
+          "name": null,
+          "type": null,
+          "from": null
+        }
+      ]
+    },
+    {
+      "key": null,
+      "labels": [
+        "PBConceptProduct",
+        "PBConcept"
+      ],
+      "name": "海外債券（自營）",
+      "columnName": null,
+      "physicalName": null,
+      "definition": "銀行自營通路的海外債券業務，涵蓋客戶持有資產與相關收入；兩側業務對應仍屬推論。",
+      "incoming": [
+        {
+          "name": null,
+          "type": null,
+          "from": null
+        }
+      ]
+    },
+    {
+      "key": null,
+      "labels": [
+        "PBConceptProduct",
+        "PBConcept"
+      ],
+      "name": "集合管理帳戶",
+      "columnName": null,
+      "physicalName": null,
+      "definition": "集合管理帳戶業務。AUM衡量客戶持有資產；Income的獨立業務定義待確認，不代表已確認計入獨立收入。",
+      "incoming": [
+        {
+          "name": null,
+          "type": null,
+          "from": null
+        }
+      ]
+    },
+    {
+      "key": null,
+      "labels": [
+        "PBConceptProduct",
+        "PBConcept"
+      ],
+      "name": "銀行境外結構型商品",
+      "columnName": null,
+      "physicalName": null,
+      "definition": "銀行通路的境外結構型商品業務，涵蓋客戶持有資產與相關收入。",
+      "incoming": [
+        {
+          "name": null,
+          "type": null,
+          "from": null
+        }
+      ]
+    },
+    {
+      "key": null,
+      "labels": [
+        "PBConceptProduct",
+        "PBConcept"
+      ],
+      "name": "證券複委託結構型商品",
+      "columnName": null,
+      "physicalName": null,
+      "definition": "證券通路的複委託結構型商品業務，涵蓋客戶持有資產與相关收入。",
+      "incoming": [
+        {
+          "name": null,
+          "type": null,
+          "from": null
+        }
+      ]
+    },
+    {
+      "key": null,
+      "labels": [
+        "PBConceptProduct",
+        "PBConcept"
+      ],
+      "name": "證券複委託基金",
+      "columnName": null,
+      "physicalName": null,
+      "definition": "證券通路的複委託基金業務，涵蓋客戶持有資產與交易費收入。",
+      "incoming": [
+        {
+          "name": null,
+          "type": null,
+          "from": null
+        }
+      ]
+    },
+    {
+      "key": null,
+      "labels": [
+        "PBConceptProduct",
+        "PBConcept"
+      ],
+      "name": "證券複委託外國股票",
+      "columnName": null,
+      "physicalName": null,
+      "definition": "證券通路的複委託外國股票業務，涵蓋客戶持有資產與淨手續費收入；淨收入可能為負值。",
+      "incoming": [
+        {
+          "name": null,
+          "type": null,
+          "from": null
+        }
+      ]
+    },
+    {
+      "key": null,
+      "labels": [
+        "PBConceptMetric",
+        "PBConcept",
+        "PBConceptIncome"
+      ],
+      "name": "每客戶每月總收入",
+      "columnName": null,
+      "physicalName": null,
+      "definition": "每位客戶每月的手續費類收入與利息收入合計，業務定義尚待正式確認。",
+      "incoming": [
+        {
+          "name": "手續費類收入",
+          "type": "PB_INCOME_ROLLS_UP_TO",
+          "from": null
+        },
+        {
+          "name": "利息收入",
+          "type": "PB_INCOME_ROLLS_UP_TO",
+          "from": null
+        }
+      ]
+    },
+    {
+      "key": null,
+      "labels": [
+        "PBConceptMetric",
+        "PBConcept",
+        "PBConceptIncome"
+      ],
+      "name": "手續費類收入",
+      "columnName": null,
+      "physicalName": null,
+      "definition": "包含手續費、客戶貢獻度與部分損益的收入分類。",
+      "incoming": [
+        {
+          "name": "銀行手續費類收入",
+          "type": "PB_INCOME_ROLLS_UP_TO",
+          "from": null
+        },
+        {
+          "name": "證券手續費類收入",
+          "type": "PB_INCOME_ROLLS_UP_TO",
+          "from": null
+        }
+      ]
+    }
+  ],
+  "businessDimensions": [
+    {
+      "key": "aum:dimension:company",
+      "name": "承作端",
+      "definition": null,
+      "neighbors": [
+        {
+          "name": "月底總AUM",
+          "type": "HAS_DIMENSION",
+          "key": "aum:metric:aum_total_month_end"
+        }
+      ]
+    },
+    {
+      "key": "aum:dimension:customer",
+      "name": "客戶",
+      "definition": null,
+      "neighbors": [
+        {
+          "name": "月底總AUM",
+          "type": "HAS_DIMENSION",
+          "key": "aum:metric:aum_total_month_end"
+        }
+      ]
+    },
+    {
+      "key": "aum:dimension:month",
+      "name": "指定月份",
+      "definition": null,
+      "neighbors": [
+        {
+          "name": "月底總AUM",
+          "type": "HAS_DIMENSION",
+          "key": "aum:metric:aum_total_month_end"
+        }
+      ]
+    },
+    {
+      "key": "aum:dimension:product",
+      "name": "產品",
+      "definition": null,
+      "neighbors": [
+        {
+          "name": "月底總AUM",
+          "type": "HAS_DIMENSION",
+          "key": "aum:metric:aum_total_month_end"
+        }
+      ]
+    },
+    {
+      "key": "aum:dimension:subtype",
+      "name": "產品子類",
+      "definition": null,
+      "neighbors": [
+        {
+          "name": "月底總AUM",
+          "type": "HAS_DIMENSION",
+          "key": "aum:metric:aum_total_month_end"
+        }
+      ]
+    },
+    {
+      "key": "aum:dimension:type",
+      "name": "資產類型",
+      "definition": null,
+      "neighbors": [
+        {
+          "name": "月底總AUM",
+          "type": "HAS_DIMENSION",
+          "key": "aum:metric:aum_total_month_end"
+        }
+      ]
+    },
+    {
+      "key": "income:dimension:customer",
+      "name": "客戶",
+      "definition": "各來源ID由SQL映射為CUST_ID；沒有額外的身分合併規則。",
+      "neighbors": [
+        {
+          "name": "每客戶每月總收入",
+          "type": "HAS_DIMENSION",
+          "key": "income:metric:income_total_customer_month"
+        }
+      ]
+    },
+    {
+      "key": "income:dimension:income_type",
+      "name": "收入類型",
+      "definition": "手收或利收，依9.INCOME_SMY.sql常數分類。",
+      "neighbors": [
+        {
+          "name": "每客戶每月總收入",
+          "type": "HAS_DIMENSION",
+          "key": "income:metric:income_total_customer_month"
+        }
+      ]
+    },
+    {
+      "key": "income:dimension:institution",
+      "name": "機構別",
+      "definition": "銀行或證券。",
+      "neighbors": [
+        {
+          "name": "每客戶每月總收入",
+          "type": "HAS_DIMENSION",
+          "key": "income:metric:income_total_customer_month"
+        }
+      ]
+    },
+    {
+      "key": "income:dimension:organization",
+      "name": "組織歸屬",
+      "definition": "依PB_CUST_005的客戶月份取得，與來源NM/PCCODE不同。",
+      "neighbors": [
+        {
+          "name": "每客戶每月總收入",
+          "type": "HAS_DIMENSION",
+          "key": "income:metric:income_total_customer_month"
+        }
+      ]
+    },
+    {
+      "key": "income:dimension:product",
+      "name": "產品分類",
+      "definition": "來源產品分類、FH_TYP或FLG。",
+      "neighbors": [
+        {
+          "name": "每客戶每月總收入",
+          "type": "HAS_DIMENSION",
+          "key": "income:metric:income_total_customer_month"
+        }
+      ]
+    },
+    {
+      "key": "income:dimension:recognition_date",
+      "name": "收入認列日／月份",
+      "definition": "各來源日期不同，包含交易日、寫入日次月與月份01日。",
+      "neighbors": [
+        {
+          "name": "每客戶每月總收入",
+          "type": "HAS_DIMENSION",
+          "key": "income:metric:income_total_customer_month"
+        }
+      ]
+    },
+    {
+      "key": "income:dimension:source_nm",
+      "name": "來源識別NM",
+      "definition": "保險028為DEPT_EASY_NM，部分來源為PCCODE，其他為空；不是統一的組織鍵。",
+      "neighbors": [
+        {
+          "name": "每客戶每月總收入",
+          "type": "HAS_DIMENSION",
+          "key": "income:metric:income_total_customer_month"
+        }
+      ]
+    }
+  ],
+  "customerSqlStatements": [
+    {
+      "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L10",
+      "file": "sources/sql/1.AUM_DETAIL.sql",
+      "lineStart": 10,
+      "status": "commented_out_sql",
+      "customerKeyExcerpts": [
+        "e AUM_005_007_008_009_TMP01 as       SELECT  cust_id,LST_MTN_DT,'存款' as TYP,'台幣' AS TYP",
+        "     AND LST_MTN_DT>='20231201'     group by cust_id,LST_MTN_DT,TRIM(PRFT_CNTR_CD), ACT"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L109",
+      "file": "sources/sql/1.AUM_DETAIL.sql",
+      "lineStart": 109,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "7_008_009_TMP07 as                   SELECT  cust_Id,LST_MTN_DT,'存款' as TYP,'台幣' AS TYP",
+        "p01     WHERE  YYYYMM>='202506'     group by cust_id,lst_MTN_DT,TRIM(PRFT_CNTR_CD), ACC"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L126",
+      "file": "sources/sql/1.AUM_DETAIL.sql",
+      "lineStart": 126,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "AUM_005_007_008_009_TMP08 as          SELECT cust_Id,LST_MTN_DT,'存款' as TYP,'外幣' AS TYP",
+        "01     WHERE   YYYYMM>='202506'     group by cust_Id,LST_MTN_DT,TRIM(PRFT_CNTR_CD), ACT"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L187",
+      "file": "sources/sql/1.AUM_DETAIL.sql",
+      "lineStart": 187,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "ble AUM_012_TMP01 as   select orgcust_key as cust_id ,date_key as YYYYMMDD ,sum(AMT_INV"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L194",
+      "file": "sources/sql/1.AUM_DETAIL.sql",
+      "lineStart": 194,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "ble AUM_012_TMP02 as   select orgcust_key as cust_id ,to_char(sysdate-1,'yyyymmdd') as "
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L213",
+      "file": "sources/sql/1.AUM_DETAIL.sql",
+      "lineStart": 213,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "013_015_015_016_017_018 as  select      idno cust_id,to_char(exedate,'yyyymmdd') yyyymm"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L234",
+      "file": "sources/sql/1.AUM_DETAIL.sql",
+      "lineStart": 234,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "te table AUM_019_TMP_01 as  select CIF_ID AS CUST_ID,Data_dt as YYYYMMDD,sum(STO_AMT * "
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L256",
+      "file": "sources/sql/1.AUM_DETAIL.sql",
+      "lineStart": 256,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "to_char(baldate,'yyyymmdd') yyyymmdd,idno as cust_id ,sum(PresentAmt) AMT from DSEBS.EB"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L263",
+      "file": "sources/sql/1.AUM_DETAIL.sql",
+      "lineStart": 263,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "create table AUM_020 as select a.yyyymmdd,a.cust_id,a.AMT from AUM_020_TMP01 a inner j"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L277",
+      "file": "sources/sql/1.AUM_DETAIL.sql",
+      "lineStart": 277,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "s select substr(postdate,1,8) yyyymmdd,id as cust_Id ,sum( MarketValueTWD)  AMT from  D"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L28",
+      "file": "sources/sql/1.AUM_DETAIL.sql",
+      "lineStart": 28,
+      "status": "commented_out_sql",
+      "customerKeyExcerpts": [
+        "7_008_009_TMP02 as                   SELECT  cust_Id,LST_MTN_DT,'存款' as TYP,'台幣' AS TYP",
+        "')   AND LST_MTN_DT>='20231201'     group by cust_id,lst_MTN_DT,TRIM(PRFT_CNTR_CD), ACC"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L284",
+      "file": "sources/sql/1.AUM_DETAIL.sql",
+      "lineStart": 284,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "create table AUM_021 as select a.yyyymmdd,a.cust_id,a.AMT from AUM_021_TMP01 a inner j"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L297",
+      "file": "sources/sql/1.AUM_DETAIL.sql",
+      "lineStart": 297,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "create table AUM_022_TMP01 as select cust_Id,\"DATE\" as YYYYMMDD,sum(AUM) as AMT",
+        "m DSPMS.PB_PMS_AUM@anadbp01_dwdbp01 group by cust_id,\"DATE\";"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L304",
+      "file": "sources/sql/1.AUM_DETAIL.sql",
+      "lineStart": 304,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "create table AUM_022 as select a.yyyymmdd,a.cust_id,a.AMT from AUM_022_TMP01 a inner j"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L321",
+      "file": "sources/sql/1.AUM_DETAIL.sql",
+      "lineStart": 321,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "te table AUM_023_024_TMP0 as  select idno as cust_id,prcs_dt as yyyymmdd,nm,sum(NETQTY/"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L342",
+      "file": "sources/sql/1.AUM_DETAIL.sql",
+      "lineStart": 342,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "e table AUM_023_024_TMP1 as  select  idno as cust_id,clrdate as yyyymmdd,nm,sum(NETQTY/"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L366",
+      "file": "sources/sql/1.AUM_DETAIL.sql",
+      "lineStart": 366,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "create table AUM_025   as    select wkb02 as cust_id,yyyymmdd ,sum(WKB28 * WKB23 * WKB3",
+        "by wkb02,yyyymmdd   union    select wkb02 as cust_id,yyyymmdd ,sum(WKB28* WKB23 * WKB31"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L378",
+      "file": "sources/sql/1.AUM_DETAIL.sql",
+      "lineStart": 378,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "eate table AUM_026_TMP0 as  select   idno as cust_id,b.prcs_dt yyyymmdd,sum(NETQTY * CP"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L397",
+      "file": "sources/sql/1.AUM_DETAIL.sql",
+      "lineStart": 397,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "reate table AUM_026_TMP1 as  select  idno as cust_id,yyyymmdd,sum(NETQTY * CPRICE* exch"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L420",
+      "file": "sources/sql/1.AUM_DETAIL.sql",
+      "lineStart": 420,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "create table AUM_027 as  select cust_id,yyyymmdd,sum(amt) amt from  ( sele",
+        "mdd,sum(amt) amt from  ( select YTRMRB025 as cust_id,yyyymmdd,YTRMRB110 * YTRMRB150  as",
+        "@anadbp01_dwdbp01 union  select YTRMRB025 as cust_id,yyyymmdd,YTRMRB110 * YTRMRB150  as",
+        "pb_ytrmrbp_sec@anadbp01_dwdbp01 ) a group by cust_id,yyyymmdd;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L434",
+      "file": "sources/sql/1.AUM_DETAIL.sql",
+      "lineStart": 434,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "/dd'),'YYYYMMDD') YYYYMMDD ,lendinguserid as cust_id,sum(Qty * Product_Price) amt from "
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L45",
+      "file": "sources/sql/1.AUM_DETAIL.sql",
+      "lineStart": 45,
+      "status": "commented_out_sql",
+      "customerKeyExcerpts": [
+        "AUM_005_007_008_009_TMP03 as          SELECT cust_Id,LST_MTN_DT,'存款' as TYP,'外幣' AS TYP",
+        "00') AND LST_MTN_DT>='20231201'     group by cust_Id,LST_MTN_DT,TRIM(PRFT_CNTR_CD), ACT"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L60",
+      "file": "sources/sql/1.AUM_DETAIL.sql",
+      "lineStart": 60,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "e AUM_005_007_008_009_TMP04 as       SELECT  cust_id,DATA_DT,'存款' as TYP,'台幣' AS TYP_DT",
+        "P.DEP_NT_ACCT@anadbp01_dwdbp01      group by cust_id,DATA_DT,TRIM(PRFT_CNTR_CD), ACT_CD"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L76",
+      "file": "sources/sql/1.AUM_DETAIL.sql",
+      "lineStart": 76,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "le AUM_005_007_008_009_TMP05 as      SELECT  cust_Id,LST_MTN_DT,'存款' as TYP,'台幣' AS TYP",
+        "EP.DEP_FN_ACCT@anadbp01_dwdbp01     group by cust_Id,LST_MTN_DT,TRIM(PRFT_CNTR_CD), ACC"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:1.AUM_DETAIL.sql:L92",
+      "file": "sources/sql/1.AUM_DETAIL.sql",
+      "lineStart": 92,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "e AUM_005_007_008_009_TMP06 as       SELECT  cust_id,LST_MTN_DT,'存款' as TYP,'台幣' AS TYP",
+        "01     WHERE   YYYYMM>='202506'     group by cust_id,LST_MTN_DT,TRIM(PRFT_CNTR_CD), ACT"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:10._INCOME_ROA.sql:L11",
+      "file": "sources/sql/10._INCOME_ROA.sql",
+      "lineStart": 11,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "UST_TMP06 a  --客戶  28470 left join  ( select cust_id,substr(yyyymmdd,1,6) yyyymm,sum(am",
+        "yymm,sum(amt) amt from INCOME_TMP02 group by cust_id,substr(yyyymmdd,1,6) ) b  --收入 284",
+        ") ) b  --收入 28470 on a.yyyymm=b.yyyymm and a.cust_id=b.cust_id left join (select substr",
+        "入 28470 on a.yyyymm=b.yyyymm and a.cust_id=b.cust_id left join (select substr(yyyymmdd,",
+        "eft join (select substr(yyyymmdd,1,6) yyyymm,cust_id,sum(amt) AUM from AUM_TMP02 group "
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:2._AUM_SUMY.sql:L8",
+      "file": "sources/sql/2._AUM_SUMY.sql",
+      "lineStart": 8,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "MP,     DETAIL as PROD,     TYP_SUB_DTL,     cust_id,     LST_MTN_DT AS YYYYMMDD,     存",
+        "    '保險'  PROD,     NULL AS TYP_SUB_DTL,     CUST_ID,     YYYYMMDD,     amt  FROM aum_0",
+        "    '保險'  PROD,     NULL AS TYP_SUB_DTL,     CUST_ID,     YYYYMMDD,     amt  FROM aum_0",
+        " trustprd PROD,     NULL AS TYP_SUB_DTL,     cust_id,     yyyymmdd,     CurrentTWDValue",
+        "海外債券(自營)' PROD,     NULL AS TYP_SUB_DTL,     cust_id ,     YYYYMMDD,     amt  from  AUM"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:2._AUM_SUMY.~sql:L145",
+      "file": "sources/sql/2._AUM_SUMY.~sql",
+      "lineStart": 145,
+      "status": "alternate_file_sql",
+      "customerKeyExcerpts": [
+        "create table PB_CUST_2AO as  select yyyymm,cust_id from dscif.ao_cust_rel_hs@anadbp01",
+        "dbp01 where yyyymm>='202312' group by yyyymm,cust_id having count(*)>1 union  select to",
+        " to_number(to_char(sysdate,'yyyymm')) yyyymm,cust_Id  from dscif.ao_cust_rel@anadbp01_d",
+        " dscif.ao_cust_rel@anadbp01_dwdbp01 group by cust_Id having count(*)>1 ;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:2._AUM_SUMY.~sql:L160",
+      "file": "sources/sql/2._AUM_SUMY.~sql",
+      "lineStart": 160,
+      "status": "alternate_file_sql",
+      "customerKeyExcerpts": [
+        "eate table PB_CUST_2AO_COR as  select yyyymm,cust_id_no as cust_Id  from dscif.aodep_hs",
+        "CUST_2AO_COR as  select yyyymm,cust_id_no as cust_Id  from dscif.aodep_hs@anadbp01_dwdb",
+        " to_number(to_char(sysdate,'yyyymm')) yyyymm,cust_id_no as cust_id  from dscif.aodep@an",
+        "char(sysdate,'yyyymm')) yyyymm,cust_id_no as cust_id  from dscif.aodep@anadbp01_dwdbp01"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:2._AUM_SUMY.~sql:L170",
+      "file": "sources/sql/2._AUM_SUMY.~sql",
+      "lineStart": 170,
+      "status": "alternate_file_sql",
+      "customerKeyExcerpts": [
+        "e PB_CUST_2AO_COR_LIST as  select a.yyyymm,a.cust_id from PB_CUST_2AO a --雙CODE 18200 i",
+        "O_COR b  --收益認列法金 on a.yyyymm=b.yyyymm and a.cust_id=b.cust_id;",
+        "-收益認列法金 on a.yyyymm=b.yyyymm and a.cust_id=b.cust_id;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:2._AUM_SUMY.~sql:L179",
+      "file": "sources/sql/2._AUM_SUMY.~sql",
+      "lineStart": 179,
+      "status": "alternate_file_sql",
+      "customerKeyExcerpts": [
+        "O b on substr(a.yyyymmdd,1,6)=b.yyyymm　and a.cust_id=b.cust_id where b.cust_id is null ",
+        "str(a.yyyymmdd,1,6)=b.yyyymm　and a.cust_id=b.cust_id where b.cust_id is null  union  se",
+        ",6)=b.yyyymm　and a.cust_id=b.cust_id where b.cust_id is null  union  select * from AUM_"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:2._AUM_SUMY.~sql:L199",
+      "file": "sources/sql/2._AUM_SUMY.~sql",
+      "lineStart": 199,
+      "status": "alternate_file_sql",
+      "customerKeyExcerpts": [
+        "69775 inner join PB_CUST_005 b  --69775 on a.cust_id =b.cust_id and substr(a.yyyymmdd,1",
+        " join PB_CUST_005 b  --69775 on a.cust_id =b.cust_id and substr(a.yyyymmdd,1,6)=b.yyyym"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:2._AUM_SUMY.~sql:L8",
+      "file": "sources/sql/2._AUM_SUMY.~sql",
+      "lineStart": 8,
+      "status": "alternate_file_sql",
+      "customerKeyExcerpts": [
+        "MP,     DETAIL as PROD,     TYP_SUB_DTL,     cust_id,     LST_MTN_DT AS YYYYMMDD,     存",
+        "    '保險'  PROD,     NULL AS TYP_SUB_DTL,     CUST_ID,     YYYYMMDD,     amt  FROM aum_0",
+        "    '保險'  PROD,     NULL AS TYP_SUB_DTL,     CUST_ID,     YYYYMMDD,     amt  FROM aum_0",
+        " trustprd PROD,     NULL AS TYP_SUB_DTL,     cust_id,     yyyymmdd,     CurrentTWDValue",
+        "海外債券(自營)' PROD,     NULL AS TYP_SUB_DTL,     cust_id ,     YYYYMMDD,     amt  from  AUM"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L118",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 118,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "'yyyymmdd') yyyymmdd,        entitynumber as cust_id,        CONFCLASSCODE PCCODE,     "
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L12",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 12,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "t dept_easy_nm,dept_easy_nm2,applicant_id as cust_id,apply_dt as yyyymmdd,sum(COMM_AMT)"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L134",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 134,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "eate table INCOME_039 as  select customer_id cust_id ,        trade_date yyyymmdd,     ",
+        "de_date,S_PCC_CODE union  select customer_id cust_id ,        trade_date yyyymmdd,     "
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L152",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 152,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "lect trade_date yyyymmdd,        customer_id cust_id,         RM_PCCODE PCCODE,        ",
+        "lect trade_date yyyymmdd,        customer_id cust_id,        RM_PCCODE PCCODE,         "
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L172",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 172,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "eate table INCOME_041 as  select customer_id cust_id        ,trade_date yyyymmdd       ",
+        "de_date,O_PCC_CODE union  select customer_id cust_id        ,trade_date yyyymmdd       "
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L194",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 194,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "dd'),'yyyymmdd') as yyyymmdd,        idno as cust_id,        BAOPCCCODE PCCODE,        "
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L20",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 20,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "create table INCOME_029 as  select  cust_id ,         to_char(add_months(to_da",
+        "t --,* --lst_mtn_dt,category,sum(ps) --AO_ID,CUST_ID,PS from DSKPI.KPI_DET_IU_002_NEW@a",
+        "adbp01_dwdbp01 where ps is not null group by cust_id ,lst_mtn_dt;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L208",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 208,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "ATE,'yyyymmdd'),'yyyymmdd') yyyymmdd,        cust_id,        pcc_code PCCODE,        su",
+        "r(to_date(PROC_DATE,'yyyymmdd'),'yyyymmdd') ,cust_id,pcc_code;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L219",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 219,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "ATE,'yyyymmdd'),'yyyymmdd') yyyymmdd,        cust_id,        pcc_code PCCODE,        su",
+        "r(to_date(PROC_DATE,'yyyymmdd'),'yyyymmdd') ,cust_id,pcc_code;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L240",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 240,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "yyyymmdd --TmuProfit        ,entitynumber as cust_id         ,sum(TmuProfit) as AMT   f"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L251",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 251,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        " select          proc_date yyyymmdd,         cust_id,         PCC_CODE PCCODE,         ",
+        "_char(sysdate,'YYYYMMDD') group by proc_date,cust_id,PCC_CODE union  select          pr",
+        "E union  select          proc_date ,         cust_id,         PCC_CODE PCCODE,         ",
+        "ate,'YYYYMMDD') group by proc_date ,         cust_id,         PCC_CODE          ;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L277",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 277,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "6 as  select postdate yyyymmdd,        id as cust_id,         sum(SecuritiesBrwFee+Secu"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L287",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 287,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "baldate,'yyyymmdd') yyyymmdd,        idno as cust_id,        sum(fee+createfee)  as AMT"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L297",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 297,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "elect to_char(\"DATE\",'yyyymmdd') as YYYYMMDD,cust_id,sum(FEE) as AMT  from  DSPMS.PB_PM",
+        ".PB_PMS_AUM@anadbp01_dwdbp01 group by \"DATE\",cust_id;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L305",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 305,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "table INCOME_049_TMP01 as select customer_id cust_id,        idate yyyymmdd,        sum"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L314",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 314,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "table INCOME_049_TMP02 as select customer_id cust_id,        idate yyyymmdd,        sum"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L33",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 33,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "create table INCOME_030 as  select cust_id ,to_char(add_months(to_date(lst_mt",
+        "bp01_dwdbp01 where open_account='Y' group by cust_id ,lst_mtn_dt;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L333",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 333,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "le INCOME_051_054_TMP01 as select       idno cust_id,      clrdate,       case         "
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L357",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 357,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "le INCOME_051_054_TMP02 as select       idno cust_id,clrdate,       case             wh"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L390",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 390,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "te table INCOME_052_TMP01 as select wka28 as cust_id,         CASE WHEN t.wka02 >= l.LA"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L406",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 406,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "e table INCOME_052_TMP02 as select  wka28 as cust_id,         CASE WHEN t.wka02 >= l.LA"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L42",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 42,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        " select baopcccode as PCCODE,        idno as cust_id ,        to_char(to_date(feedate+1"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L432",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 432,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        " INCOME_053_TMP01 as select 'PM' AP ,idno as cust_id,         CASE WHEN t.CLRDATE >= l.",
+        "1'        END union select  'AM' AP ,idno as cust_id,          CASE WHEN t.CLRDATE >= l"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L461",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 461,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        " INCOME_053_TMP02 as select 'PM' AP ,idno as cust_id,         CASE WHEN t.CLRDATE >= l.",
+        "1'        END union select  'AM' AP ,idno as cust_id,         CASE WHEN t.CLRDATE >= l."
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L502",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 502,
+      "status": "commented_out_sql",
+      "customerKeyExcerpts": [
+        "create table INCOME_066_TMP01 as      SELECT cust_id,yyyymmdd,sum(AMT) AMT      FROM ( ",
+        "mmdd,sum(AMT) AMT      FROM (         SELECT cust_id,yyyymm || '01'  yyyymmdd, sum(GROS",
+        "02312' and YYYYMM<='202505'         group by cust_id,yyyymm         UNION ALL         S",
+        "t_id,yyyymm         UNION ALL         SELECT cust_id, yyyymm || '01' yyyymmdd,sum(GROSS",
+        "02312' and YYYYMM<='202505'         group by cust_id,yyyymm         UNION ALL         S"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L525",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 525,
+      "status": "commented_out_sql",
+      "customerKeyExcerpts": [
+        "create table INCOME_066_TMP02 as      SELECT cust_id,yyyymmdd,sum(AMT) AMT      FROM ( ",
+        "mmdd,sum(AMT) AMT      FROM (         SELECT cust_id,yyyymm || '01'  yyyymmdd, sum(GROS",
+        "3400') AND YYYYMM>'202505'          group by cust_id,yyyymm         UNION ALL         S",
+        "t_id,yyyymm         UNION ALL         SELECT cust_id, yyyymm || '01' yyyymmdd,sum(GROSS",
+        "E3400') AND YYYYMM>'202505'         group by cust_id,yyyymm         UNION ALL         S"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L547",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 547,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "create table INCOME_066_TMP021 as SELECT cust_id,yyyymm || '01'  yyyymmdd, sum(GROS",
+        "300', '2E3400') AND YYYYMM>'202505' group by cust_id,yyyymm ;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L555",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 555,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "create table INCOME_066_TMP022 as SELECT cust_id, yyyymm || '01' yyyymmdd,sum(GROSS",
+        "300', '2E3400') AND YYYYMM>'202505' group by cust_id,yyyymm ;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L56",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 56,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "create table INCOME_032 as  select cif_id as cust_id ,txn_dt as yyyymmdd,PCC_CODE pccod"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L563",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 563,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "create table INCOME_066_TMP023 as SELECT  cust_id, yyyymm || '01' yyyymmdd,sum(GROSS",
+        "300', '2E3400') AND YYYYMM>'202505' group by cust_id,yyyymm;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L571",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 571,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "create table INCOME_066_TMP02 as  SELECT cust_id,yyyymmdd,sum(AMT) AMT      FROM ( ",
+        "from INCOME_066_TMP023         )  a GROUP BY cust_id,yyyymmdd;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L585",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 585,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "create table INCOME_066_TMP03 as SELECT cust_id, data_dt yyyymmdd,sum(GROSS_INCM) ",
+        ") like  '2E%' --AND YYYYMM>'202505' group by cust_id,data_dt;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L604",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 604,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "te table INCOME_066_TMP_DETAIL_01 as  SELECT cust_id,yyyymm || '01'  yyyymmdd, sum(GROS",
+        "ar(add_months(sysdate,-1),'yyyymm') group by cust_id,yyyymm;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L612",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 612,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "te table INCOME_066_TMP_DETAIL_02 as  SELECT cust_id, yyyymm || '01' yyyymmdd,sum(GROSS",
+        "ar(add_months(sysdate,-1),'yyyymm') group by cust_id,yyyymm;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L620",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 620,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "e table INCOME_066_TMP_DETAIL_03 as  SELECT  cust_id, yyyymm || '01' yyyymmdd,sum(GROSS",
+        "ar(add_months(sysdate,-1),'yyyymm') group by cust_id,yyyymm;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L628",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 628,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "able INCOME_066_TMP_DETAIL_04 as      SELECT cust_id,yyyymmdd,sum(AMT) AMT      FROM ( ",
+        "66_TMP_DETAIL_03              )  a  GROUP BY cust_id,yyyymmdd;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L649",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 649,
+      "status": "commented_out_sql",
+      "customerKeyExcerpts": [
+        "create table INCOME_067_TMP01 as select cust_id,yyyymmdd,sum(AMT) AMT from  (     ",
+        "_id,yyyymmdd,sum(AMT) AMT from  (     SELECT cust_id, yyyymm ||'01'  as yyyymmdd,sum(GR",
+        "='202312' and  YYYYMM<='202505'     group by cust_id,yyyymm     UNION ALL     SELECT cu",
+        "p by cust_id,yyyymm     UNION ALL     SELECT cust_id, yyyymm || '01' as yyyymmdd, sum(I",
+        "='202312' and  YYYYMM<='202505'     group by cust_id,yyyymm )  a  GROUP BY cust_id,yyyy"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L65",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 65,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "ymmdd --substr(FEEDATE,1,6)  -- FHID,IDNO as cust_id,               ,idno as cust_id   ",
+        "FHID,IDNO as cust_id,               ,idno as cust_id                ,case              "
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L670",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 670,
+      "status": "commented_out_sql",
+      "customerKeyExcerpts": [
+        "create table INCOME_067_TMP02 as select cust_id,yyyymmdd,sum(AMT) AMT from  (     ",
+        "_id,yyyymmdd,sum(AMT) AMT from  (     SELECT cust_id, yyyymm ||'01'  as yyyymmdd,sum(GR",
+        "3400')     AND  YYYYMM>'202505'     group by cust_id,yyyymm     UNION ALL     SELECT cu",
+        "p by cust_id,yyyymm     UNION ALL     SELECT cust_id, yyyymm || '01' as yyyymmdd, sum(I",
+        "E3400')     AND YYYYMM>'202505'     group by cust_id,yyyymm )  a  GROUP BY cust_id,yyyy"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L691",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 691,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "create table INCOME_067_TMP021 as   SELECT cust_id, yyyymm ||'01'  as yyyymmdd,sum(GR",
+        "3400')     AND  YYYYMM>'202505'     group by cust_id,yyyymm;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L700",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 700,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "create table INCOME_067_TMP022 as SELECT cust_id, yyyymm || '01' as yyyymmdd, sum(I",
+        "300', '2E3400') AND YYYYMM>'202505' group by cust_id,yyyymm;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L709",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 709,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "create table INCOME_067_TMP02 as select cust_id,yyyymmdd,sum(AMT) AMT from  ( sele",
+        "elect * from INCOME_067_TMP022  ) a GROUP BY cust_id,yyyymmdd;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L721",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 721,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "create table INCOME_067_TMP03 as SELECT cust_id, data_dt as yyyymmdd, sum(INT_INCM",
+        "HERE TRIM(PRFT_CNTR_CD)  like '2E%' group by cust_id, data_dt;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L731",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 731,
+      "status": "commented_out_sql",
+      "customerKeyExcerpts": [
+        "create table INCOME_067_TMP03 as SELECT * --cust_id, data_dt  as yyyymmdd,sum(GROSS_IN",
+        "000', '2E3200', '2E3300', '2E3400') group by cust_id,data_dt;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L753",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 753,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "te table INCOME_067_TMP_DETAIL_01 as  SELECT cust_id, yyyymm ||'01'  as yyyymmdd,sum(GR",
+        "ar(add_months(sysdate,-1),'yyyymm') group by cust_id,yyyymm;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L761",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 761,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "te table INCOME_067_TMP_DETAIL_02 as  SELECT cust_id, yyyymm || '01' as yyyymmdd, sum(I",
+        "ar(add_months(sysdate,-1),'yyyymm') group by cust_id,yyyymm;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L769",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 769,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "ate table INCOME_067_TMP_DETAIL_03 as select cust_id,yyyymmdd,sum(AMT) AMT from  (    s",
+        "from INCOME_067_TMP_DETAIL_02 )  a  GROUP BY cust_id,yyyymmdd;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:8.INCOME_DETAIL.sql:L92",
+      "file": "sources/sql/8.INCOME_DETAIL.sql",
+      "lineStart": 92,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "rade_date as yyyymmdd,        customer_id as cust_id,        RM_PCCODE PCCODE,        s",
+        "    sum(FEE_AMOUNT_TWD) AMT --customer_id as cust_Id from DSDEP.DCI_PERFO_RPT_HS@anadbp",
+        "    sum(FEE_AMOUNT_TWD) AMT --customer_id as cust_Id from DSDEP.DCI_PERFO_RPT@anadbp01_"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:9.INCOME_SMY.sql:L255",
+      "file": "sources/sql/9.INCOME_SMY.sql",
+      "lineStart": 255,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "-55772 left join PB_CUST_005 b  --55772 on a.cust_id =b.cust_id and substr(a.yyyymmdd,1",
+        " join PB_CUST_005 b  --55772 on a.cust_id =b.cust_id and substr(a.yyyymmdd,1,6)=b.yyyym"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:9.INCOME_SMY.sql:L9",
+      "file": "sources/sql/9.INCOME_SMY.sql",
+      "lineStart": 9,
+      "status": "active_sql",
+      "customerKeyExcerpts": [
+        "   SUB_TYPE,       dept_easy_nm as NM,       cust_id,       yyyymmdd ,       AMT  from ",
+        " '保險' AS   SUB_TYPE,        '' as  NM,       cust_id,       yyyymmdd ,       AMT  from ",
+        " '保險' AS   SUB_TYPE,        '' as  NM,       cust_id,       yyyymmdd ,       AMT       ",
+        "' AS   SUB_TYPE,        PCCODE as  NM,       cust_id,       yyyymmdd ,       AMT       ",
+        "' AS   SUB_TYPE,        pccode as  NM,       cust_id,       yyyymmdd ,       AMT       "
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:X-INCOME_MOTHLY.sql:L17",
+      "file": "sources/sql/X-INCOME_MOTHLY.sql",
+      "lineStart": 17,
+      "status": "auxiliary_reference_sql",
+      "customerKeyExcerpts": [
+        "te table INCOME_066_TMP_DETAIL_02 as  SELECT cust_id, yyyymm || '01' yyyymmdd,sum(GROSS",
+        "ar(add_months(sysdate,-1),'yyyymm') group by cust_id,yyyymm;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:X-INCOME_MOTHLY.sql:L25",
+      "file": "sources/sql/X-INCOME_MOTHLY.sql",
+      "lineStart": 25,
+      "status": "auxiliary_reference_sql",
+      "customerKeyExcerpts": [
+        "e table INCOME_066_TMP_DETAIL_03 as  SELECT  cust_id, yyyymm || '01' yyyymmdd,sum(GROSS",
+        "ar(add_months(sysdate,-1),'yyyymm') group by cust_id,yyyymm;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:X-INCOME_MOTHLY.sql:L33",
+      "file": "sources/sql/X-INCOME_MOTHLY.sql",
+      "lineStart": 33,
+      "status": "auxiliary_reference_sql",
+      "customerKeyExcerpts": [
+        "able INCOME_066_TMP_DETAIL_04 as      SELECT cust_id,yyyymmdd,sum(AMT) AMT      FROM ( ",
+        "66_TMP_DETAIL_03              )  a  GROUP BY cust_id,yyyymmdd;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:X-INCOME_MOTHLY.sql:L56",
+      "file": "sources/sql/X-INCOME_MOTHLY.sql",
+      "lineStart": 56,
+      "status": "auxiliary_reference_sql",
+      "customerKeyExcerpts": [
+        "te table INCOME_067_TMP_DETAIL_01 as  SELECT cust_id, yyyymm ||'01'  as yyyymmdd,sum(GR",
+        "ar(add_months(sysdate,-1),'yyyymm') group by cust_id,yyyymm;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:X-INCOME_MOTHLY.sql:L64",
+      "file": "sources/sql/X-INCOME_MOTHLY.sql",
+      "lineStart": 64,
+      "status": "auxiliary_reference_sql",
+      "customerKeyExcerpts": [
+        "te table INCOME_067_TMP_DETAIL_02 as  SELECT cust_id, yyyymm || '01' as yyyymmdd, sum(I",
+        "ar(add_months(sysdate,-1),'yyyymm') group by cust_id,yyyymm;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:X-INCOME_MOTHLY.sql:L72",
+      "file": "sources/sql/X-INCOME_MOTHLY.sql",
+      "lineStart": 72,
+      "status": "auxiliary_reference_sql",
+      "customerKeyExcerpts": [
+        "ate table INCOME_067_TMP_DETAIL_03 as select cust_id,yyyymmdd,sum(AMT) AMT from  (    s",
+        "from INCOME_067_TMP_DETAIL_02 )  a  GROUP BY cust_id,yyyymmdd;"
+      ]
+    },
+    {
+      "key": "sql_lineage:statement:X-INCOME_MOTHLY.sql:L9",
+      "file": "sources/sql/X-INCOME_MOTHLY.sql",
+      "lineStart": 9,
+      "status": "auxiliary_reference_sql",
+      "customerKeyExcerpts": [
+        "te table INCOME_066_TMP_DETAIL_01 as  SELECT cust_id,yyyymm || '01'  yyyymmdd, sum(GROS",
+        "ar(add_months(sysdate,-1),'yyyymm') group by cust_id,yyyymm;"
+      ]
+    }
+  ],
+  "explicitCustomerProperties": []
+}

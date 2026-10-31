@@ -1,0 +1,18 @@
+{
+  "contract": "pb_kb_lazy_routes_v4",
+  "kbNodes": 12,
+  "mainNodes": 32,
+  "cases": [
+    "deposit_aum",
+    "deposit_income",
+    "securities_aum",
+    "deposit_both",
+    "securities_compare"
+  ],
+  "syntheticDecisionFixtures": true,
+  "liveJev": false,
+  "manyRoutesPerConcept": true,
+  "manyConceptsPerRoute": true,
+  "rawProbabilitiesPreserved": true,
+  "mixedUncertainDoesNotBlock": true
+}

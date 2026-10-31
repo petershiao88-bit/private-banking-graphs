@@ -1,0 +1,23 @@
+{
+  "file": "客戶360-Semantica圖譜-離線版.html",
+  "bytes": 1029983,
+  "sha256": "19ec9f6951aa77b2fd501fd1e25bb2b47d5cfa2d4e8d48ff2753940b23c1837d",
+  "views": {
+    "full": {
+      "nodes": 146,
+      "edges": 246
+    },
+    "business": {
+      "nodes": 104,
+      "edges": 146
+    },
+    "securities": {
+      "nodes": 29,
+      "edges": 44
+    },
+    "ontology": {
+      "nodes": 43,
+      "edges": 46
+    }
+  }
+}

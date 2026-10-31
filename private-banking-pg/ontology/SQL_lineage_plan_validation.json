@@ -1,0 +1,21 @@
+{
+  "sourceFilesByteRoundTrip": 7,
+  "statementsExactSlices": 113,
+  "dataProducingStatementsAudited": 109,
+  "allReadTablesReachOutputs": true,
+  "incomeUnionBranches": 24,
+  "aumUnionBranches": 13,
+  "incomeCustomerJoinVerified": true,
+  "historyAndAlternateDefinitionsSeparated": true,
+  "monthlyDeleteInsertPreserved": true,
+  "operationNodes": 0,
+  "tableLinkTypes": {
+    "UNION": 121,
+    "TRANSFORMS_TO": 56,
+    "UNION_ALL": 19,
+    "INNER_JOIN": 12,
+    "LEFT_JOIN": 23,
+    "INSERT_FROM": 4,
+    "DELETE_ROWS": 4
+  }
+}

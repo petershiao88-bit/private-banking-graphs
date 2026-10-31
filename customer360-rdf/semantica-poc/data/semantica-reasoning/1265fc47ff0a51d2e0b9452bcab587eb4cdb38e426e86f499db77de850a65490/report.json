@@ -1,0 +1,730 @@
+{
+  "engine": "Semantica Reasoner",
+  "semantica_version": "0.7.0",
+  "cache_key": "1265fc47ff0a51d2e0b9452bcab587eb4cdb38e426e86f499db77de850a65490",
+  "source_sha256": "54ce033c671dde9c75ad572c32660bafa05ec94c671b6516a220f6421beaa697",
+  "rules_sha256": "f34bc3b3f883272b8eddf19d7a6183d85d1ae00a1b6e6db299b11e2632f877d0",
+  "scope": "holding_and_subsidiary_named_class_rules_only",
+  "executed_at": "2026-10-27T01:07:54.260075+00:00",
+  "duration_seconds": 0.0939,
+  "pg_included": false,
+  "used_hermit": false,
+  "consistency_complete": false,
+  "consistency_checked": false,
+  "limitations": [
+    "僅執行已宣告類別的 rdfs:subClassOf 自反與遞移規則；未執行完整 OWL DL 一致性、可滿足性或資料型別驗證。"
+  ],
+  "classes": {
+    "https://example.org/ontology/bank#BankAUM": [
+      "https://example.org/ontology/holding#AUM",
+      "https://example.org/ontology/holding#Metric"
+    ],
+    "https://example.org/ontology/bank#BankEmployee": [
+      "https://example.org/ontology/holding#Employee"
+    ],
+    "https://example.org/ontology/bank#BankFeeIncome": [
+      "https://example.org/ontology/holding#FeeIncome",
+      "https://example.org/ontology/holding#Metric"
+    ],
+    "https://example.org/ontology/bank#BankInterestIncome": [
+      "https://example.org/ontology/holding#InterestIncome",
+      "https://example.org/ontology/holding#Metric"
+    ],
+    "https://example.org/ontology/bank#BankLUM": [
+      "https://example.org/ontology/holding#LUM",
+      "https://example.org/ontology/holding#Metric"
+    ],
+    "https://example.org/ontology/bank#BondProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#CollectiveManagementProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#DepositProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#ETFProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#FinancialAdvisor": [
+      "https://example.org/ontology/bank#BankEmployee",
+      "https://example.org/ontology/holding#Employee"
+    ],
+    "https://example.org/ontology/bank#ForeignCurrencyFinancialProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#ForeignExchangeProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#FundProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#GoldProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#InsuranceProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#LetterOfCreditProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#LoanProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#OverseasFinancialProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#PlannedTrustProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#PrivateBankingDepartment": [
+      "https://example.org/ontology/holding#Department"
+    ],
+    "https://example.org/ontology/bank#StockProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#StructuredFinancialProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#TWDFinancialProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/bank#TrustCustodyProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/holding#AUM": [
+      "https://example.org/ontology/holding#Metric"
+    ],
+    "https://example.org/ontology/holding#AddressContactInformation": [
+      "https://example.org/ontology/holding#ContactInformation"
+    ],
+    "https://example.org/ontology/holding#ContactInformation": [],
+    "https://example.org/ontology/holding#Customer": [],
+    "https://example.org/ontology/holding#Department": [],
+    "https://example.org/ontology/holding#Employee": [],
+    "https://example.org/ontology/holding#FeeIncome": [
+      "https://example.org/ontology/holding#Metric"
+    ],
+    "https://example.org/ontology/holding#FinancialProduct": [],
+    "https://example.org/ontology/holding#InterestIncome": [
+      "https://example.org/ontology/holding#Metric"
+    ],
+    "https://example.org/ontology/holding#LUM": [
+      "https://example.org/ontology/holding#Metric"
+    ],
+    "https://example.org/ontology/holding#Metric": [],
+    "https://example.org/ontology/holding#MobileContactInformation": [
+      "https://example.org/ontology/holding#ContactInformation"
+    ],
+    "https://example.org/ontology/securities#BondProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/securities#FundProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/securities#OverseasFinancialProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/securities#SecuritiesAUM": [
+      "https://example.org/ontology/holding#AUM",
+      "https://example.org/ontology/holding#Metric"
+    ],
+    "https://example.org/ontology/securities#SecuritiesFeeIncome": [
+      "https://example.org/ontology/holding#FeeIncome",
+      "https://example.org/ontology/holding#Metric"
+    ],
+    "https://example.org/ontology/securities#StockProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ],
+    "https://example.org/ontology/securities#StructuredFinancialProduct": [
+      "https://example.org/ontology/holding#FinancialProduct"
+    ]
+  },
+  "input": {
+    "facts": [
+      "DeclaredClass(class_000)",
+      "DeclaredClass(class_001)",
+      "DeclaredClass(class_002)",
+      "DeclaredClass(class_003)",
+      "DeclaredClass(class_004)",
+      "DeclaredClass(class_005)",
+      "DeclaredClass(class_006)",
+      "DeclaredClass(class_007)",
+      "DeclaredClass(class_008)",
+      "DeclaredClass(class_009)",
+      "DeclaredClass(class_010)",
+      "DeclaredClass(class_011)",
+      "DeclaredClass(class_012)",
+      "DeclaredClass(class_013)",
+      "DeclaredClass(class_014)",
+      "DeclaredClass(class_015)",
+      "DeclaredClass(class_016)",
+      "DeclaredClass(class_017)",
+      "DeclaredClass(class_018)",
+      "DeclaredClass(class_019)",
+      "DeclaredClass(class_020)",
+      "DeclaredClass(class_021)",
+      "DeclaredClass(class_022)",
+      "DeclaredClass(class_023)",
+      "DeclaredClass(class_024)",
+      "DeclaredClass(class_025)",
+      "DeclaredClass(class_026)",
+      "DeclaredClass(class_027)",
+      "DeclaredClass(class_028)",
+      "DeclaredClass(class_029)",
+      "DeclaredClass(class_030)",
+      "DeclaredClass(class_031)",
+      "DeclaredClass(class_032)",
+      "DeclaredClass(class_033)",
+      "DeclaredClass(class_034)",
+      "DeclaredClass(class_035)",
+      "DeclaredClass(class_036)",
+      "DeclaredClass(class_037)",
+      "DeclaredClass(class_038)",
+      "DeclaredClass(class_039)",
+      "DeclaredClass(class_040)",
+      "DeclaredClass(class_041)",
+      "DeclaredClass(class_042)",
+      "SubClass(class_000, class_024)",
+      "SubClass(class_001, class_029)",
+      "SubClass(class_002, class_030)",
+      "SubClass(class_003, class_032)",
+      "SubClass(class_004, class_033)",
+      "SubClass(class_005, class_031)",
+      "SubClass(class_006, class_031)",
+      "SubClass(class_007, class_031)",
+      "SubClass(class_008, class_031)",
+      "SubClass(class_009, class_001)",
+      "SubClass(class_010, class_031)",
+      "SubClass(class_011, class_031)",
+      "SubClass(class_012, class_031)",
+      "SubClass(class_013, class_031)",
+      "SubClass(class_014, class_031)",
+      "SubClass(class_015, class_031)",
+      "SubClass(class_016, class_031)",
+      "SubClass(class_017, class_031)",
+      "SubClass(class_018, class_031)",
+      "SubClass(class_019, class_028)",
+      "SubClass(class_020, class_031)",
+      "SubClass(class_021, class_031)",
+      "SubClass(class_022, class_031)",
+      "SubClass(class_023, class_031)",
+      "SubClass(class_024, class_034)",
+      "SubClass(class_025, class_026)",
+      "SubClass(class_030, class_034)",
+      "SubClass(class_032, class_034)",
+      "SubClass(class_033, class_034)",
+      "SubClass(class_035, class_026)",
+      "SubClass(class_036, class_031)",
+      "SubClass(class_037, class_031)",
+      "SubClass(class_038, class_031)",
+      "SubClass(class_039, class_024)",
+      "SubClass(class_040, class_030)",
+      "SubClass(class_041, class_031)",
+      "SubClass(class_042, class_031)"
+    ],
+    "rules": [
+      "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "IF SubClass(?child, ?middle) AND SubClass(?middle, ?parent) THEN SubClass(?child, ?parent)"
+    ],
+    "class_token_map": {
+      "class_000": "https://example.org/ontology/bank#BankAUM",
+      "class_001": "https://example.org/ontology/bank#BankEmployee",
+      "class_002": "https://example.org/ontology/bank#BankFeeIncome",
+      "class_003": "https://example.org/ontology/bank#BankInterestIncome",
+      "class_004": "https://example.org/ontology/bank#BankLUM",
+      "class_005": "https://example.org/ontology/bank#BondProduct",
+      "class_006": "https://example.org/ontology/bank#CollectiveManagementProduct",
+      "class_007": "https://example.org/ontology/bank#DepositProduct",
+      "class_008": "https://example.org/ontology/bank#ETFProduct",
+      "class_009": "https://example.org/ontology/bank#FinancialAdvisor",
+      "class_010": "https://example.org/ontology/bank#ForeignCurrencyFinancialProduct",
+      "class_011": "https://example.org/ontology/bank#ForeignExchangeProduct",
+      "class_012": "https://example.org/ontology/bank#FundProduct",
+      "class_013": "https://example.org/ontology/bank#GoldProduct",
+      "class_014": "https://example.org/ontology/bank#InsuranceProduct",
+      "class_015": "https://example.org/ontology/bank#LetterOfCreditProduct",
+      "class_016": "https://example.org/ontology/bank#LoanProduct",
+      "class_017": "https://example.org/ontology/bank#OverseasFinancialProduct",
+      "class_018": "https://example.org/ontology/bank#PlannedTrustProduct",
+      "class_019": "https://example.org/ontology/bank#PrivateBankingDepartment",
+      "class_020": "https://example.org/ontology/bank#StockProduct",
+      "class_021": "https://example.org/ontology/bank#StructuredFinancialProduct",
+      "class_022": "https://example.org/ontology/bank#TWDFinancialProduct",
+      "class_023": "https://example.org/ontology/bank#TrustCustodyProduct",
+      "class_024": "https://example.org/ontology/holding#AUM",
+      "class_025": "https://example.org/ontology/holding#AddressContactInformation",
+      "class_026": "https://example.org/ontology/holding#ContactInformation",
+      "class_027": "https://example.org/ontology/holding#Customer",
+      "class_028": "https://example.org/ontology/holding#Department",
+      "class_029": "https://example.org/ontology/holding#Employee",
+      "class_030": "https://example.org/ontology/holding#FeeIncome",
+      "class_031": "https://example.org/ontology/holding#FinancialProduct",
+      "class_032": "https://example.org/ontology/holding#InterestIncome",
+      "class_033": "https://example.org/ontology/holding#LUM",
+      "class_034": "https://example.org/ontology/holding#Metric",
+      "class_035": "https://example.org/ontology/holding#MobileContactInformation",
+      "class_036": "https://example.org/ontology/securities#BondProduct",
+      "class_037": "https://example.org/ontology/securities#FundProduct",
+      "class_038": "https://example.org/ontology/securities#OverseasFinancialProduct",
+      "class_039": "https://example.org/ontology/securities#SecuritiesAUM",
+      "class_040": "https://example.org/ontology/securities#SecuritiesFeeIncome",
+      "class_041": "https://example.org/ontology/securities#StockProduct",
+      "class_042": "https://example.org/ontology/securities#StructuredFinancialProduct"
+    }
+  },
+  "derived_facts": [
+    "SubClass(class_000, class_000)",
+    "SubClass(class_000, class_034)",
+    "SubClass(class_001, class_001)",
+    "SubClass(class_002, class_002)",
+    "SubClass(class_002, class_034)",
+    "SubClass(class_003, class_003)",
+    "SubClass(class_003, class_034)",
+    "SubClass(class_004, class_004)",
+    "SubClass(class_004, class_034)",
+    "SubClass(class_005, class_005)",
+    "SubClass(class_006, class_006)",
+    "SubClass(class_007, class_007)",
+    "SubClass(class_008, class_008)",
+    "SubClass(class_009, class_009)",
+    "SubClass(class_009, class_029)",
+    "SubClass(class_010, class_010)",
+    "SubClass(class_011, class_011)",
+    "SubClass(class_012, class_012)",
+    "SubClass(class_013, class_013)",
+    "SubClass(class_014, class_014)",
+    "SubClass(class_015, class_015)",
+    "SubClass(class_016, class_016)",
+    "SubClass(class_017, class_017)",
+    "SubClass(class_018, class_018)",
+    "SubClass(class_019, class_019)",
+    "SubClass(class_020, class_020)",
+    "SubClass(class_021, class_021)",
+    "SubClass(class_022, class_022)",
+    "SubClass(class_023, class_023)",
+    "SubClass(class_024, class_024)",
+    "SubClass(class_025, class_025)",
+    "SubClass(class_026, class_026)",
+    "SubClass(class_027, class_027)",
+    "SubClass(class_028, class_028)",
+    "SubClass(class_029, class_029)",
+    "SubClass(class_030, class_030)",
+    "SubClass(class_031, class_031)",
+    "SubClass(class_032, class_032)",
+    "SubClass(class_033, class_033)",
+    "SubClass(class_034, class_034)",
+    "SubClass(class_035, class_035)",
+    "SubClass(class_036, class_036)",
+    "SubClass(class_037, class_037)",
+    "SubClass(class_038, class_038)",
+    "SubClass(class_039, class_034)",
+    "SubClass(class_039, class_039)",
+    "SubClass(class_040, class_034)",
+    "SubClass(class_040, class_040)",
+    "SubClass(class_041, class_041)",
+    "SubClass(class_042, class_042)"
+  ],
+  "inference_trace": [
+    {
+      "conclusion": "SubClass(class_000, class_000)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_000)",
+        "SubClass(class_000, class_000)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_001, class_001)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_001)",
+        "SubClass(class_001, class_001)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_002, class_002)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_002)",
+        "SubClass(class_002, class_002)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_003, class_003)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_003)",
+        "SubClass(class_003, class_003)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_004, class_004)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_004)",
+        "SubClass(class_004, class_004)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_005, class_005)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_005)",
+        "SubClass(class_005, class_005)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_006, class_006)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_006)",
+        "SubClass(class_006, class_006)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_007, class_007)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_007)",
+        "SubClass(class_007, class_007)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_008, class_008)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_008)",
+        "SubClass(class_008, class_008)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_009, class_009)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_009)",
+        "SubClass(class_009, class_009)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_010, class_010)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_010)",
+        "SubClass(class_010, class_010)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_011, class_011)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_011)",
+        "SubClass(class_011, class_011)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_012, class_012)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_012)",
+        "SubClass(class_012, class_012)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_013, class_013)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_013)",
+        "SubClass(class_013, class_013)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_014, class_014)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_014)",
+        "SubClass(class_014, class_014)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_015, class_015)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_015)",
+        "SubClass(class_015, class_015)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_016, class_016)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_016)",
+        "SubClass(class_016, class_016)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_017, class_017)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_017)",
+        "SubClass(class_017, class_017)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_018, class_018)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_018)",
+        "SubClass(class_018, class_018)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_019, class_019)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_019)",
+        "SubClass(class_019, class_019)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_020, class_020)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_020)",
+        "SubClass(class_020, class_020)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_021, class_021)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_021)",
+        "SubClass(class_021, class_021)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_022, class_022)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_022)",
+        "SubClass(class_022, class_022)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_023, class_023)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_023)",
+        "SubClass(class_023, class_023)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_024, class_024)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_024)",
+        "SubClass(class_024, class_024)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_025, class_025)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_025)",
+        "SubClass(class_025, class_025)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_026, class_026)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_026)",
+        "SubClass(class_026, class_026)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_027, class_027)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_027)",
+        "SubClass(class_027, class_027)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_028, class_028)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_028)",
+        "SubClass(class_028, class_028)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_029, class_029)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_029)",
+        "SubClass(class_029, class_029)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_030, class_030)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_030)",
+        "SubClass(class_030, class_030)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_031, class_031)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_031)",
+        "SubClass(class_031, class_031)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_032, class_032)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_032)",
+        "SubClass(class_032, class_032)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_033, class_033)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_033)",
+        "SubClass(class_033, class_033)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_034, class_034)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_034)",
+        "SubClass(class_034, class_034)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_035, class_035)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_035)",
+        "SubClass(class_035, class_035)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_036, class_036)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_036)",
+        "SubClass(class_036, class_036)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_037, class_037)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_037)",
+        "SubClass(class_037, class_037)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_038, class_038)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_038)",
+        "SubClass(class_038, class_038)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_039, class_039)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_039)",
+        "SubClass(class_039, class_039)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_040, class_040)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_040)",
+        "SubClass(class_040, class_040)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_041, class_041)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_041)",
+        "SubClass(class_041, class_041)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_042, class_042)",
+      "rule": "IF DeclaredClass(?class) THEN SubClass(?class, ?class)",
+      "premises": [
+        "DeclaredClass(class_042)",
+        "SubClass(class_042, class_042)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_000, class_034)",
+      "rule": "IF SubClass(?child, ?middle) AND SubClass(?middle, ?parent) THEN SubClass(?child, ?parent)",
+      "premises": [
+        "SubClass(class_000, class_024)",
+        "SubClass(class_024, class_034)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_002, class_034)",
+      "rule": "IF SubClass(?child, ?middle) AND SubClass(?middle, ?parent) THEN SubClass(?child, ?parent)",
+      "premises": [
+        "SubClass(class_002, class_030)",
+        "SubClass(class_030, class_034)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_003, class_034)",
+      "rule": "IF SubClass(?child, ?middle) AND SubClass(?middle, ?parent) THEN SubClass(?child, ?parent)",
+      "premises": [
+        "SubClass(class_003, class_032)",
+        "SubClass(class_032, class_034)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_004, class_034)",
+      "rule": "IF SubClass(?child, ?middle) AND SubClass(?middle, ?parent) THEN SubClass(?child, ?parent)",
+      "premises": [
+        "SubClass(class_004, class_033)",
+        "SubClass(class_033, class_034)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_009, class_029)",
+      "rule": "IF SubClass(?child, ?middle) AND SubClass(?middle, ?parent) THEN SubClass(?child, ?parent)",
+      "premises": [
+        "SubClass(class_009, class_001)",
+        "SubClass(class_001, class_029)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_039, class_034)",
+      "rule": "IF SubClass(?child, ?middle) AND SubClass(?middle, ?parent) THEN SubClass(?child, ?parent)",
+      "premises": [
+        "SubClass(class_039, class_024)",
+        "SubClass(class_024, class_034)"
+      ]
+    },
+    {
+      "conclusion": "SubClass(class_040, class_034)",
+      "rule": "IF SubClass(?child, ?middle) AND SubClass(?middle, ?parent) THEN SubClass(?child, ?parent)",
+      "premises": [
+        "SubClass(class_040, class_030)",
+        "SubClass(class_030, class_034)"
+      ]
+    }
+  ]
+}

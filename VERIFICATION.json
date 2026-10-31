@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-31",
+  "sourceFileHashesVerified": 1715,
+  "pgRestoreSources": {
+    "nodes": 1618,
+    "relationships": 4649,
+    "allEndpointsValid": true
+  },
+  "rdfBuildCheck": {
+    "result": "PASS",
+    "version": "0.16.0",
+    "triples": 434,
+    "sourceExportGraphEquality": true
+  },
+  "pgUnitTests": {
+    "passed": 101
+  },
+  "credentialScan": "No credential tokens found; literal matches reviewed as test fixtures, placeholders, dynamic authorization headers, and an approval description.",
+  "databaseImportPerformed": false
+}

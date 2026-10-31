@@ -1,0 +1,12 @@
+{
+  "checksPassed": 27,
+  "syntheticDecisionFixtures": true,
+  "scenarios": [
+    "same object distinct full paths",
+    "ambiguous path blocks mapping",
+    "excluded paths block mapping",
+    "missing native answer fails",
+    "tampered path fails",
+    "main physical metadata after route gate"
+  ]
+}

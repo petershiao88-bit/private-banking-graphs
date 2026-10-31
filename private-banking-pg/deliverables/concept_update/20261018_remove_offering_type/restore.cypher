@@ -1,0 +1,26 @@
+// Recovery only: restore the backed-up property values.
+MATCH (n:PBConcept:PBConceptProduct {productCode:"deposit"}) WHERE elementId(n)="4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1166" SET n.offeringType="產品";
+MATCH (n:PBConcept:PBConceptProduct {productCode:"bank_insurance"}) WHERE elementId(n)="4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1167" SET n.offeringType="產品";
+MATCH (n:PBConcept:PBConceptProduct {productCode:"bank_fund"}) WHERE elementId(n)="4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1168" SET n.offeringType="產品";
+MATCH (n:PBConcept:PBConceptProduct {productCode:"bank_etf"}) WHERE elementId(n)="4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1169" SET n.offeringType="產品";
+MATCH (n:PBConcept:PBConceptProduct {productCode:"bank_overseas_stock"}) WHERE elementId(n)="4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1170" SET n.offeringType="產品";
+MATCH (n:PBConcept:PBConceptProduct {productCode:"bank_bond_trust"}) WHERE elementId(n)="4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1171" SET n.offeringType="產品";
+MATCH (n:PBConcept:PBConceptProduct {productCode:"bank_bond_proprietary"}) WHERE elementId(n)="4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1172" SET n.offeringType="產品";
+MATCH (n:PBConcept:PBConceptProduct {productCode:"bank_collective_account"}) WHERE elementId(n)="4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1173" SET n.offeringType="產品";
+MATCH (n:PBConcept:PBConceptProduct {productCode:"bank_structured_offshore"}) WHERE elementId(n)="4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1174" SET n.offeringType="產品";
+MATCH (n:PBConcept:PBConceptProduct {productCode:"bank_planned_trust"}) WHERE elementId(n)="4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1175" SET n.offeringType="服務";
+MATCH (n:PBConcept:PBConceptProduct {productCode:"bank_trust_custody"}) WHERE elementId(n)="4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1176" SET n.offeringType="服務";
+MATCH (n:PBConcept:PBConceptProduct {productCode:"securities_bond"}) WHERE elementId(n)="4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1177" SET n.offeringType="產品";
+MATCH (n:PBConcept:PBConceptProduct {productCode:"securities_structured"}) WHERE elementId(n)="4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1178" SET n.offeringType="產品";
+MATCH (n:PBConcept:PBConceptProduct {productCode:"securities_fund"}) WHERE elementId(n)="4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1179" SET n.offeringType="產品";
+MATCH (n:PBConcept:PBConceptProduct {productCode:"securities_foreign_stock"}) WHERE elementId(n)="4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1180" SET n.offeringType="產品";
+MATCH (n:PBConcept:PBConceptProduct {productCode:"bank_dci"}) WHERE elementId(n)="4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1605" SET n.offeringType="產品";
+MATCH (n:PBConcept:PBConceptProduct {productCode:"bank_structured_domestic"}) WHERE elementId(n)="4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1606" SET n.offeringType="產品";
+MATCH (n:PBConcept:PBConceptProduct {productCode:"bank_fx"}) WHERE elementId(n)="4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1607" SET n.offeringType="服務";
+MATCH (n:PBConcept:PBConceptProduct {productCode:"bank_lc"}) WHERE elementId(n)="4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1608" SET n.offeringType="服務";
+MATCH (n:PBConcept:PBConceptProduct {productCode:"bank_gold"}) WHERE elementId(n)="4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1609" SET n.offeringType="產品";
+MATCH (n:PBConcept:PBConceptProduct {productCode:"loan"}) WHERE elementId(n)="4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1610" SET n.offeringType="產品";
+MATCH (n:PBConcept:PBConceptProduct {productCode:"deposit_twd"}) WHERE elementId(n)="4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1611" SET n.offeringType="產品";
+MATCH (n:PBConcept:PBConceptProduct {productCode:"deposit_foreign"}) WHERE elementId(n)="4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1612" SET n.offeringType="產品";
+MATCH (n:PBConcept:PBConceptProduct {productCode:"deposit_structured"}) WHERE elementId(n)="4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1613" SET n.offeringType="產品";
+MATCH (n:PBConcept:PBConceptProduct {productCode:"securities_taiwan_stock"}) WHERE elementId(n)="4:ed2a70ad-f2bd-474d-a187-fa6be5ba621f:1614" SET n.offeringType="產品";

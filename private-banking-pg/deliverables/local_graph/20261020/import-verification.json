@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "date": "2026-10-20",
+  "sourceFingerprint": "ccdaa0778c1cba4e8693fdb0b97733b133f2240a957eb46d2bdc116ecae9a7c9",
+  "restoredFingerprint": "ccdaa0778c1cba4e8693fdb0b97733b133f2240a957eb46d2bdc116ecae9a7c9",
+  "allLabelsPropertiesAndEndpointsPreserved": true,
+  "counts": {
+    "nodes": 1618,
+    "relationships": 4649,
+    "conceptNodes": 41,
+    "conceptRelationships": 69
+  },
+  "mappingNodes": 1577,
+  "mappingRelationships": 4580,
+  "conceptSource": "deliverables\\concept_update\\20261018_remove_offering_type\\aura.after.export.json",
+  "mappingSource": "deliverables\\graph_exports\\20261014\\Aura_完整圖譜快照.json",
+  "originalAuraElementIdsNotUsedAsLocalIds": true,
+  "existingNeo4jCommunityContainerUntouched": true
+}

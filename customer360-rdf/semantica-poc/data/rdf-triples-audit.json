@@ -1,0 +1,3474 @@
+[
+  {
+    "datatype": "",
+    "language": "",
+    "object": "0.16.0 / design draft / 2026-10-24",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2002/07/owl#versionInfo",
+    "subject": "https://example.org/ontology/customer360"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2001/XMLSchema#date",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#range",
+    "subject": "https://example.org/ontology/holding#aumAsOfDate"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2001/XMLSchema#date",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#range",
+    "subject": "https://example.org/ontology/holding#incomePeriodEnd"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2001/XMLSchema#date",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#range",
+    "subject": "https://example.org/ontology/holding#incomePeriodStart"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2001/XMLSchema#date",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#range",
+    "subject": "https://example.org/ontology/holding#interestPeriodEnd"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2001/XMLSchema#date",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#range",
+    "subject": "https://example.org/ontology/holding#interestPeriodStart"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2001/XMLSchema#date",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#range",
+    "subject": "https://example.org/ontology/holding#lumAsOfDate"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2001/XMLSchema#decimal",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#range",
+    "subject": "https://example.org/ontology/holding#feeBaseAmount"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2001/XMLSchema#decimal",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#range",
+    "subject": "https://example.org/ontology/holding#feeDeductionAmount"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2001/XMLSchema#decimal",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#range",
+    "subject": "https://example.org/ontology/holding#metricAmount"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2001/XMLSchema#decimal",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#range",
+    "subject": "https://example.org/ontology/holding#valuationQuantity"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2001/XMLSchema#decimal",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#range",
+    "subject": "https://example.org/ontology/holding#valuationUnitPrice"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2001/XMLSchema#string",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#range",
+    "subject": "https://example.org/ontology/bank#employeeId"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2001/XMLSchema#string",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#range",
+    "subject": "https://example.org/ontology/holding#addressLine"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2001/XMLSchema#string",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#range",
+    "subject": "https://example.org/ontology/holding#city"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2001/XMLSchema#string",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#range",
+    "subject": "https://example.org/ontology/holding#countryCode"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2001/XMLSchema#string",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#range",
+    "subject": "https://example.org/ontology/holding#district"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2001/XMLSchema#string",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#range",
+    "subject": "https://example.org/ontology/holding#fullAddress"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2001/XMLSchema#string",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#range",
+    "subject": "https://example.org/ontology/holding#mobileNumber"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2001/XMLSchema#string",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#range",
+    "subject": "https://example.org/ontology/holding#postalCode"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#AnnotationProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "http://www.w3.org/2000/01/rdf-schema#label"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#AnnotationProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "http://www.w3.org/2004/02/skos/core#definition"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#AnnotationProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#department"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#AnnotationProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#governanceLevel"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#AnnotationProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#subsidiary"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/bank#BankAUM"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/bank#BankEmployee"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/bank#BankFeeIncome"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/bank#BankInterestIncome"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/bank#BankLUM"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/bank#BondProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/bank#CollectiveManagementProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/bank#DepositProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/bank#ETFProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/bank#FinancialAdvisor"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/bank#ForeignCurrencyFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/bank#ForeignExchangeProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/bank#FundProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/bank#GoldProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/bank#InsuranceProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/bank#LetterOfCreditProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/bank#LoanProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/bank#OverseasFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/bank#PlannedTrustProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/bank#PrivateBankingDepartment"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/bank#StockProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/bank#StructuredFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/bank#TWDFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/bank#TrustCustodyProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#AUM"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#AddressContactInformation"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#ContactInformation"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#Customer"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#Department"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#Employee"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#FeeIncome"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#FinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#InterestIncome"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#LUM"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#Metric"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#MobileContactInformation"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/securities#BondProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/securities#FundProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/securities#OverseasFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/securities#SecuritiesAUM"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/securities#SecuritiesFeeIncome"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/securities#StockProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Class",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/securities#StructuredFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/bank#employeeId"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#addressLine"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#aumAsOfDate"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#city"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#countryCode"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#district"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#feeBaseAmount"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#feeDeductionAmount"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#fullAddress"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#incomePeriodEnd"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#incomePeriodStart"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#interestPeriodEnd"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#interestPeriodStart"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#lumAsOfDate"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#metricAmount"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#mobileNumber"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#postalCode"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#valuationQuantity"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#valuationUnitPrice"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#ObjectProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/bank#attributedToAdvisor"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#ObjectProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#feeIncomeFromProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#ObjectProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#hasContactPoint"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#ObjectProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#holds"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#ObjectProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#interestIncomeFromProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#ObjectProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#lumMeasuresProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#ObjectProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#measuresProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#ObjectProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#serves"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#ObjectProperty",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/holding#usesMetric"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "http://www.w3.org/2002/07/owl#Ontology",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "subject": "https://example.org/ontology/customer360"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/bank#BankEmployee",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#domain",
+    "subject": "https://example.org/ontology/bank#employeeId"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/bank#BankEmployee",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/bank#FinancialAdvisor"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/bank#BankFeeIncome",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#domain",
+    "subject": "https://example.org/ontology/bank#attributedToAdvisor"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/bank#FinancialAdvisor",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#range",
+    "subject": "https://example.org/ontology/bank#attributedToAdvisor"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/customer360/0.16.0",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2002/07/owl#versionIRI",
+    "subject": "https://example.org/ontology/customer360"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#AUM",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#domain",
+    "subject": "https://example.org/ontology/holding#aumAsOfDate"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#AUM",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#domain",
+    "subject": "https://example.org/ontology/holding#measuresProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#AUM",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#domain",
+    "subject": "https://example.org/ontology/holding#valuationQuantity"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#AUM",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#domain",
+    "subject": "https://example.org/ontology/holding#valuationUnitPrice"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#AUM",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/bank#BankAUM"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#AUM",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/securities#SecuritiesAUM"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#AddressContactInformation",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#domain",
+    "subject": "https://example.org/ontology/holding#addressLine"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#AddressContactInformation",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#domain",
+    "subject": "https://example.org/ontology/holding#city"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#AddressContactInformation",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#domain",
+    "subject": "https://example.org/ontology/holding#countryCode"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#AddressContactInformation",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#domain",
+    "subject": "https://example.org/ontology/holding#district"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#AddressContactInformation",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#domain",
+    "subject": "https://example.org/ontology/holding#fullAddress"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#AddressContactInformation",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#domain",
+    "subject": "https://example.org/ontology/holding#postalCode"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#ContactInformation",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#range",
+    "subject": "https://example.org/ontology/holding#hasContactPoint"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#ContactInformation",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/holding#AddressContactInformation"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#ContactInformation",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/holding#MobileContactInformation"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#Customer",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#domain",
+    "subject": "https://example.org/ontology/holding#hasContactPoint"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#Customer",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#domain",
+    "subject": "https://example.org/ontology/holding#holds"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#Customer",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#range",
+    "subject": "https://example.org/ontology/holding#serves"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#Department",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#domain",
+    "subject": "https://example.org/ontology/holding#usesMetric"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#Department",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/bank#PrivateBankingDepartment"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#Employee",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#domain",
+    "subject": "https://example.org/ontology/holding#serves"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#Employee",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/bank#BankEmployee"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FeeIncome",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#domain",
+    "subject": "https://example.org/ontology/holding#feeBaseAmount"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FeeIncome",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#domain",
+    "subject": "https://example.org/ontology/holding#feeDeductionAmount"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FeeIncome",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#domain",
+    "subject": "https://example.org/ontology/holding#feeIncomeFromProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FeeIncome",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#domain",
+    "subject": "https://example.org/ontology/holding#incomePeriodEnd"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FeeIncome",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#domain",
+    "subject": "https://example.org/ontology/holding#incomePeriodStart"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FeeIncome",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/bank#BankFeeIncome"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FeeIncome",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/securities#SecuritiesFeeIncome"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FinancialProduct",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#range",
+    "subject": "https://example.org/ontology/holding#feeIncomeFromProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FinancialProduct",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#range",
+    "subject": "https://example.org/ontology/holding#holds"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FinancialProduct",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#range",
+    "subject": "https://example.org/ontology/holding#interestIncomeFromProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FinancialProduct",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#range",
+    "subject": "https://example.org/ontology/holding#lumMeasuresProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FinancialProduct",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#range",
+    "subject": "https://example.org/ontology/holding#measuresProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FinancialProduct",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/bank#BondProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FinancialProduct",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/bank#CollectiveManagementProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FinancialProduct",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/bank#DepositProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FinancialProduct",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/bank#ETFProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FinancialProduct",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/bank#ForeignCurrencyFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FinancialProduct",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/bank#ForeignExchangeProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FinancialProduct",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/bank#FundProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FinancialProduct",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/bank#GoldProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FinancialProduct",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/bank#InsuranceProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FinancialProduct",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/bank#LetterOfCreditProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FinancialProduct",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/bank#LoanProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FinancialProduct",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/bank#OverseasFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FinancialProduct",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/bank#PlannedTrustProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FinancialProduct",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/bank#StockProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FinancialProduct",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/bank#StructuredFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FinancialProduct",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/bank#TWDFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FinancialProduct",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/bank#TrustCustodyProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FinancialProduct",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/securities#BondProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FinancialProduct",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/securities#FundProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FinancialProduct",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/securities#OverseasFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FinancialProduct",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/securities#StockProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#FinancialProduct",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/securities#StructuredFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#InterestIncome",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#domain",
+    "subject": "https://example.org/ontology/holding#interestIncomeFromProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#InterestIncome",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#domain",
+    "subject": "https://example.org/ontology/holding#interestPeriodEnd"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#InterestIncome",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#domain",
+    "subject": "https://example.org/ontology/holding#interestPeriodStart"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#InterestIncome",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/bank#BankInterestIncome"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#LUM",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#domain",
+    "subject": "https://example.org/ontology/holding#lumAsOfDate"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#LUM",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#domain",
+    "subject": "https://example.org/ontology/holding#lumMeasuresProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#LUM",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/bank#BankLUM"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#Metric",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#domain",
+    "subject": "https://example.org/ontology/holding#metricAmount"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#Metric",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#range",
+    "subject": "https://example.org/ontology/holding#usesMetric"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#Metric",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/holding#AUM"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#Metric",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/holding#FeeIncome"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#Metric",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/holding#InterestIncome"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#Metric",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "subject": "https://example.org/ontology/holding#LUM"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "https://example.org/ontology/holding#MobileContactInformation",
+    "object_kind": "uri",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#domain",
+    "subject": "https://example.org/ontology/holding#mobileNumber"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/bank#BankAUM"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/bank#BankEmployee"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/bank#BankFeeIncome"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/bank#BankInterestIncome"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/bank#BankLUM"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/bank#BondProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/bank#CollectiveManagementProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/bank#DepositProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/bank#ETFProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/bank#FinancialAdvisor"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/bank#ForeignCurrencyFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/bank#ForeignExchangeProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/bank#FundProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/bank#GoldProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/bank#InsuranceProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/bank#LetterOfCreditProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/bank#LoanProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/bank#OverseasFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/bank#PlannedTrustProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/bank#PrivateBankingDepartment"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/bank#StockProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/bank#StructuredFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/bank#TWDFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/bank#TrustCustodyProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/bank#attributedToAdvisor"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/bank#employeeId"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/securities#BondProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/securities#FundProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/securities#OverseasFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/securities#SecuritiesAUM"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/securities#SecuritiesFeeIncome"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/securities#StockProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "子公司",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/securities#StructuredFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "證券",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/securities#BondProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "證券",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/securities#FundProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "證券",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/securities#OverseasFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "證券",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/securities#SecuritiesAUM"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "證券",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/securities#SecuritiesFeeIncome"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "證券",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/securities#StockProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "證券",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/securities#StructuredFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "http://www.w3.org/2000/01/rdf-schema#label"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "http://www.w3.org/2004/02/skos/core#definition"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#AUM"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#AddressContactInformation"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#ContactInformation"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#Customer"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#Department"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#Employee"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#FeeIncome"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#FinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#InterestIncome"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#LUM"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#Metric"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#MobileContactInformation"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#addressLine"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#aumAsOfDate"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#city"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#countryCode"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#department"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#district"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#feeBaseAmount"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#feeDeductionAmount"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#feeIncomeFromProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#fullAddress"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#governanceLevel"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#hasContactPoint"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#holds"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#incomePeriodEnd"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#incomePeriodStart"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#interestIncomeFromProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#interestPeriodEnd"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#interestPeriodStart"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#lumAsOfDate"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#lumMeasuresProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#measuresProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#metricAmount"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#mobileNumber"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#postalCode"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#serves"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#subsidiary"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#usesMetric"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#valuationQuantity"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "金控",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#governanceLevel",
+    "subject": "https://example.org/ontology/holding#valuationUnitPrice"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "銀行",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/bank#BankAUM"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "銀行",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/bank#BankEmployee"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "銀行",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/bank#BankFeeIncome"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "銀行",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/bank#BankInterestIncome"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "銀行",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/bank#BankLUM"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "銀行",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/bank#BondProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "銀行",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/bank#CollectiveManagementProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "銀行",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/bank#DepositProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "銀行",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/bank#ETFProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "銀行",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/bank#FinancialAdvisor"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "銀行",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/bank#ForeignCurrencyFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "銀行",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/bank#ForeignExchangeProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "銀行",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/bank#FundProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "銀行",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/bank#GoldProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "銀行",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/bank#InsuranceProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "銀行",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/bank#LetterOfCreditProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "銀行",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/bank#LoanProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "銀行",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/bank#OverseasFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "銀行",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/bank#PlannedTrustProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "銀行",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/bank#PrivateBankingDepartment"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "銀行",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/bank#StockProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "銀行",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/bank#StructuredFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "銀行",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/bank#TWDFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "銀行",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/bank#TrustCustodyProduct"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "銀行",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/bank#attributedToAdvisor"
+  },
+  {
+    "datatype": "",
+    "language": "",
+    "object": "銀行",
+    "object_kind": "literal",
+    "predicate": "https://example.org/ontology/holding#subsidiary",
+    "subject": "https://example.org/ontology/bank#employeeId"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "AUM 基準日",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#aumAsOfDate"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "AUM 所衡量資產規模對應的日期；具體選日規則由子公司或部門描述。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#aumAsOfDate"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "AUM 衡量其所對應金融商品的資產規模。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#measuresProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "AUM",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#AUM"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "LUM 基準日",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#lumAsOfDate"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "LUM 所衡量放款或融通餘額對應的日期；具體選日與月份標記處理由子公司或部門描述。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#lumAsOfDate"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "LUM 衡量其所對應金融商品之放款或融通餘額。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#lumMeasuresProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "LUM 衡量金融商品",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#lumMeasuresProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "LUM",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#LUM"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "代表公司股權的金融商品。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/bank#StockProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "代表公司股權的金融商品。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/securities#StockProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "以實體地址聯絡客戶的通聯資訊。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#AddressContactInformation"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "以手機號碼聯絡客戶的通聯資訊。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#MobileContactInformation"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "以新臺幣以外貨幣計價的金融商品。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/bank#ForeignCurrencyFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "以新臺幣計價的金融商品。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/bank#TWDFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "任職於金控或旗下子公司的人員。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#Employee"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "任職於銀行的職員。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/bank#BankEmployee"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "估值單價",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#valuationUnitPrice"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "估值數量",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#valuationQuantity"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "依商品契約將金融工具組合，形成特定收益或風險條件的金融商品。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/securities#StructuredFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "依明確口徑衡量業務狀況的量化項目。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#Metric"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "依業務認列口徑歸入利收的收入來自其所對應金融商品的關係。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#interestIncomeFromProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "債券商品",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/bank#BondProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "債券商品",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/securities#BondProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "具有通聯資訊",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#hasContactPoint"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "利收來源商品",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#interestIncomeFromProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "利收所屬收入期間的結束日期；具體期間與認列規則由子公司或部門描述。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#interestPeriodEnd"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "利收所屬收入期間的開始日期；具體期間與認列規則由子公司或部門描述。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#interestPeriodStart"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "利收指標",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#InterestIncome"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "利收期間起日",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#interestPeriodStart"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "利收期間迄日",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#interestPeriodEnd"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "台幣金融商品",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/bank#TWDFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "名稱",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "http://www.w3.org/2000/01/rdf-schema#label"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "國家／地區代碼",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#countryCode"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "地址所屬國家或地區的代碼。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#countryCode"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "地址的縣市。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#city"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "地址的路街段、巷弄、門牌、樓層與室等詳細內容。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#addressLine"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "地址的郵遞區號字串。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#postalCode"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "地址的鄉鎮市區。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#district"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "地址通聯資訊",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#AddressContactInformation"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "基金商品",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/bank#FundProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "基金商品",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/securities#FundProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "報酬條件依約定公式連結金融指標或標的表現的金融商品。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/bank#StructuredFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "外幣金融商品",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/bank#ForeignCurrencyFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "存款商品",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/bank#DepositProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "完整地址",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#fullAddress"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "完整地址文字。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#fullAddress"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "定義",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "http://www.w3.org/2004/02/skos/core#definition"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "客戶",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#Customer"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "客戶360共通語意整合本體",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/customer360"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "客戶具有通聯資訊。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#hasContactPoint"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "客戶持有金融商品。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#holds"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "客戶透過銀行通路交易或持有的 ETF 商品；私銀實際涵蓋範圍由部門描述。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/bank#ETFProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "所屬子公司",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#subsidiary"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "所屬部門",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#department"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "手收來源商品",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#feeIncomeFromProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "手收來自其所對應金融商品的關係。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#feeIncomeFromProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "手收所屬收入期間的結束日期；期間邊界的具體使用規則由子公司或部門描述。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#incomePeriodEnd"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "手收所屬收入期間的開始日期；不預設按日、月或年衡量。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#incomePeriodStart"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "手收指標",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#FeeIncome"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "手收計算基礎金額",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#feeBaseAmount"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "手收計算扣減金額",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#feeDeductionAmount"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "手機號碼",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#mobileNumber"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "手機通聯資訊",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#MobileContactInformation"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "手機通聯資訊的號碼字串。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#mobileNumber"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "持有金融商品",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#holds"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "指標",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#Metric"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "指標金額",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#metricAmount"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "採用指標",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#usesMetric"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "擔任理財諮詢與金融商品服務職務的銀行行員。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/bank#FinancialAdvisor"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "收入期間起日",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#incomePeriodStart"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "收入期間迄日",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#incomePeriodEnd"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "服務客戶",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#serves"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "本專案依金融商品口徑分類之信託保管業務，依約提供客戶資產保管；實際管理資產與收入範圍由部門描述。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/bank#TrustCustodyProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "本專案依金融商品口徑分類之規劃型信託業務，依信託目的與契約安排管理或運用客戶財產；私銀實際涵蓋的一般信託與員工持股信託範圍由部門描述。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/bank#PlannedTrustProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "本專案依金融商品口徑分類之銀行貨幣兌換與外匯交易業務；來源分類不直接決定收入會計性質。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/bank#ForeignExchangeProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "本專案依金融商品口徑分類之銀行開狀及相關貿易支付安排業務。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/bank#LetterOfCreditProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "模型定義的子公司治理歸屬。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#subsidiary"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "模型定義的治理層級。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#governanceLevel"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "模型定義的部門治理歸屬。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#department"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "歸屬理專",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/bank#attributedToAdvisor"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "治理層級",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#governanceLevel"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "海外金融商品",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/bank#OverseasFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "海外金融商品",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/securities#OverseasFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "理專",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/bank#FinancialAdvisor"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "發行人為籌資而發行、約定清償條件的債務型金融商品。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/bank#BondProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "發行人為籌資而發行、約定清償條件的債務型金融商品。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/securities#BondProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "私人銀行部門",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/bank#PrivateBankingDepartment"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "結構型金融商品",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/bank#StructuredFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "結構型金融商品",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/securities#StructuredFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "縣市",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#city"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "職員",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#Employee"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "職員向客戶提供業務服務的關係。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#serves"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "股票商品",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/bank#StockProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "股票商品",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/securities#StockProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "與客戶相關的聯絡資訊。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#ContactInformation"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "行員",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/bank#BankEmployee"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "行員編號",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/bank#employeeId"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "街道門牌地址",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#addressLine"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "衡量指定基準日納入業務管理範圍之放款或融通餘額的指標；具體涵蓋與認列口徑由子公司或部門描述，不以擔保品估值或未動用額度代替。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#LUM"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "衡量指定快照日依管理與認列口徑計算之資產規模的指標。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#AUM"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "衡量指定快照日依證券公司管理與認列口徑計算之客戶資產規模的指標。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/securities#SecuritiesAUM"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "衡量指定快照日依銀行管理與認列口徑計算之客戶資產規模的指標。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/bank#BankAUM"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "衡量指定收入期間內依業務認列口徑歸入利收的收入指標；具體收益組成與涵蓋範圍由子公司或部門描述，不限定為純客戶利息。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#InterestIncome"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "衡量指定收入期間內依業務認列口徑歸入手收的收入指標；具體涵蓋範圍由子公司或部門描述。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#FeeIncome"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "衡量證券公司於指定收入期間內依其認列規則形成之手收的指標。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/securities#SecuritiesFeeIncome"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "衡量金融商品",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#measuresProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "衡量銀行於指定收入期間內依銀行認列規則形成之手收的指標。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/bank#BankFeeIncome"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "證券 AUM",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/securities#SecuritiesAUM"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "證券手收指標",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/securities#SecuritiesFeeIncome"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "證券業務中歸入海外投資範圍的金融商品。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/securities#OverseasFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "透過集合投資方式，由專業管理機構依基金契約管理運用資產的金融商品。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/bank#FundProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "透過集合投資方式，由專業管理機構依基金契約管理運用資產的金融商品。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/securities#FundProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "通聯資訊",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#ContactInformation"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "適用 AUM 估值情境中作為計算輸入的價格或淨值；具體報價基準由子公司或部門描述。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#valuationUnitPrice"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "適用 AUM 估值情境中作為計算輸入的數量，例如股數、單位數或面額；具體數量單位由子公司或部門描述。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#valuationQuantity"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "適用手收計算情境中作為輸入的收入金額；具體組成與來源由子公司或部門描述。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#feeBaseAmount"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "適用手收計算情境中涉及的扣減金額；具體扣減項目與使用方式由子公司或部門描述。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#feeDeductionAmount"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "部門",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#Department"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "部門採用某項指標衡量業務狀況；不因此決定承作子公司、來源資料權責、理專歸屬或自動加總方式。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#usesMetric"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "郵遞區號",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#postalCode"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "鄉鎮市區",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#district"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "量化業務指標的結果金額，包含 AUM、LUM、手收與利收；具體計算與認列口徑由子公司或部門描述。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#metricAmount"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "金控或旗下子公司的業務組織單位類型；具體部門與採用指標範圍由子公司及部門描述。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#Department"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "金融商品",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/holding#FinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "金融機構提供的金融商品。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#FinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "銀行 AUM",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/bank#BankAUM"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "銀行 ETF 商品",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/bank#ETFProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "銀行 LUM",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/bank#BankLUM"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "銀行依信託約定，將營運範圍或方法相同的信託資金集合管理運用的投資商品；私銀實際涵蓋範圍由部門描述。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/bank#CollectiveManagementProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "銀行依授信安排提供客戶使用資金的融資商品；不以放款餘額直接認定為 AUM。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/bank#LoanProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "銀行保險商品",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/bank#InsuranceProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "銀行信託保管商品",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/bank#TrustCustodyProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "銀行利收",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/bank#BankInterestIncome"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "銀行外匯商品",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/bank#ForeignExchangeProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "銀行從事私人銀行業務的部門類型；具體指標採用範圍在部門 PG 描述，暫不細分一部、二部、分行或團隊。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/bank#PrivateBankingDepartment"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "銀行手收指標",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/bank#BankFeeIncome"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "銀行手收歸屬於理專的關係。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/bank#attributedToAdvisor"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "銀行提供、供客戶依約定存放資金的金融商品。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/bank#DepositProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "銀行放款商品",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/bank#LoanProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "銀行業務中依認列口徑衡量的 LUM 指標；具體涵蓋範圍由部門描述。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/bank#BankLUM"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "銀行業務中依認列口徑衡量的利收指標；具體涵蓋範圍由部門描述。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/bank#BankInterestIncome"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "銀行業務中歸入海外投資範圍的金融商品。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/bank#OverseasFinancialProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "銀行用來識別行員的編號。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/bank#employeeId"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "銀行規劃型信託商品",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/bank#PlannedTrustProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "銀行通路提供的保險商品；實際納入私人銀行業務的保險範圍由部門描述。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/bank#InsuranceProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "銀行通路提供的黃金類商品；實際承作形式與涵蓋範圍由部門描述。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/bank#GoldProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "銀行開狀商品",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/bank#LetterOfCreditProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "銀行集合管理投資商品",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/bank#CollectiveManagementProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "銀行黃金商品",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+    "subject": "https://example.org/ontology/bank#GoldProduct"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "集團業務中所服務的客戶。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "https://example.org/ontology/holding#Customer"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "類別或屬性的業務意義。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "http://www.w3.org/2004/02/skos/core#definition"
+  },
+  {
+    "datatype": "",
+    "language": "zh-TW",
+    "object": "類別或屬性的顯示名稱。",
+    "object_kind": "literal",
+    "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+    "subject": "http://www.w3.org/2000/01/rdf-schema#label"
+  }
+]

@@ -1,0 +1,59 @@
+私銀智能問答：新 session Resume
+更新日期：2026-10-15，Asia/Taipei
+
+最新狀態
+v6 已保存，22 節點，active=false，未發布。
+目標：智能問答－圖譜理解與對話測試
+https://chiang4901.app.n8n.cloud/workflow/pqvhkncZ9bFlfe4B
+workflowId：pqvhkncZ9bFlfe4B
+最新版本：27af9282-6893-42de-83c4-87f995d4c975
+權威匯出：deliverables/graph_qa/v6/workflow.saved.json
+變更前備份：deliverables/graph_qa/v6/workflow.before.json（v5）
+詳細更新：deliverables/graph_qa/v6/更新紀錄.txt
+
+使用者本輪確認並授權的設計
+1. 用 Process Jev Decision 已整理好的 conceptGraph 作為第二次 Aura 查詢的唯一範圍。產品與 AUM／收入指標由子圖的衡量邊配對，不再使用 selectedPaths 當 mapping 查詢入口。
+2. 把必要映射證據整合、去重為單一 evidence，一次交給回答模型直接回答。取消逐包閱讀與跨包 Compose Answer。
+
+已部署的流程
+原有記憶／完整概念圖 → Merge → Prepare Jev Request → Jev API → Process Jev Decision
+→ Needs Mapping?
+  calculation → Aura - Mapping Paths → Prepare Calculation Evidence
+  其他分支 → Prepare Concept Response
+→ Answer Question → Validate Answer → 原有必要修正／核對 → Finalize QA → 記憶／回覆
+
+Aura 查詢與單包契約
+- Aura body parameters 只有 conceptGraph。固定 Cypher 從 PB_AUM_MEASURED_BY／PB_INCOME_MEASURED_BY 邊取得產品、domain 與 metricCode；分類、上層彙總、客戶／AO 上下文不額外授權計算範圍。
+- 查既有 SharedProduct SQL 映射與 MappingDraft 規則映射，必要 SQL 依賴仍最多追溯 16 層。這是中繼資料查詢，不執行個別客戶金額 SQL。
+- 回傳一列 bindings、sourceTables、dimensionEvidence。來源及角色前提在查詢內收斂至相關來源與客戶／AO／私銀。
+- Prepare Calculation Evidence 輸出一個 item，主要欄位為 question、handling、technicalDetail、evidence、evidenceBytes、sizeAudit。沒有 packet 或 packetIndex／packetCount。
+- evidence 含 conceptGraph、bindings、mappings、measurements、implementationDetails、calculationRules、sourceTables、sqlStatements、sqlRelationships、dimensionEvidence、dimensionNodes、overlappingProductScopes、coverage。
+- 精確重複的大型值以 sharedObjects 集中在同一份 evidence，$ref 可在同包遞迴展開。不同內容的相同 ruleId 不合併；SQL 與規則完整保留，不做字數截斷。
+- Answer Question 取代 Read Evidence；已刪除 Combine Evidence Notes、Multiple Packets?、Compose Answer、Use Direct Answer。
+- 修正／核對／記憶的引用已同步。原 Graph Chat 固定基金題及 sessionId 4753afde49b44d0899cb8b9d103b9862 已還原，所有憑證引用、webhookId 與工作流程身份已核對。
+
+驗證結果
+- 11 組本機驗證通過，使用真實保存圖譜／映射搭配合成 Jev 選取，詳見 validation.json；不當成原生模型實測。
+- #2582 基金收入：保存執行成功 25.757 秒，一份 71,423 bytes 證據，主要回答一次，核對通過。
+- #2583 外幣存款 AUM：成功 23.598 秒，一份 74,933 bytes 證據，只選 deposit_foreign。
+- #2584 同對話分類追問：成功 7.430 秒，一份 9,282 bytes 概念證據，記憶有兩輪，不查 mapping。
+- #2585 混合題：成功 28.488 秒，一份 130,746 bytes 證據；但上游 Jev 多選了基金 AUM，實際 3 bindings，範圍品質待修。不能宣稱精確兩組配對已原生驗證通過。
+- 執行網址為上述流程網址加 /executions/<編號>；完整網址及結果見 live_audit.json、native_*.json。
+- 初次 #2579 是參數表達式解析診斷，已修正。#2580 為 mapping 節點單獨成功；#2581 手動用固定資料執行，至 Finalize QA 通過後因沒有聊天回覆通道而取消。不得將這兩筆當完整聊天成功案例。
+- 最終追加內部引用表達偵測，並還原固定資料；重新載入與匯出後，參數、接線、憑證引用、webhookId、settings、pinData 比對通過。節點 ID／畫布位置由貼上重建，不拿 ID 做功能等價判斷。
+
+仍未修改的議題
+- 多產品／跨指標的 Jev 選取可能額外選到未問的指標。應在上游判斷處理，不能在 mapping 依問題文字偷做第二次預篩。
+- v4 必要澄清不一致的品質問題仍待處理；本輪沒有宣稱已解決。
+- customerId／asOfDate 抽取、customerKey／customerBinding／combinationPlan 與實際金額查詢尚未實作。
+- 使用者已接受先假設客戶 ID 同一套，不新增對照表；原圖的 identityJoinStatus 待驗證文字仍保留，可能影響回答措辭，後續需依此前提統一。
+- 分類概念題內仍可能保留 AUM 路徑及角色上下文，未順手精簡前段。
+- 單包仍受模型實際容量限制，沒有自動截斷或回退多包。
+
+接續注意
+1. 先讀本 Resume、v6/更新紀錄.txt、workflow.saved.json。新修改前重新匯出線上最新版比較。
+2. v4／v5 的 proposed 與 clipboard 不得覆蓋最新 v6。
+3. 原有固定資料已還原；新的聊天實測前先暫時 unpin Graph Chat 並 Reset 建立新 session，測完還原固定資料。直接 Execute workflow 使用固定資料可能在聊天回覆節點等待，應從聊天入口實測。
+4. 不發布、不修改已發布共用 KB（tL7HTesvAzqwsqv6）、Aura 原圖及來源 SQL，除非另有授權。
+5. 瀏覽器優先 cua_repl Chrome。檔案匯入需要擴充的 file URL 權限，本輪未更改權限；使用 n8n 畫布複製貼上，保留完整備份並事後重新匯出核對。
+6. 主要檔案：deliverables/graph_qa/v6/ 下的查詢、準備證據、提示詞、驗證程式與原生實測結果。舊 v5 Resume 已保存於 docs/handoffs/archive/RESUME_v5_20261015.txt。

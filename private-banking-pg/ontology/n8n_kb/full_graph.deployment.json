@@ -1,0 +1,49 @@
+{
+  "PB_AUM_Income_KB": {
+    "nodes": 9,
+    "parametersMatch": true,
+    "credentialsMatch": true,
+    "connectionsMatch": true,
+    "noPinnedTestData": true
+  },
+  "main": {
+    "nodes": 32,
+    "parametersMatch": true,
+    "credentialsMatch": true,
+    "connectionsMatch": true,
+    "noPinnedTestData": true
+  },
+  "contractVersion": "pb_kb_full_graph_mapping_paths_v1",
+  "nativeJev": {
+    "securities_fund": {
+      "conceptCandidates": 30,
+      "selectedConceptPaths": 1,
+      "mappingCandidates": 2,
+      "selectedMappingPaths": 2,
+      "conceptRequestId": "gen-dec-1791433344-GZuCAfMoXUAmEBqTrg6B",
+      "mappingRequestId": "gen-dec-1791433346-SBFveKSb814yUKIC4vVE",
+      "mappingInputTokens": 6686
+    },
+    "securities_all": {
+      "conceptCandidates": 30,
+      "selectedConceptPaths": 4,
+      "mappingCandidates": 17,
+      "selectedMappingPaths": 17,
+      "conceptRequestId": "gen-dec-1791433638-4YD9vv0MmogVUlVeinqg",
+      "mappingRequestId": "gen-dec-1791433640-4QLQmz9G4xCofT3dKYdA",
+      "mappingInputTokens": 13796
+    },
+    "deposit_both": {
+      "conceptCandidates": 30,
+      "selectedConceptPaths": 2,
+      "mappingCandidates": 12,
+      "selectedMappingPaths": 12,
+      "conceptRequestId": "gen-dec-1791433717-JQhyjaJ1FOHvbBFgt27V",
+      "mappingRequestId": "gen-dec-1791433719-ZvzvxYOOsiqbnYKyeYqN",
+      "mappingInputTokens": 16734
+    }
+  },
+  "published": false,
+  "fullMainQueryTested": false,
+  "sqlExecuted": false
+}

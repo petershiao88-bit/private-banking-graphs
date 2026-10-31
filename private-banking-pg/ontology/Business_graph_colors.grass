@@ -1,0 +1,240 @@
+node.AUMMetric {
+  color: #4C8EDA;
+  border-color: #2864A3;
+  text-color-internal: #FFFFFF;
+  size: 36px;
+  caption: "{name}";
+}
+
+node.IncomeMetric {
+  color: #F79767;
+  border-color: #CE7730;
+  text-color-internal: #222222;
+  size: 36px;
+  caption: "{name}";
+}
+
+node.SharedProduct {
+  color: #8DCC93;
+  border-color: #38846B;
+  text-color-internal: #16352B;
+  size: 36px;
+  caption: "{name}";
+}
+
+node.BusinessDimension {
+  color: #ff8d19;
+  size: 25px;
+}
+
+node.CalculationRule {
+  color: #00ecbe;
+  size: 25px;
+}
+
+node.StagingOutput {
+  color: #eda88d;
+  size: 25px;
+}
+
+node.ProductCategory {
+  color: #bbca09;
+  size: 25px;
+}
+
+node.BusinessMetric {
+  color: #edcce5;
+  size: 25px;
+}
+
+node.PropertyReference {
+  color: #65c7e3;
+  size: 25px;
+}
+
+node.ObjectTypeReference {
+  color: #d6d49f;
+  size: 25px;
+}
+
+node.PhysicalColumn {
+  color: #eb69b4;
+  size: 25px;
+}
+
+node.PhysicalTable {
+  color: #00c3f8;
+  size: 25px;
+}
+
+node.SourceProperty {
+  color: #ffcfe8;
+  size: 25px;
+}
+
+node.Rule {
+  color: #b4a281;
+  size: 25px;
+}
+
+node.SqlEvidence {
+  color: #ada626;
+  size: 25px;
+}
+
+node.MeasureLineage {
+  color: #a597ea;
+  size: 25px;
+}
+
+node.Alias {
+  color: #f4c8c7;
+  size: 25px;
+}
+
+node.SourceDocument {
+  color: #7ec5ad;
+  size: 25px;
+}
+
+node.Term {
+  color: #e39000;
+  size: 25px;
+}
+
+node.Ontology {
+  color: #00b2e6;
+  size: 25px;
+}
+
+relationship.HAS_SOURCE {
+  width: 1px;
+}
+
+relationship.IN_ONTOLOGY {
+  width: 1px;
+}
+
+relationship.HAS_ALIAS {
+  width: 1px;
+}
+
+relationship.HAS_LINEAGE {
+  width: 1px;
+}
+
+relationship.SUPPORTED_BY_SQL {
+  width: 1px;
+}
+
+relationship.HAS_RULE {
+  width: 1px;
+}
+
+relationship.HAS_SOURCE_PROPERTY {
+  width: 1px;
+}
+
+relationship.REFERS_TO_COLUMN {
+  width: 1px;
+}
+
+relationship.IN_TABLE {
+  width: 1px;
+}
+
+relationship.MAPPED_TO_OBJECT_TYPE {
+  width: 1px;
+}
+
+relationship.MAPPED_TO_PROPERTY {
+  width: 1px;
+}
+
+relationship.HAS_BUSINESS_MODEL {
+  width: 1px;
+}
+
+relationship.HAS_COMPONENT {
+  width: 1px;
+}
+
+relationship.INCLUDES_PRODUCT {
+  width: 1px;
+}
+
+relationship.IMPLEMENTED_BY {
+  width: 1px;
+}
+
+relationship.DEPENDS_ON {
+  width: 1px;
+}
+
+relationship.CALCULATED_FROM {
+  width: 1px;
+}
+
+relationship.DESCRIBED_BY {
+  width: 1px;
+}
+
+relationship.USES_CALCULATION_RULE {
+  width: 1px;
+}
+
+relationship.HAS_DIMENSION {
+  width: 1px;
+}
+
+relationship.READS_FROM {
+  width: 1px;
+}
+
+relationship.DECLARES_PRODUCT {
+  width: 1px;
+}
+
+relationship.DESCRIBED_BY_ONTOLOGY {
+  width: 1px;
+}
+
+relationship.HAS_REPORT_METRIC {
+  width: 1px;
+}
+
+relationship.SUPPORTED_BY_METADATA {
+  width: 1px;
+}
+
+relationship.HAS_TERM {
+  width: 1px;
+}
+
+relationship.DESCRIBED_BY_METADATA {
+  width: 1px;
+}
+
+relationship.HAS_COLUMN {
+  width: 1px;
+}
+
+relationship.DECLARED_IMPLEMENTATION {
+  width: 1px;
+}
+
+relationship.FROM_DOCUMENT {
+  width: 1px;
+}
+
+relationship.DOCUMENTED_BY_SQL {
+  width: 1px;
+}
+
+relationship.REFRESHED_FROM {
+  width: 1px;
+}
+
+relationship.USES_SOURCE_COLUMN {
+  width: 1px;
+}

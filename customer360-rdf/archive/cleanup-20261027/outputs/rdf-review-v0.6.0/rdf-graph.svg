@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2600" height="1810" viewBox="0 0 2600 1810">
+<title>客戶360 RDF v0.6.0 節點關係圖</title>
+<desc>17個類別、4條業務關係、12條繼承關係；8個資料屬性列在適用類別內。金控和銀行以區域與文字標示。</desc>
+<rect width="2600" height="1810" fill="#ffffff"/>
+<text x="70" y="55" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="52" font-weight="700" fill="#202b3a">客戶360｜目前 RDF 結構</text>
+<text x="72" y="135" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="28" font-weight="400" fill="#536174">v0.6.0　·　17 個類別　·　4 條業務關係　·　8 個資料屬性</text>
+<polyline points="80,220 185,220" fill="none" stroke="#275ba8" stroke-width="4"/>
+<polygon points="185,220 167.0,212.0 167.0,228.0" fill="#275ba8" stroke="#275ba8" stroke-width="2"/>
+<text x="210" y="202" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="27" font-weight="400" fill="#202b3a">業務關係（箭頭指向對象）</text>
+<polyline points="720,220 825,220" fill="none" stroke="#738295" stroke-width="3" stroke-dasharray="10 8"/>
+<polygon points="825,220 807.0,212.0 807.0,228.0" fill="#ffffff" stroke="#738295" stroke-width="2"/>
+<text x="850" y="202" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="27" font-weight="400" fill="#202b3a">繼承（子類別 → 父類別）</text>
+<text x="1420" y="202" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="27" font-weight="400" fill="#536174">節點內列出資料屬性；所有欄位型別均為字串</text>
+<rect x="50" y="270" width="2500" height="680" rx="22" fill="#f7f9fd" stroke="none" stroke-width="2"/>
+<rect x="50" y="1000" width="2500" height="550" rx="22" fill="#fffaf1" stroke="none" stroke-width="2"/>
+<text x="80" y="288" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="31" font-weight="700" fill="#202b3a">金控｜共通語意</text>
+<text x="80" y="1018" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="31" font-weight="700" fill="#202b3a">銀行｜共通類別</text>
+<polyline points="340,1060 340,470" fill="none" stroke="#738295" stroke-width="3" stroke-dasharray="10 8"/>
+<polygon points="340,470 332.0,488.0 348.0,488.0" fill="#ffffff" stroke="#738295" stroke-width="2"/>
+<polyline points="995,1060 995,980 1725,980 1725,830" fill="none" stroke="#738295" stroke-width="3" stroke-dasharray="10 8"/>
+<polygon points="1725,830 1717.0,848.0 1733.0,848.0" fill="#ffffff" stroke="#738295" stroke-width="2"/>
+<polyline points="1990,1350 1990,1280" fill="none" stroke="#738295" stroke-width="3" stroke-dasharray="10 8"/>
+<polyline points="240,1350 240,1280" fill="none" stroke="#738295" stroke-width="3" stroke-dasharray="10 8"/>
+<polyline points="940,1350 940,1280" fill="none" stroke="#738295" stroke-width="3" stroke-dasharray="10 8"/>
+<polyline points="2340,1350 2340,1280" fill="none" stroke="#738295" stroke-width="3" stroke-dasharray="10 8"/>
+<polyline points="1640,1350 1640,1280" fill="none" stroke="#738295" stroke-width="3" stroke-dasharray="10 8"/>
+<polyline points="1290,1350 1290,1280" fill="none" stroke="#738295" stroke-width="3" stroke-dasharray="10 8"/>
+<polyline points="590,1350 590,1280" fill="none" stroke="#738295" stroke-width="3" stroke-dasharray="10 8"/>
+<polyline points="800,610 800,540 1210,540 1210,440 1240,440" fill="none" stroke="#738295" stroke-width="3" stroke-dasharray="10 8"/>
+<polygon points="1240,440 1222.0,432.0 1222.0,448.0" fill="#ffffff" stroke="#738295" stroke-width="2"/>
+<polyline points="1030,415 1240,415" fill="none" stroke="#275ba8" stroke-width="4"/>
+<polygon points="1240,415 1222.0,407.0 1222.0,423.0" fill="#275ba8" stroke="#275ba8" stroke-width="2"/>
+<polyline points="870,360 870,325 2220,325 2220,360" fill="none" stroke="#275ba8" stroke-width="4"/>
+<polygon points="2220,360 2228.0,342.0 2212.0,342.0" fill="#275ba8" stroke="#275ba8" stroke-width="2"/>
+<polyline points="490,415 710,415" fill="none" stroke="#275ba8" stroke-width="4"/>
+<polygon points="710,415 692.0,407.0 692.0,423.0" fill="#275ba8" stroke="#275ba8" stroke-width="2"/>
+<polyline points="1920,775 2040,775" fill="none" stroke="#738295" stroke-width="3" stroke-dasharray="10 8"/>
+<polygon points="2040,775 2022.0,767.0 2022.0,783.0" fill="#ffffff" stroke="#738295" stroke-width="2"/>
+<polyline points="2220,720 2220,470" fill="none" stroke="#275ba8" stroke-width="4"/>
+<polygon points="2220,470 2212.0,488.0 2228.0,488.0" fill="#275ba8" stroke="#275ba8" stroke-width="2"/>
+<polyline points="1260,660 1260,565 1415,565 1415,470" fill="none" stroke="#738295" stroke-width="3" stroke-dasharray="10 8"/>
+<polygon points="1415,470 1407.0,488.0 1423.0,488.0" fill="#ffffff" stroke="#738295" stroke-width="2"/>
+<polyline points="240,1280 2510,1280 2510,415 2400,415" fill="none" stroke="#738295" stroke-width="3" stroke-dasharray="10 8"/>
+<polygon points="2400,415 2418.0,423.0 2418.0,407.0" fill="#ffffff" stroke="#738295" stroke-width="2"/>
+<rect x="536.0" y="369" width="128.0" height="42" rx="6" fill="#ffffff" stroke="none" stroke-width="2"/>
+<text x="546.0" y="374" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="27" font-weight="400" fill="#275ba8">服務客戶</text>
+<rect x="1044.0" y="369" width="182.0" height="42" rx="6" fill="#ffffff" stroke="none" stroke-width="2"/>
+<text x="1054.0" y="374" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="27" font-weight="400" fill="#275ba8">具有通聯資訊</text>
+<rect x="1659.0" y="286" width="182.0" height="42" rx="6" fill="#ffffff" stroke="none" stroke-width="2"/>
+<text x="1669.0" y="291" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="27" font-weight="400" fill="#275ba8">持有金融商品</text>
+<rect x="2279.0" y="570" width="182.0" height="42" rx="6" fill="#ffffff" stroke="none" stroke-width="2"/>
+<text x="2289.0" y="575" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="27" font-weight="400" fill="#275ba8">衡量金融商品</text>
+<rect x="1015.0" y="500" width="70.0" height="40" rx="6" fill="#ffffff" stroke="none" stroke-width="2"/>
+<text x="1025.0" y="505" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="25" font-weight="400" fill="#738295">繼承</text>
+<rect x="1325.0" y="575" width="70.0" height="40" rx="6" fill="#ffffff" stroke="none" stroke-width="2"/>
+<text x="1335.0" y="580" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="25" font-weight="400" fill="#738295">繼承</text>
+<rect x="1945.0" y="733" width="70.0" height="40" rx="6" fill="#ffffff" stroke="none" stroke-width="2"/>
+<text x="1955.0" y="738" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="25" font-weight="400" fill="#738295">繼承</text>
+<rect x="350.0" y="955" width="70.0" height="40" rx="6" fill="#ffffff" stroke="none" stroke-width="2"/>
+<text x="360.0" y="960" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="25" font-weight="400" fill="#738295">繼承</text>
+<rect x="1565.0" y="941" width="70.0" height="40" rx="6" fill="#ffffff" stroke="none" stroke-width="2"/>
+<text x="1575.0" y="946" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="25" font-weight="400" fill="#738295">繼承</text>
+<text x="1370" y="1070" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="28" font-weight="400" fill="#536174">商品種類／幣別／結構／投資範圍</text>
+<text x="1370" y="1120" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="28" font-weight="400" fill="#536174">下方七個類別皆直接繼承「金融商品」</text>
+<text x="1370" y="1170" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="26" font-weight="400" fill="#536174">分類可重疊；目前未宣告互斥</text>
+<rect x="190" y="360" width="300" height="110" rx="18" fill="#eef4fc" stroke="#b9c5d4" stroke-width="2"/>
+<text x="307.0" y="385" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="33" font-weight="700" fill="#202b3a">職員</text>
+<text x="317.0" y="436" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="23" font-weight="400" fill="#536174">類別</text>
+<rect x="710" y="360" width="320" height="110" rx="18" fill="#eef4fc" stroke="#b9c5d4" stroke-width="2"/>
+<text x="837.0" y="385" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="33" font-weight="700" fill="#202b3a">客戶</text>
+<text x="847.0" y="436" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="23" font-weight="400" fill="#536174">類別</text>
+<rect x="1240" y="360" width="350" height="110" rx="18" fill="#eef4fc" stroke="#b9c5d4" stroke-width="2"/>
+<text x="1349.0" y="385" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="33" font-weight="700" fill="#202b3a">通聯資訊</text>
+<text x="1392.0" y="436" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="23" font-weight="400" fill="#536174">類別</text>
+<rect x="2040" y="360" width="360" height="110" rx="18" fill="#eef4fc" stroke="#b9c5d4" stroke-width="2"/>
+<text x="2154.0" y="385" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="33" font-weight="700" fill="#202b3a">金融商品</text>
+<text x="2197.0" y="436" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="23" font-weight="400" fill="#536174">類別</text>
+<rect x="1070" y="660" width="380" height="170" rx="18" fill="#eef4fc" stroke="#b9c5d4" stroke-width="2"/>
+<text x="1161.0" y="685" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="33" font-weight="700" fill="#202b3a">手機通聯資訊</text>
+<line x1="1088" y1="735" x2="1432" y2="735" stroke="#b9c5d4"/>
+<text x="1095" y="754" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="25" font-weight="400" fill="#202b3a">手機號碼：字串</text>
+<rect x="590" y="610" width="420" height="300" rx="18" fill="#eef4fc" stroke="#b9c5d4" stroke-width="2"/>
+<text x="701.0" y="635" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="33" font-weight="700" fill="#202b3a">地址通聯資訊</text>
+<line x1="608" y1="685" x2="992" y2="685" stroke="#b9c5d4"/>
+<text x="615" y="704" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="25" font-weight="400" fill="#202b3a">國家／地區代碼：字串</text>
+<text x="615" y="735" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="25" font-weight="400" fill="#202b3a">縣市：字串</text>
+<text x="615" y="766" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="25" font-weight="400" fill="#202b3a">鄉鎮市區：字串</text>
+<text x="615" y="797" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="25" font-weight="400" fill="#202b3a">街道門牌地址：字串</text>
+<text x="615" y="828" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="25" font-weight="400" fill="#202b3a">郵遞區號：字串</text>
+<text x="615" y="859" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="25" font-weight="400" fill="#202b3a">完整地址：字串</text>
+<rect x="2040" y="720" width="360" height="110" rx="18" fill="#eef4fc" stroke="#b9c5d4" stroke-width="2"/>
+<text x="2187.0" y="745" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="33" font-weight="700" fill="#202b3a">指標</text>
+<text x="2197.0" y="796" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="23" font-weight="400" fill="#536174">類別</text>
+<rect x="1530" y="720" width="390" height="110" rx="18" fill="#eef4fc" stroke="#b9c5d4" stroke-width="2"/>
+<text x="1609.5" y="745" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="33" font-weight="700" fill="#202b3a">手續費收入指標</text>
+<text x="1702.0" y="796" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="23" font-weight="400" fill="#536174">類別</text>
+<rect x="190" y="1060" width="330" height="170" rx="18" fill="#fff3df" stroke="#b9c5d4" stroke-width="2"/>
+<text x="322.0" y="1085" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="33" font-weight="700" fill="#202b3a">行員</text>
+<line x1="208" y1="1135" x2="502" y2="1135" stroke="#b9c5d4"/>
+<text x="215" y="1154" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="25" font-weight="400" fill="#202b3a">行員編號：字串</text>
+<rect x="760" y="1060" width="470" height="135" rx="18" fill="#fff3df" stroke="#b9c5d4" stroke-width="2"/>
+<text x="846.5" y="1085" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="33" font-weight="700" fill="#202b3a">銀行手續費收入指標</text>
+<text x="972.0" y="1136" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="23" font-weight="400" fill="#536174">類別</text>
+<rect x="90" y="1350" width="300" height="145" rx="18" fill="#fff3df" stroke="#b9c5d4" stroke-width="2"/>
+<text x="174.0" y="1375" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="33" font-weight="700" fill="#202b3a">存款商品</text>
+<text x="217.0" y="1426" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="23" font-weight="400" fill="#536174">類別</text>
+<rect x="440" y="1350" width="300" height="145" rx="18" fill="#fff3df" stroke="#b9c5d4" stroke-width="2"/>
+<text x="491.0" y="1375" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="33" font-weight="700" fill="#202b3a">台幣金融商品</text>
+<text x="567.0" y="1426" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="23" font-weight="400" fill="#536174">類別</text>
+<rect x="790" y="1350" width="300" height="145" rx="18" fill="#fff3df" stroke="#b9c5d4" stroke-width="2"/>
+<text x="841.0" y="1375" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="33" font-weight="700" fill="#202b3a">外幣金融商品</text>
+<text x="917.0" y="1426" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="23" font-weight="400" fill="#536174">類別</text>
+<rect x="1140" y="1350" width="300" height="145" rx="18" fill="#fff3df" stroke="#b9c5d4" stroke-width="2"/>
+<text x="1174.5" y="1375" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="33" font-weight="700" fill="#202b3a">結構型金融商品</text>
+<text x="1267.0" y="1426" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="23" font-weight="400" fill="#536174">類別</text>
+<rect x="1490" y="1350" width="300" height="145" rx="18" fill="#fff3df" stroke="#b9c5d4" stroke-width="2"/>
+<text x="1574.0" y="1375" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="33" font-weight="700" fill="#202b3a">股票商品</text>
+<text x="1617.0" y="1426" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="23" font-weight="400" fill="#536174">類別</text>
+<rect x="1840" y="1350" width="300" height="145" rx="18" fill="#fff3df" stroke="#b9c5d4" stroke-width="2"/>
+<text x="1924.0" y="1375" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="33" font-weight="700" fill="#202b3a">債券商品</text>
+<text x="1967.0" y="1426" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="23" font-weight="400" fill="#536174">類別</text>
+<rect x="2190" y="1350" width="300" height="145" rx="18" fill="#fff3df" stroke="#b9c5d4" stroke-width="2"/>
+<text x="2241.0" y="1375" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="33" font-weight="700" fill="#202b3a">海外金融商品</text>
+<text x="2317.0" y="1426" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="23" font-weight="400" fill="#536174">類別</text>
+<rect x="50" y="1590" width="2500" height="170" rx="18" fill="#f7f8fa" stroke="none" stroke-width="2"/>
+<text x="80" y="1610" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="27" font-weight="400" fill="#202b3a">模型註記：名稱、定義、所屬部門、治理層級、所屬子公司</text>
+<text x="80" y="1660" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="27" font-weight="400" fill="#536174">此圖為 RDF 結構投影；業務箭頭依 domain／range 繪製，並非真實人員或客戶資料。</text>
+<text x="80" y="1710" dominant-baseline="text-before-edge" font-family="Microsoft JhengHei,sans-serif" font-size="27" font-weight="400" fill="#536174">本圖尚未合併部門 PG：理專、商品手收與底表映射。</text>
+</svg>

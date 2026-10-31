@@ -1,0 +1,22 @@
+{
+  "verifiedAt": "2026-10-09T09:42:38.993532+00:00",
+  "baselineRows": 84,
+  "updatedRows": 84,
+  "baselineGraphNodes": 137,
+  "baselineGraphRelationships": 194,
+  "updatedGraphNodes": 138,
+  "updatedGraphRelationships": 206,
+  "addedNodes": 1,
+  "addedRelationships": 12,
+  "originalFourPathsExactlyPreserved": true,
+  "originalGraphElementsExactlyPreserved": true,
+  "sqlLineagePathsExactlyPreserved": true,
+  "additionalOntologyNodes": 0,
+  "databaseUnchanged": true,
+  "protected": {
+    "nodes": 1194,
+    "relationships": 3702,
+    "sha256": "dc0ea9da63ce6653499b6717b14460a426f404a6ef2935af8b277f27455e56c0"
+  },
+  "baselineGraphSha256": "b00fe4c4cd335a3fa05204b2ac3909ea8c56b277747ea97f1dfcd5014e83aef9"
+}

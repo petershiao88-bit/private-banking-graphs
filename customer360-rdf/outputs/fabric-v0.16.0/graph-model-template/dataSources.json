@@ -1,0 +1,462 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/graphIndex/definition/dataSources/1.1.0/schema.json",
+  "itemReferences": [
+    {
+      "name": "Customer360Lakehouse",
+      "item": {
+        "workspaceId": "{{WORKSPACE_ID}}",
+        "itemId": "{{LAKEHOUSE_ID}}"
+      }
+    }
+  ],
+  "dataSources": [
+    {
+      "name": "AnnotationProperty_node",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:n_annotationproperty_node_1fbd0c1a}}"
+      }
+    },
+    {
+      "name": "BusinessConcept_node",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:n_businessconcept_node_9221a4c9}}"
+      }
+    },
+    {
+      "name": "BusinessRelationDefinition_node",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:n_businessrelationdefinition_node_d92e38d5}}"
+      }
+    },
+    {
+      "name": "DataFieldDefinition_node",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:n_datafielddefinition_node_2a98725d}}"
+      }
+    },
+    {
+      "name": "DataProperty_node",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:n_dataproperty_node_8aadb9bc}}"
+      }
+    },
+    {
+      "name": "Department_node",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:n_department_node_fa565e8a}}"
+      }
+    },
+    {
+      "name": "MappingSlot_node",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:n_mappingslot_node_f8c1cb75}}"
+      }
+    },
+    {
+      "name": "MetadataModule_node",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:n_metadatamodule_node_fc5179c9}}"
+      }
+    },
+    {
+      "name": "Metric_node",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:n_metric_node_8e05f4bd}}"
+      }
+    },
+    {
+      "name": "ObjectProperty_node",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:n_objectproperty_node_48c6d01c}}"
+      }
+    },
+    {
+      "name": "OntologyClass_node",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:n_ontologyclass_node_94f86933}}"
+      }
+    },
+    {
+      "name": "PendingSemanticReference_node",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:n_pendingsemanticreference_node_07d96811}}"
+      }
+    },
+    {
+      "name": "SourceTable_node",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:n_sourcetable_node_b62df96f}}"
+      }
+    },
+    {
+      "name": "CANDIDATE_SOURCE_DataFieldDefinitio_08692abc0283",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_candidate_source_datafielddefinitio_08692abc0283_0796a23b}}"
+      }
+    },
+    {
+      "name": "FIELD_IDENTIFIES_CLASS_DataFieldDef_1bec28b1b8fe",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_field_identifies_class_datafielddef_1bec28b1b8fe_24a425d5}}"
+      }
+    },
+    {
+      "name": "FIELD_REFERS_TO_PROPERTY_DataFieldD_cbcc62c0abaf",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_field_refers_to_property_datafieldd_cbcc62c0abaf_b305a0ac}}"
+      }
+    },
+    {
+      "name": "HAS_BUSINESS_SCOPE_Metric_OntologyClass_edge",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_has_business_scope_metric_ontologyclass_edge_4ffd168b}}"
+      }
+    },
+    {
+      "name": "HAS_COMPONENT_METRIC_Metric_Metric_edge",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_has_component_metric_metric_metric_edge_aca2d9d2}}"
+      }
+    },
+    {
+      "name": "HAS_CONCEPT_MetadataModule_BusinessConcept_edge",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_has_concept_metadatamodule_businessconcept_edge_91683a8d}}"
+      }
+    },
+    {
+      "name": "HAS_CONCEPT_MetadataModule_Department_edge",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_has_concept_metadatamodule_department_edge_6584d41c}}"
+      }
+    },
+    {
+      "name": "HAS_CONCEPT_MetadataModule_Metric_edge",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_has_concept_metadatamodule_metric_edge_597aaa6a}}"
+      }
+    },
+    {
+      "name": "HAS_DOMAIN_CLASS_ObjectProperty_Ont_325cfdb0536d",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_has_domain_class_objectproperty_ont_325cfdb0536d_a35cb168}}"
+      }
+    },
+    {
+      "name": "HAS_DOMAIN_REFERENCE_DataProperty_O_da417160c27e",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_has_domain_reference_dataproperty_o_da417160c27e_e085b211}}"
+      }
+    },
+    {
+      "name": "HAS_FIELD_DEFINITION_BusinessConcep_16dd428b7d6e",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_has_field_definition_businessconcep_16dd428b7d6e_a31b0943}}"
+      }
+    },
+    {
+      "name": "HAS_FIELD_DEFINITION_Metric_DataFie_39970cf11e82",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_has_field_definition_metric_datafie_39970cf11e82_11e5da61}}"
+      }
+    },
+    {
+      "name": "HAS_MAPPING_BusinessConcept_MappingSlot_edge",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_has_mapping_businessconcept_mappingslot_edge_b78ed926}}"
+      }
+    },
+    {
+      "name": "HAS_PARENT_CLASS_REFERENCE_Ontology_230ef5aec539",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_has_parent_class_reference_ontology_230ef5aec539_78c45eb8}}"
+      }
+    },
+    {
+      "name": "HAS_PENDING_REFERENCE_BusinessConce_4d5af922a019",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_has_pending_reference_businessconce_4d5af922a019_99f5e200}}"
+      }
+    },
+    {
+      "name": "HAS_RANGE_CLASS_ObjectProperty_Onto_847cf68ac6f8",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_has_range_class_objectproperty_onto_847cf68ac6f8_4ed9dc11}}"
+      }
+    },
+    {
+      "name": "HAS_RELATION_DEFINITION_BusinessCon_725d17b1e977",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_has_relation_definition_businesscon_725d17b1e977_3e4d2c08}}"
+      }
+    },
+    {
+      "name": "HAS_RELATION_DEFINITION_Department__cd2968c872f0",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_has_relation_definition_department__cd2968c872f0_e984d691}}"
+      }
+    },
+    {
+      "name": "HAS_RELATION_DEFINITION_Metric_Busi_05b4c2facf1a",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_has_relation_definition_metric_busi_05b4c2facf1a_0c9977cf}}"
+      }
+    },
+    {
+      "name": "HAS_RELATION_FIELD_BusinessRelation_1c91a731c326",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_has_relation_field_businessrelation_1c91a731c326_1e358218}}"
+      }
+    },
+    {
+      "name": "HAS_SOURCE_TABLE_Metric_SourceTable_edge",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_has_source_table_metric_sourcetable_edge_3d9362b5}}"
+      }
+    },
+    {
+      "name": "HAS_TARGET_CLASS_BusinessRelationDe_d38500ef29c8",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_has_target_class_businessrelationde_d38500ef29c8_01682523}}"
+      }
+    },
+    {
+      "name": "RDF_DECLARED_attributedToAdvisor_On_974a1f2b03a9",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_rdf_declared_attributedtoadvisor_on_974a1f2b03a9_8bbd8b76}}"
+      }
+    },
+    {
+      "name": "RDF_DECLARED_feeIncomeFromProduct_O_bd5665848788",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_rdf_declared_feeincomefromproduct_o_bd5665848788_1e295627}}"
+      }
+    },
+    {
+      "name": "RDF_DECLARED_hasContactPoint_Ontolo_dab01f430757",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_rdf_declared_hascontactpoint_ontolo_dab01f430757_ba003b25}}"
+      }
+    },
+    {
+      "name": "RDF_DECLARED_holds_OntologyClass_On_bcd0488503c1",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_rdf_declared_holds_ontologyclass_on_bcd0488503c1_e016983a}}"
+      }
+    },
+    {
+      "name": "RDF_DECLARED_interestIncomeFromProd_dd7494c892aa",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_rdf_declared_interestincomefromprod_dd7494c892aa_69e5f950}}"
+      }
+    },
+    {
+      "name": "RDF_DECLARED_lumMeasuresProduct_Ont_6d41e8d65da6",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_rdf_declared_lummeasuresproduct_ont_6d41e8d65da6_c7088b65}}"
+      }
+    },
+    {
+      "name": "RDF_DECLARED_measuresProduct_Ontolo_68bee84bc050",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_rdf_declared_measuresproduct_ontolo_68bee84bc050_0b29c108}}"
+      }
+    },
+    {
+      "name": "RDF_DECLARED_serves_OntologyClass_O_ffb280d5df48",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_rdf_declared_serves_ontologyclass_o_ffb280d5df48_158cd791}}"
+      }
+    },
+    {
+      "name": "RDF_DECLARED_usesMetric_OntologyCla_054ad381a927",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_rdf_declared_usesmetric_ontologycla_054ad381a927_19369025}}"
+      }
+    },
+    {
+      "name": "RDF_DOMAIN_DataProperty_OntologyClass_edge",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_rdf_domain_dataproperty_ontologyclass_edge_46d5da39}}"
+      }
+    },
+    {
+      "name": "RDF_DOMAIN_ObjectProperty_OntologyClass_edge",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_rdf_domain_objectproperty_ontologyclass_edge_b54d8d16}}"
+      }
+    },
+    {
+      "name": "RDF_RANGE_ObjectProperty_OntologyClass_edge",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_rdf_range_objectproperty_ontologyclass_edge_d11f9a7f}}"
+      }
+    },
+    {
+      "name": "RDF_SUBCLASS_OF_OntologyClass_OntologyClass_edge",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_rdf_subclass_of_ontologyclass_ontologyclass_edge_b72d6b4b}}"
+      }
+    },
+    {
+      "name": "REFERS_TO_CLASS_BusinessConcept_Ont_bdeb2d2cecbf",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_refers_to_class_businessconcept_ont_bdeb2d2cecbf_de53438a}}"
+      }
+    },
+    {
+      "name": "REFERS_TO_CLASS_Department_OntologyClass_edge",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_refers_to_class_department_ontologyclass_edge_b6e2ce4c}}"
+      }
+    },
+    {
+      "name": "REFERS_TO_CLASS_Metric_OntologyClass_edge",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_refers_to_class_metric_ontologyclass_edge_b9c79b4f}}"
+      }
+    },
+    {
+      "name": "REFERS_TO_OBJECT_PROPERTY_BusinessR_88678226184c",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_refers_to_object_property_businessr_88678226184c_9defcd63}}"
+      }
+    },
+    {
+      "name": "REFERS_TO_PROPERTY_MappingSlot_DataProperty_edge",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_refers_to_property_mappingslot_dataproperty_edge_6c10e244}}"
+      }
+    },
+    {
+      "name": "USES_DATE_LOOKUP_SOURCE_Metric_SourceTable_edge",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_uses_date_lookup_source_metric_sourcetable_edge_6dfa2d25}}"
+      }
+    },
+    {
+      "name": "USES_METRIC_Department_Metric_edge",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_uses_metric_department_metric_edge_dc224deb}}"
+      }
+    },
+    {
+      "name": "USES_VALUATION_SOURCE_Metric_SourceTable_edge",
+      "type": "DeltaTable",
+      "properties": {
+        "referenceName": "Customer360Lakehouse",
+        "path": "{{TABLE_PATH:e_uses_valuation_source_metric_sourcetable_edge_3e7f9d1a}}"
+      }
+    }
+  ]
+}

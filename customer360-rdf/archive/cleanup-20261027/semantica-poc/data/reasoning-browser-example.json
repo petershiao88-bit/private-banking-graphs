@@ -1,0 +1,51 @@
+{
+  "request": {
+    "route": "ontology",
+    "tool": "check_subclass",
+    "class_uri": "https://example.org/ontology/securities#SecuritiesAUM",
+    "parent_uri": "https://example.org/ontology/holding#Metric"
+  },
+  "results": [
+    {
+      "id": "R1",
+      "kind": "reasoning",
+      "engine": "HermiT",
+      "tool": "check_subclass",
+      "arguments": {
+        "class_uri": "https://example.org/ontology/securities#SecuritiesAUM",
+        "parent_uri": "https://example.org/ontology/holding#Metric"
+      },
+      "source_sha256": "54ce033c671dde9c75ad572c32660bafa05ec94c671b6516a220f6421beaa697",
+      "pg_included": false,
+      "cached": true,
+      "executed_at": "2026-10-25T15:39:34.104671+00:00",
+      "duration_seconds": 2.75,
+      "ontology_consistent": true,
+      "consistency_complete": false,
+      "limitations": [
+        "HermiT 不檢查 xsd:date 的 datatype 語意；一致性檢查限於支援的語意範圍。"
+      ],
+      "status": "completed",
+      "verdict": "entailed",
+      "asserted_directly": false,
+      "supporting_asserted_path": [
+        {
+          "source": "https://example.org/ontology/securities#SecuritiesAUM",
+          "relation": "rdfs:subClassOf",
+          "target": "https://example.org/ontology/holding#AUM",
+          "source_label": "證券 AUM",
+          "target_label": "AUM"
+        },
+        {
+          "source": "https://example.org/ontology/holding#AUM",
+          "relation": "rdfs:subClassOf",
+          "target": "https://example.org/ontology/holding#Metric",
+          "source_label": "AUM",
+          "target_label": "指標"
+        }
+      ],
+      "path_note": "此為原始繼承公理的佐證路徑，不是通用 HermiT 證明輸出。",
+      "summary": "HermiT 判定：證券 AUM是指標的子類別。"
+    }
+  ]
+}

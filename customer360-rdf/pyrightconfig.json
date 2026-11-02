@@ -2,9 +2,6 @@
   "venvPath": ".",
   "venv": ".venv",
   "pythonVersion": "3.11",
-  "exclude": [
-    ".venv",
-    "archive",
-    "semantica-poc/.venv"
-  ]
+  "extraPaths": ["src", "tests/pg"],
+  "exclude": [".venv", "legacy"]
 }

@@ -1,0 +1,143 @@
+# 客戶360 本體專案設定。路徑、版本、模組、發佈與前端設定都只在這裡改。
+# 路徑一律相對於本檔所在資料夾；可用環境變數 C360_PATH_<KEY> 覆寫（例如 C360_PATH_RELEASE_DIR）。
+# 指定其他設定檔：環境變數 C360_CONFIG，或 `python -m ontology_kit --config <檔案>`。
+
+project:
+  label: 客戶360共通語意整合本體
+  ontology_uri: https://example.org/ontology/customer360
+  version: "0.17.0"
+  date: "2026-10-31"
+  status: design draft
+
+paths:
+  root: .
+  catalog: ontology/catalog-v001.xml
+  build_turtle: build/customer360-ontology.ttl      # 合併產物，由 ontology_kit build 產生
+  build_xml: build/customer360-ontology.owl
+  release_dir: release
+  # 上一個正式 release；差異比對與 owl:priorVersion 以它為準。bump 會自動改成 release/<舊版號>。
+  previous_release: release/0.16.0
+  # 沒有 release 時的比對基準：含 build-config.json 的歷史快照。
+  baseline_sources: legacy/archive/before-department-v0.16.0
+  pg_models: pg
+  dictionary_terms: dictionary/terms.yaml            # Semantic Studio 會寫入
+  access_policy: policy/access-policy.yaml           # Semantic Studio 會寫入
+  shapes_dir: shapes
+  archive: legacy/archive
+  evidence_root: ../private-banking-pg                # PG 證據檔（SQL、metadata Excel）所在位置
+
+# PG 證據檔記錄的是原工作區路徑（…/私銀智能問答/sources/…）；工具一律經 evidence_root 對應到本儲存庫。
+evidence:
+  legacy_folder: 私銀智能問答
+
+# 三層中屬於 RDF 的兩層。部門層是 PG（pg/），不在 RDF 發佈範圍。
+layers:
+  holding:
+    prefix: fh
+    namespace: "https://example.org/ontology/holding#"
+    governance_level: 金控
+    title: 金控層
+  bank:
+    prefix: bank
+    namespace: "https://example.org/ontology/bank#"
+    governance_level: 子公司
+    subsidiary: 銀行
+    title: 子公司層－銀行
+  securities:
+    prefix: securities
+    namespace: "https://example.org/ontology/securities#"
+    governance_level: 子公司
+    subsidiary: 證券
+    title: 子公司層－證券
+
+# 參照 FIBO 的「領域／模組」組織：ontology/<層>/<主題>.ttl，一個檔案一個 owl:Ontology。
+# maturity：release（穩定）／provisional（開發中）／informative（僅供參照、待淘汰），也寫在各 TTL 檔內。
+modules:
+  - {file: ontology/holding/annotations.ttl, iri: "https://example.org/ontology/holding/annotations", layer: holding, topic: 註記詞彙, maturity: provisional}
+  - {file: ontology/holding/parties.ttl, iri: "https://example.org/ontology/holding/parties", layer: holding, topic: 當事人, maturity: provisional}
+  - {file: ontology/holding/products.ttl, iri: "https://example.org/ontology/holding/products", layer: holding, topic: 金融商品, maturity: provisional}
+  - {file: ontology/holding/metrics.ttl, iri: "https://example.org/ontology/holding/metrics", layer: holding, topic: 指標, maturity: provisional}
+  - {file: ontology/holding/organization.ttl, iri: "https://example.org/ontology/holding/organization", layer: holding, topic: 組織, maturity: provisional}
+  - {file: ontology/bank/parties.ttl, iri: "https://example.org/ontology/bank/parties", layer: bank, topic: 人員, maturity: provisional}
+  - {file: ontology/bank/products.ttl, iri: "https://example.org/ontology/bank/products", layer: bank, topic: 金融商品, maturity: provisional}
+  - {file: ontology/bank/metrics.ttl, iri: "https://example.org/ontology/bank/metrics", layer: bank, topic: 指標, maturity: provisional}
+  - {file: ontology/bank/organization.ttl, iri: "https://example.org/ontology/bank/organization", layer: bank, topic: 組織, maturity: provisional}
+  - {file: ontology/securities/products.ttl, iri: "https://example.org/ontology/securities/products", layer: securities, topic: 金融商品, maturity: provisional}
+  - {file: ontology/securities/metrics.ttl, iri: "https://example.org/ontology/securities/metrics", layer: securities, topic: 指標, maturity: provisional}
+
+annotations:
+  governance_level: https://example.org/ontology/holding#governanceLevel
+  subsidiary: https://example.org/ontology/holding#subsidiary
+  maturity: https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/hasMaturityLevel
+  replaced_by: http://purl.org/dc/terms/isReplacedBy
+
+maturity_levels:
+  release: https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/Release
+  provisional: https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/Provisional
+  informative: https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/Informative
+
+# 類別組成元件：每個類別必須具備的元件。
+components:
+  label_lang: zh-TW
+  required: [label, definition, governance_level]
+  # 子公司層的類別必須經 rdfs:subClassOf 接到這一層的類別。
+  must_reach_layer: holding
+
+versioning:
+  # 版號除了 TTL／catalog／PG JSON 外，還出現在這些檔案的引號字面值中；bump 會一併替換。
+  literal_files:
+    - pg/model.schema.json
+    - pg/*.py
+  # 掃描殘留舊版號時略過的資料夾。
+  scan_exclude: [legacy, release, build, .venv, src, __pycache__]
+
+release:
+  # 進入 release 包（agent 可見）的成熟度。目前所有模組都是 provisional，PoC 階段一併發佈。
+  include_maturity: [release, provisional]
+  # FIBO 式下架規則：類別或屬性必須在上一版先標 owl:deprecated，下一版才能移除。
+  require_deprecation_before_removal: true
+
+reasoner:
+  engine: owlrl
+  # 推理機只接受下列 OWL／RDFS 元素；出現其他公理時拒絕發佈，避免 context 漏講會影響推論的公理。
+  allowed_owl_predicates: [versionIRI, versionInfo, priorVersion, backwardCompatibleWith, incompatibleWith, deprecated]
+  allowed_owl_types: [Ontology, Class, ObjectProperty, DatatypeProperty, AnnotationProperty]
+  allowed_rdfs_predicates: [subClassOf, domain, range, label, comment, isDefinedBy, seeAlso]
+
+studio:
+  host: 127.0.0.1
+  port: 8870
+  dictionary_namespace: "https://example.org/dictionary#"
+  include_pg_terms: true   # 把 pg/ 既有詞條（唯讀）一起顯示
+  # 詞條對應到類別時的角色。PG 欄位對照：class_uri/class_uris→primary、product_class_uris/specific_product_class_uri→product、business_scope_class_uri→business_scope
+  mapping_roles:
+    primary: 主類別
+    product: 商品
+    business_scope: 業務範圍
+    other: 其他
+  # 建議類別時的同義詞：業務用語 → 本體名稱用語。
+  synonyms:
+    手續費: 手收
+    佣金: 手收
+    費用收入: 手收
+    利息收入: 利收
+    放款餘額: LUM
+    資產規模: AUM
+    庫存市值: AUM
+    市值: AUM
+    債: 債券
+
+context:
+  usage_rules:
+    - 只能使用本文件列出的類別與屬性 ID，不得自行新增類別或關係。
+    - 判斷「X 是否屬於 Y」只能依各類別的「上層鏈」。不在鏈上表示目前本體無法證明，不代表兩者互斥。
+    - 標為 provisional 的類別是設計草案，回答時要註明。
+    - 標為 deprecated 的類別不可用於新的回答，改用其取代者。
+    - 本體只提供概念、範圍與關係；金額、計算與資料查詢交給工具，不可依本文件推算數值。
+    - 回答時引用類別 ID 與本體版本。
+  reasoning_steps:
+    - 把問題中的業務名詞對應到類別：以名稱與定義比對，列出候選類別 ID。
+    - 若候選不只一個或找不到，先說明歧義或無對應，不要猜。
+    - 查每個候選類別的上層鏈，確認它屬於哪個金控共通概念、哪個子公司。
+    - 查可用屬性（自身與繼承），確認問題要的資訊有對應屬性。
+    - 依上述結果作答，引用類別 ID 與版本；超出本體範圍的部分明確說明。

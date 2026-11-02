@@ -1,0 +1,42 @@
+# 類別權限。規則的 classes 只有一個類別時，套用到該類別與所有子類別；
+# 有多個類別時是「組合規則」，只套用到同時涵蓋這些類別（含上層）的字典詞條。
+# 同一角色有任何 deny 命中就拒絕（取最嚴格）；都沒命中時依 default_effect。
+default_effect: allow
+roles:
+- id: customer
+  label: 客戶
+- id: rm
+  label: 理專
+- id: pb_manager
+  label: 私銀主管
+rules:
+- id: customer-no-bank-aum
+  role: customer
+  effect: deny
+  classes: [bank:BankAUM]
+  note: 客戶不可看銀行指標（待確認：會連帶擋住資產報告的銀行 AUM）
+- id: customer-no-bank-fee
+  role: customer
+  effect: deny
+  classes: [bank:BankFeeIncome]
+  note: 客戶不可看銀行指標
+- id: customer-no-bank-interest
+  role: customer
+  effect: deny
+  classes: [bank:BankInterestIncome]
+  note: 客戶不可看銀行指標
+- id: customer-no-bank-lum
+  role: customer
+  effect: deny
+  classes: [bank:BankLUM]
+  note: 客戶不可看銀行指標
+- id: customer-no-bank-fund-fee
+  role: customer
+  effect: deny
+  classes: [fh:FeeIncome, bank:FundProduct]
+  note: 客戶不可看基金手收（組合規則：手收 × 銀行基金）
+- id: customer-no-securities-fund-fee
+  role: customer
+  effect: deny
+  classes: [fh:FeeIncome, securities:FundProduct]
+  note: 客戶不可看基金手收（組合規則：手收 × 證券基金）

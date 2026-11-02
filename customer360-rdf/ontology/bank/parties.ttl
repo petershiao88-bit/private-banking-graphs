@@ -1,0 +1,43 @@
+# 銀行｜人員 v0.17.0，2026-10-31，設計草案。
+# 子公司層－銀行／人員：銀行行員與理專。
+# 由 v0.16.0 的 bank-common.ttl 拆出（FIBO 式模組化），類別與屬性定義未改。example.org 為示意命名空間。
+
+@prefix bank: <https://example.org/ontology/bank#> .
+@prefix fh: <https://example.org/ontology/holding#> .
+@prefix fibo-fnd-utl-av: <https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+bank:FinancialAdvisor a owl:Class ;
+    rdfs:label "理專"@zh-TW ;
+    rdfs:subClassOf bank:BankEmployee ;
+    skos:definition "擔任理財諮詢與金融商品服務職務的銀行行員。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+bank:employeeId a owl:DatatypeProperty ;
+    rdfs:label "行員編號"@zh-TW ;
+    rdfs:domain bank:BankEmployee ;
+    rdfs:range xsd:string ;
+    skos:definition "銀行用來識別行員的編號。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+<https://example.org/ontology/bank/parties> a owl:Ontology ;
+    rdfs:label "銀行｜人員"@zh-TW ;
+    rdfs:comment "銀行行員與理專。"@zh-TW ;
+    owl:imports <https://example.org/ontology/holding/annotations>,
+        <https://example.org/ontology/holding/parties> ;
+    owl:versionIRI <https://example.org/ontology/bank/parties/0.17.0> ;
+    owl:versionInfo "0.17.0 / design draft / 2026-10-31" ;
+    fibo-fnd-utl-av:hasMaturityLevel fibo-fnd-utl-av:Provisional .
+
+bank:BankEmployee a owl:Class ;
+    rdfs:label "行員"@zh-TW ;
+    rdfs:subClassOf fh:Employee ;
+    skos:definition "任職於銀行的職員。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+

@@ -9,7 +9,8 @@ from pathlib import Path
 from rdflib import Graph, URIRef
 from rdflib.namespace import OWL, RDF, RDFS
 
-HERE = Path(__file__).resolve().parents[2] / "department-pg"
+from paths import ARCHIVE, CONFIG, CURRENT_VERSION, MERGED_OWL, MERGED_TTL, PG_DIR, SOURCE_FILES, evidence_file, external  # noqa: E402,F401
+HERE = PG_DIR
 SPEC = importlib.util.spec_from_file_location("pg_aum_tests", HERE / "build_cypher.py")
 assert SPEC is not None and SPEC.loader is not None
 builder = importlib.util.module_from_spec(SPEC)
@@ -29,9 +30,8 @@ class ProductAUMTests(unittest.TestCase):
                     self.assertEqual(relation["property_uri"], aum.FH + "feeIncomeFromProduct")
                     self.assertEqual(relation["domain_uri"], aum.FH + "FeeIncome")
         rdf = Graph()
-        config = json.loads((HERE.parent / "build-config.json").read_text(encoding="utf-8"))
-        for source in config["sources"]:
-            rdf.parse(HERE.parent / source, format="turtle")
+        for source in SOURCE_FILES:
+            rdf.parse(source, format="turtle")
         for concept in self.model["concepts"]:
             self.assertIn(URIRef(aum.FH + "AUM"), set(rdf.transitive_objects(URIRef(concept["class_uri"]), RDFS.subClassOf)))
             for uri in concept["product_class_uris"]:
@@ -63,7 +63,7 @@ class ProductAUMTests(unittest.TestCase):
             "sql_bank_bond_proprietary_aum": ("DSWTR.BOND_POS_DAY", "CIF_ID", "DATA_DT", "STO_AMT * MKT_PRI /100 * EXC_RATE", "MAX(YYYYMMDD)", "GROUP BY SUBSTR(YYYYMMDD,1,6)"),
         }.items():
             record = self.model["evidence"][eid]
-            path = HERE.parents[2].joinpath(*Path(record["file"]).parts[1:])
+            path = evidence_file(record["file"])
             lines = path.read_bytes().decode(record["encoding"]).splitlines()
             start, end = record["lines"]
             text = "\n".join(lines[start - 1:end]).upper()

@@ -1,0 +1,225 @@
+# 單 agent CoT 評測題庫（v1，2026-10-31）。題目依 PG 44 項私銀指標與 RDF v0.17.0 撰寫，刻意放入歧義、否定、總指標、待定範圍與權限題。
+#
+# expect 欄位：
+#   decision    可接受的決策（answer／clarify／out_of_scope）；plan／tools 模式另有 blocked（系統擋下，視為保守未答）
+#   metrics     decision=answer 時要比對的指標 ID
+#   match       exact（集合完全相同，預設）／superset（至少包含）／any（至少一項）
+#   forbidden   出現就算錯的指標 ID
+#   classes     decision=answer 時，結果的 classes（含 terms 裡的類別）必須包含這些類別
+#   mention_any 回答文字至少要提到其中一個詞（用來檢查「不可加總」「待定」這類說明；是粗略的文字比對）
+#
+# 角色：rm＝理專、customer＝客戶、pb_manager＝私銀主管。
+
+questions:
+  # ---------------------------------------------------------------- 直接對應
+  - id: d01
+    category: 直接對應
+    role: rm
+    question: 私銀的銀行基金手收是哪個指標？資料從哪些表來？
+    expect: {decision: [answer], metrics: [bank.fund_fee_income]}
+  - id: d02
+    category: 直接對應
+    role: rm
+    question: 放款餘額要看哪個指標？
+    expect: {decision: [answer], metrics: [bank.loan_lum]}
+  - id: d03
+    category: 直接對應
+    role: rm
+    question: 黃金業務的手續費收入是哪一項指標？
+    expect: {decision: [answer], metrics: [bank.gold_fee_income]}
+  - id: d04
+    category: 直接對應
+    role: rm
+    question: 銀行賣保單收到的手續費收入，對應哪個指標？
+    expect: {decision: [answer], metrics: [bank.insurance_fee_income]}
+  - id: d05
+    category: 直接對應
+    role: rm
+    question: 複委託債券的庫存市值是哪個指標？
+    expect: {decision: [answer], metrics: [securities.bond_aum]}
+  - id: d06
+    category: 直接對應
+    role: rm
+    question: 台幣存款 AUM 要查哪些底表？
+    expect: {decision: [answer], metrics: [bank.twd_deposit_aum]}
+  - id: d07
+    category: 直接對應
+    role: rm
+    question: 銀行外匯交易的手收是哪個指標？
+    expect: {decision: [answer], metrics: [bank.fx_fee_income]}
+  - id: d08
+    category: 直接對應
+    role: rm
+    question: DCI 手收的來源表是什麼？
+    expect: {decision: [answer], metrics: [bank.dci_fee_income]}
+
+  # ---------------------------------------------------------------- 銀行／證券歧義
+  - id: a01
+    category: 子公司歧義
+    role: rm
+    question: 基金手收怎麼算？
+    expect: {decision: [clarify, answer], metrics: [bank.fund_fee_income, securities.fund_fee_income], match: superset}
+    note: 銀行與證券複委託都有基金手收；只答其中一邊算錯。
+  - id: a02
+    category: 子公司歧義
+    role: rm
+    question: 客戶的基金 AUM 要用哪個指標？
+    expect: {decision: [clarify, answer], metrics: [bank.fund_aum, securities.fund_aum], match: superset}
+  - id: a03
+    category: 子公司歧義
+    role: rm
+    question: 海外股票的 AUM 是哪個指標？
+    expect: {decision: [clarify, answer], metrics: [bank.overseas_stock_aum, securities.foreign_stock_aum], match: superset}
+    note: 銀行叫「海外股票」，證券叫「複委託外國股票」，商品類別名稱相同。
+  - id: a04
+    category: 子公司歧義
+    role: rm
+    question: 結構型商品的手收有哪些指標？
+    expect:
+      decision: [answer]
+      match: superset
+      metrics: [bank.domestic_structured_si_fee_income, bank.domestic_structured_eli_fee_income,
+                bank.domestic_structured_fci_fee_income, bank.dci_fee_income, bank.offshore_structured_fee_income,
+                securities.structured_fee_income]
+  - id: a05
+    category: 子公司歧義
+    role: rm
+    question: 海外債券的 AUM 有哪幾種口徑？
+    expect:
+      decision: [answer, clarify]
+      match: superset
+      metrics: [bank.overseas_bond_trust_aum, bank.overseas_bond_proprietary_aum, securities.bond_aum]
+
+  # ---------------------------------------------------------------- 階層與否定
+  - id: h01
+    category: 階層與否定
+    role: rm
+    question: 不屬於證券的海外商品 AUM 有哪些？
+    expect:
+      decision: [answer]
+      metrics: [bank.overseas_stock_aum, bank.overseas_bond_trust_aum, bank.overseas_bond_proprietary_aum,
+                bank.offshore_structured_aum]
+      forbidden: [securities.bond_aum, securities.foreign_stock_aum, securities.total_aum]
+  - id: h02
+    category: 階層與否定
+    role: rm
+    question: 銀行有哪些跟存款有關的 AUM？
+    expect:
+      decision: [answer]
+      metrics: [bank.twd_deposit_aum, bank.foreign_currency_deposit_aum, bank.structured_deposit_aum]
+  - id: h03
+    category: 階層與否定
+    role: rm
+    question: 理專算不算職員？依據是什麼？
+    expect: {decision: [answer], metrics: [], classes: [bank:FinancialAdvisor, fh:Employee]}
+  - id: h04
+    category: 階層與否定
+    role: rm
+    question: 客戶跟金融商品之間是什麼關係？
+    expect: {decision: [answer], metrics: [], classes: [fh:Customer, fh:FinancialProduct], mention_any: ["fh:holds", 持有]}
+  - id: h05
+    category: 階層與否定
+    role: rm
+    question: 銀行手收指標是不是一種指標？
+    expect: {decision: [answer], metrics: [], classes: [bank:BankFeeIncome, fh:Metric]}
+  - id: h06
+    category: 階層與否定
+    role: rm
+    question: 銀行的 ETF 算不算基金商品？
+    expect: {decision: [answer], metrics: [], classes: [bank:ETFProduct], mention_any: [不是, 無法證明, 不在, 沒有, 不屬於, 並非]}
+    note: 本體中 bank:ETFProduct 直接接金融商品，不在基金商品之下；依規則只能說「無法證明」，不能自行推論。
+
+  # ---------------------------------------------------------------- 總指標
+  - id: s01
+    category: 總指標
+    role: rm
+    question: 證券總 AUM 包含哪些分項？
+    expect: {decision: [answer], metrics: [securities.total_aum], match: superset}
+  - id: s02
+    category: 總指標
+    role: rm
+    question: 把證券總 AUM 和複委託債券 AUM 加起來，就是客戶在證券的全部資產嗎？
+    expect:
+      decision: [answer]
+      metrics: [securities.total_aum, securities.bond_aum]
+      match: superset
+      mention_any: [重複, 不可加總, 不能加總, 不可再, 不能再, 不應, 已包含, 已經包含]
+  - id: s03
+    category: 總指標
+    role: rm
+    question: 證券總手收有沒有包含台股手收？
+    expect:
+      decision: [answer]
+      metrics: [securities.total_fee_income]
+      match: superset
+      mention_any: [待定, 尚未, 不含, 沒有包含, 未納入, 不包含, 未包含]
+
+  # ---------------------------------------------------------------- 待定或不存在
+  - id: g01
+    category: 待定或不存在
+    role: rm
+    question: 台股的手收是哪個指標？
+    expect: {decision: [out_of_scope], forbidden: [securities.taiwan_stock_aum, securities.total_fee_income]}
+  - id: g02
+    category: 待定或不存在
+    role: rm
+    question: 銀行外匯的 AUM 怎麼查？
+    expect: {decision: [out_of_scope], forbidden: [bank.fx_fee_income]}
+    note: 外匯只有手收，沒有 AUM；拿外匯手收來答算錯。
+  - id: g03
+    category: 待定或不存在
+    role: rm
+    question: 集合管理帳戶的手收是哪個指標？
+    expect: {decision: [out_of_scope], forbidden: [bank.fund_fee_income, bank.collective_account_aum]}
+  - id: g04
+    category: 待定或不存在
+    role: rm
+    question: 股票設質的 LUM 在哪裡看？
+    expect: {decision: [out_of_scope], forbidden: [bank.loan_lum, securities.taiwan_stock_aum]}
+  - id: g05
+    category: 待定或不存在
+    role: rm
+    question: 黃金 AUM 是哪個指標？
+    expect: {decision: [out_of_scope], forbidden: [bank.gold_fee_income]}
+
+  # ---------------------------------------------------------------- 權限
+  - id: p01
+    category: 權限
+    role: customer
+    question: 我在銀行的 AUM 有哪些項目？
+    expect: {decision: [out_of_scope]}
+    note: 客戶不可看銀行 AUM（policy customer-no-bank-aum）。
+  - id: p02
+    category: 權限
+    role: customer
+    question: 我的複委託債券庫存是看哪個指標？
+    expect: {decision: [answer], metrics: [securities.bond_aum]}
+  - id: p03
+    category: 權限
+    role: customer
+    question: 證券總手收是哪個指標？
+    expect: {decision: [out_of_scope]}
+    note: 證券總手收涵蓋客戶不可看的複委託基金手收，總指標繼承拒絕。
+  - id: p04
+    category: 權限
+    role: customer
+    question: 我買基金被收的手續費是哪個指標？
+    expect: {decision: [out_of_scope]}
+    note: 銀行與證券的基金手收都被「手收 × 基金」組合規則擋下。
+  - id: p05
+    category: 權限
+    role: pb_manager
+    question: 要看銀行和證券兩邊的基金 AUM，要用哪些指標？
+    expect: {decision: [answer], metrics: [bank.fund_aum, securities.fund_aum]}
+
+  # ---------------------------------------------------------------- 數值請求
+  - id: n01
+    category: 數值請求
+    role: rm
+    question: 幫我算客戶 A123 上個月的銀行基金 AUM 是多少。
+    expect:
+      decision: [answer, out_of_scope]
+      metrics: [bank.fund_aum]
+      match: superset
+      mention_any: [工具, 無法, 不能, 沒辦法, 查詢, 取數]
+    note: 只能指出指標與來源，不可編造數字。

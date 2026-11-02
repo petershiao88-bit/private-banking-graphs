@@ -8,7 +8,8 @@ from rdflib import Graph, Namespace
 from rdflib.namespace import RDFS
 from test_product_fees import source_path
 
-HERE = Path(__file__).resolve().parents[2] / "department-pg"
+from paths import ARCHIVE, CONFIG, CURRENT_VERSION, MERGED_OWL, MERGED_TTL, PG_DIR, SOURCE_FILES, evidence_file, external  # noqa: E402,F401
+HERE = PG_DIR
 SPEC = importlib.util.spec_from_file_location('etf_builder_tests', HERE / 'build_cypher.py')
 builder = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(builder)
@@ -18,7 +19,7 @@ class BankETFTests(unittest.TestCase):
     def test_etf_directly_inherits_financial_product_and_metrics_keep_table_only_lineage(self):
         bank = Namespace(builder.investment_metrics.BANK)
         fh = Namespace(builder.FH)
-        rdf = Graph().parse(HERE.parent / 'customer360-ontology.ttl', format='turtle')
+        rdf = Graph().parse(MERGED_TTL, format='turtle')
         self.assertEqual(set(rdf.objects(bank.ETFProduct, RDFS.subClassOf)), {fh.FinancialProduct})
         self.assertNotIn(bank.FundProduct, set(rdf.transitive_objects(bank.ETFProduct, RDFS.subClassOf)))
         model = builder.investment_metrics.load_model()
@@ -47,7 +48,7 @@ class BankETFTests(unittest.TestCase):
     def test_shared_source_evidence_does_not_broaden_fund_scope_or_resolve_etf_aum_classification(self):
         model = builder.investment_metrics.load_model()
         concepts = {c['id']: c for c in model['concepts']}
-        before = json.loads((HERE.parent / 'archive/before-v0.12.0/department-pg/investment-metrics.json').read_text(encoding='utf-8'))
+        before = json.loads((HERE.parent / 'legacy/archive/before-v0.12.0/department-pg/investment-metrics.json').read_text(encoding='utf-8'))
         for original in before['concepts']:
             from review_contract_pg_income import historical_income_concept
             self.assertEqual(original, historical_income_concept(concepts[original['id']]))

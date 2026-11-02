@@ -9,7 +9,8 @@ from rdflib.namespace import OWL, RDF, RDFS
 from test_product_fees import source_path
 from review_contract_pg_income import historical_income_concept
 
-HERE = Path(__file__).resolve().parents[2] / "department-pg"
+from paths import ARCHIVE, CONFIG, CURRENT_VERSION, MERGED_OWL, MERGED_TTL, PG_DIR, SOURCE_FILES, evidence_file, external  # noqa: E402,F401
+HERE = PG_DIR
 SPEC = importlib.util.spec_from_file_location('collective_builder_tests', HERE / 'build_cypher.py')
 builder = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(builder)
@@ -20,7 +21,7 @@ class CollectiveManagementTests(unittest.TestCase):
         model = builder.investment_metrics.load_model()
         c = next(c for c in model['concepts'] if c['id'] == 'bank.collective_account_aum')
         bank, fh = Namespace(builder.investment_metrics.BANK), Namespace(builder.FH)
-        rdf = Graph().parse(HERE.parent / 'customer360-ontology.ttl', format='turtle')
+        rdf = Graph().parse(MERGED_TTL, format='turtle')
         self.assertEqual(set(rdf.objects(bank.CollectiveManagementProduct, RDFS.subClassOf)), {fh.FinancialProduct})
         for parent in (bank.FundProduct, bank.ETFProduct, bank.DepositProduct):
             self.assertNotIn(parent, set(rdf.transitive_objects(bank.CollectiveManagementProduct, RDFS.subClassOf)))
@@ -41,7 +42,7 @@ class CollectiveManagementTests(unittest.TestCase):
     def test_fee_is_deferred_with_original_case_order_and_previous_concepts_preserved(self):
         model = builder.investment_metrics.load_model()
         concepts = {c['id']: c for c in model['concepts']}
-        before = json.loads((HERE.parent/'archive/before-v0.13.0/department-pg/investment-metrics.json').read_text(encoding='utf-8'))
+        before = json.loads((HERE.parent/'legacy/archive/before-v0.13.0/department-pg/investment-metrics.json').read_text(encoding='utf-8'))
         for c in before['concepts']:
             self.assertEqual(c, historical_income_concept(concepts[c['id']]))
         pending = next(p for p in model['pending_scope'] if p['id']=='bank.collective_account_fee_income')

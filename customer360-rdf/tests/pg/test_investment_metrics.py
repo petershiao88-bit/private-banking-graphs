@@ -11,7 +11,8 @@ from rdflib.namespace import OWL, RDF, RDFS, SKOS
 from test_product_fees import source_path, workbook_cells
 from review_contract_v015 import normalize_reviewed_text
 
-HERE = Path(__file__).resolve().parents[2] / "department-pg"
+from paths import ARCHIVE, CONFIG, CURRENT_VERSION, MERGED_OWL, MERGED_TTL, PG_DIR, SOURCE_FILES, evidence_file, external  # noqa: E402,F401
+HERE = PG_DIR
 ROOT=HERE.parent
 
 
@@ -32,7 +33,7 @@ class InvestmentMetricTests(unittest.TestCase):
         self.concepts={c['id']:c for c in self.model['concepts']}
 
     def test_company_classes_inherit_holding_and_preserve_previous_semantics(self):
-        graph=Graph().parse(ROOT/'customer360-ontology.ttl',format='turtle')
+        graph=Graph().parse(MERGED_TTL,format='turtle')
         fh,bank,sec=map(Namespace,(investment.FH,investment.BANK,investment.SEC))
         parents={sec.SecuritiesAUM:fh.AUM,sec.SecuritiesFeeIncome:fh.FeeIncome,
                  **{sec[p]:fh.FinancialProduct for p in ('StockProduct','BondProduct','FundProduct',
@@ -46,7 +47,7 @@ class InvestmentMetricTests(unittest.TestCase):
             self.assertNotIn(bank.BankAUM,set(graph.transitive_objects(child,RDFS.subClassOf)))
         self.assertEqual(set(graph.objects(fh.feeIncomeFromProduct,RDFS.domain)),{fh.FeeIncome})
         self.assertEqual(set(graph.objects(fh.feeIncomeFromProduct,RDFS.range)),{fh.FinancialProduct})
-        previous=Graph().parse(ROOT/'archive/before-v0.10.0/customer360-ontology.ttl',format='turtle')
+        previous=Graph().parse(ROOT/'legacy/archive/before-v0.10.0/customer360-ontology.ttl',format='turtle')
         for ontology in list(previous.subjects(RDF.type,OWL.Ontology)):
             previous.remove((ontology,None,None))
         normalize_reviewed_text(previous)
@@ -155,12 +156,12 @@ class InvestmentMetricTests(unittest.TestCase):
         output=builder.render_combined_cypher()
         self.assertEqual(output,builder.render_combined_cypher(investment_model=changed))
         self.assertEqual(output.encode('utf-8'),(HERE/'model.cypher').read_bytes())
-        old=module_at('previous_pg_v090',ROOT/'archive/before-v0.10.0/department-pg/build_cypher.py').build_combined_graph()
+        old=module_at('previous_pg_v090',ROOT/'legacy/archive/before-v0.10.0/department-pg/build_cypher.py').build_combined_graph()
         current=builder.build_combined_graph()
         nodes={n['id']:n for n in current['nodes']}
         edges={e['id']:e for e in current['relationships']}
         for n in old['nodes']:
-            if n['label']=='MetadataModule':n['properties']['ontology_version']='0.16.0'
+            if n['label']=='MetadataModule':n['properties']['ontology_version']=CURRENT_VERSION
             current_node=copy.deepcopy(nodes[n['id']])
             if current_node['label']=='BusinessConcept':
                 current_node['properties'].pop('table_sources_json',None)

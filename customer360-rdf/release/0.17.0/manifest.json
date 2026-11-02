@@ -1,0 +1,146 @@
+{
+  "version": "0.17.0",
+  "date": "2026-10-31",
+  "status": "design draft",
+  "release_iri": "https://example.org/ontology/customer360/0.17.0",
+  "previous": {
+    "version": "0.16.0",
+    "source": "release 0.16.0"
+  },
+  "modules": [
+    {
+      "file": "ontology/holding/annotations.ttl",
+      "iri": "https://example.org/ontology/holding/annotations",
+      "layer": "holding",
+      "maturity": "provisional",
+      "sha256": "8de14632d3a2a88b857b77658fa7ab5d78636b11d285362b046d6d7ea9362190",
+      "imports": []
+    },
+    {
+      "file": "ontology/holding/parties.ttl",
+      "iri": "https://example.org/ontology/holding/parties",
+      "layer": "holding",
+      "maturity": "provisional",
+      "sha256": "a705b2dd96dfa8d8316b3e892abf021e9b06c44900ab13f27618a4194158e431",
+      "imports": [
+        "https://example.org/ontology/holding/annotations"
+      ]
+    },
+    {
+      "file": "ontology/holding/products.ttl",
+      "iri": "https://example.org/ontology/holding/products",
+      "layer": "holding",
+      "maturity": "provisional",
+      "sha256": "1b8aae41c85023626dff24d8452724773568815875ecfbe491a89c52193c66a8",
+      "imports": [
+        "https://example.org/ontology/holding/annotations",
+        "https://example.org/ontology/holding/parties"
+      ]
+    },
+    {
+      "file": "ontology/holding/metrics.ttl",
+      "iri": "https://example.org/ontology/holding/metrics",
+      "layer": "holding",
+      "maturity": "provisional",
+      "sha256": "7d84f08659fbe77b80069369e36eabb55a52df62bf359b2436851f1b234f6b55",
+      "imports": [
+        "https://example.org/ontology/holding/annotations",
+        "https://example.org/ontology/holding/products"
+      ]
+    },
+    {
+      "file": "ontology/holding/organization.ttl",
+      "iri": "https://example.org/ontology/holding/organization",
+      "layer": "holding",
+      "maturity": "provisional",
+      "sha256": "f6e1050a6569de24717b90b22ae253065a1939d39b8bd348c128bf6900f51a4e",
+      "imports": [
+        "https://example.org/ontology/holding/annotations",
+        "https://example.org/ontology/holding/metrics"
+      ]
+    },
+    {
+      "file": "ontology/bank/parties.ttl",
+      "iri": "https://example.org/ontology/bank/parties",
+      "layer": "bank",
+      "maturity": "provisional",
+      "sha256": "da0bcec6fd906f2934cc0a73513723df407dab707166bd831c95e960803bfc83",
+      "imports": [
+        "https://example.org/ontology/holding/annotations",
+        "https://example.org/ontology/holding/parties"
+      ]
+    },
+    {
+      "file": "ontology/bank/products.ttl",
+      "iri": "https://example.org/ontology/bank/products",
+      "layer": "bank",
+      "maturity": "provisional",
+      "sha256": "991c7083bd2dd71a557b169081e579a628ba3f4844dd270ba8e220db1440db7d",
+      "imports": [
+        "https://example.org/ontology/holding/annotations",
+        "https://example.org/ontology/holding/products"
+      ]
+    },
+    {
+      "file": "ontology/bank/metrics.ttl",
+      "iri": "https://example.org/ontology/bank/metrics",
+      "layer": "bank",
+      "maturity": "provisional",
+      "sha256": "fe8181da48c15fc60e285318ebce7b2bfb053888fe73a8da424882b6ff53f9cb",
+      "imports": [
+        "https://example.org/ontology/bank/parties",
+        "https://example.org/ontology/holding/annotations",
+        "https://example.org/ontology/holding/metrics"
+      ]
+    },
+    {
+      "file": "ontology/bank/organization.ttl",
+      "iri": "https://example.org/ontology/bank/organization",
+      "layer": "bank",
+      "maturity": "provisional",
+      "sha256": "509b1e67a9ca310d3326aba971ccc57616e6d1721b41b5fff9335e5a3823d12e",
+      "imports": [
+        "https://example.org/ontology/holding/annotations",
+        "https://example.org/ontology/holding/organization"
+      ]
+    },
+    {
+      "file": "ontology/securities/products.ttl",
+      "iri": "https://example.org/ontology/securities/products",
+      "layer": "securities",
+      "maturity": "provisional",
+      "sha256": "526880cce4cd01aebd0dcbbd69a429c8f3c3fbd60c2c789738b17e03849ad664",
+      "imports": [
+        "https://example.org/ontology/holding/annotations",
+        "https://example.org/ontology/holding/products"
+      ]
+    },
+    {
+      "file": "ontology/securities/metrics.ttl",
+      "iri": "https://example.org/ontology/securities/metrics",
+      "layer": "securities",
+      "maturity": "provisional",
+      "sha256": "449c4b9f229cea1d892ea468325372bf8228a6d8cb4bfec2362427d72c82b912",
+      "imports": [
+        "https://example.org/ontology/holding/annotations",
+        "https://example.org/ontology/holding/metrics"
+      ]
+    }
+  ],
+  "excluded_modules": [],
+  "tools": {
+    "rdflib": "7.6.0",
+    "owlrl": "7.6.2"
+  },
+  "files": {
+    "CHANGELOG.md": "84b82e440336e275cacb07582d021f588675bc0d02011e4757b0faa88bacac5a",
+    "agent-context.json": "4c2e8f530c17bb6d93fe729b72a37ad381679e60556a20afb8c9fa2ea4e7d0e3",
+    "agent-context.md": "fd6a1ee4923e10d972ebd2eadbf6f4b25676d8dc9368658eac827f3445bfda76",
+    "changes.json": "531245f14e28c65443061c574595898e471acb58bd2a62c5edd04b35b2f86f6a",
+    "class-components.json": "51a76e933d6bf26cacfd76dda624a870394d0e42f4c31c32bcec4120d98b2287",
+    "class-components.md": "8c57574ff307223d2a732fcb34d05b4356dd148ead94a124a2541d984211a288",
+    "customer360-release.ttl": "3feb3af815a6639d35c1e0b8b3a668bad19124424d5563979e1c440d735b916f",
+    "reasoning.json": "b945e3f9213bf672b412c749d2185b240b5c9a0ad08c86823ea2d77996f977d7",
+    "reasoning.md": "72492012e90acd543d2e6801dc61fe5dc96b220d05e506784725d0acd0b30997"
+  }
+}

@@ -12,7 +12,8 @@ from test_product_fees import source_path, workbook_cells
 from review_contract_v015 import normalize_reviewed_text
 from review_contract_pg_income import historical_income_model
 
-HERE = Path(__file__).resolve().parents[2] / "department-pg"
+from paths import ARCHIVE, CONFIG, CURRENT_VERSION, MERGED_OWL, MERGED_TTL, PG_DIR, SOURCE_FILES, evidence_file, external  # noqa: E402,F401
+HERE = PG_DIR
 ROOT = HERE.parent
 SPEC = importlib.util.spec_from_file_location('bank_business_test_builder', HERE / 'build_cypher.py')
 builder = importlib.util.module_from_spec(SPEC)
@@ -25,7 +26,7 @@ class BankBusinessTests(unittest.TestCase):
     def setUp(self):
         self.model = business.load_model()
         self.concepts = {c['id']: c for c in self.model['concepts']}
-        self.rdf = Graph().parse(ROOT / 'customer360-ontology.ttl', format='turtle')
+        self.rdf = Graph().parse(MERGED_TTL, format='turtle')
 
     def test_department_usage_does_not_claim_source_ownership_or_change_loan_advisor_scope(self):
         self.assertEqual(self.model['department_context'], {
@@ -43,10 +44,10 @@ class BankBusinessTests(unittest.TestCase):
         with self.assertRaises(ValueError): business.build_graph(changed)
 
     def test_original_source_files_are_unchanged_and_id_replacements_are_reviewable(self):
-        hashes = json.loads((ROOT / 'archive/before-v0.15.0/source-readonly-sha256.json').read_text(encoding='utf-8'))
+        hashes = json.loads((ROOT / 'legacy/archive/before-v0.15.0/source-readonly-sha256.json').read_text(encoding='utf-8'))
         for relative, digest in hashes.items():
-            self.assertEqual(hashlib.sha256((ROOT / relative).read_bytes()).hexdigest(), digest, relative)
-        changes = json.loads((HERE.parent / 'archive/department-pg/history/changes-v0.15.0.json').read_text(encoding='utf-8'))
+            self.assertEqual(hashlib.sha256(external(relative).read_bytes()).hexdigest(), digest, relative)
+        changes = json.loads((HERE.parent / 'legacy/archive/department-pg/history/changes-v0.15.0.json').read_text(encoding='utf-8'))
         self.assertEqual(changes['concept_id_replacements'], {
             'bank.fx_trading_pnl': 'bank.fx_fee_income', 'bank.gold_trading_pnl': 'bank.gold_fee_income'})
         self.assertTrue(set(changes['concept_id_replacements'].values()) <= set(self.concepts))
@@ -161,7 +162,7 @@ class BankBusinessTests(unittest.TestCase):
                 self.assertIn(token.upper(), text.upper())
 
     def test_unrelated_models_and_source_evidence_survive_reviewed_retirement(self):
-        before = ROOT / 'archive/before-v0.15.0'
+        before = ROOT / 'legacy/archive/before-v0.15.0'
         for name in ('model', 'deposits', 'advisory-income', 'product-fees', 'product-aum', 'investment-metrics'):
             old = json.loads((before / 'department-pg' / (name + '.json')).read_text(encoding='utf-8'))
             current = json.loads((HERE / (name + '.json')).read_text(encoding='utf-8'))
@@ -175,15 +176,18 @@ class BankBusinessTests(unittest.TestCase):
             self.assertEqual(old, current)
         retired = {FH.FinancialService, FH.measuresService, FH.feeIncomeFromService,
                    BANK.PlannedTrustService, BANK.TrustCustodyService, BANK.ForeignExchangeService, BANK.LetterOfCreditService}
+        # v0.17.0 起 RDF 拆成 FIBO 式模組：改以合併後的本體與快照比對
+        old, current = Graph(), Graph()
         for name in ('holding-core.ttl', 'bank-deposit.ttl', 'bank-common.ttl', 'bank-investment-products.ttl', 'securities-common.ttl'):
-            old = Graph().parse(before / name, format='turtle')
-            current = Graph().parse(ROOT / name, format='turtle')
-            for g in (old, current):
-                for ontology in list(g.subjects(RDF.type, OWL.Ontology)): g.remove((ontology, None, None))
-                normalize_reviewed_text(g)
-            for subject in retired: old.remove((subject, None, None))
-            subjects = set(old.subjects())
-            self.assertEqual(set(old), {t for t in current if t[0] in subjects})
+            old.parse(before / name, format='turtle')
+        for path in SOURCE_FILES:
+            current.parse(path, format='turtle')
+        for g in (old, current):
+            for ontology in list(g.subjects(RDF.type, OWL.Ontology)): g.remove((ontology, None, None))
+            normalize_reviewed_text(g)
+        for subject in retired: old.remove((subject, None, None))
+        subjects = set(old.subjects())
+        self.assertEqual(set(old), {t for t in current if t[0] in subjects})
         pending = {p['id'] for p in builder.investment_metrics.load_model()['pending_scope']}
         self.assertEqual(pending, {'securities.taiwan_stock_fee_income', 'bank.collective_account_fee_income', 'securities.stock_pledge_lum'})
 

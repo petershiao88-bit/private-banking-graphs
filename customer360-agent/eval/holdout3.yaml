@@ -1,0 +1,84 @@
+# 第三份留出集（2026-11-01 01:18）：所有規則調整（逐一雙胞胎、最長詞優先、檢索通用詞、同義詞、升級協定）完成後才寫，
+# 只用來量測最終版本的首次接觸表現，不得據此再調規則。
+
+questions:
+  - id: z01
+    category: 直接對應
+    role: rm
+    question: 想知道客戶在銀行放了多少台幣活存定存，要看哪個指標？
+    expect: {decision: [answer], metrics: [bank.twd_deposit_aum]}
+  - id: z02
+    category: 子公司歧義
+    role: rm
+    question: 結構型商品的 AUM 有哪些？
+    expect: {decision: [answer, clarify], metrics: [bank.offshore_structured_aum, bank.structured_deposit_aum, securities.structured_aum], match: superset}
+  - id: z03
+    category: 直接對應
+    role: rm
+    question: 銀行代銷保險賺的佣金是哪一項？
+    expect: {decision: [answer], metrics: [bank.insurance_fee_income]}
+  - id: z04
+    category: 階層與否定
+    role: rm
+    question: 除了證券以外，基金的手收是哪個指標？
+    expect: {decision: [answer], metrics: [bank.fund_fee_income], forbidden: [securities.fund_fee_income]}
+  - id: z05
+    category: 權限
+    role: customer
+    question: 我的海外股票部位看哪個指標？
+    expect: {decision: [answer], metrics: [securities.foreign_stock_aum]}
+  - id: z06
+    category: 權限
+    role: customer
+    question: 我在銀行的存款利息收入是哪個指標？
+    expect: {decision: [out_of_scope]}
+  - id: z07
+    category: 多種類
+    role: rm
+    question: 黃金的手收和外匯的手收各是哪個？
+    expect: {decision: [answer], metrics: [bank.gold_fee_income, bank.fx_fee_income]}
+  - id: z08
+    category: 待定或不存在
+    role: rm
+    question: 保險有 LUM 嗎？
+    expect: {decision: [out_of_scope], forbidden: [bank.loan_lum, bank.insurance_aum]}
+  - id: z09
+    category: 概念
+    role: rm
+    question: 行員算不算職員？
+    expect: {decision: [answer], metrics: [], classes: [bank:BankEmployee, fh:Employee]}
+  - id: z10
+    category: 總指標
+    role: pb_manager
+    question: 證券總 AUM 是由哪些項目組成的？
+    expect: {decision: [answer], metrics: [securities.total_aum], match: superset}
+  - id: z11
+    category: 直接對應
+    role: rm
+    question: ETF 的 AUM 從哪張表來？
+    expect: {decision: [answer], metrics: [bank.etf_aum]}
+  - id: z12
+    category: 錨點陷阱
+    role: rm
+    question: 美元計價的海外債券基金，手收要看哪個指標？
+    expect: {decision: [clarify, answer], metrics: [bank.fund_fee_income, securities.fund_fee_income], match: superset}
+  - id: z13
+    category: 子公司線索
+    role: rm
+    question: 私銀理專的保險 AUM 是哪個？
+    expect: {decision: [answer], metrics: [bank.insurance_aum]}
+  - id: z14
+    category: 直接對應
+    role: rm
+    question: FCI 的手收從哪些表來？
+    expect: {decision: [answer], metrics: [bank.domestic_structured_fci_fee_income]}
+  - id: z15
+    category: 待定或不存在
+    role: rm
+    question: 集合管理帳戶有手收指標嗎？
+    expect: {decision: [out_of_scope], forbidden: [bank.fund_fee_income]}
+  - id: z16
+    category: 子公司線索
+    role: rm
+    question: 複委託的股票手收是哪個指標？
+    expect: {decision: [answer], metrics: [securities.foreign_stock_fee_income]}

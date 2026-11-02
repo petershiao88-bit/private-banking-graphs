@@ -1,0 +1,3011 @@
+{
+ "summary": {
+  "n": 73,
+  "seconds": 97.2,
+  "outcomes": {
+   "correct": 59,
+   "safe_miss": 10,
+   "silent_wrong": 4
+  },
+  "oracle": 67,
+  "composed": 71,
+  "not_expressible": [
+   {
+    "qid": "s02",
+    "question": "把證券總 AUM 和複委託債券 AUM 加起來，就是客戶在證券的全部資產嗎？"
+   },
+   {
+    "qid": "x12",
+    "question": "台股 AUM 是哪個指標？"
+   }
+  ],
+  "by_set": {
+   "questions.yaml": {
+    "correct": 28,
+    "n": 33,
+    "oracle": 32,
+    "safe_miss": 3,
+    "silent_wrong": 2
+   },
+   "holdout.yaml": {
+    "correct": 19,
+    "n": 24,
+    "oracle": 21,
+    "silent_wrong": 1,
+    "safe_miss": 4
+   },
+   "holdout2.yaml": {
+    "correct": 12,
+    "n": 16,
+    "oracle": 14,
+    "silent_wrong": 1,
+    "safe_miss": 3
+   }
+  },
+  "by_category": {
+   "多種類": {
+    "n": 2,
+    "correct": 1,
+    "oracle": 1
+   },
+   "子公司歧義": {
+    "n": 8,
+    "correct": 7,
+    "oracle": 7
+   },
+   "子公司線索": {
+    "n": 5,
+    "correct": 5,
+    "oracle": 5
+   },
+   "待定或不存在": {
+    "n": 6,
+    "correct": 6,
+    "oracle": 6
+   },
+   "數值請求": {
+    "n": 1,
+    "correct": 1,
+    "oracle": 1
+   },
+   "概念": {
+    "n": 2,
+    "correct": 0,
+    "oracle": 2
+   },
+   "權限": {
+    "n": 7,
+    "correct": 6,
+    "oracle": 7
+   },
+   "直接對應": {
+    "n": 22,
+    "correct": 18,
+    "oracle": 20
+   },
+   "縮寫": {
+    "n": 1,
+    "correct": 1,
+    "oracle": 0
+   },
+   "總指標": {
+    "n": 3,
+    "correct": 2,
+    "oracle": 2
+   },
+   "錨點陷阱": {
+    "n": 10,
+    "correct": 8,
+    "oracle": 10
+   },
+   "階層與否定": {
+    "n": 6,
+    "correct": 4,
+    "oracle": 6
+   }
+  },
+  "silent_wrong": 4,
+  "wrong_caught_hard": 0,
+  "wrong_caught_soft": 3
+ },
+ "rows": [
+  {
+   "set": "questions.yaml",
+   "qid": "d01",
+   "category": "直接對應",
+   "question": "私銀的銀行基金手收是哪個指標？資料從哪些表來？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "fee",
+      "products": [
+       "基金"
+      ],
+      "subsidiary": "bank"
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.fund_fee_income"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "fee"
+    ],
+    "products": [
+     "基金"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": "securities",
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "d02",
+   "category": "直接對應",
+   "question": "放款餘額要看哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "lum"
+     }
+    ]
+   },
+   "decision": "out_of_scope",
+   "metrics": [],
+   "outcome": "safe_miss",
+   "problems": [
+    "決策 out_of_scope，期望 answer"
+   ],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "lum"
+    ],
+    "products": [],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": true,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "d03",
+   "category": "直接對應",
+   "question": "黃金業務的手續費收入是哪一項指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "fee",
+      "products": [
+       "黃金"
+      ]
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.gold_fee_income"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "fee"
+    ],
+    "products": [
+     "黃金"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "d04",
+   "category": "直接對應",
+   "question": "銀行賣保單收到的手續費收入，對應哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "fee",
+      "products": [
+       "保險"
+      ],
+      "subsidiary": "bank"
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.insurance_fee_income"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "fee"
+    ],
+    "products": [
+     "保險"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "d05",
+   "category": "直接對應",
+   "question": "複委託債券的庫存市值是哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "債券"
+      ],
+      "subsidiary": "securities"
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "securities.bond_aum"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "aum"
+    ],
+    "products": [
+     "債券"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": "bank",
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "d06",
+   "category": "直接對應",
+   "question": "台幣存款 AUM 要查哪些底表？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "存款",
+       "台幣"
+      ]
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.twd_deposit_aum"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "aum"
+    ],
+    "products": [
+     "台幣"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "d07",
+   "category": "直接對應",
+   "question": "銀行外匯交易的手收是哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "fee",
+      "products": [
+       "外匯"
+      ],
+      "subsidiary": "bank"
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.fx_fee_income"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "fee"
+    ],
+    "products": [
+     "外匯"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "d08",
+   "category": "直接對應",
+   "question": "DCI 手收的來源表是什麼？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "fee",
+      "token": "DCI"
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.dci_fee_income"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "fee"
+    ],
+    "products": [],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": "DCI"
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "a01",
+   "category": "子公司歧義",
+   "question": "基金手收怎麼算？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "fee",
+      "products": [
+       "基金"
+      ]
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.fund_fee_income",
+    "securities.fund_fee_income"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "fee"
+    ],
+    "products": [
+     "基金"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "a02",
+   "category": "子公司歧義",
+   "question": "客戶的基金 AUM 要用哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "基金"
+      ]
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.fund_aum",
+    "securities.fund_aum"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "aum"
+    ],
+    "products": [
+     "基金"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "a03",
+   "category": "子公司歧義",
+   "question": "海外股票的 AUM 是哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "海外",
+       "股票"
+      ]
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.overseas_stock_aum",
+    "securities.foreign_stock_aum"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "aum"
+    ],
+    "products": [
+     "海外"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "a04",
+   "category": "子公司歧義",
+   "question": "結構型商品的手收有哪些指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "fee",
+      "products": [
+       "結構型"
+      ]
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.dci_fee_income",
+    "bank.domestic_structured_eli_fee_income",
+    "bank.domestic_structured_fci_fee_income",
+    "bank.domestic_structured_si_fee_income",
+    "bank.offshore_structured_fee_income",
+    "securities.structured_fee_income"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "fee"
+    ],
+    "products": [
+     "結構型"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "a05",
+   "category": "子公司歧義",
+   "question": "海外債券的 AUM 有哪幾種口徑？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "債券",
+       "海外"
+      ]
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.overseas_bond_proprietary_aum",
+    "bank.overseas_bond_trust_aum",
+    "securities.bond_aum"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "aum"
+    ],
+    "products": [
+     "債券"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "h01",
+   "category": "階層與否定",
+   "question": "不屬於證券的海外商品 AUM 有哪些？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "海外"
+      ],
+      "exclude_subsidiary": "securities"
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.offshore_structured_aum",
+    "bank.overseas_bond_proprietary_aum",
+    "bank.overseas_bond_trust_aum",
+    "bank.overseas_stock_aum"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "aum"
+    ],
+    "products": [
+     "海外"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": "securities",
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "h02",
+   "category": "階層與否定",
+   "question": "銀行有哪些跟存款有關的 AUM？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "存款"
+      ],
+      "subsidiary": "bank"
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.foreign_currency_deposit_aum",
+    "bank.structured_deposit_aum",
+    "bank.twd_deposit_aum"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "aum"
+    ],
+    "products": [
+     "存款"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "h03",
+   "category": "階層與否定",
+   "question": "理專算不算職員？依據是什麼？",
+   "template": "concept_is_a",
+   "slots": {
+    "calls": [
+     {
+      "template": "concept_is_a",
+      "a": "bank:FinancialAdvisor",
+      "b": "fh:Employee"
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "a": "bank:FinancialAdvisor",
+    "b": "fh:Employee"
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "h04",
+   "category": "階層與否定",
+   "question": "客戶跟金融商品之間是什麼關係？",
+   "template": "concept_relation",
+   "slots": {
+    "calls": [
+     {
+      "template": "concept_relation",
+      "a": "fh:Customer",
+      "b": "fh:FinancialProduct"
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "a": "fh:Customer",
+    "b": "fh:FinancialProduct"
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "h05",
+   "category": "階層與否定",
+   "question": "銀行手收指標是不是一種指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "fee",
+      "subsidiary": "bank"
+     }
+    ]
+   },
+   "decision": "out_of_scope",
+   "metrics": [],
+   "outcome": "safe_miss",
+   "problems": [
+    "決策 out_of_scope，期望 answer"
+   ],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "a": "bank:BankFeeIncome",
+    "b": "fh:Metric"
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "h06",
+   "category": "階層與否定",
+   "question": "銀行的 ETF 算不算基金商品？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "products": [
+       "ETF",
+       "基金"
+      ],
+      "subsidiary": "bank",
+      "token": "ETF"
+     }
+    ]
+   },
+   "decision": "out_of_scope",
+   "metrics": [],
+   "outcome": "safe_miss",
+   "problems": [
+    "決策 out_of_scope，期望 answer"
+   ],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "a": "bank:BankAUM",
+    "b": "bank:ETFProduct"
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "s01",
+   "category": "總指標",
+   "question": "證券總 AUM 包含哪些分項？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "subsidiary": "securities",
+      "summary": true
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "securities.total_aum"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "aum"
+    ],
+    "products": [],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": true,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "s02",
+   "category": "總指標",
+   "question": "把證券總 AUM 和複委託債券 AUM 加起來，就是客戶在證券的全部資產嗎？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "債券"
+      ],
+      "subsidiary": "securities",
+      "summary": true
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "securities.bond_aum"
+   ],
+   "outcome": "silent_wrong",
+   "problems": [
+    "指標不符；缺 securities.total_aum"
+   ],
+   "gate_hard": [],
+   "gate_soft": [
+    "anchor_missing"
+   ],
+   "oracle": false,
+   "oracle_slots": null,
+   "composed": false,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "s03",
+   "category": "總指標",
+   "question": "證券總手收有沒有包含台股手收？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "fee",
+      "subsidiary": "securities",
+      "summary": true
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "securities.total_fee_income"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "fee"
+    ],
+    "products": [],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": true,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "g01",
+   "category": "待定或不存在",
+   "question": "台股的手收是哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "fee"
+     }
+    ]
+   },
+   "decision": "out_of_scope",
+   "metrics": [],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "note": "任何查無結果的組合即可"
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "g02",
+   "category": "待定或不存在",
+   "question": "銀行外匯的 AUM 怎麼查？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "外匯"
+      ],
+      "subsidiary": "bank"
+     }
+    ]
+   },
+   "decision": "out_of_scope",
+   "metrics": [],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "note": "任何查無結果的組合即可"
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "g03",
+   "category": "待定或不存在",
+   "question": "集合管理帳戶的手收是哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "fee",
+      "products": [
+       "集合管理"
+      ]
+     }
+    ]
+   },
+   "decision": "out_of_scope",
+   "metrics": [],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "note": "任何查無結果的組合即可"
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "g04",
+   "category": "待定或不存在",
+   "question": "股票設質的 LUM 在哪裡看？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "lum",
+      "products": [
+       "股票"
+      ]
+     }
+    ]
+   },
+   "decision": "out_of_scope",
+   "metrics": [],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "note": "任何查無結果的組合即可"
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "g05",
+   "category": "待定或不存在",
+   "question": "黃金 AUM 是哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "黃金"
+      ]
+     }
+    ]
+   },
+   "decision": "out_of_scope",
+   "metrics": [],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "note": "任何查無結果的組合即可"
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "p01",
+   "category": "權限",
+   "question": "我在銀行的 AUM 有哪些項目？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "subsidiary": "bank"
+     }
+    ]
+   },
+   "decision": "out_of_scope",
+   "metrics": [],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "note": "任何查無結果的組合即可"
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "p02",
+   "category": "權限",
+   "question": "我的複委託債券庫存是看哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "債券"
+      ],
+      "subsidiary": "securities"
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "securities.bond_aum"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "aum"
+    ],
+    "products": [
+     "債券"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "p03",
+   "category": "權限",
+   "question": "證券總手收是哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "fee",
+      "subsidiary": "securities",
+      "summary": true
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "securities.bond_fee_income",
+    "securities.foreign_stock_fee_income",
+    "securities.structured_fee_income"
+   ],
+   "outcome": "silent_wrong",
+   "problems": [
+    "決策 answer，期望 out_of_scope"
+   ],
+   "gate_hard": [],
+   "gate_soft": [
+    "anchor_missing"
+   ],
+   "oracle": true,
+   "oracle_slots": {
+    "note": "任何查無結果的組合即可"
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "p04",
+   "category": "權限",
+   "question": "我買基金被收的手續費是哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "fee",
+      "products": [
+       "基金"
+      ]
+     }
+    ]
+   },
+   "decision": "out_of_scope",
+   "metrics": [],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "note": "任何查無結果的組合即可"
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "p05",
+   "category": "權限",
+   "question": "要看銀行和證券兩邊的基金 AUM，要用哪些指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "基金"
+      ]
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.fund_aum",
+    "securities.fund_aum"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "aum"
+    ],
+    "products": [
+     "基金"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "n01",
+   "category": "數值請求",
+   "question": "幫我算客戶 A123 上個月的銀行基金 AUM 是多少。",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "基金"
+      ],
+      "subsidiary": "bank"
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.fund_aum"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "aum"
+    ],
+    "products": [],
+    "subsidiary": null,
+    "exclude_subsidiary": "securities",
+    "summary": true,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x01",
+   "category": "錨點陷阱",
+   "question": "債券型基金的手收是哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "fee",
+      "products": [
+       "基金"
+      ]
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.fund_fee_income",
+    "securities.fund_fee_income"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "fee"
+    ],
+    "products": [
+     "基金"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x02",
+   "category": "錨點陷阱",
+   "question": "客戶持有的股票型 ETF 規模要看哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "ETF"
+      ],
+      "token": "ETF"
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.etf_aum"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "aum"
+    ],
+    "products": [],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": "ETF"
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x03",
+   "category": "錨點陷阱",
+   "question": "股票型基金的 AUM 是哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "基金"
+      ]
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.fund_aum",
+    "securities.fund_aum"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "aum"
+    ],
+    "products": [
+     "基金"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x04",
+   "category": "子公司線索",
+   "question": "理專賣基金收到的佣金是哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "fee",
+      "products": [
+       "基金"
+      ],
+      "subsidiary": "bank"
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.fund_fee_income"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "fee"
+    ],
+    "products": [],
+    "subsidiary": null,
+    "exclude_subsidiary": "securities",
+    "summary": true,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x05",
+   "category": "直接對應",
+   "question": "信託的海外債 AUM 是哪個？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "債券",
+       "海外"
+      ],
+      "token": "信託"
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.overseas_bond_trust_aum"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "aum"
+    ],
+    "products": [
+     "債券"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": "信託"
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x06",
+   "category": "直接對應",
+   "question": "存款利息收入看哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "interest",
+      "products": [
+       "存款"
+      ]
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.deposit_interest_income"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "interest"
+    ],
+    "products": [
+     "存款"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x07",
+   "category": "直接對應",
+   "question": "外幣定存的 AUM 要從哪裡查？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "存款",
+       "外幣"
+      ]
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.foreign_currency_deposit_aum"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "aum"
+    ],
+    "products": [
+     "外幣"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x08",
+   "category": "直接對應",
+   "question": "保險的庫存要看哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "保險"
+      ]
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.insurance_aum"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "aum"
+    ],
+    "products": [
+     "保險"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x09",
+   "category": "直接對應",
+   "question": "開狀業務收了多少手續費，要用哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "fee",
+      "products": [
+       "開狀"
+      ]
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.lc_fee_income"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "fee"
+    ],
+    "products": [
+     "開狀"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x10",
+   "category": "直接對應",
+   "question": "境外結構型商品 AUM 是哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "結構型"
+      ]
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.offshore_structured_aum",
+    "bank.structured_deposit_aum",
+    "securities.structured_aum"
+   ],
+   "outcome": "silent_wrong",
+   "problems": [
+    "指標不符；多 bank.structured_deposit_aum、securities.structured_aum"
+   ],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "aum"
+    ],
+    "products": [
+     "海外",
+     "結構型"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x11",
+   "category": "縮寫",
+   "question": "ELI 跟 FCI 的手收各是哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "fee",
+      "token": "ELI"
+     },
+     {
+      "template": "metric_lookup",
+      "kind": "fee",
+      "token": "FCI"
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.domestic_structured_eli_fee_income",
+    "bank.domestic_structured_fci_fee_income"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": false,
+   "oracle_slots": null,
+   "composed": true,
+   "composed_calls": [
+    [
+     "fee",
+     null,
+     null,
+     "ELI"
+    ],
+    [
+     "fee",
+     null,
+     null,
+     "FCI"
+    ]
+   ]
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x12",
+   "category": "直接對應",
+   "question": "台股 AUM 是哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum"
+     }
+    ]
+   },
+   "decision": "out_of_scope",
+   "metrics": [],
+   "outcome": "safe_miss",
+   "problems": [
+    "決策 out_of_scope，期望 answer"
+   ],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": false,
+   "oracle_slots": null,
+   "composed": false,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x13",
+   "category": "直接對應",
+   "question": "規劃型信託的手收從哪些表來？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "fee",
+      "products": [
+       "規劃型信託"
+      ],
+      "token": "信託"
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.planned_trust_fee_income"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "fee"
+    ],
+    "products": [
+     "規劃型信託"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x14",
+   "category": "概念",
+   "question": "私銀部門跟指標之間是什麼關係？",
+   "template": "concept_relation",
+   "slots": {
+    "calls": [
+     {
+      "template": "concept_relation",
+      "a": "bank:PrivateBankingDepartment",
+      "b": "fh:Department"
+     }
+    ]
+   },
+   "decision": "out_of_scope",
+   "metrics": [],
+   "outcome": "safe_miss",
+   "problems": [
+    "決策 out_of_scope，期望 answer"
+   ],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "a": "bank:PrivateBankingDepartment",
+    "b": "fh:Metric"
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x15",
+   "category": "多種類",
+   "question": "放款的 LUM 跟利收各是哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "lum",
+      "products": [
+       "放款"
+      ]
+     },
+     {
+      "template": "metric_lookup",
+      "kind": "interest",
+      "products": [
+       "放款"
+      ]
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.loan_income",
+    "bank.loan_lum"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "interest",
+     "lum"
+    ],
+    "products": [
+     "放款"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x16",
+   "category": "子公司歧義",
+   "question": "基金和 ETF 的 AUM 各用哪些指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "ETF",
+       "基金"
+      ],
+      "token": "ETF"
+     }
+    ]
+   },
+   "decision": "out_of_scope",
+   "metrics": [],
+   "outcome": "safe_miss",
+   "problems": [
+    "決策 out_of_scope，期望 answer／clarify"
+   ],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": false,
+   "oracle_slots": null,
+   "composed": true,
+   "composed_calls": [
+    [
+     "aum",
+     null,
+     null,
+     "ETF"
+    ],
+    [
+     "aum",
+     "基金",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x17",
+   "category": "權限",
+   "question": "我的海外債券手收是哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "fee",
+      "products": [
+       "債券",
+       "海外"
+      ]
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "securities.bond_fee_income"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "fee"
+    ],
+    "products": [
+     "債券"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x18",
+   "category": "子公司歧義",
+   "question": "海外股票的手收是哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "fee",
+      "products": [
+       "海外",
+       "股票"
+      ]
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.overseas_stock_fee_income",
+    "securities.foreign_stock_fee_income"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "fee"
+    ],
+    "products": [
+     "海外"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x19",
+   "category": "子公司線索",
+   "question": "證券的股票部位市值有哪些指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "股票"
+      ],
+      "subsidiary": "securities"
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "securities.foreign_stock_aum",
+    "securities.taiwan_stock_aum"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "aum"
+    ],
+    "products": [
+     "股票"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x20",
+   "category": "錨點陷阱",
+   "question": "黃金存摺賺的手續費是哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "fee",
+      "products": [
+       "黃金"
+      ]
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.gold_fee_income"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "fee"
+    ],
+    "products": [
+     "黃金"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x21",
+   "category": "錨點陷阱",
+   "question": "結構型商品裡面，DCI 的手收是哪個？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "fee",
+      "products": [
+       "結構型"
+      ],
+      "token": "DCI"
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.dci_fee_income"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "fee"
+    ],
+    "products": [],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": "DCI"
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x22",
+   "category": "待定或不存在",
+   "question": "開狀有 AUM 嗎？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "開狀"
+      ]
+     }
+    ]
+   },
+   "decision": "out_of_scope",
+   "metrics": [],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "note": "任何查無結果的組合即可"
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x23",
+   "category": "錨點陷阱",
+   "question": "客戶買海外債券型基金的 AUM 要看哪個？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "基金",
+       "海外"
+      ]
+     }
+    ]
+   },
+   "decision": "out_of_scope",
+   "metrics": [],
+   "outcome": "safe_miss",
+   "problems": [
+    "決策 out_of_scope，期望 clarify／answer"
+   ],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "aum"
+    ],
+    "products": [
+     "基金"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x24",
+   "category": "子公司線索",
+   "question": "複委託的基金手收是哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "fee",
+      "products": [
+       "基金"
+      ],
+      "subsidiary": "securities"
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "securities.fund_fee_income"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "fee"
+    ],
+    "products": [
+     "基金"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": "bank",
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout2.yaml",
+   "qid": "y01",
+   "category": "直接對應",
+   "question": "客戶在銀行買的 ETF 收了多少手續費，看哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "fee",
+      "products": [
+       "ETF"
+      ],
+      "subsidiary": "bank",
+      "token": "ETF"
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.etf_fee_income"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "fee"
+    ],
+    "products": [],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": "ETF"
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout2.yaml",
+   "qid": "y02",
+   "category": "子公司歧義",
+   "question": "債券的手收是哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "fee",
+      "products": [
+       "債券"
+      ]
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.overseas_bond_proprietary_fee_income",
+    "bank.overseas_bond_trust_fee_income",
+    "securities.bond_fee_income"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "fee"
+    ],
+    "products": [
+     "債券"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout2.yaml",
+   "qid": "y03",
+   "category": "直接對應",
+   "question": "自營的外國債券手收從哪張表來？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "fee",
+      "products": [
+       "債券"
+      ],
+      "token": "自營"
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.overseas_bond_proprietary_fee_income"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "fee"
+    ],
+    "products": [],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": "自營"
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout2.yaml",
+   "qid": "y04",
+   "category": "錨點陷阱",
+   "question": "保險型商品的 AUM 是不是保單現金價值？要看哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "保險"
+      ]
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.insurance_aum"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "aum"
+    ],
+    "products": [
+     "保險"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout2.yaml",
+   "qid": "y05",
+   "category": "直接對應",
+   "question": "信託保管的 AUM 和手收分別是哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "信託保管"
+      ],
+      "token": "信託"
+     },
+     {
+      "template": "metric_lookup",
+      "kind": "fee",
+      "products": [
+       "信託保管"
+      ],
+      "token": "信託"
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.trust_custody_aum",
+    "bank.trust_custody_fee_income"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "aum",
+     "fee"
+    ],
+    "products": [
+     "信託保管"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout2.yaml",
+   "qid": "y06",
+   "category": "子公司線索",
+   "question": "行員存款算在哪個 AUM 裡？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "存款"
+      ],
+      "subsidiary": "bank"
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.foreign_currency_deposit_aum",
+    "bank.structured_deposit_aum",
+    "bank.twd_deposit_aum"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "aum"
+    ],
+    "products": [],
+    "subsidiary": null,
+    "exclude_subsidiary": "securities",
+    "summary": true,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout2.yaml",
+   "qid": "y07",
+   "category": "權限",
+   "question": "我在證券的股票庫存有哪些指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "股票"
+      ],
+      "subsidiary": "securities"
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "securities.foreign_stock_aum",
+    "securities.taiwan_stock_aum"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "aum"
+    ],
+    "products": [
+     "股票"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout2.yaml",
+   "qid": "y08",
+   "category": "直接對應",
+   "question": "外幣存款的 AUM 跟存款利收各是哪個？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "存款",
+       "外幣"
+      ]
+     },
+     {
+      "template": "metric_lookup",
+      "kind": "interest",
+      "products": [
+       "存款",
+       "外幣"
+      ]
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.foreign_currency_deposit_aum"
+   ],
+   "outcome": "silent_wrong",
+   "problems": [
+    "指標不符；缺 bank.deposit_interest_income"
+   ],
+   "gate_hard": [],
+   "gate_soft": [
+    "anchor_missing"
+   ],
+   "oracle": false,
+   "oracle_slots": null,
+   "composed": true,
+   "composed_calls": [
+    [
+     "aum",
+     "外幣",
+     null,
+     null
+    ],
+    [
+     "interest",
+     "存款",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "set": "holdout2.yaml",
+   "qid": "y09",
+   "category": "錨點陷阱",
+   "question": "台幣計價的基金 AUM 要看哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "基金"
+      ]
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.fund_aum",
+    "securities.fund_aum"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "aum"
+    ],
+    "products": [
+     "基金"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout2.yaml",
+   "qid": "y10",
+   "category": "概念",
+   "question": "手收指標可以歸屬給誰？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "fee"
+     }
+    ]
+   },
+   "decision": "out_of_scope",
+   "metrics": [],
+   "outcome": "safe_miss",
+   "problems": [
+    "決策 out_of_scope，期望 answer"
+   ],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "a": "bank:BankFeeIncome",
+    "b": "bank:FinancialAdvisor"
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout2.yaml",
+   "qid": "y11",
+   "category": "直接對應",
+   "question": "複委託外國股票的淨手收是哪個？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "fee",
+      "products": [
+       "股票"
+      ],
+      "subsidiary": "securities"
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "securities.foreign_stock_fee_income"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "fee"
+    ],
+    "products": [
+     "股票"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": "bank",
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout2.yaml",
+   "qid": "y12",
+   "category": "子公司線索",
+   "question": "私銀理專的海外股票 AUM 看哪個？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "海外",
+       "股票"
+      ],
+      "subsidiary": "bank"
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.overseas_stock_aum"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "aum"
+    ],
+    "products": [
+     "股票"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": "securities",
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout2.yaml",
+   "qid": "y13",
+   "category": "錨點陷阱",
+   "question": "境內結構型商品的 SI 手收是哪個？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "fee",
+      "products": [
+       "結構型"
+      ],
+      "token": "SI"
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.domestic_structured_si_fee_income"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "fee"
+    ],
+    "products": [],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": "SI"
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout2.yaml",
+   "qid": "y14",
+   "category": "多種類",
+   "question": "銀行黃金的手收跟證券的債券手收，各是哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "fee",
+      "products": [
+       "債券",
+       "黃金"
+      ]
+     }
+    ]
+   },
+   "decision": "out_of_scope",
+   "metrics": [],
+   "outcome": "safe_miss",
+   "problems": [
+    "決策 out_of_scope，期望 answer"
+   ],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": false,
+   "oracle_slots": null,
+   "composed": true,
+   "composed_calls": [
+    [
+     "fee",
+     "債券",
+     "securities",
+     null
+    ],
+    [
+     "fee",
+     "黃金",
+     null,
+     null
+    ]
+   ]
+  },
+  {
+   "set": "holdout2.yaml",
+   "qid": "y15",
+   "category": "錨點陷阱",
+   "question": "客戶的外幣保單 AUM 看哪個指標？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "外幣",
+       "保險"
+      ]
+     }
+    ]
+   },
+   "decision": "out_of_scope",
+   "metrics": [],
+   "outcome": "safe_miss",
+   "problems": [
+    "決策 out_of_scope，期望 answer"
+   ],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "aum"
+    ],
+    "products": [
+     "保險"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  },
+  {
+   "set": "holdout2.yaml",
+   "qid": "y16",
+   "category": "直接對應",
+   "question": "集合管理帳戶的 AUM 是哪個？",
+   "template": "metric_lookup",
+   "slots": {
+    "calls": [
+     {
+      "template": "metric_lookup",
+      "kind": "aum",
+      "products": [
+       "集合管理"
+      ]
+     }
+    ]
+   },
+   "decision": "answer",
+   "metrics": [
+    "bank.collective_account_aum"
+   ],
+   "outcome": "correct",
+   "problems": [],
+   "gate_hard": [],
+   "gate_soft": [],
+   "oracle": true,
+   "oracle_slots": {
+    "kinds": [
+     "aum"
+    ],
+    "products": [
+     "集合管理"
+    ],
+    "subsidiary": null,
+    "exclude_subsidiary": null,
+    "summary": false,
+    "token": null
+   },
+   "composed": true,
+   "composed_calls": null
+  }
+ ]
+}

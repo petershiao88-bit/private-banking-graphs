@@ -1,0 +1,63 @@
+# 業務字典對應的 SHACL：詞條要對應到哪些類別、以什麼角色對應，才算合格。
+# 驗證在「OWL 推理後」的圖上執行：Semantic Studio 會先把 rdfs:subClassOf 閉包（含自反）加進資料圖，
+# 所以這裡用一跳的 rdfs:subClassOf 就涵蓋所有上層類別。
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix fh: <https://example.org/ontology/holding#> .
+@prefix dict: <https://example.org/dictionary#> .
+@prefix c360sh: <https://example.org/shapes/customer360#> .
+
+<https://example.org/shapes/customer360/dictionary>
+    a owl:Ontology ;
+    rdfs:label "業務字典對應 SHACL"@zh-TW ;
+    sh:declare [ sh:prefix "fh" ; sh:namespace "https://example.org/ontology/holding#"^^xsd:anyURI ] ,
+               [ sh:prefix "dict" ; sh:namespace "https://example.org/dictionary#"^^xsd:anyURI ] ,
+               [ sh:prefix "rdfs" ; sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ] .
+
+c360sh:TermShape
+    a sh:NodeShape ;
+    rdfs:label "業務字典詞條" ;
+    rdfs:comment "詞條要有名稱，並至少對應到一個本體類別；主類別中屬於「指標」的最多一個。" ;
+    sh:severity sh:Violation ;
+    sh:targetClass dict:Term ;
+    sh:property [ sh:path dict:name ; sh:minCount 1 ; sh:message "詞條必須有名稱" ] ,
+                [ sh:path dict:mapsTo ; sh:minCount 1 ; sh:message "詞條尚未對應到任何本體類別" ] ,
+                [ sh:path dict:mapsTo ;
+                  sh:qualifiedValueShape [
+                      sh:property [ sh:path dict:role ; sh:hasValue "primary" ] ,
+                                  [ sh:path ( dict:class rdfs:subClassOf ) ; sh:hasValue fh:Metric ] ] ;
+                  sh:qualifiedMaxCount 1 ;
+                  sh:message "一個詞條只能有一個屬於「指標」的主類別" ] .
+
+c360sh:RedundantMappingShape
+    a sh:NodeShape ;
+    rdfs:label "多餘的對應" ;
+    rdfs:comment "同一詞條同時對應到某類別與它的上層時，上層對應是多餘的（警告）。" ;
+    sh:targetClass dict:Term ;
+    sh:severity sh:Warning ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "對應的類別之間有上下位關係，上層那個是多餘的" ;
+        sh:prefixes <https://example.org/shapes/customer360/dictionary> ;
+        sh:select """SELECT $this ?value WHERE {
+            $this dict:mapsTo ?m1 . ?m1 dict:class ?sub .
+            $this dict:mapsTo ?m2 . ?m2 dict:class ?value .
+            FILTER (?sub != ?value) ?sub rdfs:subClassOf ?value . }"""
+    ] .
+
+c360sh:MappingShape
+    a sh:NodeShape ;
+    rdfs:label "詞條對應" ;
+    rdfs:comment "每一筆對應要指向一個已宣告、未下架的類別，並標明角色；商品角色必須是金融商品。" ;
+    sh:targetClass dict:Mapping ;
+    sh:property [ sh:path dict:class ; sh:minCount 1 ; sh:maxCount 1 ; sh:class owl:Class ;
+                  sh:message "對應的類別必須是本體中已宣告的類別" ] ,
+                [ sh:path dict:role ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( "primary" "product" "business_scope" "other" ) ;
+                  sh:message "角色必須是 primary、product、business_scope 或 other" ] ,
+                [ sh:path ( dict:class owl:deprecated ) ; sh:maxCount 0 ;
+                  sh:message "不可對應到已 deprecated 的類別" ] ;
+    sh:or ( [ sh:not [ sh:property [ sh:path dict:role ; sh:hasValue "product" ] ] ]
+            [ sh:property [ sh:path ( dict:class rdfs:subClassOf ) ; sh:hasValue fh:FinancialProduct ] ] ) ;
+    sh:message "角色為「商品」時，類別必須屬於金融商品" .

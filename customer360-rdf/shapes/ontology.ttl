@@ -1,0 +1,61 @@
+# 本體本身的 SHACL：把「類別組成元件」規則寫成 shape，讓 Semantic Studio 在圖上直接標出違規。
+# 驗證在 OWL 推理後的圖上執行（rdfs:subClassOf 已含遞移閉包），所以一跳就涵蓋所有上層。
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix fh: <https://example.org/ontology/holding#> .
+@prefix c360sh: <https://example.org/shapes/customer360#> .
+
+<https://example.org/shapes/customer360/ontology>
+    a owl:Ontology ;
+    rdfs:label "客戶360 本體 SHACL"@zh-TW ;
+    sh:declare [ sh:prefix "fh" ; sh:namespace "https://example.org/ontology/holding#"^^xsd:anyURI ] ,
+               [ sh:prefix "rdfs" ; sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ] ,
+               [ sh:prefix "owl" ; sh:namespace "http://www.w3.org/2002/07/owl#"^^xsd:anyURI ] .
+
+c360sh:ClassComponentShape
+    a sh:NodeShape ;
+    rdfs:label "類別組成元件" ;
+    rdfs:comment "每個 owl:Class 都要有中文名稱、定義與唯一的治理層級。" ;
+    sh:targetClass owl:Class ;
+    sh:property [ sh:path rdfs:label ; sh:minCount 1 ; sh:message "缺少名稱 rdfs:label" ] ,
+                [ sh:path rdfs:label ; sh:languageIn ( "zh-TW" ) ; sh:message "名稱必須標 zh-TW 語言" ] ,
+                [ sh:path skos:definition ; sh:minCount 1 ; sh:message "缺少定義 skos:definition" ] ,
+                [ sh:path fh:governanceLevel ; sh:minCount 1 ; sh:maxCount 1 ; sh:in ( "金控" "子公司" ) ;
+                  sh:message "治理層級必須是唯一的「金控」或「子公司」" ] .
+
+c360sh:SubsidiaryClassShape
+    a sh:NodeShape ;
+    rdfs:label "子公司類別" ;
+    rdfs:comment "子公司層類別必須標示所屬子公司，並經 rdfs:subClassOf 接到金控層類別。" ;
+    sh:targetClass owl:Class ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "子公司層類別必須標示 fh:subsidiary" ;
+        sh:prefixes <https://example.org/shapes/customer360/ontology> ;
+        sh:select """SELECT $this WHERE { $this fh:governanceLevel "子公司" . FILTER NOT EXISTS { $this fh:subsidiary ?any } }"""
+    ] , [
+        a sh:SPARQLConstraint ;
+        sh:message "子公司層類別必須經 rdfs:subClassOf 接到金控層類別" ;
+        sh:prefixes <https://example.org/shapes/customer360/ontology> ;
+        sh:select """SELECT $this WHERE { $this fh:governanceLevel "子公司" .
+            FILTER NOT EXISTS { $this rdfs:subClassOf ?top . ?top fh:governanceLevel "金控" } }"""
+    ] .
+
+c360sh:ObjectPropertyShape
+    a sh:NodeShape ;
+    rdfs:label "關係屬性" ;
+    rdfs:comment "Object Property 的 domain 與 range 都必須是已宣告的類別。" ;
+    sh:targetClass owl:ObjectProperty ;
+    sh:property [ sh:path rdfs:domain ; sh:minCount 1 ; sh:class owl:Class ; sh:message "domain 必須是已宣告的類別" ] ,
+                [ sh:path rdfs:range ; sh:minCount 1 ; sh:class owl:Class ; sh:message "range 必須是已宣告的類別" ] .
+
+c360sh:DatatypePropertyShape
+    a sh:NodeShape ;
+    rdfs:label "資料屬性" ;
+    rdfs:comment "Data Property 必須有 domain（已宣告類別）與 range（資料型別）。" ;
+    sh:targetClass owl:DatatypeProperty ;
+    sh:property [ sh:path rdfs:domain ; sh:minCount 1 ; sh:class owl:Class ; sh:message "domain 必須是已宣告的類別" ] ,
+                [ sh:path rdfs:range ; sh:minCount 1 ; sh:message "缺少 range 資料型別" ] .

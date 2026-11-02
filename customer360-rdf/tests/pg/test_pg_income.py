@@ -11,9 +11,10 @@ from review_contract_pg_income import historical_income_model
 from review_contract_v016 import historical_metric_model, pre_department_rdf
 from rdflib import Graph
 
-HERE = Path(__file__).resolve().parents[2] / "department-pg"
+from paths import ARCHIVE, CONFIG, CURRENT_VERSION, MERGED_OWL, MERGED_TTL, PG_DIR, SOURCE_FILES, evidence_file, external  # noqa: E402,F401
+HERE = PG_DIR
 ROOT = HERE.parent
-BEFORE = ROOT / 'archive/before-pg-income-extension-20261024'
+BEFORE = ROOT / 'legacy/archive/before-pg-income-extension-20261024'
 NEW = {'bank.deposit_interest_income', 'bank.overseas_bond_trust_fee_income',
        'bank.overseas_bond_proprietary_fee_income'}
 
@@ -26,22 +27,20 @@ def observed(model, eid):
 
 class PGIncomeTests(unittest.TestCase):
     def test_income_extension_is_preserved_after_approved_department_and_display_name_additions(self):
-        for file in ('holding-core.ttl', 'bank-deposit.ttl', 'bank-common.ttl',
-                     'bank-investment-products.ttl', 'securities-common.ttl',
-                     'customer360-ontology.ttl', 'customer360-ontology.owl', 'build-config.json', 'catalog-v001.xml'):
-            if file.endswith(('.ttl', '.owl')):
-                fmt = 'xml' if file.endswith('.owl') else 'turtle'
-                current = Graph().parse(ROOT / file, format=fmt)
-                old = Graph().parse(BEFORE / file, format=fmt)
-                self.assertEqual(set(pre_department_rdf(current)), set(pre_department_rdf(old)), file)
-            elif file == 'build-config.json':
-                current = json.loads((ROOT/file).read_text(encoding='utf-8'))
-                old = json.loads((BEFORE/file).read_text(encoding='utf-8'))
-                current['version'] = old['version']
-                self.assertEqual(current, old)
-            else:
-                self.assertEqual((ROOT/file).read_text(encoding='utf-8').replace('0.16.0','0.15.0'),
-                                 (BEFORE/file).read_text(encoding='utf-8'))
+        # v0.17.0 起 RDF 拆成 FIBO 式模組：改以合併後的本體與快照比對
+        old_files = ('holding-core.ttl', 'bank-deposit.ttl', 'bank-common.ttl',
+                     'bank-investment-products.ttl', 'securities-common.ttl')
+        current, old = Graph(), Graph()
+        for path in SOURCE_FILES:
+            current.parse(path, format='turtle')
+        for name in old_files:
+            old.parse(BEFORE / name, format='turtle')
+        self.assertEqual(set(pre_department_rdf(current)), set(pre_department_rdf(old)))
+        for fmt, path, name in (('turtle', MERGED_TTL, 'customer360-ontology.ttl'),
+                                ('xml', MERGED_OWL, 'customer360-ontology.owl')):
+            built = Graph().parse(path, format=fmt)
+            before = Graph().parse(BEFORE / name, format=fmt)
+            self.assertEqual(set(pre_department_rdf(built)), set(pre_department_rdf(before)), name)
         for name in ('model', 'deposits', 'advisory-income', 'product-aum'):
             current=json.loads((HERE/(name+'.json')).read_text(encoding='utf-8'))
             old=json.loads((BEFORE/'department-pg'/(name+'.json')).read_text(encoding='utf-8'))
@@ -154,14 +153,14 @@ class PGIncomeTests(unittest.TestCase):
             self.assertTrue(all(v is None for v in m['execution'].values()))
 
     def test_review_evidence_hashes_sources_and_new_scope_determinism(self):
-        review=json.loads((HERE.parent / 'archive/department-pg/history/pg-income-extension-20261024.json').read_text(encoding='utf-8'))
+        review=json.loads((HERE.parent / 'legacy/archive/department-pg/history/pg-income-extension-20261024.json').read_text(encoding='utf-8'))
         self.assertEqual(set(review['new_concepts']),NEW)
         self.assertFalse(review['rdf_changed'])
         for r in review['source_evidence'].values():
             self.assertEqual(hashlib.sha256(source_path(r).read_bytes()).hexdigest(),r['sha256'])
         hashes=json.loads((BEFORE/'source-readonly-sha256.json').read_text(encoding='utf-8'))
         self.assertEqual(len(hashes),24)
-        for rel,digest in hashes.items(): self.assertEqual(hashlib.sha256((ROOT/rel).read_bytes()).hexdigest(),digest)
+        for rel,digest in hashes.items(): self.assertEqual(hashlib.sha256(external(rel).read_bytes()).hexdigest(),digest)
         m=builder.bank_business.load_model()
         for c in m['concepts']:
             if 'product_class_uris' in c: c['product_class_uris'].reverse()

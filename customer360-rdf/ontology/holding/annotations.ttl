@@ -1,0 +1,42 @@
+# 金控｜註記詞彙 v0.17.0，2026-10-31，設計草案。
+# 金控層／註記詞彙：名稱、定義、治理層級與子公司歸屬等註記屬性。
+# 由 v0.16.0 的 holding-core.ttl 拆出（FIBO 式模組化），類別與屬性定義未改。example.org 為示意命名空間。
+
+@prefix fh: <https://example.org/ontology/holding#> .
+@prefix fibo-fnd-utl-av: <https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+rdfs:label a owl:AnnotationProperty ;
+    rdfs:label "名稱"@zh-TW ;
+    skos:definition "類別或屬性的顯示名稱。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+skos:definition a owl:AnnotationProperty ;
+    rdfs:label "定義"@zh-TW ;
+    skos:definition "類別或屬性的業務意義。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:department a owl:AnnotationProperty ;
+    rdfs:label "所屬部門"@zh-TW ;
+    skos:definition "模型定義的部門治理歸屬。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:governanceLevel a owl:AnnotationProperty ;
+    rdfs:label "治理層級"@zh-TW ;
+    skos:definition "模型定義的治理層級。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:subsidiary a owl:AnnotationProperty ;
+    rdfs:label "所屬子公司"@zh-TW ;
+    skos:definition "模型定義的子公司治理歸屬。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+<https://example.org/ontology/holding/annotations> a owl:Ontology ;
+    rdfs:label "金控｜註記詞彙"@zh-TW ;
+    rdfs:comment "名稱、定義、治理層級與子公司歸屬等註記屬性。"@zh-TW ;
+    owl:versionIRI <https://example.org/ontology/holding/annotations/0.17.0> ;
+    owl:versionInfo "0.17.0 / design draft / 2026-10-31" ;
+    fibo-fnd-utl-av:hasMaturityLevel fibo-fnd-utl-av:Provisional .
+

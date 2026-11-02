@@ -1,0 +1,35 @@
+{
+  "previous": {
+    "version": "0.15.0",
+    "source": "快照 archive/before-department-v0.16.0"
+  },
+  "changes": [
+    {
+      "kind": "class",
+      "change": "added",
+      "id": "bank:PrivateBankingDepartment",
+      "uri": "https://example.org/ontology/bank#PrivateBankingDepartment",
+      "label": "私人銀行部門",
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "added",
+      "id": "fh:Department",
+      "uri": "https://example.org/ontology/holding#Department",
+      "label": "部門",
+      "impact": "minor"
+    },
+    {
+      "kind": "property",
+      "change": "added",
+      "id": "fh:usesMetric",
+      "uri": "https://example.org/ontology/holding#usesMetric",
+      "label": "採用指標",
+      "impact": "minor"
+    }
+  ],
+  "required": "minor",
+  "actual": "minor",
+  "gate": []
+}

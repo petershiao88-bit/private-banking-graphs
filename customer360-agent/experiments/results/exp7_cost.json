@@ -1,0 +1,32 @@
+[
+ {
+  "mode": "baseline",
+  "system_tokens": 2856,
+  "avg_calls": 1.0,
+  "est_input_tokens": 2856
+ },
+ {
+  "mode": "context",
+  "system_tokens": 4670,
+  "avg_calls": 1.0,
+  "est_input_tokens": 4670
+ },
+ {
+  "mode": "plan",
+  "system_tokens": 5001,
+  "avg_calls": 2.0,
+  "est_input_tokens": 6207
+ },
+ {
+  "mode": "tools",
+  "system_tokens": 1888,
+  "avg_calls": 1.4,
+  "est_input_tokens": 2643
+ },
+ {
+  "mode": "workflow",
+  "system_tokens": 2202,
+  "avg_calls": 1.7,
+  "est_input_tokens": 3408
+ }
+]

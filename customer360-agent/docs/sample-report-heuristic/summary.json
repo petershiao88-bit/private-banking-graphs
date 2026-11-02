@@ -1,0 +1,276 @@
+{
+  "modes": {
+    "baseline": {
+      "n": 33,
+      "correct": 11,
+      "safe_miss": 0,
+      "silent_wrong": 22,
+      "format_error": 0,
+      "accuracy": 0.333,
+      "silent_wrong_rate": 0.667,
+      "leaks": 3,
+      "invalid_ids": 0,
+      "gate_first_pass": null,
+      "would_block": 3,
+      "would_challenge": 12,
+      "challenged": 0,
+      "escalated": 0,
+      "blocked": 0,
+      "avg_prompt_tokens": 0.0,
+      "avg_completion_tokens": 0.0,
+      "avg_latency": 0.0,
+      "avg_llm_calls": 1.0,
+      "avg_tool_calls": 0.0,
+      "pack_tokens_est": 2720
+    },
+    "context": {
+      "n": 33,
+      "correct": 11,
+      "safe_miss": 0,
+      "silent_wrong": 22,
+      "format_error": 0,
+      "accuracy": 0.333,
+      "silent_wrong_rate": 0.667,
+      "leaks": 0,
+      "invalid_ids": 0,
+      "gate_first_pass": null,
+      "would_block": 0,
+      "would_challenge": 14,
+      "challenged": 0,
+      "escalated": 0,
+      "blocked": 0,
+      "avg_prompt_tokens": 0.0,
+      "avg_completion_tokens": 0.0,
+      "avg_latency": 0.0,
+      "avg_llm_calls": 1.0,
+      "avg_tool_calls": 0.0,
+      "pack_tokens_est": 4492
+    },
+    "plan": {
+      "n": 33,
+      "correct": 15,
+      "safe_miss": 10,
+      "silent_wrong": 8,
+      "format_error": 0,
+      "accuracy": 0.455,
+      "silent_wrong_rate": 0.242,
+      "leaks": 0,
+      "invalid_ids": 0,
+      "gate_first_pass": 1.0,
+      "would_block": 0,
+      "would_challenge": 0,
+      "challenged": 14,
+      "escalated": 0,
+      "blocked": 0,
+      "avg_prompt_tokens": 0.0,
+      "avg_completion_tokens": 0.0,
+      "avg_latency": 0.0,
+      "avg_llm_calls": 2.0,
+      "avg_tool_calls": 0.0,
+      "pack_tokens_est": 4492
+    },
+    "tools": {
+      "n": 33,
+      "correct": 15,
+      "safe_miss": 10,
+      "silent_wrong": 8,
+      "format_error": 0,
+      "accuracy": 0.455,
+      "silent_wrong_rate": 0.242,
+      "leaks": 0,
+      "invalid_ids": 0,
+      "gate_first_pass": 1.0,
+      "would_block": 0,
+      "would_challenge": 0,
+      "challenged": 14,
+      "escalated": 0,
+      "blocked": 0,
+      "avg_prompt_tokens": 0.0,
+      "avg_completion_tokens": 0.0,
+      "avg_latency": 0.0,
+      "avg_llm_calls": 1.4,
+      "avg_tool_calls": 0.0,
+      "pack_tokens_est": 1634
+    },
+    "workflow": {
+      "n": 33,
+      "correct": 25,
+      "safe_miss": 5,
+      "silent_wrong": 3,
+      "format_error": 0,
+      "accuracy": 0.758,
+      "silent_wrong_rate": 0.091,
+      "leaks": 0,
+      "invalid_ids": 0,
+      "gate_first_pass": 1.0,
+      "would_block": 0,
+      "would_challenge": 0,
+      "challenged": 2,
+      "escalated": 2,
+      "blocked": 0,
+      "avg_prompt_tokens": 0.0,
+      "avg_completion_tokens": 0.0,
+      "avg_latency": 0.0,
+      "avg_llm_calls": 1.7,
+      "avg_tool_calls": 0.0,
+      "pack_tokens_est": 1634
+    }
+  },
+  "categories": {
+    "直接對應": {
+      "baseline": {
+        "correct": 8,
+        "n": 8
+      },
+      "context": {
+        "correct": 8,
+        "n": 8
+      },
+      "plan": {
+        "correct": 8,
+        "n": 8
+      },
+      "tools": {
+        "correct": 8,
+        "n": 8
+      },
+      "workflow": {
+        "correct": 7,
+        "n": 8
+      }
+    },
+    "子公司歧義": {
+      "baseline": {
+        "correct": 0,
+        "n": 5
+      },
+      "context": {
+        "correct": 0,
+        "n": 5
+      },
+      "plan": {
+        "correct": 4,
+        "n": 5
+      },
+      "tools": {
+        "correct": 4,
+        "n": 5
+      },
+      "workflow": {
+        "correct": 5,
+        "n": 5
+      }
+    },
+    "階層與否定": {
+      "baseline": {
+        "correct": 1,
+        "n": 6
+      },
+      "context": {
+        "correct": 1,
+        "n": 6
+      },
+      "plan": {
+        "correct": 1,
+        "n": 6
+      },
+      "tools": {
+        "correct": 1,
+        "n": 6
+      },
+      "workflow": {
+        "correct": 3,
+        "n": 6
+      }
+    },
+    "總指標": {
+      "baseline": {
+        "correct": 1,
+        "n": 3
+      },
+      "context": {
+        "correct": 1,
+        "n": 3
+      },
+      "plan": {
+        "correct": 1,
+        "n": 3
+      },
+      "tools": {
+        "correct": 1,
+        "n": 3
+      },
+      "workflow": {
+        "correct": 1,
+        "n": 3
+      }
+    },
+    "待定或不存在": {
+      "baseline": {
+        "correct": 0,
+        "n": 5
+      },
+      "context": {
+        "correct": 0,
+        "n": 5
+      },
+      "plan": {
+        "correct": 0,
+        "n": 5
+      },
+      "tools": {
+        "correct": 0,
+        "n": 5
+      },
+      "workflow": {
+        "correct": 5,
+        "n": 5
+      }
+    },
+    "權限": {
+      "baseline": {
+        "correct": 1,
+        "n": 5
+      },
+      "context": {
+        "correct": 1,
+        "n": 5
+      },
+      "plan": {
+        "correct": 1,
+        "n": 5
+      },
+      "tools": {
+        "correct": 1,
+        "n": 5
+      },
+      "workflow": {
+        "correct": 4,
+        "n": 5
+      }
+    },
+    "數值請求": {
+      "baseline": {
+        "correct": 0,
+        "n": 1
+      },
+      "context": {
+        "correct": 0,
+        "n": 1
+      },
+      "plan": {
+        "correct": 0,
+        "n": 1
+      },
+      "tools": {
+        "correct": 0,
+        "n": 1
+      },
+      "workflow": {
+        "correct": 0,
+        "n": 1
+      }
+    }
+  },
+  "total": 165
+}

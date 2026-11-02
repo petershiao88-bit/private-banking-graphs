@@ -1,0 +1,683 @@
+{
+  "engine": "owlrl 7.6.2（OWL 2 RL）",
+  "rdflib": "7.6.0",
+  "scope": "tbox_named_classes",
+  "input_triples": 512,
+  "closure_triples": 1198,
+  "classes": 43,
+  "asserted_subclass_axioms": 37,
+  "entailed_pairs": 44,
+  "inferred_only": 7,
+  "independent_check": "passed",
+  "cycles": [],
+  "unsatisfiable": [],
+  "consistency": "not_checked",
+  "limitations": [
+    "只推理具名類別的 TBox（rdfs:subClassOf 閉包與 domain 繼承）；沒有個體資料。",
+    "OWL 2 RL 規則集不是完整 OWL DL：未做一致性與可滿足性的完備檢查，只檢查是否有類別被推成 owl:Nothing。",
+    "只接受 config.reasoner 白名單內的公理；出現其他公理時拒絕發佈，不會忽略後假稱完整。"
+  ],
+  "ancestors": {
+    "https://example.org/ontology/bank#BankAUM": [
+      {
+        "uri": "https://example.org/ontology/holding#AUM",
+        "distance": 1
+      },
+      {
+        "uri": "https://example.org/ontology/holding#Metric",
+        "distance": 2
+      }
+    ],
+    "https://example.org/ontology/bank#BankEmployee": [
+      {
+        "uri": "https://example.org/ontology/holding#Employee",
+        "distance": 1
+      }
+    ],
+    "https://example.org/ontology/bank#BankFeeIncome": [
+      {
+        "uri": "https://example.org/ontology/holding#FeeIncome",
+        "distance": 1
+      },
+      {
+        "uri": "https://example.org/ontology/holding#Metric",
+        "distance": 2
+      }
+    ],
+    "https://example.org/ontology/bank#BankInterestIncome": [
+      {
+        "uri": "https://example.org/ontology/holding#InterestIncome",
+        "distance": 1
+      },
+      {
+        "uri": "https://example.org/ontology/holding#Metric",
+        "distance": 2
+      }
+    ],
+    "https://example.org/ontology/bank#BankLUM": [
+      {
+        "uri": "https://example.org/ontology/holding#LUM",
+        "distance": 1
+      },
+      {
+        "uri": "https://example.org/ontology/holding#Metric",
+        "distance": 2
+      }
+    ],
+    "https://example.org/ontology/bank#BondProduct": [
+      {
+        "uri": "https://example.org/ontology/holding#FinancialProduct",
+        "distance": 1
+      }
+    ],
+    "https://example.org/ontology/bank#CollectiveManagementProduct": [
+      {
+        "uri": "https://example.org/ontology/holding#FinancialProduct",
+        "distance": 1
+      }
+    ],
+    "https://example.org/ontology/bank#DepositProduct": [
+      {
+        "uri": "https://example.org/ontology/holding#FinancialProduct",
+        "distance": 1
+      }
+    ],
+    "https://example.org/ontology/bank#ETFProduct": [
+      {
+        "uri": "https://example.org/ontology/holding#FinancialProduct",
+        "distance": 1
+      }
+    ],
+    "https://example.org/ontology/bank#FinancialAdvisor": [
+      {
+        "uri": "https://example.org/ontology/bank#BankEmployee",
+        "distance": 1
+      },
+      {
+        "uri": "https://example.org/ontology/holding#Employee",
+        "distance": 2
+      }
+    ],
+    "https://example.org/ontology/bank#ForeignCurrencyFinancialProduct": [
+      {
+        "uri": "https://example.org/ontology/holding#FinancialProduct",
+        "distance": 1
+      }
+    ],
+    "https://example.org/ontology/bank#ForeignExchangeProduct": [
+      {
+        "uri": "https://example.org/ontology/holding#FinancialProduct",
+        "distance": 1
+      }
+    ],
+    "https://example.org/ontology/bank#FundProduct": [
+      {
+        "uri": "https://example.org/ontology/holding#FinancialProduct",
+        "distance": 1
+      }
+    ],
+    "https://example.org/ontology/bank#GoldProduct": [
+      {
+        "uri": "https://example.org/ontology/holding#FinancialProduct",
+        "distance": 1
+      }
+    ],
+    "https://example.org/ontology/bank#InsuranceProduct": [
+      {
+        "uri": "https://example.org/ontology/holding#FinancialProduct",
+        "distance": 1
+      }
+    ],
+    "https://example.org/ontology/bank#LetterOfCreditProduct": [
+      {
+        "uri": "https://example.org/ontology/holding#FinancialProduct",
+        "distance": 1
+      }
+    ],
+    "https://example.org/ontology/bank#LoanProduct": [
+      {
+        "uri": "https://example.org/ontology/holding#FinancialProduct",
+        "distance": 1
+      }
+    ],
+    "https://example.org/ontology/bank#OverseasFinancialProduct": [
+      {
+        "uri": "https://example.org/ontology/holding#FinancialProduct",
+        "distance": 1
+      }
+    ],
+    "https://example.org/ontology/bank#PlannedTrustProduct": [
+      {
+        "uri": "https://example.org/ontology/holding#FinancialProduct",
+        "distance": 1
+      }
+    ],
+    "https://example.org/ontology/bank#PrivateBankingDepartment": [
+      {
+        "uri": "https://example.org/ontology/holding#Department",
+        "distance": 1
+      }
+    ],
+    "https://example.org/ontology/bank#StockProduct": [
+      {
+        "uri": "https://example.org/ontology/holding#FinancialProduct",
+        "distance": 1
+      }
+    ],
+    "https://example.org/ontology/bank#StructuredFinancialProduct": [
+      {
+        "uri": "https://example.org/ontology/holding#FinancialProduct",
+        "distance": 1
+      }
+    ],
+    "https://example.org/ontology/bank#TWDFinancialProduct": [
+      {
+        "uri": "https://example.org/ontology/holding#FinancialProduct",
+        "distance": 1
+      }
+    ],
+    "https://example.org/ontology/bank#TrustCustodyProduct": [
+      {
+        "uri": "https://example.org/ontology/holding#FinancialProduct",
+        "distance": 1
+      }
+    ],
+    "https://example.org/ontology/holding#AUM": [
+      {
+        "uri": "https://example.org/ontology/holding#Metric",
+        "distance": 1
+      }
+    ],
+    "https://example.org/ontology/holding#AddressContactInformation": [
+      {
+        "uri": "https://example.org/ontology/holding#ContactInformation",
+        "distance": 1
+      }
+    ],
+    "https://example.org/ontology/holding#ContactInformation": [],
+    "https://example.org/ontology/holding#Customer": [],
+    "https://example.org/ontology/holding#Department": [],
+    "https://example.org/ontology/holding#Employee": [],
+    "https://example.org/ontology/holding#FeeIncome": [
+      {
+        "uri": "https://example.org/ontology/holding#Metric",
+        "distance": 1
+      }
+    ],
+    "https://example.org/ontology/holding#FinancialProduct": [],
+    "https://example.org/ontology/holding#InterestIncome": [
+      {
+        "uri": "https://example.org/ontology/holding#Metric",
+        "distance": 1
+      }
+    ],
+    "https://example.org/ontology/holding#LUM": [
+      {
+        "uri": "https://example.org/ontology/holding#Metric",
+        "distance": 1
+      }
+    ],
+    "https://example.org/ontology/holding#Metric": [],
+    "https://example.org/ontology/holding#MobileContactInformation": [
+      {
+        "uri": "https://example.org/ontology/holding#ContactInformation",
+        "distance": 1
+      }
+    ],
+    "https://example.org/ontology/securities#BondProduct": [
+      {
+        "uri": "https://example.org/ontology/holding#FinancialProduct",
+        "distance": 1
+      }
+    ],
+    "https://example.org/ontology/securities#FundProduct": [
+      {
+        "uri": "https://example.org/ontology/holding#FinancialProduct",
+        "distance": 1
+      }
+    ],
+    "https://example.org/ontology/securities#OverseasFinancialProduct": [
+      {
+        "uri": "https://example.org/ontology/holding#FinancialProduct",
+        "distance": 1
+      }
+    ],
+    "https://example.org/ontology/securities#SecuritiesAUM": [
+      {
+        "uri": "https://example.org/ontology/holding#AUM",
+        "distance": 1
+      },
+      {
+        "uri": "https://example.org/ontology/holding#Metric",
+        "distance": 2
+      }
+    ],
+    "https://example.org/ontology/securities#SecuritiesFeeIncome": [
+      {
+        "uri": "https://example.org/ontology/holding#FeeIncome",
+        "distance": 1
+      },
+      {
+        "uri": "https://example.org/ontology/holding#Metric",
+        "distance": 2
+      }
+    ],
+    "https://example.org/ontology/securities#StockProduct": [
+      {
+        "uri": "https://example.org/ontology/holding#FinancialProduct",
+        "distance": 1
+      }
+    ],
+    "https://example.org/ontology/securities#StructuredFinancialProduct": [
+      {
+        "uri": "https://example.org/ontology/holding#FinancialProduct",
+        "distance": 1
+      }
+    ]
+  },
+  "entailments": [
+    {
+      "class": "https://example.org/ontology/bank#BankAUM",
+      "ancestor": "https://example.org/ontology/holding#AUM",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/bank#BankAUM",
+        "https://example.org/ontology/holding#AUM"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/bank#BankAUM",
+      "ancestor": "https://example.org/ontology/holding#Metric",
+      "asserted": false,
+      "path": [
+        "https://example.org/ontology/bank#BankAUM",
+        "https://example.org/ontology/holding#AUM",
+        "https://example.org/ontology/holding#Metric"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/bank#BankEmployee",
+      "ancestor": "https://example.org/ontology/holding#Employee",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/bank#BankEmployee",
+        "https://example.org/ontology/holding#Employee"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/bank#BankFeeIncome",
+      "ancestor": "https://example.org/ontology/holding#FeeIncome",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/bank#BankFeeIncome",
+        "https://example.org/ontology/holding#FeeIncome"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/bank#BankFeeIncome",
+      "ancestor": "https://example.org/ontology/holding#Metric",
+      "asserted": false,
+      "path": [
+        "https://example.org/ontology/bank#BankFeeIncome",
+        "https://example.org/ontology/holding#FeeIncome",
+        "https://example.org/ontology/holding#Metric"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/bank#BankInterestIncome",
+      "ancestor": "https://example.org/ontology/holding#InterestIncome",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/bank#BankInterestIncome",
+        "https://example.org/ontology/holding#InterestIncome"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/bank#BankInterestIncome",
+      "ancestor": "https://example.org/ontology/holding#Metric",
+      "asserted": false,
+      "path": [
+        "https://example.org/ontology/bank#BankInterestIncome",
+        "https://example.org/ontology/holding#InterestIncome",
+        "https://example.org/ontology/holding#Metric"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/bank#BankLUM",
+      "ancestor": "https://example.org/ontology/holding#LUM",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/bank#BankLUM",
+        "https://example.org/ontology/holding#LUM"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/bank#BankLUM",
+      "ancestor": "https://example.org/ontology/holding#Metric",
+      "asserted": false,
+      "path": [
+        "https://example.org/ontology/bank#BankLUM",
+        "https://example.org/ontology/holding#LUM",
+        "https://example.org/ontology/holding#Metric"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/bank#BondProduct",
+      "ancestor": "https://example.org/ontology/holding#FinancialProduct",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/bank#BondProduct",
+        "https://example.org/ontology/holding#FinancialProduct"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/bank#CollectiveManagementProduct",
+      "ancestor": "https://example.org/ontology/holding#FinancialProduct",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/bank#CollectiveManagementProduct",
+        "https://example.org/ontology/holding#FinancialProduct"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/bank#DepositProduct",
+      "ancestor": "https://example.org/ontology/holding#FinancialProduct",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/bank#DepositProduct",
+        "https://example.org/ontology/holding#FinancialProduct"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/bank#ETFProduct",
+      "ancestor": "https://example.org/ontology/holding#FinancialProduct",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/bank#ETFProduct",
+        "https://example.org/ontology/holding#FinancialProduct"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/bank#FinancialAdvisor",
+      "ancestor": "https://example.org/ontology/bank#BankEmployee",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/bank#FinancialAdvisor",
+        "https://example.org/ontology/bank#BankEmployee"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/bank#FinancialAdvisor",
+      "ancestor": "https://example.org/ontology/holding#Employee",
+      "asserted": false,
+      "path": [
+        "https://example.org/ontology/bank#FinancialAdvisor",
+        "https://example.org/ontology/bank#BankEmployee",
+        "https://example.org/ontology/holding#Employee"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/bank#ForeignCurrencyFinancialProduct",
+      "ancestor": "https://example.org/ontology/holding#FinancialProduct",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/bank#ForeignCurrencyFinancialProduct",
+        "https://example.org/ontology/holding#FinancialProduct"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/bank#ForeignExchangeProduct",
+      "ancestor": "https://example.org/ontology/holding#FinancialProduct",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/bank#ForeignExchangeProduct",
+        "https://example.org/ontology/holding#FinancialProduct"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/bank#FundProduct",
+      "ancestor": "https://example.org/ontology/holding#FinancialProduct",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/bank#FundProduct",
+        "https://example.org/ontology/holding#FinancialProduct"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/bank#GoldProduct",
+      "ancestor": "https://example.org/ontology/holding#FinancialProduct",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/bank#GoldProduct",
+        "https://example.org/ontology/holding#FinancialProduct"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/bank#InsuranceProduct",
+      "ancestor": "https://example.org/ontology/holding#FinancialProduct",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/bank#InsuranceProduct",
+        "https://example.org/ontology/holding#FinancialProduct"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/bank#LetterOfCreditProduct",
+      "ancestor": "https://example.org/ontology/holding#FinancialProduct",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/bank#LetterOfCreditProduct",
+        "https://example.org/ontology/holding#FinancialProduct"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/bank#LoanProduct",
+      "ancestor": "https://example.org/ontology/holding#FinancialProduct",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/bank#LoanProduct",
+        "https://example.org/ontology/holding#FinancialProduct"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/bank#OverseasFinancialProduct",
+      "ancestor": "https://example.org/ontology/holding#FinancialProduct",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/bank#OverseasFinancialProduct",
+        "https://example.org/ontology/holding#FinancialProduct"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/bank#PlannedTrustProduct",
+      "ancestor": "https://example.org/ontology/holding#FinancialProduct",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/bank#PlannedTrustProduct",
+        "https://example.org/ontology/holding#FinancialProduct"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/bank#PrivateBankingDepartment",
+      "ancestor": "https://example.org/ontology/holding#Department",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/bank#PrivateBankingDepartment",
+        "https://example.org/ontology/holding#Department"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/bank#StockProduct",
+      "ancestor": "https://example.org/ontology/holding#FinancialProduct",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/bank#StockProduct",
+        "https://example.org/ontology/holding#FinancialProduct"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/bank#StructuredFinancialProduct",
+      "ancestor": "https://example.org/ontology/holding#FinancialProduct",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/bank#StructuredFinancialProduct",
+        "https://example.org/ontology/holding#FinancialProduct"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/bank#TWDFinancialProduct",
+      "ancestor": "https://example.org/ontology/holding#FinancialProduct",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/bank#TWDFinancialProduct",
+        "https://example.org/ontology/holding#FinancialProduct"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/bank#TrustCustodyProduct",
+      "ancestor": "https://example.org/ontology/holding#FinancialProduct",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/bank#TrustCustodyProduct",
+        "https://example.org/ontology/holding#FinancialProduct"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/holding#AUM",
+      "ancestor": "https://example.org/ontology/holding#Metric",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/holding#AUM",
+        "https://example.org/ontology/holding#Metric"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/holding#AddressContactInformation",
+      "ancestor": "https://example.org/ontology/holding#ContactInformation",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/holding#AddressContactInformation",
+        "https://example.org/ontology/holding#ContactInformation"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/holding#FeeIncome",
+      "ancestor": "https://example.org/ontology/holding#Metric",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/holding#FeeIncome",
+        "https://example.org/ontology/holding#Metric"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/holding#InterestIncome",
+      "ancestor": "https://example.org/ontology/holding#Metric",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/holding#InterestIncome",
+        "https://example.org/ontology/holding#Metric"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/holding#LUM",
+      "ancestor": "https://example.org/ontology/holding#Metric",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/holding#LUM",
+        "https://example.org/ontology/holding#Metric"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/holding#MobileContactInformation",
+      "ancestor": "https://example.org/ontology/holding#ContactInformation",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/holding#MobileContactInformation",
+        "https://example.org/ontology/holding#ContactInformation"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/securities#BondProduct",
+      "ancestor": "https://example.org/ontology/holding#FinancialProduct",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/securities#BondProduct",
+        "https://example.org/ontology/holding#FinancialProduct"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/securities#FundProduct",
+      "ancestor": "https://example.org/ontology/holding#FinancialProduct",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/securities#FundProduct",
+        "https://example.org/ontology/holding#FinancialProduct"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/securities#OverseasFinancialProduct",
+      "ancestor": "https://example.org/ontology/holding#FinancialProduct",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/securities#OverseasFinancialProduct",
+        "https://example.org/ontology/holding#FinancialProduct"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/securities#SecuritiesAUM",
+      "ancestor": "https://example.org/ontology/holding#AUM",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/securities#SecuritiesAUM",
+        "https://example.org/ontology/holding#AUM"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/securities#SecuritiesAUM",
+      "ancestor": "https://example.org/ontology/holding#Metric",
+      "asserted": false,
+      "path": [
+        "https://example.org/ontology/securities#SecuritiesAUM",
+        "https://example.org/ontology/holding#AUM",
+        "https://example.org/ontology/holding#Metric"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/securities#SecuritiesFeeIncome",
+      "ancestor": "https://example.org/ontology/holding#FeeIncome",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/securities#SecuritiesFeeIncome",
+        "https://example.org/ontology/holding#FeeIncome"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/securities#SecuritiesFeeIncome",
+      "ancestor": "https://example.org/ontology/holding#Metric",
+      "asserted": false,
+      "path": [
+        "https://example.org/ontology/securities#SecuritiesFeeIncome",
+        "https://example.org/ontology/holding#FeeIncome",
+        "https://example.org/ontology/holding#Metric"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/securities#StockProduct",
+      "ancestor": "https://example.org/ontology/holding#FinancialProduct",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/securities#StockProduct",
+        "https://example.org/ontology/holding#FinancialProduct"
+      ]
+    },
+    {
+      "class": "https://example.org/ontology/securities#StructuredFinancialProduct",
+      "ancestor": "https://example.org/ontology/holding#FinancialProduct",
+      "asserted": true,
+      "path": [
+        "https://example.org/ontology/securities#StructuredFinancialProduct",
+        "https://example.org/ontology/holding#FinancialProduct"
+      ]
+    }
+  ]
+}

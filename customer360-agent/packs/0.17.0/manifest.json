@@ -1,0 +1,76 @@
+{
+  "ontology_version": "0.17.0",
+  "release": {
+    "version": "0.17.0",
+    "release_iri": "https://example.org/ontology/customer360/0.17.0",
+    "released": true,
+    "matches_release": true,
+    "bundle_sha256": "3feb3af815a6639d35c1e0b8b3a668bad19124424d5563979e1c440d735b916f"
+  },
+  "knowledge_fingerprint": "c3e8b80da4717d204eb3e51af7272a17653f46c78bbe3b7052203e68b8e5b093",
+  "packs": [
+    {
+      "file": "customer.compact.md",
+      "role": "customer",
+      "level": "compact",
+      "sha256": "0a7cbe50f4496b3a076f1206910148ce38d255612dc39f75baab60e54b2729e7",
+      "chars": 6879,
+      "tokens_est": 2684,
+      "metrics": 9
+    },
+    {
+      "file": "customer.full.md",
+      "role": "customer",
+      "level": "full",
+      "sha256": "8929c7c2f672e07db0d1716dec78af3f5cc7a2e42b4cab636ecc620578bd6480",
+      "chars": 8875,
+      "tokens_est": 4037,
+      "metrics": 9
+    },
+    {
+      "file": "rm.compact.md",
+      "role": "rm",
+      "level": "compact",
+      "sha256": "c75d9187ff5290da1f1f8dd9e161233f67eb1ba4f27064c9416d8e6fe54f948c",
+      "chars": 12488,
+      "tokens_est": 4492,
+      "metrics": 44
+    },
+    {
+      "file": "rm.full.md",
+      "role": "rm",
+      "level": "full",
+      "sha256": "98bcfda43cd0623548c967774ec087b2225d89d6c7429f1c14b5d12f7069d85b",
+      "chars": 16017,
+      "tokens_est": 6772,
+      "metrics": 44
+    },
+    {
+      "file": "pb_manager.compact.md",
+      "role": "pb_manager",
+      "level": "compact",
+      "sha256": "4e7eaef8b3b5718b92db92a74608e3a89f03b9dcf7cb79f2d9ece477535ab206",
+      "chars": 12500,
+      "tokens_est": 4498,
+      "metrics": 44
+    },
+    {
+      "file": "pb_manager.full.md",
+      "role": "pb_manager",
+      "level": "full",
+      "sha256": "9918e6fb7ff66aec3083686164e809082662778477f5649d165bbf42623ffabe",
+      "chars": 16029,
+      "tokens_est": 6777,
+      "metrics": 44
+    },
+    {
+      "file": "baseline.md",
+      "role": "baseline",
+      "level": "compact",
+      "sha256": "f7b1cfb8e9751d5fe3ff3fe8da90ae3337fdcdf7e7e2af6b9fdf4f54d612068a",
+      "chars": 6451,
+      "tokens_est": 2720,
+      "metrics": 44
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+# 留出集（2026-11-01）：在調整本體檢查「之後」才寫的新題，用來量測檢查在沒見過的說法上會不會誤擋。
+# 刻意放入容易讓文字錨點誤判的說法（債券型基金、股票型 ETF、理專賣基金…）。格式同 questions.yaml。
+
+questions:
+  - id: x01
+    category: 錨點陷阱
+    role: rm
+    question: 債券型基金的手收是哪個指標？
+    expect: {decision: [clarify, answer], metrics: [bank.fund_fee_income, securities.fund_fee_income], match: superset}
+    note: 「債券型」是基金的屬性，不是債券商品。
+  - id: x02
+    category: 錨點陷阱
+    role: rm
+    question: 客戶持有的股票型 ETF 規模要看哪個指標？
+    expect: {decision: [answer], metrics: [bank.etf_aum]}
+    note: 「股票型」是 ETF 的屬性；「規模」＝AUM。
+  - id: x03
+    category: 錨點陷阱
+    role: rm
+    question: 股票型基金的 AUM 是哪個指標？
+    expect: {decision: [clarify, answer], metrics: [bank.fund_aum, securities.fund_aum], match: superset}
+  - id: x04
+    category: 子公司線索
+    role: rm
+    question: 理專賣基金收到的佣金是哪個指標？
+    expect: {decision: [answer, clarify], metrics: [bank.fund_fee_income], match: superset}
+    note: 理專屬於銀行（bank:FinancialAdvisor），本體可以推得子公司。
+  - id: x05
+    category: 直接對應
+    role: rm
+    question: 信託的海外債 AUM 是哪個？
+    expect: {decision: [answer], metrics: [bank.overseas_bond_trust_aum]}
+  - id: x06
+    category: 直接對應
+    role: rm
+    question: 存款利息收入看哪個指標？
+    expect: {decision: [answer], metrics: [bank.deposit_interest_income]}
+  - id: x07
+    category: 直接對應
+    role: rm
+    question: 外幣定存的 AUM 要從哪裡查？
+    expect: {decision: [answer], metrics: [bank.foreign_currency_deposit_aum]}
+  - id: x08
+    category: 直接對應
+    role: rm
+    question: 保險的庫存要看哪個指標？
+    expect: {decision: [answer], metrics: [bank.insurance_aum]}
+  - id: x09
+    category: 直接對應
+    role: rm
+    question: 開狀業務收了多少手續費，要用哪個指標？
+    expect: {decision: [answer], metrics: [bank.lc_fee_income]}
+  - id: x10
+    category: 直接對應
+    role: rm
+    question: 境外結構型商品 AUM 是哪個指標？
+    expect: {decision: [answer], metrics: [bank.offshore_structured_aum]}
+  - id: x11
+    category: 縮寫
+    role: rm
+    question: ELI 跟 FCI 的手收各是哪個指標？
+    expect: {decision: [answer], metrics: [bank.domestic_structured_eli_fee_income, bank.domestic_structured_fci_fee_income]}
+  - id: x12
+    category: 直接對應
+    role: rm
+    question: 台股 AUM 是哪個指標？
+    expect: {decision: [answer], metrics: [securities.taiwan_stock_aum]}
+  - id: x13
+    category: 直接對應
+    role: rm
+    question: 規劃型信託的手收從哪些表來？
+    expect: {decision: [answer], metrics: [bank.planned_trust_fee_income]}
+  - id: x14
+    category: 概念
+    role: rm
+    question: 私銀部門跟指標之間是什麼關係？
+    expect: {decision: [answer], metrics: [], classes: [bank:PrivateBankingDepartment, fh:Metric]}
+  - id: x15
+    category: 多種類
+    role: rm
+    question: 放款的 LUM 跟利收各是哪個指標？
+    expect: {decision: [answer], metrics: [bank.loan_lum, bank.loan_income]}
+  - id: x16
+    category: 子公司歧義
+    role: rm
+    question: 基金和 ETF 的 AUM 各用哪些指標？
+    expect: {decision: [answer, clarify], metrics: [bank.fund_aum, securities.fund_aum, bank.etf_aum], match: superset}
+  - id: x17
+    category: 權限
+    role: customer
+    question: 我的海外債券手收是哪個指標？
+    expect: {decision: [answer], metrics: [securities.bond_fee_income]}
+    note: 客戶看不到銀行端，只剩證券複委託債券手收。
+  - id: x18
+    category: 子公司歧義
+    role: rm
+    question: 海外股票的手收是哪個指標？
+    expect: {decision: [clarify, answer], metrics: [bank.overseas_stock_fee_income, securities.foreign_stock_fee_income], match: superset}
+  - id: x19
+    category: 子公司線索
+    role: rm
+    question: 證券的股票部位市值有哪些指標？
+    expect: {decision: [answer], metrics: [securities.foreign_stock_aum, securities.taiwan_stock_aum], match: superset}
+  - id: x20
+    category: 錨點陷阱
+    role: rm
+    question: 黃金存摺賺的手續費是哪個指標？
+    expect: {decision: [answer], metrics: [bank.gold_fee_income]}
+  - id: x21
+    category: 錨點陷阱
+    role: rm
+    question: 結構型商品裡面，DCI 的手收是哪個？
+    expect: {decision: [answer], metrics: [bank.dci_fee_income]}
+  - id: x22
+    category: 待定或不存在
+    role: rm
+    question: 開狀有 AUM 嗎？
+    expect: {decision: [out_of_scope], forbidden: [bank.lc_fee_income]}
+  - id: x23
+    category: 錨點陷阱
+    role: rm
+    question: 客戶買海外債券型基金的 AUM 要看哪個？
+    expect: {decision: [clarify, answer], metrics: [bank.fund_aum, securities.fund_aum], match: superset}
+  - id: x24
+    category: 子公司線索
+    role: rm
+    question: 複委託的基金手收是哪個指標？
+    expect: {decision: [answer], metrics: [securities.fund_fee_income]}

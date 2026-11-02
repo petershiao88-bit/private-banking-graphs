@@ -1,0 +1,55 @@
+# 證券｜金融商品 v0.17.0，2026-10-31，設計草案。
+# 子公司層－證券／金融商品：證券的債券、基金、海外、股票與結構型商品。
+# 由 v0.16.0 的 securities-common.ttl 拆出（FIBO 式模組化），類別與屬性定義未改。example.org 為示意命名空間。
+
+@prefix fh: <https://example.org/ontology/holding#> .
+@prefix fibo-fnd-utl-av: <https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix securities: <https://example.org/ontology/securities#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+securities:BondProduct a owl:Class ;
+    rdfs:label "債券商品"@zh-TW ;
+    rdfs:subClassOf fh:FinancialProduct ;
+    skos:definition "發行人為籌資而發行、約定清償條件的債務型金融商品。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "證券" .
+
+securities:FundProduct a owl:Class ;
+    rdfs:label "基金商品"@zh-TW ;
+    rdfs:subClassOf fh:FinancialProduct ;
+    skos:definition "透過集合投資方式，由專業管理機構依基金契約管理運用資產的金融商品。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "證券" .
+
+securities:OverseasFinancialProduct a owl:Class ;
+    rdfs:label "海外金融商品"@zh-TW ;
+    rdfs:subClassOf fh:FinancialProduct ;
+    skos:definition "證券業務中歸入海外投資範圍的金融商品。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "證券" .
+
+securities:StockProduct a owl:Class ;
+    rdfs:label "股票商品"@zh-TW ;
+    rdfs:subClassOf fh:FinancialProduct ;
+    skos:definition "代表公司股權的金融商品。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "證券" .
+
+securities:StructuredFinancialProduct a owl:Class ;
+    rdfs:label "結構型金融商品"@zh-TW ;
+    rdfs:subClassOf fh:FinancialProduct ;
+    skos:definition "依商品契約將金融工具組合，形成特定收益或風險條件的金融商品。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "證券" .
+
+<https://example.org/ontology/securities/products> a owl:Ontology ;
+    rdfs:label "證券｜金融商品"@zh-TW ;
+    rdfs:comment "證券的債券、基金、海外、股票與結構型商品。"@zh-TW ;
+    owl:imports <https://example.org/ontology/holding/annotations>,
+        <https://example.org/ontology/holding/products> ;
+    owl:versionIRI <https://example.org/ontology/securities/products/0.17.0> ;
+    owl:versionInfo "0.17.0 / design draft / 2026-10-31" ;
+    fibo-fnd-utl-av:hasMaturityLevel fibo-fnd-utl-av:Provisional .
+

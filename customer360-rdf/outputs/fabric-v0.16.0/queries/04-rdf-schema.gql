@@ -1,4 +1,0 @@
-// RDF 類別階層，屬 schema 宣告。
-MATCH (c:OntologyClass)-[r:RDF_SUBCLASS_OF]->(p:OntologyClass)
-RETURN c, r, p
-LIMIT 200

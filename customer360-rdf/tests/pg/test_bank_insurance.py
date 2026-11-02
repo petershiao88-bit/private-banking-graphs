@@ -7,7 +7,8 @@ from pathlib import Path
 
 from test_product_fees import source_path, workbook_cells
 
-HERE = Path(__file__).resolve().parents[2] / "department-pg"
+from paths import ARCHIVE, CONFIG, CURRENT_VERSION, MERGED_OWL, MERGED_TTL, PG_DIR, SOURCE_FILES, evidence_file, external  # noqa: E402,F401
+HERE = PG_DIR
 SPEC = importlib.util.spec_from_file_location("insurance_metric_tests", HERE / "build_cypher.py")
 builder = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(builder)

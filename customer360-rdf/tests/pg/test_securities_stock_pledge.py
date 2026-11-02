@@ -7,7 +7,8 @@ from pathlib import Path
 
 from test_product_fees import source_path, workbook_cells
 
-HERE = Path(__file__).resolve().parents[2] / "department-pg"
+from paths import ARCHIVE, CONFIG, CURRENT_VERSION, MERGED_OWL, MERGED_TTL, PG_DIR, SOURCE_FILES, evidence_file, external  # noqa: E402,F401
+HERE = PG_DIR
 SPEC = importlib.util.spec_from_file_location('pledge_metric_tests', HERE / 'build_cypher.py')
 builder = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(builder)
@@ -15,12 +16,12 @@ SPEC.loader.exec_module(builder)
 
 class SecuritiesStockPledgeTests(unittest.TestCase):
     def history(self):
-        return json.loads((HERE.parent / 'archive/department-pg/history/stock-pledge-aum-retired-v0.15.0.json').read_text(encoding='utf-8'))
+        return json.loads((HERE.parent / 'legacy/archive/department-pg/history/stock-pledge-aum-retired-v0.15.0.json').read_text(encoding='utf-8'))
 
     def test_original_estimate_evidence_survives_without_being_reinterpreted_as_a_loan(self):
         history = self.history()
         model = builder.investment_metrics.load_model()
-        before = json.loads((HERE.parent / 'archive/before-v0.15.0/department-pg/investment-metrics.json').read_text(encoding='utf-8'))
+        before = json.loads((HERE.parent / 'legacy/archive/before-v0.15.0/department-pg/investment-metrics.json').read_text(encoding='utf-8'))
         old = next(c for c in before['concepts'] if c['id'] == 'securities.stock_pledge_aum')
         self.assertEqual(history['concept'], old)
         self.assertEqual(history['status'], 'retired_not_build_input')
@@ -51,7 +52,7 @@ class SecuritiesStockPledgeTests(unittest.TestCase):
         self.assertNotIn('source:DSCSD.PBCMS_REPORTA03', nodes)
         self.assertFalse(any(e['source'].startswith('securities.stock_pledge_aum') for e in graph['relationships']))
         self.assertTrue(all(v is None for v in model['execution'].values()))
-        before = json.loads((HERE.parent / 'archive/before-securities-extension-20261022/department-pg/investment-metrics.json').read_text(encoding='utf-8'))
+        before = json.loads((HERE.parent / 'legacy/archive/before-securities-extension-20261022/department-pg/investment-metrics.json').read_text(encoding='utf-8'))
         from review_contract_pg_income import historical_income_concept
         for old in before['concepts']: self.assertEqual(old, historical_income_concept(concepts[old['id']]))
         pending = {p['id']: p for p in model['pending_scope']}

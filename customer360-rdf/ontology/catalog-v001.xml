@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
+  <uri name="https://example.org/ontology/holding/annotations" uri="holding/annotations.ttl" />
+  <uri name="https://example.org/ontology/holding/annotations/0.17.0" uri="holding/annotations.ttl" />
+  <uri name="https://example.org/ontology/holding/parties" uri="holding/parties.ttl" />
+  <uri name="https://example.org/ontology/holding/parties/0.17.0" uri="holding/parties.ttl" />
+  <uri name="https://example.org/ontology/holding/products" uri="holding/products.ttl" />
+  <uri name="https://example.org/ontology/holding/products/0.17.0" uri="holding/products.ttl" />
+  <uri name="https://example.org/ontology/holding/metrics" uri="holding/metrics.ttl" />
+  <uri name="https://example.org/ontology/holding/metrics/0.17.0" uri="holding/metrics.ttl" />
+  <uri name="https://example.org/ontology/holding/organization" uri="holding/organization.ttl" />
+  <uri name="https://example.org/ontology/holding/organization/0.17.0" uri="holding/organization.ttl" />
+  <uri name="https://example.org/ontology/bank/parties" uri="bank/parties.ttl" />
+  <uri name="https://example.org/ontology/bank/parties/0.17.0" uri="bank/parties.ttl" />
+  <uri name="https://example.org/ontology/bank/products" uri="bank/products.ttl" />
+  <uri name="https://example.org/ontology/bank/products/0.17.0" uri="bank/products.ttl" />
+  <uri name="https://example.org/ontology/bank/metrics" uri="bank/metrics.ttl" />
+  <uri name="https://example.org/ontology/bank/metrics/0.17.0" uri="bank/metrics.ttl" />
+  <uri name="https://example.org/ontology/bank/organization" uri="bank/organization.ttl" />
+  <uri name="https://example.org/ontology/bank/organization/0.17.0" uri="bank/organization.ttl" />
+  <uri name="https://example.org/ontology/securities/products" uri="securities/products.ttl" />
+  <uri name="https://example.org/ontology/securities/products/0.17.0" uri="securities/products.ttl" />
+  <uri name="https://example.org/ontology/securities/metrics" uri="securities/metrics.ttl" />
+  <uri name="https://example.org/ontology/securities/metrics/0.17.0" uri="securities/metrics.ttl" />
+  <uri name="https://example.org/ontology/customer360" uri="../build/customer360-ontology.ttl" />
+  <uri name="https://example.org/ontology/customer360/0.17.0" uri="../build/customer360-ontology.ttl" />
+</catalog>

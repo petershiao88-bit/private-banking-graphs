@@ -9,7 +9,7 @@ from functools import lru_cache
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-BASE = ROOT / 'archive/before-department-v0.16.0'
+BASE = ROOT / 'legacy/archive/before-department-v0.16.0'
 
 
 @lru_cache(maxsize=1)

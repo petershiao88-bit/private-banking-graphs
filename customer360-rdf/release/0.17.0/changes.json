@@ -1,0 +1,1005 @@
+{
+  "previous": {
+    "version": "0.16.0",
+    "source": "release 0.16.0"
+  },
+  "changes": [
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "bank:BankAUM",
+      "uri": "https://example.org/ontology/bank#BankAUM",
+      "label": "銀行 AUM",
+      "fields": {
+        "module": {
+          "before": "bank-common.ttl",
+          "after": "ontology/bank/metrics.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "bank:BankEmployee",
+      "uri": "https://example.org/ontology/bank#BankEmployee",
+      "label": "行員",
+      "fields": {
+        "module": {
+          "before": "bank-common.ttl",
+          "after": "ontology/bank/parties.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "bank:BankFeeIncome",
+      "uri": "https://example.org/ontology/bank#BankFeeIncome",
+      "label": "銀行手收指標",
+      "fields": {
+        "module": {
+          "before": "bank-common.ttl",
+          "after": "ontology/bank/metrics.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "bank:BankInterestIncome",
+      "uri": "https://example.org/ontology/bank#BankInterestIncome",
+      "label": "銀行利收",
+      "fields": {
+        "module": {
+          "before": "bank-common.ttl",
+          "after": "ontology/bank/metrics.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "bank:BankLUM",
+      "uri": "https://example.org/ontology/bank#BankLUM",
+      "label": "銀行 LUM",
+      "fields": {
+        "module": {
+          "before": "bank-common.ttl",
+          "after": "ontology/bank/metrics.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "bank:BondProduct",
+      "uri": "https://example.org/ontology/bank#BondProduct",
+      "label": "債券商品",
+      "fields": {
+        "module": {
+          "before": "bank-investment-products.ttl",
+          "after": "ontology/bank/products.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "bank:CollectiveManagementProduct",
+      "uri": "https://example.org/ontology/bank#CollectiveManagementProduct",
+      "label": "銀行集合管理投資商品",
+      "fields": {
+        "module": {
+          "before": "bank-investment-products.ttl",
+          "after": "ontology/bank/products.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "bank:DepositProduct",
+      "uri": "https://example.org/ontology/bank#DepositProduct",
+      "label": "存款商品",
+      "fields": {
+        "module": {
+          "before": "bank-deposit.ttl",
+          "after": "ontology/bank/products.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "bank:ETFProduct",
+      "uri": "https://example.org/ontology/bank#ETFProduct",
+      "label": "銀行 ETF 商品",
+      "fields": {
+        "module": {
+          "before": "bank-investment-products.ttl",
+          "after": "ontology/bank/products.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "bank:FinancialAdvisor",
+      "uri": "https://example.org/ontology/bank#FinancialAdvisor",
+      "label": "理專",
+      "fields": {
+        "module": {
+          "before": "bank-common.ttl",
+          "after": "ontology/bank/parties.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "bank:ForeignCurrencyFinancialProduct",
+      "uri": "https://example.org/ontology/bank#ForeignCurrencyFinancialProduct",
+      "label": "外幣金融商品",
+      "fields": {
+        "module": {
+          "before": "bank-deposit.ttl",
+          "after": "ontology/bank/products.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "bank:ForeignExchangeProduct",
+      "uri": "https://example.org/ontology/bank#ForeignExchangeProduct",
+      "label": "銀行外匯商品",
+      "fields": {
+        "module": {
+          "before": "bank-investment-products.ttl",
+          "after": "ontology/bank/products.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "bank:FundProduct",
+      "uri": "https://example.org/ontology/bank#FundProduct",
+      "label": "基金商品",
+      "fields": {
+        "module": {
+          "before": "bank-investment-products.ttl",
+          "after": "ontology/bank/products.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "bank:GoldProduct",
+      "uri": "https://example.org/ontology/bank#GoldProduct",
+      "label": "銀行黃金商品",
+      "fields": {
+        "module": {
+          "before": "bank-investment-products.ttl",
+          "after": "ontology/bank/products.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "bank:InsuranceProduct",
+      "uri": "https://example.org/ontology/bank#InsuranceProduct",
+      "label": "銀行保險商品",
+      "fields": {
+        "module": {
+          "before": "bank-investment-products.ttl",
+          "after": "ontology/bank/products.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "bank:LetterOfCreditProduct",
+      "uri": "https://example.org/ontology/bank#LetterOfCreditProduct",
+      "label": "銀行開狀商品",
+      "fields": {
+        "module": {
+          "before": "bank-investment-products.ttl",
+          "after": "ontology/bank/products.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "bank:LoanProduct",
+      "uri": "https://example.org/ontology/bank#LoanProduct",
+      "label": "銀行放款商品",
+      "fields": {
+        "module": {
+          "before": "bank-investment-products.ttl",
+          "after": "ontology/bank/products.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "bank:OverseasFinancialProduct",
+      "uri": "https://example.org/ontology/bank#OverseasFinancialProduct",
+      "label": "海外金融商品",
+      "fields": {
+        "module": {
+          "before": "bank-investment-products.ttl",
+          "after": "ontology/bank/products.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "bank:PlannedTrustProduct",
+      "uri": "https://example.org/ontology/bank#PlannedTrustProduct",
+      "label": "銀行規劃型信託商品",
+      "fields": {
+        "module": {
+          "before": "bank-investment-products.ttl",
+          "after": "ontology/bank/products.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "bank:PrivateBankingDepartment",
+      "uri": "https://example.org/ontology/bank#PrivateBankingDepartment",
+      "label": "私人銀行部門",
+      "fields": {
+        "module": {
+          "before": "bank-common.ttl",
+          "after": "ontology/bank/organization.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "bank:StockProduct",
+      "uri": "https://example.org/ontology/bank#StockProduct",
+      "label": "股票商品",
+      "fields": {
+        "module": {
+          "before": "bank-investment-products.ttl",
+          "after": "ontology/bank/products.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "bank:StructuredFinancialProduct",
+      "uri": "https://example.org/ontology/bank#StructuredFinancialProduct",
+      "label": "結構型金融商品",
+      "fields": {
+        "module": {
+          "before": "bank-deposit.ttl",
+          "after": "ontology/bank/products.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "bank:TWDFinancialProduct",
+      "uri": "https://example.org/ontology/bank#TWDFinancialProduct",
+      "label": "台幣金融商品",
+      "fields": {
+        "module": {
+          "before": "bank-deposit.ttl",
+          "after": "ontology/bank/products.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "bank:TrustCustodyProduct",
+      "uri": "https://example.org/ontology/bank#TrustCustodyProduct",
+      "label": "銀行信託保管商品",
+      "fields": {
+        "module": {
+          "before": "bank-investment-products.ttl",
+          "after": "ontology/bank/products.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "fh:AUM",
+      "uri": "https://example.org/ontology/holding#AUM",
+      "label": "AUM",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/metrics.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "fh:AddressContactInformation",
+      "uri": "https://example.org/ontology/holding#AddressContactInformation",
+      "label": "地址通聯資訊",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/parties.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "fh:ContactInformation",
+      "uri": "https://example.org/ontology/holding#ContactInformation",
+      "label": "通聯資訊",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/parties.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "fh:Customer",
+      "uri": "https://example.org/ontology/holding#Customer",
+      "label": "客戶",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/parties.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "fh:Department",
+      "uri": "https://example.org/ontology/holding#Department",
+      "label": "部門",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/organization.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "fh:Employee",
+      "uri": "https://example.org/ontology/holding#Employee",
+      "label": "職員",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/parties.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "fh:FeeIncome",
+      "uri": "https://example.org/ontology/holding#FeeIncome",
+      "label": "手收指標",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/metrics.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "fh:FinancialProduct",
+      "uri": "https://example.org/ontology/holding#FinancialProduct",
+      "label": "金融商品",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/products.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "fh:InterestIncome",
+      "uri": "https://example.org/ontology/holding#InterestIncome",
+      "label": "利收指標",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/metrics.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "fh:LUM",
+      "uri": "https://example.org/ontology/holding#LUM",
+      "label": "LUM",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/metrics.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "fh:Metric",
+      "uri": "https://example.org/ontology/holding#Metric",
+      "label": "指標",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/metrics.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "fh:MobileContactInformation",
+      "uri": "https://example.org/ontology/holding#MobileContactInformation",
+      "label": "手機通聯資訊",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/parties.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "securities:BondProduct",
+      "uri": "https://example.org/ontology/securities#BondProduct",
+      "label": "債券商品",
+      "fields": {
+        "module": {
+          "before": "securities-common.ttl",
+          "after": "ontology/securities/products.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "securities:FundProduct",
+      "uri": "https://example.org/ontology/securities#FundProduct",
+      "label": "基金商品",
+      "fields": {
+        "module": {
+          "before": "securities-common.ttl",
+          "after": "ontology/securities/products.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "securities:OverseasFinancialProduct",
+      "uri": "https://example.org/ontology/securities#OverseasFinancialProduct",
+      "label": "海外金融商品",
+      "fields": {
+        "module": {
+          "before": "securities-common.ttl",
+          "after": "ontology/securities/products.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "securities:SecuritiesAUM",
+      "uri": "https://example.org/ontology/securities#SecuritiesAUM",
+      "label": "證券 AUM",
+      "fields": {
+        "module": {
+          "before": "securities-common.ttl",
+          "after": "ontology/securities/metrics.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "securities:SecuritiesFeeIncome",
+      "uri": "https://example.org/ontology/securities#SecuritiesFeeIncome",
+      "label": "證券手收指標",
+      "fields": {
+        "module": {
+          "before": "securities-common.ttl",
+          "after": "ontology/securities/metrics.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "securities:StockProduct",
+      "uri": "https://example.org/ontology/securities#StockProduct",
+      "label": "股票商品",
+      "fields": {
+        "module": {
+          "before": "securities-common.ttl",
+          "after": "ontology/securities/products.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "class",
+      "change": "modified",
+      "id": "securities:StructuredFinancialProduct",
+      "uri": "https://example.org/ontology/securities#StructuredFinancialProduct",
+      "label": "結構型金融商品",
+      "fields": {
+        "module": {
+          "before": "securities-common.ttl",
+          "after": "ontology/securities/products.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "property",
+      "change": "modified",
+      "id": "bank:attributedToAdvisor",
+      "uri": "https://example.org/ontology/bank#attributedToAdvisor",
+      "label": "歸屬理專",
+      "fields": {
+        "module": {
+          "before": "bank-common.ttl",
+          "after": "ontology/bank/metrics.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "property",
+      "change": "modified",
+      "id": "bank:employeeId",
+      "uri": "https://example.org/ontology/bank#employeeId",
+      "label": "行員編號",
+      "fields": {
+        "module": {
+          "before": "bank-common.ttl",
+          "after": "ontology/bank/parties.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "property",
+      "change": "modified",
+      "id": "fh:addressLine",
+      "uri": "https://example.org/ontology/holding#addressLine",
+      "label": "街道門牌地址",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/parties.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "property",
+      "change": "modified",
+      "id": "fh:aumAsOfDate",
+      "uri": "https://example.org/ontology/holding#aumAsOfDate",
+      "label": "AUM 基準日",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/metrics.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "property",
+      "change": "modified",
+      "id": "fh:city",
+      "uri": "https://example.org/ontology/holding#city",
+      "label": "縣市",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/parties.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "property",
+      "change": "modified",
+      "id": "fh:countryCode",
+      "uri": "https://example.org/ontology/holding#countryCode",
+      "label": "國家／地區代碼",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/parties.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "property",
+      "change": "modified",
+      "id": "fh:district",
+      "uri": "https://example.org/ontology/holding#district",
+      "label": "鄉鎮市區",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/parties.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "property",
+      "change": "modified",
+      "id": "fh:feeBaseAmount",
+      "uri": "https://example.org/ontology/holding#feeBaseAmount",
+      "label": "手收計算基礎金額",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/metrics.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "property",
+      "change": "modified",
+      "id": "fh:feeDeductionAmount",
+      "uri": "https://example.org/ontology/holding#feeDeductionAmount",
+      "label": "手收計算扣減金額",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/metrics.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "property",
+      "change": "modified",
+      "id": "fh:feeIncomeFromProduct",
+      "uri": "https://example.org/ontology/holding#feeIncomeFromProduct",
+      "label": "手收來源商品",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/metrics.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "property",
+      "change": "modified",
+      "id": "fh:fullAddress",
+      "uri": "https://example.org/ontology/holding#fullAddress",
+      "label": "完整地址",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/parties.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "property",
+      "change": "modified",
+      "id": "fh:hasContactPoint",
+      "uri": "https://example.org/ontology/holding#hasContactPoint",
+      "label": "具有通聯資訊",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/parties.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "property",
+      "change": "modified",
+      "id": "fh:holds",
+      "uri": "https://example.org/ontology/holding#holds",
+      "label": "持有金融商品",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/products.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "property",
+      "change": "modified",
+      "id": "fh:incomePeriodEnd",
+      "uri": "https://example.org/ontology/holding#incomePeriodEnd",
+      "label": "收入期間迄日",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/metrics.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "property",
+      "change": "modified",
+      "id": "fh:incomePeriodStart",
+      "uri": "https://example.org/ontology/holding#incomePeriodStart",
+      "label": "收入期間起日",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/metrics.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "property",
+      "change": "modified",
+      "id": "fh:interestIncomeFromProduct",
+      "uri": "https://example.org/ontology/holding#interestIncomeFromProduct",
+      "label": "利收來源商品",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/metrics.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "property",
+      "change": "modified",
+      "id": "fh:interestPeriodEnd",
+      "uri": "https://example.org/ontology/holding#interestPeriodEnd",
+      "label": "利收期間迄日",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/metrics.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "property",
+      "change": "modified",
+      "id": "fh:interestPeriodStart",
+      "uri": "https://example.org/ontology/holding#interestPeriodStart",
+      "label": "利收期間起日",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/metrics.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "property",
+      "change": "modified",
+      "id": "fh:lumAsOfDate",
+      "uri": "https://example.org/ontology/holding#lumAsOfDate",
+      "label": "LUM 基準日",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/metrics.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "property",
+      "change": "modified",
+      "id": "fh:lumMeasuresProduct",
+      "uri": "https://example.org/ontology/holding#lumMeasuresProduct",
+      "label": "LUM 衡量金融商品",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/metrics.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "property",
+      "change": "modified",
+      "id": "fh:measuresProduct",
+      "uri": "https://example.org/ontology/holding#measuresProduct",
+      "label": "衡量金融商品",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/metrics.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "property",
+      "change": "modified",
+      "id": "fh:metricAmount",
+      "uri": "https://example.org/ontology/holding#metricAmount",
+      "label": "指標金額",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/metrics.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "property",
+      "change": "modified",
+      "id": "fh:mobileNumber",
+      "uri": "https://example.org/ontology/holding#mobileNumber",
+      "label": "手機號碼",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/parties.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "property",
+      "change": "modified",
+      "id": "fh:postalCode",
+      "uri": "https://example.org/ontology/holding#postalCode",
+      "label": "郵遞區號",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/parties.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "property",
+      "change": "modified",
+      "id": "fh:serves",
+      "uri": "https://example.org/ontology/holding#serves",
+      "label": "服務客戶",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/parties.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "property",
+      "change": "modified",
+      "id": "fh:usesMetric",
+      "uri": "https://example.org/ontology/holding#usesMetric",
+      "label": "採用指標",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/organization.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "property",
+      "change": "modified",
+      "id": "fh:valuationQuantity",
+      "uri": "https://example.org/ontology/holding#valuationQuantity",
+      "label": "估值數量",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/metrics.ttl"
+        }
+      },
+      "impact": "minor"
+    },
+    {
+      "kind": "property",
+      "change": "modified",
+      "id": "fh:valuationUnitPrice",
+      "uri": "https://example.org/ontology/holding#valuationUnitPrice",
+      "label": "估值單價",
+      "fields": {
+        "module": {
+          "before": "holding-core.ttl",
+          "after": "ontology/holding/metrics.ttl"
+        }
+      },
+      "impact": "minor"
+    }
+  ],
+  "required": "minor",
+  "actual": "minor",
+  "gate": []
+}

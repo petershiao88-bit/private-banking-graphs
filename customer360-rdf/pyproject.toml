@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "customer360-ontology"
+version = "1.0.0"   # 工具版本；本體版本見 config.yaml 的 project.version
+description = "客戶360 金控三層本體：FIBO 式 RDF 模組、版本控制、OWL 推理發佈與 Semantic Studio"
+requires-python = ">=3.10"
+dependencies = ["rdflib==7.6.0", "owlrl==7.6.2", "PyYAML==6.0.3", "pyshacl==0.40.2"]
+
+[project.scripts]
+c360 = "ontology_kit.__main__:main"
+c360-studio = "semantic_studio.server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+semantic_studio = ["web/*.html", "web/css/*", "web/js/*", "web/lib/*"]

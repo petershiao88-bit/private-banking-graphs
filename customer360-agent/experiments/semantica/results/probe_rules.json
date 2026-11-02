@@ -1,0 +1,90 @@
+{
+ "facts": 136,
+ "rules": [
+  "IF subClassOf(?x, ?y) AND subClassOf(?y, ?z) THEN subClassOf(?x, ?z)",
+  "IF instance_of(?m, ?c) AND subClassOf(?c, ?d) THEN instance_of(?m, ?d)"
+ ],
+ "goals": [
+  {
+   "question": "銀行基金手收是一種指標嗎？",
+   "goal": "instance_of(bank.fund_fee_income, fh:Metric)",
+   "proved": true,
+   "reasoning_path": {
+    "start_facts": [
+     "instance_of(bank.fund_fee_income, bank:BankFeeIncome)",
+     "subClassOf(bank:BankFeeIncome, fh:Metric)"
+    ],
+    "end_conclusion": "instance_of(bank.fund_fee_income, fh:Metric)",
+    "steps": [
+     "Premise: instance_of(bank.fund_fee_income, bank:BankFeeIncome)",
+     "Premise: subClassOf(bank:BankFeeIncome, fh:Metric)",
+     "Applied rule: Rule 2"
+    ],
+    "total_confidence": 1.0
+   },
+   "natural_language": "Given the premises: instance_of(bank.fund_fee_income, bank:BankFeeIncome), subClassOf(bank:BankFeeIncome, fh:Metric), we conclude: instance_of(bank.fund_fee_income, fh:Metric) using rule 'Rule 2'.",
+   "full_proof_tree": {
+    "fact": "instance_of(bank.fund_fee_income, fh:Metric)",
+    "rule": "Rule 2",
+    "premises": [
+     {
+      "fact": "instance_of(bank.fund_fee_income, bank:BankFeeIncome)",
+      "rule": "（既有事實）"
+     },
+     {
+      "fact": "subClassOf(bank:BankFeeIncome, fh:Metric)",
+      "rule": "Rule 1",
+      "premises": [
+       {
+        "fact": "subClassOf(bank:BankFeeIncome, fh:FeeIncome)",
+        "rule": "（既有事實）"
+       },
+       {
+        "fact": "subClassOf(fh:FeeIncome, fh:Metric)",
+        "rule": "（既有事實）"
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "question": "證券複委託基金手收是銀行手收嗎？（應為否）",
+   "goal": "instance_of(securities.fund_fee_income, bank:BankFeeIncome)",
+   "proved": false
+  },
+  {
+   "question": "理專是一種職員嗎？",
+   "goal": "subClassOf(bank:FinancialAdvisor, fh:Employee)",
+   "proved": true,
+   "reasoning_path": {
+    "start_facts": [
+     "subClassOf(bank:FinancialAdvisor, bank:BankEmployee)",
+     "subClassOf(bank:BankEmployee, fh:Employee)"
+    ],
+    "end_conclusion": "subClassOf(bank:FinancialAdvisor, fh:Employee)",
+    "steps": [
+     "Premise: subClassOf(bank:FinancialAdvisor, bank:BankEmployee)",
+     "Premise: subClassOf(bank:BankEmployee, fh:Employee)",
+     "Applied rule: Rule 1"
+    ],
+    "total_confidence": 1.0
+   },
+   "natural_language": "Given the premises: subClassOf(bank:FinancialAdvisor, bank:BankEmployee), subClassOf(bank:BankEmployee, fh:Employee), we conclude: subClassOf(bank:FinancialAdvisor, fh:Employee) using rule 'Rule 1'.",
+   "full_proof_tree": {
+    "fact": "subClassOf(bank:FinancialAdvisor, fh:Employee)",
+    "rule": "Rule 1",
+    "premises": [
+     {
+      "fact": "subClassOf(bank:FinancialAdvisor, bank:BankEmployee)",
+      "rule": "（既有事實）"
+     },
+     {
+      "fact": "subClassOf(bank:BankEmployee, fh:Employee)",
+      "rule": "（既有事實）"
+     }
+    ]
+   }
+  }
+ ]
+}

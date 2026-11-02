@@ -1,0 +1,963 @@
+{
+ "summary": {
+  "plans": 55,
+  "plans_with_denied": 49,
+  "denied_metrics": 67,
+  "no_check_leaks": 67,
+  "studio_rule_leaks": 1,
+  "handoff_leaks": 0,
+  "status": {
+   "pass": 6,
+   "redacted": 49,
+   "blocked": 0
+  },
+  "studio_miss_examples": [
+   {
+    "set": "questions.yaml",
+    "qid": "s03",
+    "metrics": [
+     "securities.total_fee_income"
+    ],
+    "denied": [
+     "securities.total_fee_income"
+    ],
+    "studio_misses": [
+     "securities.total_fee_income"
+    ],
+    "status": "redacted",
+    "removed": [
+     "securities.total_fee_income"
+    ],
+    "leaked_after": []
+   }
+  ]
+ },
+ "rows": [
+  {
+   "set": "questions.yaml",
+   "qid": "d01",
+   "metrics": [
+    "bank.fund_fee_income"
+   ],
+   "denied": [
+    "bank.fund_fee_income"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.fund_fee_income"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "d02",
+   "metrics": [
+    "bank.loan_lum"
+   ],
+   "denied": [
+    "bank.loan_lum"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.loan_lum"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "d03",
+   "metrics": [
+    "bank.gold_fee_income"
+   ],
+   "denied": [
+    "bank.gold_fee_income"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.gold_fee_income"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "d04",
+   "metrics": [
+    "bank.insurance_fee_income"
+   ],
+   "denied": [
+    "bank.insurance_fee_income"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.insurance_fee_income"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "d05",
+   "metrics": [
+    "securities.bond_aum"
+   ],
+   "denied": [],
+   "studio_misses": [],
+   "status": "pass",
+   "removed": [],
+   "leaked_after": []
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "d06",
+   "metrics": [
+    "bank.twd_deposit_aum"
+   ],
+   "denied": [
+    "bank.twd_deposit_aum"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.twd_deposit_aum"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "d07",
+   "metrics": [
+    "bank.fx_fee_income"
+   ],
+   "denied": [
+    "bank.fx_fee_income"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.fx_fee_income"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "d08",
+   "metrics": [
+    "bank.dci_fee_income"
+   ],
+   "denied": [
+    "bank.dci_fee_income"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.dci_fee_income"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "a01",
+   "metrics": [
+    "bank.fund_fee_income",
+    "securities.fund_fee_income"
+   ],
+   "denied": [
+    "bank.fund_fee_income",
+    "securities.fund_fee_income"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.fund_fee_income",
+    "securities.fund_fee_income"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "a02",
+   "metrics": [
+    "bank.fund_aum",
+    "securities.fund_aum"
+   ],
+   "denied": [
+    "bank.fund_aum"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.fund_aum"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "a03",
+   "metrics": [
+    "bank.overseas_stock_aum",
+    "securities.foreign_stock_aum"
+   ],
+   "denied": [
+    "bank.overseas_stock_aum"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.overseas_stock_aum"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "a04",
+   "metrics": [
+    "bank.domestic_structured_si_fee_income",
+    "bank.domestic_structured_eli_fee_income",
+    "bank.domestic_structured_fci_fee_income",
+    "bank.dci_fee_income",
+    "bank.offshore_structured_fee_income",
+    "securities.structured_fee_income"
+   ],
+   "denied": [
+    "bank.domestic_structured_si_fee_income",
+    "bank.domestic_structured_eli_fee_income",
+    "bank.domestic_structured_fci_fee_income",
+    "bank.dci_fee_income",
+    "bank.offshore_structured_fee_income"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.domestic_structured_si_fee_income",
+    "bank.domestic_structured_eli_fee_income",
+    "bank.domestic_structured_fci_fee_income",
+    "bank.dci_fee_income",
+    "bank.offshore_structured_fee_income"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "a05",
+   "metrics": [
+    "bank.overseas_bond_trust_aum",
+    "bank.overseas_bond_proprietary_aum",
+    "securities.bond_aum"
+   ],
+   "denied": [
+    "bank.overseas_bond_trust_aum",
+    "bank.overseas_bond_proprietary_aum"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.overseas_bond_trust_aum",
+    "bank.overseas_bond_proprietary_aum"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "h01",
+   "metrics": [
+    "bank.overseas_stock_aum",
+    "bank.overseas_bond_trust_aum",
+    "bank.overseas_bond_proprietary_aum",
+    "bank.offshore_structured_aum"
+   ],
+   "denied": [
+    "bank.overseas_stock_aum",
+    "bank.overseas_bond_trust_aum",
+    "bank.overseas_bond_proprietary_aum",
+    "bank.offshore_structured_aum"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.overseas_stock_aum",
+    "bank.overseas_bond_trust_aum",
+    "bank.overseas_bond_proprietary_aum",
+    "bank.offshore_structured_aum"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "h02",
+   "metrics": [
+    "bank.twd_deposit_aum",
+    "bank.foreign_currency_deposit_aum",
+    "bank.structured_deposit_aum"
+   ],
+   "denied": [
+    "bank.twd_deposit_aum",
+    "bank.foreign_currency_deposit_aum",
+    "bank.structured_deposit_aum"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.twd_deposit_aum",
+    "bank.foreign_currency_deposit_aum",
+    "bank.structured_deposit_aum"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "s01",
+   "metrics": [
+    "securities.total_aum"
+   ],
+   "denied": [],
+   "studio_misses": [],
+   "status": "pass",
+   "removed": [],
+   "leaked_after": []
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "s02",
+   "metrics": [
+    "securities.total_aum",
+    "securities.bond_aum"
+   ],
+   "denied": [],
+   "studio_misses": [],
+   "status": "pass",
+   "removed": [],
+   "leaked_after": []
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "s03",
+   "metrics": [
+    "securities.total_fee_income"
+   ],
+   "denied": [
+    "securities.total_fee_income"
+   ],
+   "studio_misses": [
+    "securities.total_fee_income"
+   ],
+   "status": "redacted",
+   "removed": [
+    "securities.total_fee_income"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "p05",
+   "metrics": [
+    "bank.fund_aum",
+    "securities.fund_aum"
+   ],
+   "denied": [
+    "bank.fund_aum"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.fund_aum"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "questions.yaml",
+   "qid": "n01",
+   "metrics": [
+    "bank.fund_aum"
+   ],
+   "denied": [
+    "bank.fund_aum"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.fund_aum"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x01",
+   "metrics": [
+    "bank.fund_fee_income",
+    "securities.fund_fee_income"
+   ],
+   "denied": [
+    "bank.fund_fee_income",
+    "securities.fund_fee_income"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.fund_fee_income",
+    "securities.fund_fee_income"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x02",
+   "metrics": [
+    "bank.etf_aum"
+   ],
+   "denied": [
+    "bank.etf_aum"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.etf_aum"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x03",
+   "metrics": [
+    "bank.fund_aum",
+    "securities.fund_aum"
+   ],
+   "denied": [
+    "bank.fund_aum"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.fund_aum"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x04",
+   "metrics": [
+    "bank.fund_fee_income"
+   ],
+   "denied": [
+    "bank.fund_fee_income"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.fund_fee_income"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x05",
+   "metrics": [
+    "bank.overseas_bond_trust_aum"
+   ],
+   "denied": [
+    "bank.overseas_bond_trust_aum"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.overseas_bond_trust_aum"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x06",
+   "metrics": [
+    "bank.deposit_interest_income"
+   ],
+   "denied": [
+    "bank.deposit_interest_income"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.deposit_interest_income"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x07",
+   "metrics": [
+    "bank.foreign_currency_deposit_aum"
+   ],
+   "denied": [
+    "bank.foreign_currency_deposit_aum"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.foreign_currency_deposit_aum"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x08",
+   "metrics": [
+    "bank.insurance_aum"
+   ],
+   "denied": [
+    "bank.insurance_aum"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.insurance_aum"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x09",
+   "metrics": [
+    "bank.lc_fee_income"
+   ],
+   "denied": [
+    "bank.lc_fee_income"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.lc_fee_income"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x10",
+   "metrics": [
+    "bank.offshore_structured_aum"
+   ],
+   "denied": [
+    "bank.offshore_structured_aum"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.offshore_structured_aum"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x11",
+   "metrics": [
+    "bank.domestic_structured_eli_fee_income",
+    "bank.domestic_structured_fci_fee_income"
+   ],
+   "denied": [
+    "bank.domestic_structured_eli_fee_income",
+    "bank.domestic_structured_fci_fee_income"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.domestic_structured_eli_fee_income",
+    "bank.domestic_structured_fci_fee_income"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x12",
+   "metrics": [
+    "securities.taiwan_stock_aum"
+   ],
+   "denied": [],
+   "studio_misses": [],
+   "status": "pass",
+   "removed": [],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x13",
+   "metrics": [
+    "bank.planned_trust_fee_income"
+   ],
+   "denied": [
+    "bank.planned_trust_fee_income"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.planned_trust_fee_income"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x15",
+   "metrics": [
+    "bank.loan_lum",
+    "bank.loan_income"
+   ],
+   "denied": [
+    "bank.loan_lum",
+    "bank.loan_income"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.loan_lum",
+    "bank.loan_income"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x16",
+   "metrics": [
+    "bank.fund_aum",
+    "securities.fund_aum",
+    "bank.etf_aum"
+   ],
+   "denied": [
+    "bank.fund_aum",
+    "bank.etf_aum"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.fund_aum",
+    "bank.etf_aum"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x18",
+   "metrics": [
+    "bank.overseas_stock_fee_income",
+    "securities.foreign_stock_fee_income"
+   ],
+   "denied": [
+    "bank.overseas_stock_fee_income"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.overseas_stock_fee_income"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x19",
+   "metrics": [
+    "securities.foreign_stock_aum",
+    "securities.taiwan_stock_aum"
+   ],
+   "denied": [],
+   "studio_misses": [],
+   "status": "pass",
+   "removed": [],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x20",
+   "metrics": [
+    "bank.gold_fee_income"
+   ],
+   "denied": [
+    "bank.gold_fee_income"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.gold_fee_income"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x21",
+   "metrics": [
+    "bank.dci_fee_income"
+   ],
+   "denied": [
+    "bank.dci_fee_income"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.dci_fee_income"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x23",
+   "metrics": [
+    "bank.fund_aum",
+    "securities.fund_aum"
+   ],
+   "denied": [
+    "bank.fund_aum"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.fund_aum"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout.yaml",
+   "qid": "x24",
+   "metrics": [
+    "securities.fund_fee_income"
+   ],
+   "denied": [
+    "securities.fund_fee_income"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "securities.fund_fee_income"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout2.yaml",
+   "qid": "y01",
+   "metrics": [
+    "bank.etf_fee_income"
+   ],
+   "denied": [
+    "bank.etf_fee_income"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.etf_fee_income"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout2.yaml",
+   "qid": "y02",
+   "metrics": [
+    "bank.overseas_bond_trust_fee_income",
+    "bank.overseas_bond_proprietary_fee_income",
+    "securities.bond_fee_income"
+   ],
+   "denied": [
+    "bank.overseas_bond_trust_fee_income",
+    "bank.overseas_bond_proprietary_fee_income"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.overseas_bond_trust_fee_income",
+    "bank.overseas_bond_proprietary_fee_income"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout2.yaml",
+   "qid": "y03",
+   "metrics": [
+    "bank.overseas_bond_proprietary_fee_income"
+   ],
+   "denied": [
+    "bank.overseas_bond_proprietary_fee_income"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.overseas_bond_proprietary_fee_income"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout2.yaml",
+   "qid": "y04",
+   "metrics": [
+    "bank.insurance_aum"
+   ],
+   "denied": [
+    "bank.insurance_aum"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.insurance_aum"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout2.yaml",
+   "qid": "y05",
+   "metrics": [
+    "bank.trust_custody_aum",
+    "bank.trust_custody_fee_income"
+   ],
+   "denied": [
+    "bank.trust_custody_aum",
+    "bank.trust_custody_fee_income"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.trust_custody_aum",
+    "bank.trust_custody_fee_income"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout2.yaml",
+   "qid": "y06",
+   "metrics": [
+    "bank.structured_deposit_aum"
+   ],
+   "denied": [
+    "bank.structured_deposit_aum"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.structured_deposit_aum"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout2.yaml",
+   "qid": "y08",
+   "metrics": [
+    "bank.foreign_currency_deposit_aum",
+    "bank.deposit_interest_income"
+   ],
+   "denied": [
+    "bank.foreign_currency_deposit_aum",
+    "bank.deposit_interest_income"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.foreign_currency_deposit_aum",
+    "bank.deposit_interest_income"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout2.yaml",
+   "qid": "y09",
+   "metrics": [
+    "bank.fund_aum",
+    "securities.fund_aum"
+   ],
+   "denied": [
+    "bank.fund_aum"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.fund_aum"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout2.yaml",
+   "qid": "y11",
+   "metrics": [
+    "securities.foreign_stock_fee_income"
+   ],
+   "denied": [],
+   "studio_misses": [],
+   "status": "pass",
+   "removed": [],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout2.yaml",
+   "qid": "y12",
+   "metrics": [
+    "bank.overseas_stock_aum"
+   ],
+   "denied": [
+    "bank.overseas_stock_aum"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.overseas_stock_aum"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout2.yaml",
+   "qid": "y13",
+   "metrics": [
+    "bank.domestic_structured_si_fee_income"
+   ],
+   "denied": [
+    "bank.domestic_structured_si_fee_income"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.domestic_structured_si_fee_income"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout2.yaml",
+   "qid": "y14",
+   "metrics": [
+    "bank.gold_fee_income",
+    "securities.bond_fee_income"
+   ],
+   "denied": [
+    "bank.gold_fee_income"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.gold_fee_income"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout2.yaml",
+   "qid": "y15",
+   "metrics": [
+    "bank.insurance_aum"
+   ],
+   "denied": [
+    "bank.insurance_aum"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.insurance_aum"
+   ],
+   "leaked_after": []
+  },
+  {
+   "set": "holdout2.yaml",
+   "qid": "y16",
+   "metrics": [
+    "bank.collective_account_aum"
+   ],
+   "denied": [
+    "bank.collective_account_aum"
+   ],
+   "studio_misses": [],
+   "status": "redacted",
+   "removed": [
+    "bank.collective_account_aum"
+   ],
+   "leaked_after": []
+  }
+ ]
+}

@@ -1,0 +1,154 @@
+# 金控｜指標 v0.17.0，2026-10-31，設計草案。
+# 金控層／指標：指標與 AUM、LUM、手收、利收，以及指標衡量商品的關係與結果欄位。
+# 由 v0.16.0 的 holding-core.ttl 拆出（FIBO 式模組化），類別與屬性定義未改。example.org 為示意命名空間。
+
+@prefix fh: <https://example.org/ontology/holding#> .
+@prefix fibo-fnd-utl-av: <https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fh:aumAsOfDate a owl:DatatypeProperty ;
+    rdfs:label "AUM 基準日"@zh-TW ;
+    rdfs:domain fh:AUM ;
+    rdfs:range xsd:date ;
+    skos:definition "AUM 所衡量資產規模對應的日期；具體選日規則由子公司或部門描述。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:feeBaseAmount a owl:DatatypeProperty ;
+    rdfs:label "手收計算基礎金額"@zh-TW ;
+    rdfs:domain fh:FeeIncome ;
+    rdfs:range xsd:decimal ;
+    skos:definition "適用手收計算情境中作為輸入的收入金額；具體組成與來源由子公司或部門描述。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:feeDeductionAmount a owl:DatatypeProperty ;
+    rdfs:label "手收計算扣減金額"@zh-TW ;
+    rdfs:domain fh:FeeIncome ;
+    rdfs:range xsd:decimal ;
+    skos:definition "適用手收計算情境中涉及的扣減金額；具體扣減項目與使用方式由子公司或部門描述。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:feeIncomeFromProduct a owl:ObjectProperty ;
+    rdfs:label "手收來源商品"@zh-TW ;
+    rdfs:domain fh:FeeIncome ;
+    rdfs:range fh:FinancialProduct ;
+    skos:definition "手收來自其所對應金融商品的關係。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:incomePeriodEnd a owl:DatatypeProperty ;
+    rdfs:label "收入期間迄日"@zh-TW ;
+    rdfs:domain fh:FeeIncome ;
+    rdfs:range xsd:date ;
+    skos:definition "手收所屬收入期間的結束日期；期間邊界的具體使用規則由子公司或部門描述。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:incomePeriodStart a owl:DatatypeProperty ;
+    rdfs:label "收入期間起日"@zh-TW ;
+    rdfs:domain fh:FeeIncome ;
+    rdfs:range xsd:date ;
+    skos:definition "手收所屬收入期間的開始日期；不預設按日、月或年衡量。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:interestIncomeFromProduct a owl:ObjectProperty ;
+    rdfs:label "利收來源商品"@zh-TW ;
+    rdfs:domain fh:InterestIncome ;
+    rdfs:range fh:FinancialProduct ;
+    skos:definition "依業務認列口徑歸入利收的收入來自其所對應金融商品的關係。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:interestPeriodEnd a owl:DatatypeProperty ;
+    rdfs:label "利收期間迄日"@zh-TW ;
+    rdfs:domain fh:InterestIncome ;
+    rdfs:range xsd:date ;
+    skos:definition "利收所屬收入期間的結束日期；具體期間與認列規則由子公司或部門描述。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:interestPeriodStart a owl:DatatypeProperty ;
+    rdfs:label "利收期間起日"@zh-TW ;
+    rdfs:domain fh:InterestIncome ;
+    rdfs:range xsd:date ;
+    skos:definition "利收所屬收入期間的開始日期；具體期間與認列規則由子公司或部門描述。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:lumAsOfDate a owl:DatatypeProperty ;
+    rdfs:label "LUM 基準日"@zh-TW ;
+    rdfs:domain fh:LUM ;
+    rdfs:range xsd:date ;
+    skos:definition "LUM 所衡量放款或融通餘額對應的日期；具體選日與月份標記處理由子公司或部門描述。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:lumMeasuresProduct a owl:ObjectProperty ;
+    rdfs:label "LUM 衡量金融商品"@zh-TW ;
+    rdfs:domain fh:LUM ;
+    rdfs:range fh:FinancialProduct ;
+    skos:definition "LUM 衡量其所對應金融商品之放款或融通餘額。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:measuresProduct a owl:ObjectProperty ;
+    rdfs:label "衡量金融商品"@zh-TW ;
+    rdfs:domain fh:AUM ;
+    rdfs:range fh:FinancialProduct ;
+    skos:definition "AUM 衡量其所對應金融商品的資產規模。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:metricAmount a owl:DatatypeProperty ;
+    rdfs:label "指標金額"@zh-TW ;
+    rdfs:domain fh:Metric ;
+    rdfs:range xsd:decimal ;
+    skos:definition "量化業務指標的結果金額，包含 AUM、LUM、手收與利收；具體計算與認列口徑由子公司或部門描述。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:valuationQuantity a owl:DatatypeProperty ;
+    rdfs:label "估值數量"@zh-TW ;
+    rdfs:domain fh:AUM ;
+    rdfs:range xsd:decimal ;
+    skos:definition "適用 AUM 估值情境中作為計算輸入的數量，例如股數、單位數或面額；具體數量單位由子公司或部門描述。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:valuationUnitPrice a owl:DatatypeProperty ;
+    rdfs:label "估值單價"@zh-TW ;
+    rdfs:domain fh:AUM ;
+    rdfs:range xsd:decimal ;
+    skos:definition "適用 AUM 估值情境中作為計算輸入的價格或淨值；具體報價基準由子公司或部門描述。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+<https://example.org/ontology/holding/metrics> a owl:Ontology ;
+    rdfs:label "金控｜指標"@zh-TW ;
+    rdfs:comment "指標與 AUM、LUM、手收、利收，以及指標衡量商品的關係與結果欄位。"@zh-TW ;
+    owl:imports <https://example.org/ontology/holding/annotations>,
+        <https://example.org/ontology/holding/products> ;
+    owl:versionIRI <https://example.org/ontology/holding/metrics/0.17.0> ;
+    owl:versionInfo "0.17.0 / design draft / 2026-10-31" ;
+    fibo-fnd-utl-av:hasMaturityLevel fibo-fnd-utl-av:Provisional .
+
+fh:LUM a owl:Class ;
+    rdfs:label "LUM"@zh-TW ;
+    rdfs:subClassOf fh:Metric ;
+    skos:definition "衡量指定基準日納入業務管理範圍之放款或融通餘額的指標；具體涵蓋與認列口徑由子公司或部門描述，不以擔保品估值或未動用額度代替。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:InterestIncome a owl:Class ;
+    rdfs:label "利收指標"@zh-TW ;
+    rdfs:subClassOf fh:Metric ;
+    skos:definition "衡量指定收入期間內依業務認列口徑歸入利收的收入指標；具體收益組成與涵蓋範圍由子公司或部門描述，不限定為純客戶利息。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:AUM a owl:Class ;
+    rdfs:label "AUM"@zh-TW ;
+    rdfs:subClassOf fh:Metric ;
+    skos:definition "衡量指定快照日依管理與認列口徑計算之資產規模的指標。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:FeeIncome a owl:Class ;
+    rdfs:label "手收指標"@zh-TW ;
+    rdfs:subClassOf fh:Metric ;
+    skos:definition "衡量指定收入期間內依業務認列口徑歸入手收的收入指標；具體涵蓋範圍由子公司或部門描述。"@zh-TW ;
+    fh:governanceLevel "金控" .
+
+fh:Metric a owl:Class ;
+    rdfs:label "指標"@zh-TW ;
+    skos:definition "依明確口徑衡量業務狀況的量化項目。"@zh-TW ;
+    fh:governanceLevel "金控" .
+

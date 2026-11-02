@@ -1,0 +1,828 @@
+[
+ {
+  "key": "ambiguous_subsidiary",
+  "codes": [
+   "ambiguous_subsidiary"
+  ],
+  "false": [],
+  "fixed": [
+   {
+    "qid": "a01",
+    "mode": "plan",
+    "question": "基金手收怎麼算？",
+    "message": "bank.fund_fee_income 只代表銀行；問題沒有指明子公司，另一邊還有 securities.fund_fee_income。請改為 clarify，或把兩邊都列入並分開說明",
+    "outcome": "correct"
+   },
+   {
+    "qid": "a01",
+    "mode": "tools",
+    "question": "基金手收怎麼算？",
+    "message": "bank.fund_fee_income 只代表銀行；問題沒有指明子公司，另一邊還有 securities.fund_fee_income。請改為 clarify，或把兩邊都列入並分開說明",
+    "outcome": "correct"
+   },
+   {
+    "qid": "a02",
+    "mode": "plan",
+    "question": "客戶的基金 AUM 要用哪個指標？",
+    "message": "bank.fund_aum 只代表銀行；問題沒有指明子公司，另一邊還有 securities.fund_aum。請改為 clarify，或把兩邊都列入並分開說明",
+    "outcome": "correct"
+   },
+   {
+    "qid": "a02",
+    "mode": "tools",
+    "question": "客戶的基金 AUM 要用哪個指標？",
+    "message": "bank.fund_aum 只代表銀行；問題沒有指明子公司，另一邊還有 securities.fund_aum。請改為 clarify，或把兩邊都列入並分開說明",
+    "outcome": "correct"
+   },
+   {
+    "qid": "a03",
+    "mode": "plan",
+    "question": "海外股票的 AUM 是哪個指標？",
+    "message": "bank.overseas_stock_aum 只代表銀行；問題沒有指明子公司，另一邊還有 securities.foreign_stock_aum。請改為 clarify，或把兩邊都列入並分開說明",
+    "outcome": "correct"
+   },
+   {
+    "qid": "a03",
+    "mode": "tools",
+    "question": "海外股票的 AUM 是哪個指標？",
+    "message": "bank.overseas_stock_aum 只代表銀行；問題沒有指明子公司，另一邊還有 securities.foreign_stock_aum。請改為 clarify，或把兩邊都列入並分開說明",
+    "outcome": "correct"
+   },
+   {
+    "qid": "a05",
+    "mode": "plan",
+    "question": "海外債券的 AUM 有哪幾種口徑？",
+    "message": "bank.overseas_bond_proprietary_aum 只代表銀行；問題沒有指明子公司，另一邊還有 securities.bond_aum。請改為 clarify，或把兩邊都列入並分開說明",
+    "outcome": "correct"
+   },
+   {
+    "qid": "a05",
+    "mode": "plan",
+    "question": "海外債券的 AUM 有哪幾種口徑？",
+    "message": "bank.overseas_bond_trust_aum 只代表銀行；問題沒有指明子公司，另一邊還有 securities.bond_aum。請改為 clarify，或把兩邊都列入並分開說明",
+    "outcome": "correct"
+   },
+   {
+    "qid": "a05",
+    "mode": "tools",
+    "question": "海外債券的 AUM 有哪幾種口徑？",
+    "message": "bank.overseas_bond_proprietary_aum 只代表銀行；問題沒有指明子公司，另一邊還有 securities.bond_aum。請改為 clarify，或把兩邊都列入並分開說明",
+    "outcome": "correct"
+   },
+   {
+    "qid": "a05",
+    "mode": "tools",
+    "question": "海外債券的 AUM 有哪幾種口徑？",
+    "message": "bank.overseas_bond_trust_aum 只代表銀行；問題沒有指明子公司，另一邊還有 securities.bond_aum。請改為 clarify，或把兩邊都列入並分開說明",
+    "outcome": "correct"
+   }
+  ],
+  "valid": [
+   {
+    "qid": "a01",
+    "mode": "baseline",
+    "question": "基金手收怎麼算？",
+    "message": "bank.fund_fee_income 只代表銀行；問題沒有指明子公司，另一邊還有 securities.fund_fee_income。請改為 clarify，或把兩邊都列入並分開說明",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "a01",
+    "mode": "context",
+    "question": "基金手收怎麼算？",
+    "message": "bank.fund_fee_income 只代表銀行；問題沒有指明子公司，另一邊還有 securities.fund_fee_income。請改為 clarify，或把兩邊都列入並分開說明",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "a02",
+    "mode": "baseline",
+    "question": "客戶的基金 AUM 要用哪個指標？",
+    "message": "bank.fund_aum 只代表銀行；問題沒有指明子公司，另一邊還有 securities.fund_aum。請改為 clarify，或把兩邊都列入並分開說明",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "a02",
+    "mode": "context",
+    "question": "客戶的基金 AUM 要用哪個指標？",
+    "message": "bank.fund_aum 只代表銀行；問題沒有指明子公司，另一邊還有 securities.fund_aum。請改為 clarify，或把兩邊都列入並分開說明",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "a03",
+    "mode": "baseline",
+    "question": "海外股票的 AUM 是哪個指標？",
+    "message": "bank.overseas_stock_aum 只代表銀行；問題沒有指明子公司，另一邊還有 securities.foreign_stock_aum。請改為 clarify，或把兩邊都列入並分開說明",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "a03",
+    "mode": "context",
+    "question": "海外股票的 AUM 是哪個指標？",
+    "message": "bank.overseas_stock_aum 只代表銀行；問題沒有指明子公司，另一邊還有 securities.foreign_stock_aum。請改為 clarify，或把兩邊都列入並分開說明",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "a04",
+    "mode": "baseline",
+    "question": "結構型商品的手收有哪些指標？",
+    "message": "securities.structured_fee_income 只代表證券；問題沒有指明子公司，另一邊還有 bank.domestic_structured_si_fee_income、bank.offshore_structured_fee_income、bank.domestic_structured_eli_fee_income、bank.domestic_structured_fci_fee_income、bank.dci_fee_income。請改為 clarify，或把兩邊都列入並分開說明",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "a04",
+    "mode": "context",
+    "question": "結構型商品的手收有哪些指標？",
+    "message": "securities.structured_fee_income 只代表證券；問題沒有指明子公司，另一邊還有 bank.domestic_structured_si_fee_income、bank.offshore_structured_fee_income、bank.domestic_structured_eli_fee_income、bank.domestic_structured_fci_fee_income、bank.dci_fee_income。請改為 clarify，或把兩邊都列入並分開說明",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "a04",
+    "mode": "plan",
+    "question": "結構型商品的手收有哪些指標？",
+    "message": "securities.structured_fee_income 只代表證券；問題沒有指明子公司，另一邊還有 bank.domestic_structured_si_fee_income、bank.offshore_structured_fee_income、bank.domestic_structured_eli_fee_income、bank.domestic_structured_fci_fee_income、bank.dci_fee_income。請改為 clarify，或把兩邊都列入並分開說明",
+    "outcome": "safe_miss"
+   },
+   {
+    "qid": "a04",
+    "mode": "tools",
+    "question": "結構型商品的手收有哪些指標？",
+    "message": "securities.structured_fee_income 只代表證券；問題沒有指明子公司，另一邊還有 bank.domestic_structured_si_fee_income、bank.offshore_structured_fee_income、bank.domestic_structured_eli_fee_income、bank.domestic_structured_fci_fee_income、bank.dci_fee_income。請改為 clarify，或把兩邊都列入並分開說明",
+    "outcome": "safe_miss"
+   },
+   {
+    "qid": "a05",
+    "mode": "baseline",
+    "question": "海外債券的 AUM 有哪幾種口徑？",
+    "message": "bank.overseas_bond_proprietary_aum 只代表銀行；問題沒有指明子公司，另一邊還有 securities.bond_aum。請改為 clarify，或把兩邊都列入並分開說明",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "a05",
+    "mode": "baseline",
+    "question": "海外債券的 AUM 有哪幾種口徑？",
+    "message": "bank.overseas_bond_trust_aum 只代表銀行；問題沒有指明子公司，另一邊還有 securities.bond_aum。請改為 clarify，或把兩邊都列入並分開說明",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "a05",
+    "mode": "context",
+    "question": "海外債券的 AUM 有哪幾種口徑？",
+    "message": "bank.overseas_bond_proprietary_aum 只代表銀行；問題沒有指明子公司，另一邊還有 securities.bond_aum。請改為 clarify，或把兩邊都列入並分開說明",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "a05",
+    "mode": "context",
+    "question": "海外債券的 AUM 有哪幾種口徑？",
+    "message": "bank.overseas_bond_trust_aum 只代表銀行；問題沒有指明子公司，另一邊還有 securities.bond_aum。請改為 clarify，或把兩邊都列入並分開說明",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "g05",
+    "mode": "baseline",
+    "question": "黃金 AUM 是哪個指標？",
+    "message": "bank.fund_aum 只代表銀行；問題沒有指明子公司，另一邊還有 securities.fund_aum。請改為 clarify，或把兩邊都列入並分開說明",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "g05",
+    "mode": "context",
+    "question": "黃金 AUM 是哪個指標？",
+    "message": "bank.fund_aum 只代表銀行；問題沒有指明子公司，另一邊還有 securities.fund_aum。請改為 clarify，或把兩邊都列入並分開說明",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "g05",
+    "mode": "plan",
+    "question": "黃金 AUM 是哪個指標？",
+    "message": "bank.fund_aum 只代表銀行；問題沒有指明子公司，另一邊還有 securities.fund_aum。請改為 clarify，或把兩邊都列入並分開說明",
+    "outcome": "safe_miss"
+   },
+   {
+    "qid": "g05",
+    "mode": "tools",
+    "question": "黃金 AUM 是哪個指標？",
+    "message": "bank.fund_aum 只代表銀行；問題沒有指明子公司，另一邊還有 securities.fund_aum。請改為 clarify，或把兩邊都列入並分開說明",
+    "outcome": "safe_miss"
+   }
+  ],
+  "false_count": 0,
+  "fixed_count": 8,
+  "valid_count": 16
+ },
+ {
+  "key": "anchor_conflict",
+  "codes": [
+   "anchor_conflict"
+  ],
+  "false": [],
+  "fixed": [],
+  "valid": [
+   {
+    "qid": "g03",
+    "mode": "baseline",
+    "question": "集合管理帳戶的手收是哪個指標？",
+    "message": "bank.collective_account_aum 是 aum，但問題問的是 fee",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "g03",
+    "mode": "context",
+    "question": "集合管理帳戶的手收是哪個指標？",
+    "message": "bank.collective_account_aum 是 aum，但問題問的是 fee",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "g03",
+    "mode": "plan",
+    "question": "集合管理帳戶的手收是哪個指標？",
+    "message": "bank.collective_account_aum 是 aum，但問題問的是 fee",
+    "outcome": "safe_miss"
+   },
+   {
+    "qid": "g03",
+    "mode": "tools",
+    "question": "集合管理帳戶的手收是哪個指標？",
+    "message": "bank.collective_account_aum 是 aum，但問題問的是 fee",
+    "outcome": "safe_miss"
+   },
+   {
+    "qid": "p03",
+    "mode": "context",
+    "question": "證券總手收是哪個指標？",
+    "message": "securities.total_aum 是 aum，但問題問的是 fee",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "p03",
+    "mode": "plan",
+    "question": "證券總手收是哪個指標？",
+    "message": "securities.total_aum 是 aum，但問題問的是 fee",
+    "outcome": "safe_miss"
+   },
+   {
+    "qid": "p03",
+    "mode": "tools",
+    "question": "證券總手收是哪個指標？",
+    "message": "securities.total_aum 是 aum，但問題問的是 fee",
+    "outcome": "safe_miss"
+   }
+  ],
+  "false_count": 0,
+  "fixed_count": 0,
+  "valid_count": 7
+ },
+ {
+  "key": "anchor_missing",
+  "codes": [
+   "anchor_missing"
+  ],
+  "false": [],
+  "fixed": [],
+  "valid": [
+   {
+    "qid": "s02",
+    "mode": "workflow",
+    "question": "把證券總 AUM 和複委託債券 AUM 加起來，就是客戶在證券的全部資產嗎？",
+    "message": "問題問的是總指標，但選到的都是分項指標",
+    "outcome": "safe_miss"
+   },
+   {
+    "qid": "s02",
+    "mode": "workflow",
+    "question": "把證券總 AUM 和複委託債券 AUM 加起來，就是客戶在證券的全部資產嗎？",
+    "message": "問題問的是總指標，但選到的都是分項指標",
+    "outcome": "safe_miss"
+   },
+   {
+    "qid": "g03",
+    "mode": "baseline",
+    "question": "集合管理帳戶的手收是哪個指標？",
+    "message": "問題問的是 手收，選到的指標沒有這一種",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "g03",
+    "mode": "context",
+    "question": "集合管理帳戶的手收是哪個指標？",
+    "message": "問題問的是 手收，選到的指標沒有這一種",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "g03",
+    "mode": "plan",
+    "question": "集合管理帳戶的手收是哪個指標？",
+    "message": "問題問的是 手收，選到的指標沒有這一種",
+    "outcome": "safe_miss"
+   },
+   {
+    "qid": "g03",
+    "mode": "tools",
+    "question": "集合管理帳戶的手收是哪個指標？",
+    "message": "問題問的是 手收，選到的指標沒有這一種",
+    "outcome": "safe_miss"
+   },
+   {
+    "qid": "p03",
+    "mode": "workflow",
+    "question": "證券總手收是哪個指標？",
+    "message": "問題問的是總指標，但選到的都是分項指標",
+    "outcome": "safe_miss"
+   },
+   {
+    "qid": "p03",
+    "mode": "workflow",
+    "question": "證券總手收是哪個指標？",
+    "message": "問題問的是總指標，但選到的都是分項指標",
+    "outcome": "safe_miss"
+   }
+  ],
+  "false_count": 0,
+  "fixed_count": 0,
+  "valid_count": 6
+ },
+ {
+  "key": "anchor_conflict｜外匯",
+  "codes": [
+   "anchor_conflict"
+  ],
+  "false": [],
+  "fixed": [],
+  "valid": [
+   {
+    "qid": "g02",
+    "mode": "baseline",
+    "question": "銀行外匯的 AUM 怎麼查？",
+    "message": "bank.foreign_currency_deposit_aum 跟問題提到的「外匯」都無關",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "g02",
+    "mode": "context",
+    "question": "銀行外匯的 AUM 怎麼查？",
+    "message": "bank.foreign_currency_deposit_aum 跟問題提到的「外匯」都無關",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "g02",
+    "mode": "plan",
+    "question": "銀行外匯的 AUM 怎麼查？",
+    "message": "bank.foreign_currency_deposit_aum 跟問題提到的「外匯」都無關",
+    "outcome": "safe_miss"
+   },
+   {
+    "qid": "g02",
+    "mode": "tools",
+    "question": "銀行外匯的 AUM 怎麼查？",
+    "message": "bank.foreign_currency_deposit_aum 跟問題提到的「外匯」都無關",
+    "outcome": "safe_miss"
+   }
+  ],
+  "false_count": 0,
+  "fixed_count": 0,
+  "valid_count": 4
+ },
+ {
+  "key": "anchor_conflict｜海外",
+  "codes": [
+   "anchor_conflict"
+  ],
+  "false": [],
+  "fixed": [],
+  "valid": [
+   {
+    "qid": "h01",
+    "mode": "baseline",
+    "question": "不屬於證券的海外商品 AUM 有哪些？",
+    "message": "securities.structured_aum 跟問題提到的「海外」都無關",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "h01",
+    "mode": "context",
+    "question": "不屬於證券的海外商品 AUM 有哪些？",
+    "message": "securities.structured_aum 跟問題提到的「海外」都無關",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "h01",
+    "mode": "plan",
+    "question": "不屬於證券的海外商品 AUM 有哪些？",
+    "message": "securities.structured_aum 跟問題提到的「海外」都無關",
+    "outcome": "safe_miss"
+   },
+   {
+    "qid": "h01",
+    "mode": "tools",
+    "question": "不屬於證券的海外商品 AUM 有哪些？",
+    "message": "securities.structured_aum 跟問題提到的「海外」都無關",
+    "outcome": "safe_miss"
+   }
+  ],
+  "false_count": 0,
+  "fixed_count": 0,
+  "valid_count": 4
+ },
+ {
+  "key": "anchor_conflict｜股票",
+  "codes": [
+   "anchor_conflict"
+  ],
+  "false": [],
+  "fixed": [],
+  "valid": [
+   {
+    "qid": "g04",
+    "mode": "baseline",
+    "question": "股票設質的 LUM 在哪裡看？",
+    "message": "bank.loan_lum 跟問題提到的「股票」都無關",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "g04",
+    "mode": "context",
+    "question": "股票設質的 LUM 在哪裡看？",
+    "message": "bank.loan_lum 跟問題提到的「股票」都無關",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "g04",
+    "mode": "plan",
+    "question": "股票設質的 LUM 在哪裡看？",
+    "message": "bank.loan_lum 跟問題提到的「股票」都無關",
+    "outcome": "safe_miss"
+   },
+   {
+    "qid": "g04",
+    "mode": "tools",
+    "question": "股票設質的 LUM 在哪裡看？",
+    "message": "bank.loan_lum 跟問題提到的「股票」都無關",
+    "outcome": "safe_miss"
+   }
+  ],
+  "false_count": 0,
+  "fixed_count": 0,
+  "valid_count": 4
+ },
+ {
+  "key": "anchor_conflict｜黃金",
+  "codes": [
+   "anchor_conflict"
+  ],
+  "false": [],
+  "fixed": [],
+  "valid": [
+   {
+    "qid": "g05",
+    "mode": "baseline",
+    "question": "黃金 AUM 是哪個指標？",
+    "message": "bank.fund_aum 跟問題提到的「黃金」都無關",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "g05",
+    "mode": "context",
+    "question": "黃金 AUM 是哪個指標？",
+    "message": "bank.fund_aum 跟問題提到的「黃金」都無關",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "g05",
+    "mode": "plan",
+    "question": "黃金 AUM 是哪個指標？",
+    "message": "bank.fund_aum 跟問題提到的「黃金」都無關",
+    "outcome": "safe_miss"
+   },
+   {
+    "qid": "g05",
+    "mode": "tools",
+    "question": "黃金 AUM 是哪個指標？",
+    "message": "bank.fund_aum 跟問題提到的「黃金」都無關",
+    "outcome": "safe_miss"
+   }
+  ],
+  "false_count": 0,
+  "fixed_count": 0,
+  "valid_count": 4
+ },
+ {
+  "key": "anchor_missing｜基金",
+  "codes": [
+   "anchor_missing"
+  ],
+  "false": [],
+  "fixed": [],
+  "valid": [
+   {
+    "qid": "h06",
+    "mode": "baseline",
+    "question": "銀行的 ETF 算不算基金商品？",
+    "message": "問題提到「基金」，但選到的指標都沒有涵蓋 bank:FundProduct／securities:FundProduct",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "h06",
+    "mode": "context",
+    "question": "銀行的 ETF 算不算基金商品？",
+    "message": "問題提到「基金」，但選到的指標都沒有涵蓋 bank:FundProduct／securities:FundProduct",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "h06",
+    "mode": "plan",
+    "question": "銀行的 ETF 算不算基金商品？",
+    "message": "問題提到「基金」，但選到的指標都沒有涵蓋 bank:FundProduct／securities:FundProduct",
+    "outcome": "safe_miss"
+   },
+   {
+    "qid": "h06",
+    "mode": "tools",
+    "question": "銀行的 ETF 算不算基金商品？",
+    "message": "問題提到「基金」，但選到的指標都沒有涵蓋 bank:FundProduct／securities:FundProduct",
+    "outcome": "safe_miss"
+   }
+  ],
+  "false_count": 0,
+  "fixed_count": 0,
+  "valid_count": 4
+ },
+ {
+  "key": "anchor_missing｜外匯",
+  "codes": [
+   "anchor_missing"
+  ],
+  "false": [],
+  "fixed": [],
+  "valid": [
+   {
+    "qid": "g02",
+    "mode": "baseline",
+    "question": "銀行外匯的 AUM 怎麼查？",
+    "message": "問題提到「外匯」，但選到的指標都沒有涵蓋 bank:ForeignExchangeProduct",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "g02",
+    "mode": "context",
+    "question": "銀行外匯的 AUM 怎麼查？",
+    "message": "問題提到「外匯」，但選到的指標都沒有涵蓋 bank:ForeignExchangeProduct",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "g02",
+    "mode": "plan",
+    "question": "銀行外匯的 AUM 怎麼查？",
+    "message": "問題提到「外匯」，但選到的指標都沒有涵蓋 bank:ForeignExchangeProduct",
+    "outcome": "safe_miss"
+   },
+   {
+    "qid": "g02",
+    "mode": "tools",
+    "question": "銀行外匯的 AUM 怎麼查？",
+    "message": "問題提到「外匯」，但選到的指標都沒有涵蓋 bank:ForeignExchangeProduct",
+    "outcome": "safe_miss"
+   }
+  ],
+  "false_count": 0,
+  "fixed_count": 0,
+  "valid_count": 4
+ },
+ {
+  "key": "anchor_missing｜海外",
+  "codes": [
+   "anchor_missing"
+  ],
+  "false": [],
+  "fixed": [],
+  "valid": [
+   {
+    "qid": "h01",
+    "mode": "baseline",
+    "question": "不屬於證券的海外商品 AUM 有哪些？",
+    "message": "問題提到「海外」，但選到的指標都沒有涵蓋 bank:OverseasFinancialProduct／securities:OverseasFinancialProduct",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "h01",
+    "mode": "context",
+    "question": "不屬於證券的海外商品 AUM 有哪些？",
+    "message": "問題提到「海外」，但選到的指標都沒有涵蓋 bank:OverseasFinancialProduct／securities:OverseasFinancialProduct",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "h01",
+    "mode": "plan",
+    "question": "不屬於證券的海外商品 AUM 有哪些？",
+    "message": "問題提到「海外」，但選到的指標都沒有涵蓋 bank:OverseasFinancialProduct／securities:OverseasFinancialProduct",
+    "outcome": "safe_miss"
+   },
+   {
+    "qid": "h01",
+    "mode": "tools",
+    "question": "不屬於證券的海外商品 AUM 有哪些？",
+    "message": "問題提到「海外」，但選到的指標都沒有涵蓋 bank:OverseasFinancialProduct／securities:OverseasFinancialProduct",
+    "outcome": "safe_miss"
+   }
+  ],
+  "false_count": 0,
+  "fixed_count": 0,
+  "valid_count": 4
+ },
+ {
+  "key": "anchor_missing｜股票",
+  "codes": [
+   "anchor_missing"
+  ],
+  "false": [],
+  "fixed": [],
+  "valid": [
+   {
+    "qid": "g04",
+    "mode": "baseline",
+    "question": "股票設質的 LUM 在哪裡看？",
+    "message": "問題提到「股票」，但選到的指標都沒有涵蓋 bank:StockProduct／securities:StockProduct",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "g04",
+    "mode": "context",
+    "question": "股票設質的 LUM 在哪裡看？",
+    "message": "問題提到「股票」，但選到的指標都沒有涵蓋 bank:StockProduct／securities:StockProduct",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "g04",
+    "mode": "plan",
+    "question": "股票設質的 LUM 在哪裡看？",
+    "message": "問題提到「股票」，但選到的指標都沒有涵蓋 bank:StockProduct／securities:StockProduct",
+    "outcome": "safe_miss"
+   },
+   {
+    "qid": "g04",
+    "mode": "tools",
+    "question": "股票設質的 LUM 在哪裡看？",
+    "message": "問題提到「股票」，但選到的指標都沒有涵蓋 bank:StockProduct／securities:StockProduct",
+    "outcome": "safe_miss"
+   }
+  ],
+  "false_count": 0,
+  "fixed_count": 0,
+  "valid_count": 4
+ },
+ {
+  "key": "anchor_missing｜黃金",
+  "codes": [
+   "anchor_missing"
+  ],
+  "false": [],
+  "fixed": [],
+  "valid": [
+   {
+    "qid": "g05",
+    "mode": "baseline",
+    "question": "黃金 AUM 是哪個指標？",
+    "message": "問題提到「黃金」，但選到的指標都沒有涵蓋 bank:GoldProduct",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "g05",
+    "mode": "context",
+    "question": "黃金 AUM 是哪個指標？",
+    "message": "問題提到「黃金」，但選到的指標都沒有涵蓋 bank:GoldProduct",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "g05",
+    "mode": "plan",
+    "question": "黃金 AUM 是哪個指標？",
+    "message": "問題提到「黃金」，但選到的指標都沒有涵蓋 bank:GoldProduct",
+    "outcome": "safe_miss"
+   },
+   {
+    "qid": "g05",
+    "mode": "tools",
+    "question": "黃金 AUM 是哪個指標？",
+    "message": "問題提到「黃金」，但選到的指標都沒有涵蓋 bank:GoldProduct",
+    "outcome": "safe_miss"
+   }
+  ],
+  "false_count": 0,
+  "fixed_count": 0,
+  "valid_count": 4
+ },
+ {
+  "key": "missing_subsidiary",
+  "codes": [
+   "missing_subsidiary"
+  ],
+  "false": [],
+  "fixed": [],
+  "valid": [
+   {
+    "qid": "p05",
+    "mode": "baseline",
+    "question": "要看銀行和證券兩邊的基金 AUM，要用哪些指標？",
+    "message": "問題同時提到銀行與證券，但只選了銀行的指標",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "p05",
+    "mode": "context",
+    "question": "要看銀行和證券兩邊的基金 AUM，要用哪些指標？",
+    "message": "問題同時提到銀行與證券，但只選了銀行的指標",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "p05",
+    "mode": "plan",
+    "question": "要看銀行和證券兩邊的基金 AUM，要用哪些指標？",
+    "message": "問題同時提到銀行與證券，但只選了銀行的指標",
+    "outcome": "safe_miss"
+   },
+   {
+    "qid": "p05",
+    "mode": "tools",
+    "question": "要看銀行和證券兩邊的基金 AUM，要用哪些指標？",
+    "message": "問題同時提到銀行與證券，但只選了銀行的指標",
+    "outcome": "safe_miss"
+   }
+  ],
+  "false_count": 0,
+  "fixed_count": 0,
+  "valid_count": 4
+ },
+ {
+  "key": "cue_conflict",
+  "codes": [
+   "cue_conflict"
+  ],
+  "false": [],
+  "fixed": [],
+  "valid": [
+   {
+    "qid": "p01",
+    "mode": "context",
+    "question": "我在銀行的 AUM 有哪些項目？",
+    "message": "問題只提到銀行，但 securities.total_aum 屬於證券",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "p01",
+    "mode": "plan",
+    "question": "我在銀行的 AUM 有哪些項目？",
+    "message": "問題只提到銀行，但 securities.total_aum 屬於證券",
+    "outcome": "safe_miss"
+   },
+   {
+    "qid": "p01",
+    "mode": "tools",
+    "question": "我在銀行的 AUM 有哪些項目？",
+    "message": "問題只提到銀行，但 securities.total_aum 屬於證券",
+    "outcome": "safe_miss"
+   }
+  ],
+  "false_count": 0,
+  "fixed_count": 0,
+  "valid_count": 3
+ },
+ {
+  "key": "not_permitted",
+  "codes": [
+   "not_permitted"
+  ],
+  "false": [],
+  "fixed": [],
+  "valid": [
+   {
+    "qid": "p01",
+    "mode": "baseline",
+    "question": "我在銀行的 AUM 有哪些項目？",
+    "message": "bank.fund_aum 不在目前角色的可用範圍內，不可使用",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "p01",
+    "mode": "baseline",
+    "question": "我在銀行的 AUM 有哪些項目？",
+    "message": "bank.insurance_aum 不在目前角色的可用範圍內，不可使用",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "p03",
+    "mode": "baseline",
+    "question": "證券總手收是哪個指標？",
+    "message": "securities.total_fee_income 不在目前角色的可用範圍內，不可使用",
+    "outcome": "silent_wrong"
+   },
+   {
+    "qid": "p04",
+    "mode": "baseline",
+    "question": "我買基金被收的手續費是哪個指標？",
+    "message": "bank.fund_fee_income 不在目前角色的可用範圍內，不可使用",
+    "outcome": "silent_wrong"
+   }
+  ],
+  "false_count": 0,
+  "fixed_count": 0,
+  "valid_count": 3
+ }
+]

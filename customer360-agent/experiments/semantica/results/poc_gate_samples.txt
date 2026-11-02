@@ -1,0 +1,19 @@
+[正確計畫] 角色=rm 問題=這位客戶在銀行的基金手收是多少
+   passed: True | 硬擋: []
+   質疑: []
+[選錯雙胞胎（證券）] 角色=rm 問題=這位客戶在銀行的基金手收是多少
+   passed: True | 硬擋: []
+   質疑: [('cue_conflict', '問題只提到銀行，但 securities.fund_fee_income 屬於證券')]
+[歧義題只選一邊] 角色=rm 問題=基金手收是多少
+   passed: True | 硬擋: []
+   質疑: [('ambiguous_subsidiary', 'bank.fund_fee_income 只代表銀行；問題沒有指明子公司，另一邊還有 securities.fund_fee_income。請改為 clarify，或把兩邊都列入並分開說明')]
+[客戶角色越權] 角色=customer 問題=這位客戶在銀行的基金手收是多少
+   passed: False | 硬擋: [('not_permitted', 'bank.fund_fee_income 不在目前角色的可用範圍內，不可使用')]
+   質疑: []
+[編造上層關係] 角色=rm 問題=銀行 AUM 算不算指標
+   passed: False | 硬擋: [('false_is_a', 'bank:BankAUM 不是 fh:FeeIncome 的子類別。bank:BankAUM 的上層鏈：銀行 AUM ⊑ AUM ⊑ 指標')]
+   質疑: []
+[正確上層關係] 角色=rm 問題=銀行 AUM 算不算指標
+   passed: True | 硬擋: []
+   質疑: []
+['銀行 AUM ⊑ AUM ⊑ 指標']

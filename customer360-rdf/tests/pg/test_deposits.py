@@ -11,7 +11,8 @@ from collections import Counter
 from pathlib import Path
 from urllib.parse import urlsplit
 
-HERE = Path(__file__).resolve().parents[2] / "department-pg"
+from paths import ARCHIVE, CONFIG, CURRENT_VERSION, MERGED_OWL, MERGED_TTL, PG_DIR, SOURCE_FILES, evidence_file, external  # noqa: E402,F401
+HERE = PG_DIR
 SPEC = importlib.util.spec_from_file_location("department_pg_extended_builder", HERE / "build_cypher.py")
 assert SPEC is not None and SPEC.loader is not None
 builder = importlib.util.module_from_spec(SPEC)
@@ -28,7 +29,7 @@ class DepositTests(unittest.TestCase):
     def test_four_and_five_field_contracts(self):
         expected = {"customerId", "currency", "balance", "snapshotDate"}
         self.assertEqual(len(self.concepts), 4)
-        self.assertEqual(self.model["ontology_version"], "0.16.0")
+        self.assertEqual(self.model["ontology_version"], CURRENT_VERSION)
         for concept_id, concept in self.concepts.items():
             fields = expected | ({"employeeId"} if concept_id == "bank.employee_deposit" else set())
             self.assertEqual({item["field"] for item in concept["fields"]}, fields)
@@ -285,7 +286,7 @@ class DepositTests(unittest.TestCase):
         self.assertIn("REQUIRE n.id IS UNIQUE", output)
 
     def test_historical_draft_is_superseded(self):
-        draft = json.loads((HERE.parent / "archive/department-pg/drafts" / "employee-deposit.json").read_text(encoding="utf-8"))
+        draft = json.loads((HERE.parent / "legacy/archive/department-pg/drafts" / "employee-deposit.json").read_text(encoding="utf-8"))
         self.assertEqual(draft["status"], "superseded_not_build_input")
         self.assertEqual(draft["activeSource"], "department-pg/deposits.json")
         self.assertIn("存款人本人", draft["concept"]["definition"])
@@ -308,8 +309,7 @@ class DepositTests(unittest.TestCase):
             ns = importlib.import_module("rdflib.namespace")
         except ImportError:
             self.skipTest("Optional rdflib is not installed")
-        config = json.loads((HERE.parent / "build-config.json").read_text(encoding="utf-8"))
-        files = [HERE.parent / name for name in config["sources"]]
+        files = list(SOURCE_FILES)
         if not all(path.is_file() for path in files):
             self.skipTest("Parent bank-deposit.ttl / v0.15.0 ontology is not yet available")
         graph = rdf.Graph()
@@ -335,7 +335,7 @@ class DepositTests(unittest.TestCase):
         for source in self.model["sources"]:
             sql_ref = deposits.SOURCES[source["table"]][2]
             evidence = self.model["evidence"][sql_ref]
-            path = root.joinpath(*Path(evidence["file"]).parts[1:])
+            path = evidence_file(evidence["file"])
             if not path.is_file():
                 self.skipTest("Read-only SQL evidence is not present in this checkout")
             # Match ASCII identifiers without assuming the legacy SQL comment encoding.
@@ -354,7 +354,7 @@ class DepositTests(unittest.TestCase):
         for evidence_id, snapshot_row in (("income_nt", 78), ("income_employee", 77),
                                           ("aum_employee_naming", 77)):
             evidence = self.model["evidence"][evidence_id]
-            path = root.joinpath(*Path(evidence["file"]).parts[1:])
+            path = evidence_file(evidence["file"])
             if not path.is_file():
                 self.skipTest("Read-only workbook evidence is not present in this checkout")
             with zipfile.ZipFile(path) as archive:

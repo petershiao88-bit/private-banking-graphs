@@ -9,7 +9,7 @@ import json
 from pathlib import Path
 from review_contract_v016 import historical_metric_concept, historical_metric_model
 
-BASE = Path(__file__).resolve().parents[2] / 'archive/before-pg-income-extension-20261024/department-pg'
+BASE = Path(__file__).resolve().parents[2] / 'legacy/archive/before-pg-income-extension-20261024/department-pg'
 EXPANDED = {'bank.dci_fee_income': 'product-fees.json',
             'bank.insurance_fee_income': 'investment-metrics.json'}
 

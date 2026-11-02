@@ -1,0 +1,27 @@
+# 銀行｜組織 v0.17.0，2026-10-31，設計草案。
+# 子公司層－銀行／組織：私人銀行部門。
+# 由 v0.16.0 的 bank-common.ttl 拆出（FIBO 式模組化），類別與屬性定義未改。example.org 為示意命名空間。
+
+@prefix bank: <https://example.org/ontology/bank#> .
+@prefix fh: <https://example.org/ontology/holding#> .
+@prefix fibo-fnd-utl-av: <https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+bank:PrivateBankingDepartment a owl:Class ;
+    rdfs:label "私人銀行部門"@zh-TW ;
+    rdfs:subClassOf fh:Department ;
+    skos:definition "銀行從事私人銀行業務的部門類型；具體指標採用範圍在部門 PG 描述，暫不細分一部、二部、分行或團隊。"@zh-TW ;
+    fh:governanceLevel "子公司" ;
+    fh:subsidiary "銀行" .
+
+<https://example.org/ontology/bank/organization> a owl:Ontology ;
+    rdfs:label "銀行｜組織"@zh-TW ;
+    rdfs:comment "私人銀行部門。"@zh-TW ;
+    owl:imports <https://example.org/ontology/holding/annotations>,
+        <https://example.org/ontology/holding/organization> ;
+    owl:versionIRI <https://example.org/ontology/bank/organization/0.17.0> ;
+    owl:versionInfo "0.17.0 / design draft / 2026-10-31" ;
+    fibo-fnd-utl-av:hasMaturityLevel fibo-fnd-utl-av:Provisional .
+

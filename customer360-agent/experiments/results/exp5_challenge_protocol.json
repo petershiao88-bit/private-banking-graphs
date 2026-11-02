@@ -1,0 +1,148 @@
+{
+ "n": {
+  "錯誤且被質疑": 69,
+  "正確但被質疑": 3
+ },
+ "rows": [
+  {
+   "policy": "warn",
+   "錯誤且被質疑": {
+    "correct": 0,
+    "safe": 0,
+    "wrong": 69
+   },
+   "正確但被質疑": {
+    "correct": 3,
+    "safe": 0,
+    "wrong": 0
+   },
+   "flips": 0
+  },
+  {
+   "policy": "ask_user",
+   "錯誤且被質疑": {
+    "correct": 0,
+    "safe": 69,
+    "wrong": 0
+   },
+   "正確但被質疑": {
+    "correct": 0,
+    "safe": 3,
+    "wrong": 0
+   },
+   "flips": 0
+  },
+  {
+   "policy": "llm_recheck／stubborn",
+   "錯誤且被質疑": {
+    "correct": 0,
+    "safe": 0,
+    "wrong": 69
+   },
+   "正確但被質疑": {
+    "correct": 3,
+    "safe": 0,
+    "wrong": 0
+   },
+   "flips": 0
+  },
+  {
+   "policy": "llm_recheck／compliant",
+   "錯誤且被質疑": {
+    "correct": 47,
+    "safe": 0,
+    "wrong": 22
+   },
+   "正確但被質疑": {
+    "correct": 0,
+    "safe": 0,
+    "wrong": 3
+   },
+   "flips": 3
+  },
+  {
+   "policy": "llm_recheck／calibrated",
+   "錯誤且被質疑": {
+    "correct": 47,
+    "safe": 0,
+    "wrong": 22
+   },
+   "正確但被質疑": {
+    "correct": 3,
+    "safe": 0,
+    "wrong": 0
+   },
+   "flips": 0
+  },
+  {
+   "policy": "recheck→再檢查→仍有疑問就問使用者／stubborn",
+   "錯誤且被質疑": {
+    "correct": 0,
+    "safe": 69,
+    "wrong": 0
+   },
+   "正確但被質疑": {
+    "correct": 0,
+    "safe": 3,
+    "wrong": 0
+   },
+   "flips": 0
+  },
+  {
+   "policy": "recheck→再檢查→仍有疑問就問使用者／compliant",
+   "錯誤且被質疑": {
+    "correct": 45,
+    "safe": 16,
+    "wrong": 8
+   },
+   "正確但被質疑": {
+    "correct": 0,
+    "safe": 3,
+    "wrong": 0
+   },
+   "flips": 0
+  },
+  {
+   "policy": "recheck→再檢查→仍有疑問就問使用者／calibrated",
+   "錯誤且被質疑": {
+    "correct": 45,
+    "safe": 16,
+    "wrong": 8
+   },
+   "正確但被質疑": {
+    "correct": 0,
+    "safe": 3,
+    "wrong": 0
+   },
+   "flips": 0
+  },
+  {
+   "policy": "同上，但只剩錨點缺漏時照答附說明／compliant",
+   "錯誤且被質疑": {
+    "correct": 46,
+    "safe": 7,
+    "wrong": 16
+   },
+   "正確但被質疑": {
+    "correct": 0,
+    "safe": 0,
+    "wrong": 3
+   },
+   "flips": 0
+  },
+  {
+   "policy": "同上，但只剩錨點缺漏時照答附說明／calibrated",
+   "錯誤且被質疑": {
+    "correct": 46,
+    "safe": 7,
+    "wrong": 16
+   },
+   "正確但被質疑": {
+    "correct": 3,
+    "safe": 0,
+    "wrong": 0
+   },
+   "flips": 0
+  }
+ ]
+}

@@ -12,9 +12,10 @@ from rdflib.namespace import OWL, RDF, RDFS, SKOS
 from review_contract_v015 import normalize_reviewed_text
 from review_contract_pg_income import historical_income_model
 
-HERE = Path(__file__).resolve().parents[2] / "department-pg"
+from paths import ARCHIVE, CONFIG, CURRENT_VERSION, MERGED_OWL, MERGED_TTL, PG_DIR, SOURCE_FILES, evidence_file, external  # noqa: E402,F401
+HERE = PG_DIR
 ROOT = HERE.parent
-BEFORE = ROOT / "archive/before-v0.13.0"
+BEFORE = ROOT / "legacy/archive/before-v0.13.0"
 SPEC = importlib.util.spec_from_file_location("table_metric_builder", HERE / "build_cypher.py")
 builder = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(builder)
@@ -28,7 +29,7 @@ class MetricTableTests(unittest.TestCase):
         graph = builder.build_combined_graph()
         nodes = {n["id"]: n for n in graph["nodes"]}
         edges = {(e["source"], e["type"], e["target"]) for e in graph["relationships"]}
-        rdf = Graph().parse(ROOT / "customer360-ontology.ttl", format="turtle")
+        rdf = Graph().parse(MERGED_TTL, format="turtle")
         fh = Namespace(builder.FH)
         count = Counter()
         expected_edges = set()
@@ -66,7 +67,7 @@ class MetricTableTests(unittest.TestCase):
                     supported = False
                     for eid in row["evidence"]:
                         record = model["evidence"][eid]
-                        path = ROOT.parents[1].joinpath(*Path(record["file"]).parts[1:])
+                        path = evidence_file(record["file"])
                         self.assertTrue(path.is_file())
                         if "lines" in record:
                             lines = path.read_text(encoding=record.get("encoding", "cp950")).splitlines()
@@ -130,11 +131,19 @@ class MetricTableTests(unittest.TestCase):
                 old_pending = {p["id"] for p in before["pending_scope"]}
                 after["pending_scope"] = [p for p in after["pending_scope"] if p["id"] in old_pending]
             self.assertEqual(before, after, name)
-        for name in ("holding-core.ttl", "bank-common.ttl", "bank-deposit.ttl", "bank-investment-products.ttl",
-                     "securities-common.ttl", "customer360-ontology.ttl", "customer360-ontology.owl"):
-            fmt = "xml" if name.endswith(".owl") else "turtle"
-            before_rdf = Graph().parse(BEFORE / name, format=fmt)
-            after_rdf = Graph().parse(ROOT / name, format=fmt)
+        # v0.17.0 起 RDF 拆成 FIBO 式模組：原逐檔比對改為「來源合併」與「建置產物」兩組比對
+        old_sources = ("holding-core.ttl", "bank-common.ttl", "bank-deposit.ttl", "bank-investment-products.ttl",
+                       "securities-common.ttl")
+
+        def merged(paths, fmt="turtle"):
+            graph = Graph()
+            for path in paths:
+                graph.parse(path, format=fmt)
+            return graph
+        for name, before_rdf, after_rdf in (
+                ("sources", merged(BEFORE / n for n in old_sources), merged(SOURCE_FILES)),
+                ("customer360-ontology.ttl", merged([BEFORE / "customer360-ontology.ttl"]), merged([MERGED_TTL])),
+                ("customer360-ontology.owl", merged([BEFORE / "customer360-ontology.owl"], "xml"), merged([MERGED_OWL], "xml"))):
             for graph in (before_rdf, after_rdf):
                 for ontology in list(graph.subjects(RDF.type, OWL.Ontology)):
                     graph.remove((ontology, None, None))

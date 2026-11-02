@@ -1,0 +1,87 @@
+# 第二份留出集（2026-11-01 00:4x）：本體檢查規則凍結後才寫，只用來量測「首次接觸」的誤擋率，不得據此再調規則。
+
+questions:
+  - id: y01
+    category: 直接對應
+    role: rm
+    question: 客戶在銀行買的 ETF 收了多少手續費，看哪個指標？
+    expect: {decision: [answer], metrics: [bank.etf_fee_income]}
+  - id: y02
+    category: 子公司歧義
+    role: rm
+    question: 債券的手收是哪個指標？
+    expect: {decision: [clarify, answer], metrics: [bank.overseas_bond_trust_fee_income, bank.overseas_bond_proprietary_fee_income, securities.bond_fee_income], match: superset}
+  - id: y03
+    category: 直接對應
+    role: rm
+    question: 自營的外國債券手收從哪張表來？
+    expect: {decision: [answer], metrics: [bank.overseas_bond_proprietary_fee_income]}
+  - id: y04
+    category: 錨點陷阱
+    role: rm
+    question: 保險型商品的 AUM 是不是保單現金價值？要看哪個指標？
+    expect: {decision: [answer], metrics: [bank.insurance_aum]}
+  - id: y05
+    category: 直接對應
+    role: rm
+    question: 信託保管的 AUM 和手收分別是哪個指標？
+    expect: {decision: [answer], metrics: [bank.trust_custody_aum, bank.trust_custody_fee_income]}
+  - id: y06
+    category: 子公司線索
+    role: rm
+    question: 行員存款算在哪個 AUM 裡？
+    expect: {decision: [answer, clarify], metrics: [bank.structured_deposit_aum], match: any}
+    note: 結構型存款 AUM 的來源含 EMP_DEP_NT_ACCT_HS；本題只檢查不要被誤擋。
+  - id: y07
+    category: 權限
+    role: customer
+    question: 我在證券的股票庫存有哪些指標？
+    expect: {decision: [answer], metrics: [securities.foreign_stock_aum, securities.taiwan_stock_aum]}
+  - id: y08
+    category: 直接對應
+    role: rm
+    question: 外幣存款的 AUM 跟存款利收各是哪個？
+    expect: {decision: [answer], metrics: [bank.foreign_currency_deposit_aum, bank.deposit_interest_income]}
+  - id: y09
+    category: 錨點陷阱
+    role: rm
+    question: 台幣計價的基金 AUM 要看哪個指標？
+    expect: {decision: [clarify, answer], metrics: [bank.fund_aum, securities.fund_aum], match: superset}
+    note: 「台幣計價」是基金屬性，本體的台幣金融商品只用在存款。
+  - id: y10
+    category: 概念
+    role: rm
+    question: 手收指標可以歸屬給誰？
+    expect: {decision: [answer], metrics: [], classes: [bank:BankFeeIncome, bank:FinancialAdvisor]}
+  - id: y11
+    category: 直接對應
+    role: rm
+    question: 複委託外國股票的淨手收是哪個？
+    expect: {decision: [answer], metrics: [securities.foreign_stock_fee_income]}
+  - id: y12
+    category: 子公司線索
+    role: rm
+    question: 私銀理專的海外股票 AUM 看哪個？
+    expect: {decision: [answer], metrics: [bank.overseas_stock_aum]}
+    note: 「理專」由本體推得屬於銀行。
+  - id: y13
+    category: 錨點陷阱
+    role: rm
+    question: 境內結構型商品的 SI 手收是哪個？
+    expect: {decision: [answer], metrics: [bank.domestic_structured_si_fee_income]}
+  - id: y14
+    category: 多種類
+    role: pb_manager
+    question: 銀行黃金的手收跟證券的債券手收，各是哪個指標？
+    expect: {decision: [answer], metrics: [bank.gold_fee_income, securities.bond_fee_income]}
+  - id: y15
+    category: 錨點陷阱
+    role: rm
+    question: 客戶的外幣保單 AUM 看哪個指標？
+    expect: {decision: [answer], metrics: [bank.insurance_aum]}
+    note: 「外幣」是保單屬性；本體的外幣金融商品只用在存款。
+  - id: y16
+    category: 直接對應
+    role: rm
+    question: 集合管理帳戶的 AUM 是哪個？
+    expect: {decision: [answer], metrics: [bank.collective_account_aum]}

@@ -9,7 +9,8 @@ from pathlib import Path
 from rdflib import Graph, URIRef
 from rdflib.namespace import OWL, RDF, RDFS, XSD
 
-HERE = Path(__file__).resolve().parents[2] / "department-pg"
+from paths import ARCHIVE, CONFIG, CURRENT_VERSION, MERGED_OWL, MERGED_TTL, PG_DIR, SOURCE_FILES, evidence_file, external  # noqa: E402,F401
+HERE = PG_DIR
 SPEC = importlib.util.spec_from_file_location("pg_income_test_builder", HERE / "build_cypher.py")
 assert SPEC is not None and SPEC.loader is not None
 builder = importlib.util.module_from_spec(SPEC)
@@ -23,9 +24,8 @@ class AdvisoryIncomeTests(unittest.TestCase):
 
     def test_references_resolve_and_inherited_domains_apply_without_pg_inference(self):
         rdf = Graph()
-        config = json.loads((HERE.parent / "build-config.json").read_text(encoding="utf-8"))
-        for source in config["sources"]:
-            rdf.parse(HERE.parent / source, format="turtle")
+        for source in SOURCE_FILES:
+            rdf.parse(source, format="turtle")
         graph = builder.build_combined_graph(income_model=self.model)
         kinds = {"OntologyClassReference": OWL.Class,
                  "OntologyPropertyReference": OWL.DatatypeProperty,
@@ -73,7 +73,7 @@ class AdvisoryIncomeTests(unittest.TestCase):
             self.assertIsNone(concept["specific_product_class_uri"])
 
     def test_metric_elements_resolve_to_typed_common_properties_and_keep_sources_pending(self):
-        rdf = Graph().parse(HERE.parent / "customer360-ontology.ttl", format="turtle")
+        rdf = Graph().parse(MERGED_TTL, format="turtle")
         graph = builder.build_combined_graph()
         nodes = {n["id"]: n for n in graph["nodes"]}
         edges = {(e["source"], e["type"], e["target"]) for e in graph["relationships"]}

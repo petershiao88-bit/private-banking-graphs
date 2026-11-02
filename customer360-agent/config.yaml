@@ -1,0 +1,64 @@
+# 客戶360 單 agent CoT 實驗台：設定檔。所有路徑相對於本檔案。
+# 環境變數可覆寫 llm 區段：C360A_BASE_URL、C360A_MODEL、C360A_TOOL_CALLING、C360A_API_KEY（或 api_key_env 指定的變數）。
+
+project:
+  name: 客戶360 單 agent CoT 實驗台
+
+paths:
+  ontology_project: ../customer360-rdf/config.yaml   # 本體專案的 config.yaml；本體、字典、權限、PG 都從這裡讀
+  packs: packs                                        # 角色 context 包輸出位置（packs/<本體版號>/）
+  runs: runs                                          # 評測結果輸出位置（runs/<時間>/）
+  questions: eval/questions.yaml                      # 評測題目
+
+llm:
+  # 地端 Qwen 的 OpenAI 相容端點。vLLM 預設 http://127.0.0.1:8000/v1；Ollama 為 http://127.0.0.1:11434/v1；
+  # LM Studio 為 http://127.0.0.1:1234/v1。先跑 `python -m c360_agent ping` 確認。
+  base_url: http://127.0.0.1:8000/v1
+  model: auto            # auto＝取 /models 回傳的第一個模型
+  api_key_env: QWEN_API_KEY   # 沒有金鑰就留著，會送 "EMPTY"
+  timeout: 300           # 秒；地端大模型第一次載入可能很慢
+  retries: 2
+  temperature: 0.3      # Qwen3 在思考模式用太低的溫度容易重複輸出；要更穩定可降到 0.1
+  max_tokens: 4096
+  context_window: 32768  # 只用來警告 context 太長，不會截斷
+  # 工具呼叫：native＝OpenAI tools 參數（vLLM 需 --enable-auto-tool-choice --tool-call-parser hermes）；
+  # prompt＝在提示詞裡用 Qwen 原生的 <tool_call> 格式；auto＝先試 native，不支援就改 prompt。
+  tool_calling: auto
+  # Qwen3 的思考內容（<think>…</think> 或 reasoning_content）一律從答案分離並存檔。
+  # thinking: off 會送出 chat_template_kwargs.enable_thinking=false（vLLM／SGLang）並在問題後加 /no_think（Qwen3 軟開關）。
+  # 評測時可用 `eval --thinking off` 比較開關思考的差異。
+  thinking: keep         # keep／off
+  extra_body: {}         # 其他要原樣送給伺服器的參數，例如 {top_p: 0.8}
+  use_env_proxy: false   # 地端位址通常不該走公司 proxy；需要時改 true
+
+agent:
+  default_role: rm                 # customer／rm／pb_manager（定義在本體專案的 policy/access-policy.yaml）
+  pack_level: compact              # compact＝精簡（建議地端模型）；full＝含完整定義與欄位候選
+  max_tool_rounds: 8
+  plan_retries: 1                  # 語意計畫被本體檢查擋下時，帶著錯誤訊息重試幾次
+  # 質疑（對照問題文字的檢查）退回模型一次後仍有疑問時：escalate＝轉成向使用者澄清（預設，實驗 5）；warn＝照答並附提醒
+  challenge_policy: escalate
+  # 總指標（例如證券總手收）只要有任何分項對該角色是拒絕，總指標也拒絕，避免透過總數看到被擋的分項。
+  aggregate_inherits_component_deny: true
+  exclude_term_prefixes: [demo.]   # 不放進 context 的字典詞條（Studio 的示範詞條）
+  # 問題裡出現這些字，就視為已指明子公司（語意計畫檢查「銀行／證券同名商品」歧義時使用）。
+  subsidiary_cues:
+    bank: [銀行, 信託, 自營, 存款, 放款, 保險, 黃金, 外匯, 開狀, DCI, ELI, FCI, SI, ETF]
+    securities: [證券, 複委託, 台股]
+  # 檢索用的業務同義詞（補在本體專案 studio.synonyms 之後）：業務用語 → 本體名稱用語。
+  synonyms:
+    複委託: 證券
+    庫存: AUM
+    規模: AUM
+    部位: AUM
+    活存: 存款
+    定存: 存款
+    保單: 保險
+    手續費收入: 手收
+    利息: 利收
+    借款: 放款
+    貸款: 放款
+
+eval:
+  modes: [baseline, context, plan, tools, workflow]
+  repeat: 1

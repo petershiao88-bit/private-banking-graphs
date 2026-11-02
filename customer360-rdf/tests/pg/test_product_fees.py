@@ -8,7 +8,8 @@ import xml.etree.ElementTree as ET
 import zipfile
 from pathlib import Path
 
-HERE = Path(__file__).resolve().parents[2] / "department-pg"
+from paths import ARCHIVE, CONFIG, CURRENT_VERSION, MERGED_OWL, MERGED_TTL, PG_DIR, SOURCE_FILES, evidence_file, external  # noqa: E402,F401
+HERE = PG_DIR
 SPEC = importlib.util.spec_from_file_location("pg_product_fee_tests", HERE / "build_cypher.py")
 assert SPEC is not None and SPEC.loader is not None
 builder = importlib.util.module_from_spec(SPEC)
@@ -17,7 +18,7 @@ fees = builder.product_fees
 
 
 def source_path(evidence):
-    return HERE.parents[2].joinpath(*Path(evidence["file"]).parts[1:])
+    return evidence_file(evidence["file"])
 
 
 def workbook_cells(path, sheet_name):

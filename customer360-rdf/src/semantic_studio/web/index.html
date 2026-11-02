@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semantic Studio</title>
+<link rel="stylesheet" href="/static/css/studio.css">
+<script src="/static/lib/cytoscape.min.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="logo">◆</span>
+    <div>
+      <div class="title">Semantic Studio</div>
+      <div class="subtitle" id="onto-meta">載入中…</div>
+    </div>
+  </div>
+  <nav class="tabs" id="tabs">
+    <button data-tab="graph" class="active">RDF 圖譜</button>
+    <button data-tab="dictionary">業務字典對應</button>
+    <button data-tab="policy">權限</button>
+    <button data-tab="owl">OWL 推理</button>
+    <button data-tab="shacl">SHACL</button>
+    <button data-tab="turtle">Turtle</button>
+  </nav>
+  <div class="top-actions">
+    <span id="shacl-badge" class="badge"></span>
+    <button id="reload" class="ghost" title="重新讀取 TTL、字典、權限與 SHACL">重新載入</button>
+  </div>
+</header>
+
+<main>
+  <!-- RDF 圖譜 -->
+  <section id="tab-graph" class="tab active">
+    <aside class="panel controls">
+      <div class="group">
+        <label class="field-label">搜尋</label>
+        <input id="search" type="search" placeholder="類別、詞條或 ID">
+      </div>
+      <div class="group">
+        <div class="field-label">層級</div>
+        <div id="layer-toggles" class="checks"></div>
+      </div>
+      <div class="group">
+        <div class="field-label">顯示</div>
+        <div class="checks">
+          <label><input type="checkbox" id="opt-inferred" checked> OWL 推理邊</label>
+          <label><input type="checkbox" id="opt-new" checked> 新業務字典詞條</label>
+          <label><input type="checkbox" id="opt-pg"> PG 既有詞條</label>
+          <label><input type="checkbox" id="opt-objprop" checked> 關係屬性（持有、服務…）</label>
+          <label><input type="checkbox" id="opt-dataprop"> 資料屬性</label>
+          <label><input type="checkbox" id="opt-shacl" checked> SHACL 驗證結果</label>
+        </div>
+      </div>
+      <div class="group">
+        <label class="field-label" for="role-view">權限檢視（以角色著色）</label>
+        <select id="role-view"></select>
+      </div>
+      <div class="group">
+        <label class="field-label" for="layout">版面</label>
+        <div class="row">
+          <select id="layout">
+            <option value="cose">力導向</option>
+            <option value="breadthfirst">階層</option>
+            <option value="concentric">同心圓</option>
+            <option value="grid">格狀</option>
+          </select>
+          <button id="relayout" class="ghost small">重新排列</button>
+        </div>
+      </div>
+      <div class="group legend" id="legend"></div>
+    </aside>
+    <div id="cy" aria-label="RDF 圖譜"></div>
+    <aside class="panel detail" id="detail">
+      <div class="empty">點選圖上的節點查看細節：OWL 定義、上層鏈、權限與 SHACL。</div>
+    </aside>
+  </section>
+
+  <!-- 業務字典對應 -->
+  <section id="tab-dictionary" class="tab">
+    <aside class="panel term-list">
+      <div class="row">
+        <input id="term-filter" type="search" placeholder="篩選詞條">
+        <button id="new-term" class="primary small">＋ 新詞條</button>
+      </div>
+      <div class="seg" id="term-seg">
+        <button data-f="all" class="on">全部</button>
+        <button data-f="dictionary">新詞條</button>
+        <button data-f="pg">PG</button>
+        <button data-f="unmapped">未對應</button>
+        <button data-f="issues">有違規</button>
+      </div>
+      <details class="import">
+        <summary>匯入業務字典（CSV／JSON）</summary>
+        <div class="import-body">
+          <div class="row">
+            <select id="import-format"><option value="csv">CSV</option><option value="json">JSON</option></select>
+            <input id="import-source" placeholder="來源說明，例如 2026-11 財管字典">
+          </div>
+          <input id="import-file" type="file" accept=".csv,.json,.txt">
+          <textarea id="import-text" rows="6" spellcheck="false"></textarea>
+          <button id="import-go" class="primary small">匯入</button>
+        </div>
+      </details>
+      <div id="term-items" class="items"></div>
+    </aside>
+    <div class="panel editor" id="term-editor">
+      <div class="empty">從左邊選一個詞條，或建立新詞條。</div>
+    </div>
+  </section>
+
+  <!-- 權限 -->
+  <section id="tab-policy" class="tab">
+    <div class="panel wide" id="policy-panel"></div>
+  </section>
+
+  <!-- OWL -->
+  <section id="tab-owl" class="tab">
+    <div class="panel wide" id="owl-panel"></div>
+  </section>
+
+  <!-- SHACL -->
+  <section id="tab-shacl" class="tab">
+    <div class="panel wide" id="shacl-panel"></div>
+  </section>
+
+  <!-- Turtle -->
+  <section id="tab-turtle" class="tab">
+    <div class="panel wide">
+      <div class="row">
+        <select id="turtle-what">
+          <option value="ontology">本體（5 份模組 TTL 合併）</option>
+          <option value="dictionary">業務字典對應（RDF）</option>
+          <option value="shapes">SHACL shapes</option>
+        </select>
+        <input id="turtle-filter" type="search" placeholder="只顯示含此文字的段落">
+        <a id="turtle-download" class="button ghost small" download>下載</a>
+      </div>
+      <pre id="turtle-text" class="code tall"></pre>
+    </div>
+  </section>
+</main>
+
+<div id="toast" role="status" aria-live="polite"></div>
+<script type="module" src="/static/js/main.js"></script>
+</body>
+</html>

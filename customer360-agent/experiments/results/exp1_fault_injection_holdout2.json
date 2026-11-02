@@ -1,0 +1,2233 @@
+{
+ "rows": [
+  {
+   "qid": "y01",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "hallucinated_metric",
+   "family": "自編 ID",
+   "harm": "high",
+   "why": "bank.etf_fee_income → 編造 bank.etf_fee_total",
+   "actually_wrong": true,
+   "full_level": 1,
+   "full_codes": [
+    "unknown_metric"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": 1,
+   "out_codes": [
+    "unknown_metric"
+   ]
+  },
+  {
+   "qid": "y01",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "hallucinated_class",
+   "family": "自編 ID",
+   "harm": "medium",
+   "why": "加入不存在的類別 bank:FundAUM",
+   "actually_wrong": false,
+   "full_level": 1,
+   "full_codes": [
+    "unknown_class"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y01",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "wrong_sibling_metric",
+   "family": "選錯指標",
+   "harm": "high",
+   "why": "bank.etf_fee_income → 同類別的 bank.overseas_bond_proprietary_fee_income（術語宣告不變）",
+   "actually_wrong": true,
+   "full_level": 5,
+   "full_codes": [
+    "anchor_conflict",
+    "anchor_missing",
+    "term_metric_mismatch"
+   ],
+   "hard": true,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 6,
+   "out_codes": [
+    "anchor_conflict",
+    "anchor_missing"
+   ]
+  },
+  {
+   "qid": "y01",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "wrong_sibling_consistent",
+   "family": "選錯指標",
+   "harm": "high",
+   "why": "bank.etf_fee_income → 同類別的 bank.fund_fee_income（術語宣告不變），並改寫用語宣告",
+   "actually_wrong": true,
+   "full_level": 6,
+   "full_codes": [
+    "anchor_conflict",
+    "anchor_missing"
+   ],
+   "hard": false,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 6,
+   "out_codes": [
+    "anchor_conflict",
+    "anchor_missing"
+   ]
+  },
+  {
+   "qid": "y01",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "false_is_a",
+   "family": "錯誤推理",
+   "harm": "medium",
+   "why": "宣稱 ETF ⊑ 基金商品",
+   "actually_wrong": false,
+   "full_level": 3,
+   "full_codes": [
+    "false_is_a"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y01",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "version_drift",
+   "family": "版本",
+   "harm": "low",
+   "why": "引用舊版本號",
+   "actually_wrong": false,
+   "full_level": null,
+   "full_codes": [],
+   "hard": false,
+   "soft": false,
+   "full_warn": [
+    "version"
+   ],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y02",
+   "category": "子公司歧義",
+   "role": "rm",
+   "fault": "hallucinated_metric",
+   "family": "自編 ID",
+   "harm": "high",
+   "why": "bank.overseas_bond_trust_fee_income → 編造 bank.overseas_bond_trust_fee_total",
+   "actually_wrong": true,
+   "full_level": 1,
+   "full_codes": [
+    "ambiguous_subsidiary",
+    "unknown_metric"
+   ],
+   "hard": true,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 1,
+   "out_codes": [
+    "ambiguous_subsidiary",
+    "unknown_metric"
+   ]
+  },
+  {
+   "qid": "y02",
+   "category": "子公司歧義",
+   "role": "rm",
+   "fault": "hallucinated_class",
+   "family": "自編 ID",
+   "harm": "medium",
+   "why": "加入不存在的類別 bank:FundAUM",
+   "actually_wrong": false,
+   "full_level": 1,
+   "full_codes": [
+    "unknown_class"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y02",
+   "category": "子公司歧義",
+   "role": "rm",
+   "fault": "one_side_only",
+   "family": "子公司歧義",
+   "harm": "high",
+   "why": "只留securities一邊",
+   "actually_wrong": true,
+   "full_level": 4,
+   "full_codes": [
+    "ambiguous_subsidiary"
+   ],
+   "hard": false,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 4,
+   "out_codes": [
+    "ambiguous_subsidiary"
+   ]
+  },
+  {
+   "qid": "y02",
+   "category": "子公司歧義",
+   "role": "rm",
+   "fault": "subsidiary_swap",
+   "family": "子公司歧義",
+   "harm": "high",
+   "why": "bank.overseas_bond_trust_fee_income → securities.bond_fee_income；bank.overseas_bond_proprietary_fee_income → securities.bond_fee_income；securities.bond_fee_income → bank.overseas_bond_trust_fee_income",
+   "actually_wrong": true,
+   "full_level": 4,
+   "full_codes": [
+    "ambiguous_subsidiary"
+   ],
+   "hard": false,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 4,
+   "out_codes": [
+    "ambiguous_subsidiary"
+   ]
+  },
+  {
+   "qid": "y02",
+   "category": "子公司歧義",
+   "role": "rm",
+   "fault": "false_is_a",
+   "family": "錯誤推理",
+   "harm": "medium",
+   "why": "宣稱 ETF ⊑ 基金商品",
+   "actually_wrong": false,
+   "full_level": 3,
+   "full_codes": [
+    "false_is_a"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y02",
+   "category": "子公司歧義",
+   "role": "rm",
+   "fault": "version_drift",
+   "family": "版本",
+   "harm": "low",
+   "why": "引用舊版本號",
+   "actually_wrong": false,
+   "full_level": null,
+   "full_codes": [],
+   "hard": false,
+   "soft": false,
+   "full_warn": [
+    "version"
+   ],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y02",
+   "category": "子公司歧義",
+   "role": "rm",
+   "fault": "answer_instead_of_clarify",
+   "family": "子公司歧義",
+   "harm": "high",
+   "why": "只留bank一邊，用語宣告也只寫那一邊",
+   "actually_wrong": true,
+   "full_level": 4,
+   "full_codes": [
+    "ambiguous_subsidiary"
+   ],
+   "hard": false,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 4,
+   "out_codes": [
+    "ambiguous_subsidiary"
+   ]
+  },
+  {
+   "qid": "y03",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "hallucinated_metric",
+   "family": "自編 ID",
+   "harm": "high",
+   "why": "bank.overseas_bond_proprietary_fee_income → 編造 bank.overseas_bond_proprietary_fee_total",
+   "actually_wrong": true,
+   "full_level": 1,
+   "full_codes": [
+    "unknown_metric"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": 1,
+   "out_codes": [
+    "unknown_metric"
+   ]
+  },
+  {
+   "qid": "y03",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "hallucinated_class",
+   "family": "自編 ID",
+   "harm": "medium",
+   "why": "加入不存在的類別 bank:FundAUM",
+   "actually_wrong": false,
+   "full_level": 1,
+   "full_codes": [
+    "unknown_class"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y03",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "wrong_sibling_metric",
+   "family": "選錯指標",
+   "harm": "high",
+   "why": "bank.overseas_bond_proprietary_fee_income → 同類別的 bank.domestic_structured_eli_fee_income（術語宣告不變）",
+   "actually_wrong": true,
+   "full_level": 4,
+   "full_codes": [
+    "ambiguous_subsidiary",
+    "anchor_conflict",
+    "anchor_missing",
+    "term_metric_mismatch"
+   ],
+   "hard": true,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 4,
+   "out_codes": [
+    "ambiguous_subsidiary",
+    "anchor_conflict",
+    "anchor_missing"
+   ]
+  },
+  {
+   "qid": "y03",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "wrong_sibling_consistent",
+   "family": "選錯指標",
+   "harm": "high",
+   "why": "bank.overseas_bond_proprietary_fee_income → 同類別的 bank.product_fee_income（術語宣告不變），並改寫用語宣告",
+   "actually_wrong": true,
+   "full_level": 6,
+   "full_codes": [
+    "anchor_conflict",
+    "anchor_missing"
+   ],
+   "hard": false,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 6,
+   "out_codes": [
+    "anchor_conflict",
+    "anchor_missing"
+   ]
+  },
+  {
+   "qid": "y03",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "subsidiary_swap",
+   "family": "子公司歧義",
+   "harm": "high",
+   "why": "bank.overseas_bond_proprietary_fee_income → securities.bond_fee_income",
+   "actually_wrong": true,
+   "full_level": 4,
+   "full_codes": [
+    "ambiguous_subsidiary",
+    "term_metric_mismatch"
+   ],
+   "hard": true,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 4,
+   "out_codes": [
+    "ambiguous_subsidiary"
+   ]
+  },
+  {
+   "qid": "y03",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "false_is_a",
+   "family": "錯誤推理",
+   "harm": "medium",
+   "why": "宣稱 ETF ⊑ 基金商品",
+   "actually_wrong": false,
+   "full_level": 3,
+   "full_codes": [
+    "false_is_a"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y03",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "version_drift",
+   "family": "版本",
+   "harm": "low",
+   "why": "引用舊版本號",
+   "actually_wrong": false,
+   "full_level": null,
+   "full_codes": [],
+   "hard": false,
+   "soft": false,
+   "full_warn": [
+    "version"
+   ],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y04",
+   "category": "錨點陷阱",
+   "role": "rm",
+   "fault": "hallucinated_metric",
+   "family": "自編 ID",
+   "harm": "high",
+   "why": "bank.insurance_aum → 編造 bank.insurance_total",
+   "actually_wrong": true,
+   "full_level": 1,
+   "full_codes": [
+    "unknown_metric"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": 1,
+   "out_codes": [
+    "unknown_metric"
+   ]
+  },
+  {
+   "qid": "y04",
+   "category": "錨點陷阱",
+   "role": "rm",
+   "fault": "hallucinated_class",
+   "family": "自編 ID",
+   "harm": "medium",
+   "why": "加入不存在的類別 bank:FundAUM",
+   "actually_wrong": false,
+   "full_level": 1,
+   "full_codes": [
+    "unknown_class"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y04",
+   "category": "錨點陷阱",
+   "role": "rm",
+   "fault": "wrong_sibling_metric",
+   "family": "選錯指標",
+   "harm": "high",
+   "why": "bank.insurance_aum → 同類別的 bank.planned_trust_aum（術語宣告不變）",
+   "actually_wrong": true,
+   "full_level": 5,
+   "full_codes": [
+    "anchor_conflict",
+    "anchor_missing",
+    "term_metric_mismatch"
+   ],
+   "hard": true,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 6,
+   "out_codes": [
+    "anchor_conflict",
+    "anchor_missing"
+   ]
+  },
+  {
+   "qid": "y04",
+   "category": "錨點陷阱",
+   "role": "rm",
+   "fault": "wrong_sibling_consistent",
+   "family": "選錯指標",
+   "harm": "high",
+   "why": "bank.insurance_aum → 同類別的 bank.etf_aum（術語宣告不變），並改寫用語宣告",
+   "actually_wrong": true,
+   "full_level": 6,
+   "full_codes": [
+    "anchor_conflict",
+    "anchor_missing"
+   ],
+   "hard": false,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 6,
+   "out_codes": [
+    "anchor_conflict",
+    "anchor_missing"
+   ]
+  },
+  {
+   "qid": "y04",
+   "category": "錨點陷阱",
+   "role": "rm",
+   "fault": "false_is_a",
+   "family": "錯誤推理",
+   "harm": "medium",
+   "why": "宣稱 ETF ⊑ 基金商品",
+   "actually_wrong": false,
+   "full_level": 3,
+   "full_codes": [
+    "false_is_a"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y04",
+   "category": "錨點陷阱",
+   "role": "rm",
+   "fault": "version_drift",
+   "family": "版本",
+   "harm": "low",
+   "why": "引用舊版本號",
+   "actually_wrong": false,
+   "full_level": null,
+   "full_codes": [],
+   "hard": false,
+   "soft": false,
+   "full_warn": [
+    "version"
+   ],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y05",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "hallucinated_metric",
+   "family": "自編 ID",
+   "harm": "high",
+   "why": "bank.trust_custody_aum → 編造 bank.trust_custody_total",
+   "actually_wrong": true,
+   "full_level": 1,
+   "full_codes": [
+    "anchor_missing",
+    "unknown_metric"
+   ],
+   "hard": true,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 1,
+   "out_codes": [
+    "anchor_missing",
+    "unknown_metric"
+   ]
+  },
+  {
+   "qid": "y05",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "hallucinated_class",
+   "family": "自編 ID",
+   "harm": "medium",
+   "why": "加入不存在的類別 bank:FundAUM",
+   "actually_wrong": false,
+   "full_level": 1,
+   "full_codes": [
+    "unknown_class"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y05",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "false_is_a",
+   "family": "錯誤推理",
+   "harm": "medium",
+   "why": "宣稱 ETF ⊑ 基金商品",
+   "actually_wrong": false,
+   "full_level": 3,
+   "full_codes": [
+    "false_is_a"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y05",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "version_drift",
+   "family": "版本",
+   "harm": "low",
+   "why": "引用舊版本號",
+   "actually_wrong": false,
+   "full_level": null,
+   "full_codes": [],
+   "hard": false,
+   "soft": false,
+   "full_warn": [
+    "version"
+   ],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y06",
+   "category": "子公司線索",
+   "role": "rm",
+   "fault": "hallucinated_metric",
+   "family": "自編 ID",
+   "harm": "high",
+   "why": "bank.structured_deposit_aum → 編造 bank.structured_deposit_total",
+   "actually_wrong": true,
+   "full_level": 1,
+   "full_codes": [
+    "unknown_metric"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": 1,
+   "out_codes": [
+    "unknown_metric"
+   ]
+  },
+  {
+   "qid": "y06",
+   "category": "子公司線索",
+   "role": "rm",
+   "fault": "hallucinated_class",
+   "family": "自編 ID",
+   "harm": "medium",
+   "why": "加入不存在的類別 bank:FundAUM",
+   "actually_wrong": false,
+   "full_level": 1,
+   "full_codes": [
+    "unknown_class"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y06",
+   "category": "子公司線索",
+   "role": "rm",
+   "fault": "wrong_sibling_metric",
+   "family": "選錯指標",
+   "harm": "high",
+   "why": "bank.structured_deposit_aum → 同類別的 bank.offshore_structured_aum（術語宣告不變）",
+   "actually_wrong": true,
+   "full_level": 5,
+   "full_codes": [
+    "anchor_conflict",
+    "anchor_missing",
+    "term_metric_mismatch"
+   ],
+   "hard": true,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 6,
+   "out_codes": [
+    "anchor_conflict",
+    "anchor_missing"
+   ]
+  },
+  {
+   "qid": "y06",
+   "category": "子公司線索",
+   "role": "rm",
+   "fault": "wrong_sibling_consistent",
+   "family": "選錯指標",
+   "harm": "high",
+   "why": "bank.structured_deposit_aum → 同類別的 bank.planned_trust_aum（術語宣告不變），並改寫用語宣告",
+   "actually_wrong": true,
+   "full_level": 6,
+   "full_codes": [
+    "anchor_conflict",
+    "anchor_missing"
+   ],
+   "hard": false,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 6,
+   "out_codes": [
+    "anchor_conflict",
+    "anchor_missing"
+   ]
+  },
+  {
+   "qid": "y06",
+   "category": "子公司線索",
+   "role": "rm",
+   "fault": "false_is_a",
+   "family": "錯誤推理",
+   "harm": "medium",
+   "why": "宣稱 ETF ⊑ 基金商品",
+   "actually_wrong": false,
+   "full_level": 3,
+   "full_codes": [
+    "false_is_a"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y06",
+   "category": "子公司線索",
+   "role": "rm",
+   "fault": "version_drift",
+   "family": "版本",
+   "harm": "low",
+   "why": "引用舊版本號",
+   "actually_wrong": false,
+   "full_level": null,
+   "full_codes": [],
+   "hard": false,
+   "soft": false,
+   "full_warn": [
+    "version"
+   ],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y07",
+   "category": "權限",
+   "role": "customer",
+   "fault": "hallucinated_metric",
+   "family": "自編 ID",
+   "harm": "high",
+   "why": "securities.foreign_stock_aum → 編造 securities.foreign_stock_total",
+   "actually_wrong": true,
+   "full_level": 1,
+   "full_codes": [
+    "unknown_metric"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": 1,
+   "out_codes": [
+    "unknown_metric"
+   ]
+  },
+  {
+   "qid": "y07",
+   "category": "權限",
+   "role": "customer",
+   "fault": "hallucinated_class",
+   "family": "自編 ID",
+   "harm": "medium",
+   "why": "加入不存在的類別 bank:FundAUM",
+   "actually_wrong": false,
+   "full_level": 1,
+   "full_codes": [
+    "unknown_class"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y07",
+   "category": "權限",
+   "role": "customer",
+   "fault": "permission_leak",
+   "family": "越權",
+   "harm": "critical",
+   "why": "加入角色不可看的 bank.domestic_structured_eli_fee_income",
+   "actually_wrong": true,
+   "full_level": 2,
+   "full_codes": [
+    "not_permitted"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": 2,
+   "out_codes": [
+    "not_permitted"
+   ]
+  },
+  {
+   "qid": "y07",
+   "category": "權限",
+   "role": "customer",
+   "fault": "aggregate_leak",
+   "family": "越權",
+   "harm": "critical",
+   "why": "透過總指標（含被擋分項）取得資料",
+   "actually_wrong": true,
+   "full_level": 2,
+   "full_codes": [
+    "not_permitted"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": 2,
+   "out_codes": [
+    "not_permitted"
+   ]
+  },
+  {
+   "qid": "y07",
+   "category": "權限",
+   "role": "customer",
+   "fault": "false_is_a",
+   "family": "錯誤推理",
+   "harm": "medium",
+   "why": "宣稱 ETF ⊑ 基金商品",
+   "actually_wrong": false,
+   "full_level": 3,
+   "full_codes": [
+    "false_is_a"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y07",
+   "category": "權限",
+   "role": "customer",
+   "fault": "version_drift",
+   "family": "版本",
+   "harm": "low",
+   "why": "引用舊版本號",
+   "actually_wrong": false,
+   "full_level": null,
+   "full_codes": [],
+   "hard": false,
+   "soft": false,
+   "full_warn": [
+    "version"
+   ],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y08",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "hallucinated_metric",
+   "family": "自編 ID",
+   "harm": "high",
+   "why": "bank.foreign_currency_deposit_aum → 編造 bank.foreign_currency_deposit_total",
+   "actually_wrong": true,
+   "full_level": 1,
+   "full_codes": [
+    "anchor_missing",
+    "unknown_metric"
+   ],
+   "hard": true,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 1,
+   "out_codes": [
+    "anchor_missing",
+    "unknown_metric"
+   ]
+  },
+  {
+   "qid": "y08",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "hallucinated_class",
+   "family": "自編 ID",
+   "harm": "medium",
+   "why": "加入不存在的類別 bank:FundAUM",
+   "actually_wrong": false,
+   "full_level": 1,
+   "full_codes": [
+    "unknown_class"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y08",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "false_is_a",
+   "family": "錯誤推理",
+   "harm": "medium",
+   "why": "宣稱 ETF ⊑ 基金商品",
+   "actually_wrong": false,
+   "full_level": 3,
+   "full_codes": [
+    "false_is_a"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y08",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "version_drift",
+   "family": "版本",
+   "harm": "low",
+   "why": "引用舊版本號",
+   "actually_wrong": false,
+   "full_level": null,
+   "full_codes": [],
+   "hard": false,
+   "soft": false,
+   "full_warn": [
+    "version"
+   ],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y09",
+   "category": "錨點陷阱",
+   "role": "rm",
+   "fault": "hallucinated_metric",
+   "family": "自編 ID",
+   "harm": "high",
+   "why": "bank.fund_aum → 編造 bank.fund_total",
+   "actually_wrong": true,
+   "full_level": 1,
+   "full_codes": [
+    "ambiguous_subsidiary",
+    "unknown_metric"
+   ],
+   "hard": true,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 1,
+   "out_codes": [
+    "ambiguous_subsidiary",
+    "unknown_metric"
+   ]
+  },
+  {
+   "qid": "y09",
+   "category": "錨點陷阱",
+   "role": "rm",
+   "fault": "hallucinated_class",
+   "family": "自編 ID",
+   "harm": "medium",
+   "why": "加入不存在的類別 bank:FundAUM",
+   "actually_wrong": false,
+   "full_level": 1,
+   "full_codes": [
+    "unknown_class"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y09",
+   "category": "錨點陷阱",
+   "role": "rm",
+   "fault": "one_side_only",
+   "family": "子公司歧義",
+   "harm": "high",
+   "why": "只留bank一邊",
+   "actually_wrong": true,
+   "full_level": 4,
+   "full_codes": [
+    "ambiguous_subsidiary"
+   ],
+   "hard": false,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 4,
+   "out_codes": [
+    "ambiguous_subsidiary"
+   ]
+  },
+  {
+   "qid": "y09",
+   "category": "錨點陷阱",
+   "role": "rm",
+   "fault": "subsidiary_swap",
+   "family": "子公司歧義",
+   "harm": "high",
+   "why": "bank.fund_aum → securities.fund_aum；securities.fund_aum → bank.fund_aum",
+   "actually_wrong": false,
+   "full_level": null,
+   "full_codes": [],
+   "hard": false,
+   "soft": false,
+   "full_warn": [],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y09",
+   "category": "錨點陷阱",
+   "role": "rm",
+   "fault": "false_is_a",
+   "family": "錯誤推理",
+   "harm": "medium",
+   "why": "宣稱 ETF ⊑ 基金商品",
+   "actually_wrong": false,
+   "full_level": 3,
+   "full_codes": [
+    "false_is_a"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y09",
+   "category": "錨點陷阱",
+   "role": "rm",
+   "fault": "version_drift",
+   "family": "版本",
+   "harm": "low",
+   "why": "引用舊版本號",
+   "actually_wrong": false,
+   "full_level": null,
+   "full_codes": [],
+   "hard": false,
+   "soft": false,
+   "full_warn": [
+    "version"
+   ],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y10",
+   "category": "概念",
+   "role": "rm",
+   "fault": "hallucinated_class",
+   "family": "自編 ID",
+   "harm": "medium",
+   "why": "加入不存在的類別 bank:FundAUM",
+   "actually_wrong": false,
+   "full_level": 1,
+   "full_codes": [
+    "unknown_class"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": 1,
+   "out_codes": [
+    "empty_answer"
+   ]
+  },
+  {
+   "qid": "y10",
+   "category": "概念",
+   "role": "rm",
+   "fault": "false_is_a",
+   "family": "錯誤推理",
+   "harm": "medium",
+   "why": "宣稱 ETF ⊑ 基金商品",
+   "actually_wrong": false,
+   "full_level": 3,
+   "full_codes": [
+    "false_is_a"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": 1,
+   "out_codes": [
+    "empty_answer"
+   ]
+  },
+  {
+   "qid": "y10",
+   "category": "概念",
+   "role": "rm",
+   "fault": "version_drift",
+   "family": "版本",
+   "harm": "low",
+   "why": "引用舊版本號",
+   "actually_wrong": false,
+   "full_level": null,
+   "full_codes": [],
+   "hard": false,
+   "soft": false,
+   "full_warn": [
+    "version"
+   ],
+   "out_level": 1,
+   "out_codes": [
+    "empty_answer"
+   ]
+  },
+  {
+   "qid": "y11",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "hallucinated_metric",
+   "family": "自編 ID",
+   "harm": "high",
+   "why": "securities.foreign_stock_fee_income → 編造 securities.foreign_stock_fee_total",
+   "actually_wrong": true,
+   "full_level": 1,
+   "full_codes": [
+    "unknown_metric"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": 1,
+   "out_codes": [
+    "unknown_metric"
+   ]
+  },
+  {
+   "qid": "y11",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "hallucinated_class",
+   "family": "自編 ID",
+   "harm": "medium",
+   "why": "加入不存在的類別 bank:FundAUM",
+   "actually_wrong": false,
+   "full_level": 1,
+   "full_codes": [
+    "unknown_class"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y11",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "wrong_sibling_metric",
+   "family": "選錯指標",
+   "harm": "high",
+   "why": "securities.foreign_stock_fee_income → 同類別的 securities.bond_fee_income（術語宣告不變）",
+   "actually_wrong": true,
+   "full_level": 5,
+   "full_codes": [
+    "anchor_conflict",
+    "anchor_missing",
+    "term_metric_mismatch"
+   ],
+   "hard": true,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 6,
+   "out_codes": [
+    "anchor_conflict",
+    "anchor_missing"
+   ]
+  },
+  {
+   "qid": "y11",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "wrong_sibling_consistent",
+   "family": "選錯指標",
+   "harm": "high",
+   "why": "securities.foreign_stock_fee_income → 同類別的 securities.bond_fee_income（術語宣告不變），並改寫用語宣告",
+   "actually_wrong": true,
+   "full_level": 6,
+   "full_codes": [
+    "anchor_conflict",
+    "anchor_missing"
+   ],
+   "hard": false,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 6,
+   "out_codes": [
+    "anchor_conflict",
+    "anchor_missing"
+   ]
+  },
+  {
+   "qid": "y11",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "subsidiary_swap",
+   "family": "子公司歧義",
+   "harm": "high",
+   "why": "securities.foreign_stock_fee_income → bank.overseas_stock_fee_income",
+   "actually_wrong": true,
+   "full_level": 4,
+   "full_codes": [
+    "cue_conflict",
+    "term_metric_mismatch"
+   ],
+   "hard": true,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 4,
+   "out_codes": [
+    "cue_conflict"
+   ]
+  },
+  {
+   "qid": "y11",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "false_is_a",
+   "family": "錯誤推理",
+   "harm": "medium",
+   "why": "宣稱 ETF ⊑ 基金商品",
+   "actually_wrong": false,
+   "full_level": 3,
+   "full_codes": [
+    "false_is_a"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y11",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "version_drift",
+   "family": "版本",
+   "harm": "low",
+   "why": "引用舊版本號",
+   "actually_wrong": false,
+   "full_level": null,
+   "full_codes": [],
+   "hard": false,
+   "soft": false,
+   "full_warn": [
+    "version"
+   ],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y12",
+   "category": "子公司線索",
+   "role": "rm",
+   "fault": "hallucinated_metric",
+   "family": "自編 ID",
+   "harm": "high",
+   "why": "bank.overseas_stock_aum → 編造 bank.overseas_stock_total",
+   "actually_wrong": true,
+   "full_level": 1,
+   "full_codes": [
+    "unknown_metric"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": 1,
+   "out_codes": [
+    "unknown_metric"
+   ]
+  },
+  {
+   "qid": "y12",
+   "category": "子公司線索",
+   "role": "rm",
+   "fault": "hallucinated_class",
+   "family": "自編 ID",
+   "harm": "medium",
+   "why": "加入不存在的類別 bank:FundAUM",
+   "actually_wrong": false,
+   "full_level": 1,
+   "full_codes": [
+    "unknown_class"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y12",
+   "category": "子公司線索",
+   "role": "rm",
+   "fault": "wrong_sibling_metric",
+   "family": "選錯指標",
+   "harm": "high",
+   "why": "bank.overseas_stock_aum → 同類別的 bank.overseas_bond_proprietary_aum（術語宣告不變）",
+   "actually_wrong": true,
+   "full_level": 5,
+   "full_codes": [
+    "anchor_missing",
+    "term_metric_mismatch"
+   ],
+   "hard": true,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 6,
+   "out_codes": [
+    "anchor_missing"
+   ]
+  },
+  {
+   "qid": "y12",
+   "category": "子公司線索",
+   "role": "rm",
+   "fault": "wrong_sibling_consistent",
+   "family": "選錯指標",
+   "harm": "high",
+   "why": "bank.overseas_stock_aum → 同類別的 bank.overseas_bond_proprietary_aum（術語宣告不變），並改寫用語宣告",
+   "actually_wrong": true,
+   "full_level": 6,
+   "full_codes": [
+    "anchor_missing"
+   ],
+   "hard": false,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 6,
+   "out_codes": [
+    "anchor_missing"
+   ]
+  },
+  {
+   "qid": "y12",
+   "category": "子公司線索",
+   "role": "rm",
+   "fault": "subsidiary_swap",
+   "family": "子公司歧義",
+   "harm": "high",
+   "why": "bank.overseas_stock_aum → securities.foreign_stock_aum",
+   "actually_wrong": true,
+   "full_level": 5,
+   "full_codes": [
+    "term_metric_mismatch"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y12",
+   "category": "子公司線索",
+   "role": "rm",
+   "fault": "false_is_a",
+   "family": "錯誤推理",
+   "harm": "medium",
+   "why": "宣稱 ETF ⊑ 基金商品",
+   "actually_wrong": false,
+   "full_level": 3,
+   "full_codes": [
+    "false_is_a"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y12",
+   "category": "子公司線索",
+   "role": "rm",
+   "fault": "version_drift",
+   "family": "版本",
+   "harm": "low",
+   "why": "引用舊版本號",
+   "actually_wrong": false,
+   "full_level": null,
+   "full_codes": [],
+   "hard": false,
+   "soft": false,
+   "full_warn": [
+    "version"
+   ],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y13",
+   "category": "錨點陷阱",
+   "role": "rm",
+   "fault": "hallucinated_metric",
+   "family": "自編 ID",
+   "harm": "high",
+   "why": "bank.domestic_structured_si_fee_income → 編造 bank.domestic_structured_si_fee_total",
+   "actually_wrong": true,
+   "full_level": 1,
+   "full_codes": [
+    "unknown_metric"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": 1,
+   "out_codes": [
+    "unknown_metric"
+   ]
+  },
+  {
+   "qid": "y13",
+   "category": "錨點陷阱",
+   "role": "rm",
+   "fault": "hallucinated_class",
+   "family": "自編 ID",
+   "harm": "medium",
+   "why": "加入不存在的類別 bank:FundAUM",
+   "actually_wrong": false,
+   "full_level": 1,
+   "full_codes": [
+    "unknown_class"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y13",
+   "category": "錨點陷阱",
+   "role": "rm",
+   "fault": "wrong_sibling_metric",
+   "family": "選錯指標",
+   "harm": "high",
+   "why": "bank.domestic_structured_si_fee_income → 同類別的 bank.fund_fee_income（術語宣告不變）",
+   "actually_wrong": true,
+   "full_level": 4,
+   "full_codes": [
+    "ambiguous_subsidiary",
+    "anchor_conflict",
+    "anchor_missing",
+    "term_metric_mismatch"
+   ],
+   "hard": true,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 4,
+   "out_codes": [
+    "ambiguous_subsidiary",
+    "anchor_conflict",
+    "anchor_missing"
+   ]
+  },
+  {
+   "qid": "y13",
+   "category": "錨點陷阱",
+   "role": "rm",
+   "fault": "wrong_sibling_consistent",
+   "family": "選錯指標",
+   "harm": "high",
+   "why": "bank.domestic_structured_si_fee_income → 同類別的 bank.gold_fee_income（術語宣告不變），並改寫用語宣告",
+   "actually_wrong": true,
+   "full_level": 6,
+   "full_codes": [
+    "anchor_conflict",
+    "anchor_missing"
+   ],
+   "hard": false,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 6,
+   "out_codes": [
+    "anchor_conflict",
+    "anchor_missing"
+   ]
+  },
+  {
+   "qid": "y13",
+   "category": "錨點陷阱",
+   "role": "rm",
+   "fault": "subsidiary_swap",
+   "family": "子公司歧義",
+   "harm": "high",
+   "why": "bank.domestic_structured_si_fee_income → securities.structured_fee_income",
+   "actually_wrong": true,
+   "full_level": 4,
+   "full_codes": [
+    "ambiguous_subsidiary",
+    "anchor_missing",
+    "term_metric_mismatch"
+   ],
+   "hard": true,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 4,
+   "out_codes": [
+    "ambiguous_subsidiary",
+    "anchor_missing"
+   ]
+  },
+  {
+   "qid": "y13",
+   "category": "錨點陷阱",
+   "role": "rm",
+   "fault": "false_is_a",
+   "family": "錯誤推理",
+   "harm": "medium",
+   "why": "宣稱 ETF ⊑ 基金商品",
+   "actually_wrong": false,
+   "full_level": 3,
+   "full_codes": [
+    "false_is_a"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y13",
+   "category": "錨點陷阱",
+   "role": "rm",
+   "fault": "version_drift",
+   "family": "版本",
+   "harm": "low",
+   "why": "引用舊版本號",
+   "actually_wrong": false,
+   "full_level": null,
+   "full_codes": [],
+   "hard": false,
+   "soft": false,
+   "full_warn": [
+    "version"
+   ],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y14",
+   "category": "多種類",
+   "role": "pb_manager",
+   "fault": "hallucinated_metric",
+   "family": "自編 ID",
+   "harm": "high",
+   "why": "bank.gold_fee_income → 編造 bank.gold_fee_total",
+   "actually_wrong": true,
+   "full_level": 1,
+   "full_codes": [
+    "anchor_missing",
+    "missing_subsidiary",
+    "unknown_metric"
+   ],
+   "hard": true,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 1,
+   "out_codes": [
+    "anchor_missing",
+    "missing_subsidiary",
+    "unknown_metric"
+   ]
+  },
+  {
+   "qid": "y14",
+   "category": "多種類",
+   "role": "pb_manager",
+   "fault": "hallucinated_class",
+   "family": "自編 ID",
+   "harm": "medium",
+   "why": "加入不存在的類別 bank:FundAUM",
+   "actually_wrong": false,
+   "full_level": 1,
+   "full_codes": [
+    "unknown_class"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y14",
+   "category": "多種類",
+   "role": "pb_manager",
+   "fault": "one_side_only",
+   "family": "子公司歧義",
+   "harm": "high",
+   "why": "只留bank一邊",
+   "actually_wrong": true,
+   "full_level": 4,
+   "full_codes": [
+    "anchor_missing",
+    "missing_subsidiary"
+   ],
+   "hard": false,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 4,
+   "out_codes": [
+    "anchor_missing",
+    "missing_subsidiary"
+   ]
+  },
+  {
+   "qid": "y14",
+   "category": "多種類",
+   "role": "pb_manager",
+   "fault": "subsidiary_swap",
+   "family": "子公司歧義",
+   "harm": "high",
+   "why": "securities.bond_fee_income → bank.overseas_bond_trust_fee_income",
+   "actually_wrong": true,
+   "full_level": 4,
+   "full_codes": [
+    "missing_subsidiary"
+   ],
+   "hard": false,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 4,
+   "out_codes": [
+    "missing_subsidiary"
+   ]
+  },
+  {
+   "qid": "y14",
+   "category": "多種類",
+   "role": "pb_manager",
+   "fault": "false_is_a",
+   "family": "錯誤推理",
+   "harm": "medium",
+   "why": "宣稱 ETF ⊑ 基金商品",
+   "actually_wrong": false,
+   "full_level": 3,
+   "full_codes": [
+    "false_is_a"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y14",
+   "category": "多種類",
+   "role": "pb_manager",
+   "fault": "version_drift",
+   "family": "版本",
+   "harm": "low",
+   "why": "引用舊版本號",
+   "actually_wrong": false,
+   "full_level": null,
+   "full_codes": [],
+   "hard": false,
+   "soft": false,
+   "full_warn": [
+    "version"
+   ],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y15",
+   "category": "錨點陷阱",
+   "role": "rm",
+   "fault": "hallucinated_metric",
+   "family": "自編 ID",
+   "harm": "high",
+   "why": "bank.insurance_aum → 編造 bank.insurance_total",
+   "actually_wrong": true,
+   "full_level": 1,
+   "full_codes": [
+    "unknown_metric"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": 1,
+   "out_codes": [
+    "unknown_metric"
+   ]
+  },
+  {
+   "qid": "y15",
+   "category": "錨點陷阱",
+   "role": "rm",
+   "fault": "hallucinated_class",
+   "family": "自編 ID",
+   "harm": "medium",
+   "why": "加入不存在的類別 bank:FundAUM",
+   "actually_wrong": false,
+   "full_level": 1,
+   "full_codes": [
+    "anchor_missing",
+    "unknown_class"
+   ],
+   "hard": true,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 6,
+   "out_codes": [
+    "anchor_missing"
+   ]
+  },
+  {
+   "qid": "y15",
+   "category": "錨點陷阱",
+   "role": "rm",
+   "fault": "wrong_sibling_metric",
+   "family": "選錯指標",
+   "harm": "high",
+   "why": "bank.insurance_aum → 同類別的 bank.planned_trust_aum（術語宣告不變）",
+   "actually_wrong": true,
+   "full_level": 5,
+   "full_codes": [
+    "anchor_conflict",
+    "anchor_missing",
+    "term_metric_mismatch"
+   ],
+   "hard": true,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 6,
+   "out_codes": [
+    "anchor_conflict",
+    "anchor_missing"
+   ]
+  },
+  {
+   "qid": "y15",
+   "category": "錨點陷阱",
+   "role": "rm",
+   "fault": "wrong_sibling_consistent",
+   "family": "選錯指標",
+   "harm": "high",
+   "why": "bank.insurance_aum → 同類別的 bank.overseas_bond_trust_aum（術語宣告不變），並改寫用語宣告",
+   "actually_wrong": true,
+   "full_level": 4,
+   "full_codes": [
+    "ambiguous_subsidiary",
+    "anchor_conflict",
+    "anchor_missing"
+   ],
+   "hard": false,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 4,
+   "out_codes": [
+    "ambiguous_subsidiary",
+    "anchor_conflict",
+    "anchor_missing"
+   ]
+  },
+  {
+   "qid": "y15",
+   "category": "錨點陷阱",
+   "role": "rm",
+   "fault": "false_is_a",
+   "family": "錯誤推理",
+   "harm": "medium",
+   "why": "宣稱 ETF ⊑ 基金商品",
+   "actually_wrong": false,
+   "full_level": 3,
+   "full_codes": [
+    "anchor_missing",
+    "false_is_a"
+   ],
+   "hard": true,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 6,
+   "out_codes": [
+    "anchor_missing"
+   ]
+  },
+  {
+   "qid": "y15",
+   "category": "錨點陷阱",
+   "role": "rm",
+   "fault": "version_drift",
+   "family": "版本",
+   "harm": "low",
+   "why": "引用舊版本號",
+   "actually_wrong": false,
+   "full_level": 6,
+   "full_codes": [
+    "anchor_missing"
+   ],
+   "hard": false,
+   "soft": true,
+   "full_warn": [
+    "version"
+   ],
+   "out_level": 6,
+   "out_codes": [
+    "anchor_missing"
+   ]
+  },
+  {
+   "qid": "y16",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "hallucinated_metric",
+   "family": "自編 ID",
+   "harm": "high",
+   "why": "bank.collective_account_aum → 編造 bank.collective_account_total",
+   "actually_wrong": true,
+   "full_level": 1,
+   "full_codes": [
+    "unknown_metric"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": 1,
+   "out_codes": [
+    "unknown_metric"
+   ]
+  },
+  {
+   "qid": "y16",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "hallucinated_class",
+   "family": "自編 ID",
+   "harm": "medium",
+   "why": "加入不存在的類別 bank:FundAUM",
+   "actually_wrong": false,
+   "full_level": 1,
+   "full_codes": [
+    "unknown_class"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y16",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "wrong_sibling_metric",
+   "family": "選錯指標",
+   "harm": "high",
+   "why": "bank.collective_account_aum → 同類別的 bank.etf_aum（術語宣告不變）",
+   "actually_wrong": true,
+   "full_level": 5,
+   "full_codes": [
+    "anchor_conflict",
+    "anchor_missing",
+    "term_metric_mismatch"
+   ],
+   "hard": true,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 6,
+   "out_codes": [
+    "anchor_conflict",
+    "anchor_missing"
+   ]
+  },
+  {
+   "qid": "y16",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "wrong_sibling_consistent",
+   "family": "選錯指標",
+   "harm": "high",
+   "why": "bank.collective_account_aum → 同類別的 bank.structured_deposit_aum（術語宣告不變），並改寫用語宣告",
+   "actually_wrong": true,
+   "full_level": 6,
+   "full_codes": [
+    "anchor_conflict",
+    "anchor_missing"
+   ],
+   "hard": false,
+   "soft": true,
+   "full_warn": [],
+   "out_level": 6,
+   "out_codes": [
+    "anchor_conflict",
+    "anchor_missing"
+   ]
+  },
+  {
+   "qid": "y16",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "false_is_a",
+   "family": "錯誤推理",
+   "harm": "medium",
+   "why": "宣稱 ETF ⊑ 基金商品",
+   "actually_wrong": false,
+   "full_level": 3,
+   "full_codes": [
+    "false_is_a"
+   ],
+   "hard": true,
+   "soft": false,
+   "full_warn": [],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "qid": "y16",
+   "category": "直接對應",
+   "role": "rm",
+   "fault": "version_drift",
+   "family": "版本",
+   "harm": "low",
+   "why": "引用舊版本號",
+   "actually_wrong": false,
+   "full_level": null,
+   "full_codes": [],
+   "hard": false,
+   "soft": false,
+   "full_warn": [
+    "version"
+   ],
+   "out_level": null,
+   "out_codes": []
+  },
+  {
+   "_false_positives": [
+    {
+     "qid": "y15",
+     "codes": [
+      "anchor_missing"
+     ],
+     "hard": false,
+     "messages": [
+      "問題提到「外幣」，但選到的指標都沒有涵蓋 bank:ForeignCurrencyFinancialProduct"
+     ]
+    }
+   ]
+  }
+ ],
+ "table": [
+  {
+   "fault": "hallucinated_metric",
+   "family": "自編 ID",
+   "harm": "high",
+   "cases": 15,
+   "wrong": 15,
+   "warned": 0,
+   "full_L1": 15,
+   "out_L1": 15,
+   "full_L2": 15,
+   "out_L2": 15,
+   "full_L3": 15,
+   "out_L3": 15,
+   "full_L4": 15,
+   "out_L4": 15,
+   "full_L5": 15,
+   "out_L5": 15,
+   "full_L6": 15,
+   "out_L6": 15
+  },
+  {
+   "fault": "hallucinated_class",
+   "family": "自編 ID",
+   "harm": "medium",
+   "cases": 16,
+   "wrong": 0,
+   "warned": 0,
+   "full_L1": 0,
+   "out_L1": 0,
+   "full_L2": 0,
+   "out_L2": 0,
+   "full_L3": 0,
+   "out_L3": 0,
+   "full_L4": 0,
+   "out_L4": 0,
+   "full_L5": 0,
+   "out_L5": 0,
+   "full_L6": 0,
+   "out_L6": 0
+  },
+  {
+   "fault": "wrong_sibling_metric",
+   "family": "選錯指標",
+   "harm": "high",
+   "cases": 9,
+   "wrong": 9,
+   "warned": 0,
+   "full_L1": 0,
+   "out_L1": 0,
+   "full_L2": 0,
+   "out_L2": 0,
+   "full_L3": 0,
+   "out_L3": 0,
+   "full_L4": 2,
+   "out_L4": 2,
+   "full_L5": 9,
+   "out_L5": 2,
+   "full_L6": 9,
+   "out_L6": 9
+  },
+  {
+   "fault": "wrong_sibling_consistent",
+   "family": "選錯指標",
+   "harm": "high",
+   "cases": 9,
+   "wrong": 9,
+   "warned": 0,
+   "full_L1": 0,
+   "out_L1": 0,
+   "full_L2": 0,
+   "out_L2": 0,
+   "full_L3": 0,
+   "out_L3": 0,
+   "full_L4": 1,
+   "out_L4": 1,
+   "full_L5": 1,
+   "out_L5": 1,
+   "full_L6": 9,
+   "out_L6": 9
+  },
+  {
+   "fault": "false_is_a",
+   "family": "錯誤推理",
+   "harm": "medium",
+   "cases": 16,
+   "wrong": 0,
+   "warned": 0,
+   "full_L1": 0,
+   "out_L1": 0,
+   "full_L2": 0,
+   "out_L2": 0,
+   "full_L3": 0,
+   "out_L3": 0,
+   "full_L4": 0,
+   "out_L4": 0,
+   "full_L5": 0,
+   "out_L5": 0,
+   "full_L6": 0,
+   "out_L6": 0
+  },
+  {
+   "fault": "version_drift",
+   "family": "版本",
+   "harm": "low",
+   "cases": 16,
+   "wrong": 0,
+   "warned": 0,
+   "full_L1": 0,
+   "out_L1": 0,
+   "full_L2": 0,
+   "out_L2": 0,
+   "full_L3": 0,
+   "out_L3": 0,
+   "full_L4": 0,
+   "out_L4": 0,
+   "full_L5": 0,
+   "out_L5": 0,
+   "full_L6": 0,
+   "out_L6": 0
+  },
+  {
+   "fault": "one_side_only",
+   "family": "子公司歧義",
+   "harm": "high",
+   "cases": 3,
+   "wrong": 3,
+   "warned": 0,
+   "full_L1": 0,
+   "out_L1": 0,
+   "full_L2": 0,
+   "out_L2": 0,
+   "full_L3": 0,
+   "out_L3": 0,
+   "full_L4": 3,
+   "out_L4": 3,
+   "full_L5": 3,
+   "out_L5": 3,
+   "full_L6": 3,
+   "out_L6": 3
+  },
+  {
+   "fault": "subsidiary_swap",
+   "family": "子公司歧義",
+   "harm": "high",
+   "cases": 7,
+   "wrong": 6,
+   "warned": 0,
+   "full_L1": 0,
+   "out_L1": 0,
+   "full_L2": 0,
+   "out_L2": 0,
+   "full_L3": 0,
+   "out_L3": 0,
+   "full_L4": 5,
+   "out_L4": 5,
+   "full_L5": 6,
+   "out_L5": 5,
+   "full_L6": 6,
+   "out_L6": 5
+  },
+  {
+   "fault": "answer_instead_of_clarify",
+   "family": "子公司歧義",
+   "harm": "high",
+   "cases": 1,
+   "wrong": 1,
+   "warned": 0,
+   "full_L1": 0,
+   "out_L1": 0,
+   "full_L2": 0,
+   "out_L2": 0,
+   "full_L3": 0,
+   "out_L3": 0,
+   "full_L4": 1,
+   "out_L4": 1,
+   "full_L5": 1,
+   "out_L5": 1,
+   "full_L6": 1,
+   "out_L6": 1
+  },
+  {
+   "fault": "permission_leak",
+   "family": "越權",
+   "harm": "critical",
+   "cases": 1,
+   "wrong": 1,
+   "warned": 0,
+   "full_L1": 0,
+   "out_L1": 0,
+   "full_L2": 1,
+   "out_L2": 1,
+   "full_L3": 1,
+   "out_L3": 1,
+   "full_L4": 1,
+   "out_L4": 1,
+   "full_L5": 1,
+   "out_L5": 1,
+   "full_L6": 1,
+   "out_L6": 1
+  },
+  {
+   "fault": "aggregate_leak",
+   "family": "越權",
+   "harm": "critical",
+   "cases": 1,
+   "wrong": 1,
+   "warned": 0,
+   "full_L1": 0,
+   "out_L1": 0,
+   "full_L2": 1,
+   "out_L2": 1,
+   "full_L3": 1,
+   "out_L3": 1,
+   "full_L4": 1,
+   "out_L4": 1,
+   "full_L5": 1,
+   "out_L5": 1,
+   "full_L6": 1,
+   "out_L6": 1
+  }
+ ],
+ "totals": {
+  "cases": 94,
+  "wrong": 45,
+  "full_L1": 15,
+  "out_L1": 15,
+  "full_L2": 17,
+  "out_L2": 17,
+  "full_L3": 17,
+  "out_L3": 17,
+  "full_L4": 29,
+  "out_L4": 29,
+  "full_L5": 37,
+  "out_L5": 29,
+  "full_L6": 45,
+  "out_L6": 44,
+  "harmful": 45,
+  "harmful_full": 45,
+  "harmful_out": 44,
+  "false_positives": [
+   {
+    "qid": "y15",
+    "codes": [
+     "anchor_missing"
+    ],
+    "hard": false,
+    "messages": [
+     "問題提到「外幣」，但選到的指標都沒有涵蓋 bank:ForeignCurrencyFinancialProduct"
+    ]
+   }
+  ],
+  "questions": 16,
+  "hard_only": 30,
+  "soft_only": 15,
+  "hard_fp": 0,
+  "soft_fp": 1,
+  "process_errors": 32,
+  "process_caught": 32,
+  "missed": []
+ }
+}

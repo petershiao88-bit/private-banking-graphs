@@ -1,0 +1,271 @@
+# 語意計畫的 SHACL 檢查（實驗 2）。資料圖＝本體＋OWL 推理的 subClassOf 閉包（含自反）＋指標事實＋權限規則＋計畫本身。
+# 每個 shape 的 sh:name 對應程式版 Gate 的檢查代碼，方便比對。
+# 只用單步 rdfs:subClassOf（閉包已物化），避免 * / + 路徑在 rdflib 上變慢。
+
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix pl:   <urn:c360:plan#> .
+@prefix pg:   <urn:c360:pg#> .
+@prefix pol:  <urn:c360:policy#> .
+@prefix ps:   <urn:c360:plan-shapes#> .
+
+ps: sh:declare [ sh:prefix "pl" ; sh:namespace "urn:c360:plan#"^^xsd:anyURI ] ,
+               [ sh:prefix "pg" ; sh:namespace "urn:c360:pg#"^^xsd:anyURI ] ,
+               [ sh:prefix "pol" ; sh:namespace "urn:c360:policy#"^^xsd:anyURI ] ,
+               [ sh:prefix "rdfs" ; sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ] ,
+               [ sh:prefix "owl" ; sh:namespace "http://www.w3.org/2002/07/owl#"^^xsd:anyURI ] .
+
+# ------------------------------------------------------------------ L1 存在性（封閉世界：計畫引用的每個 IRI 都必須是本體定義過的東西）
+
+ps:PlanShape a sh:NodeShape ;
+    sh:targetClass pl:Plan ;
+    sh:property [ sh:name "schema" ; sh:path pl:decision ; sh:minCount 1 ; sh:maxCount 1 ;
+                  sh:in ( "answer" "clarify" "out_of_scope" ) ; sh:message "decision 不合法" ] ,
+                [ sh:name "unknown_metric" ; sh:path pl:selects ; sh:class pg:Metric ;
+                  sh:message "選到的指標不在本體／PG 指標目錄中" ] ,
+                [ sh:name "unknown_class" ; sh:path pl:usesClass ; sh:class owl:Class ;
+                  sh:message "引用了本體沒有的類別" ] ,
+                [ sh:name "unknown_class" ; sh:path ( pl:term pl:declaresClass ) ; sh:class owl:Class ;
+                  sh:message "用語宣告了本體沒有的類別" ] ,
+                [ sh:name "unknown_metric" ; sh:path ( pl:term pl:mapsTo ) ; sh:class pg:Metric ;
+                  sh:message "用語對到的指標不在指標目錄中" ] ,
+                [ sh:name "unknown_class" ; sh:path ( pl:claim pl:sub ) ; sh:class owl:Class ;
+                  sh:message "is_a 用到本體沒有的類別" ] ,
+                [ sh:name "unknown_class" ; sh:path ( pl:claim pl:sup ) ; sh:class owl:Class ;
+                  sh:message "is_a 用到本體沒有的類別" ] .
+
+ps:ClarifyNeedsQuestion a sh:NodeShape ;
+    sh:targetClass pl:Plan ;
+    sh:name "schema" ;
+    sh:or ( [ sh:path pl:decision ; sh:in ( "answer" "out_of_scope" ) ]
+            [ sh:path pl:clarification ; sh:minCount 1 ] ) ;
+    sh:message "decision=clarify 時要寫 clarification" .
+
+ps:OutOfScopeNeedsReason a sh:NodeShape ;
+    sh:targetClass pl:Plan ;
+    sh:name "schema" ;
+    sh:or ( [ sh:path pl:decision ; sh:in ( "answer" "clarify" ) ]
+            [ sh:path pl:reason ; sh:minCount 1 ] ) ;
+    sh:message "decision=out_of_scope 時要寫 reason" .
+
+ps:AnswerNeedsContent a sh:NodeShape ;
+    sh:targetClass pl:Plan ;
+    sh:name "empty_answer" ;
+    sh:or ( [ sh:path pl:decision ; sh:in ( "clarify" "out_of_scope" ) ]
+            [ sh:path pl:selects ; sh:minCount 1 ]
+            [ sh:path pl:usesClass ; sh:minCount 1 ]
+            [ sh:path ( pl:term pl:declaresClass ) ; sh:minCount 1 ] ) ;
+    sh:message "decision=answer 時，metrics 或 classes 至少要有一項" .
+
+# ------------------------------------------------------------------ L2 權限（單類別規則沿閉包繼承；組合規則要全部涵蓋；總指標繼承分項的拒絕）
+
+ps:PermissionShape a sh:NodeShape ;
+    sh:targetClass pl:Plan ;
+    sh:name "not_permitted" ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:prefixes ps: ;
+        sh:message "{?m} 不在角色 {?role} 的可用範圍內" ;
+        sh:select """
+            SELECT $this ?m ?role WHERE {
+                $this pl:role ?role ; pl:selects ?m .
+                ?m a pg:Metric .
+                { ?m pg:part? ?d . }
+                ?r a pol:Rule ; pol:role ?role ; pol:effect "deny" .
+                FILTER NOT EXISTS {
+                    ?r pol:class ?c .
+                    FILTER NOT EXISTS { ?d pg:mapped ?x . ?x rdfs:subClassOf ?c . }
+                }
+            }""" ] .
+
+# ------------------------------------------------------------------ L3 推理（OWL 閉包、待定範圍、下架）
+
+ps:IsAShape a sh:NodeShape ;
+    sh:targetClass pl:Plan ;
+    sh:name "false_is_a" ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:prefixes ps: ;
+        sh:message "{?sub} 不是 {?sup} 的子類別（OWL 推理閉包中不成立）" ;
+        sh:select """
+            SELECT $this ?sub ?sup WHERE {
+                $this pl:claim ?k . ?k pl:sub ?sub ; pl:sup ?sup .
+                ?sub a owl:Class . ?sup a owl:Class .
+                FILTER NOT EXISTS { ?sub rdfs:subClassOf ?sup . }
+            }""" ] .
+
+ps:GapShape a sh:NodeShape ;
+    sh:targetClass pl:Plan ;
+    sh:name "gap_metric" ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:prefixes ps: ;
+        sh:message "{?m} 屬於待定範圍，不可當成指標使用" ;
+        sh:select """SELECT $this ?m WHERE { $this pl:selects ?m . ?m a pg:PendingScope . }""" ] .
+
+ps:DeprecatedShape a sh:NodeShape ;
+    sh:targetClass pl:Plan ;
+    sh:name "deprecated_class" ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:prefixes ps: ;
+        sh:message "{?c} 已下架" ;
+        sh:select """SELECT $this ?c WHERE { $this pl:usesClass ?c . ?c owl:deprecated true . }""" ] .
+
+# ------------------------------------------------------------------ L5 計畫內部一致性
+
+ps:TermMetricShape a sh:NodeShape ;
+    sh:targetClass pl:Plan ;
+    sh:name "term_metric_mismatch" ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:prefixes ps: ;
+        sh:message "用語宣告 {?c}，但 {?m} 沒有涵蓋它" ;
+        sh:select """
+            SELECT $this ?m ?c WHERE {
+                $this pl:term ?t . ?t pl:declaresClass ?c ; pl:mapsTo ?m .
+                ?c a owl:Class . ?m a pg:Metric .
+                FILTER NOT EXISTS { ?m pg:mapped ?x . ?x rdfs:subClassOf ?c . }
+                FILTER NOT EXISTS {
+                    ?m pg:component ?any .
+                    FILTER NOT EXISTS { ?m pg:component ?k . FILTER NOT EXISTS { ?k pg:mapped ?y . ?y rdfs:subClassOf ?c . } }
+                }
+            }""" ] .
+
+ps:ExclusionShape a sh:NodeShape ;
+    sh:targetClass pl:Plan ;
+    sh:name "exclusion_violated" ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:prefixes ps: ;
+        sh:message "{?m} 落在排除範圍內" ;
+        sh:select """
+            SELECT $this ?m WHERE {
+                $this pl:selects ?m . ?m a pg:Metric .
+                { $this pl:excludesSubsidiary ?s . ?m pg:subsidiary ?s . }
+                UNION
+                { $this pl:excludes ?x . ?m pg:mapped ?y . ?y rdfs:subClassOf ?x . }
+            }""" ] .
+
+# ------------------------------------------------------------------ L4／L6 對照問題（「質疑」等級）：問題特徵由程式抽出後寫進圖（pl:mentions*），規則留在這裡宣告
+
+ps:AmbiguityShape a sh:NodeShape ;
+    sh:targetClass pl:Plan ;
+    sh:name "ambiguous_subsidiary" ;
+    sh:severity sh:Warning ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:prefixes ps: ;
+        sh:message "{?m} 只代表一家子公司，問題沒指明，另一家還有 {?twin}" ;
+        sh:select """
+            SELECT $this ?m ?twin WHERE {
+                $this pl:decision "answer" ; pl:selects ?m ; pl:role ?role .
+                FILTER NOT EXISTS { ?m pg:hiddenFor ?role . }
+                FILTER NOT EXISTS { $this pl:mentionsSubsidiary ?any . }
+                ?m pg:twin ?twin .
+                FILTER NOT EXISTS { ?twin pg:hiddenFor ?role . }
+                FILTER NOT EXISTS { $this pl:selects ?twin . }
+                FILTER NOT EXISTS { $this pl:mentionsFeature ?f . ?m pg:feature ?f . FILTER NOT EXISTS { ?twin pg:feature ?f . } }
+            }""" ] .
+
+ps:KindAnchorShape a sh:NodeShape ;
+    sh:targetClass pl:Plan ;
+    sh:name "anchor_missing" ;
+    sh:severity sh:Warning ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:prefixes ps: ;
+        sh:message "問題提到 {?a}，但選到的指標都沒有涵蓋" ;
+        sh:select """
+            SELECT $this ?a WHERE {
+                $this pl:decision "answer" ; pl:role ?role ; pl:selects ?any ; pl:mentionsAnchor ?a .
+                ?any a pg:Metric . FILTER NOT EXISTS { ?any pg:hiddenFor ?role . }
+                FILTER NOT EXISTS { $this pl:selects ?m . ?a pg:anchorClass ?c . ?m pg:mappedAny ?x . ?x rdfs:subClassOf ?c . }
+                FILTER NOT EXISTS { $this pl:selects ?m . ?m pg:kind ?a . }
+            }""" ] .
+
+ps:AnchorConflictShape a sh:NodeShape ;
+    sh:targetClass pl:Plan ;
+    sh:name "anchor_conflict" ;
+    sh:severity sh:Warning ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:prefixes ps: ;
+        sh:message "{?m} 跟問題提到的商品或指標種類都無關" ;
+        sh:select """
+            SELECT $this ?m WHERE {
+                $this pl:decision "answer" ; pl:role ?role ; pl:selects ?m . ?m a pg:Metric .
+                FILTER NOT EXISTS { ?m pg:hiddenFor ?role . }
+                { $this pl:mentionsAnchor ?p . ?p a pg:ProductAnchor .
+                  FILTER NOT EXISTS { $this pl:mentionsAnchor ?p2 . ?p2 pg:anchorClass ?c . ?m pg:mappedAny ?x . ?x rdfs:subClassOf ?c . } }
+                UNION
+                { $this pl:mentionsAnchor ?k . ?k a pg:KindAnchor .
+                  FILTER NOT EXISTS { $this pl:mentionsAnchor ?k2 . ?k2 a pg:KindAnchor . ?m pg:kind ?k2 . } }
+            }""" ] .
+
+ps:TokenAnchorShape a sh:NodeShape ;
+    sh:targetClass pl:Plan ;
+    sh:name "anchor_missing" ;
+    sh:severity sh:Warning ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:prefixes ps: ;
+        sh:message "問題提到縮寫 {?tok}，但沒有選名稱含它的指標" ;
+        sh:select """
+            SELECT $this ?tok WHERE {
+                $this pl:decision "answer" ; pl:role ?role ; pl:selects ?any ; pl:mentionsToken ?tok .
+                ?any a pg:Metric . FILTER NOT EXISTS { ?any pg:hiddenFor ?role . }
+                FILTER NOT EXISTS { $this pl:selects ?m . ?m pg:nameToken ?tok . }
+            }""" ] ,
+    [
+        a sh:SPARQLConstraint ;
+        sh:prefixes ps: ;
+        sh:message "問題問的是總指標，但選到的都是分項" ;
+        sh:select """
+            SELECT $this WHERE {
+                $this pl:decision "answer" ; pl:asksSummary true ; pl:role ?role ; pl:selects ?any .
+                ?any a pg:Metric . FILTER NOT EXISTS { ?any pg:hiddenFor ?role . }
+                FILTER NOT EXISTS { $this pl:selects ?m . ?m pg:component ?k . }
+            }""" ] .
+
+ps:CueConflictShape a sh:NodeShape ;
+    sh:targetClass pl:Plan ;
+    sh:name "cue_conflict" ;
+    sh:severity sh:Warning ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:prefixes ps: ;
+        sh:message "問題只提到 {?s}，但 {?m} 屬於另一家子公司" ;
+        sh:select """
+            SELECT $this ?m ?s WHERE {
+                $this pl:onlySubsidiary ?s ; pl:role ?role ; pl:selects ?m . ?m pg:subsidiary ?o . FILTER(?o != ?s)
+                FILTER NOT EXISTS { ?m pg:hiddenFor ?role . }
+            }""" ] .
+
+ps:MissingSubsidiaryShape a sh:NodeShape ;
+    sh:targetClass pl:Plan ;
+    sh:name "missing_subsidiary" ;
+    sh:severity sh:Warning ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:prefixes ps: ;
+        sh:message "問題同時提到銀行與證券，但只選了一家的指標" ;
+        sh:select """
+            SELECT $this WHERE {
+                $this pl:decision "answer" ; pl:mentionsBothSubsidiaries true ; pl:role ?role ; pl:selects ?any .
+                ?any a pg:Metric . FILTER NOT EXISTS { ?any pg:hiddenFor ?role . }
+                FILTER NOT EXISTS { $this pl:selects ?a . ?a pg:subsidiary "bank" . }
+            }""" ] ,
+    [
+        a sh:SPARQLConstraint ;
+        sh:prefixes ps: ;
+        sh:message "問題同時提到銀行與證券，但只選了一家的指標" ;
+        sh:select """
+            SELECT $this WHERE {
+                $this pl:decision "answer" ; pl:mentionsBothSubsidiaries true ; pl:role ?role ; pl:selects ?any .
+                ?any a pg:Metric . FILTER NOT EXISTS { ?any pg:hiddenFor ?role . }
+                FILTER NOT EXISTS { $this pl:selects ?a . ?a pg:subsidiary "securities" . }
+            }""" ] .

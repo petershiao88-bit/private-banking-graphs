@@ -1,0 +1,744 @@
+{
+ "ontology_version": "0.17.0",
+ "nodes": 95,
+ "edges": 165,
+ "runs": [
+  {
+   "question": {
+    "id": "q1",
+    "ask": "這位客戶在銀行的基金手收是多少",
+    "spaced": "銀行 基金 手收",
+    "gold": [
+     "bank.fund_fee_income"
+    ],
+    "trap": [
+     "securities.fund_fee_income"
+    ]
+   },
+   "retrieval": [
+    {
+     "setup": "A ContextGraph",
+     "query": "這位客戶在銀行的基金手收是多少",
+     "num_sources": 0,
+     "sources": [],
+     "reasoning_path": "",
+     "num_reasoning_paths": 0,
+     "confidence": 0.0,
+     "prompt_reasoning_section": "",
+     "llm_called": true
+    },
+    {
+     "setup": "B kg dict",
+     "query": "這位客戶在銀行的基金手收是多少",
+     "num_sources": 0,
+     "sources": [],
+     "reasoning_path": "",
+     "num_reasoning_paths": 0,
+     "confidence": 0.0,
+     "prompt_reasoning_section": "",
+     "llm_called": true
+    },
+    {
+     "setup": "A ContextGraph",
+     "query": "銀行 基金 手收",
+     "num_sources": 10,
+     "sources": [
+      {
+       "source": "graph:bank.fund_fee_income",
+       "score": 0.55,
+       "content": "私銀－銀行基金手收（bank.fund_fee_income）：銀行基金手收；依私銀既有產品範圍記錄的指標候選，認列與來"
+      },
+      {
+       "source": "graph:bank.overseas_bond_trust_fee_income",
+       "score": 0.31,
+       "content": "私銀－銀行海外債券（信託）手收（bank.overseas_bond_trust_fee_income）：銀行海外債券（"
+      },
+      {
+       "source": "graph:bank.overseas_bond_proprietary_fee_income",
+       "score": 0.31,
+       "content": "私銀－銀行外國債券（自營）手收（bank.overseas_bond_proprietary_fee_income）：銀"
+      },
+      {
+       "source": "graph:bank.overseas_stock_fee_income",
+       "score": 0.31,
+       "content": "私銀－銀行海外股票手收（bank.overseas_stock_fee_income）：私銀來源將海外股票列為獨立手收分"
+      },
+      {
+       "source": "graph:bank:BankFeeIncome",
+       "score": 0.3,
+       "content": "銀行手收指標（bank:BankFeeIncome）：衡量銀行於指定收入期間內依銀行認列規則形成之手收的指標。"
+      }
+     ],
+     "reasoning_path": "",
+     "num_reasoning_paths": 0,
+     "confidence": 0.262,
+     "prompt_reasoning_section": "",
+     "llm_called": true
+    },
+    {
+     "setup": "B kg dict",
+     "query": "銀行 基金 手收",
+     "num_sources": 10,
+     "sources": [
+      {
+       "source": "graph:bank:BankAUM",
+       "score": 0.7,
+       "content": "銀行 AUM is a Class. 衡量指定快照日依銀行管理與認列口徑計算之客戶資產規模的指標。. subClassO"
+      },
+      {
+       "source": "graph:bank:ETFProduct",
+       "score": 0.56,
+       "content": "銀行 ETF 商品 is a Class. 客戶透過銀行通路交易或持有的 ETF 商品；私銀實際涵蓋範圍由部門描述。. "
+      },
+      {
+       "source": "graph:bank:BankLUM",
+       "score": 0.54,
+       "content": "銀行 LUM is a Class. 銀行業務中依認列口徑衡量的 LUM 指標；具體涵蓋範圍由部門描述。. subCla"
+      },
+      {
+       "source": "graph:bank.dci_fee_income",
+       "score": 0.54,
+       "content": "私銀－銀行 DCI 手收 is a Metric. 依私銀 SQL 手收分類，涵蓋 DCI 手續費報表及 DCD 的 T"
+      },
+      {
+       "source": "graph:bank:BankFeeIncome",
+       "score": 0.2,
+       "content": "銀行手收指標 is a Class. 衡量銀行於指定收入期間內依銀行認列規則形成之手收的指標。. subClassOf "
+      }
+     ],
+     "reasoning_path": "AUM --[subClassOf]--> 指標",
+     "num_reasoning_paths": 101,
+     "confidence": 0.434,
+     "prompt_reasoning_section": "Path 1: AUM --[subClassOf]--> 指標\nPath 2: AUM --[衡量金融商品]--> 金融商品\nPath 3: 私銀－銀行規劃型信託 AUM --[instance_of]--> 銀行 AUM",
+     "llm_called": true
+    }
+   ],
+   "oracle": {
+    "seeds": [
+     "bank.fund_fee_income"
+    ],
+    "paths": [
+     {
+      "hops": 1,
+      "text": "私銀－銀行基金手收 --[instance_of]--> 銀行手收指標"
+     },
+     {
+      "hops": 1,
+      "text": "私銀－銀行基金手收 --[about_product]--> 基金商品"
+     },
+     {
+      "hops": 2,
+      "text": "私銀－銀行基金手收 --[instance_of]--> 銀行手收指標 --[subClassOf]--> 手收指標"
+     },
+     {
+      "hops": 2,
+      "text": "私銀－銀行基金手收 --[instance_of]--> 銀行手收指標 --[歸屬理專]--> 理專"
+     },
+     {
+      "hops": 2,
+      "text": "私銀－銀行基金手收 --[about_product]--> 基金商品 --[subClassOf]--> 金融商品"
+     }
+    ]
+   }
+  },
+  {
+   "question": {
+    "id": "q2",
+    "ask": "客戶的複委託基金庫存有多少",
+    "spaced": "複委託 基金 AUM",
+    "gold": [
+     "securities.fund_aum"
+    ],
+    "trap": [
+     "bank.fund_aum"
+    ]
+   },
+   "retrieval": [
+    {
+     "setup": "A ContextGraph",
+     "query": "客戶的複委託基金庫存有多少",
+     "num_sources": 0,
+     "sources": [],
+     "reasoning_path": "",
+     "num_reasoning_paths": 0,
+     "confidence": 0.0,
+     "prompt_reasoning_section": "",
+     "llm_called": true
+    },
+    {
+     "setup": "B kg dict",
+     "query": "客戶的複委託基金庫存有多少",
+     "num_sources": 0,
+     "sources": [],
+     "reasoning_path": "",
+     "num_reasoning_paths": 0,
+     "confidence": 0.0,
+     "prompt_reasoning_section": "",
+     "llm_called": true
+    },
+    {
+     "setup": "A ContextGraph",
+     "query": "複委託 基金 AUM",
+     "num_sources": 10,
+     "sources": [
+      {
+       "source": "graph:securities.fund_aum",
+       "score": 0.54,
+       "content": "私銀－證券複委託基金 AUM（securities.fund_aum）：證券複委託基金 AUM；依私銀既有產品範圍記錄的"
+      },
+      {
+       "source": "graph:securities.bond_aum",
+       "score": 0.3,
+       "content": "私銀－證券複委託債券 AUM（securities.bond_aum）：證券複委託債券 AUM；依私銀既有產品範圍記錄的"
+      },
+      {
+       "source": "graph:securities.foreign_stock_aum",
+       "score": 0.3,
+       "content": "私銀－證券複委託外國股票 AUM（securities.foreign_stock_aum）：證券複委託外國股票 AUM"
+      },
+      {
+       "source": "graph:bank.fund_aum",
+       "score": 0.29,
+       "content": "私銀－銀行基金 AUM（bank.fund_aum）：銀行基金 AUM；依私銀既有產品範圍記錄的指標候選，認列與來源映射"
+      },
+      {
+       "source": "graph:securities.structured_aum",
+       "score": 0.29,
+       "content": "私銀－證券複委託結構型商品 AUM（securities.structured_aum）：證券複委託結構型商品 AUM；"
+      }
+     ],
+     "reasoning_path": "",
+     "num_reasoning_paths": 0,
+     "confidence": 0.176,
+     "prompt_reasoning_section": "",
+     "llm_called": true
+    },
+    {
+     "setup": "B kg dict",
+     "query": "複委託 基金 AUM",
+     "num_sources": 10,
+     "sources": [
+      {
+       "source": "graph:bank:BankAUM",
+       "score": 0.533,
+       "content": "銀行 AUM is a Class. 衡量指定快照日依銀行管理與認列口徑計算之客戶資產規模的指標。. subClassO"
+      },
+      {
+       "source": "graph:securities:SecuritiesAUM",
+       "score": 0.473,
+       "content": "證券 AUM is a Class. 衡量指定快照日依證券公司管理與認列口徑計算之客戶資產規模的指標。. subClas"
+      },
+      {
+       "source": "graph:securities.total_aum",
+       "score": 0.453,
+       "content": "私銀－證券總 AUM is a Metric. 私銀－證券總 AUM；僅涵蓋目前已納入私銀模型的證券商品分項，金額與期間"
+      },
+      {
+       "source": "graph:fh:AUM",
+       "score": 0.413,
+       "content": "AUM is a Class. 衡量指定快照日依管理與認列口徑計算之資產規模的指標。. is subClassOfed "
+      },
+      {
+       "source": "graph:securities.bond_aum",
+       "score": 0.413,
+       "content": "私銀－證券複委託債券 AUM is a Metric. 證券複委託債券 AUM；依私銀既有產品範圍記錄的指標候選，認列與"
+      }
+     ],
+     "reasoning_path": "AUM --[subClassOf]--> 指標",
+     "num_reasoning_paths": 58,
+     "confidence": 0.542,
+     "prompt_reasoning_section": "Path 1: AUM --[subClassOf]--> 指標\nPath 2: AUM --[衡量金融商品]--> 金融商品\nPath 3: 私銀－銀行規劃型信託 AUM --[instance_of]--> 銀行 AUM",
+     "llm_called": true
+    }
+   ],
+   "oracle": {
+    "seeds": [
+     "securities.fund_aum"
+    ],
+    "paths": [
+     {
+      "hops": 1,
+      "text": "私銀－證券複委託基金 AUM --[instance_of]--> 證券 AUM"
+     },
+     {
+      "hops": 1,
+      "text": "私銀－證券複委託基金 AUM --[about_product]--> 基金商品"
+     },
+     {
+      "hops": 2,
+      "text": "私銀－證券複委託基金 AUM --[instance_of]--> 證券 AUM --[subClassOf]--> AUM"
+     },
+     {
+      "hops": 2,
+      "text": "私銀－證券複委託基金 AUM --[about_product]--> 基金商品 --[subClassOf]--> 金融商品"
+     }
+    ]
+   }
+  },
+  {
+   "question": {
+    "id": "q3",
+    "ask": "基金手收是多少",
+    "spaced": "基金 手收",
+    "gold": [],
+    "trap": [],
+    "ambiguous": [
+     "bank.fund_fee_income",
+     "securities.fund_fee_income"
+    ]
+   },
+   "retrieval": [
+    {
+     "setup": "A ContextGraph",
+     "query": "基金手收是多少",
+     "num_sources": 0,
+     "sources": [],
+     "reasoning_path": "",
+     "num_reasoning_paths": 0,
+     "confidence": 0.0,
+     "prompt_reasoning_section": "",
+     "llm_called": true
+    },
+    {
+     "setup": "B kg dict",
+     "query": "基金手收是多少",
+     "num_sources": 0,
+     "sources": [],
+     "reasoning_path": "",
+     "num_reasoning_paths": 0,
+     "confidence": 0.0,
+     "prompt_reasoning_section": "",
+     "llm_called": true
+    },
+    {
+     "setup": "A ContextGraph",
+     "query": "基金 手收",
+     "num_sources": 10,
+     "sources": [
+      {
+       "source": "graph:bank.fund_fee_income",
+       "score": 0.55,
+       "content": "私銀－銀行基金手收（bank.fund_fee_income）：銀行基金手收；依私銀既有產品範圍記錄的指標候選，認列與來"
+      },
+      {
+       "source": "graph:securities.fund_fee_income",
+       "score": 0.54,
+       "content": "私銀－證券複委託基金手收（securities.fund_fee_income）：證券複委託基金手收；依私銀既有產品範圍"
+      },
+      {
+       "source": "graph:bank.overseas_bond_trust_fee_income",
+       "score": 0.06,
+       "content": "私銀－銀行海外債券（信託）手收（bank.overseas_bond_trust_fee_income）：銀行海外債券（"
+      },
+      {
+       "source": "graph:bank.overseas_bond_proprietary_fee_income",
+       "score": 0.06,
+       "content": "私銀－銀行外國債券（自營）手收（bank.overseas_bond_proprietary_fee_income）：銀"
+      },
+      {
+       "source": "graph:bank:BankFeeIncome",
+       "score": 0.05,
+       "content": "銀行手收指標（bank:BankFeeIncome）：衡量銀行於指定收入期間內依銀行認列規則形成之手收的指標。"
+      }
+     ],
+     "reasoning_path": "",
+     "num_reasoning_paths": 0,
+     "confidence": 0.121,
+     "prompt_reasoning_section": "",
+     "llm_called": true
+    },
+    {
+     "setup": "B kg dict",
+     "query": "基金 手收",
+     "num_sources": 10,
+     "sources": [
+      {
+       "source": "graph:bank.dci_fee_income",
+       "score": 0.54,
+       "content": "私銀－銀行 DCI 手收 is a Metric. 依私銀 SQL 手收分類，涵蓋 DCI 手續費報表及 DCD 的 T"
+      },
+      {
+       "source": "graph:bank:BankFeeIncome",
+       "score": 0.2,
+       "content": "銀行手收指標 is a Class. 衡量銀行於指定收入期間內依銀行認列規則形成之手收的指標。. subClassOf "
+      },
+      {
+       "source": "graph:securities:SecuritiesFeeIncome",
+       "score": 0.12,
+       "content": "證券手收指標 is a Class. 衡量證券公司於指定收入期間內依其認列規則形成之手收的指標。. subClassOf"
+      },
+      {
+       "source": "graph:fh:FeeIncome",
+       "score": 0.08,
+       "content": "手收指標 is a Class. 衡量指定收入期間內依業務認列口徑歸入手收的收入指標；具體涵蓋範圍由子公司或部門描述。."
+      },
+      {
+       "source": "graph:securities.bond_fee_income",
+       "score": 0.08,
+       "content": "私銀－證券複委託債券手收 is a Metric. 證券複委託債券手收；依私銀既有產品範圍記錄的指標候選，認列與來源映射"
+      }
+     ],
+     "reasoning_path": "銀行手收指標 --[subClassOf]--> 手收指標",
+     "num_reasoning_paths": 78,
+     "confidence": 0.306,
+     "prompt_reasoning_section": "Path 1: 銀行手收指標 --[subClassOf]--> 手收指標\nPath 2: 銀行手收指標 --[歸屬理專]--> 理專\nPath 3: 結構型金融商品 --[subClassOf]--> 金融商品",
+     "llm_called": true
+    }
+   ],
+   "oracle": {
+    "seeds": [
+     "bank.fund_fee_income",
+     "securities.fund_fee_income"
+    ],
+    "paths": [
+     {
+      "hops": 1,
+      "text": "私銀－銀行基金手收 --[instance_of]--> 銀行手收指標"
+     },
+     {
+      "hops": 1,
+      "text": "私銀－銀行基金手收 --[about_product]--> 基金商品"
+     },
+     {
+      "hops": 1,
+      "text": "私銀－證券複委託基金手收 --[instance_of]--> 證券手收指標"
+     },
+     {
+      "hops": 1,
+      "text": "私銀－證券複委託基金手收 --[about_product]--> 基金商品"
+     },
+     {
+      "hops": 2,
+      "text": "私銀－銀行基金手收 --[instance_of]--> 銀行手收指標 --[subClassOf]--> 手收指標"
+     },
+     {
+      "hops": 2,
+      "text": "私銀－銀行基金手收 --[instance_of]--> 銀行手收指標 --[歸屬理專]--> 理專"
+     },
+     {
+      "hops": 2,
+      "text": "私銀－銀行基金手收 --[about_product]--> 基金商品 --[subClassOf]--> 金融商品"
+     },
+     {
+      "hops": 2,
+      "text": "私銀－證券複委託基金手收 --[instance_of]--> 證券手收指標 --[subClassOf]--> 手收指標"
+     },
+     {
+      "hops": 2,
+      "text": "私銀－證券複委託基金手收 --[about_product]--> 基金商品 --[subClassOf]--> 金融商品"
+     }
+    ]
+   }
+  },
+  {
+   "question": {
+    "id": "q4",
+    "ask": "理專的手收怎麼算",
+    "spaced": "理專 手收",
+    "gold": [
+     "bank.product_fee_income"
+    ],
+    "trap": []
+   },
+   "retrieval": [
+    {
+     "setup": "A ContextGraph",
+     "query": "理專的手收怎麼算",
+     "num_sources": 0,
+     "sources": [],
+     "reasoning_path": "",
+     "num_reasoning_paths": 0,
+     "confidence": 0.0,
+     "prompt_reasoning_section": "",
+     "llm_called": true
+    },
+    {
+     "setup": "B kg dict",
+     "query": "理專的手收怎麼算",
+     "num_sources": 0,
+     "sources": [],
+     "reasoning_path": "",
+     "num_reasoning_paths": 0,
+     "confidence": 0.0,
+     "prompt_reasoning_section": "",
+     "llm_called": true
+    },
+    {
+     "setup": "A ContextGraph",
+     "query": "理專 手收",
+     "num_sources": 10,
+     "sources": [
+      {
+       "source": "graph:bank.overseas_bond_trust_fee_income",
+       "score": 0.31,
+       "content": "私銀－銀行海外債券（信託）手收（bank.overseas_bond_trust_fee_income）：銀行海外債券（"
+      },
+      {
+       "source": "graph:bank.overseas_bond_proprietary_fee_income",
+       "score": 0.31,
+       "content": "私銀－銀行外國債券（自營）手收（bank.overseas_bond_proprietary_fee_income）：銀"
+      },
+      {
+       "source": "graph:bank:BankFeeIncome",
+       "score": 0.3,
+       "content": "銀行手收指標（bank:BankFeeIncome）：衡量銀行於指定收入期間內依銀行認列規則形成之手收的指標。"
+      },
+      {
+       "source": "graph:bank.planned_trust_fee_income",
+       "score": 0.3,
+       "content": "私銀－銀行規劃型信託手收（bank.planned_trust_fee_income）：銀行規劃型信託手收；沿用私銀 S"
+      },
+      {
+       "source": "graph:bank.trust_custody_fee_income",
+       "score": 0.3,
+       "content": "私銀－銀行信託保管手收（bank.trust_custody_fee_income）：銀行信託保管手收；沿用私銀 SQL"
+      }
+     ],
+     "reasoning_path": "",
+     "num_reasoning_paths": 0,
+     "confidence": 0.242,
+     "prompt_reasoning_section": "",
+     "llm_called": true
+    },
+    {
+     "setup": "B kg dict",
+     "query": "理專 手收",
+     "num_sources": 10,
+     "sources": [
+      {
+       "source": "graph:bank:FinancialAdvisor",
+       "score": 0.56,
+       "content": "理專 is a Class. 擔任理財諮詢與金融商品服務職務的銀行行員。. subClassOf 行員 (Class)."
+      },
+      {
+       "source": "graph:bank.dci_fee_income",
+       "score": 0.54,
+       "content": "私銀－銀行 DCI 手收 is a Metric. 依私銀 SQL 手收分類，涵蓋 DCI 手續費報表及 DCD 的 T"
+      },
+      {
+       "source": "graph:term:bank.financial_advisor",
+       "score": 0.52,
+       "content": "理專 is a Term. 擔任理財諮詢與金融商品服務職務的銀行行員。. maps_to_primary 理專 (Cla"
+      },
+      {
+       "source": "graph:bank:BankFeeIncome",
+       "score": 0.2,
+       "content": "銀行手收指標 is a Class. 衡量銀行於指定收入期間內依銀行認列規則形成之手收的指標。. subClassOf "
+      },
+      {
+       "source": "graph:securities:SecuritiesFeeIncome",
+       "score": 0.12,
+       "content": "證券手收指標 is a Class. 衡量證券公司於指定收入期間內依其認列規則形成之手收的指標。. subClassOf"
+      }
+     ],
+     "reasoning_path": "行員 --[subClassOf]--> 職員",
+     "num_reasoning_paths": 57,
+     "confidence": 0.384,
+     "prompt_reasoning_section": "Path 1: 行員 --[subClassOf]--> 職員\nPath 2: 理專 --[maps_to_primary]--> 理專\nPath 3: 銀行手收指標 --[subClassOf]--> 手收指標",
+     "llm_called": true
+    }
+   ],
+   "oracle": {
+    "seeds": [
+     "bank.product_fee_income"
+    ],
+    "paths": [
+     {
+      "hops": 1,
+      "text": "私銀－銀行商品手收 --[instance_of]--> 銀行手收指標"
+     },
+     {
+      "hops": 2,
+      "text": "私銀－銀行商品手收 --[instance_of]--> 銀行手收指標 --[subClassOf]--> 手收指標"
+     },
+     {
+      "hops": 2,
+      "text": "私銀－銀行商品手收 --[instance_of]--> 銀行手收指標 --[歸屬理專]--> 理專"
+     }
+    ]
+   }
+  },
+  {
+   "question": {
+    "id": "q5",
+    "ask": "銀行 AUM 算不算指標",
+    "spaced": "銀行 AUM 指標",
+    "gold": [
+     "bank:BankAUM",
+     "fh:Metric"
+    ],
+    "trap": []
+   },
+   "retrieval": [
+    {
+     "setup": "A ContextGraph",
+     "query": "銀行 AUM 算不算指標",
+     "num_sources": 10,
+     "sources": [
+      {
+       "source": "graph:bank.twd_deposit_aum",
+       "score": 0.55,
+       "content": "私銀－銀行台幣存款 AUM（bank.twd_deposit_aum）：台幣存款 AUM所描述的客戶資產規模指標。"
+      },
+      {
+       "source": "graph:bank.foreign_currency_deposit_aum",
+       "score": 0.55,
+       "content": "私銀－銀行外幣存款 AUM（bank.foreign_currency_deposit_aum）：外幣存款 AUM所描述"
+      },
+      {
+       "source": "graph:bank.structured_deposit_aum",
+       "score": 0.55,
+       "content": "私銀－銀行結構型存款 AUM（bank.structured_deposit_aum）：結構型存款 AUM所描述的客戶資"
+      },
+      {
+       "source": "graph:bank.overseas_stock_aum",
+       "score": 0.55,
+       "content": "私銀－銀行海外股票 AUM（bank.overseas_stock_aum）：海外股票 AUM所描述的客戶資產規模指標。"
+      },
+      {
+       "source": "graph:bank.overseas_bond_trust_aum",
+       "score": 0.55,
+       "content": "私銀－銀行海外債券（信託）AUM（bank.overseas_bond_trust_aum）：海外債券（信託）AUM所描"
+      }
+     ],
+     "reasoning_path": "",
+     "num_reasoning_paths": 0,
+     "confidence": 0.438,
+     "prompt_reasoning_section": "",
+     "llm_called": true
+    },
+    {
+     "setup": "B kg dict",
+     "query": "銀行 AUM 算不算指標",
+     "num_sources": 10,
+     "sources": [
+      {
+       "source": "graph:bank:BankAUM",
+       "score": 0.7,
+       "content": "銀行 AUM is a Class. 衡量指定快照日依銀行管理與認列口徑計算之客戶資產規模的指標。. subClassO"
+      },
+      {
+       "source": "graph:securities:SecuritiesAUM",
+       "score": 0.14,
+       "content": "證券 AUM is a Class. 衡量指定快照日依證券公司管理與認列口徑計算之客戶資產規模的指標。. subClas"
+      },
+      {
+       "source": "graph:fh:AUM",
+       "score": 0.08,
+       "content": "AUM is a Class. 衡量指定快照日依管理與認列口徑計算之資產規模的指標。. is subClassOfed "
+      },
+      {
+       "source": "graph:securities.bond_aum",
+       "score": 0.08,
+       "content": "私銀－證券複委託債券 AUM is a Metric. 證券複委託債券 AUM；依私銀既有產品範圍記錄的指標候選，認列與"
+      },
+      {
+       "source": "graph:securities.foreign_stock_aum",
+       "score": 0.08,
+       "content": "私銀－證券複委託外國股票 AUM is a Metric. 證券複委託外國股票 AUM；依私銀既有產品範圍記錄的指標候選"
+      }
+     ],
+     "reasoning_path": "AUM --[subClassOf]--> 指標",
+     "num_reasoning_paths": 62,
+     "confidence": 0.31,
+     "prompt_reasoning_section": "Path 1: AUM --[subClassOf]--> 指標\nPath 2: AUM --[衡量金融商品]--> 金融商品\nPath 3: 私銀－銀行規劃型信託 AUM --[instance_of]--> 銀行 AUM",
+     "llm_called": true
+    },
+    {
+     "setup": "A ContextGraph",
+     "query": "銀行 AUM 指標",
+     "num_sources": 10,
+     "sources": [
+      {
+       "source": "graph:bank.twd_deposit_aum",
+       "score": 0.55,
+       "content": "私銀－銀行台幣存款 AUM（bank.twd_deposit_aum）：台幣存款 AUM所描述的客戶資產規模指標。"
+      },
+      {
+       "source": "graph:bank.foreign_currency_deposit_aum",
+       "score": 0.55,
+       "content": "私銀－銀行外幣存款 AUM（bank.foreign_currency_deposit_aum）：外幣存款 AUM所描述"
+      },
+      {
+       "source": "graph:bank.structured_deposit_aum",
+       "score": 0.55,
+       "content": "私銀－銀行結構型存款 AUM（bank.structured_deposit_aum）：結構型存款 AUM所描述的客戶資"
+      },
+      {
+       "source": "graph:bank.overseas_stock_aum",
+       "score": 0.55,
+       "content": "私銀－銀行海外股票 AUM（bank.overseas_stock_aum）：海外股票 AUM所描述的客戶資產規模指標。"
+      },
+      {
+       "source": "graph:bank.overseas_bond_trust_aum",
+       "score": 0.55,
+       "content": "私銀－銀行海外債券（信託）AUM（bank.overseas_bond_trust_aum）：海外債券（信託）AUM所描"
+      }
+     ],
+     "reasoning_path": "",
+     "num_reasoning_paths": 0,
+     "confidence": 0.438,
+     "prompt_reasoning_section": "",
+     "llm_called": true
+    },
+    {
+     "setup": "B kg dict",
+     "query": "銀行 AUM 指標",
+     "num_sources": 10,
+     "sources": [
+      {
+       "source": "graph:bank:BankAUM",
+       "score": 0.7,
+       "content": "銀行 AUM is a Class. 衡量指定快照日依銀行管理與認列口徑計算之客戶資產規模的指標。. subClassO"
+      },
+      {
+       "source": "graph:securities:SecuritiesAUM",
+       "score": 0.14,
+       "content": "證券 AUM is a Class. 衡量指定快照日依證券公司管理與認列口徑計算之客戶資產規模的指標。. subClas"
+      },
+      {
+       "source": "graph:fh:Metric",
+       "score": 0.1,
+       "content": "指標 is a Class. 依明確口徑衡量業務狀況的量化項目。. is subClassOfed by AUM (Cl"
+      },
+      {
+       "source": "graph:fh:AUM",
+       "score": 0.08,
+       "content": "AUM is a Class. 衡量指定快照日依管理與認列口徑計算之資產規模的指標。. is subClassOfed "
+      },
+      {
+       "source": "graph:securities.bond_aum",
+       "score": 0.08,
+       "content": "私銀－證券複委託債券 AUM is a Metric. 證券複委託債券 AUM；依私銀既有產品範圍記錄的指標候選，認列與"
+      }
+     ],
+     "reasoning_path": "AUM --[subClassOf]--> 指標",
+     "num_reasoning_paths": 69,
+     "confidence": 0.314,
+     "prompt_reasoning_section": "Path 1: AUM --[subClassOf]--> 指標\nPath 2: AUM --[衡量金融商品]--> 金融商品\nPath 3: 私銀－銀行規劃型信託 AUM --[instance_of]--> 銀行 AUM",
+     "llm_called": true
+    }
+   ],
+   "oracle": {
+    "seeds": [
+     "bank:BankAUM",
+     "fh:Metric"
+    ],
+    "paths": [
+     {
+      "hops": 1,
+      "text": "銀行 AUM --[subClassOf]--> AUM"
+     },
+     {
+      "hops": 2,
+      "text": "銀行 AUM --[subClassOf]--> AUM --[subClassOf]--> 指標"
+     },
+     {
+      "hops": 2,
+      "text": "銀行 AUM --[subClassOf]--> AUM --[衡量金融商品]--> 金融商品"
+     }
+    ]
+   }
+  }
+ ]
+}

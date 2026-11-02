@@ -1,0 +1,25 @@
+# 業務字典詞條與本體類別的對應。由 Semantic Studio 維護，也可以手動編輯。
+terms:
+- id: demo.fund_subscription_fee
+  name: 基金申購手續費
+  definition: 客戶申購基金時，銀行收取的手續費收入。
+  source: 示範詞條
+  mappings:
+  - class: bank:BankFeeIncome
+    role: primary
+  - class: bank:FundProduct
+    role: product
+- id: demo.fund_holding_value
+  name: 客戶基金庫存市值
+  definition: 客戶持有基金於基準日的市值。
+  source: 示範詞條
+  mappings:
+  - class: fh:AUM
+    role: primary
+  - class: bank:FundProduct
+    role: product
+- id: demo.overseas_bond_coupon
+  name: 海外債券配息
+  definition: 客戶持有海外債券收到的配息金額。（尚未對應，示範 SHACL 違規）
+  source: 示範詞條
+  mappings: []

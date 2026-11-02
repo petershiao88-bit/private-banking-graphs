@@ -1,0 +1,76 @@
+{
+  "version": "0.16.0",
+  "date": "2026-10-24",
+  "status": "design draft",
+  "release_iri": "https://example.org/ontology/customer360/0.16.0",
+  "previous": {
+    "version": "0.15.0",
+    "source": "快照 archive/before-department-v0.16.0"
+  },
+  "modules": [
+    {
+      "file": "holding-core.ttl",
+      "iri": "https://example.org/ontology/holding",
+      "layer": "holding",
+      "maturity": "provisional",
+      "sha256": "23ae7bb1be7313333bd45773dc8e7f188e0db14857fdc2ceb81d5a254802f922",
+      "imports": []
+    },
+    {
+      "file": "bank-deposit.ttl",
+      "iri": "https://example.org/ontology/bank/deposit",
+      "layer": "bank",
+      "maturity": "provisional",
+      "sha256": "c6197d8ef6543879aff9e6c5fedf44fa8838fb51b95f6548f3365f7671329232",
+      "imports": [
+        "https://example.org/ontology/holding"
+      ]
+    },
+    {
+      "file": "bank-common.ttl",
+      "iri": "https://example.org/ontology/bank/common",
+      "layer": "bank",
+      "maturity": "provisional",
+      "sha256": "fbb5f898e599c23dd645e54c5c4919826ce062262223f7798ce37fca8522fa67",
+      "imports": [
+        "https://example.org/ontology/holding"
+      ]
+    },
+    {
+      "file": "bank-investment-products.ttl",
+      "iri": "https://example.org/ontology/bank/investment-products",
+      "layer": "bank",
+      "maturity": "provisional",
+      "sha256": "870c5c7fdeaf178ba1d7ae6ecc2c3dbd6db90efb103fd84a4a21024b1a880ea0",
+      "imports": [
+        "https://example.org/ontology/holding"
+      ]
+    },
+    {
+      "file": "securities-common.ttl",
+      "iri": "https://example.org/ontology/securities/common",
+      "layer": "securities",
+      "maturity": "provisional",
+      "sha256": "0ba6727c667a60d6dae94e1de7853c137eb9463a7d0b4fd72919c558452f67e8",
+      "imports": [
+        "https://example.org/ontology/holding"
+      ]
+    }
+  ],
+  "excluded_modules": [],
+  "tools": {
+    "rdflib": "7.6.0",
+    "owlrl": "7.6.2"
+  },
+  "files": {
+    "CHANGELOG.md": "445417319a35b2eab9f8139e07ff227eb94da33582c069ee67c7546be868caa1",
+    "agent-context.json": "3afb5cd7f467ebc92c4a2341a595147691d5b16e89d75c938fd27986ce0d3bbd",
+    "agent-context.md": "0a8bb3b3cf0b38bda14442952344767e117370af3617e4541a582a20f5552d8c",
+    "changes.json": "e98a3c06fb47241cfff60ea8369112c533f10a1e8b137fec74dbd32d5fec0f14",
+    "class-components.json": "9b4a7661bdfb48b917518fb6499ed1a2dae25cc5baa80a065b284c11ebd471ca",
+    "class-components.md": "46c23ade858ccd37a9b8fed22166e232b9ebae59a16a2a3635ed644c3ea6fe6a",
+    "customer360-release.ttl": "d58015bcc751e2f6554cbab5dc90c014a3e878ca07ce89d8fc4fe8929b456a96",
+    "reasoning.json": "306854f2d6fa2a822ca28cb612bbf12c34047cc02f42c8a8b6573bee8a0e4ee5",
+    "reasoning.md": "9477eb0aeddfbb00010a86280affa7c6cd11c1fe8aae4b418d325257174628c9"
+  }
+}

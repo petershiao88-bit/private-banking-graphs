@@ -7,7 +7,8 @@ import json
 import unittest
 from pathlib import Path
 
-HERE = Path(__file__).resolve().parents[2] / "department-pg"
+from paths import ARCHIVE, CONFIG, CURRENT_VERSION, MERGED_OWL, MERGED_TTL, PG_DIR, SOURCE_FILES, evidence_file, external  # noqa: E402,F401
+HERE = PG_DIR
 SPEC = importlib.util.spec_from_file_location("department_pg_builder", HERE / "build_cypher.py")
 assert SPEC is not None and SPEC.loader is not None
 builder = importlib.util.module_from_spec(SPEC)
@@ -195,15 +196,15 @@ class ModelTests(unittest.TestCase):
             self.skipTest("Optional rdflib is not installed; stdlib contract tests still run")
         Graph, URIRef = rdflib.Graph, rdflib.URIRef
         OWL, RDF, RDFS = namespace.OWL, namespace.RDF, namespace.RDFS
-        core = HERE.parent / "holding-core.ttl"
+        core = MERGED_TTL
         if not core.is_file():
             self.skipTest("Parent holding-core.ttl is not available")
         graph = Graph().parse(core, format="turtle")
-        ontology = URIRef("https://example.org/ontology/holding")
+        ontology = URIRef(CONFIG.ontology_uri)
         versions = [str(value) for predicate in (OWL.versionIRI, OWL.versionInfo)
                     for value in graph.objects(ontology, predicate)]
         if not any(value.endswith(("/0.3.0", "/0.4.0", "/0.5.0", "/0.6.0", "/0.7.0", "/0.8.0", "/0.15.0"))
-                   or value.startswith(("0.3.0", "0.4.0", "0.5.0", "0.6.0", "0.7.0", "0.8.0", "0.16.0")) for value in versions):
+                   or value.startswith(("0.3.0", "0.4.0", "0.5.0", "0.6.0", "0.7.0", "0.8.0", CURRENT_VERSION)) for value in versions):
             self.skipTest("Parent core is not a supported contact contract version")
         for concept in self.model["concepts"]:
             class_uri = URIRef(concept["class_uri"])

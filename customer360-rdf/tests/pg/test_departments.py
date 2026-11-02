@@ -11,9 +11,10 @@ from rdflib.namespace import OWL, RDF, RDFS
 from test_bank_business import builder
 from review_contract_v016 import baseline_names, historical_metric_model, pre_department_rdf
 
-HERE = Path(__file__).resolve().parents[2] / "department-pg"
+from paths import ARCHIVE, CONFIG, CURRENT_VERSION, MERGED_OWL, MERGED_TTL, PG_DIR, SOURCE_FILES, evidence_file, external  # noqa: E402,F401
+HERE = PG_DIR
 ROOT = HERE.parent
-BEFORE = ROOT / 'archive/before-department-v0.16.0'
+BEFORE = ROOT / 'legacy/archive/before-department-v0.16.0'
 FH = Namespace(builder.FH)
 BANK = Namespace(builder.bank_business.BANK)
 MODULES = (builder.advisory_income, builder.product_fees, builder.product_aum,
@@ -30,7 +31,7 @@ def metrics(include_summaries=True):
 class DepartmentTests(unittest.TestCase):
     def test_rdf_adds_exactly_two_classes_and_one_property_and_preserves_every_old_definition(self):
         old = Graph().parse(BEFORE/'customer360-ontology.ttl', format='turtle')
-        now = Graph().parse(ROOT/'customer360-ontology.ttl', format='turtle')
+        now = Graph().parse(MERGED_TTL, format='turtle')
         self.assertEqual(set(pre_department_rdf(old)), set(pre_department_rdf(now)))
         for g in (old, now):
             for subject in list(g.subjects(RDF.type, OWL.Ontology)): g.remove((subject,None,None))
@@ -52,7 +53,7 @@ class DepartmentTests(unittest.TestCase):
         for name in ('model','deposits','advisory-income','product-fees','product-aum','investment-metrics','bank-business-metrics'):
             old=json.loads((BEFORE/'department-pg'/(name+'.json')).read_text(encoding='utf-8'))
             current=json.loads((HERE/(name+'.json')).read_text(encoding='utf-8'))
-            self.assertEqual(current['ontology_version'],'0.16.0')
+            self.assertEqual(current['ontology_version'],CURRENT_VERSION)
             self.assertEqual(historical_metric_model(current,old['ontology_version']),old,name)
         for cid,c in actual.items():
             label={'bank':'銀行','securities':'證券'}[c['subsidiary']]
@@ -141,15 +142,15 @@ class DepartmentTests(unittest.TestCase):
 
     def test_source_hashes_pending_scope_and_history_ids_are_preserved(self):
         hashes=json.loads((BEFORE/'source-readonly-sha256.json').read_text(encoding='utf-8'))
-        for relative,digest in hashes.items():self.assertEqual(hashlib.sha256((ROOT/relative).read_bytes()).hexdigest(),digest)
-        record=json.loads((HERE.parent / 'archive/department-pg/history/department-v0.16.0.json').read_text(encoding='utf-8'))
+        for relative,digest in hashes.items():self.assertEqual(hashlib.sha256(external(relative).read_bytes()).hexdigest(),digest)
+        record=json.loads((HERE.parent / 'legacy/archive/department-pg/history/department-v0.16.0.json').read_text(encoding='utf-8'))
         self.assertEqual(set(record['metric_ids']),set(metrics(include_summaries=False)))
         self.assertEqual(set(record['metric_name_changes']),set(metrics(include_summaries=False)))
         for cid,c in metrics(include_summaries=False).items():
             self.assertEqual(record['metric_name_changes'][cid],{'before':baseline_names()[cid],'after':c['name']})
         for name in ('stock-pledge-aum-retired-v0.15.0.json','changes-v0.15.0.json',
                      'pg-income-extension-20261024.json','sql-scope-review-20261024.json'):
-            self.assertEqual((HERE.parent / 'archive/department-pg/history'/name).read_bytes(),(BEFORE/'department-pg/history'/name).read_bytes())
+            self.assertEqual((HERE.parent / 'legacy/archive/department-pg/history'/name).read_bytes(),(BEFORE/'department-pg/history'/name).read_bytes())
 
 
 if __name__=='__main__':unittest.main()

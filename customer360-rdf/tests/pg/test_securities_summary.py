@@ -11,9 +11,10 @@ from rdflib.namespace import RDFS
 from test_bank_business import builder
 from test_product_fees import source_path
 
-HERE = Path(__file__).resolve().parents[2] / "department-pg"
+from paths import ARCHIVE, CONFIG, CURRENT_VERSION, MERGED_OWL, MERGED_TTL, PG_DIR, SOURCE_FILES, evidence_file, external  # noqa: E402,F401
+HERE = PG_DIR
 ROOT = HERE.parent
-BEFORE = ROOT/'archive/before-securities-summary-20261024'
+BEFORE = ROOT/'legacy/archive/before-securities-summary-20261024'
 SUMMARY_IDS = {'securities.total_aum','securities.total_fee_income'}
 AUM_IDS = {'securities.bond_aum','securities.structured_aum','securities.fund_aum',
            'securities.foreign_stock_aum','securities.taiwan_stock_aum'}
@@ -47,19 +48,31 @@ class SecuritiesSummaryTests(unittest.TestCase):
         self.assertEqual(self.model['relation_definitions'],[])
 
     def test_rdf_sources_seven_original_models_and_prior_history_remain_byte_identical(self):
+        # v0.17.0 起原 5 份 TTL 保存在 legacy/ontology-v0.16，合併本體改由 build/ 產生（以語意比對）
+        from rdflib import Graph
+        from rdflib.namespace import OWL, RDF
         for fn in ('holding-core.ttl','bank-common.ttl','bank-deposit.ttl','bank-investment-products.ttl',
-                   'securities-common.ttl','customer360-ontology.ttl','customer360-ontology.owl','build-config.json','catalog-v001.xml'):
-            self.assertEqual((ROOT/fn).read_bytes(),(BEFORE/fn).read_bytes(),fn)
+                   'securities-common.ttl','build-config.json','catalog-v001.xml'):
+            self.assertEqual((ROOT/'legacy/ontology-v0.16'/fn).read_bytes(),(BEFORE/fn).read_bytes(),fn)
+        for fmt, path, fn in (('turtle', MERGED_TTL, 'customer360-ontology.ttl'), ('xml', MERGED_OWL, 'customer360-ontology.owl')):
+            built, before = Graph().parse(path, format=fmt), Graph().parse(BEFORE/fn, format=fmt)
+            for g in (built, before):
+                for s in list(g.subjects(RDF.type, OWL.Ontology)): g.remove((s, None, None))
+            self.assertEqual(set(built), set(before), fn)
         for name in ('model','deposits','advisory-income','product-fees','product-aum','investment-metrics','bank-business-metrics'):
             fn=name+'.json'
-            self.assertEqual((HERE/fn).read_bytes(),(BEFORE/'department-pg'/fn).read_bytes(),fn)
+            old_bytes=(BEFORE/'department-pg'/fn).read_bytes()
+            old_version=json.loads(old_bytes)['ontology_version']
+            now_bytes=(HERE/fn).read_bytes().replace(f'"ontology_version": "{CURRENT_VERSION}"'.encode(),
+                                                     f'"ontology_version": "{old_version}"'.encode())
+            self.assertEqual(now_bytes,old_bytes,fn)  # 只容許升版造成的版號差異
         old=json.loads((BEFORE/'department-pg/departments.json').read_text(encoding='utf-8'))
         now=builder.departments.load_model()
         self.assertEqual(set(now['metric_ids'])-set(old['metric_ids']),SUMMARY_IDS)
-        normalized=copy.deepcopy(now);normalized['metric_ids']=old['metric_ids']
+        normalized=copy.deepcopy(now);normalized['metric_ids']=old['metric_ids'];normalized['ontology_version']=old['ontology_version']
         self.assertEqual(normalized,old)
         for p in (BEFORE/'department-pg/history').glob('*.json'):
-            self.assertEqual(p.read_bytes(),(HERE.parent / 'archive/department-pg/history'/p.name).read_bytes(),p.name)
+            self.assertEqual(p.read_bytes(),(HERE.parent / 'legacy/archive/department-pg/history'/p.name).read_bytes(),p.name)
 
     def test_existing_nodes_edges_and_all_component_source_roles_survive(self):
         spec=importlib.util.spec_from_file_location('before_summary_builder',BEFORE/'department-pg/build_cypher.py')
@@ -68,6 +81,8 @@ class SecuritiesSummaryTests(unittest.TestCase):
         nodes={n['id']:n for n in now['nodes']};edges={e['id']:e for e in now['relationships']}
         for n in old['nodes']:
             current=copy.deepcopy(nodes[n['id']])
+            if current['label']=='MetadataModule' and 'ontology_version' in n['properties']:  # 升版造成的差異
+                current['properties']['ontology_version']=n['properties']['ontology_version']
             if n['id']=='department-pg.departments':
                 current['properties']['metric_ids_json']=n['properties']['metric_ids_json']
             self.assertEqual(current,n,n['id'])
@@ -95,7 +110,7 @@ class SecuritiesSummaryTests(unittest.TestCase):
         self.assertEqual(sum(n['label']=='SourceTable' for n in g['nodes']),52)
 
     def test_seven_result_fields_resolve_to_correct_rdf_domains_without_valuation_inputs(self):
-        rdf=Graph().parse(ROOT/'customer360-ontology.ttl',format='turtle')
+        rdf=Graph().parse(MERGED_TTL,format='turtle')
         expected={'securities.total_aum':{'amount','currency','aumAsOfDate'},
                   'securities.total_fee_income':{'amount','currency','incomePeriodStart','incomePeriodEnd'}}
         self.assertEqual(sum(len(c['fields']) for c in self.concepts.values()),7)
@@ -154,7 +169,7 @@ class SecuritiesSummaryTests(unittest.TestCase):
             c['fields'].reverse();c['component_metric_ids'].reverse();c['observations']['evidence'].reverse()
         self.assertEqual(builder.render_combined_cypher(),builder.render_combined_cypher(summary_model=changed))
         self.assertEqual(builder.render_combined_cypher().encode('utf-8'),(HERE/'model.cypher').read_bytes())
-        spec=importlib.util.spec_from_file_location('summary_inventory',ROOT/'tools/export_metric_tables.py')
+        spec=importlib.util.spec_from_file_location('summary_inventory',ROOT/'pg/export_metric_tables.py')
         exporter=importlib.util.module_from_spec(spec);spec.loader.exec_module(exporter)
         report=exporter.render()
         self.assertEqual(report.encode('utf-8'),(HERE/'METRIC-TABLE-SOURCES.md').read_bytes())
@@ -172,8 +187,8 @@ class SecuritiesSummaryTests(unittest.TestCase):
 
     def test_original_sources_and_reviewed_evidence_hashes_remain_unchanged(self):
         hashes=json.loads((BEFORE/'source-readonly-sha256.json').read_text(encoding='utf-8'))
-        for relative,digest in hashes.items():self.assertEqual(hashlib.sha256((ROOT/relative).read_bytes()).hexdigest(),digest)
-        record=json.loads((HERE.parent / 'archive/department-pg/history/securities-summary-20261024.json').read_text(encoding='utf-8'))
+        for relative,digest in hashes.items():self.assertEqual(hashlib.sha256(external(relative).read_bytes()).hexdigest(),digest)
+        record=json.loads((HERE.parent / 'legacy/archive/department-pg/history/securities-summary-20261024.json').read_text(encoding='utf-8'))
         self.assertFalse(record['rdf_changed']);self.assertEqual(record['new_source_tables'],[])
         self.assertEqual(set(record['new_concepts']),SUMMARY_IDS)
         for r in record['source_evidence'].values():
